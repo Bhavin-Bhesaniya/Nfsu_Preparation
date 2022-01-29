@@ -1,0 +1,141 @@
+Computer Network Type Based On Communication:-
+ 1)Open System   :- A system which is connected to the network and is ready for communication. 
+ 2)Closed system :- A system which is not connected to the network and can’t be communicated with
+  
+Computer Network Defination :-
+ - An interconnection of multiple devices, also known as hosts, that are connected using multiple paths for the purpose of sending/receiving data or media. 
+ - include multiple devices/mediums which help in the communication between two different devices; these are known as Network devices 
+   such as Router,Wireless Router,Hub,Bridge,Wireless Bridge,Switch.
+
+Network Topology :-
+ - The  arrangement of the different devices in a network. 
+ - Examples : Bus, Star, Mesh, Ring, and Daisy chain, Tree, Point-to-point, Hybrid
+
+OSI :- 
+ - Stands for Open Systems Interconnection. 
+ - It is a reference model that specifies standards for communications protocols and also the functionalities of each layer.
+
+Protocol :- 
+ - A protocol is the set of rules or algorithms which define the way how two entities can communicate across the network and there exists different 
+   protocol defined at each layer of the OSI model.
+ 
+
+# UNIQUE IDENTIFIERS OF NETWORK :-
+Host name :- Each device in the network is associated with a unique device name known as Hostname.  
+
+IP Address (Internet Protocol address) :- ipconfig(command) 
+ - Also known as the Logical Address, the IP Address is the network address of the system across the network. 
+ - To identify each device in the world-wide-web, the Internet Assigned Numbers Authority (IANA) assigns IPV4 address as unique identifier to each 
+   device on the Internet. 
+ - Length of an IPv4 address is 32-bits, hence, we have 2(32) IP addresses available. 
+ - The length of an IPv6 address is 128-bits.
+
+MAC Address (Media Access Control address) :- ipconfig/all
+ - Also known as physical address, the MAC Address is the unique identifier of each host and is associated with its NIC (Network Interface Card). 
+ - A MAC address is assigned to the NIC at the time of manufacturing. 
+ - The length of the MAC address is : 12-nibble/ 6 bytes/ 48 bits
+
+Port :- netstat -a
+ - A port can be referred to as a logical channel through which data can be sent/received to an application. 
+ - Any host may have multiple applications running, and each of these applications is identified using the port number on which they are running. 
+ - A port number is a 16-bit integer, hence, we have 216 ports available
+	Port Types		Range
+	Well known Ports	0 – 1023
+	Registered Ports	1024 – 49151
+	Ephemeral Ports		49152 – 65535
+
+Socket :- The unique combination of IP address and Port number together are termed as Socket. 
+
+DNS Server (Domain Name system) :- nslookup website name
+ - DNS is basically a server which translates web addresses or URLs into their corresponding IP addresses.
+
+ARP (Address Resolution Protocol) :- 
+- It is used to convert an IP address to its corresponding physical address(MAC Address). 
+- ARP is used by the Data Link Layer to identify the MAC address of the Receiver’s machine. 
+
+RARP (Reverse Address Resolution Protocol) :-
+- It provides the IP address of the device given a physical address as input. 
+- But RARP has become obsolete since the time DHCP has come into the picture. 
+
+
+
+------------------------------------------------------------------------------------------------
+
+The Internet And Web :-
+ - Internet is a global network comprised of smaller networks that are interconnected using standardized communication protocols. 
+ - The Internet standards describe a framework known as the Internet protocol suite. 
+ - This model divides methods into a layered system of protocols.  
+
+  These layers are :-
+  1)Application layer (highest) – concerned with the data(URL, type, etc.). This is where HTTP, HTTPS, etc., comes in. 
+  2)Transport layer 			– responsible for end-to-end communication over a network. 
+  3)Network layer 				– provides data route. 
+
+
+The World Wide Web :- 
+ - The Web is a only way to access information through the Internet. 
+ - It’s a system of Internet servers that support specially formatted documents. 
+ - The documents are formatted in a markup language called HTML  are interlinked using hypertext links and are accessible via the Internet. 
+
+  To link hypertext to the Internet, we need: 
+  - The markup language, i.e., HTML. 
+  - The transfer protocol, e.g., HTTP. 
+  - Uniform Resource Locator (URL), the address of the resource. 
+  - We access the Web using Web browsers. 
+
+
+Difference between Web and Internet: 
+	Internet														Web
+ - Network of networks and the network allows to exchange	- Model for sharing information using Internet way to access Information through the Internet
+   of the data between two or more computers.           	                                                                                                                                                                                                                  
+ - A way of transporting information between devices.		- The protocol used by the web is Http.
+ 															- The Web is accessed by the Web Browser.
+															
+
+URL :- 
+ - A URL is human-readable text that was designed to replace the IP addresses that computers use to communicate with servers.
+ - A URL consists of :-
+   Ex : protocol://WebSiteName.topLevelDomain/path
+	- Protocol – Http or Https
+	- WebSiteName – google or any
+	- topLevelDomain- .com, .edu, or any other
+	- path- specific folders and/or subfolders that are on a given website. 
+
+
+Who governing the internet :- 
+ - The ultimate authority for where the Internet is going rests with the Internet Society, or ISOC. 
+ - ISOC is a voluntary membership organization whose purpose is to promote global information exchange through Internet technology. 
+ - ISOC appoints IAB to review and standards and allocate resources like addresses
+ - ISOC also meet IETF for discuss operational and technical problems
+
+
+
+----------------------------------------------------------------
+Internet and Web programming :- 
+
+How does it actually work at a very low level :- Image
+ 
+
+----------------------------------------------------------------
+Internet Of Everything :-
+  - IoE is the intelligent connection of people, process, data, and things that will be transforming our world in such a way that 
+    there will be billions of connected devices having sensors to detect, measure and access their status all of 
+	which will be connected over a public or private network built over standard protocols like TCP/IP
+
+  Difference between iot and ioe :- 
+  - IoT is mostly about physical devices and objects communicating with each other(Machine to Machine Communication)
+  - but IoE brings with it the network intelligence to bind all these concepts together into a cohesive system.(M2P)(P2P)
+ 
+   IoE Economy will profoundly affect four major Aspects of our lives :-
+   1)People :- people will themselves becomes Nodes on the internet
+   			- (Ex : fitness band’s which read a person’s vital signs with chips which track the performance of Athletes.) 
+   2)Things :- Things and physical items such as sensors also fetching information from its surroundings called the internet of things. 
+			-  These devices will be fetching data from their environment internally or externally and sending it back to the server 
+			   for analyzing and making much more intelligent decisions.
+   3)Data 	:- sending higher level, more processed data back to respective servers for faster evaluation or more intelligent decision making
+   4)Process:- the right information will be delivered to the right person at the right time in an appropriate way
+
+   
+  
+
+

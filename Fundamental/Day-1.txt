@@ -1,0 +1,33 @@
+
+1)Computer Defination ?
+ - A computer is basically a programmable machine capable to perform arithmetic and logical operations automatically and sequentially. 
+ - It is also known as a data processor, as it can store, process, and retrieve data as per the wish of the user.
+
+ Data processing involves the following three activities −
+ - Input of data
+ - Manipulation/processing of data
+ - Giving output (i.e. management of output result)
+ - In computer system, data is arranged orderly and systematically.
+ 
+ Features :- 
+ - Automation 
+ - Speed
+ - Storage
+ - Accuracy
+ - Versatility
+ - Diligence 
+ - Reliability
+ - Vast memory
+
+ Contributor :-
+ John Napier :- Napier was a Scottish mathematician who invented logarithms
+ Blaise Pascal :- A French mathematician who invented a machine based on gear wheels, which helped greatly in calculation.
+ Charles :- In 1822, developed machine that used for calculation
+ Lady Ada Lovelace :- Give concept that ‘computers can be programmed’
+ John Atanstoff :- John Atanstoff developed the Atanstoff Berry Computer(ABC)in 1937 beginning development of electronic digital computer
+ John Mauchly and Eckart :- In 1947, John Mauchly and Eckart developed the first large scale Electronic Digital Computer called (ENIAC)
+ Maurice V. Wilkes :- In 1949, Wilkes (at Cambridge University) designed EDSAC first computer that started its operating system on the 
+  		      stored program concept.
+ 
+
+
