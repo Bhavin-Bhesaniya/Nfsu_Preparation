@@ -1,0 +1,85 @@
+Operating System Defination :-
+ - An operating system is a program that controls the execution of application programs and acts as an interface between the user
+   of a computer and the computer hardware. 
+ - provides an environment within which other programs can do useful work. 
+Diagram :-
+  User -> Application Program -> Operating System -> Computer Hardware
+
+Functionalities :-
+ 1.Resource Management 
+ 2.Process Management 
+ 3.Storage Management
+ 4.Memory Management 
+ 5.Security/Privacy Management :-  Windows uses Kerberos authentication
+ 6.I/O System Management :– 
+ 
+- module that keeps track of the status of devices is called the I/O traffic controller. 
+
+
+Assembler :– 
+ - The input to an assembler is an assembly language program. 
+ - Program this computer by writing a series of ones and Zeros(Machine language), place them into the memory of the machine. 
+
+
+Compiler :– 
+ - The High-level languages processed by compilers and interpreters. 
+ - A compiler is a program that accepts a source program in a “high-level language “and produces a corresponding object program. 
+ - An interpreter is a program that appears to execute a source program as if it was machine language. 
+
+Loader :– 
+ - Loader must load, relocate and link the object program that places programs into memory and prepares them for execution. 
+ - There are various loading schemes: absolute, relocating, and direct-linking. 
+
+
+History of Operating system :– 
+
+ Generation  Year	Electronic device used	Types of OS Device
+ First	     1945-55	Vacuum Tubes	  	Plug Boards
+ Second	     1955-65	Transistors		Batch Systems
+ Third	     1965-80	Integrated Circuits(IC)	Multiprogramming
+ Fourth	     Since 1980	LargeScale IntegrationPC
+  
+
+Types of Operating System :– 
+
+ 1.Batch Os 	         - [ATLAS, Manchester Univ., late 1950s – early 1960s] 
+ 2.Time-sharing OS  
+ 3.Distributed OS   
+ 4.Network OS 	    
+ 5.Real-time OS     
+ 
+ Other :-
+ - ATLAS (Manchester Univ., late 1950s – early 1960s) [First Os]
+ - Single process operating system    [MS DOS, 1981]
+ - Multiprogramming operating system  [THE, Dijkstra, early 1960s]
+   - increases CPU utilization by keeping multiple jobs (code and data) in the memory so that the CPU always has one to execute
+ - Multitasking operating system      [CTSS, MIT, early 1960s]  
+   - a logical extension of multiprogramming CPU executes multiple tasks by switching among them
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+Types of Operating System :– 
+
+1)Batch Operating System :-
+ - Not interact with the computer directly
+ - Operator responsibility to sort jobs with similar needs. 
+
+  Advantages :-
+  - Processors of the batch systems know how long the job would be when it is in queue
+  - Multiple users can share the batch systems
+  - Time is very less
+  - Easy to manage large work repeatedly in batch systems
+ 
+  Disadvantages of Batch Operating System :-  
+  - The computer operators should be well known with batch systems
+  - Batch systems are hard to debug
+  - It is sometimes costly
+  - The other jobs will have to wait for an unknown time if any job fails
+ 
+  Examples :-  Payroll System, Bank Statements,
+
+2) Time-Sharing Operating Systems :– 
+ - Each task is given some time to execute so that all the tasks work smoothly.
+ 

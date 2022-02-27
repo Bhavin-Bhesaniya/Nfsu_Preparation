@@ -1,0 +1,12 @@
+Computer :- General purpose device that can execute sequences of instructions presented in a format to perform numerical calculations 
+            and other tasks
+
+Operating System :- A piece of software that manages all the resources of a computer system, both hardware and software, and provides 
+                    an environment in which the user can execute his/her programs in a convenient and efficient manner
+
+Computer science  :- Study of computer systems and computing processes
+Computer hardware :- Collection of all physical elements of the computer system
+Computer software :- Collection of all programs stored in and executed by a computer system
+Application software :- performs specific task for the user
+System software   :- Operates and controls the computer system, and provides a platform to run application software
+

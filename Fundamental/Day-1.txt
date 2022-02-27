@@ -2,12 +2,24 @@
 1)Computer Defination ?
  - A computer is basically a programmable machine capable to perform arithmetic and logical operations automatically and sequentially. 
  - It is also known as a data processor, as it can store, process, and retrieve data as per the wish of the user.
+ - "computer" is derived from the Latin word "computare" which means to calculate.
+ - It is believed that the Analytical Engine was the first computer which was invented by Charles Babbage in 1837. 
+ - It used punch cards as read-only memory. Charles Babbage is also known as the father of the computer.
 
- Data processing involves the following three activities −
- - Input of data
- - Manipulation/processing of data
- - Giving output (i.e. management of output result)
- - In computer system, data is arranged orderly and systematically.
+ Basic Part Of Computer :
+  - Processor		: executes instructions from software and hardware
+  - Memory			: data transfer between the CPU and storage.
+  - Motherboard     : A part which connect all other component of computer
+  - Storage Device  : Permanently stores the data
+  - Input Device	: allows you to communicate with the computer or to input data
+  - Output Device   : enables you to see the output 
+
+ Type :
+  Micro Computer	 :  single-user, 8-bit microprocessor chips, PDA(Personal Digital Assistant), laptop
+  Mini Computer      :  support multiple users simultaneously, used by small organization
+  Mainframe Computer :  supporting thousands of users simultaneously, used by large firms and goverment organization
+  Super Computer     :  task-specific and used for specialized applications such as large-scale numerical problems in scientific
+  Workstations       :  like personal computer, it has a more powerful microprocessor and a higher-quality monitor than a microcomputer
  
  Features :- 
  - Automation 
@@ -19,15 +31,34 @@
  - Reliability
  - Vast memory
 
- Contributor :-
- John Napier :- Napier was a Scottish mathematician who invented logarithms
- Blaise Pascal :- A French mathematician who invented a machine based on gear wheels, which helped greatly in calculation.
- Charles :- In 1822, developed machine that used for calculation
- Lady Ada Lovelace :- Give concept that ‘computers can be programmed’
- John Atanstoff :- John Atanstoff developed the Atanstoff Berry Computer(ABC)in 1937 beginning development of electronic digital computer
- John Mauchly and Eckart :- In 1947, John Mauchly and Eckart developed the first large scale Electronic Digital Computer called (ENIAC)
- Maurice V. Wilkes :- In 1949, Wilkes (at Cambridge University) designed EDSAC first computer that started its operating system on the 
-  		      stored program concept.
+ History Of Computer :-
+
+ Abacus : first computer,  said that Chinese invented Abacus around 4,000 years ago.
+		- It was a wooden rack which has metal rods with beads mounted on them. 
+		- Perform Arithmetic operations
+
+ Napier's Bones : manually-operated calculating device which was invented by John Napier (1550-1617) of Merchiston 
+			    -  first machine to use the decimal point.
+
+ Pascaline : invented between 1642 and 1644 by a French mathematician-philosopher Biaise Pascal. 
+  		   - It is believed that it was the first mechanical and automatic calculator.
+
  
+ Stepped Reckoner or Leibnitz wheel : by a German mathematician-philosopher Gottfried Wilhelm Leibnitz in 1673.
+
+ Difference Engine : 1820s, it was designed by Charles Babbage
+				   - mechanical computer which could perform simple calculations like logarithm tables.
+
+ Analytical Engine : developed by Charles Babbage in 1830
+				   - used punch-cards as input
+
+
+ Generation Of Computer :-
+
+  First : (1946-1959) computers were slow, huge and expensive
+		- vacuum tubes were used as the basic components of CPU and memory
+		- depended on batch operating system and punch cards
+		- Magnetic tape and paper tape were used as output and input devices
+
 
 
