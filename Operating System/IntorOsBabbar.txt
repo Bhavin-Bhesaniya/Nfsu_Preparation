@@ -299,51 +299,62 @@ Unit - 2
 
  What is Process scheduling :-
   - Select one process for execution out of all ready processes  
-  - Objective of multiprogramming is to have some process running at all times so as to maximize CPU utilization. 
-  - The objective of multitasking is to switch CPU among processes so frequently that user can interact with each process while 
-    it is running. 
-  - To meet these objectives process scheduler selects one of the available processes for execution.
-  - Scheduling queues are used to perform process scheduling
-  - As process enter system it is put in job queue that contain all processes in system
-  - Processes that are residing in memory and are ready for execution are kept in ready queue
-  - Ready queue is implemented as linked list of PCBs with header containing pointers to the first and the last PCBs.
-  - The list of the processes waiting for a particular i/o device is called a device queue. 
-  - Each device has its own device queue. 
-  - A queuing diagram shows how the processes migrate among the various scheduling queues. 
+  - Objective of multiprogramming is to have some process running at all times so maximize CPU utilization. 
+  - Multitasking switch CPU among processes so frequently that user can interact with each process while it is running. 
+  - To meet these objectives process scheduler selects one of available processes for execution.
+  - OS maintenance all PCBs in Process Scheduling queues which used to perform process scheduling
+    
+    OS maintenance following important process scheduling queues :-
+     Job Queue     - As process enter system it is put in job queue which keeps all processes in system 
+     Ready Queue   - Processes that are residing in memory and are ready for execution are kept in ready queue
+                   - It is implemented as linked list of PCBs with header containing pointers to first and last PCBs.
+     Device Queue  - List of processes waiting for particular I/O device is called a device queue. 
+                   - Each device has its own device queue. 
+     Diagram :- https://www.tutorialspoint.com/operating_system/images/queuing_diagram.jpg
+
+  - OS Scheduler determine how to move processes between ready and run queues which can only have one entry per processor core on system
+    In above diagram it is merged with CPU 
+  
+    Two State Process Model :-
+      Running 
+      Not-Running
+    
 
   Types of Schedulers :-
-   - Process migrates among various scheduling queues throughout its lifetime. 
-   - Operating system has to select processes from queues according to some criteria. 
-   - The selection is done by the appropriate scheduler.
+   - Schedulers are special system software which handle process scheduling in various ways.
+   - Their main task is to select jobs to be submitted into system and to decide which process to run.
     
-   Long-term scheduler(Job Scheduler) :-
-    - Select processes from those submitted by user and loads them into memory.
-    - long-term scheduler controls degree of multiprogramming which is represented by number of processes in the memory  
+   Long-term Scheduler(Job Scheduler) :-
+    - Select processes from those submitted by user and loads them into memory for execution
+    - It controls degree of multiprogramming which is represented by number of processes in the memory  
     - It is invoked less frequently.
+    - When process changes state from new to ready, then there is use of long-term scheduler.
+    - Long-term scheduler select proper mix of CPU-bound processes and i/o-bound processes. 
+    - A CPU-bound process spends most of its time doing computations. 
+    - An i/o-bound process spends most of its time doing i/o.
+    - Multitasking os like unix and windows not use long-term scheduler they put all new processes in the memory for short-term scheduler
 
    Short-term scheduler(CPU Scheduler) :- 
-    - selects one of the processes in the memory and allocates CPU to it. 
-    - It is invoked frequently and should be very fast. 
-    - The long-term scheduler select proper mix of CPU-bound processes and i/o-bound processes. 
-  
-   - A CPU-bound process spends most of its time doing computations. 
-   - An i/o-bound process spends most of its time doing i/o.
-   - Multitasking os like unix and windows not use long-term scheduler they put all new processes in the memory for short-term scheduler
+    - Selects process among processes that are ready to execute and allocates CPU to one of them.
+    - It is invoked frequently and very fast than long-term scheduler
+    - It is also known as dispatchers which make decision of which process to execute next.  
 
-   Medium-term scheduler :- 
-    - Removes processes from the memory and from the competition for the CPU, thus reducing the degree of multiprogramming. 
-    - The processes can be later reintroduced in the memory and their executions can be resumed. 
-    - This scheme is called swapping. 
+   Medium-term scheduler(Swapping):- 
+    - Removes processes from memory and thus reducing degree of multiprogramming
+    - Running processes may become suspended if it makes an I/O request
+    - Remove process from memory and make space for other processes suspended process moves to secondary storage its called Swapping
     - Swapping may be used to improve process mix and to free up some memory in uncontrollable circumstances.  
 
    - CPU Scheduler is invoked when process :-
-     - switches from running state to waiting state  (condition 1) 
-     - switches from running state to ready state    (condition 2) 
-     - switches from waiting state to ready state    (condition 3) 
-     - terminates                                    (condition 4)  
+    - switches from running state to waiting state  (condition 1) 
+    - switches from running state to ready state    (condition 2) 
+    - switches from waiting state to ready state    (condition 3) 
+    - terminates                                    (condition 4)  
+   - CPU scheduing is optional for condition 2 and 3 but necessary in other 2 condition
+   - MS DOS does not support multiprogramming hence no cpu scheduling
   
   
-  Types of scheduling :-
+   Types of scheduling :-
     Non-Preemptive scheduling / cooperating scheduling :-
      - Process keeps in cpu until it terminates or switches to waiting state
      - Some machine support is :-  Windows 3.1X
@@ -352,18 +363,28 @@ Unit - 2
      - Process can be forced to leave cpu and switch to ready queue
      - Ex :- Unix, Linux, Windows 95 or Higher   
 
-    - CPU scheduing is optional for condition 2 and 3 but necessary in other 2 condition
-    - MS DOS does not support multiprogramming hence no cpu scheduling
 
 
  What is Context Switching :-       
-  - Switch between processes
-  - Switching cpu to another process requires saving state of current process and reloading state of another process
-  - States are saved into and reloaded from PCBs
-  - Context Switch time is overhead as system does not do any useful work during control switch
-  - Context Switch time highly depended on hardware
+  - Context switch is mechanism to store and restore state or context of CPU in PCB so that process execution can be 
+    resumed from same point at later time. 
+  - Using this technique, context switcher enables multiple processes to share single CPU. 
+  - Context switching is an essential part of a multitasking operating system features.
   - It is faster on RISC processor with overlapped register windows
+  - When scheduler switches CPU from executing one process to execute another, state from current running process is stored into PCB 
+  - After this, state for process to run next is loaded from its own PCB and used to set the PC, registers, etc. 
+    At that point second process can start executing.
+  - To avoid the amount of context switching time, some hardware systems employ two or more sets of processor registers
+  - When process is switched followin information is stored :-
+     - Program Counter
+     - Scheduling information
+     - Base and limit register value
+     - Currently used register
+     - Changed State
+     - I/O State information
+     - Accounting information
 
+ 
 
  What is process creation :- 
   - Process creation is one process which creating another process
@@ -372,6 +393,8 @@ Unit - 2
   - Process may obtain resources either from its parent or from operating system directly
   - Parent process continues executing with its children process and wait for them to finish
   - Process may be duplicate of its parent process(Same code or data) or may have new program loaded intoit
+  - Typically kernal is first process to be created, is root of process tree
+  - Zoombie process is process that has terminated but its still exists in PCB because its parent has not yet accpted its return value
 
  
  What is process termination :-
@@ -381,19 +404,18 @@ Unit - 2
     - If its results is no more needed
     - If parent process is terminating and operating system doesn't allow an orphan process
 
-  - Typically kernal is first process to be created, is the ancestor of all other processes and is at root of process tree
-  - Zoombie processes is a process that has terminated but its PCB still exists because its parent has not yet accpted its return value
 
  
  Inter-Process communication :-
-  - Reasons
-    - information sharing
-    - computational Speedup
+  - Reason
+    - Information sharing
+    - Computational Speedup
     - Modularity 
     - Convenience
   - Models
     - Shared Memory
     - Message Passing [Send(p, message) and Receive(id, message)]  
+
 
 
  What is Thread :-
@@ -416,6 +438,7 @@ Unit - 2
     - better resource utilization 
     - easy communication 
     - parallelization
+
 
 
  What is Dispatcher :-
