@@ -1,390 +1,265 @@
 Unit - 1 
 
- What is Computer?
-  - Computer is general purpose device that can execute sequences of instructions presented in formal format 
-    to perform numerical calculations and other tasks. 
-  - Computer Science is study of computer systems and computer processes
-  - Computer hardware is collection of all physical elements of the computer system 
-  - Computer software is collection of all program stored in and executed by computer system
-  - Application software perform task for user 
-  - System software operates and controls computer system and provide platform to run application software
-  - Computer program is a collection of instructions that performs a specific task when executed by a computer. 
-  - Collection of computer programs, libraries and related data are referred to as a software
-  - Computer program that performs a well-defined task is known as an algorithm
+ What is Computer and Other Defination?
+  Computer :- General purpose device that execute sequences of instruction to perform numerical calculations and other tasks. 
+  Computer Science  :- Study of computer systems and computer processes
+  Computer hardware :- Collection of all physical elements of computer system 
+  Computer software :- Collection of all program stored in computer system and executed by computer system
+
+  Software             :- Collection of computer programs, libraries and related data are referred to as a software
+  Application Software :- Perform task for user 
+  System software      :- Operate and controls computer system and provide platform to run application software
+  Computer program     :- Collection of instructions that performs specific task when executed by computer. 
+  
+  Algorithm   :- Computer program that performs well-defined task 
+  Kernel      :- Part of OS which interacts directly with hardware and performs most crucial tasks
+  Microkernel :- Support only core operating system functionalities
+  Shell       :- known as command interpreter which is part of OS that receives commands from users and gets them executed 
 
 
 
  What is OS?
-  - An operating system is a piece of software that manages all the resources of a computer system, both hardware and software 
-    and provides an environment in which the user can execute his/her programs in a convenient and efficient manner.
-  - An OS act as resouce allocator and Control program
-  - OS is program that acts as interface between user and computer hardware and controls execution of all kinds of programs.
-   
-   First Os :- 
-    - ATLAS(Manchester Univ., late 1950s – early 1960s)
-    - evolved from control program 
-   
-   What is Kernel, Microkernel, Shell:-
-    - Kernel is that part of operating system which interacts directly with hardware and performs most crucial tasks. 
-    - Microkernel is much smaller in size than conventional kernel and supports only core operating system functionalities. 
-    - Shell known as a command interpreter which is part of operating system that receives commands from users and gets them executed 
+  - An OS is a piece of software that manages all resources of a computer system, both hardware and software 
+    and provides an environment in which user can execute his/her programs in convenient and efficient manner.
+  - OS is program that acts as interface between user and computer hardware and controls execution of all kinds of programs
+  - First OS is ATLAS developed by Manchester University in late 1950s and early 1960s based on batch operating systems
 
-  Diagram :- https://www.tutorialspoint.com/operating_system/images/conceptual_view.jpg
+   Diagram :- https://www.tutorialspoint.com/operating_system/images/conceptual_view.jpg
 
 
  
- OS Structures type :- 
+ OS Structures type :-  
+  From :- https://www.geeksforgeeks.org/different-approaches-or-structures-of-operating-systems/#:~:text=Layered%20structure%3A&text=In%20this%20structure%20the%20OS,the%20lower%20level%20layers%20only.
+  
     - Monolithic    [MS DOS, Unix, Linux] 
-    - Layered       [THE] 
-    - Microkernel   [Mach, MINIX]   
+      - Architecture where entire operating system is working in kernel space. 
+      - Entire operating system executes with maximum privileges.
+      - https://static.javatpoint.com/operating-system/images/monolithic-structure-of-operating-system.png
 
-
-
- Os Duties / Function :- 
-    - Process Management :-
-      - Creating and deleting user and system processes 
-      - Suspending and resuming processes 
-      - Interprocess communication 
-      - Process synchronization 
-      - Deadlock handling   
-
-    - Memory management :-
-      - Keeping track of which part of memory is being used by which job 
-      - Allocating and deallocating memory space 
-      - management of Primary Memory or Main Memory
-      - Main memory is a large array of words or bytes where each word or byte has its own address and directly accessible by CPU
-      - Program must execute in main memory
+    - Layered       
+      - OS is broken into number of layers (levels).
+      - The bottom layer (layer 0) is the hardware and the topmost layer (layer N) is the user interface
+      - These layers are so designed that each layer uses the functions of the lower level layers only.
+      - Main disadvantage of this structure is that at each layer, data needs to be modified and pass on which adds overhead to system.
+      - Unix example
     
-    - Storage/File management :-
-      - File system management 
-        - Creating, deleting and manipulating files and directories 
-      - Mass storage management 
-        - Free space management 
-        - Storage allocation 
-        - Disk scheduling 
+    - Microkernel   
+      - Designs operating system by removing all non-essential components from kernel and implementing them as system and user programs. 
+      - This result in a smaller kernel called the micro-kernel. 
+      - All new services need to be added to user space and does not require the kernel to be modified
+      - Thus it is more secure and reliable as if a service fails then rest of the operating system remains untouched. 
+      - MacOs example
+
+    - Modular 
+
+
+
+ Os Duties / Function / Services :- 
+   - Provide environment for programs to execute process or service
+   - It provide user service to execute programs in a convenient manner 
+
+   Process Management / Process Execution :-
+    - Creating and deleting user and system processes 
+    - Suspending and resuming processes 
+    - Load program into memory, execute it and Handle it
+    - Provide mechanism for process synchronization, Interprocess communication and deadlock handling 
     
-    - Device management :-
-      - Manages device communication via their respective drivers
-      - Keeps tracks of all devices. Program responsible for this task is known as the I/O controller.
+   I/O Operation / I/O Management / Device Management :-
+    - OS Manages device communication via their respective drivers between User and Device Driver
+    - Keeps tracks of all devices 
+    - Program that responsible for this task is known as I/O controller.
 
-    - Caching     
-    - Input-output management  
-    - Security
-    - Control Over System Performance : Recording delays between request for service and response from system
-    - Error detection
+   Storage/File management or Manipulation:-
+    - Organization of files into directories for easy navigation and usage 
+    - File system operations like Creating, deleting and manipulating files and directories based on permission mode
+    - Mass storage management like Free space management, Storage allocation and Disk scheduling 
 
+   Memory management :-
+    - Keeping track of which part of memory is being used by which job 
+    - Allocating and deallocating memory space 
+    - Management of Primary Memory or Main Memory
+    - Main memory is a large array of words or bytes where each word or byte has its own address and directly accessible by CPU
+    - Program must execute in main memory(RAM)
+    
+   Resource Management :-
+    - OS manages all kinds of resources using schedulers
+    - CPU scheduling algorithms are used for better utilization of CPU.
+
+   Communication :-
+    - Multiple processes communicate with one another through communication lines in the network.
+    - OS handles routing and connection strategies, and problems of contention and security.
+    - Both processes can be on one computer or on different computers, but are connected through a computer network
+    - Communication may be implemented by two methods, either by Shared Memory or by Message Passing.
+    
+   Error Handling / Error detection :-
+    - Error may occur in CPU, in I/O devices or in memory hardware. 
+    - OS constantly checks for possible errors and takes appropriate action to ensure correct and consistent computing    
+    
+   Protection / Security :-
+    - Protection refers to mechanism or way to control access of programs, processes, or users to resources defined by computer system.
+    - OS ensures that all access to system resources is controlled
+    - Ensures that external I/O devices are protected from invalid access attempts.
+    - Authentication features for each user by means of passwords.
+   
+   Control Over System Performance :-
+    - Recording delays between request for service and response from system 
+  
 
 
  Types of operating systems – 
     Single process operating system    [MS DOS, 1981] 
-    Batch-processing operating system  [ATLAS, Manchester Univ., late 1950s – early 1960s] 
     Multiprogramming operating system  [THE, Dijkstra, early 1960s] 
     Multitasking operating system      [CTSS, MIT, early 1960s] 
 
-    Batch Operating System :-
-     - Not interact with computer directly
-     - There is an operator which takes similar jobs having the same requirement and group them into batches.
-     - Lack of interaction between the user and the job.
-     - Difficult to provide the desired priorit
 
-    Time-Sharing operating system :-
-     - Each task is given some time to execute so that all the tasks work smoothly.
-     - operating system uses CPU scheduling and multiprogramming to provide each user with a small portion of a time.
+   Batch Operating System / Batch Processing :-
+    - Not interact with computer directly 
+    - OS define job which has predefined sequence of commands, programs and data as a single unit.
+    - Jobs are processed in the order of submission, i.e., first come first served fashion
+    - There is an operator which takes similar jobs having same requirement and group them into batches.
+    - When job completes its execution, its memory is released and output job gets copied into output device for later processing.
+    - Lack of interaction between user and job.
+    - Difficult to provide desired priorit
+     
+    Example :-
+      User ---> Set Job in ROM device ---> Go to operator ---> Operator group similar job and execute 
+      ---> One time one process execute (No particular time for output) ---> Output is write to disk and get to user from operator
+      ---> User use output in own system and process output 
+     
+    Diagram :- https://www.tutorialspoint.com/operating_system/images/batch_processing.jpg
 
-    Distributed Operating System :-
+
+   Time-Sharing operating system :-
+    - Sharing of processor time among multiple processes
+    - Each task is given some time to execute so that all the tasks work smoothly.
+    - OS uses CPU scheduling and multiprogramming to provide each user with a small portion of a time.
+    - Switching of job on CPU is so fast we feel that one process is executing continuously
+    - Quick Response Time so Reduce CPU Idle Time(If one process not running its move job to another process)
+    - Security of program and data and its fast switching so problem of data communication and its reliability 
+
+    Example :-
+     3 Process need to execute ---> Share processor time among them (Share is based on scheduling) 
+     
+
+   Distributed Operating System :-
      - Use multiple central processors to serve multiple real-time applications and multiple users.
-     - processors communicate with one another through various communication lines
+     - processors communicate with one another through various communication lines like network connection
      - These are referred as loosely coupled systems also
      - processors are referred as sites, nodes, computers, and so on.
      - With resource sharing facility, a user at one site may be able to use the resources available at another.
      - Reduction of delays in processing and loading on host computer
-
-    Network Operating System :-
-     - runs on a server and provides server capability to manage data, application, user and other networking functionality
-     - Purpose to allow shared file and printer access among multiple computers in a network, 
-       typically a local area network (LAN), a private network or to other networks.
-     - Centeralized Server but dependency on central server
-
-    Real Time operating System :-
-     - Defined as data processing system in which time interval required to process and respond to inputs is so small that 
-       it controls environment. 
-     - Time taken by system to respond to an input and display of required updated information is termed as response time.
-       Types :-
-        Hard-Real Time System :-
-         - Gurantee that critical tasks complete on time 
-         - secondary storage is limited or data stored in ROM and Virtual memory almost not found  
-
-        Soft-Real Time System :-
-         - Less restrictive with limited utility than hard-real time system
-
-
-
- OS Services :-
-    - Os provides services to both the users and to the programs
-      - It provides programs an environment to execute.
-      - It provides users the services to execute the programs in a convenient manner.
-
-    Types of Services :-
-    
-      Program Execution :-
-       - handle many kinds of activities from user programs to system programs like name serves, file server
-       - Each of activities is encapsulated in process
-       - Load program into memory, execute it and Handle it
-       - Provide mechanism for process synchronization, communication and deadlock handling     
-
-      I/O Operation :-
-       - I/O subsystem comprise of I/O devices and their corresponding driver software
-       - Drivers hide the peculiarities of specific hardware devices from the users.
-       - Os maintaining communication between User and Device Driver
-
-      File System Manipulation :-
-       - Organization of files into directories for easy navigation and usage
-       - Provide interface for Read or write file and perform different operations on it based on permission mode
-
-      Communication :-
-       - Multiple processes communicate with one another through communication lines in the network.
-       - OS handles routing and connection strategies, and the problems of contention and security.
-       - Both the processes can be on one computer or on different computers, but are connected through a computer network
-       - Communication may be implemented by two methods, either by Shared Memory or by Message Passing.
-
-      Error Handling :-
-       - An error may occur in CPU, in I/O devices or in the memory hardware. 
-       - OS constantly checks for possible errors and takes appropriate action to ensure correct and consistent computing
-
-      Resource Management :-
-       - OS manages all kinds of resources using schedulers
-       - CPU scheduling algorithms are used for better utilization of CPU.
-
-      Protection :-
-       - Protection refers to mechanism or way to control access of programs, processes, or users to resources defined by computer system.
-       - OS ensures that all access to system resources is controlled
-       - ensures that external I/O devices are protected from invalid access attempts.
-       - authentication features for each user by means of passwords.
-
-
-  
- Os Processing Type :-
-   
-    Batch Processing :-
-     - OS collect program and data together in batch before processing starts.
-     - OS defines job which has predefined sequence of commands, programs and data as a single unit.
-     - Jobs are processed in the order of submission, i.e., first come first served fashion
-     - When job completes its execution, its memory is released and output  job gets copied into output spool for later processing.
-     Diagram :- https://www.tutorialspoint.com/operating_system/images/batch_processing.jpg
-
-
-    Multiprogramming :-
-     - Multiprogramming increases CPU utilization by keeping multiple jobs (code and data) in memory so that CPU always has one to execute
-     - OS keeps several jobs in memory at time and pick one jobs from its job pull
-     - High efficient cpu utilization and user feels many programs run simultaneously
-     - Cpu scheduling is required 
-     Diagram :- https://www.tutorialspoint.com/operating_system/images/memory_layout.jpg
-
-
-    Multitasking :-
-     - Multitasking is a logical extension of multiprogramming. 
-     - CPU executes multiple tasks by switching among them. 
-     - Switching is very fast. 
-     - Requires an interactive (hands-on) computer where user can directly interact with computer. 
-     - Response time should be minimal.
-     - Multitasking OS are also known as Time-sharing systems
-     - When a process executes, it typically executes for only a very short time before it either finishes or needs to perform I/O.
-     - I/O Process slow so During this time, a CPU can be utilized by another process.
-     Diagram :- https://www.tutorialspoint.com/operating_system/images/multitasking.jpg   
-
-    Interactivity :- 
-     - Ability of users to interact with computer system    
-     - Provides the user an interface to interact with the system like keyborad for input and monitor for processed output
-
-    Real-Time System :- 
-     - A real-time operating system (RTOS) has well-defined and fixed time constraints which have to be met or the system will fail. 
-     - An RTOS is used when rigid time constraints have been placed on the operation of processes or flow of data. 
-     - Used in control device in a dedicated application. 
-     - Hard- and soft- RTOS. 
-     Applications :- embedded systems, robotics, scientific utilities, etc.
-
-
-    Distributed Environment :- 
-     - refers to multiple independent CPUs or processors in a computer system
      - OS distributes computation logics among several physical processors
-     - processors do not share memory or a clock. Instead, each processor has its own local memory.
-     - OS manages the communications between the processors with various communications lines
+     - processors do not share memory or a clock. Instead, each processor has its own local memory, storage etc...
+     - If these processors connect with local network (Single network) like single server it is called cluster operating system
+     - Main advantage is availability, if any system faile another load balancing that system, Scalability     
 
-    Spooling :-
-     - putting data of various I/O jobs in a buffer
-     - This buffer is a special area in memory or hard disk which is accessible to I/O devices.
-     - Maintains the spooling buffer which provides a waiting station where data can rest while the slower device catches up.
-     - Maintains parallel computation because of spooling process as a computer can perform I/O in parallel fashion.
-     Diagram :- https://www.tutorialspoint.com/operating_system/images/spooling.jpg
+
+   Network Operating System :-
+    - Runs on server computer and provides server capability to manage data, application, user and other networking functionality
+    - Purpose to allow shared file and printer access among multiple computers in a network, 
+      typically local area network (LAN), private network or to other networks.
+    - Centeralized Server so security managed and software upgrade easily and enable remote access 
+    - Dependency on central server and high cost also required regular maintenance and update
+
+
+   Real Time operating System :-
+    - Real-time operating system (RTOS) has well-defined and fixed time constraints which have to be met or the system will fail. 
+    - Defined as data processing system in which time interval required to process and respond to inputs is so small that 
+      it controls environment.   
+    - Time taken by system to respond to input and display required updated information is termed as response time.
+    - Time constraint matter lot and can't be delays
+    
+    Example :- embedded systems, robotics, scientific utilities, etc.
+    
+    Types :-
+      Hard-Real Time System :-
+       - Critical tasks complete on time there no place for delays 
+
+      Soft-Real Time System :-
+       - Less restrictive with limited utility than hard-real time system
+
+
+   Embedded Systems :-
+    - Work on fixed machine like a.c.
+    - You can't customally change its functionality 
+ 
+
+
+ OS Processing Type :-
+
+   Multiprogramming :-
+    - Multiprogramming increases CPU utilization by keeping multiple jobs (code and data) in memory so that CPU always has one to execute
+    - OS keeps several jobs in memory at time and pick one jobs from its job pull
+    - It is non pre-emptive means if we give one process from ram to cpu, cpu will complete that entire process only after complete
+      one process pick another process
+    - Sometime cpu will go for I/O operation at that time cpu will pick up another process from job pull So cpu idel time is zero   
+    - High efficient cpu utilization and user feels many programs run simultaneously
+    - Cpu scheduling is required
+    Diagram :- https://www.tutorialspoint.com/operating_system/images/memory_layout.jpg
+
+
+   Multitasking / Time-Sharing :-
+    - Multitasking is a logical extension of multiprogramming also known as Time-sharing systems
+    - CPU executes multiple tasks by switching among them. 
+    - It is pre-emptive means we already give process particular time after than automatically move to second process but
+      first process still available if not complete in within given time
+    - When a process executes, it typically executes for only very short time before it either finishes or needs to perform I/O.
+    - I/O Process slow so During this time, a CPU can be utilized by another process.
+    - Response time should be minimal and it's required scheduling 
+    Diagram :- https://www.tutorialspoint.com/operating_system/images/multitasking.jpg   
+
+
+   Spooling(Simultaneous Pheripheral Operations Online) :- 
+    - Different Pheripheral devices(I/O Device) can run simultaneously 
+    - Provide buffer area in secondary memory which is accessible to I/O devices.
+    - It save CPU time and user not need to wait for I/O process
+     
+    Example :- User enter input in I/O --> I/O store in either main memory or secondary memory if cpu is not free -->
+               When cpu free take these process from disk to cpu and after processing update in same disk -->
+               Now these disk display process output 
+      
+    Diagram :- https://www.tutorialspoint.com/operating_system/images/spooling.jpg
  
 
 
  What is SystemCall :-
-    - System call is mechanism using which user program can request service from kernel for which it does not have permission to perform. 
-    - User programs typically do not have permission to perform operations like accessing I/O devices and communicating other programs. 
-    - User program invokes system calls when it requires such services. 
-    - System calls provide an interface between program and operating system. 
-     Type of System Call :- 
-      E.x. :- fork, exec, getpid, getppid, wait, exit. 
+  - If we need to use any system functionality we need to go in kernel mode because we only can access user mode
+  - To go in kernel mode we use system call   
+  - System call is mechanism using which user program request kernel to access system functionality 
+  - User programs typically do not have permission to perform operations like accessing I/O devices and communicating other programs. 
+  - User program invokes system calls when it requires such services like print output on monitor use printf library 
+  - System calls provide an interface between program and operating system. 
+    
+   Type of System Call :- 
+    E.x. :- fork, exec, getpid, getppid, wait, exit. 
+    File related(Open, read, write), device related(Hardware)(Print something), Information(Process related)(Display time or other), 
+    Process Control(load, abort in main memory) Fork --> Process create its child process,
+    Communication(Inter-Process communication)(Pipe, shmget, create/delete connection)
+    Security(chmod, umask)
+
  
-    Dual-mode operation :-
-     - User mode 
-     - Kernel mode / supervisor mode / system mode / privileged mode 
-     Mode bit– 0: kernel, 1: user 
-     Request using a system call
+  Dual-mode operation :-
+    - User mode 
+    - Kernel mode / supervisor mode / system mode / privileged mode 
+    Mode bit– 0: kernel, 1: user 
+    Request using a system call
 
 
 
  What is Booting :-
-   - Booting is the process of starting the computer and loading the kernel.
-   - When a computer is turned on, the power-on self-tests (POST) are performed. 
-   - Then bootstrap loader, which resides in the ROM, is executed. 
-   - bootstrap loader loads kernel or a more sophisticated loader. 
+  - Booting is the process of starting computer and loading kernel.
+  - When a computer power is turned on Then cpu will move to BIOS(basic input output system) in ROM 
+  - BIOS run process power-on self-tests (POST) which check all hardware
+  - On successful of POST bios load MBR(Master Boot Record) to RAM
+  - Now MBR load bootstrap loader to RAM
+  - bootstrap loader loads OS, Kernel or more sophisticated loader to RAM
+  Types :- 
+    Hard Booting - Power On system
+    Soft Booting - Restart / Ctrl + Alt + Del twice
 
 
 
-Unit - 2
- 
- What is Process :-
-  - Process is program execution
-  - Process is defined as an entity which represents basic unit of work to be implemented in system
-  - Program is passive entity while procrss is active entity
-  - When program loaded into memory it become process, it can be divided into four section :-
-    Stack : Contain temporary data such as method/function parameters, return address and local variables
-    Heap  : Dynamically allocated memory to a process during its run time
-    Text  : Includes current activity represented by value of Program Counter and contents of processor's registers.
-    Data  : Contain global and static variable
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/process_components.jpg
-  - When we compare program with process, process is a dynamic instance of a computer program. 
-  
-
-
- What is Process State :-
-  - Process state is defined by current activity of process as process executes its state changes
-  - Only one process can be in running state at any instant
-  - Each process is internally represented by process control block(PCB) also called task control block
-    
-    State :-
-     Start :- Initial state when process is first started/created.
-     Ready :- Process is waiting to be assigned to a processor. 
-              Process come in this state after Start state or while running but interrupted by scheduler to assign CPU to other process
-     Running :- Once process has been assigned to processor by OS scheduler, process state is set to running and 
-                processor executes its instructions.
-     Waiting :- Process moves into waiting state if it needs to wait for resource, such as waiting for user input or waiting for 
-                file to become available
-     Terminate / Exit :- Once process finishes its execution, or it is terminated by operating system, 
-                         it is moved to terminated state where it waits to be removed from main memory.
-
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/process_state.jpg
-
- 
- 
- What is PCB(Process Control Block) :-  
-  - PCB is data structure maintained by Operating System for every process
-  - PCB is identified by an ID(Process ID) 
-  - PCB maintained process throughout its lifetime and once it deleted process terminates.
-    PCB Contain All information of process :-
-     - Process ID
-     - Process Privileges : Required to allow/disallow access to system resources
-     - Process State 
-     - Pointer            : To parent process
-     - Program Counter    : A pointer to the address of next instruction to be executed for this process.
-     - CPU Register       : Where process need to be stored for execution for running state
-     - CPU scheduling information    : Process priority, other scheduling information, etc. 
-     - Memory Management Information 
-     - Accounting information        : Includes amount of CPU used for process execution, time limits, execution ID 
-     - I/O status information        : List of I/O devices allocated to the process.
-  
-
-
- What is Process scheduling :-
-  - Select one process for execution out of all ready processes  
-  - Objective of multiprogramming is to have some process running at all times so maximize CPU utilization. 
-  - Multitasking switch CPU among processes so frequently that user can interact with each process while it is running. 
-  - To meet these objectives process scheduler selects one of available processes for execution.
-  - OS maintenance all PCBs in Process Scheduling queues which used to perform process scheduling
-    
-    OS maintenance following important process scheduling queues :-
-     Job Queue     - As process enter system it is put in job queue which keeps all processes in system 
-     Ready Queue   - Processes that are residing in memory and are ready for execution are kept in ready queue
-                   - It is implemented as linked list of PCBs with header containing pointers to first and last PCBs.
-     Device Queue  - List of processes waiting for particular I/O device is called a device queue. 
-                   - Each device has its own device queue. 
-     Diagram :- https://www.tutorialspoint.com/operating_system/images/queuing_diagram.jpg
-
-  - OS Scheduler determine how to move processes between ready and run queues which can only have one entry per processor core on system
-    In above diagram it is merged with CPU 
-  
-    Two State Process Model :-
-      Running 
-      Not-Running
-    
-
-  Types of Schedulers :-
-   - Schedulers are special system software which handle process scheduling in various ways.
-   - Their main task is to select jobs to be submitted into system and to decide which process to run.
-    
-   Long-term Scheduler(Job Scheduler) :-
-    - Select processes from those submitted by user and loads them into memory for execution
-    - It controls degree of multiprogramming which is represented by number of processes in the memory  
-    - It is invoked less frequently.
-    - When process changes state from new to ready, then there is use of long-term scheduler.
-    - Long-term scheduler select proper mix of CPU-bound processes and i/o-bound processes. 
-    - A CPU-bound process spends most of its time doing computations. 
-    - An i/o-bound process spends most of its time doing i/o.
-    - Multitasking os like unix and windows not use long-term scheduler they put all new processes in the memory for short-term scheduler
-
-   Short-term scheduler(CPU Scheduler) :- 
-    - Selects process among processes that are ready to execute and allocates CPU to one of them.
-    - It is invoked frequently and very fast than long-term scheduler
-    - It is also known as dispatchers which make decision of which process to execute next.  
-
-   Medium-term scheduler(Swapping):- 
-    - Removes processes from memory and thus reducing degree of multiprogramming
-    - Running processes may become suspended if it makes an I/O request
-    - Remove process from memory and make space for other processes suspended process moves to secondary storage its called Swapping
-    - Swapping may be used to improve process mix and to free up some memory in uncontrollable circumstances.  
-
-   - CPU Scheduler is invoked when process :-
-    - switches from running state to waiting state  (condition 1) 
-    - switches from running state to ready state    (condition 2) 
-    - switches from waiting state to ready state    (condition 3) 
-    - terminates                                    (condition 4)  
-   - CPU scheduing is optional for condition 2 and 3 but necessary in other 2 condition
-   - MS DOS does not support multiprogramming hence no cpu scheduling
-  
-  
-   Types of scheduling :-
-    Non-Preemptive scheduling / cooperating scheduling :-
-     - Process keeps in cpu until it terminates or switches to waiting state
-     - Some machine support is :-  Windows 3.1X
-
-    Preemptive scheduling :- 
-     - Process can be forced to leave cpu and switch to ready queue
-     - Ex :- Unix, Linux, Windows 95 or Higher   
-
-
-
- What is Context Switching :-       
-  - Context switch is mechanism to store and restore state or context of CPU in PCB so that process execution can be 
-    resumed from same point at later time. 
-  - Using this technique, context switcher enables multiple processes to share single CPU. 
-  - Context switching is an essential part of a multitasking operating system features.
-  - It is faster on RISC processor with overlapped register windows
-  - When scheduler switches CPU from executing one process to execute another, state from current running process is stored into PCB 
-  - After this, state for process to run next is loaded from its own PCB and used to set the PC, registers, etc. 
-    At that point second process can start executing.
-  - To avoid the amount of context switching time, some hardware systems employ two or more sets of processor registers
-  - When process is switched followin information is stored :-
-     - Program Counter
-     - Scheduling information
-     - Base and limit register value
-     - Currently used register
-     - Changed State
-     - I/O State information
-     - Accounting information
-
- 
+Unit - 2 :-
 
  What is process creation :- 
   - Process creation is one process which creating another process
@@ -392,9 +267,10 @@ Unit - 2
   - Each process has unique id
   - Process may obtain resources either from its parent or from operating system directly
   - Parent process continues executing with its children process and wait for them to finish
-  - Process may be duplicate of its parent process(Same code or data) or may have new program loaded intoit
-  - Typically kernal is first process to be created, is root of process tree
+  - Process may be duplicate of its parent process(Same code or data) or may have new program loaded into it
+  - Typically kernal is first process to be created or said to be root of process tree
   - Zoombie process is process that has terminated but its still exists in PCB because its parent has not yet accpted its return value
+
 
  
  What is process termination :-
@@ -405,6 +281,137 @@ Unit - 2
     - If parent process is terminating and operating system doesn't allow an orphan process
 
 
+
+ What is Process :-
+  - Process is program execution which defined as an entity which represents basic unit of work to be implemented in system
+  - Program is passive entity while procrss is active entity
+  - When we compare program with process, process is a dynamic instance of a computer program. 
+  - When program loaded into memory it become process, it can be divided into four section :-
+    Stack : Contain temporary data such as method/function parameters, return address and local variables
+    Heap  : Dynamically allocated memory to a process during its run time
+    Text  : Includes current activity represented by value of Program Counter and contents of processor's registers.
+    Data  : Contain global and static variable
+    Diagram :- https://www.tutorialspoint.com/operating_system/images/process_components.jpg
+  
+
+
+ What is Process State :-
+  - Process state defined current activity process as process executes its state changes
+  - Only one process can be in running state at any instant
+  - Each process is internally represented by Process Control Block(PCB) also called Task Control Block
+    
+  State :-
+   New   :- Initial state when process is first started/created in secondary memory
+   Ready :- Process come from secondary memory to main memory(RAM)(Queue) when we start process execution
+            Here process is waiting to be assigned to a processor
+            Long-term scheduler bring these process from Rom to RAM 
+   Running :- Short-term scheduler assign process to processor from ready state and CPU execute process instructions.
+              Sometime transfer process to ready state when high-priority process is given by ready state 
+              or process exceeded time limit/ time quantum(Round-Robin)
+              If process request is I/O request it is transfer to waiting state
+   Waiting   :- Process move into these state if it needs to wait for resource, such as waiting for user input or I/O operation
+                After complete process its moves into ready state not running 
+   Terminate :- Once process finishes its execution, or it is terminated by OS and deallocating all resources 
+   Diagram   :- https://www.tutorialspoint.com/operating_system/images/process_state.jpg
+
+
+ 
+ What is PCB(Process Control Block) :-  
+  - PCB is data structure maintained by Operating System for every process
+  - It is identified by an ID(Process ID/PID) 
+  - PCB maintained process throughout its lifetime
+    PCB Contain All information of process :-
+     - Process ID
+     - Process Privileges : Required to allow/disallow access to system resources
+     - Process State 
+     - Pointer            : To parent process
+     - Program Counter    : Pointer to the address of next instruction to be executed for this process.
+     - CPU Register       : Where process need to be stored for execution for running state
+     - CPU scheduling information    : Process priority, other scheduling information, etc. 
+     - Memory Management Information 
+     - Accounting information        : Includes amount of CPU used for process execution, time limits, execution ID 
+     - I/O status information        : List of I/O devices allocated to process.
+  
+
+
+ What is Process scheduling :-
+  - OS maintenance all PCBs in Process Scheduling queues which used to perform process scheduling
+    
+  OS maintenance following important process scheduling queues :-
+    Job Queue     - As process enter system it is put in job queue which keeps all processes in system 
+    Ready Queue   - Processes that are residing in memory and are ready for execution are kept in ready queue
+                  - It is implemented as linked list of PCBs with header containing pointers to first and last PCBs.
+    Device Queue  - List of processes waiting for particular I/O device is called a device queue. 
+                  - Each device has its own device queue. 
+    Diagram :- https://www.tutorialspoint.com/operating_system/images/queuing_diagram.jpg
+
+
+  Types of Schedulers :-
+   - Schedulers are special system software which handle process scheduling in various ways.
+    
+   Long-term Scheduler(Job Scheduler) :-
+    - When process changes state from new to ready, then there is use of long-term scheduler.
+    - Select processes from those submitted by user and loads them into memory for execution
+    - It is done by using multiprogramming which represented by number of processes in memory  
+    - Long-term scheduler select proper mix of CPU-bound processes and i/o-bound processes. 
+    - Multitasking OS like unix and windows not use long-term scheduler they put all new processes in the memory for short-term scheduler
+    - Ready Queue handle process queue
+
+
+   Short-term scheduler(CPU Scheduler) :- 
+    - Selects process from ready state(Ready Queue) and allocate CPU to one of them.
+    - It is invoked frequently and very fast than long-term scheduler
+    - Here Dispatcher which take decision of which process to execute next.  
+    - Gives control(PCB information) to cpu to process processes which is selected by CPU scheduler known as Dispatcher
+    - CPU Scheduler is invoked when process switches from running state to waiting state OR terminates
+    - MS DOS does not support multiprogramming hence no cpu scheduling
+
+
+   Medium-term scheduler(Swapping):- 
+    - Medium-term scheduler invoked due to waiting state is full and need to move process in suspended state
+    - Removes processes from memory or suspended it when waiting state(device queue) full due to lots of I/O request 
+    - We move process from device queue to secondary memory it is called swapping
+    - Remove process from memory and make space for other processes and suspended process moves to secondary storage its called Swapping
+    - After complete I/O operation process will be join waiting state if there is space in waiting state otherwie wait for some time
+
+
+  Types of Scheduling :-
+    Non-Preemptive scheduling / cooperating scheduling :-
+    - Process keeps in cpu until it terminates(Complete) 
+    - Some machine support is :-  Windows 3.1X
+
+    Preemptive scheduling :- 
+     - Process can be forced to leave cpu and switch to ready queue due to high-priority process or time quantum
+     - Ex :- Unix, Linux, Windows 95 or Higher   
+
+
+  Scheduling Criteria :-
+    ↑ CPU utilization  - Percentage 
+    ↑ Throughput       - Number of processes completed per unit time 
+    ↓ Turnaround time  - Time from submission to completion (time spent in different queues + time spent in CPU 
+                                                               + time spent in different i/o devices) 
+    ↓ Waiting time     - Time spent in ready queue (only) 
+    ↓ Response time    - Time from submission to first response    
+
+
+
+ What is Context Switching :-       
+  - Context switching is to store and restore context of CPU in PCB so that process execution can be resumed from same point at later time. 
+  - It is essential part of multitasking operating system features which enables multiple processes to share single CPU. 
+  - When scheduler switche CPU from executing one process to execute another, state of current running process is stored into PCB 
+  - After this state, process next run in own loaded PCB and used set of PC, registers, etc. 
+    At that point second process can start executing.
+  - To avoid the amount of context switching time, some hardware systems allow two or more sets of processor registers
+  - When process is switched following information is stored :-
+     - Program Counter
+     - Scheduling information
+     - Base and limit register value
+     - Currently used register
+     - Changed State
+     - I/O State information
+     - Accounting information
+
+ 
  
  Inter-Process communication :-
   - Reason
@@ -415,6 +422,174 @@ Unit - 2
   - Models
     - Shared Memory
     - Message Passing [Send(p, message) and Receive(id, message)]  
+
+
+
+ Scheduling Algorithm :-
+  - Gantt Chart(Henry Gantt)  Use to sloveing numerical calculation
+  - Used to select process for execution 
+  - These algorithms either Pre-emptive or Non-Preemptive
+  - Non-Preemptive select one process and complete it where pre-emptive select process but in some cases also select other process
+
+
+  First-Come First-Served(FCFS) Scheduling :-
+   - Non-Preemptive
+   - High Average Waiting Time
+   - Convoy Effect - Several small processes may need to wait if large process is give the cpu   
+   - Poor performance and average waiting time is high
+   
+   Criteria :- Arrival Time : Check Who Come First Use in Gantt Chart
+
+   Example :-
+    Process No. | Arrival Time | Burst Time(Execution Time) |Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
+      p1             0                2                            2              2                     0             0
+      p2             1                2                            4              3                     1             1  
+      p3             5                3                            8              3                     0             0
+      p4             6                4                           12              6                     2             2
+
+    Gantt  :-  p1(0) | p2(2) |  CPU IDle(4) | p3(8) | p4(12)  # Starting 0 + execution time 
+
+    Turnaround Time :- Complete Time   - Arrival Time
+    Waiting Time    :- Turnaround Time - Burst Time
+    Response time   :- Time at first cpu got first time - Arrival time
+    Average Turnaround Time :- 2 + 3 + 3 + 6 = 14/4 = 3.5
+    Average Waiting Time    :- 0 + 1 + 0 + 2 = 3/4  = 0.75 
+
+
+  Shortest-Job-First(SJF) Scheduling :-
+   - Process with smallest burst time is selected
+   - FCFS to break ties
+   - Optimal but cannot be implemented
+   - Non-Preemptive 
+
+   Criteria :- Burst Time(Execution Time)Use in Gantt Chart
+
+   Example :-
+    Process No. | Arrival Time | Burst Time(Execution Time) |Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
+      p1             1                3                            6              5                     2             2
+      p2             2                4                           10              8                     4             4  
+      p3             1                2                            3              2                     0             0
+      p4             4                4                           14             10                     6             6
+
+    Gantt  :- 0 CPU IDle |1 p3(3) |3  p1(6) |6 p2(10) |10 p4(14)|14       # Starting 0 + execution time but select process bases on execution
+            - If two process have same Arrival Time burst time check
+            - If two process not have same Arrival Time but already in queue check burst time
+            - When both burst time same check arrival time if arrival time same check lower process ID
+
+    Turnaround Time :- Complete Time   - Arrival Time
+    Waiting Time    :- Turnaround Time - Burst Time
+    Response time   :- Time at first cpu got first time - Arrival time
+    Average Turnaround Time :- 5 + 8 + 2 + 10 = 25/4 = 6.25
+    Average Waiting Time    :- 2 + 4 + 0 + 6 = 12/4  = 3
+
+
+  
+  Shortest-Job-Remaining Time First(SJF With Preemption) :-
+   - Mode Preemptive 
+
+   Criteria :- Burst Time(Execution Time) Use in Gantt Chart
+
+   Example :-
+    Process No. | Arrival Time | Burst Time(Execution Time) |Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
+      p1             0                5                            9              9                     4             0
+      p2             1                3                            4              3                     0             0  
+      p3             2                4                           13             11                     7             7
+      p4             4                1                            5              1                     0             0
+
+    Gantt  :- | p1 -4 | p2 -2 | p2 -1 | p2 0 | p4 0 | p1 0 | p3 0|        
+      Cpu  :- 0       1       2       3      4      5      9     13 
+           - Starting from 0 and check lower arrival time with 1 execution time
+           - If any other lower process arrive and which burst time is lower than previous process 
+             add it in cpu otherwise continues old process
+           - Add last execution time as completion time
+
+    Turnaround Time :- Complete Time   - Arrival Time
+    Waiting Time    :- Turnaround Time - Burst Time
+    Response time   :- Cpu First time - Arrival time
+    Average Turnaround Time :- 24/4 = 6 
+    Average Waiting Time    :- 11/4 = 2.75 
+ 
+
+  
+  Priority Scheduling :-
+   
+   Pre-emptive Priority Scheduling :-
+    -    
+    Criteria :- Priority Use in Gantt Chart
+
+    Example :-
+    Priority Process No ArrivalTime  Burst Time(Execution Time)  Complete Time  TAT(Turnaround Time)  WT(Wait Time)  Response time(RT) 
+    10           p1            0                5                       12             12                     7             0
+    20           p2            1                4                        8              7                     3             0  
+    30           p3            2                2                        4              2                     0             7
+    40           p4            4                1                        5              1                     0             0
+
+    Gantt  :-     p1 -4 | p2 -3 | p3 -1 | p3 0 | p4 0 | p2 0 | p1 0 |   # After process its burst time
+     Cpu Time :-  0     1       2       3      4      5      8      12
+    
+          - Higher no higher priority 
+          - If two process in ready queue and same arrival time so we need to check priority
+          - We process higher priority process here
+          - If 2 process have same priority and same arrival time use process id sequence
+
+    Turnaround Time :- Complete Time   - Arrival Time
+    Waiting Time    :- Turnaround Time - Burst Time
+    Response time   :- Cpu First time - Arrival time
+    Average Turnaround Time :- 22/4 = 5.5 
+    Average Waiting Time    :- 10/4 = 2.5 
+
+
+
+  Round-Robin Scheduling :-
+   - When process in ready queue then we select it and move in cpu(Running Queue)
+   - In RR Scheduling cpu use time quantam and within then time if finish terminate process otherwise send back in running state
+   - Here maintenance required on ready queue also 
+
+   Criteria :- Time Quantam Use in Gantt Chart
+
+   Example :-
+    Process No. | Arrival Time | Burst Time(Execution Time) |Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
+      p1             0                5                           12             12                     7             0
+      p2             1                4                           11             10                     6             1  
+      p3             2                2                            6              4                     2             2
+      p4             4                1                            9              5                     0             4
+
+    Give Time Quantam :- 2 
+    Ready Queue :- | p1 | p2 | p3 | p1 | p4 | p2 | p1
+      Cpu       :- 0    2    
+
+    Gantt       :- | p1 -3 | p2 -2 | p3 0 | p1 -1 | p4 0 | p2 0 | p1 0|
+      Cpu       :- 0       2       4      6       8      9     11    12
+          
+    - How many time context switches happern :- Not calculate first and last cpu time | :- ANs : 6
+
+    Turnaround Time :- Complete Time   - Arrival Time
+    Waiting Time    :- Turnaround Time - Burst Time
+    Response time   :- Cpu First time - Arrival time
+    Average Turnaround Time :- 29/4 = 7.25 
+    Average Waiting Time    :- 15/4 = 3.75   
+
+ 
+  
+  Multi-level Queue Scheduling :-
+   - In real life when we have multiple processes so why single ready queue is used
+   - There will be different queues must be for ever process
+   - Every process will be have it own algorithms
+   - (StarVashion)If too much higher priority process arise than lower level process not executed at time multi-level queue feedback use
+   Inter-Queue Scheduling :- Preemptive priority scheduling or RR(80% time for foreground processes and 20% time for background processes)
+   
+   Diagram :- 
+     Highest Priority ---> System Process  --> Round-Robin  ------|
+                                                                  |
+     Medium Priority  ---> Interactive Process ---> SJF   ------[ CPU ]      
+                                                                  |  
+     Lowest Priority  ---> Batch Process  -->       FCFS  ------|
+
+
+
+  Multi-level Feedback Queue Scheduline :-
+   - Lowest priority process give feedback and it slowely slowely update and execute
+   - It use for lower priority process
 
 
 
@@ -438,34 +613,5 @@ Unit - 2
     - better resource utilization 
     - easy communication 
     - parallelization
+ 
 
-
-
- What is Dispatcher :-
-  - Dispatcher is module of operating system that gives control of cpu to process selected by CPU scheduler   
-    Steps :-
-     - Switching Context
-     - Switching to User Mode
-     - Jumping to proper location in user program
-  - Dispatch Latency is time taken to stop process and start another
-  - It is pure overhead
-
-  Scheduling Criteria :-
-    - ↑ CPU utilization  - Percentage 
-    - ↑ Throughput       - Number of processes completed per unit time 
-    - ↓ Turnaround time  - Time from submission to completion (time spent in different queues + time spent in CPU 
-                                                               + time spent in different i/o devices) 
-    - ↓ Waiting time     - Time spent in ready queue (only) 
-    - ↓ Response time    - Time from submission to first response    
-
-
-
- Algorithm :-
-  Scheduling Algorithm :
-    - Used to select for execution
-
-    1)First-Come First-Served(FCFS) Scheduling :-
-      - Non-Preemptive
-      - High Average Waiting Time
-      - Convoy Effect - Several small processes may need to wait if large process is give the cpu   
-    
