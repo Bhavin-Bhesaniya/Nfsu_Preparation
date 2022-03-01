@@ -1,0 +1,67 @@
+Condition :-
+ If         :- if(expression){  //True code  }
+ if...else  :- if(expression){  //True code  } else { //False code }
+ if else ledder   :- if(expression){ //code } else if(expression){ //code } else { //False code}
+ Nested If.. else :- if(expression){ if(expression){ //code } else { //code } } else{ //code }
+
+
+Loop :- 
+ - Used to repeat block of code until specified condition is not false
+
+ For Loop :-
+  - Initialization statement is executed only once
+  - If test expression is evaluated to true loop code run if false loop is terminated.
+  - Update expression after condition is true
+  Syntax :- for(Initalization; Condition; Increment/Decrement){ //code }
+
+  FlowChart :- https://cdn.programiz.com/sites/tutorial2program/files/c-for-loop.jpg
+
+
+ While Loop :-
+  Syntax    :- while(expression){ //code  // Increment/Decrement } 
+  FlowChart :- https://cdn.programiz.com/sites/tutorial2program/files/c-while-loop_0.jpg
+
+
+ Do..While Loop :-
+  - Loop run at least one time in program
+  Syntax    :- do { //code // Increment/Decrement }while(expression)
+  FlowChart :- https://cdn.programiz.com/sites/tutorial2program/files/c-do-while-loop_0.jpg
+
+
+Statement :-
+ Break    :- Terminate loop immediately 
+ Continue :- Skips current iteration of loop and continues with next iteration
+ goto     :- Allows us to transfer control of program to specified label
+           - label is identifier When goto statement is encountered, control of program jumps to label: and starts executing code
+
+            Syntax :- goto label;
+                      label:
+                      statement;  
+            
+            Diagram :- https://cdn.programiz.com/sites/tutorial2program/files/c-goto-statement.jpg
+
+Switch Case :-
+ - Allows variable to be tested for equality against list of values
+ - Expression used in a switch statement must have an integral or enumerated type
+ - expression is evaluated once and compared with values of each case label
+ - If there is a match, corresponding statements after matching label are executed
+ - If there is no match, default statements are executed.
+ - Default clause inside switch statement is optional
+
+ Syntax :- switch(expression){
+                case constant1:
+                    // Statement   
+                    break; 
+                
+                case constant2:
+                    // Statement   
+                    break; 
+
+                default:
+                    // Statement
+                } 
+ 
+ Diagram :- https://cdn.programiz.com/sites/tutorial2program/files/flowchart-switch-statement.jpg
+
+
+
