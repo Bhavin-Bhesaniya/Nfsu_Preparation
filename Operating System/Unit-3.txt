@@ -1,0 +1,196 @@
+Unit-3 :-   
+ What is Process Synchronization :-
+  - If multiple processes run parallel there will be two mode either serial mode or parallel mode
+  - Serial model single process is executed completely like Non pre-emptive while in parallel mode multiple processes run
+  - Process can be categorized into two types :- Cooperative, Independent
+  - Cooperative process is type of process where one process execution affect other process execution because their share something
+    like variable, memory(Buffer), code and in resource CPU, Printer etc.. 
+  - In independent process one process execution does not affect other process execution they not share anything 
+  - Due to Cooperative process we need process synchronization otherwise sometime it will create problems
+
+
+
+  Race condition :- 
+   - Several processes Access and Manipulate same data concurrently and outcome of execution depending on particular order in 
+     which accesses take place
+   - Due to these lost of data, deadlock and many problems occure
+    
+    Example :- P1 and P2 process running on same system --> Constraint :UniProcessor
+    
+      int shared = 5;
+        P1             P2
+      int X=Shard;       int Y= Shard;
+      X++;               Y--;
+      Sleep(1);          Sleep(1);      // Sleep means pause process not cpu so cpu move using context switch
+      Shared = X;        Shared = Y;
+      ANS :- 6           4
+    
+     - If add one and remove one answer should be 5 but here 4 receive due to Cooperative process   
+     - These problem know as race condition
+
+
+
+  Producer Consumer Problem (Bounded Buffer Problem):-
+   Example :-
+    Consumer Code :-                                                
+      void consumer(void){                                            
+      int itemc;                                                    
+      while(true){                                                    
+        while(count==0)         // Buffer empty go to infinite loop                                   
+        item c = Buffer(Out);                                         
+        out = (out+1) mod n;    // Out local variable for buffer            
+        count = count - 1;                                              
+        process_item(itemc);  }}
+
+    Buffer :- n = 8 | Buffer[0...n-1] |
+
+    Producer Code :- 
+    int count = 0;  // Global variable share in both
+    void producer(void){
+      int itemp;
+      while(true){
+        produce_item(itemp);
+        while(count == n);     // n is size of buffer if true means buffer overflow so we not add any extra item
+        Buffer[in] = itemp;  
+        in = (in+1) mod n;     // In is local variable for buffer // modn is used to repoisition at zero if full
+        count = count - 1; }}
+
+
+    Case 1 :- Producer produce item --> x1 store In buffer using In variable than In value +1 
+              --> count value 1 --> consumer code run --> Consumer consume product in buffer 
+              --> out variable +1 --> count value -1 
+
+    How Cpu load process :- convert in microprocess
+                            load Rp, m[Count] (RP stored value in register)
+                            INCREMENT Rp;
+                            Store m[Count], Rp;
+
+    
+    Case 2 :- If process not synchronization
+    - Producer produce 3 items x1, x2, x3 so in Count = 3 --> Now producer again run time but these time during count value change
+      process pre-emptive and go to consumer process so in pcb store process with count 4 --> consumer consume product and decrement count
+      but at time process pre-emptive and count = 2 --> go to producer process and count = 4 due to pcb resume process
+      --> in consumer process run count =2 but in buffer item = 3 ans we  get ans = 2 
+      Flow => i1,i2 -> ci1,ci2 -> i3 -> c3     
+
+
+
+  Printer-Spooler Problem :-
+   - One printer in network different user use to print where printer is pheripheral device so it is very slower
+   - Spooler is program when multiple use print document it goes into spooler diretory and then spooler give one by one program
+     to printer sequentially
+   
+   Code :- If user need to add his document in spooler diretory
+    Load Ri, m[in]        // In is shared variable where m[in] memory location of in | Ri is register and i is process id
+    Store SD[Ri], "F-N"   // SD is spooler diretory and SD[Ri] Spooler diretory of zero store
+    Increment Ri
+    Store m[in], Ri 
+
+   Case 1 :- Store f1.doc in IN variable --> IN value = 0 --> It load in m[in] so Ri = 1 --> NoW SD = 1 in spooler diretory
+             Ri = 2, m[in] = 2
+
+   Case 2 :- p1 i1,i2,i3 In=3, R1 = 4 | p2 i1,i2,i3,i4 In =4, R2 = 4 | p1 i4 
+           - Override file on same location , loss of data 
+
+
+
+  Critical Section Problem :-
+   - Part of program where shared resources are accessed by various processes(Cooperative)
+   - Program has two part :- Critical section, Non-critical section
+   - Critical section is place shared variables or resources are placed
+   - Critical section enforcing due to two program use different operation on shared variables or resources to avoid:-
+      - Add entry barrier(Entry Section) before using critical section                       
+      - If one program entry section is passed another program not need to pass entry section
+      - After critical section execution there will be exit section 
+
+
+  
+  Condition For Synchronization :-
+   - We need to follow 4 Rules or say method need to pass these 4 rules
+   - First two Rules are primary rules must need to follow and 3,4 is secondary rules 
+   
+   Rules :-  
+   Mutual Exclusion :-
+    - If one process execute critical section we need to stop second process to execute critical section by using entry code section
+    - If we achieve it is called Mutual Exclusion means we allow one one process to execute critical section 
+
+   Progress :-
+    - If one process is interested to execute critical section but second process is not interested and it not allow 
+      first process to execute critical section because second process entry section is not allowing for that so progress is stopped
+    - So we need to write code where one process not stoping another process to execute critical section
+    - Progress is must in synchronization    
+
+   Bounded Wait :-
+    - If one process used critical section they must be condition where that process execute N no. of time only which we given 
+      not going in infinite 
+    - It must be condition if one process N time execute there must be second process used critical section N time which given   
+   
+   No Assumption related to hardware or speed :-
+    - If we given any solution related process synchronization it not be related to hardware or speed of process
+    - It must be portable for all OS
+     
+
+
+  Lock Variable / Test_and_Set :- 
+   - To Avoid Critical Problem Solution
+   - Execute in User Mode, MultiProcessor Solution, No Mutual Exclusion Gurantee 
+   - Main concept is if any on use critical section Acquire lock, work your process and release lock
+    
+    Example :- 
+      do {
+        Acquire Lock
+        Critical Section
+        Release Lock
+      }
+     
+    Pesudo Code :-
+      While(Lock == 1);  Entry
+      Lock = 1           Code
+      Critical Section
+      Lock = 0          Exit Code
+
+    Case 1:- Lock = 0 -> Show critical section is empty | Lock = 1 -> Show critical section is full
+
+    Case 2 :- p1 i1 pre-emptive | p2 i1,i2,i3 pre-emptive | come back run p1 i2 (Now lock value overwrite)  
+             - If pre-emption occure between i1 and i2 Mutual Exclusion not satisfy
+
+
+    To achieve Mutual Exclusion Use "Test_and_Set" instructions :-
+    - It combined instruction 1 and 2 and make test_and_set instructions so it avoid pre-emptive between i1 and i2
+    
+    Example :- 
+      while(test_and_set(&lock));   // Call by reference we pass address
+      critical section
+      lock = false;
+
+      boolean test_and_set(boolean *traget){ // target pointer variable 
+        boolean r = *traget;
+        *traget = True;
+        return r;
+      }
+    
+      lock(False/1000) <-- target(1000)  R(False/1000)     
+        True
+
+
+
+  Turn Variable (Strict Alteration):-   
+   - Only work on 2 Process 
+   - Run in USER Mode
+   - Mutual Exclusion, progress, Bounded wait, Independent are all achieve
+
+   Example :-
+    P1                        P2
+    While(!turn = 0);         While(!turn = 1);   -> Entry Code
+    Critical Section          Critical Section
+    turn = 1;                 turn = 0;           -> Exit Code
+
+
+
+  SemaPhores :-
+   - It is tool or method to prevent race condition
+   - SemaPhore it is integer variable which is used in mutual exclusive manner by various concurrent coperative process
+     in order to achieve process synchronization
+   Types :- 
+    Counting (-infinite to + infinite)
+    Binary   (0,1)  
