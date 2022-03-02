@@ -412,6 +412,84 @@ Unit - 2 :-
 
 
 
+ What is Thread :-
+  - Thread is component of process or lightweight process
+  - It is smallest sequences of instructions that can be independently managed by CPU scheduler
+  - Multiple Thread can exists within same process, executing concurrently and share resources such as memory
+  - Threads of process share its instructions(Executable Code) and its context(value of its variable at given any moment)
+  - Thread contain thread ID, Program Counter, register set and stack
+  - Each thread represent separate flow of control
+  - Fork() is system call which used to generate child process(Process clone) :- 2(^n)-1 
+  Diagram :- https://www.tutorialspoint.com/operating_system/images/thread_processes.jpg
+
+
+  Difference between Process and Thread :-
+   - Os treat different process differently while all user level thread as single task for OS
+   - Context switching between thread typically faster than process
+   - In process system call invovled while in thread no system call invovled
+   - Blocking process not block another process while blocking thread will block entire process(I/O request so block)
+   - Process are typically independent while thread exist as parts of process so it is dependent on process
+   - Process contain more state information than threads
+   - Different process have different address, data, code whereas threads share same copy of data and code but stack, registers different 
+   - Thread share data and code but different stack and registers
+
+
+  Advantages of Multi-Thread Programming :-
+   - Better resource utilization with minimize resources utilization
+   - Responsiveness so program Faster execution 
+   - Easy communication 
+   - Parallelization
+
+
+  Types Of Thread :-
+   User Level 
+    - User manage thread where kernel is not aware of existence of thread
+    - Thread library manage code for creating, destroying, passing message and data between threads,
+      scheduling thread execution and saving and restoring thread contexts.
+    - It does not require kernel mode privileges
+    - pthread.h library used to create threads
+    Diagram :- https://www.tutorialspoint.com/operating_system/images/user_threads.jpg 
+  
+   Kernel Level :-
+    - Kernel maintains context information for process as whole and for individuals threads within process
+    - Kernel performs thread creation(similar to create process), scheduling and management in Kernel space using system call. 
+    - Simultaneously schedule multiple threads from same process on multiple processes
+  
+   Difference between User level and Kernel level thread :- 
+    - User level thread are managed by user thread library while kernel level managed by OS 
+    - User level are faster to create and manage where kernel level is slower to create and manage
+    - Context switching in user level thread is faster than kernel level thread
+    - If user level thread perform blocking operation then entire process is blocked while in kernel level blocking not affect other
+    - User thread Generic and run on any OS while kernel thread OS Specific
+    - In User thread Multi-threaded application cannot take advantage of multiprocessing while kernel routine themselves multithreaded
+
+  
+  Multi-threading Models :- 
+   - Combination of User level thread and Kernel level thread 
+   - Combined Threads can run in parallel on multiple processors and blocking system call not block entire process. 
+   
+   Types :-
+   Many To Many Model :-
+    - Multiplexes any number of user threads onto equal or smaller number of kernel threads so parallel run on multiprocessor machine
+    - Best accuracy and concurrency when thread performs blocking system call, kernel can schedule another thread for execution  
+    Diagram :- https://www.tutorialspoint.com/operating_system/images/many_to_many.jpg Ex:- Solaris
+
+   Many To One Model :-
+    - Many user level threads to one Kernel-level thread done by thread library 
+    - When thread makes blocking system call, entire process will be blocked. 
+    - Only one thread can access Kernel at time, so multiple threads are unable to run in parallel on multiprocessors.
+    - If user-level thread library not support by OS these mechanisms use
+   
+   One To One Model :-
+    - one-to-one relationship of user-level thread to kernel-level
+    - Provide more concurrency than the many-to-one model
+    - Allow other thread to run when thread makes blocking system call. 
+    - It supports multiple threads to execute in parallel on microprocessors
+    - Disadvantage of this model is that creating user thread requires the corresponding Kernel thread
+    - Ex :- Linux
+
+
+
  Scheduling Algorithm :-
   - Gantt Chart(Henry Gantt)  Use to sloveing numerical calculation
   - Used to select process for execution 
@@ -441,6 +519,7 @@ Unit - 2 :-
     Response time   :- Time at first cpu got first time - Arrival time
     Average Turnaround Time :- 2 + 3 + 3 + 6 = 14/4 = 3.5
     Average Waiting Time    :- 0 + 1 + 0 + 2 = 3/4  = 0.75 
+
 
 
   Shortest-Job-First(SJF) Scheduling :-
@@ -577,28 +656,3 @@ Unit - 2 :-
   Multi-level Feedback Queue Scheduline :-
    - Lowest priority process give feedback and it slowely slowely update and execute
    - It use for lower priority process
-
-
-
- What is Thread :-
-  - Thread is smallest sequences of instructions that can be managed independently by scheduler
-  - Thread is component of process
-  - Multiple Thread can exists within same process, executing concurrently and share resources such as memory
-  - Threads of process share its instructions(Executable Code ) and its context(value of its variable at given any moment)
-
-  Difference between Process and Thread :-
-   - processes are typically independent while threads exist as parts of a process
-   - processes carry considerably more state information than threads
-   - multiple threads within a process share process state as well as memory and other resources 
-   - processes have separate address spaces, whereas threads share their address space
-   - processes interact only through system-provided inter-process communication mechanisms
-   - context switching between threads in same process is typically faster than context switching between processes
-
-  Advantages of Multi-Thread Programming :-
-    - responsiveness 
-    - faster execution 
-    - better resource utilization 
-    - easy communication 
-    - parallelization
- 
-
