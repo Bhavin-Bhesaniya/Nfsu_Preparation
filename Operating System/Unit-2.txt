@@ -1,6 +1,18 @@
 Unit - 2 :-
 
- What is process creation and termination :- 
+ Topics :-
+  - What is Process Creation and Termination
+  - What is Process?
+  - What is Process State
+  - What is PCB(Process Control Block)
+  - What is Process Scheduling
+  - What is Context Switching
+  - Inter-Process Communication
+  - What is Thread
+  - Scheduling Algorithm
+
+
+ What is Process Creation and Termination :- 
   - When user started executing program it become process
   - Each process has unique id
   - Process may obtain resources either from its parent process or from operating system directly
@@ -64,7 +76,7 @@ Unit - 2 :-
   
 
 
- What is Process scheduling :-
+ What is Process Scheduling :-
   - OS maintenance all PCBs in Process Scheduling queues which used to perform process scheduling
     
   OS maintenance following important process scheduling queues :-

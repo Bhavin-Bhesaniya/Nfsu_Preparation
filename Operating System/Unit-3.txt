@@ -1,4 +1,14 @@
-Unit-3 :-   
+ Topics :- 
+  - Process Synchronization
+  - Race Condition
+  - Producer Consumer Problem(Bounded Buffer Problem)
+  - Printer- Spooler Problem
+  - Critical Section Problem
+  - Condition For Synchronization
+  - Lock Variable/ Test_and_Set
+  - Turn Variable (Strict Alteration)
+  - SemaPhores
+
  What is Process Synchronization :-
   - If multiple processes run parallel there will be two mode either serial mode or parallel mode
   - Serial model single process is executed completely like Non pre-emptive while in parallel mode multiple processes run
@@ -10,7 +20,7 @@ Unit-3 :-
 
 
 
-  Race condition :- 
+ Race condition :- 
    - Several processes Access and Manipulate same data concurrently and outcome of execution depending on particular order in 
      which accesses take place
    - Due to these lost of data, deadlock and many problems occure
@@ -30,7 +40,7 @@ Unit-3 :-
 
 
 
-  Producer Consumer Problem (Bounded Buffer Problem):-
+ Producer Consumer Problem (Bounded Buffer Problem):-
    Example :-
     Consumer Code :-                                                
       void consumer(void){                                            
@@ -75,7 +85,7 @@ Unit-3 :-
 
 
 
-  Printer-Spooler Problem :-
+ Printer-Spooler Problem :-
    - One printer in network different user use to print where printer is pheripheral device so it is very slower
    - Spooler is program when multiple use print document it goes into spooler diretory and then spooler give one by one program
      to printer sequentially
@@ -94,7 +104,7 @@ Unit-3 :-
 
 
 
-  Critical Section Problem :-
+ Critical Section Problem :-
    - Part of program where shared resources are accessed by various processes(Cooperative)
    - Program has two part :- Critical section, Non-critical section
    - Critical section is place shared variables or resources are placed
@@ -105,7 +115,7 @@ Unit-3 :-
 
 
   
-  Condition For Synchronization :-
+ Condition For Synchronization :-
    - We need to follow 4 Rules or say method need to pass these 4 rules
    - First two Rules are primary rules must need to follow and 3,4 is secondary rules 
    
@@ -131,7 +141,7 @@ Unit-3 :-
      
 
 
-  Lock Variable / Test_and_Set :- 
+ Lock Variable / Test_and_Set :- 
    - To Avoid Critical Problem Solution
    - Execute in User Mode, MultiProcessor Solution, No Mutual Exclusion Gurantee 
    - Main concept is if any on use critical section Acquire lock, work your process and release lock
@@ -174,7 +184,7 @@ Unit-3 :-
 
 
 
-  Turn Variable (Strict Alteration):-   
+ Turn Variable (Strict Alteration):-   
    - Only work on 2 Process 
    - Run in USER Mode
    - Mutual Exclusion, progress, Bounded wait, Independent are all achieve
@@ -187,7 +197,7 @@ Unit-3 :-
 
 
 
-  SemaPhores :-
+ SemaPhores :-
    - It is tool or method to prevent race condition
    - SemaPhore it is integer variable which is used in mutual exclusive manner by various concurrent coperative process
      in order to achieve process synchronization

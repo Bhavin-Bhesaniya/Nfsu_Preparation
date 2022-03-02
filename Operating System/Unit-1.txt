@@ -1,5 +1,14 @@
 Glavin
-Unit - 1 
+ Topics :-
+  - What is Computer and Other Defination
+  - What is OS?
+  - OS Structure Type
+  - OS Duties/ Function / Services
+  - Types Of OS 
+  - OS Processing Types
+  - What is System Call 
+  - What is Booting
+  
 
  What is Computer and Other Defination?
   Computer :- General purpose device that execute sequences of instruction to perform numerical calculations and other tasks. 
