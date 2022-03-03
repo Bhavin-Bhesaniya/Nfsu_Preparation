@@ -155,7 +155,7 @@ Unit - 2 :-
 
  
  
- Inter-Process communication :-
+ Inter-Process communication (IPC):-
   - Reason
     - Information sharing
     - Computational Speedup

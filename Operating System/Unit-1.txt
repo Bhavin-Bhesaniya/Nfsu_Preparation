@@ -8,6 +8,7 @@ Glavin
   - OS Processing Types
   - What is System Call 
   - What is Booting
+  - What is Kernel
   
 
  What is Computer and Other Defination?
@@ -30,10 +31,10 @@ Glavin
 
 
  What is OS?
-  - OS is a piece of software that manages all resources of computer system, both hardware and software 
-    and provides an environment in which user can execute their program in convenient and efficient manner.
+  - OS is a piece of software that manages all resources of computer system and provides an environment in which user can 
+    execute their program
   - OS is program that acts as interface between user and computer hardware and controls execution of all kinds of programs
-  - First OS is ATLAS developed by Manchester University in late 1950s and early 1960s based on batch operating systems
+  - First OS is ATLAS developed by Tom Kilburn professoor Manchester University in 1962 
 
    Diagram :- https://www.tutorialspoint.com/operating_system/images/conceptual_view.jpg
 
@@ -150,7 +151,7 @@ Glavin
     - Switching of job in CPU is so fast we feel that different process is executing simultaneously
     - Quick Response Time so Reduce CPU IDLE Time
     - Due to its fast switching Security arise with program and data also with data communication and its reliability 
-
+    - VxWorks, QNX & RTLinux are real-time operating systems. Palm OS is a mobile operating system for Personal Digital Assistant(PDA) 
     Example :-
      3 Process need to execute ---> Share processor time among them (Share is based on scheduling) (Time Quantam)
      
@@ -262,3 +263,22 @@ Glavin
   Types :- 
     Hard Booting - Power On system
     Soft Booting - Restart / Ctrl + Alt + Del twice
+
+
+  
+ What is Kernel :- 
+  - Kernel is central component of an operating system that manages operations of computer and hardware. 
+  - It basically manages operations of memory and CPU time. 
+  - It is core component of an operating system. 
+  - Kernel acts as a bridge between applications and data processing performed at hardware level using inter-process communication
+    and system calls.
+  - It decides which process should be allocated to processor to execute and which process should be kept in main memory to execute.
+
+  Objectives of Kernel :
+   - To establish communication between user level application and hardware.
+   - To decide state of incoming processes.
+   - To control disk management.
+   - To control memory management.
+   - To control task management.  
+
+    

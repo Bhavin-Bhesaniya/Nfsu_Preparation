@@ -198,9 +198,101 @@
 
 
  SemaPhores :-
-   - It is tool or method to prevent race condition
-   - SemaPhore it is integer variable which is used in mutual exclusive manner by various concurrent coperative process
-     in order to achieve process synchronization
+  - It is tool or method to prevent race condition
+  - SemaPhore it is integer variable which is used in mutual exclusive manner by various concurrent coperative process
+    in order to achieve process synchronization
+   
    Types :- 
     Counting (-infinite to + infinite)
-    Binary   (0,1)  
+    Binary   (0,1) By default value is 1
+
+    Operation :-
+     P(), Down, Wait                    :- Use in Entry Code and reduce pre-defined value of semaPhore
+     V(), Up, Signal, Post, Release     :- Use in Exit Code and plus value of semaPhore
+
+
+   Example :- 
+    - In starting critical section is total free and multiple processes want to enter into critical section
+    - In entry section Down() code and Up() code are running
+
+    Down(SemaPhore S){          // U can use any synonymous of Down like P() or Wait() | S is semaPhore Variable Name
+      S value = S.value - 1;    // Inital value 3 now S = 2 | Now P2 Come S = 1 | Now P3 Come S = 0 | Now P4 Come S = -1
+      if(S.value<0){            // Condition false so P1 go in critical section | Now P2 also go in critical section | P3 also
+        Put Process(PCB) in Suspended list, sleep();  // P4 in Sleep Mode or say We Block Process list
+      }else{ return; } }  
+    
+    - If semaPhore value -4 we can estimate that already 4 processes in block list
+    - If SemaPhore value 0 no other processes can enter in critical section and No Process in Suspended list or Block List
+    - Now if process come from critical section it need to execute exit code (Up())  
+    - At present semaPhore value is -1 and in critical section p1,p2,p3 and in block list p4
+    - Wake up means convert process from block list to ready queue
+
+    Up(SemaPhore S){          // U can use any synonymous of Up like V() or Signal() or Post() | S is semaPhore Variable Name
+      S.value = S.value + 1;  // Now S value = 0 and P4 in ready queue not in critical section it will try to go in critical section 
+      if(S.value <=  0){      
+        Select Process(PCB) from Suspended list wake up(); 
+      }
+    }
+
+    - Now P4 try to enter critical section but S = -1 so p4 again in Block List
+    - Now p3 come from critical section Now S value = 0
+    
+
+    Case 2 :-
+     - SemaPhore value is = 10 so 10 process can go in critical section 
+     - Now i perform 6P() operation and 4V() operation what will be final result = 10 -6 = 4 + 4 = 8 
+
+
+   Binary SemaPhore :-  
+    - Integer Variable value is either 0 or 1
+    - If SemaPhore value inital 1 so process have chance to go in critical section and perform if 0 so process is blocked
+    - Not going in -1 because it is binary
+    - If inital semaPhore value for all process is 0 then process will be deadlock
+
+    Operation :-
+    Down(SemaPhore S){    // S value = 1
+      if(S.Value == 1){
+        S.Value = 0;     // SuccessFull Operation means process operation in Down S = 0 
+      }else{
+        Sleep(); // Block These Process and Place in Suspended list
+      }
+    }
+    S = 1 0, 0 0
+    S = 0 1, 1 1 
+
+    Up(SemaPhore S){     // S value = 0         
+      if(Suspended list is empty){ // If no process is here value 1 otherwise go into else and wakeUp
+        S.value = 1;
+      }else{
+        wakeUp(); // Select Process from Suspended list
+      }
+    }
+   
+
+   Question Solution :- What is maximum no of processes that may present in CS at any point of time?
+    - 10 Process pi{i = 1 to 9} execute these code | mutex = 1
+     repeat
+      p(Mutex) - Entry Code
+      cs
+      v(mutex) - Exit Code
+     forever    
+  
+    - P10 execute v(mutex) - in entry code and exit code
+     repeat
+      V(Mutex) - Entry Code
+      cs
+      V(mutex) - Exit Code
+     forever
+    
+    Case 1 :- Mutex 1 0 1
+
+    Case 2 :- Mutex  1 0 0(P2 block) 
+              but P10 run Mutex 0 to 1 so P1,P10 in critical section 
+              Mutex 1 0 P2 also in critical section
+              P10 release from critical section so Mutex 0 to 1 and P3 in critical section So Mutex 1 to 0
+              Now P10 again join and release     
+    
+
+   Question Solution :- Producer Consumer Problem Using SemaPhore
+   Question Solution :- Reader Writer Problem Using SemaPhore
+   Question Solution :- Dining philosopher Problem Using SemaPhore
