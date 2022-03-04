@@ -5,7 +5,7 @@ Glavin
   - OS Structure Type
   - OS Duties/ Function / Services
   - Types Of OS 
-  - OS Processing Types
+  - What is Spooling
   - What is System Call 
   - What is Booting
   - What is Kernel
@@ -30,6 +30,7 @@ Glavin
 
 
 
+
  What is OS?
   - OS is system program that acts as interface between user and computer hardware which controls execution of all kinds of programs
     and manages all resources of computer system
@@ -40,6 +41,7 @@ Glavin
     - Throughput  : Number of tasks executed per unit time  (Linux)
 
  
+
 
  Os Duties / Function / Services :- 
 
@@ -60,6 +62,11 @@ Glavin
    - Allocating and deallocating memory space of Primary(Main) Memory because size limits
    - Keep track of memory to identify which part being used by which job(Process) 
    - Program must execute in Main Memory(RAM) 
+
+  Protection | Security & Privacy:-
+   - OS ensures that all access to system resources is controlled
+   - Ensure that external I/O devices are protected from invalid access attempt
+   - Windows use Kerberos Security Protocol
   
   I/O Operation | I/O Management | Device Management :-
    - OS Manage device communication between User and Device via their respective drivers 
@@ -70,201 +77,204 @@ Glavin
    - Both processes can be on one computer or on different computers, but they are connected through computer network
    - Communication may be implemented by two methods, either by Shared Memory or by Message Passing.
 
-
   Error Handling / Error detection :-
-   - OS constantly checks errors and takes appropriate action to ensure correct and consistent computing    
- 
-  Protection / Security :-
-   - OS ensures that all access to system resources is controlled
-   - Ensures that external I/O devices are protected from invalid access attempt   
- 
-  Control Over System Performance :-
-   - Recording delays between request for service and response from system 
+   - OS constantly checks errors and takes appropriate action to ensure correct and consistent computing     
+
 
 
 
  OS Structures type :-  
   
   Monolithic Architecture :-   
-   - Entire OS working in kernel space. 
-   - Kernel provides various services such as memory management, file management, process scheduling etc. using function calls.
+   - Entire OS working in kernel space 
+   - Kernel provides various services such as memory management, file management, process scheduling etc. using system calls.
    - Execution is so fast and process run completely in single address space
    - It is static single binary file
    - If any service fails its lead to entire system failure and to add new services entire architecture needs to modify
-     Example :- MS DOS, Unix, Linux
-     Diagram :- https://www.tutorialspoint.com/assets/questions/media/11413/Monolithic%20Kernel.PNG
+   Example :- MS DOS, Unix, Linux, Open VMS, XTS-400
 
 
   Layered Architecture :-
-   - OS is broken into number of layers (levels) where every layer has different functionality
-   - Bottom layer (layer 0) is the hardware and topmost layer (layer N) is user interface
-   - These layers are so designed that each layer uses function of lower level layers only.
-   - All layers can be defined separately and interact with each other as required.
+   - OS broken into number of layers (levels) where every layer has different functionality
+   - Bottom layer (layer 0) is hardware and topmost layer (layer N) is user interface
+   - Each layer uses function of lower level layers only
+   - All layers defined separately and interact with each other as required
    - Change in one layer specification does not affect rest of layers.
    - Layer 1 to 6:- Hardware, CPU Scheduling, Memory Management, Process Management, I/O Buffer, User Program
-     Example :- Windows NT
-     Diagram :- https://www.tutorialspoint.com/assets/questions/media/11495/Layered%20OS.PNG
+    Example :- Windows NT
+   
     
-
   Microkernel Architecture :-  
    - Minimum software that is required to correctly implement an operating syste
-   - This includes memory, process scheduling mechanisms and basic inter-process communication
-   - Designs operating system by removing all non-essential components from kernel and implementing them as system and user programs. 
-   - Smaller kernel called the micro-kernel. 
-   - All new services need to be added to user space and does not require kernel to be modified which increased security and stability.
-   - Thus if any service fails then rest of operating system remains untouched. 
-     Example :- MacOS
-     Diagram :- https://www.tutorialspoint.com/assets/questions/media/11412/Microkernel%20Operating%20System.PNG
-
+   - Includes virtual memory, process scheduling and basic inter-process communication
+   - In Microkernel Removed all non-essential components from kernel and implementing them as system and user programs
+   - New services added in user space and does not require kernel to be modified which increased security and stability.
+   - If any service fails then rest of operating system remains untouched. 
+   Example :- MacOS, Mach, L4, AmigaOS, Minix, K42
+     
 
   Modular Architecture :-
-   - As name suggests it is type of kernel in which some parts of system core will get allocated in independent files called modules. 
-   - This can be added to system at run time. 
-   - It usually requires small amount of time of load modules. 
-   - If one needs a new module, then they won’t have to recompile.
+   - Type of kernel in which core system parts allocated in independent files called modules
+   - It added to system at run time
+   - Requires small amount of time for load modules
+   - Needs new module then they won’t have to recompile
   
+
+  Hybrid Kernel :-
+   - Combination of both monolithic kernel and mircrokernel
+   - It has speed and design of monolithic kernel and modularity and stability of microkernel.
+   Example :- Windows NT, Netware, BeOS
+
+
 
 
  Types of operating systems – 
-    Single process operating system    :- MS DOS, 1981
-    Multiprogramming operating system  :- Dijkstra, early 1960s
-    Multitasking operating system      :- CTSS, MIT, early 1960s 
+   Single process operating system    :- MS DOS, 1981
+   Multiprogramming operating system  :- Dijkstra, early 1960s
+   Multitasking operating system      :- CTSS, MIT, early 1960s 
 
 
-   Batch Operating System / Batch Processing :-
-    - Lack of interaction between user and job.
-    - OS define job in predefined sequence of commands, programs and data as a single unit.
-    - Jobs are processed in order of submission Ex.:- First Come First Served(FCFS) fashion
-    - There is an operator which takes similar jobs having same requirement and group them into batches.
-    - When job completes its execution, its memory is released and output job gets copied into output device for later processing.
+  Batch Operating System | Batch Processing :-
+   - Similar kind of process(Job) batch given to computer so it can execute it
+   - OS define job in predefined sequence of commands, programs and data as a single unit.
+   - Jobs are processed in order of submission First Come First Served(FCFS) fashion
+   - There is an operator which takes similar jobs having same requirement and group them into batches.
+   - When job completes its execution, its memory is released and output job gets copied into output device for later processing.
+   - When job request for I/O at time CPU is Idle which is major disadvantages (Non-Preemption)
+   - IBM create FORTRAN Alone with IBSYS 709X in 1960 
+
+   Example :-
+    User ---> Set Job in ROM device ---> Go to operator ---> Operator group similar job and execute 
+    ---> One time one process execute (No particular time for output) ---> Output is write to disk and get to user from operator
+    ---> User use output in own system for process  
      
-    Example :-
-      User ---> Set Job in ROM device ---> Go to operator ---> Operator group similar job and execute 
-      ---> One time one process execute (No particular time for output) ---> Output is write to disk and get to user from operator
-      ---> User use output in own system for process  
-     
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/batch_processing.jpg
+   Diagram :- https://www.tutorialspoint.com/operating_system/images/batch_processing.jpg
 
 
-   Time-Sharing operating system :-
-    - Sharing processor time among multiple processes
-    - Each task given some time to execute so that all tasks work smoothly
-    - OS uses CPU scheduling and multiprogramming to provide each process small portion of time
-    - Switching of job in CPU is so fast we feel that different process is executing simultaneously
-    - Quick Response Time so Reduce CPU IDLE Time
-    - Due to its fast switching Security arise with program and data also with data communication and its reliability 
-    - VxWorks, QNX & RTLinux are real-time operating systems. Palm OS is a mobile operating system for Personal Digital Assistant(PDA) 
-    Example :-
-     3 Process need to execute ---> Share processor time among them (Share is based on scheduling) (Time Quantam)
-     
 
-   Distributed Operating System :-
-    - Use multiple central processors to serve multiple real-time applications to multiple users.
-    - Processors communicate with one another through various communication lines like network connection
-    - It also referred as loosely coupled system
-    - With resource sharing facility, user at one site may be able to use resources available at another side.
-    - Reduction of delays in processing and loading on host computer
-    - If these processors connect with local network (Single network) like single server it is called cluster operating system
-    - OS distribute computation logics among several physical processors
-    - Processors do not share memory or a clock Instead, each processor has its own local memory, storage etc...
-    - Main advantage is availability, if any system fail another load balancing that system so its improved Scalability     
+  Multiprogramming :- IDLENESS
+   - Multiprogramming increases CPU utilization by keeping multiple jobs(process) in main memory so that CPU always has one to execute
+   - OS keeps several jobs in main memory at time and pick one jobs from its job pull using CPU scheduling
+   - It is NonPre-emptive scheduling means if we give one process to cpu, cpu will complete that entire process and only after complete
+     process pick another process
+   - Sometime cpu will go for I/O operation at that time cpu will pick up another process from job pull So cpu IDEL time is zero   
+   Diagram :- https://www.tutorialspoint.com/operating_system/images/memory_layout.jpg
 
 
-   Network Operating System :-
-    - Runs on server computer and provides server capability to manage application, user data and other networking functionality
-    - Purpose to allow shared file and printer access among multiple computers in a network, 
-      typically local area network (LAN), private network or to other networks.
-    - Centeralized Server so security managed and software upgrade easily and enable remote access 
-    - Dependency on central server, High cost , Regular maintenance and update are some disadvantages
+
+  Multitasking | Time-Sharing :- Responsiveness
+   - Logical extension of Multi-Programming also known as Time-sharing system
+   - Sharing processor time among multiple processes by CPU Scheduling 
+   - Each process given small portion of time in which process need to complete its execution
+   - CPU executes multiple tasks by switching among them which Reduce CPU IDLE time
+   - It is pre-emptive means Processor gives particular time for each process after than it automatically move to second process 
+     but first process still available if not complete in within given time
+   - Due to its fast switching Security arise with program data, data communication and its reliability 
+   - Response time should be minimal
+   Example :- 3 Process need to execute ---> Share processor time among them (Share is based on scheduling) (Time Quantam)
+   Diagram :- https://www.tutorialspoint.com/operating_system/images/multitasking.jpg    
 
 
-   Real Time operating System :-
-    - Real-time operating system (RTOS) fixed time constraints system
-    - Defined as data processing system in which time interval required to process and respond to inputs is so small that 
-      it controls environment.   
-    - Time taken by system to respond input and display required updated information is termed as response time.
-    - Time constraint matter lot and can't be delays
+
+  Real Time operating System :-
+   - Real-time operating system (RTOS) Fixed time Constraint system where time constraint matter lot and can't be delays
+   - Time taken by system to respond input and display required updated information is termed as response time   
+   - VxWorks, QNX & RTLinux are real-time operating systems and Palm OS is a mobile operating system for Personal Digital Assistant(PDA) 
+   Example :- Embedded systems, Robotics, Scientific utilities, etc.
     
-    Example :- Embedded systems, Robotics, Scientific utilities, etc.
-    
-    Types :-
-     Hard-Real Time System :-
-      - Critical tasks needs to complete on time there no place for delays 
-
-     Soft-Real Time System :-
-      - Less restrictive with limited utility than hard-real time system
+   Types :-
+    Hard-Real Time System :- Critical tasks needs to complete on time there no place for delays 
+    Soft-Real Time System :- Less restrictive with limited utility than hard-real time system
 
 
-   Embedded Systems :-
-    - Work on fixed machine like a.c.
-    - You can't customally change its functionality 
+
+  Distributed Operating System | Cluster :-
+   - Multiple Processors serve Multiple applications to multiple users using Central Processor
+   - Processor communicate with each other through various communication lines like network connection which referred as loosely coupled
+   - OS distribute computation logics among several physical processors
+   - Reduction of delays in processing and loading on host computer
+   - Processors do not share memory instead each processor has its own local memory, storage etc...
+   - Main advantage is availability, if any system fail another load balancing that system so its improved Scalability     
+   - If Processors connect with local network (Single network) like Single server it is called "Cluster Operating System"
+
+
+ 
+  Embedded Systems :-
+   - Work on fixed machine like A.C.
+   - You can't customally change its functionality  
+
+
+
+  Network Operating System :-
+   - Runs on server computer and provides server capability to manage application, user data and other networking functionality
+   - Purpose to allow shared file and printer access among multiple computers in a network, 
+     typically local area network (LAN), private network or to other networks.
+   - Centeralized Server so security managed and software upgrade easily and enable remote access 
+   - Dependency on central server, High cost , Regular maintenance and update are some disadvantages
+
+
+
+
+ Spooling(Simultaneous Pheripheral Operations Online) :- 
+   - Different Pheripheral devices(I/O Device) can run simultaneously 
+   - Provide buffer area in secondary memory to save CPU time and user not need to wait for I/O process
+   Diagram :- https://www.tutorialspoint.com/operating_system/images/spooling.jpg
  
 
-
- OS Processing Type :-
-
-   Multiprogramming :-
-    - Multiprogramming increases CPU utilization by keeping multiple jobs(process) in main memory so that CPU always has one to execute
-    - OS keeps several jobs in main memory at time and pick one jobs from its job pull using scheduling
-    - It is NonPre-emptive scheduling means if we give one process to cpu, cpu will complete that entire process and only after complete
-      one process pick another process
-    - Sometime cpu will go for I/O operation at that time cpu will pick up another process from job pull So cpu idel time is zero   
-    - High efficient cpu utilization and user feels many programs run simultaneously
-    - Cpu scheduling is required
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/memory_layout.jpg
-
-
-   Multitasking / Time-Sharing :-
-    - Multitasking is logical extension of multiprogramming also known as Time-sharing systems
-    - CPU executes multiple tasks by switching among them. 
-    - It is pre-emptive means we already give process particular time after than automatically move to second process but
-      first process still available if not complete in within given time
-    - Response time should be minimal and it's required scheduling 
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/multitasking.jpg   
-
-
-   Spooling(Simultaneous Pheripheral Operations Online) :- 
-    - Different Pheripheral devices(I/O Device) can run simultaneously 
-    - Provide buffer area in secondary memory which is accessible to I/O devices.
-    - It save CPU time and user not need to wait for I/O process
-      
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/spooling.jpg
- 
 
 
  What is SystemCall :-
-  - If we need to use any system functionality we need to go in kernel mode because we only can access user mode
-  - To go in kernel mode we use system call   
-  - System call is mechanism using which user program request kernel to access system functionality 
-  - User program invokes system calls when it requires such services like accessing I/O devices and communicating other programs.
-  
-  Example :-
-   - In UNIX, a new process is created by fork() system call. 
-   - fork() system call returns a process ID which is generally the process id of the child process created.  
-   - Wait() system call is used by parent process to determine termination of child process. 
-   - Parent process uses wait() system call and gets exit status of child process as well as PID of child process which is terminated
-     
- 
+  - To use system functionality we need to go in kernel mode because we only can access user mode
+  - System call is mechanism using which user program request kernel to access system functionalities
+  - User program invokes system call when it require such services like accessing I/O devices and communicating other programs.
+
+
   Type of System Call :- 
-   E.x. :- Fork, exec, getpid, getppid, wait, exit. 
-    File related                  (Open, read, write) 
-    device related                (Hardware)(Print something)
-    Information(Process related)  (Display time or other)
-    Process Control(load, abort in main memory) Fork --> Process create its child process,
-    Communication(Inter-Process communication)  (Pipe, shmget, create/delete connection)
-    Security                                    (chmod, umask)
+   E.x. :- Fork, exec, getpid, getppid, wait, exit
+    File                        :- Open, read, write, close, create file
+    Device                      :- Read, write, Repoisition, 
+                                   iocte(manipulates underlying device parameter of special files) 
+                                   fcnte (access point for several advanced operations on file descriptors)
+    Security                    :- chmod(Chagen Privilege Mode), umask
+    Process Control             :- load, abort, execute, fork, wait, signal, allocate
+    Information                 :- getpid, attribute, get system data
+    Inter-Process Communication :- Pipe, shmget(Get Shared Memory), create/delete connection
+  
+   Fork :-
+    - In UNIX Fork() Create child process of parent process
+    - Returns process ID which is generally process id of child process
+    - Return value 0 :- Child process , 1 :- Parent process, -1 : if child process not created
+    - Formula :- 2N-1 (Parent process) | 2N (Child process)
+
+   Exec :- exec replace current process with another (different) one
+
+   Wait :-
+    - Used by parent process to determine termination of child process
+    - Parent process uses Wait() system call and gets exit status of child process as well as PID of child process which is terminated 
  
+
   Dual-mode operation :-
-    - User mode 
-    - Kernel mode / supervisor mode / system mode / privileged mode 
-    Mode bit– 0: kernel, 1: user 
+   - User mode 
+   - Kernel mode | supervisor mode | system mode | privileged mode 
+   Mode bit :-  0 : Kernel, 1 : User 
+
+   Example :- 
+    User Mode                                                                 Mode Bit = 1
+        User Process Executing --> Get System Call \                / Return From System Call
+                                                    \ 1 trap     1 / 
+    ----------------------------------------------------------------------------------------------------
+                                                      \ 0      0 /
+    Kernel Mode                                   Execute System Call        Mode Bit = 0 
+              
+    - All core functionality are executed in kernel mode  
+
 
 
 
  What is Booting :-
   - Booting is process of starting computer and loading kernel.
-  - When computer power is turned on Then cpu will move to BIOS(Basic Input Output System) in ROM 
-  - BIOS run process power-on self-tests (POST) which check all hardware
+  - When computer power is turned on then cpu will move to BIOS(Basic Input Output System) in ROM 
+  - BIOS run process power-on self-test (POST) which check all hardware
   - On POST process successful BIOS load MBR(Master Boot Record) to RAM
   - Now MBR load bootstrap loader to RAM
   - bootstrap loader loads OS, Kernel and much more in RAM
@@ -274,20 +284,16 @@ Glavin
     Soft Booting - Restart / Ctrl + Alt + Del twice
 
 
-  
+
+
  What is Kernel :- 
-  - Kernel is central component of an operating system that manages operations of computer and hardware. 
-  - It basically manages operations of memory and CPU time. 
-  - It is core component of an operating system. 
-  - Kernel acts as a bridge between applications and data processing performed at hardware level using inter-process communication
-    and system calls.
-  - It decides which process should be allocated to processor to execute and which process should be kept in main memory to execute.
+  - Kernel is core central component of an operating system that manages all operations of computer and hardware. 
+  - It acts as bridge between applications and data processing performed at hardware level using IPC and system calls.
 
   Objectives of Kernel :
-   - To establish communication between user level application and hardware.
-   - To decide state of incoming processes.
-   - To control disk management.
-   - To control memory management.
-   - To control task management.  
+   - Establish communication between user level application and hardware
+   - Decide state of incoming processes
+   - To control disk management, memory management, task management
 
-    
+  Types of Kernel :- 
+   Monolithic, Microkernel, Hyperkernel in OS Structure Type
