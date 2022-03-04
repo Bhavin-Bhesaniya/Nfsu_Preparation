@@ -1,0 +1,6 @@
+Deadlock :-
+ - Deadlock is a situation which occurs because process A is waiting for one resource and holds another resource (blocking resource). 
+ - At same time another process B demands blocking a resource as it is already held by a process A, process B is waiting state 
+   unless and until process A releases occupied resource.
+
+   

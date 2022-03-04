@@ -1,0 +1,29 @@
+1)To access the services of operating system, the interface is provided by the :- System Call
+ - These are functions written in C and C++ like Open, Close, Read, Write are some of System calls 
+
+
+2)Kernal 
+ - Constitutes central core of OS 
+ - First part of OS to load into memory during booting
+ - Remains in memory during entire computer session 
+
+
+3)If a process fails, most operating system write the error information to a :- Log File
+ - Log file examined by debugger, to find out what is actual cause of that particular problem. 
+ - Log file is useful for system programmers for correcting errors.
+
+
+4)Facility that dynamically adds probes to a running system, both in user process and in the kernel is called :- DTrace 
+ - This is very much useful in troubleshooting kernels in real-time
+
+
+5)Real Time OS :- VxWorks, QNX & RTLinux
+ - Plam OS for PDA(Personal Digital Assistant)
+
+6)OS X has Hybrid kernel developed by apple and originally known as MAC OS X
+ 
+
+7)Number of processes completed per unit time is known :- Throughput
+ - Throughput is low for processes which take long time for execution and high for processes which take short time for execution.
+
+

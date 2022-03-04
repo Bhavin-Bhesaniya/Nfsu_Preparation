@@ -31,15 +31,58 @@ Glavin
 
 
  What is OS?
-  - OS is a piece of software that manages all resources of computer system and provides an environment in which user can 
-    execute their program
-  - OS is program that acts as interface between user and computer hardware and controls execution of all kinds of programs
+  - OS is system program that acts as interface between user and computer hardware which controls execution of all kinds of programs
+    and manages all resources of computer system
   - First OS is ATLAS developed by Tom Kilburn professoor Manchester University in 1962 
-
-   Diagram :- https://www.tutorialspoint.com/operating_system/images/conceptual_view.jpg
-
+    Diagram :- https://www.tutorialspoint.com/operating_system/images/conceptual_view.jpg
+   Primary Goals :- Windows | Mac : Machintosh  
+    - Convenience : Use Easiet way to any hardware 
+    - Throughput  : Number of tasks executed per unit time  (Linux)
 
  
+
+ Os Duties / Function / Services :- 
+
+  Resource Management | Resource Governance:-
+   - Manage all kinds of resources both hardware and software using Schedulers
+   - Most of use in parallel processing
+
+  Process Management | Process Execution :-
+   - Load program into memory, execute it in CPU and Handle it 
+   - Creating, Resuming, Suspending and Deleting Processes using various CPU Scheduling
+   - Also Provide mechanism for process synchronization, Inter Process Communication(IPC) and deadlock handling 
+   
+  Storage/File management or Manipulation:-
+   - Manage file operations like Creating, deleting and manipulating files and directories based on permission mode
+   - Free space management, Storage allocation and Disk scheduling using File System
+
+  Memory management :-
+   - Allocating and deallocating memory space of Primary(Main) Memory because size limits
+   - Keep track of memory to identify which part being used by which job(Process) 
+   - Program must execute in Main Memory(RAM) 
+  
+  I/O Operation | I/O Management | Device Management :-
+   - OS Manage device communication between User and Device via their respective drivers 
+   - It Keep tracks of all devices and Program that responsible for this task is known as I/O controller.
+
+  Communication :-
+   - OS also handle routing, connection strategies, problems of contention and security.
+   - Both processes can be on one computer or on different computers, but they are connected through computer network
+   - Communication may be implemented by two methods, either by Shared Memory or by Message Passing.
+
+
+  Error Handling / Error detection :-
+   - OS constantly checks errors and takes appropriate action to ensure correct and consistent computing    
+ 
+  Protection / Security :-
+   - OS ensures that all access to system resources is controlled
+   - Ensures that external I/O devices are protected from invalid access attempt   
+ 
+  Control Over System Performance :-
+   - Recording delays between request for service and response from system 
+
+
+
  OS Structures type :-  
   
   Monolithic Architecture :-   
@@ -79,47 +122,6 @@ Glavin
    - This can be added to system at run time. 
    - It usually requires small amount of time of load modules. 
    - If one needs a new module, then they won’t have to recompile.
-
-
-
- Os Duties / Function / Services :- 
-   
-  Process Management | Process Execution :-
-   - Creating, Resuming, Suspending and Deleting Processes 
-   - Load program into memory, execute it and Handle it
-   - Provide mechanism for process synchronization, Interprocess communication and deadlock handling 
-   
-  I/O Operation | I/O Management | Device Management :-
-   - OS Manage device communication between User and Device via their respective drivers 
-   - It Keep tracks of all devices and Program that responsible for this task is known as I/O controller.
-
-  Storage/File management or Manipulation:-
-   - Organization of files into directories for easy navigation and usage 
-   - Manage file operations like Creating, deleting and manipulating files and directories based on permission mode
-   - Free space management, Storage allocation and Disk scheduling 
-
-  Memory management :-
-   - Keep track of memory to identify which part being used by which job 
-   - Allocating and deallocating memory space of Primary(Main) Memory and Secondary Memory
-   - Program must execute in Main Memory(RAM) 
-
-  Communication :-
-   - OS also handle routing, connection strategies, problems of contention and security.
-   - Both processes can be on one computer or on different computers, but they are connected through computer network
-   - Communication may be implemented by two methods, either by Shared Memory or by Message Passing.
-
-  Resource Management :-
-   - Manage all kinds of resources both hardware and software using Schedulers
-
-  Error Handling / Error detection :-
-   - OS constantly checks errors and takes appropriate action to ensure correct and consistent computing    
- 
-  Protection / Security :-
-   - OS ensures that all access to system resources is controlled
-   - Ensures that external I/O devices are protected from invalid access attempt   
- 
-  Control Over System Performance :-
-   - Recording delays between request for service and response from system 
   
 
 
@@ -235,7 +237,14 @@ Glavin
   - To go in kernel mode we use system call   
   - System call is mechanism using which user program request kernel to access system functionality 
   - User program invokes system calls when it requires such services like accessing I/O devices and communicating other programs.
-    
+  
+  Example :-
+   - In UNIX, a new process is created by fork() system call. 
+   - fork() system call returns a process ID which is generally the process id of the child process created.  
+   - Wait() system call is used by parent process to determine termination of child process. 
+   - Parent process uses wait() system call and gets exit status of child process as well as PID of child process which is terminated
+     
+ 
   Type of System Call :- 
    E.x. :- Fork, exec, getpid, getppid, wait, exit. 
     File related                  (Open, read, write) 

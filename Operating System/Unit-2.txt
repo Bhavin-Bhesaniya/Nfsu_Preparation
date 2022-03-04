@@ -22,7 +22,7 @@ Unit - 2 :-
   - Zoombie process is process that has terminated but its still exists in PCB because its parent has not yet accpted its return value
   - Process termination marks deletation of process or removing process from PCB 
   - Parent process terminate child process If it exceeded its resource usage or its results is no more needed
-
+  - Process can be terminated normally by completing its task or because of fatal error or killed by another process or forcefully killed by a user.
  
 
  What is Process :-
@@ -35,18 +35,20 @@ Unit - 2 :-
     Text  : Includes current activity represented by value of Program Counter and contents of processor's registers.
     Data  : Contain global and static variable
     Diagram :- https://www.tutorialspoint.com/operating_system/images/process_components.jpg
-  
+  - Each process has its own address space which contains code, data, stack and heap segments or sections   
 
 
  What is Process State :-
   - Process state defined current activity process as process executes its state changes
   - Each process represented by Process Control Block(PCB) also called Task Control Block
-    
+  
+
   State :-
    New   :- Initial state when process is first started/created in secondary memory
    Ready :- Process come from secondary memory to main memory(RAM)(Queue) when we start process execution
             Here process is waiting to be assigned to a processor
             Long-term scheduler bring these process from Rom to RAM 
+            Multiprogramming means number of processes are in ready states to increases CPU utilization
    Running :- Short-term scheduler assign process to processor from ready state and CPU execute process instructions.
               Sometime transfer process to ready state when high-priority process is given by ready state 
               or process exceeded time limit/ time quantum(Round-Robin)
@@ -62,17 +64,20 @@ Unit - 2 :-
   - PCB is data structure maintained by Operating System for every process
   - It is identified by an ID(Process ID/PID) 
   - PCB maintained process throughout its lifetime
-    PCB Contain All information of process :-
-     - Process ID
-     - Process Privileges : Required to allow/disallow access to system resources
-     - Process State 
-     - Pointer            : To parent process
-     - Program Counter    : Pointer to the address of next instruction to be executed for this process.
-     - CPU Register       : Where process need to be stored for execution for running state
-     - CPU scheduling information    : Process priority, other scheduling information, etc. 
-     - Memory Management Information 
-     - Accounting information        : Includes amount of CPU used for process execution, time limits, execution ID 
-     - I/O status information        : List of I/O devices allocated to process.
+  - Entry of all PCBs of current processes is in Process Table. 
+  - Process Table has status of each and every process that is created in OS along with their PIDs.
+
+  PCB Contain All information of process :-
+    - Process ID
+    - Process Privileges : Required to allow/disallow access to system resources
+    - Process State      : Contain Function parameters, Local variables and Return address does not contain PID of child process. 
+    - Pointer            : To parent process
+    - Program Counter    : Pointer to the address of next instruction to be executed for this process.
+    - CPU Register       : Where process need to be stored for execution for running state
+    - CPU scheduling information    : Process priority, other scheduling information, etc. 
+    - Memory Management Information 
+    - Accounting information        : Includes amount of CPU used for process execution, time limits, execution ID 
+    - I/O status information        : List of I/O devices allocated to process.
   
 
 
@@ -156,15 +161,14 @@ Unit - 2 :-
  
  
  Inter-Process communication (IPC):-
+  - Allow processes to communicate with each other and synchronise their actions without using same address space. 
+  - IPC can be achieved using shared memory and message passing
   - Reason
-    - Information sharing
-    - Computational Speedup
-    - Modularity 
-    - Convenience
-  - Models
-    - Shared Memory
-    - Message Passing [Send(p, message) and Receive(id, message)]  
-
+   - Information sharing
+   - Computational Speedup
+   - Modularity 
+   - Convenience
+  
 
 
  What is Thread :-
