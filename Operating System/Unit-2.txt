@@ -1,130 +1,133 @@
 Unit - 2 :-
 
  Topics :-
-  - What is Process Creation and Termination
-  - What is Process?
-  - What is Process State
-  - What is PCB(Process Control Block)
-  - What is Process Scheduling
+  - What is Process? Its Creation and Termination
+  - Process State
+  - PCB(Process Control Block)
+  - Process Scheduling
   - What is Context Switching
   - Inter-Process Communication
   - What is Thread
   - Scheduling Algorithm
 
 
- What is Process Creation and Termination :- 
-  - When user started executing program it become process
-  - Each process has unique id
-  - Process may obtain resources either from its parent process or from operating system directly
-  - Parent process continues executing with its children process and wait for them to finish
-  - Process may be duplicate of its parent process(Same code or data) or may have new program loaded into it
-  - Kernal is first process to be created or said to be root of process tree
-  - Zoombie process is process that has terminated but its still exists in PCB because its parent has not yet accpted its return value
-  - Process termination marks deletation of process or removing process from PCB 
-  - Parent process terminate child process If it exceeded its resource usage or its results is no more needed
-  - Process can be terminated normally by completing its task or because of fatal error or killed by another process or forcefully killed by a user.
+ What is Process? Its Creation and Termination :- 
+  Process Creation :-
+   - When user started executing program it become process which defined as entity which represent basic unit of work to be 
+     implemented in system
+   - Program is passive entity while procrss is active entity  
+   - When we compare program with process, process is a dynamic instance of program. 
+   - Each process has unique id may obtain resources either from operating system directly or from its parent process
+   - Parent process continues executing with its children process and wait for them to finish
+   - Process may have new program loaded into it or may be duplicate of its parent process(Same code or data)
+   - Each process has its own address space which contains code, data, stack and heap segments or sections   
+
+
+  Process can divided into four section :-
+   Stack : Contain temporary data such as method/function parameters, return address and local variables
+   Heap  : Dynamically memory allocation for process during Run Time
+   Text  : Include current activity represented by value of Program Counter and Content of processor's register
+   Data  : Contain global and static variable
+   Diagram :- https://www.tutorialspoint.com/operating_system/images/process_components.jpg
+
+
+   Root Process        :- Kernal is first process created or say Root process of process tree 
+   Zoombie process     :- Process is terminated but its still exists in PCB because its parent has not yet accpted its return value
+
+
+  Process termination :- 
+    - Deletation of process or removing process from PCB 
+    - Parent process terminate child process If it exceeded its resource usage or its results is no more needed
+    - Process can be terminated normally by completing its task or because of fatal error or killed by another process 
+      or forcefully killed by user
  
-
- What is Process :-
-  - Process is program execution which defined as entity which represent basic unit of work to be implemented in system
-  - Program is passive entity while procrss is active entity
-  - When we compare program with process, process is a dynamic instance of program. 
-  - When program loaded into memory it become process, it can be divided into four section :-
-    Stack : Contain temporary data such as method/function parameters, return address and local variables
-    Heap  : Dynamically allocated memory for process during its run time
-    Text  : Includes current activity represented by value of Program Counter and contents of processor's registers.
-    Data  : Contain global and static variable
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/process_components.jpg
-  - Each process has its own address space which contains code, data, stack and heap segments or sections   
-
-
- What is Process State :-
-  - Process state defined current activity process as process executes its state changes
-  - Each process represented by Process Control Block(PCB) also called Task Control Block
   
 
+
+ Process State :-
+  - Process state defined current activity process as process executes its state changes
+  - Each process represented by Process Control Block(PCB) also called Task Control Block
+
   State :-
-   New   :- Initial state when process is first started/created in secondary memory
-   Ready :- Process come from secondary memory to main memory(RAM)(Queue) when we start process execution
-            Here process is waiting to be assigned to a processor
-            Long-term scheduler bring these process from Rom to RAM 
-            Multiprogramming means number of processes are in ready states to increases CPU utilization
-   Running :- Short-term scheduler assign process to processor from ready state and CPU execute process instructions.
+   New   :- Initial state when process is first started/created in secondary memory(ROM)(Job Queue)
+   Ready :- Long-term scheduler load Process from secondary memory to main memory(RAM)(Ready Queue) when we start process execution 
+            where process is waiting to be assigned to processor(CPU)
+          - Multiprogramming means number of processes are in ready states to increases CPU utilization
+   Running :- Short-term scheduler assign process to CPU from ready state and CPU execute process instructions
               Sometime transfer process to ready state when high-priority process is given by ready state 
-              or process exceeded time limit/ time quantum(Round-Robin)
+              or process exceeded time limit/Time quantum(Round-Robin)
               If process request is I/O request it is transfer to waiting state
    Waiting   :- Process move into these state if it needs to wait for resource, such as waiting for user input or I/O operation
                 After complete process its moves into ready state not running 
+                If no of process I/O request is increases and (Device queue) is full it is moved into suspended state known as ROM
    Terminate :- Once process finishes its execution, or it is terminated by OS and deallocating all resources 
-   Diagram   :- https://www.tutorialspoint.com/operating_system/images/process_state.jpg
 
 
  
- What is PCB(Process Control Block) :-  
-  - PCB is data structure maintained by Operating System for every process
-  - It is identified by an ID(Process ID/PID) 
-  - PCB maintained process throughout its lifetime
+
+ PCB(Process Control Block) :-  
+  - PCB is data structure maintained by Operating System for every process using ID(Process ID/PID) 
+  - It maintained process throughout its lifetime
   - Entry of all PCBs of current processes is in Process Table. 
   - Process Table has status of each and every process that is created in OS along with their PIDs.
 
   PCB Contain All information of process :-
-    - Process ID
-    - Process Privileges : Required to allow/disallow access to system resources
-    - Process State      : Contain Function parameters, Local variables and Return address does not contain PID of child process. 
-    - Pointer            : To parent process
-    - Program Counter    : Pointer to the address of next instruction to be executed for this process.
-    - CPU Register       : Where process need to be stored for execution for running state
-    - CPU scheduling information    : Process priority, other scheduling information, etc. 
-    - Memory Management Information 
-    - Accounting information        : Includes amount of CPU used for process execution, time limits, execution ID 
-    - I/O status information        : List of I/O devices allocated to process.
+    Process ID
+    Process Privileges : Required to allow/disallow access to system resources
+    Process State      : Contain Function parameters, Local variables and Return address does not contain PID of child process. 
+    Pointer            : To parent process
+    Program Counter    : Pointer to the address of next instruction to be executed for this process.
+    CPU Register       : Where process need to be stored for execution for running state
+    CPU scheduling information    : Process priority, other scheduling information, etc. 
+    Memory Management Information 
+    Accounting information        : Includes amount of CPU used for process execution, time limits, execution ID 
+    I/O status information        : List of I/O devices allocated to process.
   
 
 
- What is Process Scheduling :-
+
+ Process Scheduling :-
   - OS maintenance all PCBs in Process Scheduling queues which used to perform process scheduling
-    
-  OS maintenance following important process scheduling queues :-
-    Job Queue     - As process enter system it is put in job queue which keeps all processes in system 
-    Ready Queue   - Processes that are residing in memory and are ready for execution are kept in ready queue
-                  - It is implemented as linked list of PCBs with header containing pointers to first and last PCBs.
-    Device Queue  - List of processes waiting for particular I/O device is called a device queue. 
-                  - Each device has its own device queue. 
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/queuing_diagram.jpg
+
+
+  Scheduling queues :-
+   Job Queue     - As Process enter system it put in job queue which keeps all processes in system 
+   Ready Queue   - Processes that are residing in memory and are ready for execution are kept in ready queue
+                 - It is implemented as linked list of PCBs with header containing pointers to first and last PCBs
+   Device Queue  - List of processes waiting for particular I/O device is called a device queue
+                 - Each device has its own device queue
 
 
   Types of Schedulers :-
    - Schedulers are special system software which handle process scheduling in various ways.
     
    Long-term Scheduler(Job Scheduler) :-
-    - When process changes state from new to ready, then there is use of long-term scheduler.
+    - LTS used when process change state from new to ready
     - Select processes from those submitted by user and loads them into memory for execution
-    - It is done by using multiprogramming which represented by number of processes in memory  
-    - Long-term scheduler select proper mix of CPU-bound processes and i/o-bound processes. 
-    - Multitasking OS like unix and windows not use long-term scheduler they put all new processes in the memory for short-term scheduler
-    - Ready Queue handle process queue
-
+    - It is done by using multiprogramming which represent number of processes in memory  
+    - LTS select proper mix of CPU-bound processes and I/O-bound processes. 
+    - Multitasking OS like unix and windows not use long-term scheduler they put all new processes in memory for short-term scheduler
+    
 
    Short-term scheduler(CPU Scheduler) :- 
     - Selects process from ready state(Ready Queue) and allocate CPU to one of them.
     - It is invoked frequently and very fast than long-term scheduler
-    - Here Dispatcher which take decision of which process to execute next.  
     - Gives control(PCB information) to cpu to process processes which is selected by CPU scheduler known as Dispatcher
-    - CPU Scheduler is invoked when process switches from running state to waiting state OR terminates
+    - Here Dispatcher which take decision of which process to execute next.  
+    - CPU Scheduler is invoked when process switches from running state to waiting state OR terminates OR ready state
     - MS DOS does not support multiprogramming hence no cpu scheduling
 
 
    Medium-term scheduler(Swapping):- 
-    - Medium-term scheduler invoked due to waiting state is full and need to move process in suspended state
-    - Removes processes from memory or suspended it when waiting state(device queue) full due to lots of I/O request 
-    - We move process from device queue to secondary memory it is called swapping
+    - Invoked when waiting state is full due(device queue) to lots of I/O request and need to move process in suspended state
+    - Move process from device queue to secondary memory which is called swapping
     - Remove process from memory and make space for other processes and suspended process moves to secondary storage its called Swapping
     - After complete I/O operation process will be join waiting state if there is space in waiting state otherwie wait for some time
 
 
   Types of Scheduling :-
     Non-Preemptive scheduling / cooperating scheduling :-
-    - Process keeps in cpu until it terminates(Complete) 
+    - Process keeps in cpu until it terminates(Complete) also known as multiprogramming
     - Some machine support is :-  Windows 3.1X
 
     Preemptive scheduling :- 
@@ -136,39 +139,42 @@ Unit - 2 :-
     ↑ CPU utilization  - Percentage 
     ↑ Throughput       - Number of processes completed per unit time 
     ↓ Turnaround time  - Time from submission to completion (time spent in different queues + time spent in CPU 
-                                                               + time spent in different i/o devices) 
-    ↓ Waiting time     - Time spent in ready queue (only) 
+                                                           + time spent in different i/o devices) 
+    ↓ Waiting time     - Time spent in ready queue 
     ↓ Response time    - Time from submission to first response    
+
 
 
 
  What is Context Switching :-       
   - Context switching is to store and restore context of CPU in PCB so that process execution can be resumed from same point at later time. 
-  - It is essential part of multitasking operating system features which enables multiple processes to share single CPU. 
+  - Essential part of multitasking OS which enables multiple processes to share single CPU. 
   - When scheduler switche CPU from executing one process to execute another, state of current running process is stored into PCB 
   - After this state, process next run in own loaded PCB and used set of PC, registers, etc. 
     At that point second process can start executing.
-  - To avoid the amount of context switching time, some hardware systems allow two or more sets of processor registers
-  - When process is switched following information is stored :-
-     - Program Counter
-     - Scheduling information
-     - Base and limit register value
-     - Currently used register
-     - Changed State
-     - I/O State information
-     - Accounting information
+  - To avoid amount of context switching time, some hardware systems allow two or more sets of processor registers
+   Following information is stored during switching:-
+    - Program Counter
+    - Scheduling information
+    - Base and limit register value
+    - Currently used register
+    - Changed State
+    - I/O State information
+    - Accounting information
 
  
+
  
  Inter-Process communication (IPC):-
   - Allow processes to communicate with each other and synchronise their actions without using same address space. 
   - IPC can be achieved using shared memory and message passing
-  - Reason
+  - Reason to use IPC :-
    - Information sharing
    - Computational Speedup
    - Modularity 
    - Convenience
   
+
 
 
  What is Thread :-
@@ -182,7 +188,7 @@ Unit - 2 :-
   Diagram :- https://www.tutorialspoint.com/operating_system/images/thread_processes.jpg
 
 
-  Difference between Process and Thread :-
+  Difference Between Process and Thread :-
    - Os treat different process differently while all user level thread as single task for OS
    - Context switching between thread typically faster than process
    - In process system call invovled while in thread no system call invovled
@@ -246,6 +252,7 @@ Unit - 2 :-
     - It supports multiple threads to execute in parallel on microprocessors
     - Disadvantage of this model is that creating user thread requires the corresponding Kernel thread
     - Ex :- Linux
+
 
 
 
