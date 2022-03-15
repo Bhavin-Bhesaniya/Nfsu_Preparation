@@ -9,6 +9,8 @@
   - Turn Variable (Strict Alteration)
   - SemaPhores
 
+
+
  What is Process Synchronization :-
   - If multiple processes run parallel there will be two mode either serial mode or parallel mode
   - Serial model single process is executed completely like Non pre-emptive while in parallel mode multiple processes run

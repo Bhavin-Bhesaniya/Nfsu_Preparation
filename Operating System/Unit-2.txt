@@ -1,5 +1,3 @@
-Unit - 2 :-
-
  Topics :-
   - What is Process? Its Creation and Termination
   - Process State
@@ -11,12 +9,13 @@ Unit - 2 :-
   - Scheduling Algorithm
 
 
- What is Process? Its Creation and Termination :- 
+
+ What is Process? Its Creation, Section and Termination :- 
   Process Creation :-
    - When user started executing program it become process which defined as entity which represent basic unit of work to be 
      implemented in system
    - Program is passive entity while procrss is active entity  
-   - When we compare program with process, process is a dynamic instance of program. 
+   - When we compare program with process, process is a dynamic instance of program
    - Each process has unique id may obtain resources either from operating system directly or from its parent process
    - Parent process continues executing with its children process and wait for them to finish
    - Process may have new program loaded into it or may be duplicate of its parent process(Same code or data)
@@ -36,10 +35,9 @@ Unit - 2 :-
 
 
   Process termination :- 
-    - Deletation of process or removing process from PCB 
-    - Parent process terminate child process If it exceeded its resource usage or its results is no more needed
-    - Process can be terminated normally by completing its task or because of fatal error or killed by another process 
-      or forcefully killed by user
+   - Deletation of process or removing process from PCB 
+   - Parent process terminate child process If it exceeded its resource usage or its results is no more needed
+   - Process terminated normally by completing its task or because fatal error or killed by another process or forcefully killed by user
  
   
 
@@ -68,15 +66,15 @@ Unit - 2 :-
  PCB(Process Control Block) :-  
   - PCB is data structure maintained by Operating System for every process using ID(Process ID/PID) 
   - It maintained process throughout its lifetime
-  - Entry of all PCBs of current processes is in Process Table. 
-  - Process Table has status of each and every process that is created in OS along with their PIDs.
+  - Entry of all PCBs of current processes is in Process Table 
+  - Process Table has status of each and every process that is created in OS along with their PIDs
 
   PCB Contain All information of process :-
     Process ID
     Process Privileges : Required to allow/disallow access to system resources
-    Process State      : Contain Function parameters, Local variables and Return address does not contain PID of child process. 
+    Process State      : Contain Function parameters, Local variables and Return address does not contain PID of child process
     Pointer            : To parent process
-    Program Counter    : Pointer to the address of next instruction to be executed for this process.
+    Program Counter    : Pointer to the address of next instruction to be executed for this process
     CPU Register       : Where process need to be stored for execution for running state
     CPU scheduling information    : Process priority, other scheduling information, etc. 
     Memory Management Information 
@@ -126,13 +124,14 @@ Unit - 2 :-
 
 
   Types of Scheduling :-
-    Non-Preemptive scheduling / cooperating scheduling :-
+    Non-Preemptive scheduling | cooperating scheduling :-
     - Process keeps in cpu until it terminates(Complete) also known as multiprogramming
     - Some machine support is :-  Windows 3.1X
 
     Preemptive scheduling :- 
      - Process can be forced to leave cpu and switch to ready queue due to high-priority process or time quantum
      - Ex :- Unix, Linux, Windows 95 or Higher   
+
 
 
   Scheduling Criteria :-
@@ -154,11 +153,11 @@ Unit - 2 :-
     At that point second process can start executing.
   - To avoid amount of context switching time, some hardware systems allow two or more sets of processor registers
    Following information is stored during switching:-
+    - Changed State
     - Program Counter
-    - Scheduling information
     - Base and limit register value
     - Currently used register
-    - Changed State
+    - Scheduling information
     - I/O State information
     - Accounting information
 
@@ -199,11 +198,13 @@ Unit - 2 :-
    - Thread share data and code but different stack and registers
 
 
+
   Advantages of Multi-Thread Programming :-
    - Better resource utilization with minimize resources utilization
    - Responsiveness so program Faster execution 
    - Easy communication 
    - Parallelization
+
 
 
   Types Of Thread :-
@@ -227,6 +228,7 @@ Unit - 2 :-
     - If user level thread perform blocking operation then entire process is blocked while in kernel level blocking not affect other
     - User thread Generic and run on any OS while kernel thread OS Specific
     - In User thread Multi-threaded application cannot take advantage of multiprocessing while kernel routine themselves multithreaded
+
 
   
   Multi-threading Models :- 

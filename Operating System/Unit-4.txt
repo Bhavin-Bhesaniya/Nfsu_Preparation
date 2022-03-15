@@ -1,6 +1,51 @@
-Deadlock :-
- - Deadlock is a situation which occurs because process A is waiting for one resource and holds another resource (blocking resource). 
- - At same time another process B demands blocking a resource as it is already held by a process A, process B is waiting state 
-   unless and until process A releases occupied resource.
+Topics :-
+ - What is Deadlock
 
-   
+
+
+
+What is Deadlock :-
+ - Deadlock is a situation which occurs because process A is waiting for one resource and holds another resource (blocking resource). 
+ - At same time another process B demands blocking resource as it is already held by process A, process B is waiting state 
+   unless and until process A releases occupied resource.
+ - If 2 and more processes are waiting on happening of some event but that event doesn't happen called deadlock  
+ 
+ For Deadlock 4 Condition Necessary :-
+  1) Mutual exclusion - Whatever resource is process using must use in mutual exclusion manner means one by on | No Interleaving
+  2) No Premption     - No switching
+  3) Hold and Wait    - If one process hold one resource and waiting for another resource
+  4) Circular Wait    - Same hold and wait where two processes are waiting for same or another resource 
+                        p1 <- R1  | Now P2 -> R1  (request for R1) | But P2 <- R2 (hold R2 already) | Now P1 -> R2 (request for R2) 
+ - If process waiting time is finite it's called StarVation otherwise if time is infinite called deadlock
+ - If RAG has circular wait(cycle) there will be always deadlock but only in single instance resources
+  
+
+
+Resource Allocation Graph(RAG) in Deadlock | Single Instance :-
+ - RAG is most efficient and convenient way to represent state of the system
+ - Means how resources are allocated to process and how processes have been assigned multiple resources
+ - Used to Check in system there is deadlock or not 
+ 
+ Graph :-
+  - Every graph has Vertex and edge two things
+  - Vertex has two types:-
+    Process vertex   :- Number of processes running in system are represented by vertex are generally represented in circle
+    Resource vertex  :- Resource like CPU, memory are represented in Rectangle
+      Type of Resource Vertex :-
+       - Single instance     : CPU, Monitor 
+       - Multiple instances  : Register, Printer
+  
+  - Edge has two types :- 
+    Assign Edge  :- Resource connected with process if arrow moving towards process(P1 <- R1)
+    Request Edge :- Resource connected with process if arrow going towards process (P1 -> R1)
+
+
+  Example :- p1 <-- R1 |  p2 <-- R2  | p3 --> R1,R2
+        Allocate      Request
+        R1   R2       R1  R2
+    p1  1     0       0    0
+    p2  0     1       0    0
+    p3  0     0       1    1     
+
+    Availability (0 , 0) --> P1 Executed --> (1, 0) --> p2 Executed --> (1, 1) --> p3 Executed
+

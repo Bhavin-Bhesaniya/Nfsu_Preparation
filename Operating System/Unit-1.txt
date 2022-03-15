@@ -10,6 +10,7 @@ Glavin
   - What is Booting
   - What is Kernel
   
+  
 
  What is Computer and Other Defination?
   Computer :- General purpose device that execute sequences of instruction to perform numerical calculations and other tasks. 
@@ -34,7 +35,7 @@ Glavin
  What is OS?
   - OS is system program that acts as interface between user and computer hardware which controls execution of all kinds of programs
     and manages all resources of computer system
-  - First OS is ATLAS developed by Tom Kilburn professoor Manchester University in 1962 
+  - First OS is ATLAS developed by Tom Kilburn professoor at Manchester University in 1962 
     Diagram :- https://www.tutorialspoint.com/operating_system/images/conceptual_view.jpg
    Primary Goals :- Windows | Mac : Machintosh  
     - Convenience : Use Easiet way to any hardware 
@@ -73,11 +74,11 @@ Glavin
    - It Keep tracks of all devices and Program that responsible for this task is known as I/O controller.
 
   Communication :-
-   - OS also handle routing, connection strategies, problems of contention and security.
-   - Both processes can be on one computer or on different computers, but they are connected through computer network
-   - Communication may be implemented by two methods, either by Shared Memory or by Message Passing.
+   - OS also handle routing, connection strategies
+   - Processes can be on one computer or on different computers, but they are connected through computer network
+   - Communication may be implemented by two methods, either by Shared Memory or by Message Passing
 
-  Error Handling / Error detection :-
+  Error Handling | Error detection :-
    - OS constantly checks errors and takes appropriate action to ensure correct and consistent computing     
 
 
@@ -97,17 +98,16 @@ Glavin
   Layered Architecture :-
    - OS broken into number of layers (levels) where every layer has different functionality
    - Bottom layer (layer 0) is hardware and topmost layer (layer N) is user interface
-   - Each layer uses function of lower level layers only
-   - All layers defined separately and interact with each other as required
-   - Change in one layer specification does not affect rest of layers.
+   - Each layer can only uses function of lower level layer
+   - Change in one layer specification does not affect rest of layers
    - Layer 1 to 6:- Hardware, CPU Scheduling, Memory Management, Process Management, I/O Buffer, User Program
     Example :- Windows NT
    
     
   Microkernel Architecture :-  
-   - Minimum software that is required to correctly implement an operating syste
+   - Minimum software that is required to correctly implement an operating system
    - Includes virtual memory, process scheduling and basic inter-process communication
-   - In Microkernel Removed all non-essential components from kernel and implementing them as system and user programs
+   - Removed all non-essential components from kernel and implementing them as system and user programs
    - New services added in user space and does not require kernel to be modified which increased security and stability.
    - If any service fails then rest of operating system remains untouched. 
    Example :- MacOS, Mach, L4, AmigaOS, Minix, K42
@@ -130,15 +130,15 @@ Glavin
 
  Types of operating systems – 
    Single process operating system    :- MS DOS, 1981
-   Multiprogramming operating system  :- Dijkstra, early 1960s
-   Multitasking operating system      :- CTSS, MIT, early 1960s 
+   Multiprogramming operating system  :- Dijkstra, early 1960
+   Multitasking operating system      :- CTSS, MIT, early 1960
 
 
   Batch Operating System | Batch Processing :-
    - Similar kind of process(Job) batch given to computer so it can execute it
-   - OS define job in predefined sequence of commands, programs and data as a single unit.
+   - OS define job in predefined sequence of commands, programs and data as a single unit
    - Jobs are processed in order of submission First Come First Served(FCFS) fashion
-   - There is an operator which takes similar jobs having same requirement and group them into batches.
+   - There is an operator which takes similar jobs having same requirement and group them into batches
    - When job completes its execution, its memory is released and output job gets copied into output device for later processing.
    - When job request for I/O at time CPU is Idle which is major disadvantages (Non-Preemption)
    - IBM create FORTRAN Alone with IBSYS 709X in 1960 
@@ -272,9 +272,9 @@ Glavin
 
 
  What is Booting :-
-  - Booting is process of starting computer and loading kernel.
+  - Booting is process of starting computer and loading kernel
   - When computer power is turned on then cpu will move to BIOS(Basic Input Output System) in ROM 
-  - BIOS run process power-on self-test (POST) which check all hardware
+  - BIOS run POST(power-on self test) process which check all hardware
   - On POST process successful BIOS load MBR(Master Boot Record) to RAM
   - Now MBR load bootstrap loader to RAM
   - bootstrap loader loads OS, Kernel and much more in RAM
@@ -287,8 +287,8 @@ Glavin
 
 
  What is Kernel :- 
-  - Kernel is core central component of an operating system that manages all operations of computer and hardware. 
-  - It acts as bridge between applications and data processing performed at hardware level using IPC and system calls.
+  - Kernel is core central component of an operating system that manages all operations of computer and hardware
+  - It acts as bridge between applications and data processing which performed at hardware level using IPC and system calls
 
   Objectives of Kernel :
    - Establish communication between user level application and hardware
