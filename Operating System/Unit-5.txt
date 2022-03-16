@@ -1,0 +1,113 @@
+
+Memory Management & Degree of MultiProgramming :-
+ - Method of managing primary memory
+ - Efficient utilization of memory
+ - Whenever no of process high in ram CPU utilization is high
+ - Memory is large arrays of byte where every byte has some address
+ - Degree of multi-programming high more process in RAM
+ - Some part of memory occupied by OS when system start
+
+ Formula :-
+  k - I/O Operation time
+  Cpu Time = (1-k^n)  # n means no of process
+
+
+
+Contiguous Memory Management Techniques :-
+ - Provide Contiguous Memory Block for process in RAM
+  
+  Fixed Partition | Static Partition :-
+   - No of Partition is fixed in memory but Partition size will be same or may not same
+   - Due to Contiguous allocation spanning is not allowed
+   - Spanning means put entire process in same partition not allow to put in different partition
+   - We can able to put process in any partition in memory but in same partition only
+   Ex :- If P1 = 2MB and M1 = 4MB remaining M1 2MB size was wasted which was called Internal Fragmentation 
+   - If process size bigger than partition size in memory it generate problem of size limit partition because we 
+     partition memory during configuration
+   - Fixed no of partition so Not add more processes in RAM above partition size
+   - When we have availability of memory in different slots and combination of all space is equal to process size or less size
+     but still not allowed due to contiguous it's called External Fragmentation
+   - So Whenever internal Fragmentation arise their must be an external Fragmentation  
+   - Used in main Frame computer during 1960 
+
+  
+  Variable Partition | Dynamic Partition :-   
+   - Whenever process are coming into ram only then we are allocating space to the process based on their space requirements
+    Advantages :-  
+     - No chance for internal Fragmentation
+     - No limitation on Degree of programming(No Of Process)
+     - No limitation on process size 
+
+    Disadvantages :-
+     - If one process complete its execution in RAM one hole (4MB)
+     - If two process of same size complete its execution now one process come with has bigger size than available RAM space
+       4MB + 4MB BUT Process 8MB so external fragmentation arise
+     - To remove we able to use Compaction means remaining space to one side and process to other side but it is undesirable
+       means we need to stop process or we need to move process from one address to another which take more time
+     - Allocation and deallocation little bit complex  
+   
+
+   How to allocate process in Hole :-
+    First-Fit :- Allocate first hole that is big enough for that process            
+               - P1=15KB | S1=25KB | S2=35KB store in S1
+               - Search from beginning so searching time low and fast 
+               - But remaining portion of memory create big holes in memory  
+
+
+    Next-Fit  :- Same as first fit but start search always from last allocated hole 
+               - p2=15KB | S2=28KB | S3=30KB store in S2 Not S1
+               - Not need to search from beginning because First-Fit already searched
+
+
+    Best-Fit  :- Search entire list and allocate smallest hole that is big enough for process so minimal internal fragmentation
+               - If add process in hole remaining portion will be least 
+               - Problem arise that it create tiny holes which may not helpful for other and it also search entire ram so very Slow
+               - p2=15KB | S5=22KB | S8=20KB  Store in S8 Not S2 
+                
+    Worst-Fit :- Allocate largest hole
+                - p2=15KB | S5=22KB | S8=20KB  Store in S5 Not S8
+                - Problem arise that it create big holes where other process join but it also search entire ram so very Slow
+
+   
+   Example :- 
+    Request from process are 300kb, 25k, 125k, 50k so which will be best for it :-
+    R1 = 150KB  | R2 = 350KB  # Hole
+      First Fit :- P1 --> R2(50) | P2 --> R1(125)  | P3 --> R1(0)  | P4 -->R2(0)
+      Best Fit  :- P1 --> R2(50) | P2 --> R2(25)   | P3 --> R1(25) | P4 Not fit with space because R1(25), R2(25)
+      Worst Fit :- P1 --> R2(50) | P2 --> R1(125)  | P3 --> R1(0)  | P4 -->R2(0)
+
+
+   Example With TimeLine :- BestFit
+    Calculate time at which "J7" will be completed _____ :- ANS :- b if ask when enter time it ANS :- 11
+    a)17    b)19    c)20    d)37
+    
+    RNo.        J1  J2   J3   J4   J5   J6    J7   J8
+    RSize       2K  14K  3K   6K   6K   10K   7K   20K
+    UsageTime   4   10   2    8    4    1     8    6 
+
+    Partition Size :- R1(4K) | R2(8K) | R3(20K) | R4(2K)
+
+    Gannt Chart :- 0    2       4        8       10     11      12          19
+                        J3     J1       J4       J2     J6      J5(8+4)     J7
+
+    Solve :- J1 --> R1(0)() | J2 --> R3(6K) | J3 --> R1(1K) | J4 --> R2(2K)
+            - Slot full waiting for release other process 
+             J4C --> R2(8K) | J5 --> R2(2K) | J2C --> R3(20K) | J6 --> R3(10K)
+            - At time 11 J6 Remove and At 12 J5 Remove but we need to consider 11 time
+             J6C --> R3(20K) | J7 --> R3(13K)  
+       
+
+
+Non-Contiguous Memory Management Techniques:-
+ - Not Provide Contiguous Memory Block for process but store in different location in RAM
+ - Divide process in different different block
+
+   Paging :-
+
+   Multi-level Paging :-
+
+   Inverted Paging :-
+
+   Segmentation :-
+
+   Segmented Paging :-

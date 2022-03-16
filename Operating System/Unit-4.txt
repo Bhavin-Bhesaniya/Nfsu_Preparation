@@ -1,6 +1,8 @@
-Topics :-
+Topics :- 
  - What is Deadlock
-
+ - Resource Allocation Graph(RAG) in Deadlock | Single Instance
+ - Handling Deadlock Using Various Methods
+ - Bankers Algorithm
 
 
 
@@ -11,13 +13,13 @@ What is Deadlock :-
  - If 2 and more processes are waiting on happening of some event but that event doesn't happen called deadlock  
  
  For Deadlock 4 Condition Necessary :-
-  1) Mutual exclusion - Whatever resource is process using must use in mutual exclusion manner means one by on | No Interleaving
+  1) Mutual exclusion - Whatever resource is process using must use in Mutual exclusion manner means one by one | No Interleaving
   2) No Premption     - No switching
   3) Hold and Wait    - If one process hold one resource and waiting for another resource
   4) Circular Wait    - Same hold and wait where two processes are waiting for same or another resource 
                         p1 <- R1  | Now P2 -> R1  (request for R1) | But P2 <- R2 (hold R2 already) | Now P1 -> R2 (request for R2) 
  - If process waiting time is finite it's called StarVation otherwise if time is infinite called deadlock
- - If RAG has circular wait(cycle) there will be always deadlock but only in single instance resources
+ 
   
 
 
@@ -38,9 +40,11 @@ Resource Allocation Graph(RAG) in Deadlock | Single Instance :-
   - Edge has two types :- 
     Assign Edge  :- Resource connected with process if arrow moving towards process(P1 <- R1)
     Request Edge :- Resource connected with process if arrow going towards process (P1 -> R1)
+ 
 
 
-  Example :- p1 <-- R1 |  p2 <-- R2  | p3 --> R1,R2
+  Example :- Single-instance Vertex
+    p1 <-- R1 |  p2 <-- R2  | p3 --> R1,R2
         Allocate      Request
         R1   R2       R1  R2
     p1  1     0       0    0
@@ -48,4 +52,138 @@ Resource Allocation Graph(RAG) in Deadlock | Single Instance :-
     p3  0     0       1    1     
 
     Availability (0 , 0) --> P1 Executed --> (1, 0) --> p2 Executed --> (1, 1) --> p3 Executed
+  - If RAG has circular wait(cycle) and single instance resources there will be always deadlock
+  - If RAG has circular wait(cycle) and multi-instance resources there will be not always deadlock
+   
 
+
+  Example :- Multiple-instance Vertex
+    p1 <-- R1 |  p1 --> R2  |  P2 <-- R2  | P2 --> R1| p3 <-- R2
+        Allocate      Request
+        R1   R2       R1  R2
+    p1  1     0       0    1
+    p2  0     1       1    0
+    p3  0     1       0    0     
+
+    Availability (0 , 0) --> P3 Executed --> (0, 1) --> p1 Executed --> (1, 1) --> p2 Executed    
+
+
+  Example :- Multiple-instance Vertex - 2
+    p0 <-- R1  |  p0 <-- R3     
+    p1 <-- R1  |  p1 <-- R2  |  
+    P2 <-- R2  |   
+    p3 <-- R2
+        Allocate             Request
+        R1   R2   R3      R1   R2     R3
+    p0  1     0    1      0    1     1
+    p1  1     1    0      1    0     0
+    p2  0     1    0      0    0     1
+    p3  0     1    0      1    2     0
+    - Dots inside instance say availability of resource
+    Availability (0 , 0, 1) --> P2 Executed --> (0, 1, 1) --> P0 Executed --> (1, 1, 2) --> 
+                                P1 Executed --> (2, 2, 2) --> P3 Executed --> (2, 3, 2)
+
+
+                              
+
+Handling Deadlock Using Various Methods :-
+ 
+ Deadlock ignorance(Ostrich Method) :-
+  - When deadlock occurs in system ignore it used by Windows and Linux
+  - If we add new code for deadlock which Affect performance
+  - we need deadlock handling if it happen in daily task
+  - Ostrich bird when sand strom it put its neck inside sand and say no strom(ignore)
+ 
+
+ Deadlock Prevention :-
+  - Before deadlock occurs we try to find solution
+  - Either try to remove all 4 necessary condition to avoid deadlock or at least try to remove or discard one of them
+  - We can make resource shareable by false mutual exclusion by sometime resource not idle for shareable like(Printer)
+  - From No Premption to try premption
+  - Befor process started provide all resources so no hold and wait achieve
+  - No circular wait so give numbering to all resources than condition is whenver process request resource it must be in increases order
+    process can not request lower no resource if it occupied higher no resource
+
+ 
+ Deadlock Avoidance(Bankers Algo) :-
+  - When we give resource to process we check it is safe situation or not means when check deadlock can be avoidable or not occured
+ 
+ Deadlock Detection & Recovery :- 
+  - First detect whether their is deadlock or not and when detect try to recover
+  - Recovery process like :-
+    - Kill Process which detect during deadlock check
+    - Resource Preemption 
+
+
+
+
+Bankers Algo (Deadlock Avoidance):-
+ - We have to provide information to OS before which process is coming, which resource requires, for how much time etc..
+ - Also used in Deadlock Detection
+ - Safe sequence means how to handle resource so deadlock not occurs
+
+ Example :- 
+    Total A = 10, B = 5, C = 7
+
+    Process   Allocated      Max Need      Available   Remaining Need
+              A   B   C     A   B   C     A   B   C       A   B   C 
+    P1        0   1   0     7   5   3     3   3   2       7   4   3
+    p2        2   0   0     3   2   2     5   3   2       1   2   2
+    P3        3   0   2     9   0   2     7   4   3       6   0   0
+    P4        2   1   1     4   2   2     7   4   5       2   1   1 
+    p5        0   0   2     5   3   3     7   5   5       5   3   1
+              
+              7   2   5
+    - Some Allocated Resource and write in Available
+    Available :- Total - Allocation    
+    Remaining :- Max   - Allocation
+
+    - After calculating remaining need check which condition needs can i fulfill
+    
+    Safe Sequence(Available) :- free its allocated resources
+      (3 ,3, 2) --> P2 Executed --> (5, 3, 2) --> P4 Executed --> (7, 4, 3) --> P5 Executed --> 
+      (7, 4, 5) --> P1 Executed --> (7, 5, 5) --> P3 Executed --> (10, 5, 7)
+    
+    - Remaining need must statified for all resources
+    - Deadlock occurs if not statified any one of 5 processes
+
+
+
+ Example :- 2
+    Total A = 10, B = 5, C = 7
+
+    Process   Allocated      Max Need      Available   Remaining Need
+              A   B   C     A   B   C     A   B   C       A   B   C 
+    P1        1   0   1     4   3   1     3   3   0       3   3   0
+    p2        1   1   2     2   1   4     4   3   1       1   0   2
+    P3        1   0   3     1   3   3     5   3   4       0   3   0 
+    P4        2   0   0     5   4   1     6   4   6       3   4   1 
+       
+    Safe Sequence(Available) :- free its allocated resources 
+      (3 ,3, 0) --> P1 Executed --> (4, 3, 1) --> P3 Executed --> 
+      (5, 3, 4) --> P2 Executed --> (6, 4, 6) --> P4 Executed --> (8, 4, 6)   
+      = P1 -> P3 -> P2 -> P4
+    - Safe state no deadlock  
+
+
+
+  Example :- 3
+   3 Process Each require 2 Unit of R(Resource) but minimum no of unit 'R' so that no deadlock occurs -> Answer 4
+    - Fill minimum requirements - 1 (2 - 1 = 1 given to each ) 
+    - Minimum requirements (3) + 1 = 4
+   If maximum no of resources allocated but still deadlock 
+    - Ans : 3
+   If P1 = 3, P2 = 4, P3 = 5 calculate no deadlock :- 2 + 3 + 4 =  9 + 1 = 10 | Deadlock : 9
+
+
+   3 Process P1, P2, P3 that share 4 instances of same resource (R= 4) find value of K and it will be maximum and always avoid deadlock
+    - Try to give minimum no of resources to all processes like 
+      1, 1, 1  |   2, 1, 1    |   3, 1 (p1 executed but p2,p3 can be share 2,2 Resource)
+      So we can not now increases K value  ans is : k = 2
+
+                                  n
+  Formula still deadlock :- R <=  E (di-n)  Deadlock free :- >
+                                 i=1   
+
+                            Total Resource + Total Process > Total Demand
+                                  4        +      3    = 7 >  3 x 2 = 6    No Deadlock if 3 x 3 = Deadlock Maximum 
