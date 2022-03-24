@@ -12,8 +12,7 @@
 
  What is Process? Its Creation, Section and Termination :- 
   Process Creation :-
-   - When user started executing program it become process which defined as entity which represent basic unit of work to be 
-     implemented in system
+   - When user started executing program it become process 
    - Program is passive entity while procrss is active entity  
    - When we compare program with process, process is a dynamic instance of program
    - Each process has unique id may obtain resources either from operating system directly or from its parent process
