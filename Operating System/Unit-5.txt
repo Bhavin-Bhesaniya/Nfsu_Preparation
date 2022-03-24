@@ -2,9 +2,8 @@
 Memory Management & Degree of MultiProgramming :-
  - Method of managing primary memory
  - Efficient utilization of memory
- - Whenever no of process high in ram CPU utilization is high
+ - More No of process(Degree of multi-programming) in ram CPU utilization is high
  - Memory is large arrays of byte where every byte has some address
- - Degree of multi-programming high more process in RAM
  - Some part of memory occupied by OS when system start
 
  Formula :-
@@ -14,6 +13,7 @@ Memory Management & Degree of MultiProgramming :-
 
 
 Contiguous Memory Management Techniques :-
+
  - Provide Contiguous Memory Block for process in RAM
   
   Fixed Partition | Static Partition :-
@@ -99,15 +99,80 @@ Contiguous Memory Management Techniques :-
 
 
 Non-Contiguous Memory Management Techniques:-
- - Not Provide Contiguous Memory Block for process but store in different location in RAM
- - Divide process in different different block
+ - Allocate memory in non-contiguous manner and process can be divided and able to place in different location
+ - For removing external fragmentation
+ - Proble arise holes created dynamically so whenever process need to come in ram it need to check holes and its size
+   than according size need to divided process to fit in that location so it is very time consuming
+ - To solve these we divided process before enter in ram, and that called pages
+ - Size of Page = Size of Frame(Main memory Partition)
 
-   Paging :-
 
-   Multi-level Paging :-
+  Paging :-
+   - Divide process in equal size of pages and insert into frames of main memory
+   - Frame no and pages no represent in binary so its always start with 0
+   - Convert Cpu generated logical address into absolute address which is known as Mapping which done by MMU(Memory Management Unit)
+   - MMU use page table which containing frame number that address where process page is allocated in main memory
+   - Every process has its own page table
+   - number of entries in particular page tables always equal to number of pages 
+   - CPU always works on logical address space(LAS) which created by two factor :- page number and page offset(sizeof page)
+   - Physical address space (PAS) represent location of bytes in memory it depends on size of memory 
+     :- Frame number and Frame offset(sizeof frame)
+   - Page offset = Frame offset
 
-   Inverted Paging :-
+   
+   Page Table Entry :-
+    - Page table Use MMU to convert logical address into physical address for mapping
+      First Field  -> Frame No (Mandatory)
+      Second Field -> Valid-1/Invalid-0 | These field tells whether that page is present or not at that location(Page Fault) 
+      Protection(RWX)(Read Write Execute) -> Check which Permission on particular file or page  
+      Reference(0/1)  -> When we swapping swapout page we need to tells either we bring that page in past using LRU(least recently used)
+      Caching         -> Enable or disable caching 
+      Dirty/Modified  -> If user change any page data or say update data we use these field to also update data in secondary memory
 
-   Segmentation :-
 
-   Segmented Paging :-
+  Multi-level | 2-Level Paging :-
+   - If page table size bigger than main memory frame size so we need to divided it into smaller page(Outer page) and stored
+     page into outer page
+
+
+  Inverted Paging :-
+   - Instead of keeping all page table of all processes there will be only one page table(Global Page Table)
+   - Global page table contain --> Frame No | Page No | Process ID 
+   - No of frame in frame table same no of page entries
+   - Problem in Inverted Paging is searching time because it use Linear Search 
+
+
+  Segmentation :-
+   - Divide process into releated parts(segments) and then we put into memory
+   - Paging divided prcoess without known user which occurs in different problems(Function Problem C Program)
+   - In paging all page size have same while in segments size are not same
+   - In Main memory base represent from where segments its started 
+   - Here Segmente table convert logical address into physical address
+   - Segment table contain --> Segment' No   : Base address  (From where its start)  : Segmente Size
+   - Trap if cpu demand is higher than actual segment size 
+
+  Segmented Paging :-
+
+
+
+
+What is Thrashing :-
+ - Directly linked with Degree of Multi-Programming
+ - Cpu ask for page and its not available its called Page Fault and it is done by Page Fault Service Time 
+ - When service page Fault it take lots of time and entire OS busy in servicing page Fault
+ - Page Hit Decreases and page Fault become heavy Due to that CPU utilization will decreases suddenly which known as Thrashing
+ - To remove it either increases main memory size or decreases long-term scheduler speed
+
+
+
+What is Overlay :-
+ - If process size if more than size of memory, then i can make that process accommodate in main memory which known as overlay
+ - Os has not any drivers for overlay so user need to decied how to bring partition in program to use proper functionality
+ - Partition should be independent 
+ - Use in embedded system
+
+
+
+Virtual Memory :-
+ - Provide illusion where we can also able to execute process if its size is larger than memory 
+ - Divided process --> Allow only Required Process Page in main memory

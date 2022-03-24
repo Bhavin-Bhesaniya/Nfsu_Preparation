@@ -44,37 +44,32 @@ Glavin
  
 
 
- Os Duties / Function / Services :- 
+ Os Duties | Function | Services :- 
 
   Resource Management | Resource Governance:-
-   - Manage all kinds of resources both hardware and software using Schedulers
-   - Most of use in parallel processing
+   - Manage all kinds of resources both hardware and software using Schedulers for use in parallel processing
 
   Process Management | Process Execution :-
-   - Load program into memory, execute it in CPU and Handle it 
-   - Creating, Resuming, Suspending and Deleting Processes using various CPU Scheduling
-   - Also Provide mechanism for process synchronization, Inter Process Communication(IPC) and deadlock handling 
+   - Load program into memory, execute it in CPU and Handle it using various CPU Scheduling
+   - Also Provide mechanism for process synchronization, Inter Process Communication(IPC) and Deadlock handling 
    
   Storage/File management or Manipulation:-
-   - Manage file operations like Creating, deleting and manipulating files and directories based on permission mode
-   - Free space management, Storage allocation and Disk scheduling using File System
+   - Support Storage allocation, Disk scheduling using File System and Manage all file operations based on permission mode
 
   Memory management :-
+   - Keep track of memory to identify which part being used by which Job(Process) 
    - Allocating and deallocating memory space of Primary(Main) Memory because size limits
-   - Keep track of memory to identify which part being used by which job(Process) 
-   - Program must execute in Main Memory(RAM) 
 
   Protection | Security & Privacy:-
-   - OS ensures that all access to system resources is controlled
-   - Ensure that external I/O devices are protected from invalid access attempt
+   - OS controls all access to system resources to Ensure that external I/O devices are protected from invalid access attempt
    - Windows use Kerberos Security Protocol
   
   I/O Operation | I/O Management | Device Management :-
-   - OS Manage device communication between User and Device via their respective drivers 
-   - It Keep tracks of all devices and Program that responsible for this task is known as I/O controller.
+   - Keep tracks of all devices and Manage device communication between User and Device via their respective drivers 
+   - Program that responsible for this task is known as I/O controller.
 
   Communication :-
-   - OS also handle routing, connection strategies
+   - Handle routing, connection strategies
    - Processes can be on one computer or on different computers, but they are connected through computer network
    - Communication may be implemented by two methods, either by Shared Memory or by Message Passing
 
@@ -87,11 +82,10 @@ Glavin
  OS Structures type :-  
   
   Monolithic Architecture :-   
-   - Entire OS working in kernel space 
-   - Kernel provides various services such as memory management, file management, process scheduling etc. using system calls.
-   - Execution is so fast and process run completely in single address space
+   - Entire OS working in kernel space so execution is so fast and process run completely in single address space
    - It is static single binary file
-   - If any service fails its lead to entire system failure and to add new services entire architecture needs to modify
+   - Kernel provides various services using system calls
+   - If single service fails its lead to entire system failure and to add new services entire architecture needs to modify
    Example :- MS DOS, Unix, Linux, Open VMS, XTS-400
 
 
@@ -105,47 +99,40 @@ Glavin
    
     
   Microkernel Architecture :-  
-   - Minimum software that is required to correctly implement an operating system
-   - Includes virtual memory, process scheduling and basic inter-process communication
    - Removed all non-essential components from kernel and implementing them as system and user programs
-   - New services added in user space and does not require kernel to be modified which increased security and stability.
-   - If any service fails then rest of operating system remains untouched. 
+   - New services added in user space and does not require kernel to be modified which increased security and stability
+   - If any service fails then rest of operating system remains untouched
    Example :- MacOS, Mach, L4, AmigaOS, Minix, K42
      
 
   Modular Architecture :-
-   - Type of kernel in which core system parts allocated in independent files called modules
-   - It added to system at run time
+   - System parts allocated in independent files called modules which added to system at run time
    - Requires small amount of time for load modules
-   - Needs new module then they won’t have to recompile
   
 
   Hybrid Kernel :-
    - Combination of both monolithic kernel and mircrokernel
-   - It has speed and design of monolithic kernel and modularity and stability of microkernel.
+   - It use speed and design of monolithic kernel and modularity and stability of microkernel
    Example :- Windows NT, Netware, BeOS
 
 
 
 
  Types of operating systems – 
-   Single process operating system    :- MS DOS, 1981
-   Multiprogramming operating system  :- Dijkstra, early 1960
-   Multitasking operating system      :- CTSS, MIT, early 1960
+   Single process   :- MS DOS, 1981
+   Multiprogramming :- Dijkstra, early 1960
+   Multitasking     :- CTSS, MIT, early 1960
 
 
-  Batch Operating System | Batch Processing :-
-   - Similar kind of process(Job) batch given to computer so it can execute it
-   - OS define job in predefined sequence of commands, programs and data as a single unit
-   - Jobs are processed in order of submission First Come First Served(FCFS) fashion
-   - There is an operator which takes similar jobs having same requirement and group them into batches
-   - When job completes its execution, its memory is released and output job gets copied into output device for later processing.
-   - When job request for I/O at time CPU is Idle which is major disadvantages (Non-Preemption)
+  Batch Operating System | Batch Processing :- 
+   - Set Similar kind of process(job) in same batch in First Come First Served(FCFS) manner and to computer so it can execute it
+   - When Job request for I/O at time CPU is Idle which is major disadvantages (Non-Preemption)
    - IBM create FORTRAN Alone with IBSYS 709X in 1960 
 
    Example :-
-    User ---> Set Job in ROM device ---> Go to operator ---> Operator group similar job and execute 
-    ---> One time one process execute (No particular time for output) ---> Output is write to disk and get to user from operator
+    User ---> Set Job in ROM device ---> Go to operator ---> Operator group similar job and execute  
+    ---> One time one process execute (No particular time for output) 
+    ---> Output is write to disk and get to user from operator
     ---> User use output in own system for process  
      
    Diagram :- https://www.tutorialspoint.com/operating_system/images/batch_processing.jpg
@@ -153,33 +140,29 @@ Glavin
 
 
   Multiprogramming :- IDLENESS
-   - Multiprogramming increases CPU utilization by keeping multiple jobs(process) in main memory so that CPU always has one to execute
-   - OS keeps several jobs in main memory at time and pick one jobs from its job pull using CPU scheduling
+   - Increases CPU utilization by keeping multiple jobs(process) in main memory so that CPU always has one to execute
    - It is NonPre-emptive scheduling means if we give one process to cpu, cpu will complete that entire process and only after complete
      process pick another process
-   - Sometime cpu will go for I/O operation at that time cpu will pick up another process from job pull So cpu IDEL time is zero   
+   - Sometime cpu will go for I/O operation at that time cpu will pick up another process from job pull So cpu IDLE time is zero   
    Diagram :- https://www.tutorialspoint.com/operating_system/images/memory_layout.jpg
 
 
 
   Multitasking | Time-Sharing :- Responsiveness
-   - Logical extension of Multi-Programming also known as Time-sharing system
-   - Sharing processor time among multiple processes by CPU Scheduling 
-   - Each process given small portion of time in which process need to complete its execution
-   - CPU executes multiple tasks by switching among them which Reduce CPU IDLE time
-   - It is pre-emptive means Processor gives particular time for each process after than it automatically move to second process 
-     but first process still available if not complete in within given time
+   - Sharing small portion of time or time quantum among multiple processes by CPU Scheduling 
+   - CPU executes multiple process using switching which Reduce CPU IDLE time
+   - It is pre-emptive means Each process has given particular time in which it complete execution otherwise it will be switching
+     to another process by CPU Scheduling but process still available if not complete in within given time
    - Due to its fast switching Security arise with program data, data communication and its reliability 
    - Response time should be minimal
-   Example :- 3 Process need to execute ---> Share processor time among them (Share is based on scheduling) (Time Quantam)
    Diagram :- https://www.tutorialspoint.com/operating_system/images/multitasking.jpg    
 
 
 
-  Real Time operating System :-
-   - Real-time operating system (RTOS) Fixed time Constraint system where time constraint matter lot and can't be delays
+  Real Time operating System(RTOS):-
+   - Fixed time Constraint system where time constraint matter lot and can't be delays
    - Time taken by system to respond input and display required updated information is termed as response time   
-   - VxWorks, QNX & RTLinux are real-time operating systems and Palm OS is a mobile operating system for Personal Digital Assistant(PDA) 
+   - VxWorks, QNX & RTLinux are real-time operating system and Palm OS is mobile operating system for Personal Digital Assistant(PDA) 
    Example :- Embedded systems, Robotics, Scientific utilities, etc.
     
    Types :-
@@ -194,7 +177,7 @@ Glavin
    - OS distribute computation logics among several physical processors
    - Reduction of delays in processing and loading on host computer
    - Processors do not share memory instead each processor has its own local memory, storage etc...
-   - Main advantage is availability, if any system fail another load balancing that system so its improved Scalability     
+   - Availability, Load balancing, Scalability     
    - If Processors connect with local network (Single network) like Single server it is called "Cluster Operating System"
 
 
@@ -207,7 +190,7 @@ Glavin
 
   Network Operating System :-
    - Runs on server computer and provides server capability to manage application, user data and other networking functionality
-   - Purpose to allow shared file and printer access among multiple computers in a network, 
+   - Purpose to allow shared file and printer access among multiple computers in network
      typically local area network (LAN), private network or to other networks.
    - Centeralized Server so security managed and software upgrade easily and enable remote access 
    - Dependency on central server, High cost , Regular maintenance and update are some disadvantages
@@ -225,8 +208,7 @@ Glavin
 
  What is SystemCall :-
   - To use system functionality we need to go in kernel mode because we only can access user mode
-  - System call is mechanism using which user program request kernel to access system functionalities
-  - User program invokes system call when it require such services like accessing I/O devices and communicating other programs.
+  - System call is mechanism using which user program request kernel to access all system functionalities 
 
 
   Type of System Call :- 
@@ -261,12 +243,12 @@ Glavin
    Example :- 
     User Mode                                                                 Mode Bit = 1
         User Process Executing --> Get System Call \                / Return From System Call
-                                                    \ 1 trap     1 / 
+                                                    \ 1   Trap   1 / 
     ----------------------------------------------------------------------------------------------------
                                                       \ 0      0 /
     Kernel Mode                                   Execute System Call        Mode Bit = 0 
               
-    - All core functionality are executed in kernel mode  
+    
 
 
 
@@ -287,8 +269,8 @@ Glavin
 
 
  What is Kernel :- 
-  - Kernel is core central component of an operating system that manages all operations of computer and hardware
-  - It acts as bridge between applications and data processing which performed at hardware level using IPC and system calls
+  - Kernel is central component of os that manages all operations of computer
+  - Acts as bridge between applications and data processing which performed at hardware level using IPC and system calls
 
   Objectives of Kernel :
    - Establish communication between user level application and hardware
