@@ -14,14 +14,14 @@
   Process Creation :-
    - When user started executing program it become process 
    - Program is passive entity while procrss is active entity  
-   - When we compare program with process, process is a dynamic instance of program
-   - Each process has unique id may obtain resources either from operating system directly or from its parent process
-   - Parent process continues executing with its children process and wait for them to finish
-   - Process may have new program loaded into it or may be duplicate of its parent process(Same code or data)
+   - Process is dynamic instance of program
+   - Process may have new program or may be duplicate of its parent process(Same code or data)
+   - Each process has unique id which may obtain resources either from operating system directly or from its parent process
    - Each process has its own address space which contains code, data, stack and heap segments or sections   
+   - Parent process continues executing with its child process and wait for them to finish
 
 
-  Process can divided into four section :-
+  Process divided into four section :-
    Stack : Contain temporary data such as method/function parameters, return address and local variables
    Heap  : Dynamically memory allocation for process during Run Time
    Text  : Include current activity represented by value of Program Counter and Content of processor's register
@@ -42,19 +42,19 @@
 
 
  Process State :-
-  - Process state defined current activity process as process executes its state changes
+  - Process state defined current activity process, as process executes its state changes
   - Each process represented by Process Control Block(PCB) also called Task Control Block
 
   State :-
    New   :- Initial state when process is first started/created in secondary memory(ROM)(Job Queue)
-   Ready :- Long-term scheduler load Process from secondary memory to main memory(RAM)(Ready Queue) when we start process execution 
+   Ready :- Long-term scheduler load Process from secondary memory to main memory(RAM)(Ready Queue)
             where process is waiting to be assigned to processor(CPU)
           - Multiprogramming means number of processes are in ready states to increases CPU utilization
    Running :- Short-term scheduler assign process to CPU from ready state and CPU execute process instructions
               Sometime transfer process to ready state when high-priority process is given by ready state 
               or process exceeded time limit/Time quantum(Round-Robin)
               If process request is I/O request it is transfer to waiting state
-   Waiting   :- Process move into these state if it needs to wait for resource, such as waiting for user input or I/O operation
+   Waiting   :- Process in these state wait for resource, such as waiting for user input or I/O operation
                 After complete process its moves into ready state not running 
                 If no of process I/O request is increases and (Device queue) is full it is moved into suspended state known as ROM
    Terminate :- Once process finishes its execution, or it is terminated by OS and deallocating all resources 
@@ -63,35 +63,34 @@
  
 
  PCB(Process Control Block) :-  
-  - PCB is data structure maintained by Operating System for every process using ID(Process ID/PID) 
-  - It maintained process throughout its lifetime
+  - PCB is data structure maintained by Operating System for every process using process ID
   - Entry of all PCBs of current processes is in Process Table 
   - Process Table has status of each and every process that is created in OS along with their PIDs
 
   PCB Contain All information of process :-
     Process ID
-    Process Privileges : Required to allow/disallow access to system resources
+    Process Privileges : Allow/Disallow access to system resources
     Process State      : Contain Function parameters, Local variables and Return address does not contain PID of child process
     Pointer            : To parent process
     Program Counter    : Pointer to the address of next instruction to be executed for this process
-    CPU Register       : Where process need to be stored for execution for running state
+    CPU Register       : Process stored for execution(Running state)
     CPU scheduling information    : Process priority, other scheduling information, etc. 
     Memory Management Information 
-    Accounting information        : Includes amount of CPU used for process execution, time limits, execution ID 
-    I/O status information        : List of I/O devices allocated to process.
+    Accounting information        : Include amount of CPU used for process execution, time limits, execution ID 
+    I/O status information        : List of I/O devices allocated to process
   
 
 
 
  Process Scheduling :-
-  - OS maintenance all PCBs in Process Scheduling queues which used to perform process scheduling
 
 
   Scheduling queues :-
+   - OS maintenance all PCBs in Process Scheduling queues to perform process scheduling
    Job Queue     - As Process enter system it put in job queue which keeps all processes in system 
    Ready Queue   - Processes that are residing in memory and are ready for execution are kept in ready queue
                  - It is implemented as linked list of PCBs with header containing pointers to first and last PCBs
-   Device Queue  - List of processes waiting for particular I/O device is called a device queue
+   Device Queue  - List of processes waiting for particular I/O resource is called device queue
                  - Each device has its own device queue
 
 
@@ -99,38 +98,33 @@
    - Schedulers are special system software which handle process scheduling in various ways.
     
    Long-term Scheduler(Job Scheduler) :-
-    - LTS used when process change state from new to ready
-    - Select processes from those submitted by user and loads them into memory for execution
-    - It is done by using multiprogramming which represent number of processes in memory  
-    - LTS select proper mix of CPU-bound processes and I/O-bound processes. 
-    - Multitasking OS like unix and windows not use long-term scheduler they put all new processes in memory for short-term scheduler
+    - LTS used when process change state from new to ready 
+    - Select processes from those submitted by user and loads them into memory for execution using multiprogramming
+    - LTS select proper mix of CPU-bound processes and I/O-bound processes
+    - Multitasking OS like Unix and windows not use long-term scheduler they put all new processes in memory for short-term scheduler
     
 
    Short-term scheduler(CPU Scheduler) :- 
-    - Selects process from ready state(Ready Queue) and allocate CPU to one of them.
-    - It is invoked frequently and very fast than long-term scheduler
-    - Gives control(PCB information) to cpu to process processes which is selected by CPU scheduler known as Dispatcher
-    - Here Dispatcher which take decision of which process to execute next.  
+    - Selects process from ready state(Ready Queue) and allocate CPU to one of them
+    - Dispatcher gives PCB information of selected process to cpu to execute process and take decision of which process to execute next
     - CPU Scheduler is invoked when process switches from running state to waiting state OR terminates OR ready state
-    - MS DOS does not support multiprogramming hence no cpu scheduling
+    - MS DOS does not support multiprogramming hence No cpu scheduling
 
 
    Medium-term scheduler(Swapping):- 
     - Invoked when waiting state is full due(device queue) to lots of I/O request and need to move process in suspended state
-    - Move process from device queue to secondary memory which is called swapping
-    - Remove process from memory and make space for other processes and suspended process moves to secondary storage its called Swapping
+    - Remove process from RAM and make space for other processes and suspended process moves to secondary storage its called Swapping
     - After complete I/O operation process will be join waiting state if there is space in waiting state otherwie wait for some time
 
 
   Types of Scheduling :-
-    Non-Preemptive scheduling | cooperating scheduling :-
+    Non-Preemptive scheduling | Co-Operating scheduling :-
     - Process keeps in cpu until it terminates(Complete) also known as multiprogramming
     - Some machine support is :-  Windows 3.1X
 
     Preemptive scheduling :- 
      - Process can be forced to leave cpu and switch to ready queue due to high-priority process or time quantum
      - Ex :- Unix, Linux, Windows 95 or Higher   
-
 
 
   Scheduling Criteria :-
@@ -145,22 +139,22 @@
 
 
  What is Context Switching :-       
-  - Context switching is to store and restore context of CPU in PCB so that process execution can be resumed from same point at later time. 
-  - Essential part of multitasking OS which enables multiple processes to share single CPU. 
-  - When scheduler switche CPU from executing one process to execute another, state of current running process is stored into PCB 
+  - Store and restore context of CPU in PCB so that process execution can be resumed from same point at later time
+  - Multitasking OS enables multiple processes to share single CPU
+  - When scheduler switch CPU from executing one process to another, state of current running process is stored into PCB 
   - After this state, process next run in own loaded PCB and used set of PC, registers, etc. 
     At that point second process can start executing.
   - To avoid amount of context switching time, some hardware systems allow two or more sets of processor registers
-   Following information is stored during switching:-
+   Information Stored During Switching:-
     - Changed State
     - Program Counter
     - Base and limit register value
     - Currently used register
     - Scheduling information
-    - I/O State information
+    - I/O State  information
     - Accounting information
 
- 
+
 
  
  Inter-Process communication (IPC):-
@@ -175,99 +169,97 @@
 
 
 
- What is Thread :-
-  - Thread is component of process or lightweight process
-  - It is smallest sequences of instructions that can be independently managed by CPU scheduler
-  - Multiple Thread can exists within same process, executing concurrently and share resources such as memory
+What is Thread :-
+  - Smallest sequences of instructions that can be independently managed by CPU scheduler
+  - Multiple-Thread can exists within same process, executing concurrently and share resources such as memory
   - Threads of process share its instructions(Executable Code) and its context(value of its variable at given any moment)
-  - Thread contain thread ID, Program Counter, register set and stack
-  - Each thread represent separate flow of control
+  - Thread contain thread ID, Program Counter, register and stack
   - Fork() is system call which used to generate child process(Process clone) :- 2(^n)-1 
-  Diagram :- https://www.tutorialspoint.com/operating_system/images/thread_processes.jpg
 
 
   Difference Between Process and Thread :-
-   - Os treat different process differently while all user level thread as single task for OS
-   - Context switching between thread typically faster than process
-   - In process system call invovled while in thread no system call invovled
-   - Blocking process not block another process while blocking thread will block entire process(I/O request so block)
-   - Process are typically independent while thread exist as parts of process so it is dependent on process
-   - Process contain more state information than threads
-   - Different process have different address, data, code whereas threads share same copy of data and code but stack, registers different 
-   - Thread share data and code but different stack and registers
-
+    Topic                       Thread                        Process
+    Context Switching           Faster                        Slower
+    System Call Invovled        No                            Yes
+    Independent                 Part of process so dependent  Yes
+    State Information           less than process             More than thread
+    Blocking                    Block entire process(I/O)     Not block another process
+    OS Treating                 All user level thread         Differently
+                                as single task  
+    Share                       Share same Data and code      Different address, data, code
+                                but stack,registers different  
+     
 
 
   Advantages of Multi-Thread Programming :-
-   - Better resource utilization with minimize resources utilization
+   - Better resource utilization
    - Responsiveness so program Faster execution 
    - Easy communication 
    - Parallelization
 
 
 
-  Types Of Thread :-
-   User Level 
-    - User manage thread where kernel is not aware of existence of thread
-    - Thread library manage code for creating, destroying, passing message and data between threads,
-      scheduling thread execution and saving and restoring thread contexts.
-    - It does not require kernel mode privileges
+  Types Of Thread:-
+   
+   User Level:-
+    - User manage thread where kernel is not aware of existence of thread so not require kernel mode privileges
+    - Thread library manage code for creating, destroying, passing message and data between threads, scheduling thread execution 
+      and saving and restoring thread contexts.    
     - pthread.h library used to create threads
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/user_threads.jpg 
   
    Kernel Level :-
     - Kernel maintains context information for process as whole and for individuals threads within process
     - Kernel performs thread creation(similar to create process), scheduling and management in Kernel space using system call. 
     - Simultaneously schedule multiple threads from same process on multiple processes
   
-   Difference between User level and Kernel level thread :- 
-    - User level thread are managed by user thread library while kernel level managed by OS 
-    - User level are faster to create and manage where kernel level is slower to create and manage
-    - Context switching in user level thread is faster than kernel level thread
-    - If user level thread perform blocking operation then entire process is blocked while in kernel level blocking not affect other
-    - User thread Generic and run on any OS while kernel thread OS Specific
-    - In User thread Multi-threaded application cannot take advantage of multiprocessing while kernel routine themselves multithreaded
+   Difference :- 
+                      User level                  Kernel level 
+    Managed             User                        OS
+    Speed to create     Faster                      Slower
+    Context Switching   Faster                      Slower
+    Perform Blocking    Block entire process        Not Affect Other
+    Platform            Independent run any OS      OS Specific
+    Multi-Thread        can't take advantage of     kernel routine themselves multithreaded 
+                        multiprocessing
+  
 
 
   
   Multi-threading Models :- 
    - Combination of User level thread and Kernel level thread 
-   - Combined Threads can run in parallel on multiple processors and blocking system call not block entire process. 
+   - Combined Threads can run in parallel on multiple processors and blocking system call not block entire process
    
-   Types :-
    Many To Many Model :-
-    - Multiplexes any number of user threads onto equal or smaller number of kernel threads so parallel run on multiprocessor machine
+    - Multiplexes any number of user threads into equal or smaller number of kernel threads so parallel run on multiprocessor machine
     - Best accuracy and concurrency when thread performs blocking system call, kernel can schedule another thread for execution  
-    Diagram :- https://www.tutorialspoint.com/operating_system/images/many_to_many.jpg Ex:- Solaris
+    Ex:- Solaris
 
    Many To One Model :-
     - Many user level threads to one Kernel-level thread done by thread library 
-    - When thread makes blocking system call, entire process will be blocked. 
-    - Only one thread can access Kernel at time, so multiple threads are unable to run in parallel on multiprocessors.
+    - When thread makes blocking system call, entire process will be blocked
+    - Only one thread can access Kernel at time, so multiple threads are unable to run in parallel on multiprocessors
     - If user-level thread library not support by OS these mechanisms use
    
    One To One Model :-
     - one-to-one relationship of user-level thread to kernel-level
-    - Provide more concurrency than the many-to-one model
+    - More concurrency than many-to-one model
     - Allow other thread to run when thread makes blocking system call. 
     - It supports multiple threads to execute in parallel on microprocessors
-    - Disadvantage of this model is that creating user thread requires the corresponding Kernel thread
-    - Ex :- Linux
+    - Disadvantage of this model is that creating user thread requires corresponding Kernel thread
+    Ex :- Linux
 
 
 
 
- Scheduling Algorithm :-
-  - Gantt Chart(Henry Gantt)  Use to sloveing numerical calculation
-  - Used to select process for execution 
+Scheduling Algorithm :-
+  - Gantt Chart(Henry Gantt) Use to sloveing numerical calculation
   - These algorithms either Pre-emptive or Non-Preemptive
-  - Non-Preemptive select one process and complete it where pre-emptive select process but in some cases also select other process
 
 
   First-Come First-Served(FCFS) Scheduling :-
    - Non-Preemptive
    - High Average Waiting Time
-   - Convoy Effect - Several small processes may need to wait if large process is give the cpu   
+   - Convoy Effect - Several small processes may need to wait if large process is given cpu   
    - Poor performance and average waiting time is high
    
    Criteria :- Arrival Time : Check Who Come First Use in Gantt Chart
@@ -279,11 +271,13 @@
       p3             5                3                            8              3                     0             0
       p4             6                4                           12              6                     2             2
 
-    Gantt  :-  p1(0) | p2(2) |  CPU IDle(4) | p3(8) | p4(12)  # Starting 0 + execution time 
+    # Starting from 0 
+    Gantt  :-  | p1 |  p2  |  CPU IDLE | p3    | p4  | CPU  
+               0    2      4           5       8     12
 
-    Turnaround Time :- Complete Time   - Arrival Time
-    Waiting Time    :- Turnaround Time - Burst Time
-    Response time   :- Time at first cpu got first time - Arrival time
+    Turnaround Time         :- Complete Time   - Arrival Time
+    Waiting Time            :- Turnaround Time - Burst Time
+    Response time           :- First Time CPU got - Arrival time
     Average Turnaround Time :- 2 + 3 + 3 + 6 = 14/4 = 3.5
     Average Waiting Time    :- 0 + 1 + 0 + 2 = 3/4  = 0.75 
 
@@ -304,14 +298,16 @@
       p3             1                2                            3              2                     0             0
       p4             4                4                           14             10                     6             6
 
-    Gantt  :- 0 CPU IDle |1 p3(3) |3  p1(6) |6 p2(10) |10 p4(14)|14       # Starting 0 + execution time but select process bases on execution
-            - If two process have same Arrival Time burst time check
-            - If two process not have same Arrival Time but already in queue check burst time
-            - When both burst time same check arrival time if arrival time same check lower process ID
+    Gantt  :- 
+      | CPU IDle |  p3  |  p1  |  p2  |  p4  |
+      0          1      3      6      10     14
+      - If two process have same Arrival Time burst time check
+      - Not have same Arrival Time but already in queue check burst time
+      - When both burst time and arrival time same check lower process ID
 
     Turnaround Time :- Complete Time   - Arrival Time
     Waiting Time    :- Turnaround Time - Burst Time
-    Response time   :- Time at first cpu got first time - Arrival time
+    Response time           :- First Time CPU got - Arrival time
     Average Turnaround Time :- 5 + 8 + 2 + 10 = 25/4 = 6.25
     Average Waiting Time    :- 2 + 4 + 0 + 6 = 12/4  = 3
 
@@ -336,9 +332,9 @@
              add it in cpu otherwise continues old process
            - Add last execution time as completion time
 
-    Turnaround Time :- Complete Time   - Arrival Time
-    Waiting Time    :- Turnaround Time - Burst Time
-    Response time   :- Cpu First time - Arrival time
+    Turnaround Time         :- Complete Time      - Arrival Time
+    Waiting Time            :- Turnaround Time    - Burst Time
+    Response time           :- First Time CPU got - Arrival time
     Average Turnaround Time :- 24/4 = 6 
     Average Waiting Time    :- 11/4 = 2.75 
  

@@ -20,8 +20,8 @@ Glavin
 
   Software             :- Collection of computer programs, libraries and related data are referred to as a software
   Application Software :- Perform task for user 
-  System software      :- Operate and controls computer system and provide platform to run application software
-  Computer program     :- Collection of instructions that performs specific task when executed by computer. 
+  System software      :- Operate and controls by computer system and provide platform to run application software
+  Computer program     :- Collection of instructions that performs specific task when executed by computer 
   
   Algorithm   :- Computer program that performs well-defined task 
   Kernel      :- Part of OS which interacts directly with hardware and performs most crucial tasks
