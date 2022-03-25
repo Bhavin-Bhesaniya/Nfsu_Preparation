@@ -11,7 +11,7 @@ Lec-2 :- Database Basic Intro
 
     
 Lec-3 :- File System vs DBMS
- - File system user When single user of that particular system Store and manage data
+ - File system user When single user of that particular system Store and *-manage data
  - Due to client-server architecture we need DBMS
 
  Reason :- 

@@ -204,7 +204,7 @@
   - SemaPhore it is integer variable which is used in mutual exclusive manner by various concurrent coperative process
     in order to achieve process synchronization
    
-   Types :- 
+  Types :- 
     Counting (-infinite to + infinite)
     Binary   (0,1) By default value is 1
 
@@ -245,7 +245,7 @@
      - Now i perform 6P() operation and 4V() operation what will be final result = 10 -6 = 4 + 4 = 8 
 
 
-   Binary SemaPhore :-  
+  Binary SemaPhore :-  
     - Integer Variable value is either 0 or 1
     - If SemaPhore value inital 1 so process have chance to go in critical section and perform if 0 so process is blocked
     - Not going in -1 because it is binary
@@ -271,7 +271,7 @@
     }
    
 
-   Question Solution :- What is maximum no of processes that may present in CS at any point of time?
+  Question Solution :- What is maximum no of processes that may present in CS at any point of time?
     - 10 Process pi{i = 1 to 9} execute these code | mutex = 1
      repeat
       p(Mutex) - Entry Code
@@ -295,6 +295,8 @@
               Now P10 again join and release     
     
 
-   Question Solution :- Producer Consumer Problem Using SemaPhore
-   Question Solution :- Reader Writer Problem Using SemaPhore
-   Question Solution :- Dining philosopher Problem Using SemaPhore
+  Question Solution :- Producer Consumer Problem Using SemaPhore
+   
+    
+  Question Solution :- Reader Writer Problem Using SemaPhore
+  Question Solution :- Dining philosopher Problem Using SemaPhore

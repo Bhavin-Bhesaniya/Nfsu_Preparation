@@ -1,0 +1,23 @@
+Disk Scheduling :-
+
+Hard-Disk Architecture :-
+ Platter (Circle Shape)  :
+   - Every Platter has two surfaces upper-level and lower-level
+   - On Platter surface there is read-write head which are connected through actuator arm to use fetch and read data
+   - Read-Write head movement either in forward or backward only 
+   - On Platter surface there are tracks 
+   - Every track has fix no. of sectors where we put our data 
+
+   Formula DiskSize : P x S x T x S x D
+ 
+ Spindal(Vertical Stick) : Connect Platter to move either in clock-wise or anti-clock-wise undirectional
+
+
+
+Disk Access Time :-
+ Seek Time        :- Time taken by R/W head to reach desired track
+ Rotation Time    :- Time taken by one full rotation(360)
+ Rotation Latency :- Time taken to reach desired track(Half of Rotation Time)
+ Transfer Time    :- Data To be transfer/ Transfer rate;
+                     Transfer rate(Data Rate) = {No. of Heads x Capacity of one track x No. of rotation in onse second } 
+
