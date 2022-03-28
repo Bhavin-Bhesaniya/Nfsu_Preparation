@@ -42,7 +42,16 @@ Lec-4 :- DBMS Architecture 2 Tier VS 3 Tier
 
 
 
-Lec-5 :- What is Schema
+Lec-5 :- What is Schema(Structure)? Three Schema Architecture :-
  - Logical Representation of database(Diagramatically or OnPaper) (Student Table)
  - To implement in real life we use SQL DDL(Data Defination Language) Command 
+ 
+ Diagram :-
+    External Schema   EX.Schema   EX.Schema   (View Level)
+              \          |           /
+                  Conceptual Schema           (Logical Level)
+                         |  
+                  Physical Schema             (Internal)(Physical Level)
+                         |
+                      Database                          
  

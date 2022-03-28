@@ -1,0 +1,9 @@
+File System :-
+   OS       File System
+   Windows  NTFS
+   DOS      FAT
+   UNIX     Unix
+   Linux    Extended
+   BigData  zfs | Data Wide 
+ - File System is software which manages how data will be permanently stored and fetched
+ - 

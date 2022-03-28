@@ -7,7 +7,8 @@ Hard-Disk Architecture :-
    - Read-Write head movement either in forward or backward only 
    - On Platter surface there are tracks 
    - Every track has fix no. of sectors where we put our data 
-
+   - To reach data -> Platter -> Surface(Upper/Lower) -> Track ->  Sector -> Data
+   - Every platter has Read-Write head which connect with Actuator Arm to find data
    Formula DiskSize : P x S x T x S x D
  
  Spindal(Vertical Stick) : Connect Platter to move either in clock-wise or anti-clock-wise undirectional
@@ -21,3 +22,155 @@ Disk Access Time :-
  Transfer Time    :- Data To be transfer/ Transfer rate;
                      Transfer rate(Data Rate) = {No. of Heads x Capacity of one track x No. of rotation in onse second } 
 
+
+
+Disk Scheduling Algorithm :-
+ - To minimize seek time
+ - FCFS And SSIF not required direction while SCAN and LOOK Required
+ 
+ FCFS(First Come First Serve) :-
+  Request Queue : Every disk have request queue whenever user create request for data that data in what particular track stored in memory
+                  management after mapping it, whatever track no comes it inserts in queue number  
+  - No StarVastion(Request is waiting for its tern to work) in algorithm
+  - Performance without looking data request(Seek time higher)
+
+  Question :- A disk contatins 200 tracks(0-199) request queue contain track no. 82,170, 140, 24, 16, 190 respectively
+              current poistion of R/W head =50 calculate total no. of tracks movement by R/W head using FCFS?
+
+              0             50                  199
+                                82
+                                        170               
+                        43
+                                    140
+                    24
+                16                                        
+                                             190  
+
+    Find track movement Or Howmany time direction change :-
+        (82-50) + (170-82) + (170-43) + (140-43) + (140-24) + (24-16) + (190-16)  OR (170-50) + (170-43) + (140-43) + (140-16) + (190-16)
+      =  32     +   88     +  127     +   97     +  116     +   8     +   174    
+      = 642
+
+
+
+ SSIF(Shortest Seek Time First) :-
+  - Least of seek time to reach desired track means nearest of 50(R/W poistion)
+  - Gives optimal result(Shortest Seek Time)
+  - Response time is average
+  - StarVation occurs because some time one request wait for long-time
+  - Overhad generate because we need to find every time nearest poistion so we need to check entire list which increase complexity
+
+  
+  Question :- A disk contatins 200 tracks(0-199) request queue contain track no. 82,170, 140, 24, 16, 190 respectively
+              current poistion of R/W head =50 calculate total no. of tracks movement by R/W head using SSIF?
+            - If R/W head is takes 1nanosecond to move from one track to another then total time taken?   
+
+              0             50                  199
+                        43
+                    24
+                16              
+                                82
+                                  140
+                                      170
+                                         190
+
+
+    Find track movement Or Howmany time direction change :-
+        (50-16) + (190-16)
+      =  34     +   174     
+      =  208
+  
+
+
+ SCAN :-
+  - Also known as Elevator algorithm
+  - Move in one direction till last point(199) and other direction stop last request point
+  - It moves till becaus if dynamically request come
+  - Once you change direction and request occurs dynamically then you can't go back 
+
+
+  Question :- A disk contatins 200 tracks(0-199) request queue contain track no. 82,170, 140, 24, 16, 190 respectively
+              current poistion of R/W head =50 calculate total no. of tracks movement by R/W head using SCAN?
+            - If R/W head is takes 1nanosecond to move from one track to another then total time taken?  :- 332 x 1ns = 332  
+            - Direction to larger value
+
+              0             50                  199
+                                82
+                                  140
+                                      170
+                                         190  
+                        43
+                    24
+                16              
+
+
+    Find track movement Or Howmany time direction change :-
+        (199-16) + (199-50)
+      =  183     +   149     
+      =  332
+
+
+
+ LOOK :- 
+  - Not move till direction only last request   
+  Find track movement Or Howmany time direction change :-
+      (190-16) + (190-50)
+      =  174     +   140     
+      =  314
+
+
+
+ CSCAN(Circular Scan) :-
+  - Move in one direction till last point(199) and other direction stop last request point
+  - than move to another direction till last point without fulfill any request(50-fill-199-nofill-0-fill last request)
+  Find track movement Or Howmany time direction change :-
+      (199-50)   + (199-0) + (43-0)
+      =  174     +   199   + 43
+      =  391 
+
+
+
+ CLOOK(Circular LOOK) :-
+  - (50 - fill  - last-request(190) - Nofill  - 16(lowest-request) - fill last-request)
+  Find track movement Or Howmany time direction change :-
+      (190-50)   + (190-16) + (43-16)
+      =  341 
+
+
+
+
+ Question Solution :-
+  - Track Request in Queue :- 95, 180, 34, 119, 11, 123, 62, 64  USE C-SCAN 
+  - R/W head is at location 50 
+  - If track are number from 0 to 199, head is moving towards small track
+    Find total seek time? 2ns times to move from one track to another while serving these request is?
+    Assume moving one end to another end will take 10ms
+
+    Diagram :-
+      0      50                  199
+          34
+        11
+                              180
+                          123             
+                      119
+                    95
+                  64
+                62 
+
+    Find track movement Or Howmany time direction change :-    (50 - 0 - 199(Nofill) - 199-62)
+      (50-0) + (199-62) + 10
+     = ((50+137)x2) + 10
+     = 384       
+ 
+  - Consider three CPU intensive process 
+  - Which require 10, 20, 30 times units and arrives at 0, 2, 6 respectively 
+  - How many context switches if OS use STRF(Shortest Job First Pre-emption) Algo? Do not count at time zero and at the end?
+        Arrival Time Burst Time(Execution Time)
+    P1    0           10
+    p2    2           20
+    p3    6           30
+
+    |  p1  |   p2  |   p3  |    Ans :- 2 (p1->p2 p2->p3) 
+    0      10      30      60
+
+       
