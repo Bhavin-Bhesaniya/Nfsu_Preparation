@@ -1,3 +1,13 @@
+Memory Management & Virtual Memory Management
+
+Topics :-
+ - Memory Management & Degree of MultiProgramming
+ - Contiguous Memory Management Techniques :-
+ - Non-Contiguous Memory Management
+ - What is Thrashing
+ - What is Overlay
+ - Virtual Memory
+
 
 Memory Management & Degree of MultiProgramming :-
  - Method of managing primary memory

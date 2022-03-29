@@ -1,3 +1,4 @@
+Process & Thread & Scheduling Algorithm
  Topics :-
   - What is Process? Its Creation and Termination
   - Process State
@@ -169,7 +170,7 @@
 
 
 
-What is Thread :-
+ What is Thread :-
   - Smallest sequences of instructions that can be independently managed by CPU scheduler
   - Multiple-Thread can exists within same process, executing concurrently and share resources such as memory
   - Threads of process share its instructions(Executable Code) and its context(value of its variable at given any moment)
@@ -251,7 +252,7 @@ What is Thread :-
 
 
 
-Scheduling Algorithm :-
+ Scheduling Algorithm :-
   - Gantt Chart(Henry Gantt) Use to sloveing numerical calculation
   - These algorithms either Pre-emptive or Non-Preemptive
 

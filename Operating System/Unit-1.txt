@@ -1,4 +1,5 @@
-Glavin
+Introduction to Operating System :- Glavin
+
  Topics :-
   - Important Terms
   - What is OS
@@ -10,8 +11,7 @@ Glavin
   - What is Booting & What happens when we turn on computer? BIOS VS UEFI | MBR vs GPT 
   - RAM Vs ROM
   
-  
-  
+
 
  Important Terms :-   
   Computer    :- General purpose device that execute sequences of instruction to perform numerical calculations and other tasks. 
