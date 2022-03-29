@@ -279,3 +279,31 @@ Glavin
 
   Types of Kernel :- 
    Monolithic, Microkernel, Hyperkernel in OS Structure Type
+
+
+RAM(Random Access Memory) Vs ROM (Read-Only Memory):-
+ Ram :-
+  - Volatile memory 
+  - Use for starting and loading operating system and application
+  - Faster
+  - 32 bit Max Ram size :- 4 GB AND 64 : 16GB 
+  - Types :- 
+    1)DRAM  - Dynamic RAM must be continuously refreshed, or otherwise, all contents are lost
+    2)SRAM  - Static RAM is faster, needs less power but is more expensive. However, it does need to be refreshed like DRAM.  
+    3)SDRAM - Synchronous Dynamic RAM run at very high clock speeds
+    4)DDR   – Double Data Rate provide synchronous Random Access Memory
+
+ 
+ ROM :- 
+  - Non-volatile 
+  - Write once read any no. of time
+  - Used in start-up process of computer
+  - Types :- 
+    1)EPROM  :- Erasable Programmable Read-only memory Stores instructions, but you can erase only by exposing memory to ultraviolet light
+    2)EEPROM :- Electrically Erasable Programmable Read-Only Memory, stores and deletes instructions on special circuit
+    3)PROM   :- Programmable Read-Only memory type of ROM is written or programmed using a particular device
+    4)MASKROM :- Contents can be programmed only by an integrated circuit manufacturer
+  
+
+
+ 

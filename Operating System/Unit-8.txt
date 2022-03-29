@@ -1,0 +1,17 @@
+Protection and Security :-
+ - Ensure that each resource is accessed correctly and only by those processes that allowed to do so
+
+ CIA(Confidentiality, Integrity, Availability) :-
+  Confidentiality :- Unauthroized person should not be allowed to read data   to achieve it Encryption best
+  Integrity       :- Unauthroized person should not be allowed to modify data
+  Availability    :- Data should be available for authorized users
+
+ Principal Protection :- Give just enough privileges to perform their tasks
+
+ Domain Structure :- Domain is set of access-rights 
+
+ Access Matrix :- View protection as matrix
+
+ Threat is potential security violation
+ Attack is attempt to breach security
+  Active Attack :- Masquerading(breach Authentication) | Replay Attack |  Man-in-the-middle attack | Session Hijacking
