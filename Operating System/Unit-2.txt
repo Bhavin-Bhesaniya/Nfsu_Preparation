@@ -19,7 +19,7 @@ Process & Thread & Scheduling Algorithm
    - Process is dynamic instance of program
    - Process may have new program or may be duplicate of its parent process(Same code or data)
    - Each process has unique id which may obtain resources either from operating system directly or from its parent process
-   - Each process has its own address space which contains code, data, st`ack and heap segments or sections   
+   - Each process has its own address space which contains code, data, stack and heap segments
    - There are mainly two types of processes :- 1)Independent Process 2)Cooperative process
 
 
@@ -72,7 +72,7 @@ Process & Thread & Scheduling Algorithm
                          current position of process
     Process State      : Store respective state of process
     Process ID         : Identifier of process
-    Program Counter    : Store counter that Address of next instruction to be executed for this process
+    Program Counter    : Store counter which Address of next instruction to be executed for this process
     CPU Register       : Process stored for execution(Running state)
     Memory Management Information : Include Page table, segment table etc.
     Open File list     : list of all open file for process
@@ -125,13 +125,17 @@ Process & Thread & Scheduling Algorithm
      - Process can be forced to leave cpu and switch to ready queue due to high-priority process or time quantum
      - Ex :- Unix, Linux, Windows 95 or Higher   
 
+  - Windows uses round-robin technique with a multi-level feedback queue for priority scheduling 
+  - Linux uses Completely Fair Scheduling(CFS) algorithm, which is an implementation of Weighted fair queueing(WFQ)
+  - Rate-monotonic scheduling algorithm(RM) is by far most used real-time algorithm and it is one of the easiest policies to implement.
+
 
 
  What is Context Switching :-       
   - Store and restore process context state in PCB so that process execution can be resumed from same point at later time
   - Multitasking OS enables multiple processes to share single CPU
   - When scheduler switch process from executing one to another, state of current running process is stored into PCB 
-    At that point second process can start executing.
+    At that point second process can start executing
   - To avoid amount of context switching time, some hardware systems allow two or more sets of processor registers
    Information Stored During Switching:-
     - Changed State
@@ -197,12 +201,12 @@ Process & Thread & Scheduling Algorithm
     - Use in application programs
   
    Kernel Level :-
-    - Kernel maintains context information for process as whole and for individuals threads within process
+    - Kernel maintain context information for process as whole and for individuals threads within process
     - Kernel performs thread creation(similar to create process), scheduling and management in Kernel space using system call. 
     - Simultaneously schedule multiple threads from same process on multiple processes
   
    Difference :- 
-                      User level                  Kernel level 
+                       User level                  Kernel level 
     Managed             User                        OS
     Speed to create     Faster                      Slower
     Context Switching   Faster                      Slower
@@ -241,14 +245,14 @@ Process & Thread & Scheduling Algorithm
   - Gantt Chart(Henry Gantt) Use to sloveing numerical calculation
   - These algorithms either Pre-emptive or Non-Preemptive
 
-
   Scheduling Criteria :-
-    ↑  CPU utilization  - As busy as possible (0 to 100 percent), in real life 40(normal) to 90 (heavy) usage 
+    ↑ CPU utilization  - As busy as possible (0 to 100 percent), in real life 40(normal) to 90 (heavy) usage 
     ↑ Throughput       - Number of processes that are completed per unit time 
     ↓ Turnaround time  - Time from submission to completion 
                          (Time spent in different queues + Time spent in CPU + Time spent in different I/O device)
     ↓ Waiting time     - Time spent in ready queue 
     ↓ Response time    - Time from submission to first response
+
 
   Time Terms :-
     Arrival Time    - Time at which process enter Ready Queue or State  (Enter Process)     11
@@ -257,7 +261,6 @@ Process & Thread & Scheduling Algorithm
     Turnaround Time - Completion time - Arrival Time                                        (12-11) = 1  hour
     Waiting Time    - Turnaround time - Burst Time                                          (1-15)  = 45 min 
     Response time   - Time from submission to process get CPU first time - Arrival Time     (11.30 - 11) = 30 min   
-
 
 
   First-Come First-Served(FCFS) Scheduling :-
@@ -328,42 +331,13 @@ Process & Thread & Scheduling Algorithm
     Average Turnaround Time :- 24/4 = 6 
     Average Waiting Time    :- 11/4 = 2.75 
   
-  
-  Priority Scheduling :-
-   
-   Pre-emptive Priority Scheduling :-
-    -    
-    Criteria :- Priority Use in Gantt Chart
-
-    Example :-
-    Priority Process No ArrivalTime  Burst Time(Execution Time)  Complete Time  TAT(Turnaround Time)  WT(Wait Time)  Response time(RT) 
-    10           p1            0                5                       12             12                     7             0
-    20           p2            1                4                        8              7                     3             0  
-    30           p3            2                2                        4              2                     0             7
-    40           p4            4                1                        5              1                     0             0
-
-    Gantt  :-     p1 -4 | p2 -3 | p3 -1 | p3 0 | p4 0 | p2 0 | p1 0 |   # After process its burst time
-     Cpu Time :-  0     1       2       3      4      5      8      12
-    
-          - Higher no higher priority 
-          - If two process in ready queue and same arrival time so we need to check priority
-          - We process higher priority process here
-          - If 2 process have same priority and same arrival time use process id sequence
-
-    Turnaround Time :- Complete Time   - Arrival Time
-    Waiting Time    :- Turnaround Time - Burst Time
-    Response time   :- Cpu First time - Arrival time
-    Average Turnaround Time :- 22/4 = 5.5 
-    Average Waiting Time    :- 10/4 = 2.5 
-
-
 
   Round-Robin Scheduling :-
    - When process in ready queue then we select it and move in cpu(Running Queue)
-   - In RR Scheduling cpu use time quantam and within then time if finish terminate process otherwise send back in running state
+   - RR Scheduling cpu use time quantam and within then time if finish terminate process otherwise send back in running state
    - Here maintenance required on ready queue also 
 
-   Criteria :- Time Quantam Use in Gantt Chart
+   Criteria :- Time Quantam Use(Pre-emptive) in Gantt Chart
 
    Example :-
     Process No. | Arrival Time | Burst Time(Execution Time) |Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
@@ -373,38 +347,92 @@ Process & Thread & Scheduling Algorithm
       p4             4                1                            9              5                     0             4
 
     Give Time Quantam :- 2 
-    Ready Queue :- | p1 | p2 | p3 | p1 | p4 | p2 | p1
-      Cpu       :- 0    2    
+    Ready Queue :- | p1 | p2 | p3 | p1 | p4 | p2 | p1                     # Check process in ready queue or not if yes add in cpu
+      Cpu       :- 0    2                                                 # If process not completed bring back to ready queue but check p4 arrival    
 
-    Gantt       :- | p1 -3 | p2 -2 | p3 0 | p1 -1 | p4 0 | p2 0 | p1 0|
+    Running     :- | p1 -3 | p2 -2 | p3 0 | p1 -1 | p4 0 | p2 0 | p1 0|
       Cpu       :- 0       2       4      6       8      9     11    12
           
-    - How many time context switches happern :- Not calculate first and last cpu time | :- ANs : 6
+    - How many time context switches happern :- Not calculate first and last cpu time | :- Ans : 6 | 
 
-    Turnaround Time :- Complete Time   - Arrival Time
-    Waiting Time    :- Turnaround Time - Burst Time
-    Response time   :- Cpu First time - Arrival time
     Average Turnaround Time :- 29/4 = 7.25 
-    Average Waiting Time    :- 15/4 = 3.75   
+    Average Waiting Time    :- 15/4 = 3.75     
 
- 
-  
+
+  Priority Scheduling :-
+   
+   Pre-emptive Priority Scheduling :-
+    Criteria :- Priority Use in Gantt Chart
+
+    Example :-
+    Priority Process No ArrivalTime  Burst Time(Execution Time)  Complete Time  TAT(Turnaround Time)  WT(Wait Time)  Response time(RT) 
+    10           p1            0                5                       12             12                     7             0
+    20           p2            1                4                        8              7                     3             0  
+    30           p3            2                2                        4              2                     0             7
+    40           p4            4                1                        5              1                     0             0
+
+    Gantt  :-     | p1 -4 | p2 -3 | p3 -1 | p3 0 | p4 0 | p2 0 | p1 0 |    # After process its burst time
+     Cpu Time :-  0       1       2       3      4      5      8      12
+    
+      - Higher no higher priority (40)
+      - If two process in ready queue and so we need to check priority
+      - Process with higher priority process here
+      - If 2 process have same priority and same arrival time use process Id sequence
+
+    Average Turnaround Time :- 22/4 = 5.5 
+    Average Waiting Time    :- 10/4 = 2.5 
+
+
+   Non-Preemptive Priority Scheduling :- 
+    Example :-
+    Priority Process No ArrivalTime  Burst Time(Execution Time)  Complete Time  TAT(Turnaround Time)  WT(Wait Time)  Response time(RT) 
+     2           p1            0                4                       4              4                    0              0
+     4           p2            1                2                      25             24                   22             22  
+     6           p3            2                3                      23             21                   18             18
+    10           p4            3                5                       9              6                    1              1
+     8           p5            4                1                      20             16                   15             15
+    12           p6            5                4                      13              8                    4              4  
+     9           p7            6                6                      19             13                    7             7
+    
+    Gantt  :-     |  p1  |  p4  |  p6  |   p7   |   p5   |   p3   |   p2   |  
+     Cpu Time :-  0      4      9      13      19       20       23       25
+
+
+   Pre-emptive Priority Scheduling with I/O And CPU burst Time:-
+    Criteria :- Priority Use in Gantt Chart
+
+    Example :-
+    Priority Process No ArrivalTime  Cpu Burst Time | I/O Burst Time | CPU  | Complete Time  
+     2           p1            0           1              5            3          10
+     3           p2            2           3              3            1          15
+     1           p3            3           2              3            1           9
+     4           p4            3           2              4            1          18
+
+    Gantt  :-     |  p1  C1-0  |  CPU IDLE  |  p2  C1-2 |  p3  C1-1 |  p3 C1-0  |  p2  C1-1  |   p1  C2-2 |  p1  C2-1 |      
+     Cpu Time :-  0      SI    1            2           3           4      SI   5            6   CI       7           8
+
+                  |  p3  C2-0  |  p1 C2-0   |  p2  C1-0 |  p4  C2-0 |  CPU IDLE |  p2 C2-0   |   CPU IDLE |  p4 C2-0  |    
+                  8    CI      9           10      SI  11     SI   13          14           15           17          18 
+
+
   Multi-level Queue Scheduling :-
-   - In real life when we have multiple processes so why single ready queue is used
-   - There will be different queues must be for ever process
+   - In real life when we have different types of processes so why single ready queue is used
+   - There will be different queues must be for every process
    - Every process will be have it own algorithms
-   - (StarVashion)If too much higher priority process arise than lower level process not executed at time multi-level queue feedback use
-   Inter-Queue Scheduling :- Preemptive priority scheduling or RR(80% time for foreground processes and 20% time for background processes)
+   
+   StarVashion :- If too much higher priority proces arise than lower level process not executed at time to solve it multi-level queue feedback use
+   Inter-Queue Scheduling :- Pre-emptive priority scheduling or RR(80% time for foreground processes and 20% time for background processes)
    
    Diagram :- 
      Highest Priority ---> System Process  --> Round-Robin  ------|
                                                                   |
-     Medium Priority  ---> Interactive Process ---> SJF   ------[ CPU ]      
+     Medium Priority  ---> Interactive Ps  -->    SJF       ---[ CPU ]      
                                                                   |  
-     Lowest Priority  ---> Batch Process  -->       FCFS  ------|
-
+     Lowest Priority  ---> Batch Process   -->    FCFS      ------|
 
 
   Multi-level Feedback Queue SchedulinG :-
    - Lowest priority process give feedback and it slowely slowely update and execute
-   - It use for lower priority process
+   - If process is completed remove it from queue otherwise give feedback and push to higher priority 
+   - If process uses too much CPU time it will be moved to lower priority queue 
+   - Aging prevent StarVashion
