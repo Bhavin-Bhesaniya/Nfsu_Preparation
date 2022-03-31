@@ -29,7 +29,9 @@ Unit-1 -
   Operating System - Acts as interface between computer hardware and user which control execution of all programs
   Kernel           - Central component of OS which interacts directly with hardware and manages all operations of computer
   Shell            - Known as command interpreter which is part of OS that receives command from user and gets them executed
- 
+  System Call      - System call is mechanism using which user program request kernel to access all system functionalities   
+  Partition        - Defines how information is structured on partition also code that is used during startup if partition is bootable 
+
 
  OS Architecture :-
   Monolithic  - Entire OS working in kernel space so execution is fast and process run completely in single address space
@@ -39,7 +41,21 @@ Unit-1 -
   Hybrid      - Combination of both Monolithic and Mircrokernel which use speed and design of Monolithic, modularity and stability of microkernel
     
 
+ OS Type :-
+  Batch            - Set Similar kind of process(job) in same batch in First Come First Served(FCFS) manner for execution
+  Multiprogramming - Increases CPU utilization by keeping multiple job(process)in main memory so that CPU always has one to execute(Non-Preemptive)
+  MultiTasking     - Sharing small portion of time or time quantum among multiple processes by CPU Scheduling (Context-Switching)  (Pre-emptive)
+  MultiProcessing  - More than one processor in system called multiprocessing so multiple process executed simultaneously to achieve Parallel processing 
+  Multi-Threading  - Single process have multiple code segments(threads) so it can running concurrently within "Context" of that process
+  Real-Time        - Fixed time Constraint system where time constraint matter lot and can't be delays
+  Distributed      - Multiple Processors serve Multiple applications to multiple users using Central Processor
+  Cluster          - If Processors connect with local network(Single network) like Single server
+  Embedded         - Work on fixed machine like A.C.
+  Network          - Runon Central server computer and provide server capability to manage application,user data and other networking functionality     
+
+
  Other :-
+  Spooling         - Different Pheripheral devices(I/O Device) can run simultaneously    
   API              - Software intermediary that allows two applications to talk to each other
   Virtualization   - Simulate your physical device and represent it as separate machine    
   Containerization - OS-level virtualization doesn't simulate entire physical machine 

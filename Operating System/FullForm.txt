@@ -1,6 +1,38 @@
-BIOS    - Basic Input/Output System
-UEFI    - Unified Extensible Firmware Interface
+Unit - 1
 JVM     - Java Virtual Machine
 API     - Application Programming Interface
 IPC     - Inter Process communication
+RTOS    - Real Time Operating System
+Spooling - Simultaneous Peripheral Operations Online
+
+GRUB    - GRand Unified Bootloader
+LLIO    - Linux Loader
+BIOS    - Basic Input/Output System
+POST    - Power-ON Self Test
+ACPI    - Advanced Configuration and Power Interface
+MBR     - Master Bootloader
+UEFI    - Unified Extensible Firmware Interface
+CMOS    - Complementary Metal-Oxide Semiconductor
+GPT     - Guided Partition Table 
+CRC     - Cyclic Redundancy Check
+NTFS    - New Technology File System
+EFL     - Extensible Firmware Interface
+FAT     - File Allocation Table
+exFAT   - Extended File Allocation Table
+
+
+RAM     - Random Access Memory 
+DRAM    - Dynamic RAM
+SRAM    - Static RAM
+SDRAM   - Synchronous Dynamic RAM
+DDR     - Double Data Rate
+
+ROM     - Read Only Memory
+PROM    - Programmable ROM
+EPROM   - Erasable Programmable ROM
+EEPROM  - Electrically Erasable Programmable ROM
+MROM    - Mask ROM
+
+
+Unit - 2
 FCFS    - First-Come-First-Serve

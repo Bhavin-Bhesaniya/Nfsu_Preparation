@@ -167,7 +167,7 @@ Introduction to Operating System :- Glavin
    - Processors do not share memory instead each processor has its own local memory, storage etc...
    - Reduction of delays in processing and loading on host computer
    - Availability, Load balancing, Scalability     
-   - If Processors connect with local network (Single network) like Single server it is called "Cluster Operating System"
+   - If Processors connect with local network(Single network) like Single server it is called "Cluster Operating System"
 
 
   Embedded Systems :-
@@ -235,13 +235,14 @@ Introduction to Operating System :- Glavin
 
 
  What is Booting & What happens when we turn on computer? BIOS VS UEFI | MBR vs GPT :-  
-  - Booting is process of loading OS (In Linux its called GRUB(GRand Unified Bootloader) OR LLIO(Linux Loader-default))
+  - Booting is process of loading OS 
   - When computer power is turned on then cpu will move to BIOS which stored in EPROM to perform start-up procedures
   - BIOS run POST(power-on self test) process which check all hardware if any error beeps are hered which known as POST beep codes
   - BIOSes following ACPI(Advanced Configuration and Power Interface) create tables that describing devices and manage power in computer 
   - On POST process successful BIOS load MBR(Master Boot Record) to RAM
   - MBR load bootstrap loader which loads OS, Kernel and much more in RAM
   - init is last step of kernel boot sequence which decied inital state of OS
+  - In Linux its called GRUB(GRand Unified Bootloader) OR LLIO(Linux Loader-default)
   
   Types of booting :- 
    Hard Booting - Power On system
