@@ -1,0 +1,6 @@
+BIOS    - Basic Input/Output System
+UEFI    - Unified Extensible Firmware Interface
+JVM     - Java Virtual Machine
+API     - Application Programming Interface
+IPC     - Inter Process communication
+FCFS    - First-Come-First-Serve

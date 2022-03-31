@@ -1,4 +1,5 @@
 Process & Thread & Scheduling Algorithm
+ 
  Topics :-
   - What is Process? Its Creation and Termination
   - Process State
@@ -14,32 +15,31 @@ Process & Thread & Scheduling Algorithm
  What is Process? Its Creation, Section and Termination :- 
   Process Creation :-
    - When user started executing program it become process 
-   - Program is passive entity while procrss is active entity  
+   - Program is passive entity it resides in secondary memory while procrss is active entity  
    - Process is dynamic instance of program
    - Process may have new program or may be duplicate of its parent process(Same code or data)
    - Each process has unique id which may obtain resources either from operating system directly or from its parent process
-   - Each process has its own address space which contains code, data, stack and heap segments or sections   
-   - Parent process continues executing with its child process and wait for them to finish
+   - Each process has its own address space which contains code, data, st`ack and heap segments or sections   
+   - There are mainly two types of processes :- 1)Independent Process 2)Cooperative process
 
 
   Process divided into four section :-
    Stack : Contain temporary data such as method/function parameters, return address and local variables
-   Heap  : Dynamically memory allocation for process during Run Time
-   Text  : Include current activity represented by value of Program Counter and Content of processor's register
+   Heap  : Dynamically memory allocation(Malloc, Calloc, Dalloc) for process during Run Time
    Data  : Contain global and static variable
-   Diagram :- https://www.tutorialspoint.com/operating_system/images/process_components.jpg
-
-
-   Root Process        :- Kernal is first process created or say Root process of process tree 
-   Zoombie process     :- Process is terminated but its still exists in PCB because its parent has not yet accpted its return value
+   Text  : Contains executable instructions of program, read-only and shareable
 
 
   Process termination :- 
    - Deletation of process or removing process from PCB 
    - Parent process terminate child process If it exceeded its resource usage or its results is no more needed
    - Process terminated normally by completing its task or because fatal error or killed by another process or forcefully killed by user
- 
-  
+
+
+  Root Process     :- Kernal is first process created or say Root process of process tree 
+  Zoombie process  :- Process is terminated but its still exists in PCB because its parent has not yet accpted its return value  
+  Defunct process  :- Process which has completed their execution by exit() system call but still has an entry in Process Table 
+
 
 
  Process State :-
@@ -62,46 +62,43 @@ Process & Thread & Scheduling Algorithm
 
 
  
-
  PCB(Process Control Block) :-  
   - PCB is data structure maintained by Operating System for every process using process ID
   - Entry of all PCBs of current processes is in Process Table 
   - Process Table has status of each and every process that is created in OS along with their PIDs
 
   PCB Contain All information of process :-
-    Process ID
-    Process Privileges : Allow/Disallow access to system resources
-    Process State      : Contain Function parameters, Local variables and Return address does not contain PID of child process
-    Pointer            : To parent process
-    Program Counter    : Pointer to the address of next instruction to be executed for this process
+    Pointer            : Stack pointer which required to be saved when process is switched from one state to another to retain 
+                         current position of process
+    Process State      : Store respective state of process
+    Process ID         : Identifier of process
+    Program Counter    : Store counter that Address of next instruction to be executed for this process
     CPU Register       : Process stored for execution(Running state)
-    CPU scheduling information    : Process priority, other scheduling information, etc. 
-    Memory Management Information 
-    Accounting information        : Include amount of CPU used for process execution, time limits, execution ID 
-    I/O status information        : List of I/O devices allocated to process
+    Memory Management Information : Include Page table, segment table etc.
+    Open File list     : list of all open file for process
+
+    Miscellaneous :-
+     Process Privileges            : Allow/Disallow access to system resources
+     CPU scheduling information    : Process priority, other scheduling information, etc. 
+     Accounting information        : Include amount of CPU used for process execution, time limits, execution ID 
+     I/O status information        : List of I/O devices allocated to process
   
 
 
-
  Process Scheduling :-
-
 
   Scheduling queues :-
    - OS maintenance all PCBs in Process Scheduling queues to perform process scheduling
    Job Queue     - As Process enter system it put in job queue which keeps all processes in system 
    Ready Queue   - Processes that are residing in memory and are ready for execution are kept in ready queue
-                 - It is implemented as linked list of PCBs with header containing pointers to first and last PCBs
-   Device Queue  - List of processes waiting for particular I/O resource is called device queue
-                 - Each device has its own device queue
-
+   Device Queue  - Processes waiting for particular I/O resource are kept in device queue
+                 
 
   Types of Schedulers :-
-   - Schedulers are special system software which handle process scheduling in various ways.
     
    Long-term Scheduler(Job Scheduler) :-
-    - LTS used when process change state from new to ready 
-    - Select processes from those submitted by user and loads them into memory for execution using multiprogramming
-    - LTS select proper mix of CPU-bound processes and I/O-bound processes
+    - Select processes from Job Queue(Submitted by user) and loads them into memory for execution using multiprogramming
+    - LTS select proper mix of CPU-bound(Most of computation in CPU) processes and I/O-bound(Most of computation in I/O) processes
     - Multitasking OS like Unix and windows not use long-term scheduler they put all new processes in memory for short-term scheduler
     
 
@@ -109,6 +106,7 @@ Process & Thread & Scheduling Algorithm
     - Selects process from ready state(Ready Queue) and allocate CPU to one of them
     - Dispatcher gives PCB information of selected process to cpu to execute process and take decision of which process to execute next
     - CPU Scheduler is invoked when process switches from running state to waiting state OR terminates OR ready state
+    - Time taken by Dispatcher is known as Dispatcher Latency
     - MS DOS does not support multiprogramming hence No cpu scheduling
 
 
@@ -128,22 +126,11 @@ Process & Thread & Scheduling Algorithm
      - Ex :- Unix, Linux, Windows 95 or Higher   
 
 
-  Scheduling Criteria :-
-    ↑ CPU utilization  - Percentage 
-    ↑ Throughput       - Number of processes completed per unit time 
-    ↓ Turnaround time  - Time from submission to completion (time spent in different queues + time spent in CPU 
-                                                           + time spent in different i/o devices) 
-    ↓ Waiting time     - Time spent in ready queue 
-    ↓ Response time    - Time from submission to first response    
-
-
-
 
  What is Context Switching :-       
-  - Store and restore context of CPU in PCB so that process execution can be resumed from same point at later time
+  - Store and restore process context state in PCB so that process execution can be resumed from same point at later time
   - Multitasking OS enables multiple processes to share single CPU
-  - When scheduler switch CPU from executing one process to another, state of current running process is stored into PCB 
-  - After this state, process next run in own loaded PCB and used set of PC, registers, etc. 
+  - When scheduler switch process from executing one to another, state of current running process is stored into PCB 
     At that point second process can start executing.
   - To avoid amount of context switching time, some hardware systems allow two or more sets of processor registers
    Information Stored During Switching:-
@@ -151,10 +138,7 @@ Process & Thread & Scheduling Algorithm
     - Program Counter
     - Base and limit register value
     - Currently used register
-    - Scheduling information
-    - I/O State  information
-    - Accounting information
-
+    - Scheduling, I/O State, Accounting information
 
 
  
@@ -166,8 +150,13 @@ Process & Thread & Scheduling Algorithm
    - Computational Speedup
    - Modularity 
    - Convenience
+  - More in process synchronization  
   
-
+  Pipe :-
+   - Communication medium between two or more related or interrelated processes 
+   - It can be either within one process or a communication between the child and the parent processes
+   - Filling process is nothing but writing into pipe and reading process is nothing but retrieving from pipe
+  
 
 
  What is Thread :-
@@ -176,6 +165,7 @@ Process & Thread & Scheduling Algorithm
   - Threads of process share its instructions(Executable Code) and its context(value of its variable at given any moment)
   - Thread contain thread ID, Program Counter, register and stack
   - Fork() is system call which used to generate child process(Process clone) :- 2(^n)-1 
+  - Win32 thread library by windows
 
 
   Difference Between Process and Thread :-
@@ -191,22 +181,20 @@ Process & Thread & Scheduling Algorithm
                                 but stack,registers different  
      
 
-
   Advantages of Multi-Thread Programming :-
-   - Better resource utilization
    - Responsiveness so program Faster execution 
+   - Better resource utilization
    - Easy communication 
    - Parallelization
-
 
 
   Types Of Thread:-
    
    User Level:-
     - User manage thread where kernel is not aware of existence of thread so not require kernel mode privileges
-    - Thread library manage code for creating, destroying, passing message and data between threads, scheduling thread execution 
+    - pthread.h Thread library manage code for creating, destroying, passing message and data between threads, scheduling thread execution 
       and saving and restoring thread contexts.    
-    - pthread.h library used to create threads
+    - Use in application programs
   
    Kernel Level :-
     - Kernel maintains context information for process as whole and for individuals threads within process
@@ -223,20 +211,18 @@ Process & Thread & Scheduling Algorithm
     Multi-Thread        can't take advantage of     kernel routine themselves multithreaded 
                         multiprocessing
   
-
-
   
   Multi-threading Models :- 
    - Combination of User level thread and Kernel level thread 
    - Combined Threads can run in parallel on multiple processors and blocking system call not block entire process
    
-   Many To Many Model :-
+   Many To Many Model :- Best
     - Multiplexes any number of user threads into equal or smaller number of kernel threads so parallel run on multiprocessor machine
     - Best accuracy and concurrency when thread performs blocking system call, kernel can schedule another thread for execution  
     Ex:- Solaris
 
    Many To One Model :-
-    - Many user level threads to one Kernel-level thread done by thread library 
+    - Many user level threads are all mapped into one Kernel-level thread which handle by user level thread in user space
     - When thread makes blocking system call, entire process will be blocked
     - Only one thread can access Kernel at time, so multiple threads are unable to run in parallel on multiprocessors
     - If user-level thread library not support by OS these mechanisms use
@@ -247,8 +233,7 @@ Process & Thread & Scheduling Algorithm
     - Allow other thread to run when thread makes blocking system call. 
     - It supports multiple threads to execute in parallel on microprocessors
     - Disadvantage of this model is that creating user thread requires corresponding Kernel thread
-    Ex :- Linux
-
+    Ex :- Linux, Windows 95 to XP
 
 
 
@@ -257,40 +242,50 @@ Process & Thread & Scheduling Algorithm
   - These algorithms either Pre-emptive or Non-Preemptive
 
 
+  Scheduling Criteria :-
+    ↑  CPU utilization  - As busy as possible (0 to 100 percent), in real life 40(normal) to 90 (heavy) usage 
+    ↑ Throughput       - Number of processes that are completed per unit time 
+    ↓ Turnaround time  - Time from submission to completion 
+                         (Time spent in different queues + Time spent in CPU + Time spent in different I/O device)
+    ↓ Waiting time     - Time spent in ready queue 
+    ↓ Response time    - Time from submission to first response
+
+  Time Terms :-
+    Arrival Time    - Time at which process enter Ready Queue or State  (Enter Process)     11
+    Burst Time      - Time required by process to execute on CPU        (Duration)          15 min
+    Completion Time - In which process complete its execution           (Leave Process)     12
+    Turnaround Time - Completion time - Arrival Time                                        (12-11) = 1  hour
+    Waiting Time    - Turnaround time - Burst Time                                          (1-15)  = 45 min 
+    Response time   - Time from submission to process get CPU first time - Arrival Time     (11.30 - 11) = 30 min   
+
+
+
   First-Come First-Served(FCFS) Scheduling :-
    - Non-Preemptive
-   - High Average Waiting Time
-   - Convoy Effect - Several small processes may need to wait if large process is given cpu   
+   - Convoy Effect - Several small processes may need to wait if large process is given to cpu   
    - Poor performance and average waiting time is high
    
    Criteria :- Arrival Time : Check Who Come First Use in Gantt Chart
 
    Example :-
-    Process No. | Arrival Time | Burst Time(Execution Time) |Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
+    Process No. | Arrival Time | Burst Time(Execution Time) | Completion Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
       p1             0                2                            2              2                     0             0
       p2             1                2                            4              3                     1             1  
       p3             5                3                            8              3                     0             0
       p4             6                4                           12              6                     2             2
 
-    # Starting from 0 
-    Gantt  :-  | p1 |  p2  |  CPU IDLE | p3    | p4  | CPU  
-               0    2      4           5       8     12
+    Gantt  :-  | p1 |  p2  |  CPU IDLE |  p3  | p4  |         # CPU Starting from 0  
+               0    2      4           5      8     12
 
-    Turnaround Time         :- Complete Time   - Arrival Time
-    Waiting Time            :- Turnaround Time - Burst Time
-    Response time           :- First Time CPU got - Arrival time
     Average Turnaround Time :- 2 + 3 + 3 + 6 = 14/4 = 3.5
     Average Waiting Time    :- 0 + 1 + 0 + 2 = 3/4  = 0.75 
 
 
-
   Shortest-Job-First(SJF) Scheduling :-
-   - Process with smallest burst time is selected
-   - FCFS to break ties
-   - Optimal but cannot be implemented
    - Non-Preemptive 
+   - Optimal but cannot be implemented
 
-   Criteria :- Burst Time(Execution Time)Use in Gantt Chart
+   Criteria :- Process with smallest Burst Time(Execution Time)Use in Gantt Chart
 
    Example :-
     Process No. | Arrival Time | Burst Time(Execution Time) |Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
@@ -300,22 +295,19 @@ Process & Thread & Scheduling Algorithm
       p4             4                4                           14             10                     6             6
 
     Gantt  :- 
-      | CPU IDle |  p3  |  p1  |  p2  |  p4  |
+      | CPU Idle |  p3  |  p1  |  p2  |  p4  |          # First check which process arrived than check lowest burst time
       0          1      3      6      10     14
+      
       - If two process have same Arrival Time burst time check
-      - Not have same Arrival Time but already in queue check burst time
+      - Not same Arrival Time but already in queue check burst time
       - When both burst time and arrival time same check lower process ID
 
-    Turnaround Time :- Complete Time   - Arrival Time
-    Waiting Time    :- Turnaround Time - Burst Time
-    Response time           :- First Time CPU got - Arrival time
     Average Turnaround Time :- 5 + 8 + 2 + 10 = 25/4 = 6.25
     Average Waiting Time    :- 2 + 4 + 0 + 6 = 12/4  = 3
 
 
-  
-  Shortest-Job-Remaining Time First(SJF With Preemption) :-
-   - Mode Preemptive 
+  Shortest Remaining Time First(SRTF) (SJF With Preemption) :-
+   - Pre-emptive 
 
    Criteria :- Burst Time(Execution Time) Use in Gantt Chart
 
@@ -331,15 +323,11 @@ Process & Thread & Scheduling Algorithm
            - Starting from 0 and check lower arrival time with 1 execution time
            - If any other lower process arrive and which burst time is lower than previous process 
              add it in cpu otherwise continues old process
-           - Add last execution time as completion time
+           - Last execution time known as completion time
 
-    Turnaround Time         :- Complete Time      - Arrival Time
-    Waiting Time            :- Turnaround Time    - Burst Time
-    Response time           :- First Time CPU got - Arrival time
     Average Turnaround Time :- 24/4 = 6 
     Average Waiting Time    :- 11/4 = 2.75 
- 
-
+  
   
   Priority Scheduling :-
    
@@ -417,6 +405,6 @@ Process & Thread & Scheduling Algorithm
 
 
 
-  Multi-level Feedback Queue Scheduline :-
+  Multi-level Feedback Queue SchedulinG :-
    - Lowest priority process give feedback and it slowely slowely update and execute
    - It use for lower priority process
