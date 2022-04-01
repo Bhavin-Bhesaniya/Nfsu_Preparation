@@ -5,6 +5,8 @@ IPC     - Inter Process communication
 RTOS    - Real Time Operating System
 Spooling - Simultaneous Peripheral Operations Online
 
+CUI     - Character User Interface 
+MSDOS   - Microsoft Disk Operating System(Command Line OS)
 GRUB    - GRand Unified Bootloader
 LLIO    - Linux Loader
 BIOS    - Basic Input/Output System
