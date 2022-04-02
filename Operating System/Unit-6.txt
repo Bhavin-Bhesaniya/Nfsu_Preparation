@@ -171,6 +171,4 @@ Disk Scheduling Algorithm :-
     p3    6           30
 
     |  p1  |   p2  |   p3  |    Ans :- 2 (p1->p2 p2->p3) 
-    0      10      30      60
-
-       
+    0      10      30      60       
