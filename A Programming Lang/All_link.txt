@@ -28,6 +28,11 @@ Java :-
  MCQ   - https://www.interviewbit.com/java-mcq/
  MCQ   - https://www.sanfoundry.com/java-questions-answers-freshers-experienced/
 
+Javascript :-
+ Guide - https://www.tutorialspoint.com/javascript/javascript_quick_guide.htm
+ MCQ   - https://www.interviewbit.com/javascript-mcq/
+
+
 Python :-
  Guide - https://www.tutorialspoint.com/python/python_quick_guide.htm
  MCQ   - https://www.interviewbit.com/java-mcq/
