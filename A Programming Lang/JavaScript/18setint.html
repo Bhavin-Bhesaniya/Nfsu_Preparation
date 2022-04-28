@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #tt {
+            width: 100px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tt">
+
+
+    </div>
+    <button onclick="af()">stop
+
+    </button>
+    <script>
+
+        /*var a = 0;
+        var cc = setInterval(aa,50);
+        function aa(){
+            a = a + 10;
+            if(a == 400){
+        clearInterval(cc);
+            }
+            var bb = document.getElementById("tt");
+            bb.style.marginLeft = a + 'px';
+        }
+        */
+        var cc = setTimeout(aaaa, 2000);
+        function aaaa() {
+            var gt = document.getElementById("tt");
+            gt.style.width = "2000px";
+        }
+        function af() {
+            clearTimeout(cc);
+        }
+
+    </script>
+</body>
+
+</html>
