@@ -1,19 +1,46 @@
 Basic Topics :-
  - Intro 
+ - Installation
+ - C Program Structure
  - Comments
- - Keyword and Identifiers
- - Variable and Literals
+ - Keyword 
+ - Identifiers
+ - Variable 
+ - Literals
  - Data Types
  - Input-Output(I/O)
  - Operator
- 
-  
+ - Storage Classes
+
 
  Intro :-
+  - Developed by Dennis M. Ritchie at bell labs
+  - First implmented in DEC PDP-11 Computer in 1972 and in 1978 Brain Kernigham and Dennis release Publicly(K&R)
+  - Language Fromalized in 1988 ANSI(American National Standard Institute)
+  - Unix totally written in C
+  - Extension is .c
   - Case sensitive
+  - C is compiler based language
   - Must contain main() function from when code start execution
   - 0 or getch() statement inside main() function is "Exit Status" of program
+  - In C ;(SemiColon) is statement terminator for each individual statement
+  
+
+ Installation :-
+  gcc -v on linux to check
+  MinGW  on windows
+
  
+ C Program Structure :- .c --> .out(Executable Code) --> Output
+  Preprocessor Commands    - Tells compiler Include library(stdio.h) file before going to actual compilation
+  Functions                - main() function from where program execution begin  
+  Variables                  
+  Statements & Expression
+  Comments
+ 
+ 
+ Token :- Token is either keyword, identifier, constant, string literal or symbol
+ WhiteSpace :- Used in C to describe blanks, tabs, newline characters and comments which ignore by compiler
 
 
  Comments :- 
@@ -23,12 +50,11 @@ Basic Topics :-
 
 
 
- Keywords And Identifier :-
-  Keyword :-
-   - Special meaning for compiler that we can not used as identifier 
-   - All keyword must written in lower case
+ Keyword :-
+  - Special meaning for compiler that we can not used as identifier 
+  - All keyword must written in lower case
   
-   All keywords in ANSI C :-
+  All keywords in ANSI C :-
     void     int        char    double  float  short	signed  unsigned  long	
     if       else       switch  case    break  continue goto
     for      while      do      return
@@ -36,12 +62,13 @@ Basic Topics :-
     auto	   register	  struct
     volatile static	    sizeof	typedef union
    
-    			
-  Identifier :-
-   - Refer to name given to entities such as variables, functions, structures etc.
-   - Set of Alphabets, letters and special character
+
+
+ Identifier :-
+  - Identifier is name used to identify variable, function or any other user-defined item
+  - Set of Alphabets, letters and special character
   
-   All Identifier List :-   
+  All Identifier List :-   
     CharacterSet       - A-Z,a-z 
     Digit              - 0 to 9     
     Special Character  - 31
@@ -54,21 +81,27 @@ Basic Topics :-
 
 
 
- Variable And Literals :-
- 
-  Variable :-
-   - Container (storage area) to hold data which identify by its name
-   - C is strongly typed language means that variable type cannot be changed once it is declared 
+ Variable :-
+  - Container (storage area) to hold data which identify by its name
+  - C is strongly typed language means that variable type cannot be changed once it is declared 
+  - extern used to declare variable in any place
+  - You can declare variable multiple times but defined only once
+
+  Ex :- 
+    int intValue = 10; // declare variable with int type
+    intValue = 10.10;  // Wrong cannot change int to float
+    float a,v,c;       // Variablelist with no value
+    int g = 10, n = 20;
   
-   Ex :- int intValue = 10; // declare variable with int type
-         intValue = 10.10;  // Wrong cannot change int to float
+  - Expression that refer to memory location are called "lvalue" expression
+  - rvalue refers to data value that is stored at some address in memory
 
  
-  Literals :- 
-   - Representing fixed values which directly used in code
-   Ex :-  1, 2.5, 'c' 
 
-   Types Of Literals :-
+ Literals :- Representing fixed values
+  Ex :-  1, 2.5, 'c' 
+
+  Types Of Literals :-
     Integer :-
      - Numeric literal(Number) without any fractional or exponential part
      - Octal starts with 0 and hexadecimal starts with 0x
@@ -76,34 +109,33 @@ Basic Topics :-
       decimal     (base 10) :- 0, -8, 22
       Hexadecimal (base 16) :- 0x7f, 0x2a
 
-    Floating :-
-     - Numeric literal that has either fractional or exponent form
+    Floating :- Numeric literal that has either fractional or exponent form
      Ex :- -2.0, 0.00234, -0.22E-5 (E-5 = 10-5)
 
-    Characters :-
-     - Single character inside single quotation marks
+    Characters :- Single character inside single quotation marks
      Ex :- 'a', 'm', 'F', '2', '}'
 
-    Escape Sequence :-
-     - Characters with backslashe which has special meaning
+    Escape Sequence :- Characters with backslashe which has special meaning
      Ex :-  
         \b - backspace      | \\ - Backslash              | \0 Null Character
         \f - formfeed       | \' - Single Quotation Mark  | \" - Double Quotation Mark
         \n - newline        | \r - return                 | \? - Quotation Mark    
         \t - Horizontal tab | \v - vertical tab
 
-    String Literals :-
-     - Sequence of characters enclosed in double-quote marks 
+    String Literals :- Sequence of characters enclosed in double-quote marks 
      Ex :- "String" , "" ,  "    ", "S", 
 
-    Constants :-
-     - Variable value cannot be changed once declared
+    Constants :- Variable value cannot be changed once declared
      Ex :- const double PI = 3.14;
+           #define LENGTH 10          - preprocessor 
+
+    void :- Represents absence type
 
 
 
  Data Types :-
-  - Determines type and size of data associated with variables.
+  - Determines type and size of data associated with variables
+  - Type of data type determine how much space is occupies in storage
   
   Built-in :-1 byte = 8 bit, 1 kb = 1024 byte, 1mb = 1024kb    
     Type          Size     Range              Format Specifier    Example 
@@ -174,22 +206,16 @@ Basic Topics :-
 
 
  
- Operator :-
+ Operator :- 
   - Operator is symbol that operates on value or variable
  
   Arithmetic :- Perform Mathematical operations
-   Ex :- +, -, *, /, %(Reminder)
-
-   Increment / Decrement :-
-    - Change value of operand by 1 either in prefix and postfix   
-    - It also called unary operator means it works with single operand
-    Ex :- ++, -- 
+   Ex :- +, -, *, /, %(Reminder), ++, //
 
   Assignment Operator :- Used for assign value to variable
-   Ex :- =, +=, -=, *=, /=, %=
+   Ex :- =, +=, -=, *=, /=, %= , <<=, >>= , &=, ^= , |=
 
-  Relational Operator :- Checks relationship between two operands
-   - If relation is true returns 1 otherwise false(0)
+  Relational Operator :- If relation is true returns 1 otherwise false(0)
    Ex :- ==, >=, <=, !=, >, <
 
   Logical Operator :- Returns either 0 or 1 depending upon whether expression results true or false
@@ -197,8 +223,7 @@ Basic Topics :-
     || - Logical OR return true if any condition is true
     !  - Logical NOT return true if operand is 0
 
-  BitWise Operator :-
-   - Perform bit-level operation
+  BitWise Operator :- Perform bit-level operation
     &	Bitwise AND         |  |	Bitwise OR   | ^	Bitwise exclusive OR
     ~	Bitwise complement  |  <<	Shift left   | >>	Shift right
 
@@ -209,5 +234,34 @@ Basic Topics :-
    - Unary operator that return size of data (constants, variables, array, structure, etc.)
    - Format Specifier %zu is used to print value
 
+  Unary operator :- Works with single operand 
+   Ex :- ++, -- 
+
   Other Operator :-
    ?: Ternary operator     | &  Reference operator | *  Dereference operator | -> Member selection
+
+
+
+ Storage Classes :-
+  - Defines scope (visibility) and life-time of variables and function within Program
+  Types :- auto, register, static, extern
+
+   auto :- Default storage class for all variables
+    Ex :- auto into st;
+   
+   register :- 
+    - Used to define local variables that should be stored in register instead of RAM for quick access
+    - Means variable has maximum size equal to register size (Usually one word)
+    - Can't applied unary '&' operator on it
+    - Does not means that variable stored in register it depends on hardware implementation
+    Ex :- register int miles;
+
+   static :-
+    - initialized only once and destroyed when program completed its execution
+    - Compiler keep variables till the end of program
+    - default value is 0
+    - When static used in global variable it one copy to be shared all objects of that class
+    Ex :-  static int b = 8;
+   
+   extern :- Used to declare global variable or function in another file
+    
