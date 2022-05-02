@@ -1,0 +1,5 @@
+Lec - 1 
+ Defination :-
+  - CC Refer to manipulating, Configuring, and Accessing application online
+  - It is something which is present at remote location
+  - Provide On-demand access and Shared Pool configuration resources

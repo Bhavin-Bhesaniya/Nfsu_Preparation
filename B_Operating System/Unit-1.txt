@@ -13,8 +13,8 @@ Introduction to Operating System :- Glavin
 
 
  What is OS?
-  - OS is system program that acts as interface between user and computer hardware which controls execution of all kinds of programs
-    and manages all resources of computer system
+  - Program that act as interface between user and computer hardware 
+  - Control execution of all kinds of programs and manages all resources of computer system
   - First OS is ATLAS developed by Tom Kilburn professoor at Manchester University in 1962 
    Primary Goals :- Windows | Mac : Machintosh  
     - Convenience : Use Easiet way to any hardware 

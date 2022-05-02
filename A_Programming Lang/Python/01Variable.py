@@ -42,8 +42,8 @@ print(int(Input_Values))                #we need to type cast value if need int 
 
 
 #Escape Character
-W = "here \n newline \t tab \\ forslash \' semicolon \"double colon \r carriage return \b backspace \f formfeed \ooo Octal \xhh hexa value"  
-print(W)
+# W = "here \n newline \t tab \\ forslash \' semicolon \"double colon \r carriage return \b backspace \f formfeed \ooo Octal \xhh hexa value"  
+# print(W)
 
 '''
 DATATYPE

@@ -1,225 +1,213 @@
-Basic :-
- - C is case sensitive language
- - All C programs must contain main() function and code begin execution from the start of main() function
- - Return 0 or getch() statement inside main() function is "Exit Status" of program
+Basic Topics :-
+ - Intro 
+ - Comments
+ - Keyword and Identifiers
+ - Variable and Literals
+ - Data Types
+ - Input-Output(I/O)
+ - Operator
  
- 
- 
-Comments :- 
-   - Hints that programmer can add to make their code easier to read and understand.
-   - Comment are ignored by compiler
-    Type :- //       - Single line comment
-            /*...*/  - Multi-line comment 
-    Ex :-  // Comment start with double slash
-           /* THIS IS
-              Multi-Line Comment  */  
-
-
-Keywords And Identifier :-
-
- Keyword :-
-  - Reserved Word(Special) that we can not used as identifier 
-  - Which has special meaning for compiler
-  - All keyword must written in lower case
   
-  All keywords in ANSI C :-
+
+ Intro :-
+  - Case sensitive
+  - Must contain main() function from when code start execution
+  - 0 or getch() statement inside main() function is "Exit Status" of program
+ 
+
+
+ Comments :- 
+   - Comment are ignored by compiler that programmer add to make code easier to read and understand
+  Type :- //       - Single-line comment  
+          /*...*/  - Multi-line comment 
+
+
+
+ Keywords And Identifier :-
+  Keyword :-
+   - Special meaning for compiler that we can not used as identifier 
+   - All keyword must written in lower case
+  
+   All keywords in ANSI C :-
     void     int        char    double  float  short	signed  unsigned  long	
     if       else       switch  case    break  continue goto
     for      while      do      return
     const    enum       extern  default
-    auto	 register	struct
+    auto	   register	  struct
     volatile static	    sizeof	typedef union
+   
     			
- 
- Identifier :-
-  - Identifier refers to name given to entities such as variables, functions, structures etc.
-  - It is Set of Alphabets, letters and special character
+  Identifier :-
+   - Refer to name given to entities such as variables, functions, structures etc.
+   - Set of Alphabets, letters and special character
   
-  All Identifier List :-   
+   All Identifier List :-   
     CharacterSet       - A-Z,a-z 
     Digit              - 0 to 9     
     Special Character  - 31
     WhiteSpace Character - Blank Space, Horizontal Tab, Carriage Return and Form Feed   
 
-  Rules :-
-   - First letter either letter or underscore cannot use digit or any special character
-   - You cannot use keyword name as identifier
-   - Name Must be unique 
+   Rules :-
+    - First letter either letter or underscore cannot use digit or any special character
+    - You cannot use keyword name as identifier
+    - Name Must be unique 
 
 
-Variable And Literals :-
+
+ Variable And Literals :-
  
- Variable :-
-  - Variable is a container (storage area) to hold data which identify by its name
-  - C is strongly typed language means that variable type cannot be changed once it is declared 
+  Variable :-
+   - Container (storage area) to hold data which identify by its name
+   - C is strongly typed language means that variable type cannot be changed once it is declared 
   
-  Ex :- int intValue = 10; // declare variable with int type
-        intValue = 10.10;  // Wrong cannot change int to float
+   Ex :- int intValue = 10; // declare variable with int type
+         intValue = 10.10;  // Wrong cannot change int to float
 
  
- Literals :- 
-  - Representing fixed values which directly used in code
-  Ex :-  1, 2.5, 'c' 
+  Literals :- 
+   - Representing fixed values which directly used in code
+   Ex :-  1, 2.5, 'c' 
 
-  Types Of Literals :-
-   Integer :-
-    - Numeric literal(Number) without any fractional or exponential part.
-    - Octal starts with a 0, and hexadecimal starts with a 0x
-    - There are three types of integer literals in C programming :
-        decimal     (base 10) :- 0, -8, 22
-        octal       (base 8)  :- 021, 077 
-        hexadecimal (base 16) :- 0x7f, 0x2a
+   Types Of Literals :-
+    Integer :-
+     - Numeric literal(Number) without any fractional or exponential part
+     - Octal starts with 0 and hexadecimal starts with 0x
+      octal       (base 8)  :- 021, 077 
+      decimal     (base 10) :- 0, -8, 22
+      Hexadecimal (base 16) :- 0x7f, 0x2a
 
-   Floating :-
-    - Numeric literal that has either a fractional form or an exponent form.  
-    Ex :- -2.0, 0.00234, -0.22E-5 (E-5 = 10-5)
+    Floating :-
+     - Numeric literal that has either fractional or exponent form
+     Ex :- -2.0, 0.00234, -0.22E-5 (E-5 = 10-5)
 
-   Characters :-
-    - Single character inside single quotation marks
-    Ex :- 'a', 'm', 'F', '2', '}'
+    Characters :-
+     - Single character inside single quotation marks
+     Ex :- 'a', 'm', 'F', '2', '}'
 
-   Escape Sequence :-
-    - Characters with backslashe which has special meaning
-    Ex :-  
-        \b - backspace      | \\ - Backslash                | \0 Null Character
-        \f - formfeed       | \' - Single Quotation Mark   
-        \n - newline        | \" - Double Quotation Mark    
-        \r - return         | \? - Quotation Mark    
+    Escape Sequence :-
+     - Characters with backslashe which has special meaning
+     Ex :-  
+        \b - backspace      | \\ - Backslash              | \0 Null Character
+        \f - formfeed       | \' - Single Quotation Mark  | \" - Double Quotation Mark
+        \n - newline        | \r - return                 | \? - Quotation Mark    
         \t - Horizontal tab | \v - vertical tab
 
-   String Literals :-
-    - Sequence of characters enclosed in double-quote marks 
-    Ex :- "String" , "" ,  "    ", "S", 
+    String Literals :-
+     - Sequence of characters enclosed in double-quote marks 
+     Ex :- "String" , "" ,  "    ", "S", 
 
-   Constants :-
-    - Variable value cannot be changed once declared
-    Ex :- const double PI = 3.14;
+    Constants :-
+     - Variable value cannot be changed once declared
+     Ex :- const double PI = 3.14;
 
 
-Data Types :-
- Built-in DataTypes :-
+
+ Data Types :-
   - Determines type and size of data associated with variables.
-
-  Types :-  1 byte = 8 bit, 1 kb = 1024 byte, 1mb = 1024kb,  
-    
-    Type        Size     Range              Format Specifier    Example 
-
-    char	    1 byte	−128 to 127         %c                  char test = 'B';
-    short	    2 byte	−32,768 to 32,767                       short a = 10;
-    int	        4 byte	−32,768 to 32,767   %d, %i              int id  = 0;            |  -5, 10;
-    float	    4 byte                      %f                  float no = 22.442e2;    
-    double	    8 byte                      %lf                 double no = 22.442e2;
-    long int      8 byte                    %ld, %li            long a;
+  
+  Built-in :-1 byte = 8 bit, 1 kb = 1024 byte, 1mb = 1024kb    
+    Type          Size     Range              Format Specifier    Example 
+    char	       1 byte	−128 to 127         %c                  char test = 'B';
+    short	       2 byte	−32,768 to 32,767                       short a = 10;
+    int	         4 byte	−32,768 to 32,767   %d, %i              int id  = 0;            |  -5, 10;
+    float	       4 byte                     %f                  float no = 22.442e2;    
+    double	     8 byte                     %lf                 double no = 22.442e2;
+    long int     8 byte                     %ld, %li            long a;
     long double	 16 byte                    %Lf                 long double d;
-    unsigned int  4 byte	0 to 65,535     %u                  unsigned int x = 35;
-    short int	                            %hd
-    unsigned int	                        %u
-    long int	                            %li
-    long long int	                        %lli
-    unsigned long int	                    %lu
+    unsigned int  4 byte	0 to 65,535       %u                  unsigned int x = 35;
+    short int	                              %hd
+    unsigned int	                          %u
+    long int	                              %li
+    long long int	                          %lli
+    unsigned long int	                      %lu
     unsigned long long int	                %llu
 
-
-    - You cannot declare void type variables 
-    - Check size of variable using sizeof() operator Ex :- sizeof(variableName);
-    - Signed and unsigned are type modifiers :-
-       Signed   - allows for storage of both positive and negative numbers
-       Unsigned - allows for storage of only positive numbers
+   - Cannot declare void type variables
+   - To Check size of variable use sizeof() operator Ex :- sizeof(variableName);
+   - Signed and unsigned are type modifiers :-
+      Signed   - allow for storage both positive and negative numbers
+      Unsigned - allow for storage only positive numbers
  
 
- Derive Data Type :-
-  - Data-types that are derived from primitive or built-in datatypes are referred to as Derived Data Types. 
-    Types :- Function, Arrays, Pointers, Reference
+  Derive Data Type :-
+   - Derived from primitive or built-in datatypes are referred to as Derived Data Types
+   Types :- Function, Arrays, Pointers, Reference
+
+  User-Defined Data Types :-
+   - Defined by user are called user-defined data types
+   Types :- Class, Structure, Union, Enumeration, Typedef    
 
 
- User-Defined Data Types :-
-  - Data-types that are defined by user are called as Derived Data Types or user-defined data types
-    Types :- Class, Structure, Union, Enumeration, Typedef    
 
-
-Input Output(I/O) :-
+ Input Output(I/O) :-
   
   Output :-
-   - printf() is library function to send formatted output on screen 
-   - To use printf we must include stdio.h header file using #include<stdio.h> statement
-     Ex :- printf("Bhavin") 
+   - printf() library function send formatted output on screen 
+   - To use printf() library add :- #include<stdio.h> statement
+   Ex :- printf("Bhavin") 
 
    - To print variable value use format specifier 
-     Ex :- int no = 5; 
-           float no1 = 10.10;
-           double no2 = 20.202;
-           char ch = 'B';
-           printf(" %d  %f  %lf  %c  %s ",no, no1, no2, ch, "String");
+   Ex :- int no = 5; 
+         float no1 = 10.10;
+         double no2 = 20.202;
+         char ch = 'B';
+         printf(" %d  %f  %lf  %c  %s ",no, no1, no2, ch, "String");
 
   Input :-
    - scanf() function reads formatted input from the standard input such as keyboards
-    Ex :- 
-     #include <stdio.h>
-     int main()
-     {
-        int testInteger;
-        float num1;
-        double num2;
-        char chr;
-        scanf("%d", &testInteger);       // &testInteger gets address of testInteger, and value entered by user is stored in that address
-        scanf("%f %lf ", &num1 , &num2); // Multi-input from single line
-        scanf("%c",&chr);   
-        printf(" %d %f\n  %lf\n %c", testInteger, num1, num2, chr); 
-        // When character is entered by user in above program, character itself is not stored. 
-        // Instead, an integer value (ASCII value) is stored.
-        return 0;
-     }              
+   Ex :- 
+    #include <stdio.h>
+    int main()
+    {
+      int testInteger;
+      float num1;
+      double num2;
+      char chr;
+      scanf("%d", &testInteger);  // &testInteger get address of testInteger and user entered value stored in address
+      scanf("%f %lf ", &num1 , &num2); // Multi-input from single line
+      scanf("%c",&chr);   
+      printf(" %d %f\n  %lf\n %c", testInteger, num1, num2, chr); 
+      // When character is entered by user in above program, character itself is not stored
+      // Instead an integer value (ASCII value) is stored
+      return 0;
+    }              
 
 
-Operator :-
-  - An operator is symbol that operates on value or variable. 
-  Types :
-  
-   Arithmetic :- 
-    - Perform Mathematical operations
-    Ex :- +, -, *, /, %(Reminder)
+ 
+ Operator :-
+  - Operator is symbol that operates on value or variable
+ 
+  Arithmetic :- Perform Mathematical operations
+   Ex :- +, -, *, /, %(Reminder)
 
    Increment / Decrement :-
-    - Change value of operand by 1   
+    - Change value of operand by 1 either in prefix and postfix   
     - It also called unary operator means it works with single operand
-    - It either used in prefix and postfix 
     Ex :- ++, -- 
 
-   Assignment Operator :-
-    - Used for assign value to variable
-    Ex :- =, +=, -=, *=, /=, %=
+  Assignment Operator :- Used for assign value to variable
+   Ex :- =, +=, -=, *=, /=, %=
 
-   Relational Operator :-
-    - Checks relationship between two operands. 
-    - If relation is true it returns 1.
-    - If relation is false it returns value 0.  
-    Ex :- ==, >=, <=, !=, >, <
+  Relational Operator :- Checks relationship between two operands
+   - If relation is true returns 1 otherwise false(0)
+   Ex :- ==, >=, <=, !=, >, <
 
-   Logical Operator :-
-    - Returns either 0 or 1 depending upon whether expression results true or false. 
-    - Used to check condition
-    Ex :- 
-      && - Logical AND returns true if both condition is true
-      || - Logical OR returns true if any condition is true
-      !  - Logical NOT returns true if operand is 0
+  Logical Operator :- Returns either 0 or 1 depending upon whether expression results true or false
+    && - Logical AND return true if both condition is true
+    || - Logical OR return true if any condition is true
+    !  - Logical NOT return true if operand is 0
 
-   BitWise Operator :-
-    - Perform bit-level operation
-    Ex :-
-        &	Bitwise AND
-        |	Bitwise OR
-        ^	Bitwise exclusive OR
-        ~	Bitwise complement
-        <<	Shift left
-        >>	Shift right
+  BitWise Operator :-
+   - Perform bit-level operation
+    &	Bitwise AND         |  |	Bitwise OR   | ^	Bitwise exclusive OR
+    ~	Bitwise complement  |  <<	Shift left   | >>	Shift right
 
-   Comma Operator :-
-    - used to link related expressions together
-    Ex :- int a, c = 5, d;
+  Comma Operator :- Link related expressions together
+   Ex :- int a, c = 5, d;
 
-   sizeof Operator :-
-    - sizeof is a unary operator that returns the size of data (constants, variables, array, structure, etc.)
-    - Format Specifier %zu is used to print value
+  sizeof() Operator :-
+   - Unary operator that return size of data (constants, variables, array, structure, etc.)
+   - Format Specifier %zu is used to print value
 
-   Other Operator :-
-    - ternary operator ?:, reference operator &, dereference operator * and member selection operator ->
+  Other Operator :-
+   ?: Ternary operator     | &  Reference operator | *  Dereference operator | -> Member selection
