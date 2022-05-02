@@ -1,3 +1,0 @@
-Function :-
- - Block of code that perform specific task
- - 

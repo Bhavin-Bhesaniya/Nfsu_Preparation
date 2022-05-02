@@ -11,6 +11,9 @@ Basic Topics :-
  - Input-Output(I/O)
  - Operator
  - Storage Classes
+ - Control Flow
+ - Function
+
 
 
  Intro :-
@@ -95,7 +98,13 @@ Basic Topics :-
   
   - Expression that refer to memory location are called "lvalue" expression
   - rvalue refers to data value that is stored at some address in memory
-
+  
+  Scope :-
+   - Defined scope for variable or function can be accessed or not
+   - Inside function or block called local variable and outside called global variable
+   - Local variable can be accessed inside function or block only not accessible outside
+   - Global variable can be accessed anywhere in program throughout program 
+   - Local variable not initialized by system you must initialize it while global variable initialized automatically
  
 
  Literals :- Representing fixed values
@@ -264,4 +273,81 @@ Basic Topics :-
     Ex :-  static int b = 8;
    
    extern :- Used to declare global variable or function in another file
-    
+
+
+
+Control Flow :- 
+
+ Condition  :-
+  If               :- if(expression){  //True code  }
+  if...else        :- if(expression){  //True code  } else { //False code }
+  if else ledder   :- if(expression){ //code } else if(expression){ //code } else { //False code}
+  Nested If.. else :- if(expression){ if(expression){ //True code } else { //False code } } else{ //False code }
+  Ternary          :- Condition ? True Code : False Code;     
+
+
+ Loop :- 
+  - Repeat block of code until specified condition is not false
+
+  For Loop   :-  for(Initalization; Condition; Increment/Decrement){ //code }
+  While Loop :-  while(expression){ //code  // Increment/Decrement } 
+  Do..While  :-  do { //code // Increment/Decrement }while(expression)
+   - Loop run at least one time in program
+  
+
+
+ Statement :-
+  Break    :- Terminate loop immediately 
+  Continue :- Skips current iteration of loop and continues with next iteration
+ 
+  goto     :- 
+   - Transfer Program control to specified label
+   - label is identifier When goto statement is encountered, 
+   - Control of program jumps to label: and starts executing code
+   Syntax :- 
+    goto label;
+    label:
+    statement;  
+            
+         
+
+ Switch Case :-
+  - Allow variable to be tested against list of values
+  - Expression used in switch statement must have an integral or enumerated type
+  - expression is evaluated once and compared with values of each case label
+  - If there is match, corresponding statements after matching label are executed otherwise default statements executed
+  - Default statement is optional
+
+  Syntax :- 
+   switch(expression){
+      case constant1:
+        // Statement   
+        break; 
+                
+      case constant2:
+        // Statement   
+        break; 
+
+      default:
+        // Statement
+   } 
+
+
+
+Function :-
+ - Block of code that perform specific task
+ - Every program must have main() function
+ - Function declaration tells compiler about function name, return type and parameters
+ - function definition provides actual function body
+ 
+ Syntax :-
+  return_type function_name(Parameter list){
+      // function body
+  }
+
+ Call function :- function_name(Parameter) 
+
+ Function Call by Value :- Passing function arguments value
+ Function Call by Reference :- Passing function arguments address
+
+
