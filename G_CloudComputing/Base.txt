@@ -1,5 +1,127 @@
 Lec - 1 
- Defination :-
-  - CC Refer to manipulating, Configuring, and Accessing application online
-  - It is something which is present at remote location
-  - Provide On-demand access and Shared Pool configuration resources
+ Introduction :-
+  - Cloud Computing Virtualization-based technology Refer to manipulating, Configuring and Accessing application 
+    via internet
+  - It is something that present at remote location
+  - Provide On-demand access and Shared Pool of configurable resources(As per Requirment)
+  
+
+ Operation :-
+  - Developing and Analysis application 
+  - Storage, Backup and Recovery data
+  - Streaming video and audio 
+
+
+ Structure :-  
+    Cloud Provider 
+       Cloud        --->  Request/Response  <-- Cloud User-N(Mobile, Desktop, Laptop)
+    Facility :- 
+      PAAS(Platform As Service)
+      SAAS(Software as Service)
+      IAAS(Infrastructure as Service)    
+
+
+
+Lec - 2
+ Different Working Model :-
+  1) Deployment Model :- Define type of access to the Cloud
+   Type :- 
+    Public    :- 
+     - Service are accessible for general public               
+     - Less fee or Free available
+     
+     Advantages :-
+      - Realibility(Access easily) | Flexibility | Location Independent  | High Scalability | Utiliy Based Cost
+
+     Disadvantage :-
+      - Low Secure | Less Customizable
+
+      
+    Private :- 
+     - Service are accessible for only particular Organization 
+     - It can be managed by third-party also
+     
+     Advantages :-
+      - High Security and Privacy
+      - More Customizable and Control
+      - Cost and Engery Efficient
+    
+     Disadvantage :-
+      - Restricted area operations
+      - High Priceing
+      - Scalability limited
+
+
+    Hybrid    :- 
+     - Combination of both Public + Private 
+     - Critical service private and non-critical activity public 
+
+     Advantages   :- Scalability | Flexibility | Security | Cost efficient
+     Disadvantage :- Network Issuce because Complexity | Security Compilances | Dependency on Infrastructure
+
+
+    Community :- 
+     - More than one organization created common cloud to access its Services
+     Advantages   :- Low cost than Private | Sharing resources among organizations | More secure than Public 
+     Disadvantage :- Data Storage | Responsiblity
+
+  
+  2) Services Model :- Reference models on which cloud computing is based
+   Type :-
+    SAAS :- How can access application on cloud | Email, CRM                         | Use software application
+    PAAS :- Provide tools to create application | Database, Server, Deployment       | Provide runtime environment    
+    IAAS :- Provide platform to create application | Virtual machine, Storage device | Provide Fundamental resources
+
+
+
+Lec - 3
+ Advantages :-
+  - Access, Manipulation and Configuration application over network
+  - No Software installation required
+  - On-demand self service
+  - Cost-Efficient
+  - More Reliable
+  - Efficient Load Balancing
+
+ Disadvantage / Risk :-
+  - Who access data (Snopping)
+  - Security method
+  - Where will be data stored
+
+ Limitations :-
+  - Service availability
+  - Data Lock-In(Shifting large volume data)
+  - Data Segregation(Data Isolation of each User)
+  - Scaling Resource(User requires suddenly)
+  - Recovery and Backup
+
+ Components of cloud Infrastructure :-
+  - Frontend Interface for end-user
+  - Network resources Management
+  - Storage for virtual machine
+  - Constant storage tools for virtual machine
+  - Monitoring tools
+
+
+
+Lec - 4
+ Characteristic :-
+  - On-demand Self-Service
+  - Broad Network Access
+  - Resource Pooling 
+  - Scalability
+  - Measure Service
+  - Service Oriented
+  - Virtualization
+
+
+
+Lec - 5 :- Public Cloud Model in Lec-2 
+
+
+Cloud Computing Architecture :-
+  Diagram :- 
+    Client-Side Interface   --->    Internet      --->    [Application, Service, Storage, Security]
+
+  Frontend - User Interface
+  Backend  - 

@@ -1,0 +1,79 @@
+
+Definition :-
+ - Practice of using network or remote servers hosted on the internet to store, manage and process data
+   rather than local server or personal computer
+ 
+ On-Premise :-                      Cloud Provider :-
+  - Own Server                       - Someone else own server           
+  - Hire IT People                   - Someone else Hire IT People
+  - Pay or rent real-estate          - Someone else pay or rent real-estate
+  - Take all risks                   - You are responsible for configuring cloud services and code
+
+
+
+Evolutions of Cloud Computing :-
+ Dedicated Server :-
+  - One Physical Machine dedicated to single business
+  - Run single website/webapp 
+  - Very Expensive, High Security and High Maintenance
+  Diagram :-     People  -->  Server -->  Web app
+
+ Virtual Private Server(VPS) :-
+  - One physical machine dedicated to single business
+  - Physical machine is virtuallized into sub-machines to Runs multiple website/webapp
+  - Better Utilization and Isolation of Resources
+  Diagram :-     People  -->  Server -->  Web app(N)
+
+ Shared Hosting :- 
+  - One Physical machine shared by Hundred of Business
+  - Relise on most teants under-utilizing their Resources
+  - Very Cheap, Limited Functionality, Poor Isolation
+  - Go Daddy
+  Diagram :- People(N) --> Server -->  Web app(N)
+
+ Cloud Hosting :-
+  - Multiple physical machines acts as one system
+  - System is abstracted into multiple cloud services
+  - Flexible, Scalable, Secure, Cost-Efficient, High-Configurability
+  Diagram :- People(N) --> Server(N) -->  Web app(N)
+
+
+
+What is Amazon?
+ - American Multinational computer technology corporation headquartered in Settle, Washington
+ - Founded in 1994 by Jeff Bezos
+ - Started for online book store
+ - Andy jassy current CEO of Amazon
+ - Adam Selipsky CEO of AWS and  Werner Vogels CTO of AWS
+
+
+What is AWS?
+ - AWS Launched in 2006 
+ - Simple Queue Service(SQS) was the first AWS service launched for public use in 2004
+ - Simple Storage Service(S3) launched in march 2006
+ - Elastic Compute Cloud(EC2) launched in August 2006
+ - In November 2010, Amazon.com retain sites had migrated to AWS
+ - AWS Certificate begin on April 2013
+
+
+What is Cloud Service Provider(CSP)?
+ - CSP provide multiple Cloud Services 
+ - These service chained together to create Cloud Architecture
+ - Service are accessible vis Single Unified API(AWS API) 
+ - Follow Metered Billing based on Usage
+ - Built-in Monitoring Ex:- AWS CloudTrail
+ - Offering Infrastructure as a Service and automation via Infrastructure as Code(IaC)
+
+
+ Diagram :-     Route3      -->     ELB          -->     EC2     -->     [RDS, Postgre Database] 
+              Domain Name         Load Balancer       Web Server         [SES, Send Emails]
+                                                                         [QuickSight Analysis]
+                                                                         [S3, Storage Images]
+
+
+ Landscape of Cloud Service Provider(CSP):-
+  Tier-1(Top Tier) :- Early to market, Wide Offering, Strong Synergies between Service(AWS, AZURE, GCP)
+  Tier-2(Mid Tier) :- Backed by Well-known Compaines, Slow to innovation(IBM, ORACLE, RACKSPACE)
+  Tier-3(LightTier):- Virtual Private Server(VPS) turned to offer core IAAS(Digial Ocean, Linode)
+ 
+ 
