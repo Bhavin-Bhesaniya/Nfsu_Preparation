@@ -1,0 +1,138 @@
+Introduction Web Technology :- 
+ - Web Technology refers to various tools and techniques that are utilized in the process of communication
+   between different types of devices over internet
+
+
+ It can be classified into following sections :-
+  World Wide Web (WWW) :- 
+  - Web browsers
+  - Hypertext Markup Language (HTML) 
+  - Hypertext Transfer Protocol (HTTP)
+
+
+ Web Browser :- 
+  - Application software to explore WWW to access web pages
+  - Provides interface between server and client 
+  - It Request to the server for web documents and services
+  - It is program that display text, data, pictures, animation and video on Internet 
+
+ Web Server :- 
+  - Processes network requests of users and serves them with files that create web pages
+  - This exchange takes place using Hypertext Transfer Protocol (HTTP)
+
+ Web Pages :- 
+  - Digital document that is linked to the WWW and viewable by anyone connected to internet has web browser
+
+ Web Development :- 
+  - Process of building, creating and maintaining websites that works over the internet
+  - It Includes web design, web publishing, web programming and database management 
+  - Web Development can be classified into two ways :
+ 
+  Frontend Development :- 
+   - Part of website that user directly interacts 
+   - Also known as 'client side' application
+   Diagram :- https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210309160419/frontend-design-roadmap.jpeg 
+  
+  Backend Development :- 
+   - Part of website that users cannot see and interact
+   - Server side website
+   - Used to store and arrange data
+   Diagram :- https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210309162115/Backend-design-roadmap.jpeg
+
+
+
+Frontend Languages :-  
+ HTML(Hypertext Markup Language):- 
+  - Used to design front-end portion of web pages using markup language
+  - Hypertext defines link between web pages 
+  - Markup language define text documentation within tag which defines structure of web pages
+
+ CSS(Cascading Style Sheets):-  
+  - Simply designed language
+  - Allows us to apply styles to web pages
+
+ JavaScript :- Scripting language that used to make site interactive for the user
+
+ AJAX(Asynchronous Javascript and XML):- 
+  - Communicate with server without refreshing webpage and thus increasing user experience performance
+ 
+ - There are many other languages through which do front-end development depending upon framework for 
+   Ex :- Flutter(Dart), React(JavaScript), Django (Python)
+
+ 
+ Front End Frameworks and Libraries : 
+  CSS :-
+    Library      :- Pure CSS
+    Framework    :- Bootstrap, Bulma, Materialize, Semantic,Tailwind CSS
+    Preprocesser :- SASS ,LESS
+  
+  JavaScript :-
+    JavaScript Technology : ES6, TypeScript
+    JavaScript Framework  : AngularJS, ReactJS, Vue.JS
+    JavaScript Library    : jQuery, jQuery Mobile ,script.aculo.us ,P5.JS ,D3.JS ,Underscore.JS
+
+
+
+Backend Languages :- 
+ PHP    :- Server-side scripting language because its code executed on server-side
+ Python :- Python is programming language that lets you work quickly and integrate systems more efficiently
+ Java   :- Popular and widely used programming languages and platforms
+ C#     :- C# is a general-purpose, modern and object-oriented programming language pronounced as “C sharp”
+ Golang :- Procedural and statically typed programming language having syntax similar to C programming language
+ JavaScript :- Used as both (front end and back end) programming
+ Node.js :- 
+  - Open-source and cross-platform runtime environment for executing JavaScript code outside browser 
+  - NodeJS is not framework and not programming language
+  - Used for building back-end services like APIs like Web App or Mobile App
+
+ Ruby :-  
+  - Dynamic, reflective, Pure object-oriented, general-purpose programming language developed by Yukihiro Matsumoto
+  - Everything in Ruby is an object except blocks but there are replacements too for it i.e procs and lambda
+  - It act as sensible buffer between human programmers and underlying computing machinery
+  
+ DBMS (Database Management System):- Software which is used to manage database
+ 
+
+ BackEnd Frameworks and Technology :-
+  PHP    :- Laravel | CMS: WordPress
+  NodeJS :- Express
+  Python :- Django  | Package Manager: Python PIP
+  Ruby   :- Ruby on Rails
+  Java   :- Spring, Hibernate
+  C#     :- .NET
+  Database :-  
+    Relation Database :- Postgre SQL, MariaDB, MySQL
+    NoSql Database    :- MongoDB
+
+
+
+Data Format :-  
+ - Format of data is used by web applications to communicate with each other
+ - It is light weight text based data interchange format which means, it is simpler to read and write
+
+ XML(Extensible Markup Language) :-
+  - Markup language that defines set of rules for encoding documents that is both human-readable and machine-readable
+  
+ JSON :- JavaScript Object Notation is format for structuring data
+
+ API (Application Programming Interface):- 
+  - Collection of communication protocols and subroutines used by various programs to communicate between them
+
+
+
+Web Protocols :- 
+ - Set of rules followed by everyone for communicating over web
+ 
+ HTTP (Hypertext Transfer Protocol):- 
+  - Enable communications between clients and servers
+  - It works as request-response protocol between client and server
+  - Web browser may be client and application on computer that hosts web site may be server
+  Other Protocols :- TCP/IP Model, UDP, FTP, SMTP, SOAP
+
+
+
+Graphics :- 
+ - Used to convey important points better than text does and beautify webpage
+
+ Canvas :- HTML “canvas” element is used to draw graphics via JavaScript
+ SVG    :- Scalable Vector Graphics defines vector-based graphics in XML format
