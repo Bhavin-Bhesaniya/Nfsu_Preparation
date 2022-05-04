@@ -26,9 +26,7 @@ Evolutions of Cloud Computing :-
 
  Shared Hosting :- 
   - One Physical machine shared by Hundred of Business
-  - Relise on most teants under-utilizing their Resources
-  - Very Cheap, Limited Functionality, Poor Isolation
-  - Go Daddy
+  - Very Cheap, Limited Functionality, Poor Isolation (Go Daddy)
   Diagram :- People(N) --> Server -->  Web app(N)
 
  Cloud Hosting :-
@@ -40,11 +38,11 @@ Evolutions of Cloud Computing :-
 
 
 What is Amazon?
- - American Multinational computer technology corporation headquartered in Settle, Washington
+ - Amazon is American Multinational computer technology corporation headquartered in Settle, Washington
  - Founded in 1994 by Jeff Bezos
  - Started for online book store
  - Andy jassy current CEO of Amazon
- - Adam Selipsky CEO of AWS and  Werner Vogels CTO of AWS
+ - Adam Selipsky CEO of AWS and Werner Vogels CTO of AWS
 
 
 What is AWS?
@@ -58,7 +56,7 @@ What is AWS?
 
 What is Cloud Service Provider(CSP)?
  - CSP provide multiple Cloud Services 
- - These service chained together to create Cloud Architecture
+ - These service z together to create Cloud Architecture
  - Service are accessible vis Single Unified API(AWS API) 
  - Follow Metered Billing based on Usage
  - Built-in Monitoring Ex:- AWS CloudTrail
@@ -77,3 +75,40 @@ What is Cloud Service Provider(CSP)?
   Tier-3(LightTier):- Virtual Private Server(VPS) turned to offer core IAAS(Digial Ocean, Linode)
  
  
+ Magic Quadrant(MQ) :-
+  - Series of market research reports published by IT Consulting firm gartner that rely on proprietary qualitative
+    data Analysis methods to demonstrate market trends such as direction, maturity and participant
+
+ 
+ Common Cloud Services :-   
+  - Provides hundred types of cloud services that are grouped into 4 various types of services
+  - Four common cloud services for IAAS would be :-
+  1)Compute :- Virtual computer run application and code
+  2)Networking :- Virtual network defining internet connection or network isolation between services
+                  or outbound to the internet
+  3)Storage  :- Virtual Hard-drive store file
+  4)Database :- Virtual database for storing reporting data or database for general purpose web-application
+
+
+
+AWS Overview :-
+ - Provides hundred types of cloud services that are grouped into 4 various types of services
+ - Four common cloud services for IAAS would be :-
+ 1)Compute :- EC2 Virtual Machine
+ 2)Storage :- EBS Virtual Hard Drive
+ 3)Database :- RDS SQL Database
+ 4)Networking and Content delivery :- VPC Private Cloud Network
+
+ Outside four :-
+  - Analytics                 - Developer Tools           - Migration & Transfer
+  - Application Integration   - End User Computing        - Mobile
+  - AR & VR                   - Game Tech                 - Quantam Technology
+  - AWS Cost Management       - Internet of Things        - Robotics
+  - BlockChain                - Machine Learning          - Satellites 
+  - Business Application      - Management & Governance   - Security, Identity and Compilances
+  - Container                 - Media Services            - Customer Engagement 
+
+
+Evolutions of Computing :-
+ Dedicated :-  
+  
