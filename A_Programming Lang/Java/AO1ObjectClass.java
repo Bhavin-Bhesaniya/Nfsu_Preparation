@@ -1,4 +1,6 @@
-import java.util.Scanner; //A way of giving the proper location for the compiler to find that particular class
+
+import java.util.Scanner; 
+//A way of giving the proper location for the compiler to find that particular class
 
 //Interface Stuff
 interface cricket {
