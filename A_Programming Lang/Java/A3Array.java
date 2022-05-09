@@ -1,101 +1,3 @@
-/*
-Array :-
-- Array is a data structure that contains a group of elements, these elements are all of the same data type
-- In java all arrays are dynamically allocated , Ordered and start index with 0 and find length using length Property 
-- Every array type implements the interfaces Cloneable and java.io.Serializable
-- In case of primitive data types, the actual values are stored in contiguous memory locations. 
-- In case of objects of a class, the actual objects are stored in heap segment.
-- If we try to access element outside the array size JVM throws ArrayIndexOutOfBoundsException
-- superclass of any array type is java.lang.Object. 
-- arrays are object of a class and direct superclass of arrays is class Object
-- Default values of primitive datatype is 0 and user-defined type is null
-
-
-Syntax :- data-type[] variablename;                     //declared  only reference of array is created
-          Variablename = new datatype[arraysize];       //create a new array give memory location
-
-          dataType[] arrayRefVar = new dataType[arraySize];     //In one line create a new array 
-          String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};    //create a new array with value Declaring array literal
-
-          Access Elements :- arrayRefVar[indexNo]; Or Loops
-          Update Elements :- arrayRefVar[indexNo] = new value; 
-          Find Length     :- arrayRefVar.length;          
-         
-- Multi-dimensional array containing one or more array
-Syntax :- int[][] intArray = new int[10][20]; //a 2D array or matrix
-          int[][][] intArray = new int[10][20][10]; //a 3D array
-
-
-Class objects of arrays :-
-- Every array has an associated Class object, shared with all other arrays with the same component type
-Syntax :- arrayVariable.getClass()  / arrayVariable.getclass().getSuperclass()
-
-
-Array Member :-
-- The public final field length, which contains the number of components of the array. length may be positive or zero.
-- All the members inherited from class Object; the only method of Object that is not inherited is its clone method.
-- The public method clone(), which overrides clone method in class Object and throws no checked exceptions.
-
-
-Cloning array :-
-- Object cloning refers to the creation of an exact copy of an object. 
-- It creates a new instance of the class of the current object and initializes all its fields with exactly the contents of the 
-  corresponding fields of this object.
-Syntax :- Using Assignment Operator to create a copy of the reference variable 
-
-- Every class that implements clone() should call super.clone() to obtain the cloned object reference.
-- implement java.lang.Cloneable interface whose object clone we want to create otherwise it will throw CloneNotSupportedException 
-  when clone method is called on that class’s object.
-Syntax :- protected Object clone() throws CloneNotSupportedException
-
-Shallow copy :- 
-- method of copying an object and is followed by default in cloning. 
-- In this method, the fields of an old object X are copied to the new object Y. 
-- While copying the object type field the reference is copied to Y
-
-Deep copy :-
-- A deep copy copies all fields and makes copies of dynamically allocated memory pointed to by the fields.
-- A deep copy occurs when an object is copied along with the objects to which it refers.
-
-
-Array Class :-
-- Arrays class in java.util package is a part of the Java Collection Framework. 
-- This class provides static methods to dynamically create and access Java arrays. 
-- It consists of only static methods and the methods of Object class. 
-- The methods of this class can be used by the class name itself
-Hierachiy :- java.lang.Object -> java.util.Arrays
-- java.util.Arrays class contains various static methods for sorting and searching, comparing ,filling array elements. 
-- These methods are overloaded for all primitive types.
-
-
-Reflection Array Class :- 
-- Array class in java.lang.reflect package is a part of the Java Reflection. 
-- This class provides static methods to dynamically create and access Java arrays. 
-- It is a final class, which means it can’t be instantiated, or changed. 
-- Only the methods of this class can be used by the class name itself.
-
-Final Array :-
-- final array means that the array variable which is actually a reference to an object, cannot be changed to refer to anything else,
-  but the members of array can be modified
-
-
-Jagged Array :-
-- A jagged array is an array of arrays such that member arrays can be of different sizes
-
-
-
-Exception :-
-1) Checked :- checked at compile time. 
-- If some code within a method throws a checked exception, then the method must either handle the exception or it must specify the 
-  exception using throws keyword.
-
-2) Unchecked :- unchecked at compile time
-- In Java exceptions under Error and RuntimeException classes are unchecked exceptions, everything else under throwable is checked.
-
-
-
-*/
-
 import java.util.*;
 
 public class A3Array {
@@ -170,12 +72,13 @@ public class A3Array {
         }
         System.out.println();
 
+
         System.out.println("Jagged array in java :-");
         int r = 5;
-         // Declaring 2-D array with 5 rows
-        int arr[][] = new int[r][];
+        int arr[][] = new int[r][]; // Declaring 2-D array with 5 rows
  
-        // Creating a 2D array such that first row has 1 element, second row has two elements and so on.
+
+        // Creating 2D array such that first row has 1 element, second row has two element
         for (int i = 0; i < arr.length; i++)
             arr[i] = new int[i + 1];
  
@@ -192,11 +95,8 @@ public class A3Array {
                 System.out.print(arr[i][j] + " ");
             System.out.println();
         }
-
-
-
-
     }
+
     public static void sum(int[] sumVar) {
         int sum = 0;
         for (int i = 0; i < sumVar.length;i++) {
@@ -204,6 +104,7 @@ public class A3Array {
         }
         System.out.println("Total sum is :" + sum);    
     }
+    
     public static int[] m1() 
     {
         // returning  array

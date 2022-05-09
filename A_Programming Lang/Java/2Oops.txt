@@ -104,6 +104,39 @@ OOP (Object Oriented Programming):-
 
 
 
+ Inheritance :-
+  - Inherit attributes and methods from one class to another
+  - Two classes -> 
+    1)superclass(parent) - being inherited from
+    2)subclass(child)    - class that inherits from another class
+  - Extends keyword is used for inheritance
+  - Useful for code reusability :- reuse attributes and methods of an existing class
+
+
+
+ Polymorphisam :-
+  - "Many form" and it occurs when we have many classes that are related to each other by inheritance
+  - polymorphisam use inheritad methods to perform different tasks
+  - Allow to perform single actions in different ways
+
+
+
+ Encapsulation :- 
+  - Hide sensitive data from user so increased security of data
+  - binding data and method into single unit
+  - Better control of class attribute and methods
+  - class-attributes can be read-only(use only get) or write-only(only use set) 
+  - flexible without affecting other parts
+   
+  How to achieve :-
+   - declare class variable/attributes as private
+   - get and set method to access and update value of private variable
+    
+  Get/Set Method :- 
+   - Return variable value, set method set value
+   Ex :- getVariableName() / setVariableName()
+
+
  Access modifiers :-
   - Set access levels for classes, variables, method and constructor
   public  :- 
@@ -129,7 +162,7 @@ OOP (Object Oriented Programming):-
    - Method and fields in interface cannot be declared protected
           
   
-  Access Control and inheritance :-
+  Access Control :-
    - Method declared public in superclass also must be public in all subclasses
    - Method declared protected in superclass must either be protected or public in subclasses, they cannot be private
    - Method declared private are not inherited at all, so there is no rule for them

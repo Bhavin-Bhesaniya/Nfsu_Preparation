@@ -8,6 +8,12 @@ Topics :-
  - Expressions, Statements, Blocks and comment 
  - Control Flow(Condition / Switch / Loops /  Control Statement)
  - Array
+ - File Handling
+ - I/O Stream
+ - Package
+ - Data and Time
+ - Regex
+
 
 
 Introduction :-
@@ -347,22 +353,244 @@ Control Flow :-
 
 
 Array :- 
- - Array is collection of similar types of data
+ - Array is collection of similar types of 
+ - Contain same data-type group of element
+ - Array are dynamically allocated, Ordered and start index with 0
+ - In primitive type actual values are stored in contiguous memory locations
+ - In objects of class actual object are stored in heap segment
+ - To access element of outside array size JVM throws ArrayIndexOutOfBoundsException
+ - Superclass of any array type is java.lang.Object
+ - Default value of primitive datatype is 0 and user-defined type is null
 
- Declare Array :- 
-  1)dataType[] arrayName;                                      //Single-Dimensional Array
-    arrayName = new dataType[ArraySize];
-  2)dataType[] arrayName = new dataType[ArraySize];
-  dataType[][] arrayName = new dataType[ArraySize][ArraySize]; //Multi-Dimensional Array
+ Syntax :- 
+   data-type[] variablename;                     //declared  only reference of array is created
+   Variablename = new datatype[arraysize];       //create a new array give memory location
+
+   dataType[] arrayRefVar = new dataType[arraySize];     //In one line create a new array 
+   String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};    //create a new array with value Declaring array literal
+
+   Access Elements :- arrayRefVar[indexNo]; Or Loops
+   Update Elements :- arrayRefVar[indexNo] = new value; 
+   Find Length     :- arrayRefVar.length;          
+         
+ Syntax :- Multi-dimensional array containing one or more array
+    int[][] intArray = new int[10][20];         //2D array or matrix
+    int[][][] intArray = new int[10][20][10];   //3D array
 
 
- Initialize Array :- 
-  - Value type same as dataType and compiler automatically specifies size of array
-  EX :- 
-   dataType[] arrayName = {1,2,3}; 
-   arrayName[0] = 12; //Initialize array with indexno start from 0 end with n-1
-   
- Access Array :- 
-  System.out.println(arrayName[0]);                           //Access array with it index No
-  for (int i = 0; i < arrayName.length; i++){ arrayName[i];}  //Through Loops where length property get size of array
-  for ( i : arrayName ){a;}        
+ Class objects of arrays :-
+  - Every array has associated Class object that shared with all other arrays with same component type
+  Syntax :- arrayVariable.getClass()  / arrayVariable.getclass().getSuperclass()
+
+ 
+ Array Class :-
+  - Deriverd from java.util package part of Java Collection Framework
+  - Provide static method to dynamically create and access Java array
+  - It consists of only static method and method of Object class
+  - Method of this class can be used by class name itself
+  Hierachiy :- java.lang.Object -> java.util.Arrays
+  - java.util.Arrays class contains various static methods for sorting and searching, comparing ,filling array element
+
+ Reflection Array Class :- 
+  - java.lang.reflect provide static method to dynamically create and access Java array
+  - It is final class which means it can’t be instantiated or changed
+  - Only method of this class can be used by class name itself
+
+ Final Array :-
+  - Array variable which actually reference to object cannot be changed to refer to anything else,
+    but member of array can be modified
+ 
+ Jagged Array :-
+   - Jagged array is array of arrays such that member array can be of different sizes
+
+ 
+ Exception :-
+  Checked   :- Checked at compile time
+  Unchecked :- Unchecked at compile time
+   - In Java exceptions under Error and RuntimeException classes are unchecked exceptions, everything else under 
+     throwable is checked
+
+
+
+FileHandling :-
+ - java.io.file package use
+ Syntax :-  File a = new File(filename/pathforfile);
+
+ Constructors :-
+  File(File parent, String child)   
+  File(String pathname)           
+  File(String parent, String child) 
+  File(URI uri)
+
+ Method :-
+  boolean canExecute()           : Test application execute file denoted by this abstract pathname
+  boolean canRead()              : Test application read file denoted by this abstract pathname
+  boolean canWrite()             : Test whether application modify file denoted by this abstract pathname
+  int compareTo(File pathname)   : Compare two abstract pathnames lexicographically
+  boolean createNewFile()        : Automatically creates new empty file named by this abstract pathname 
+  static File createTempFile()   : Create empty file in default temporary-file directory
+  boolean delete()               : Delete file or directory denoted by this abstract pathname
+  boolean equals(Object obj)     : Test abstract pathname for equality with given object
+  boolean exists()               : Test whether file or directory denoted by this abstract pathname exists
+  String getAbsolutePath()       : Return absolute pathname string of this abstract pathname
+  long getFreeSpace()            : Return number of unallocated bytes in the partition
+  String getName()               : Return name of file or directory denoted by this abstract pathname
+  String getParent()             : Return pathname string of this abstract pathname’s parent
+  File getParentFile()           : Return pathname of this abstract pathname’s parent
+  String getPath()               : Convert pathname into a pathname string
+  boolean isDirectory()          : Test file denoted by this pathname is a directory
+  boolean isFile()               : Test file denoted by this abstract pathname is a normal file
+  boolean isHidden()             : Test file named by this abstract pathname is a hidden file
+  long length()                  : Return length of file denoted by this abstract pathname
+  String[] list()                : Return array of string naming files and directories in directory
+  File[] listFiles()             : Return array of abstract pathname denoting files in directory
+  boolean mkdir()                : Create directory named by this abstract pathname
+  boolean renameTo(File dest)    : Rename file denoted by this abstract pathname
+  boolean setExecutable()        : Set execute permission
+  boolean setReadable()          : Set read permission
+  boolean setReadable()          : Set everybody’s read permission
+  boolean setReadOnly()          : Mark file or directory named so that only read operations are allowed
+  boolean setWritable()          : Convenience method to set owner’s write permission
+  String toString()              : Return pathname string of this abstract pathname
+  URI toURI()                    : Construct file URI that represent this abstract pathname
+
+
+
+I/O Stream :-
+ - Stream is method to sequentially access file
+ - java.io package use for character stream unicode and binary stream non-unicode text
+ 
+ Type :-
+  InPutStream  − Used to read data from source
+  OutPutStream − Used for writing data to destination
+
+ Character Stream :-
+  - Character are stored using unicode characters
+  - Allow read/write data characters by character automatically
+  - Perform input and output for 16-bit unicode
+  Ex :- FileReader and FileWriter 
+
+ Byte Stream :-
+  - Process data bytes by byte sequence(8bit)
+  Ex :- FileInputStream and FileOutputStream
+
+ When to use Character Stream over Byte Stream? 
+  - Character stream is useful to process text files
+  - ByteStream suitable for processing raw data like binary files
+ 
+ Standard Stream :-
+  Standard Input  :- System.in
+  Standard Output :- System.out
+  Standard Error  :- System.err
+
+ Hierachy Of Stream :-
+                 Object
+    InputStream         OutputStream 
+    File                - Same in outputStream
+    ByteArrayInput
+    FilterInputStream
+     -BufferedInput
+     -DataInputStream  
+    ObjectInputStream
+
+
+
+Pacakge :-
+ - Used to group related classes
+ - Avoid name conflict and write better maintainable code
+
+ 1)Built-in package       (Package from java api)
+ 2)User defined package   (Create own package)
+
+ Built-in package :-
+  - Java api is library of prewritten classes
+  - library divided into two part :- package and classes
+  - Either import single class or import whole package that contain all classes
+  Ex :- import package.name.class; single class 
+        import package.name.*;     import whole package  
+
+ User defined package :-
+  - Java uses file system directory to store them
+  - root ->mypack -> filename.java    
+
+
+
+Date And Time :-
+ - Not have built-in date class but import java.time package to work with data and time api
+ - java.util package, this class encapsulates current date and time
+
+ Constructor :-
+  Date()  :- Initalize date and Time Object
+  Date(long milliseconds) :- Accept argument that equals number of milliseconds
+
+ Calender :-
+  - Calendar Class being an abstract class cannot be instantiated
+  - So an object of the Calendar Class is initialized as: 
+  Syntax :- Calendar cal = Calendar.getInstance();
+  - Use java.util.GregorianCalendar and java.util.Calendar
+  - Object of Calendar Class is initialized with current date and time in the default locale and timezone
+  - Whereas, GregorianCalendar Class being concrete class, can be instantiated
+  - So object of GregorianCalendar Class is initialized as: 
+    Syntax :- GregorianCalendar gcal = new GregorianCalendar();
+  - gcal of GregorianCalendar Class is initialized with current date and time in default locale and timezone
+
+
+
+Regular Expression :-
+ - Special sequence of characters that helps to match or find other strings or sets of string, Using specialized 
+   syntax held in pattern
+ - java.util.regex package used
+
+ Pattern Class :-
+  - To create pattern first invoke one of its public static compile() method, which will then return Pattern object
+  - Method accept regular expression as first argument
+
+ Matcher Class :−    
+  - Matcher object is the engine that interprets pattern and performs match operations against input string
+  - Matcher defines no public constructors
+  - Obtain Matcher object by invoking matcher() method on Pattern object
+
+ PatternSyntaxException :− 
+  - PatternSyntaxException object is unchecked exception that indicates syntax error in regular expression pattern
+
+ Capturing Group :-
+  - Way to treat multiple characters as a single unit
+  - To find out how many groups are present in expression, call groupCount method on matcher object
+
+ Common use Symbols :-
+    ^	    Match beginning of line
+    $	    Match end of line
+    .	    Match single character except newline, Using m option allows it to match newline as well
+    [...]	Match any single character in brackets
+    [^...]	Match any single character not in brackets
+    \A	    Beginning of entire string
+    \z	    End of entire string
+    a| b	Match either a or b
+    \W	    Match nonword characters
+    \w	    Match word characters
+    \s	    Match whitespace, Equivalent to [\t\n\r\f]
+    \S	    Match nonwhitespace
+    \d	    Match digits. Equivalent to [0-9].
+    \D	    Match nondigits
+
+
+ Method :-
+  Start   :- Return start index of previous match
+  End     :- Return offset after last character matched
+  find    :- Attempt to find next subsequence of input sequence that matches pattern
+  matches :- Attempt to match entire region against pattern
+  lookingAt :- match input sequence starting at beginning of the region against pattern
+
+ Replacements Methods :-
+  replaceAll         :- Replace every subsequence of input sequence
+  replaceFirst       :- Replace first subsequence of input sequence
+  quoteReplacement   :- Return literal of replacement string or specified string
+  Matcher appendReplacement :- Implement non-terminal append-and-replace step
+  StringBuffer appendTail   :- terminal
+
+ PatternSyntaxException Class Methods :-
+  getIndex       :- Return error index
+  getPattern     :- Retrieve erroneous regular expression pattern
+  getMessage     :- Return multi-line string containing error
+  getDescription :- Return description error message
+
