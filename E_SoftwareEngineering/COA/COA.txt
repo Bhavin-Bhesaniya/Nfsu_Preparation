@@ -1,0 +1,507 @@
+Basic Terminology :- 
+ Control Unit(CU) –
+  - CU handle all processor control signals 
+  - It directs all input and output flow, fetches code for instructions and controlling how data moves around system
+
+ Arithmetic and Logic Unit (ALU) –
+   - ALU is part of CPU that handles all arithmetic calculations 
+
+ Diagram :- https://media.geeksforgeeks.org/wp-content/uploads/vn_cpu.png
+ 
+ 
+ 
+Main Memory Unit (Registers) :-
+ Accumulator :- Store results of calculations made by ALU
+ 
+ Program Counter (PC) :- 
+  - Keeps track of memory location of next instructions to be deal with 
+  - PC then passes this next address to Memory Address Register (MAR)
+
+ Memory Address Register (MAR) :- 
+  - Store memory location of instruction that need to be fetched from memory or stored into memory
+
+ Memory Data Register (MDR) :- 
+  - Store instruction fetched from memory or any data that is to be transferred and stored in memory
+
+ Current Instruction Register (CIR) :-
+  - Store most recently fetched instructions while it is waiting to be coded and executed
+
+ Instruction Buffer Register (IBR) :- 
+  - Instruction that is not to be executed immediately is placed in instruction buffer register IBR
+
+
+
+Input/Output Devices :- 
+ - Program or data is read into main memory from input device or secondary storage under the control of CPU input instruction
+ - Output devices are used to output information from computer
+ 
+
+
+Buses :- 
+ - Data is transmitted from one part of a computer to another, connecting all major internal components to the CPU
+   and memory by the means of Buses. 
+ Types :-
+  Data Bus    : Carry data among memory unit, I/O devices and processor
+  Address Bus : Carry address of data (not the actual data) between memory and processor
+  Control Bus : Carry control command from CPU (and status signals from other devices) in order to control and 
+                coordinate all activities within computer
+  
+  
+
+
+Instruction Formats (Zero, One, Two and Three Address Instruction) :- 
+ - Instruction is of various length depending upon number of addresses it contain
+ - Generally CPU organization are of three types on the basis of number of address fields :-
+   Single Accumulator organization
+   General register organization
+   Stack organization
+ 
+ Zero Address Instructions :-
+  - Address is stored in opcode, in zero address instruction
+  - Stack based organization uses zero address instruction
+ 
+ One Address Instructions :-
+  - Use implied ACCUMULATOR register for data manipulation
+  - One operand is in accumulator and other is in register or memory location
+  - Implied means that CPU already know that one operand is in accumulator so there is no need to specify it
+  - i.e there will be one opcode field and one address field.
+
+ Two Address Instructions :-
+  - Two address specified in the instruction 
+  - Unlike earlier one address instruction result was stored in accumulator here result can be stored at different
+    location rather than just accumulator but require number more of bit to represent address
+ 
+ Three Address Instructions :-
+  - This has three address field to specify a register or a memory location
+  - Program created is much short in size but number of bits per instruction increase
+
+
+
+Addressing Modes :-
+ - Term addressing modes refers to the way in which operand of an instruction is specified. 
+ - Addressing mode specifies rule for interpreting or modifying address field of instruction before operand is 
+   actually executed
+ - Assembly language program instruction consists of two parts :-
+    OPCODE - OPERAND
+ Diagram :- https://media.geeksforgeeks.org/wp-content/uploads/20190611145323/co11.png 
+
+
+
+IMPORTANT TERMS :-
+ - Starting address of memory segment
+ - Effective address or Offset : 
+   - Offset is determined by adding any combination of three address elements :- 
+   Base  : Content of base register, BX or BP
+   Index : Content of index register SI or DI
+   Displacement: It is an 8 bit or 16 bit immediate value given in the instruction
+
+ Implied mode: :- 
+  - Implied addressing operand is specified in the instruction itself
+  - In this mode data is 8 bits or 16 bits long and data is part of instruction
+  - Zero address instruction are designed with implied addressing mode
+
+ Immediate addressing mode (symbol #) :- 
+  - In this mode data is present in address field of instruction
+  - Designed like one address instruction format
+  Note :- Limitation in immediate mode is that range of constants are restricted by size of address field
+
+ Register mode :-
+  - In register addressing operand is placed in one of 8 bit or 16 bit general purpose registers 
+  - Data in register that is specified by instruction
+  - Here one register reference is required to access the data
+
+ Register Indirect mode :- 
+  - In this addressing operand’s offset is placed in any one of the registers BX, BP, SI, DI as specified in instruction
+  - Effective address of data is in base register or index register that is specified by instruction
+  - Here two register reference is required to access the data
+
+ Auto Indexed (increment mode) :- 
+  - Effective address of operand is contents of register specified in instruction 
+  - After accessing operand contents of this register are automatically incremented to point to next consecutive memory
+    location.(R1)+
+  - Here one register reference, one memory reference, and one ALU operation is required to access the data
+
+ Auto indexed (decrement mode) :- 
+  - Effective address of the operand is the contents of a register specified in the instruction. 
+  - Before accessing the operand, the contents of this register are automatically decremented to point to the previous
+    consecutive memory location. –(R1)
+  - Here one register reference, one memory reference and one ALU operation is required to access the data
+  
+ Auto decrement mode :- 
+  - Same as the auto-increment mode
+  - Both can also be used to implement a stack as push and pop 
+  - Auto increment and Auto-decrement modes are useful for implementing “Last-In-First-Out” data structures
+
+ Direct addressing/ Absolute addressing Mode (symbol [ ]) :- 
+  - Operand’s offset is given in instruction as 8 bit or 16 bit displacement element 
+  - In this addressing mode 16-bit effective address of data is part of instruction
+  - Here only one memory reference operation is required to access data
+
+ Indirect addressing Mode (symbol @ or () ) :- 
+  - Address field of instruction contains address of effective address
+  - Here two references are required :-
+    1st reference to get an effective address
+    2nd reference to access data
+ 
+ Indexed addressing mode :- 
+  - Operand’s offset is sum of the content of an index register SI or DI and an 8 bit or 16-bit displacement
+
+ Based Indexed Addressing :- 
+  - Operand’s offset is sum of content of base register BX or BP and an index register SI or DI
+
+
+
+Based on Transfer of control, addressing modes are :-  
+ PC relative addressing mode :-
+  - PC relative addressing mode is used to implement intra segment transfer of control
+  - In this mode effective address is obtained by adding displacement to PC
+    EA = PC + Address field value
+    PC = PC + Relative value
+
+ Base register addressing mode :-
+  - Implement inter segment transfer of control
+  - In this mode effective address is obtained by adding base register value to address field value
+    EA= Base register + Address field value.
+    PC= Base register + Relative value.
+ 
+ Note :- 
+  - PC relative and based register both addressing modes are suitable for program relocation at runtime
+  - Based register addressing mode is best suitable to write position independent codes
+
+
+
+RISC vs CISC :-
+ Characteristic of RISC –
+  - Simpler instruction, hence simple instruction decoding
+  - Instruction come under size of one word
+  - Instruction take single clock cycle to get executed
+  - More number of general purpose register
+  - Simple Addressing Modes
+  - Less Data types
+  - Pipeling can be achieved
+
+ Characteristic of CISC –
+  - Complex instruction, hence complex instruction decoding
+  - Instruction are larger than one word size
+  - Instruction may take more than single clock cycle to get executed
+  - Less number of general purpose register as operation get performed in memory itself
+  - Complex Addressing Modes
+  - More Data types
+ 
+ 
+ 
+Hardwired v/s Micro-programmed Control Unit :-
+ Hardwired Control Unit :-
+  - Fixed logic circuits that correspond directly to the Boolean expressions are used to generate the control signals
+  - Hardwired control is faster than micro-programmed control  
+  - Controller that uses this approach can operate at high speed
+  - RISC architecture is based on hardwired control unit
+
+ Micro-programmed Control Unit –
+  - Control signals associated with operations are stored in special memory units inaccessible by programmer as 
+    Control Words
+  - Control signals are generated by a program are similar to machine language program
+  - Micro-programmed control unit is slower in speed because of the time it takes to fetch microinstructions from
+    control memory
+  - There are two type Micro-programmed control Unit:
+    Horizontal Micro-programmed control Unit :- 
+     - Control signals are represented in decoded binary format that is 1 bit/CS
+    Vertical Micro-programmed control Unit :- 
+     - Control signals represented in encoded binary format 
+     - For N control signals- Logn(N) bits are required
+
+
+
+Instruction Cycle :-
+ - Registers Involved In Each Instruction Cycle :
+ Memory address registers(MAR) :-
+  - It is connected to address lines of system bus 
+  - Specifies address in memory for read or write operation
+
+ Memory Buffer Register(MBR) :- 
+  - It is connected to data lines of system bus
+  - It contain value to be stored in memory or last value read from memory
+ 
+ Program Counter(PC) :- 
+  - Hold address of next instruction to be fetched
+ 
+ Instruction Register(IR) :- 
+  - Hold last instruction fetched
+
+ Diagram :- https://media.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2018-03-29-00-57-59.png
+
+ - Indirect Cycle is always followed by Execute Cycle 
+ - Interrupt Cycle is always followed by the Fetch Cycle 
+ - For both fetch and execute cycles next cycle depends on state of the system
+ 
+ Fetch Cycle :-
+  - At the beginning of the fetch cycle address of the next instruction to be executed in Program Counter(PC)
+
+ Indirect Cycles :-
+  - Once instruction is fetched, next step is to fetch source operands 
+  - Source Operand is being fetched by indirect addressing it can be fetched by any addressing mode 
+    here its done by indirect addressing) 
+  - Register-based operands need not be fetched 
+  - Once opcode is executed similar process may be needed to store result in main memory
+
+ Execute Cycle :-
+  - Other three cycles(Fetch, Indirect and Interrupt) are simple and predictable
+  - Each of them requires simple, small and fixed sequence of micro-operations 
+  - In each case same micro-operation is repeated each time around 
+  - Execute Cycle is different from them
+  - Like for machine with N different opcodes there are N different sequences of micro-operations that can occur
+
+ Interrupt Cycle :-
+  - At completion of Execute Cycle, test is made to determine whether any enabled interrupt has occurred or not. 
+  - If enabled interrupt has occurred then Interrupt Cycle occurs 
+  - Nature of this cycle varies greatly from one machine to another
+
+ Microprogram :- 
+  - Program stored in memory that generates all control signals required to execute instruction set correctly, 
+    it consists micro-instructions
+ 
+ Micro-instruction :- 
+  - Contain sequencing word and control word 
+  - Control word is all control information required for one clock cycle
+ 
+ Micro-operations :- 
+  - Micro-operations are atomic operations which executes particular micro-instruction
+
+ Example of micro-operation during the fetch cycle:
+  t1: MAR ←(PC)
+  t2: MBR ←Memory
+      PC ←(PC) + I
+  t3: IR ←(MBR)
+
+
+
+Memory Organization :-
+ - Memories are made up of registers 
+ - Each register in memory is one storage location 
+ - Storage location is also called memory location 
+ - Memory locations are identified using Address 
+ - Total number of bit memory can store is its capacity
+
+ Byte Addressable Memory	
+  - When data space in cell = 8 bits then corresponding address space is called as Byte Address	
+  - Based on this data storage i.e. Bytewise storage, memory chip configuration is named as Byte Addressable Memory
+ 
+ Word Addressable Memory
+  - When data space in cell = word length of CPU then corresponding address space is called as Word Address
+  - Based on this data storage i.e. Wordwise storage, memory chip configuration is named as Word Addressable Memory
+
+
+
+Simultaneous and Hierarchical Access Memory Organizations :-
+ Simultaneous access memory organization :-  
+  - If H1 and H2 are Hit Ratios and T1 and T2 are access time of L1 and L2 memory levels respectively then 
+    Average Memory Access Time can be calculated as : T=(H1*T1)+((1-H1)*H2*T2
+ 
+ Hierarchical Access Memory Organizations :-  
+  - If H1 and H2 are the Hit Ratios and T1 and T2 are the access time of L1 and L2 memory levels respectively then 
+    Average Memory Access Time can be calculated as : T=(H1*T1)+((1-H1)*H2*(T1+T2)
+
+ 
+ 
+Cache Memory :-
+ - Special very high-speed memory used to speed up and synchronizing with high-speed CPU
+ - Levels of memory :- Level 1 or Register, Level 2 or Cache memory, Level 3 or Main Memory, Level 4 or Secondary Memory
+ - Hit ratio = hit / (hit + miss) =  no. of hits/total accesses
+
+ Cache Mapping :-
+  Direct Mapping :-
+   - Maps each block of main memory into only one possible cache line 
+   - If line is previously taken up by memory block and new block needs to be loaded old block is trashed 
+   - Address space is split into two parts index field and tag field 
+   - Cache is used to store tag field whereas rest is stored in main memory
+ 
+  Associative Mapping :-
+   - Block of main memory map to any line of cache that is freely available at that moment
+   - Word offset bits are used to identify which word in block is needed, all of remaining bits become Tag
+  
+  Set-Associative Mapping :-
+   - Cache lines are grouped into sets where each set contains k number of lines and particular block of main memory 
+     can map to only one particular set of cache 
+   - However within that set memory block can map to any freely available cache line 
+  
+  Note :- 
+   - Translation Lookaside Buffer (i.e. TLB) is required only if Virtual Memory is used by processor 
+   - In short,TLB speeds up translation of virtual address to physical address by storing page-table in faster memory 
+   - In fact, TLB also sits between CPU and Main memory
+
+  Locality of reference :-
+   - Since size of cache memory is less as compared to main memory
+   - So to check which part of main memory should be given priority and loaded in cache is decided based on locality 
+     of reference
+   Types of Locality of reference :-
+     Spatial Locality of reference :-
+      - Instruction or data near to current memory location that is being fetched, may be needed soon in near future
+     
+     Temporal Locality of reference :-
+      - Current data or instruction that being fetched may be needed soon 
+      - So store that data or instruction in cache memory to avoid searching again in main memory for same data
+
+
+
+Write Policy :-
+ Write Through :- 
+  - All write operations are made to main memory as well as to cache that ensuring main memory is always valid
+  For hierarchical access:
+   T_{read} = H \times T_{cache} + (1-H) \times (T_{cache} + T_{memory\_block}) \newline = T_{cache} + (1-H) \times
+   T_{memory\_block}
+  
+  For simultaneous access :
+   T_{read} = H \times T_{cache} + (1-H) \times (T_{memory\_block})  \newline T_{write} = T_{memory\_word}  
+
+ Write Back :- 
+  - Updates are made only in cache 
+  - When update occurs dirty bit or use bit associated with line is set 
+  - Then when block is replaced, it is written back to main memory if and only if the dirty bit is set
+  For hierarchical access:
+   T_{read} = T_{write} = H \times T_{cache} + (1-H) \times (T_{cache} + T_{memory\_block} + T_{write\_back}) 
+   \\= T_{cache} + (1-H) \times (T_{memory\_block} + T_{write\_back}), \\ \text{ where } T_{write\_back} = x 
+   \times T_{memory\_block}, \text{ where } x \text{ is the fraction of dirty blocks}
+  
+  For simultaneous access :
+   T_{read} = T_{write} = H \times T_{cache} + (1-H) \times ( T_{memory\_block} + T_{write\_back}), \\ \text{ where }
+   T_{write\_back} = x \times T_{memory\_block}, \text{ where } x \text{ is the fraction of dirty blocks} 
+
+
+
+Pipelining :-
+ - Process of arrangement of hardware elements of CPU such that its overall performance is increased 
+ - Simultaneous execution of more than one instruction takes place in a pipelined processor
+ - RISC processor has 5 stage instruction pipeline to execute all instructions in RISC instruction set 
+ - Following are 5 stages of RISC pipeline with their respective operations :-
+
+  Stage 1 (Instruction Fetch) :-
+   - CPU reads instructions from address in the memory whose value is present in program counter
+  
+  Stage 2 (Instruction Decode) :-
+   - Instruction is decoded and register file is accessed to get values from registers used in instruction
+  
+  Stage 3 (Instruction Execute) :-
+   - ALU operations are performed
+
+  Stage 4 (Memory Access) :-
+   - Memory operands are read and written from/to the memory that is present in instruction
+  
+  Stage 5 (Write Back) :-
+   - Computed/fetched value is written back to register present in instructions
+ 
+ Performance of a pipelined processor :-
+  - Consider ‘k’ segment/stages pipeline with clock cycle time as ‘Tp’ 
+  - Let there be ‘n’ tasks to be completed in pipelined processor 
+  - So time taken to execute ‘n’ instructions in pipelined processor:
+    ETpipeline = k + n – 1 cycles
+    = (k + n – 1) Tp
+  - In same case for non-pipelined processor, execution time of ‘n’ instructions will be :
+    ETnon-pipeline = n * k * Tp
+  - So speedup (S) of pipelined processor over non-pipelined processor when ‘n’ tasks are executed on same processor is:
+    S = Performance of pipelined processor / Performance of Non-pipelined processor
+  - As performance of processor is inversely proportional to the execution time, we have,
+    S = ETnon-pipeline / ETpipeline
+    => S =  [n * k * Tp] / [(k + n – 1) * Tp]
+       S = [n * k] / [k + n – 1]
+  - When number of tasks ‘n’ are significantly larger than k, that is, n >> k
+    S = n * k / n
+    S = k
+  - where ‘k’ are the number of stages in the pipeline
+  - Also Efficiency = Given speed up / Max speed up = S / Smax 
+  - We know that, Smax = k
+    So, Efficiency = S / k
+  - Throughput = Number of instructions / Total time to complete the instructions
+    So, Throughput = n / (k + n – 1) * Tp
+  Note :- Cycles per instruction (CPI) value of an ideal pipelined processor is 1
+
+  Performance of pipeline with stalls :-
+   Speed Up (S) = CPInon-pipeline / (1 + Number of stalls per instruction)
+
+
+
+Dependencies and Data Hazard :- 
+ - There are mainly three types of dependencies possible in a pipelined processor 
+ Structural dependency :- 
+  - Arises due to resource conflict in pipeline 
+  - Resource conflict is situation when more than one instruction tries to access same resource in same cycle 
+  - Resource can be register, memory or ALU
+  - To minimize structural dependency stalls in the pipeline use hardware mechanism called Renaming
+ 
+ Control Dependency (Branch Hazards) :- 
+  - Occurs during transfer of control instructions such as BRANCH, CALL, JMP, etc. 
+  - On many instruction architectures processor will not know target address of these instructions when it needs
+    to insert new instruction into pipeline 
+  - Due to this, unwanted instructions are fed to pipeline
+  - Branch Prediction Method through which stalls due to control dependency can be eliminated
+  - In this at 1st stage prediction is done about which branch will be taken
+  - For branch prediction Branch penalty is zero 
+  - Number of stalls introduced during branch operations in pipelined processor is known as branch penalty
+
+ Data Dependency (Data Hazard) :-
+  - Data hazards occur when instructions that exhibit data dependence, modify data in different stages of pipeline 
+  - Hazard cause delays in pipeline 
+  - There are mainly three types of data hazards :-
+    1) RAW (Read after Write) [Flow/True data dependency]
+    2) WAR (Write after Read) [Anti-Data dependency]
+    3) WAW (Write after Write) [Output data dependency]  
+  - To minimize data dependency stalls in pipeline, operand forwarding is used
+  - In operand forwarding, we use the interface registers present between stages to hold intermediate output so that
+    dependent instruction can access new value from interface register directly
+
+
+
+Input/Output Organization :-
+ - Input/output (I/O) architecture is computer system’s interface to outside world 
+ - Each I/O module interfaces to system bus and controls one or more peripheral devices
+ 
+ There are three basic forms of input and output systems :-
+  Programmed I/O :- 
+   - Processor executes program that gives its direct control of I/O operation, including sensing device status, 
+     sending read or write command and transferring data
+  
+  Interrupt driven I/O :- 
+   - Processor issues I/O command, continues to execute other instructions and interrupted by I/O module when I/O 
+     module completes its work
+  
+  Direct Memory Access(DMA) :- 
+   - I/O module and main memory exchange data directly without processor involvement
+
+
+
+IEEE Standard 754 Floating Point Numbers :-
+ - Several ways to represent floating point number but IEEE 754 is most efficient in most cases 
+ - IEEE 754 has 3 basic components:
+   Sign of Mantissa –
+    - Simple as the name, 0 represents positive number while 1 represents negative number
+   Biased exponent :-
+    - Exponent field needs to represent both positive and negative exponents 
+    - Bias is added to actual exponent in order to get stored exponent
+   
+   Normalised Mantisa :-
+    - Mantissa is part of number in scientific notation or floating-point number, consisting of its significant digits
+    - Here we have only 2 digits, i.e. O and 1. 
+    - So normalised mantissa is one with only one 1 to left of the decimal
+    TYPES	                SIGN	BIASED EXPONENT	NORMALISED MANTISA	    BIAS
+    Single precision	1(31st bit)	8(30-23)	        23(22-0)	        127
+    Double precision	1(63rd bit)	11(62-52)	        52(52-0)	        1023
+
+   Formula for finding decimal value :-
+    - Decimal value = (-1)s * 1.F * 2(E-Bias), Where E is decimal value of exponent field, F mantissa and s sign bit
+
+
+
+Flag register :-
+ (a)Status Flags
+  Zero Flag  (Z)  : When arithmetic operation results in zero flip-flop called Zero flag – which is set to one
+  Carry flag (CY) : After addition of two numbers if sum in accumulator is larger than eight bits then flip-flop uses to 
+                    indicate carry called the Carry flag, which is set to one
+  Parity (P) : If result has even number of 1s flag is set to 1, for odd number of 1s flag is reset
+  Auxiliary Carry (AC): In arithmetic operation, when a carry is generated from lower nibble and passed on to higher 
+                        nibble then this register is set to 1
+  Sign flag(S) : Single bit in system status(flag) register, indicate whether result of last mathematical operation
+                 resulted in value in which most significant bit was set
+ 
+ (b) Control Flags
+  Trap Flag      (TF) : Set to enable one step execution of program, used for debug purpose
+  Interrupt Flag (IF) : Enable or disable interrupt during execution
+  Direction Flag (DF) : Controls left-to-right or right-to-left direction of string processing

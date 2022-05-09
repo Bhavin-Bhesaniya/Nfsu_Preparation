@@ -1,6 +1,6 @@
 #String
-a = str("String  Datatype")        #Use str constructor
-A = "We check THIS String"                      #Normal Write
+a = str("String  Datatype")        # Use str constructor
+A = "We check THIS String"         # Normal Write
 
 #Access String :-
 print("Print Entier String " + a)                 
@@ -19,19 +19,19 @@ else:
    print("No Both Are Not Same\n")
 
 
-#Slicing :-
+# Slicing :-
 print("\nSlicing in String :- ")
-print(a[0:5])       #start : end string
+print(a[0:5])       # start : end string
 print(a[:5])        
-print(a[-5:])       #Negative index start from -1
-print(a[::-1])      #Reverse string
+print(a[-5:])       # Negative index start from -1
+print(a[::-1])      # Reverse string
 
 
-#Update :-
+# Update :-
 print("\nUpdate String :- ")
 A = "Update Entier String"
 print(A) 
-#String is immutable so we can't change single character value we need to change entire string to update it
+# String is immutable so we can't change single character value we need to change entire string to update it
 
 
 #Delete :-
