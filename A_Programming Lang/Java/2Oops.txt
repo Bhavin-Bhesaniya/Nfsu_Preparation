@@ -137,6 +137,7 @@ OOP (Object Oriented Programming):-
    Ex :- getVariableName() / setVariableName()
 
 
+
  Access modifiers :-
   - Set access levels for classes, variables, method and constructor
   public  :- 
@@ -187,42 +188,19 @@ OOP (Object Oriented Programming):-
     - No other class can inherit any feature from final class
 
   
-  static :- 
-   - Attribute and method belongs to class rather than object
-
-   Static Variable :-
-    - Exist independently of any instances created for class
-    - Only one copy of static variable exists
-    - Local variables cannot be declared static
-
-   Static Method :-
-    - Not use any instance variables of any object of the class they are defined in
-    - It takes all data from parameter
-    - Access using class name followed by dot and name of variable or method
-
-
-  abstract  :- 
-   - Used by subclass, only be used for method,not have a body,body provided by subclass
-   
-   Abstract Methods :-
-    - Method declared without its body
-    - Body provided by subclass 
-    - Abstract method can never be final or strict
-    - Class that extends abstract class must implement all abstract methods of super class, 
-      unless subclass is also abstract class
-    - one or more abstract methods then class must be declared abstract
-    - abstract class does not need to contain abstract method
-
-
 
   transient :- 
    - Attribute and method are skipper when serializing object containing them
    - Indicate JVM to skip particular variable when serializing object containing it
    - Included in the statement that creates variable, preceding class or data type of variable
   
+
+
   synchronized :- 
    - Method accessible by one thread at time
    - Applied with any of four access level modifiers
+
+
 
   volatile  :- 
    - Not cached thread-locally and always read from "main memory"
@@ -233,18 +211,38 @@ OOP (Object Oriented Programming):-
 
 
  
+ Static :- 
+  - Attribute and method belongs to class rather than object
+
+  Static Variable :-
+   - Exist independently of any instances created for class
+   - Only one copy of static variable exists
+   - Local variables cannot be declared static
+
+  Static Method :-
+   - Not use any instance variables of any object of the class they are defined in
+   - It takes all data from parameter
+   - Access using class name followed by dot and name of variable or method
+
+
+
  Abstract Class and Method :- 
   - Process of hiding certain details and showing only essential information to the user
   - Use to achieve security
   abstract class :- 
-    - Restricted class that cannot be used to create object(to acces it,must be inherited from another class)
+   - Restricted class that cannot be used to create object(to acces it,must be inherited from another class)
     
   abstract method :- 
-    - Only used in abstract class, does not have body
-    - body provide by the subclass which inherit it
-
-
+   - Method declared without its body
+   - body provide by the subclass which inherit it
+   - Abstract method can never be final or strict
+   - Class that extends abstract class must implement all abstract methods of super class, 
+     unless subclass is also abstract class
+   - one or more abstract methods then class must be declared abstract
+   - abstract class does not need to contain abstract method
                        
+
+
  Nested Class / inner class :-
   - Class within class
   - Purpose to related group classes together to make code more readable and maintainable

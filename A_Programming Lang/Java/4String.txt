@@ -1,27 +1,25 @@
 String Class :-
  - Sequence of characters treated as object in java which contain method that perform operation on string
- - String is immutabal, 
- - For modification to string use string buffer & string builder class
+ - String is immutabal, For modification string use string buffer & string builder class
  
- Syntax :- String <string_variable> = "<sequence_of_string>";
-           String str = new String("Value");      //Dynamically Allocated
+ Syntax :- 
+  String string_variable = "<sequence_of_string>";
+  String str = new String("Value");      //Dynamically Allocated
  
- Package :- import java.io.*;
-            import java.lang.*;
-
+ Package :- 
+  import java.io.*;
+  import java.lang.*;
 
  Memory allocation of String :-
   - Whenever String Object is created as literal object created in String constant pool
   - It allow JVM to optimize initialization of String literal
   - In case of String are dynamically allocated they are assigned new memory location in heap
   - String will not be added to String constant pool(str.intern(); //store in constant pool)
-
  
   Note :- 
   - All objects in Java are stored in a heap
   - Reference variable is the object stored in stack area or they can be contained in other objects which puts them 
     in heap area also
-
 
  Methods :-                          Description	                                                      Return Type
   length()	            Number of characters in the string		                                          int

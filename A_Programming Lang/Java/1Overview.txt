@@ -20,8 +20,7 @@ Introduction :-
  Basic :-
   - Developed by James Goshling at Sunmicrosystem and released in 1995 
   - Why JAVA not fully oop ? -> Support primitive datatype
-  - Java Has no pointers and all code written in class and object
-  - Pass non-primitve data-type always reference in function so that no bad memory allocation
+  - Java has no pointers and all code written in class and object
   - James initialized java project in june 1991 for setTop box
   - Initially language called 'oak'(Tree outside) than 'Green' than 'Java' choose from random word
   - 13 November,2006 sun released much as free and open source software under GPL license
@@ -29,9 +28,9 @@ Introduction :-
 
 
  Feature :-
-  Object Oriented :- 
+  Object Oriented      :- Everything is object
   Platform independent :- Java byte code interpreted by any machine which has jvm 
-  Simple               :- Syntax is easy to learn and you master in oop it would be more easy language
+  Simple               :- Syntax is easy to learn and master in oop would be more easy language
   Secure               :- Built-in Feature that enables us to develop virus-free systems
   Architecture-Neural  :- Compiled code executable on many processor with java run time 
   Portable             :- Architecture-Neural and no implementation dependent makes java portable 
@@ -44,11 +43,11 @@ Introduction :-
 
 
  Naming Convention Rules :-
+  method 		 :- getRequest  // First character is small each internal word is capitalized
+  constant	 :- MAX_VALUE   // All letters are uppercase 
+  Variable   :- int a = 10;	// No whitespace,symbols and start with digit //Allow underscore and $ at start of variable 
+  package    :- java.io.*;	// all package names in lowercase	
   class/interface :-Topcapital //First character is capital
-  method 		 :- getRequest    //First character is small each internal word is capitalized
-  constant	 :- MAX_VALUE     //All letters are uppercase 
-  Variable   :- int a = 10;		//No whitespace,symbols and start with digit //Allow underscore and $ at start of variable 
-  package    :- java.io.*;		//all package names in lowercase	
 
 
 
@@ -58,14 +57,10 @@ Introduction :-
  
   What is JVM(Java Virtual Machine)?
    - Acts as a runtime engine to run java application and call main method
-   - When run Java program, Java compiler compile Java code to bytecode
-   - Then JVM translates bytecode into native machine code(Set of instructions that computer's CPU executes directly)
-   - Since JVM ​executes the Java bytecode which is platform-independent, Java is platform-independent
-   - Part of JRE(Java Runtime Enviroment)
+   - Since JVM ​executes Java bytecode which is platform-independent, Java is platform-independent
 
   What is JRE(Java Runtime Environment)?
    - JRE is software package that provide Java class libraries, JVM and other components that required to run Java code 
-   - JRE is superset of JVM
 
   JDK = JRE + DEVELOPMENT TOOLS  (PLATFORM INDEPENDENT)
   JRE = JVM + LIBRARY CLASS 	(JVM PLATFORM DEPENDENT)
@@ -77,10 +72,6 @@ Introduction :-
   Jvm Components Helps to Run Java :-
    JVM ClassLoader:- Responsible for Loading, Linking, Initalization
 
-	  Loading :- Read .class file, generate corresponding binary data and save it in method area
-    Linking :- Perform verification,preparation,and resolution(optionally)
-	  Initalization :- Execute from top to bottom and all static variable are assigned with their values defined into code
-    
 			       			 req							req
 	 System class loader ---> extension class loader --->bootstrap class loader --> If class found bootstrap path class loaded otherwise  
         |         														|
@@ -160,9 +151,8 @@ Variable :-
 
  Types :-
   Local Variables   - Declared inside method                     
-  Parameters        - Declared in method parameter 
+  Class Variables    (Static Fields)     - Declared inside class but outside method with static keyword
   Instance Variables (Non-Static Fields) - Declared inside class but outside method
-  Class Variables (Static Fields)        - Declared inside class but outside method with static keyword
 
  Note :- 
   - Java is statically-typed language so all variables must be declared before they used
@@ -171,6 +161,8 @@ Variable :-
  Null :-
   - Null is not object or neither a type it is special value
   - Every reference variable in java has by default value is null / case-sensitive
+
+ Note :- Example in A1VariableDataType.java file
 
 
 
@@ -190,7 +182,7 @@ Identifier And Keyword :-
  - Identifiers are the name given to variables, classes, methods, etc..
 
  Rules :-
-  - Case-sensitive and not be keyword
+  - Java is Case-sensitive and not used keyword
   - Start with letters, _ , $
   - Not start with number
   - Not allows whitespace and special Symbols
@@ -208,6 +200,8 @@ Identifier And Keyword :-
   abstract finally	instanceof  strictfp	super       
   transient	synchronized  volatile  native
 
+  new  :- instantiates class dynamically by allocating at run time
+
 
 
 DataType :-
@@ -217,20 +211,21 @@ DataType :-
   - Predefined by language and named by keyword 
   - Default value is 0
 
- DataType   Range of bytes         Sizebyte    Ex
-  byte       -128 to 127                1     B1 = 100;   
-  short      -32768 to 327676           2     B2 = 20; 
-  int        -2,147,483,648 to 7        4     B3 = 20;
-  float      6 to 7 decimal             4     B5 = 3.3f;
-  double     15 decimal                 8     B6 = 7.44d;
-  long       -9,223,372,036,854,775,808 to 7  B4 = 45;
-  boolean    true or false              1bit  B7 = false;
-  char                                  2     B8 = 'F';
+ DataType   Range of bytes         Sizebyte      Ex
+  byte       -128 to 127                1      B1 = 100;   
+  short      -32768 to 327676           2      B2 = 20; 
+  int        -2,147,483,648 to 7        4      B3 = 20;
+  float      6 to 7 decimal             4      B5 = 3.3f;
+  double     15 decimal                 8      B6 = 7.44d;
+  long       -9,223,372,036,854,775,808 to 7 8 B4 = 45L;
+  boolean    true or false              1bit   B7 = false;
+  char                                  2      B8 = 'F';
 
  Non-Primitive type :- 
   - Reference variable that are created using constructors of the classes that Used to access object
   - Declared for specific type so value can't Change
   - Default value is null
+  - No fixed size
   Ex :- String, Array, Class, Object
 
  Type Casting :-
@@ -254,7 +249,6 @@ Operator :-
  Unary      :- -, +, ++ , -- , !(Logical Complement Operator):inverts the value of a boolean
  Ternary    :- Condition ? If(true) : If(false) 
  Bitwise    :- &, |, ^(XOR), ~(Complement Operator), << , >> , >>>(unsigned)
- New        :- New operator instantiates class dynamically by allocating at run time
  instanceOf :- Check type if object is instance of class, subclass or interface(result =str instanceof String)
 
  Operators Precedence :-
