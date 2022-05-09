@@ -24,7 +24,7 @@ class LowPriorityThread extends Thread {
     }
 }
 
-class PrioritiyDemo {
+class T6PrioritiyDemo {
 
     public static void main(String[] args) {
         LowPriorityThread lp = new LowPriorityThread();

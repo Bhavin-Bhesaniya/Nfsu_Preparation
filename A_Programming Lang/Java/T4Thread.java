@@ -1,4 +1,4 @@
-package MultiThreading;
+
 
 class RunInterface implements Runnable {
     // @Override run method
@@ -31,7 +31,7 @@ class RunInterface1 implements Runnable {
     }
 }
 
-public class ExThreadDemo2 {
+public class T4Thread {
     public static void main(String[] args) {
         RunInterface runnable = new RunInterface(); 
         Thread tx = new Thread(runnable); 

@@ -26,7 +26,7 @@ class b extends Thread {
     }
 }
 
-public class ExThreadDemo1 {
+public class T3Thread {
     public static void main(String[] args) {
 
         a aThread = new a();

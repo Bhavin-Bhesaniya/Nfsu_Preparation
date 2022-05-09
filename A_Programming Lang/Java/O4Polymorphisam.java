@@ -17,7 +17,7 @@ class Sem2 extends Bca {
     }
 }
 
-public class AO4Polymorphisam {
+public class O4Polymorphisam {
 
     public static void main(String[] args) {
         Bca firstobj = new Bca();

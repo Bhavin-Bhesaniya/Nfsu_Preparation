@@ -33,7 +33,7 @@ class ThreadK extends Thread {
         System.out.println("Done");
     }
 }
-public class ThreadCommunicationTest {
+public class T8ThreadCommunicationTest {
     public static void main(String[] args)
     {
         K k = new K();

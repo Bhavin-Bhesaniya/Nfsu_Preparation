@@ -1,4 +1,4 @@
-package MultiThreading;
+
 
 class Account {
     private int balance = 0;
@@ -30,7 +30,7 @@ class customer extends Thread {
     }
 }
 
-class BankDemoSync {
+class T12BankDemoSync {
     private final static int MAX_CUSTOMERS = 10;
 
     public static void main(String[] args) {

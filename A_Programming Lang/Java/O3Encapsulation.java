@@ -1,5 +1,5 @@
 
-public class AO3PersonEncapsulation {
+public class O3Encapsulation {
     private String fname;
 
     public String getName() {

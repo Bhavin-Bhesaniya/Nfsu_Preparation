@@ -70,11 +70,6 @@ Q-8
 
 
 
-
-
-
-
-
 Exercies :-
 Q-1
 - Write Application that executes 2 threads

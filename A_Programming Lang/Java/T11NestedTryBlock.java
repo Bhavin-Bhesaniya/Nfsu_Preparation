@@ -1,35 +1,27 @@
-public class NestedTryBlock{
-    public static void main(String[] args)
-    {
+class T11NestedTryBlock {
+    public static void main(String[] args) {
         a();
     }
-    static void a()
-    {
+
+    static void a() {
         try {
             try {
-                //First run this block
+                // First run this block
                 System.out.println("Before division by zero");
                 int i = 1;
                 int j = 0;
 
-                System.out.println(i/j);
+                System.out.println(i / j);
                 System.out.println("After division by zero");
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.out.println("Inner catch block : " + e);
                 throw e;
-            }
-            finally {
+            } finally {
                 System.out.println("Inner finally block");
             }
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Outer catch block");
-        }
-        finally
-        {
+        } finally {
             System.out.println("Outer finally block");
         }
     }

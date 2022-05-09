@@ -1,5 +1,4 @@
 class ThreadM extends Thread {
-
     public void run() {
         try {
             for (int i = 0; i < 10; i++) {
@@ -26,7 +25,7 @@ class ThreadN extends Thread {
     }
 }
 
-public class ThreadDemo3 {
+public class T2Thread {
 
     public static void main(String[] args) {
 

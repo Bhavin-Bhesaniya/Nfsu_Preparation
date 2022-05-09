@@ -68,7 +68,7 @@ class Outerclass {
     }
 }
 
-class AO1ObjectClass {
+class O1ObjectClass {
 
     // Class Variables
     static String email = "bkbhesniya11@gmail.com";
@@ -119,25 +119,25 @@ class AO1ObjectClass {
     }
 
     // constructor
-    public AO1ObjectClass() {
+    public O1ObjectClass() {
         height = 20;
     }
 
     // parameterized constructor
-    public AO1ObjectClass(String name) {
+    public O1ObjectClass(String name) {
         System.out.println("Value from parameterized constructor : " + name);
     }
 
     public static void main(String[] args) {
         // Object declartion /instantiation /Initialization
-        AO1ObjectClass firstObj = new AO1ObjectClass("Passing value in parameterized constructor");
-        AO1ObjectClass secondObj = new AO1ObjectClass();
+        O1ObjectClass firstObj = new O1ObjectClass("Passing value in parameterized constructor");
+        O1ObjectClass secondObj = new O1ObjectClass();
 
         // Set and Access instance variables or methods values via object
         firstObj.setName("Value is pass for set and return value");
         System.out.println("Print Returns value from get method : " + firstObj.getName()); // non-static method called
                                                                                            // using object of that class
-        System.out.println("Access static variable value : " + AO1ObjectClass.email);
+        System.out.println("Access static variable value : " + O1ObjectClass.email);
         System.out.println("Print no argument constructor : " + secondObj.height);
 
         // Use Built-in class for take userinput

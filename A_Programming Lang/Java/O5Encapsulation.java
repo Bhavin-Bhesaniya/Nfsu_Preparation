@@ -1,8 +1,8 @@
 
 
-public class AO5Encapsulation {
+public class O5Encapsulation {
     public static void main(String[] args) {
-        AO3PersonEncapsulation myobj = new AO3PersonEncapsulation();
+        O3Encapsulation myobj = new O3Encapsulation();
         myobj.setName("Bhavin");
         System.out.println(myobj.getName());
     }

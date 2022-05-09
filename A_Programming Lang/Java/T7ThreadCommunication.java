@@ -70,7 +70,7 @@ class Queue {
     }
 }
 
-class ThreadCommunication {
+class T7ThreadCommunication {
 
     public static void main(String[] args) {
         Queue queue = new Queue();

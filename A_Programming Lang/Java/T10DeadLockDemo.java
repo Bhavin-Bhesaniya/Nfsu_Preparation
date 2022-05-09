@@ -4,7 +4,6 @@ class A {
     synchronized void a1() {
         System.out.println("Synchronized method a1");
         classBObj.b2();
-
     }
 
     synchronized void a2() {
@@ -31,6 +30,7 @@ class Thread1 extends Thread {
     Thread1(A classAObj) {
         this.classAObj = classAObj;
     }
+
     public void run() {
         for (int i = 0; i < 100000; i++) {
             classAObj.a1();
@@ -40,9 +40,11 @@ class Thread1 extends Thread {
 
 class Thread2 extends Thread {
     B classBObj;
+
     Thread2(B classBObj) {
         this.classBObj = classBObj;
     }
+
     public void run() {
 
         for (int i = 0; i < 100000; i++) {
@@ -51,14 +53,14 @@ class Thread2 extends Thread {
     }
 }
 
-class DeadLockDemo {
+class T10DeadLockDemo {
     public static void main(String[] args) {
         A classAObj = new A();
         B classBObj = new B();
         classAObj.classBObj = classBObj;
         classBObj.classAObj = classAObj;
 
-        //Create Thread
+        // Create Thread
         Thread1 tx1 = new Thread1(classAObj);
         Thread2 tx2 = new Thread2(classBObj);
 
@@ -69,16 +71,17 @@ class DeadLockDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    
+
         System.out.println("Done");
 
     }
 }
 /*
-- Each time a1() method calls the b2() method and returns
-- First thread calls a1() method again
-- Then second thread calls b1()
-- Deadlock occurs because the second thread waits for a lock on the A object and First thread 
-  waits for a lock on the B object.
-- 
-*/
+ * - Each time a1() method calls the b2() method and returns
+ * - First thread calls a1() method again
+ * - Then second thread calls b1()
+ * - Deadlock occurs because the second thread waits for a lock on the A object
+ * and First thread
+ * waits for a lock on the B object.
+ * -
+ */

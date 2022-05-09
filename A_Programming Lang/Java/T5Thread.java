@@ -48,7 +48,7 @@ class t5 extends Main {
     }
 }
 
-public class ExThreadDemo3 {
+public class T5Thread {
     public static void main(String[] args) {
 
         try {
