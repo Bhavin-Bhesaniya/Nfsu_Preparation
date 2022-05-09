@@ -8,7 +8,7 @@ Index No :-
 7)FUNCTION
 8)OOP
 
--------------------------------------------------------------- HISTORY ---------------------------------------------------------------
+------------------------------------------------------ HISTORY ------------------------------------------------------
 1)HISTORY :- 
 
 Guido van rossum 1991 and further developed by Python Software Foundation 
@@ -44,9 +44,9 @@ Differnce between python 2.0 and 3.0 :-
  - Unicode 		  :- In Python 2, an implicit str type is ASCII. But in Python 3.x implicit str type is Unicode. 
  - xrange         :- Python 3.x’s range function is xrange from Python 2.x. 
  - Error handling :-  In python 3.x, ‘as’ keyword is required. 
- -   
+   
 
------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------- VARIABLES / KEYWORD ----------------------------------------------- 
 2)VARIABLES / KEYWORD :-
 
 - Variable not need to declare / overwrite by value 

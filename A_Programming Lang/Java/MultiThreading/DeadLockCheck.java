@@ -1,4 +1,4 @@
-class X {
+public class X {
 
     synchronized void x1()
     {

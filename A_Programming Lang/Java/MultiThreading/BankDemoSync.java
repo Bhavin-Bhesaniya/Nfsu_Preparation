@@ -1,3 +1,5 @@
+package MultiThreading;
+
 class Account {
     private int balance = 0;
     synchronized void deposit(int amount)

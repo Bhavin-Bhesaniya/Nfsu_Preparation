@@ -1,0 +1,368 @@
+Topics :-
+ - Introduction(Basic / Feature / Intro JDK, JRE, JVM / DIFFERNCE BETWEEN JDK,JRE,JVM)
+ - Variable
+ - Literal
+ - Identifier And Keyword
+ - DataType
+ - Operator
+ - Expressions, Statements, Blocks and comment 
+ - Control Flow(Condition / Switch / Loops /  Control Statement)
+ - Array
+
+
+Introduction :-
+ Basic :-
+  - Developed by James Goshling at Sunmicrosystem and released in 1995 
+  - Why JAVA not fully oop ? -> Support primitive datatype
+  - Java Has no pointers and all code written in class and object
+  - Pass non-primitve data-type always reference in function so that no bad memory allocation
+  - James initialized java project in june 1991 for setTop box
+  - Initially language called 'oak'(Tree outside) than 'Green' than 'Java' choose from random word
+  - 13 November,2006 sun released much as free and open source software under GPL license
+
+
+
+ Feature :-
+  Object Oriented :- 
+  Platform independent :- Java byte code interpreted by any machine which has jvm 
+  Simple               :- Syntax is easy to learn and you master in oop it would be more easy language
+  Secure               :- Built-in Feature that enables us to develop virus-free systems
+  Architecture-Neural  :- Compiled code executable on many processor with java run time 
+  Portable             :- Architecture-Neural and no implementation dependent makes java portable 
+  Robust               :- Java eliminated error during compile time or runtime which maintains workflows 
+  Multi-thread         :- Perform many task simultaneously , lightweight Process
+  High-performance     :- Using Just-In-Time Compiler enables performance
+  Dynamic              :- Carry runtime information that used to verify and resolve access to objects on runtime
+  WORA(Write once run anywhere) 
+
+
+
+ Naming Convention Rules :-
+  class/interface :-Topcapital //First character is capital
+  method 		 :- getRequest    //First character is small each internal word is capitalized
+  constant	 :- MAX_VALUE     //All letters are uppercase 
+  Variable   :- int a = 10;		//No whitespace,symbols and start with digit //Allow underscore and $ at start of variable 
+  package    :- java.io.*;		//all package names in lowercase	
+
+
+
+ Intro JDK, JRE, JVM :-
+  What is JDK(Java Development Kit)?
+   - JDK is software development kit required to develop applications in Java
+ 
+  What is JVM(Java Virtual Machine)?
+   - Acts as a runtime engine to run java application and call main method
+   - When run Java program, Java compiler compile Java code to bytecode
+   - Then JVM translates bytecode into native machine code(Set of instructions that computer's CPU executes directly)
+   - Since JVM ​executes the Java bytecode which is platform-independent, Java is platform-independent
+   - Part of JRE(Java Runtime Enviroment)
+
+  What is JRE(Java Runtime Environment)?
+   - JRE is software package that provide Java class libraries, JVM and other components that required to run Java code 
+   - JRE is superset of JVM
+
+  JDK = JRE + DEVELOPMENT TOOLS  (PLATFORM INDEPENDENT)
+  JRE = JVM + LIBRARY CLASS 	(JVM PLATFORM DEPENDENT)
+ 
+  Basic Jvm Working Cycle :-
+    .java -> javac ->.class(same class name) with bytecode(run any machine) -> jvm -> machine code 
+ 
+  
+  Jvm Components Helps to Run Java :-
+   JVM ClassLoader:- Responsible for Loading, Linking, Initalization
+
+	  Loading :- Read .class file, generate corresponding binary data and save it in method area
+    Linking :- Perform verification,preparation,and resolution(optionally)
+	  Initalization :- Execute from top to bottom and all static variable are assigned with their values defined into code
+    
+			       			 req							req
+	 System class loader ---> extension class loader --->bootstrap class loader --> If class found bootstrap path class loaded otherwise  
+        |         														|
+       	|	 extension move to system class loader ---<- <- Move Back to the extension class loader 
+		(if system class loader fail load at starting)		path not found move to extension class
+			|
+		error : java.lang.ClassNotFoundException
+
+
+   JVM MEMORY :-
+    Methodarea  :- All class level information are stored like classname,variable,method etc 
+    HeapArea    :- Information of all object is stored per jvm has one Heap area and it is a shared resource
+    Stackarea   :- For every thread jvm create run-time stack which is stored hear
+    PcRegister  :- Store current execution instruction of thread and each thrad have separate registers
+    NativeMethodStack :- For every thread it's created that store thread native information
+ 
+
+   EXECUTE ENGINE :-
+    - Execute ".class"(bytecode) 
+    - Read bytecode linebyline and use data and information present in various memory area and execute instrution
+    Interpreter:- Interpretes bytecode line by line and executes 
+    JIT(JUSTINTIME)  :- Compiles entire bytecode and convert into native code so whenever interpreter call method 
+                        repeated jit provide direct native code for that part
+    GarbageCollector :- It destroys un-referenced objects / free heap memory by destroying unreachable object 
+
+
+   JAVA NATIVE INTERFACE (JNI):-
+    - Interacts with native method libraries and provide native libraries(c/c++)required for execution 
+    - Enable jvm to calls native libraries (c/c++)
+ 
+   JVM STACK AREA :-
+    - Every thread jvm create separate stack at the time of creation thread creation 
+    - Perform 2 Operations :- pushes and pops the stack
+    - Stack for particular thread may be termed as run-time stack
+    - After all methods call stack empty and it becomes destroyed just before thread terminate
+    - Each entry in the stack is called StackFrame or ActivationRecord
+
+   JVM SHUTDOWNHOOK :-	
+    - Special construct that allows developers to plug in piece of code to be executed when JVM is shutting down
+    - Runtime.getRuntime().addShutdownHook(Thread) method
+
+   JAVACLASS FILE :- Containing javabytecode and .classs extension that enable to run in jvm
+    
+
+
+ DIFFERNCE BETWEEN JDK,JRE,JVM :-
+  JDK :- Used to create java application conatin jre, interpreter/loader, javac, archiver(jar), javadoc and other tool
+  JRE :- JAVA RTE(RUNTIME ENVIROMENT) Provide minimum requirement for executing java application
+  JVM :- Runtime instance when write java command on command prompt to run java class, an instance jvm is created
+
+  DIFFERNCE :- 
+  - Jdk provide develop and execute java program/ include development tool , jre 
+  - JRE provide package to run program not develop 
+  - JVM is inbuilt in both/when run program from jdk or jre jvm exectue line by line program known as interpreter
+
+  HOW JRE WORKS :-
+   .java -> .class    -> classloader/bytecode verifier -> interpreter -> runtime -> hardware	
+	          \-/
+		LOAD FROM HARDDISK,NETWORK OR OTHER RESOURCES
+    compile       -> RUNTIME
+
+  Interaction between jdk and jre :-
+								/ JRE 
+  javasourcecode -> jdk(java compiler) ->java bytecode -> ( jvm (jit) ) 
+							(Hardware platform)
+
+
+
+Variable :-
+ - Variable is location in memory (storage area) to hold data
+ - To indicate storage area, each variable should be given unique name (identifier)
+
+ Declaration Rules :-
+  - Start with letters, _ , $
+  - Not start with number
+  - Not allows whitespace and special Symbols
+
+ Types :-
+  Local Variables   - Declared inside method                     
+  Parameters        - Declared in method parameter 
+  Instance Variables (Non-Static Fields) - Declared inside class but outside method
+  Class Variables (Static Fields)        - Declared inside class but outside method with static keyword
+
+ Note :- 
+  - Java is statically-typed language so all variables must be declared before they used
+  - We cannot change data type of variable in Java within same scope
+
+ Null :-
+  - Null is not object or neither a type it is special value
+  - Every reference variable in java has by default value is null / case-sensitive
+
+
+
+Literal :-
+ - Represents Fixed Value(Declare variables with values)
+
+ Types :-
+  Boolean - True or False
+  Integer - Without any fractional part or exponation part(binary(0b),decimal(27),octal(027),Hexadecimal(0x27)) 
+  Float   - float(3.4f) , double(3.3445e2)
+  String  - Sequence of characters enclosed inside double-quotes("Java")
+  Character - unicode character enclosed inside single quotes('a')Use :- escape sequences(\n,\b,\r,\t,\\,\',\'")
+    
+
+
+Identifier And Keyword :-
+ - Identifiers are the name given to variables, classes, methods, etc..
+
+ Rules :-
+  - Case-sensitive and not be keyword
+  - Start with letters, _ , $
+  - Not start with number
+  - Not allows whitespace and special Symbols
+
+ Keyword :-
+  - Keywords are predefined, reserved words used in Java programming that have special meanings for compiler
+
+  Keywords List :-
+  int   void    byte    char   boolean double  short  long   final     const    enum
+  if    else    for     while   do      goto   return  break  continue  default
+  try   catch	  assert  throw	 throws
+  case  switch  this	
+  class    new      static      private	  protected	  public
+  import   package  implements  interface extends
+  abstract finally	instanceof  strictfp	super       
+  transient	synchronized  volatile  native
+
+
+
+DataType :-
+ - Specify type of data that can be stored inside variables in Java
+
+ Primitive datatype :- 
+  - Predefined by language and named by keyword 
+  - Default value is 0
+
+ DataType   Range of bytes         Sizebyte    Ex
+  byte       -128 to 127                1     B1 = 100;   
+  short      -32768 to 327676           2     B2 = 20; 
+  int        -2,147,483,648 to 7        4     B3 = 20;
+  float      6 to 7 decimal             4     B5 = 3.3f;
+  double     15 decimal                 8     B6 = 7.44d;
+  long       -9,223,372,036,854,775,808 to 7  B4 = 45;
+  boolean    true or false              1bit  B7 = false;
+  char                                  2     B8 = 'F';
+
+ Non-Primitive type :- 
+  - Reference variable that are created using constructors of the classes that Used to access object
+  - Declared for specific type so value can't Change
+  - Default value is null
+  Ex :- String, Array, Class, Object
+
+ Type Casting :-
+  - Method or process that converts datatype into another datatype in both ways manually and automatically
+  - Automatic conversion is done by the compiler and manual conversion performed by programmer
+
+  Widening casting(automatically) :- Convert smaller type to larger type
+   Ex :- byte -> short -> char -> int -> long -> float -> double 
+
+  Narrowing casting(Manually) :- Convert larger type to smaller type
+   Ex :- double -> float -> long -> int -> char -> short -> byte
+
+
+
+Operator :-
+ - Symbol that perform operations on variables and values
+ Arithmatic :- + , - , * , / , %   
+ Assignment :- = , += , -= , *= , /= , %= , &= , |= , ^= , >>= , <<=
+ Realtional :- == , != , > , <  , >= , <=
+ Logical    :- && , || , !
+ Unary      :- -, +, ++ , -- , !(Logical Complement Operator):inverts the value of a boolean
+ Ternary    :- Condition ? If(true) : If(false) 
+ Bitwise    :- &, |, ^(XOR), ~(Complement Operator), << , >> , >>>(unsigned)
+ New        :- New operator instantiates class dynamically by allocating at run time
+ instanceOf :- Check type if object is instance of class, subclass or interface(result =str instanceof String)
+
+ Operators Precedence :-
+  Category	            Operator	                                            Associativity
+    Postfix	            expression++ expression--	                            Left to right
+    Unary	            ++expression –-expression +expression –expression ~ !	  Right to left
+    Multiplicative	    * / %	                                                Left to right
+    Additive	        + -	                                                    Left to right
+    Shift	            << >> >>>	                                              Left to right
+    Relational	        < > <= >= instanceof	                                Left to right
+    Equality	        == !=	                                                  Left to right
+    Bitwise AND	        &	                                                    Left to right
+    Bitwise XOR	        ^	                                                    Left to right
+    Bitwise OR	        |	                                                    Left to right
+    Logical AND	        &&	                                                  Left to right
+    Logical OR	        ||      	                                            Left to right
+    Conditional	        ?:      	                                            Right to left
+    Assignment	    = += -= *= /= %= ^= |= <<= >>= >>>=	                      Right to left
+
+
+
+Input/Output :-
+ Output :-
+  - method to print data in java
+  - System is a class 
+  - out is public static field: accept user data 
+  1)System.out.print()  - Print string inside quotes 
+  2)System.out.println()- Same work like print but add new line in the end 
+  3)System.out.printf() - Provides formatting same as c/c++ 
+
+ Input :-
+  - Get Input from user
+  - Use Scanner class which we import from java.util.Scanner 
+  Syntax :- Scanner usrInput = new Scanner(System.in);
+  usrInput.nextInt(); - Take integer value from user 
+
+ More Method :- 
+  - nextFloat(), nextDouble(), nextLong, nextByte(), nextFloat()
+  - next()Read input upto whitespace, does not read newline character in your input created by hitting "Enter"
+  - nextLine()read line of text , returns after reading that newline
+  - nextBigInteger, nextBigDecimal() requires import from java.math. package
+  - System.in take standard input from user
+  - Close() method to close object
+  - Scanner class reads entire line and divides line into tokens which use for compiler to process input
+
+
+
+Expressions, Statements, Blocks and comment :-
+
+ Expressions :- Consist of variables, operators, literals and method calls
+ Statements  :- Each statement is complete unit of execution
+              - Convert expression into statement by terminating expression with a " ; "  Known as expression statement
+              Ex :- int score = 9*5;
+ Blocks  :- Block is group of statements (zero or more) that is enclosed in curly braces { }
+ Comment :- Portion of program that are completely ignored by Java compilers 
+          - Helps progrmmers to understand code
+          Type :- Single line :- //     |   Multi-Line  :- /* */
+
+
+
+Control Flow :- 
+ Condition :-
+  If         :- if(condtion){}
+  If..Else.. :- if(condtion){}else{}
+  Else-if    :- if(condtion1){}else if(condtion2){}else{}
+  Ternary    :- var = (condition) ? expressionTrue : expressionFalse;
+ 
+ Switch :-
+  - Expression evaluated once then compared with values of each case statement
+  - If match, associated block of code is executed otherwise default block executed
+  - No duplicate case statement allowed
+  Syntax :- 
+    switch(expression)  
+    {
+      case n:
+      //code block
+      break;
+    
+      default:
+      //code block
+    }
+
+ Loops :- Execute block of code as long as condition is true, to save time, reduce errors, make code readable   
+  for       :- for (initialization ; condition ; increment/decrement){ //code } 
+  while     :- while(condition){ //code }
+  do..while :- do{ //code }while(condition)
+  foreach   :- for(type variableName : arrayName){ //code }
+
+ Control Statement :- 
+  break  :- Terminates loop immediately and control of program moves to next statement 
+          - Use label break statement to terminate outermost loop as well Ex :- break second: (This is label use)
+  continue :- Skip current iteration of loop and go next iteration
+  Note :- Java not support goto but use  " label: " instead of goto
+        - Label declare starting point of the loop 
+
+
+
+Array :- 
+ - Array is collection of similar types of data
+
+ Declare Array :- 
+  1)dataType[] arrayName;                                      //Single-Dimensional Array
+    arrayName = new dataType[ArraySize];
+  2)dataType[] arrayName = new dataType[ArraySize];
+  dataType[][] arrayName = new dataType[ArraySize][ArraySize]; //Multi-Dimensional Array
+
+
+ Initialize Array :- 
+  - Value type same as dataType and compiler automatically specifies size of array
+  EX :- 
+   dataType[] arrayName = {1,2,3}; 
+   arrayName[0] = 12; //Initialize array with indexno start from 0 end with n-1
+   
+ Access Array :- 
+  System.out.println(arrayName[0]);                           //Access array with it index No
+  for (int i = 0; i < arrayName.length; i++){ arrayName[i];}  //Through Loops where length property get size of array
+  for ( i : arrayName ){a;}        

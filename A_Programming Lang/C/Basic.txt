@@ -13,6 +13,8 @@ Basic Topics :-
  - Storage Classes
  - Control Flow
  - Function
+ - Array
+ - Pointer
 
 
 
@@ -410,4 +412,98 @@ Pointer :-
    ptr = &var
    pptr = &ptr  
 
+ Passing Pointer to Function :-
+   getSeconds( &sec );  // Declare function parameter as pointer type
+   void getSeconds(unsigned long *par) {
+    *par = time(NULL); 
+    return;
+   }
 
+  // Function which accept pointer also accept array
+   int balance[5] = {1000, 2, 3, 17, 50};
+   getAverage(balance, 5);
+   
+   double getAverage(int *arr, int size) {
+    int  i, sum = 0;       
+    double avg;           
+    for(i = 0; i < size; ++i){ sum += arr[i]; }
+    avg = (double)sum / size;
+    return avg;
+   }  
+
+ Return Pointer from function in C :-
+   int * myFunction() {
+   }  
+
+
+
+String :-
+ - Strings are actually one-dimensional array of characters terminated by null character '\0'   
+ Example :- 
+  char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+  printf("Greeting message: %s\n", greeting );
+
+ Method :-
+  strcpy(s1,s2) | strcat(s1,s2) | strlen(s1) | strcmp(s1,s2) 
+  strchr(s1,ch) :- Return pointer to the first occurrence of character ch in string s1
+  strstr(s1,s2) :- Returns pointer to the first occurrence of string s2 in string s1
+
+
+
+Structure :-
+ - Arrays allow to define type of variables that can hold several data items of the same kind.
+ - Allows to combine data items of different kinds
+ - Structures are used to represent a record
+ - To define structure must use struct statement
+ 
+ Defining Structure :-
+  struct [structure tag] {
+  member definition;
+  member definition;
+  } [one or more structure variables];  
+ 
+ - Structure tag is optional and each member definition is a normal variable definition, such as int 
+ - Before final semicolon, Specify one or more structure variables but it is optional
+ 
+ Example :-
+  struct Books {
+   char  title[50];
+   char  author[50];
+   char  subject[100];
+   int   book_id;
+  } book;
+
+
+ Accessing Structure :-
+  - To access any member of structure, we use member access operator (.)
+  struct Books Book1;
+  strcpy( Book1.title, "C Programming");
+  printf( "Book 1 title : %s\n", Book1.title);
+
+
+ Structures as Function Arguments :-
+  - Pass structure as function argument in the same way pass any other variable or pointer
+  void printBook( struct Books book ){
+    printf( "Book title : %s\n", book.title);
+  }
+
+ Pointers to Structures :-
+  Ex :- 
+   struct Books *struct_pointer; 
+   struct_pointer = &Book1;     // Store address of structure variable in above defined pointer variable
+   struct_pointer->title;       // To access members of structure using pointer
+
+  void printBook( struct Books *book ){
+    printf( "Book title : %s\n", book->title) 
+  }
+
+
+ Bit Fields :- 
+  - Allow packing of data in structure
+  - Useful when memory or data storage is at premium
+  
+   struct packed_struct {
+    unsigned int f1:1;
+   }pack;
+   */9
+  
