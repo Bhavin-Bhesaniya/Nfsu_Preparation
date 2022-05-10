@@ -292,10 +292,32 @@ Project Estimation Techniques :-
 
 
 Software Testing :-
- - Method to check whether actual software product fulfill expected requirements and to ensure that software product
-   is defect free
+ - Method to check whether actual product fulfill expected requirement
  - Involves execution of software component using manual or automated tools to eveluate wheteher it bug free or not
- Types of software testing :-
+ - Tester runs series of tests to make sure that software performs as expected
+ - It Involves user interface, API, Database, Security, Client/Server Communication
+ - 4-level testing
+ 1)Unit        :- Test every individual module or unit of software during development phase
+   
+ 2)Integration :- 
+  - Two or more modules are integrated together in groups so test this group 
+  - Test During Proper testing Phase
+  Types :- Bang Bang, Top Down, Bottom Up, Mixed
+
+ 3)System      :- 
+  - Test entire and fully integrated software
+  Types :-
+  1)Based on who is doing Testing :- 
+    Alpha       - Check by Developer
+    Beta        - Check by nearly user  
+    Acceptance  - Customer check
+
+  2)Performance/Non-Functional    :- Volume, Load, Stress, Security, Configuration, Compatibility, Recovery, Install
+
+ 4)Regression  :- Test software in specific interval of time to verify fixed bug
+
+
+ Types of software testing cases:-
   White-Box :- 
    - Internal Structure, Design and software Coding tested
    - Test input/output flow
@@ -310,20 +332,37 @@ Software Testing :-
    - Combination of Black-Box and White-Box testing
    - Tester test software with partial knowledge of internal code structure
    - Mainly used in web-based application
+   
 
-  Functional Testing :-
-   - Tester runs series of tests to make sure that software performs as expected
-   - It Involves user interface, API, Database, Security, Client/Server Communication
-   Types :-
-    Unit        :- Test every individual module or unit of the software
-    Integration :- Two or more modules are integrated together in groups so test this group
-    System      :- Tester validates complete and fully integrated software product
-    Regression  :- Tester verify that fixed bug has not affect existing software
-    User Acceptance testing :- Verify software is fulfilling inital goals according requirement   
 
-  Non-Functional Testing :-
-   - Tests non-functional aspects like security, efficiency, usability, Flexibility and more
-   Types :-
-    Performance testing :- Load, Stress, Scalability
-    Usability testing :-
-    Compatibility testing :-  
+CPM(Critical Path Method) analysis and identify critical path project :-
+  Activity    Predecessor   Duration(in Month)    
+    A             -             5                 a) A -> C -> E -> F
+    B             A             4                 b) A -> B -> D -> F 
+    C             A             5                 c) A -> B -> E -> F 
+    D             B             6                 d) A -> C -> D -> F 
+    E             C             3
+    F             D, E          4
+  
+      Start
+
+
+Verification vs Validation :-
+ Verification :-
+  - Are you building it right? (In every phase of software development)
+  - Check whether artifact conforms it previous artifact?
+  - Done by Developer
+  - Concered with phase containment of errors
+  - Methods involves Review, Inspection, Unit testing and Integration testing
+  - Static and dynamic activity
+
+ Validation :-
+  - Have you build right thing? (After complete all phase)
+  - Check final product against Specification(SRS Document)
+  - Done by tester
+  - Aim is to make final product error free
+  - Involves system testing
+  - Only dynamic
+  
+
+
