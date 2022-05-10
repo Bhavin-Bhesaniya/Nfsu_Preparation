@@ -1,72 +1,74 @@
 Index No :-
-1)HISTORY 
-2)VARIABLES
-3)OPERATORS
-4)INPUT/OUTPUT
-5)DATATYPE
-6)LOOPS / CONTROLSTATEMENT / CONDITIONALSTATEMENT
-7)FUNCTION
-8)OOP
-
------------------------------------------------------- HISTORY ------------------------------------------------------
-1)HISTORY :- 
-
-Guido van rossum 1991 and further developed by Python Software Foundation 
-- python-3.0 2008
-- IDLE(Integrated Development Environment) come with python bundled
-
-Features :-
- - Free open-source
- - Interpreted			 			(Convert source -> bytecode -> native code / Direct run from source code)
- - Platform-independant				(Developed and executed on Multiple Operating System)
- - High-level language				(No need to worry about memory management)
- - Simple							(Closer to english language / easy to learn)
- - Robust							(Exception handling and built-in memory management)
- - Embeddable						(used within C/C++ program to give scripting capabilities)
- - Multiple programming paragdigam (object-oriented, imperative, functional, procedural)
- - Rich library support
-
-Used :-
- - Machine Learning
- - GUI Applications (like Kivy, Tkinter, PyQt etc. )
- - Web frameworks like Django (used by YouTube, Instagram, Dropbox)
- - Image processing (like OpenCV, Pillow)
- - Web scraping (like Scrapy, BeautifulSoup, Selenium)
- - Test frameworks
- - Multimedia
- - Scientific computing
- - Text processing 
+ Introduction
+ Variable / Keyword / Namespace 
+ Operator
+ Input / Output
+ DataType
+ LOOPS / CONTROLSTATEMENT / CONDITIONALSTATEMENT
+ FUNCTION
+ OOP
 
 
-Differnce between python 2.0 and 3.0 :-
- - Division Operator 
- - print function :- in 2 no paraenthes but in 3 including
- - Unicode 		  :- In Python 2, an implicit str type is ASCII. But in Python 3.x implicit str type is Unicode. 
- - xrange         :- Python 3.x’s range function is xrange from Python 2.x. 
- - Error handling :-  In python 3.x, ‘as’ keyword is required. 
+
+Introduction :-
+ HISTORY :- 
+  - Guido van rossum 1991 and further developed by Python Software Foundation 
+  - python-3.0 2008
+  - IDLE(Integrated Development Environment) come with python bundled
+
+ Features :-
+   Free open-source
+   Interpreted			 			(Convert source -> bytecode -> native code / Direct run from source code)
+   Platform-independant				(Developed and executed on Multiple Operating System)
+   High-level language				(No need to worry about memory management)
+   Simple							(Closer to english language / easy to learn)
+   Robust							(Exception handling and built-in memory management)
+   Embeddable						(used within C/C++ program to give scripting capabilities)
+   Multiple programming paragdigam (object-oriented, imperative, functional, procedural)
+   Rich library support
+
+
+ Used :-
+   Machine Learning
+   GUI Applications (like Kivy, Tkinter, PyQt etc. )
+   Web frameworks like Django (used by YouTube, Instagram, Dropbox)
+   Image processing (like OpenCV, Pillow)
+   Web scraping (like Scrapy, BeautifulSoup, Selenium)
+   Test frameworks
+   Multimedia
+   Scientific computing
+   Text processing 
+
+
+ Differnce between python 2.0 and 3.0 :-
+   Division Operator 
+   print function :- in 2 no paraenthes but in 3 including
+   Unicode 		  :- In Python 2, an implicit str type is ASCII. But in Python 3.x implicit str type is Unicode
+   xrange         :- Python 3.x’s range function is xrange from Python 2.x. 
+   Error handling :- In python 3.x, ‘as’ keyword is required
    
 
--------------------------------------------------- VARIABLES / KEYWORD ----------------------------------------------- 
-2)VARIABLES / KEYWORD :-
 
-- Variable not need to declare / overwrite by value 
-	Type :- local / global
-		1)local :- inside function not used outside/use global keyword to access outside function
-		2)global:- access anywhere in the programme
-    	Convert :- 1)Implicit - automatically
-		   2)Explicit - change by as user requirment 
-				- int(a,base) 
-				- float(type)
-				- chr(num) #ascii
-	Private :- _var / __var__
-	Special :- __name__ give module name  
+Variable / Keyword  / Namespace :-
+ 
+ Variable :-
+  - Not need to declare
+  Type :- 
+	local   :- Inside function not used outside/use global keyword to access outside function
+	global  :- Access anywhere in programme
+    Private :- _var / __var__
+    Special :- __name__ give module name  
+    	
+  Type casting :- 
+    Implicit - Automatically
+	Explicit - Change by as requirment 
+			 - int(a,base)  |  float(type)  |  chr(num) #ascii
+  
 	
-
-KEYWORD :-
-- Keywords in Python are reserved words that can not be used as a variable name, function name, or any other identifier.
- - Python also provide keyword module
- - keyword.kwlist : display all keyword in list
-  			
+ Keyword :-
+  - Reserved words that can not be used as variable name, function name or any other identifier
+  - Python also provide keyword module
+  - keyword.kwlist :- display all keyword in list
   try   except finally assert   raise
   for	while  break   continue pass   - Iteration
   if	elif   else    None     yield  - Conditional keywords
@@ -75,260 +77,230 @@ KEYWORD :-
   class global nonlocal 		del
   from  import with    as 
 
- Important keyword :-
-    in : Used to check if a container contains a value. 
-         Also used to loop through the container.
-    is : Used to test object identity, i.e to check if both the objects take the same memory location or not. 
-	not: This logical operator inverts the truth value.
-    yield : Like return statement but is used to return a generator.
-	with  : Wrap execution of block of code within methods defined by context manager
-    Lambda: make inline returning functions with no statements allowed internally.
+  Important keyword :-
+   in : Check if container contain value
+   is : Check if both objects take same memory location or not
+   not   : Logical operator inverts truth value
+   yield : Like return statement but used to return generator
+   with  : Wrap execution of block of code within method defined by context manager
+   Lambda: Make inline returning function with no statement allowed internally
 
-
-NAMESPACES :-
- - A namespace is a system that has a unique name for each and every object in Python. 
- - An object might be a variable or a method. 
- - Python itself maintains a namespace in the form of a Python dictionary. 
  
-   Type :
-    - Built-in          like  print() function
-	- Global-namespace  when user create module
-	- local-namespace   when user create function
+ Namespace :-
+  - System that has unique name for each and every object in Python
+  - Object might be variable or method
+  - Python itself maintains namespace in form of Python dictionary
+  - Lifetime of namespace depends upon scope of objects if object scope ends lifetime of that namespace end
+  - Hence it not possible to access inner namespace’s objects from outer namespace
+  Type :
+   Built-in         - like print() function
+   Global-namespace - User create module
+   local-namespace  - User create function
  
- - A lifetime of a namespace depends upon the scope of objects, if the scope of an object ends, the lifetime of that namespace 
-   comes to an end. 
- - Hence, it is not possible to access the inner namespace’s objects from an outer namespace. 
-
- Scope      : refers to the coding region from which a particular Python object is accessible.
- Statements : Instructions written in the source code for execution are called statements.
-			- Multi-line statements extended to one or more lines using (), {}, [], (;),(\).	
- Indentation : Whitespace used in indentation to highlighting the blocks of code
- Comments    : Useful information that developers provide to make reader understand source code.
+  Scope      : Coding region in which particular Python object is accessible
+  Statements : Instructions written in source code for execution are called statements
+			 - Multi-line statement extended to one or more lines using (), {}, [], (;),(\)
+  Indentation : Whitespace used in indentation to highlighting blocks of code
+  Comments    : Information that developers provide to make reader understand source code
 				Type :- # single line / """ Delimiter """ Multi-line
- Multiple Statements Per Line  :- Using ; (semicolon)
-
------------------------------------------------------------------------------------------------------------------------------------------
-
-3)OPERATORS :-
-
-- Perform operation on values and variables
-- Overloading giving extended meaning beyond their predefined operational
-  same built-in operator or function shows different behavior for objects of different classes
-  magic method is automatically invoked __operator__ 
-  ex : 1)Binary     :- add,sub,mul,truediv,floordiv,mod,pow,rshift,lshift,and,or,xor
-       2)Comparsion :- lt,gt,le,ge,eq,ne
-       3)assignment :- add i in binary
-       4)unary      :- neg , pos , invert
-
-- any and all two built in provided in used for Or or And
-- opeartor function ex : magic method(a,b)
+  Multiple Statements Per Line  :- Using ; (semicolon)
 
 
------------------------------------------------------------------------------------------------------------------------------------------
 
-4)INPUT/OUTPUT :-
+Operator :-
+ - Perform operation on values and variables
+ - Magic method is automatically invoked __operator__ 
+   1)Binary     :- add,sub,mul,truediv,floordiv,mod,pow,rshift,lshift,and,or,xor
+   2)Comparsion :- lt,gt,le,ge,eq,ne
+   3)assignment :- add i in binary
+   4)unary      :- neg , pos , invert
+ - any and all two built in provided in used for Or or And
+ - opeartor function ex : magic method(a,b)
 
-- Need to take multiple input use two method:-
-  1) input.split(separtor,maxsplit)
-  2) var_name = [int(x) for x in input("enter value").split()] #take input by list
 
-- for competitive programming use module " sys " and function called  sys.stdin / stdout.write
 
-- Vulnerability in input()
-  - input() method lies in the fact that the variable accessing the value of input can be accessed by 
-    anyone just by using the name of variable or method
-    1)Variable name as input parameter  
-    2)Function name as parameter
-  - To prevent we can use raw_input() 
-
-2) Output :-
-
-- The simple print function is used for output.
-- Automatically add new line 
-- Syntax :- print(value(s), sep='', end="",file=file,flush=flush)
-
-- Formatting output using ' % ' :-
+Input / Output :-
+ Input :-
+  - To Take multiple input use two method :-
+    input.split(separtor,maxsplit)
+    var_name = [int(x) for x in input("enter value").split()] # Take input by list
+ 
+ Output :-
+  - Simple print function is used for output
+  - Automatically add new line 
+  Syntax :- print(value(s), sep='', end="",file=file,flush=flush)
+  
+  - Formatting output using ' % ' :-
   Ex : print("Total students : %3d, Boys : %2d" % (240, 120))
  
-- Formatting output using format() method :-
+  - Formatting output using format() method :-
   Ex : print('I love {} for "{}!"'.format('Geeks', 'Geeks')) 		  
        print('I love {1} for "{0}'.format('Geeks', 'Geeks'))
 
-- Formatting output using String method :-
+  - Formatting output using String method :-
   Ex : print(str.ljust(no , anything))
        print(str.rjust(no , anything))
        print(str.center(no , anything))
 
 
 
------------------------------------------------------------------------------------------------------------------------------------------
-
-5)DataType :-
-
-TYPES :- String, Array(List, Tuple, Dictionary), Set, Sequence(Int, Float, Bool, Complex) 
-
-1)Sequence :-
-	
-	1)int 	:- 1,0,-1
-	2)float :- 1.1,-1.1
-	3)bool	:- True,False
-	4)complex :- 1+5j
-
-2)String :- Represent array of bytes in unicode characters / immutable
-  
-	Create :- str_var = ''/""/""" """
-	access :- str_var[0]
-	slice  :- str_var[first : end] / [::]
-	update :- str_var[indexno] = "new value" / str_var = "update entire"
-	delete :- str_var[0]	/ del str_var
-	Escape :- str_var = "string \n with escape\t \' \r \\"
-	Format :- str_var = "{}first , {no.}second,{l}".format('bhavin','k.',l ='bhesaniya')/ljust/rjust/center
-	Method :- s.lowercase / s.uppercase / s.digit / s.printable / s.endswith / s.startswith / s.isdigit
-		  s.replace / s.whitespace
+DataType :-
+ TYPES :- String, Array(List, Tuple, Dictionary), Set, Sequence(Int, Float, Bool, Complex) 
+ 1)Sequence :-	
+   int 	 :- 1,0,-1
+   float :- 1.1,-1.1
+   bool	 :- True,False
+   complex :- 1+5j
 
 
-3)List 	:- looks like Dynamic sized array / mutable / ordered / duplicate allow
-	
-	Create :- list_var = [store obj, int, float, bool,string] / [ [Multi],[dimensional]]
-	access :- list_var[0]
-	add    :- list_var.append(value at last) / list_var.insert(index,value) / list_var.extend(add,multi,value)
-	remove :- list_var.remove[specific value] / list_var.pop(remove last)  / list_var.pop(specific index remove)
-	slice  :- list_var[first : end] 
-	comprehenion :- new_list_var = [expression(element) for element in oldlist if condition]
-	delete :- list_var.clear / del list.var
-	method :- list_var.index / list_var.count / list_var.sort / list.reverse / list_var.copy
-	built-in :- reduce() / sum() / ord() / cmp() / all() / any() / filter() / map() / lamda()
+ 2)String :- Represent array of bytes in unicode characters / immutable
+   Create :- str_var = ''/""/""" """
+   Access :- str_var[0]
+   Slice  :- str_var[first : end] / [::]
+   Update :- str_var[indexno] = "new value" / str_var = "update entire"
+   Delete :- str_var[0]	/ del str_var
+   Escape :- str_var = "string \n with escape\t \' \r \\"
+   Format :- str_var = "{}first , {no.}second,{l}".format('bhavin','k.',l ='bhesaniya') / ljust/ rjust/ center
+   Method :- lowercase | uppercase | digit | printable | endswith | startswith | isdigit | replace | whitespace
 
 
-4)Tuple :- look like list / without parentheses tuple packing /
-	
-	Create :- tup_le = (any type of value)
-	access :- tup_le[0]
-	slice  :- tup_le[first :end]
-	delete :- del tup_le
-	method :- tup_le.count / tup_le.index
-	built-in :- sorted() / enumerate()
+ 3)List :- looks like Dynamic sized array | mutable | ordered | duplicate allow
+   Create :- list_var = [store obj, int, float, bool,string] | [ [Multi],[dimensional]]
+   Access :- list_var[0]
+   Add    :- list_var.append(value at last)  | list_var.insert(index,value) | list_var.extend(add,multi,value)
+   Remove :- list_var.remove[specific value] | list_var.pop(remove last)    | list_var.pop(specific index remove)
+   Slice  :- list_var[first : end] 
+   Comprehenion :- new_list_var = [expression(element) for element in oldlist if condition]
+   Delete   :- list_var.clear | del list.var
+   Method   :- index | count | sort | reverse | copy
+   Built-in :- reduce() | sum() | ord() | cmp() | all() | any() | filter() | map() | lamda()
 
-
-5)Set  :- Unordered(undefined/unchangable) / mutable / noduplicate but value canbe passed /
-
-	Create :- set_var = set(value,differnt type)
-	access :- set_var thorugh loop
-	add    :- set_var.add()
-	update :- set_var.update()
-	remove :- set_var.remove(value) / set_var.discard(value) / set_var.pop()
-	clear  :- set_var.clear()
-	built-in :- copy() / uninon() / differnce() / difference_update() / intersection() / isdisjoint() 
-		    issuperset() / issubset() / symmentric_difference()
-
-
-6)Dictionary :- unordered / key-value make it more optimized / key's immutable ,noduplicate/value mutable
-
-	Create :- dict = {key : value,key:[]()} / dict({}) - keyword
-	add    :- dict[key] = value / multivalue[] / dict = {key : {key:value,key:value} }
-	access :- dict[key] / dict.get(key)
-	remove :- dict.pop(key) -value / dict.popitem() -both / dict.clear()
-	delete :- del dict 
-	method :- copy() / dict.values() / update() / setdefault() / keys() / items() / has_key() / fromkey() / cmp()
-
-7) Arrays :-  an array is a collection of items stored at continuguous memory location / stored same type element
-	      used array module
-
-	Create :- import array
-		  arr = array.array(datatype , valuelist)
-		  arr = array.array('i',[1,2,3])
-	add    :- arr.insert(index,value) / arr.append(at last)
-	access :- arr[index]
-	remove :- arr.pop(index) / arr.remove(specific value)
-	slice  :- arr[first : end]
-	search :- arr.index(no)
-	update :- arr.[index] = value
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------
-
-6)LOOPS / CONTROLSTATEMENT / CONDITIONALSTATEMENT  :- 
-
-Conditional Statements :-
-- Used to check one or more conditions
- 1)If           :- if (condition): //code
- 2)If..else     :- if (condition): //code  else: //code
- 3)Nested if    :- if (condition): if (condition): //code  else: //code
- 4)if..elif     :- if (condition): //code elif: //code else: //code
- 5)shorthand if :- if (condition): statements
- 6)If..else     :- statement_when_True if condition else statement_when_False
-
-Loop is used to execute a block of code repeatdly until a given a condition is satisfied :-
-1.While loop :- 
-  Syntax : while expression:
-		increment/decrement
-		statements(s)
-	   else :
-		statements(s)
-	
-2.For loop :-
-  Syntax : for iterator_var in sequence(list/tuple/dict or range or len):
-		statements(s)
-		increment/decrement
-  	   else : 
-		statement(s)
-
-3.Nested loop :-
-  Syntax : while condition:
-		while condtion:
-			statement(s)
-			increment/decrement
-		print(first loop)
-	
-  Syntax : for iterator_var in sequence:
-		for iterator_var in sequence
-			statement(s)
-			increment/decrement
-		print(outside loop)
-
-4.Statements :
-
- 1)Break    : terminate loop
- 2)Continue : terminate current process and go to next position
- 3)Pass     : not need to write code at a time creation
-
-5.Looping techniques :
  
- 1)enumerate() : print index no with value
- 2)zip()       : combine 2 similar containers(list-tuple-set-dict)
- 3)iteritem()  : dictionary print key and value simulatously
- 4)items()     : similar to iteritem but memory consuption and time takeing 
- 5)sorted()    : sort the enitre contianer
- 6)reversed()  : print in reversed order
- 7)range       : range(start,end,step)
+ 4)Tuple :- look like list | without parentheses tuple packing /	
+   Create :- tup_le = (any type of value)
+   Access :- tup_le[0]
+   Slice  :- tup_le[first :end]
+   Delete :- del tup_le
+   Method :- tup_le.count / tup_le.index
+   Built-in :- sorted() / enumerate()
 
-6.Pyramic pattern :
-- Outer loop handle number of row
-- Inner loop handle number of column
 
- Ex : def ptn():
+ 5)Set  :- Unordered(undefined/unchangable) | Mutable | Noduplicate but value canbe passed 
+  Create :- set_var = set(value, differnt type)
+  access :- set_var thorugh loop
+  add    :- set_var.add()
+  update :- set_var.update()
+  remove :- set_var.remove(value) / set_var.discard(value) / set_var.pop()
+  clear  :- set_var.clear()
+  built-in :- copy() 		 | uninon()     | differnce() |  isdisjoint()  | difference_update() 
+              intersection() | issuperset() | issubset()  | symmentric_difference()
+
+
+ 6)Dictionary :- unordered | key-value make it more optimized | key's immutable, noduplicate/value mutable
+  Create :- dict = {key : value,key:[]()} | dict({}) - keyword
+  Add    :- dict[key] = value / multivalue[] | dict = {key : {key:value,key:value} }
+  Access :- dict[key] | dict.get(key)
+  Remove :- dict.pop(key) -value | dict.popitem() -both | dict.clear()
+  Delete :- del dict 
+  Method :- copy() | values() | update() | setdefault() | keys() | items() | has_key() | fromkey() | cmp()
+
+
+ 7)Array :- Collection of same type items stored at continuguous memory location | Use array module
+  Create :- 
+    import array
+	arr = array.array(datatype , valuelist)
+	arr = array.array('i',[1,2,3])
+  Add    :- arr.insert(index,value) / arr.append(at last)
+  Access :- arr[index]
+  Remove :- arr.pop(index) / arr.remove(specific value)
+  Slice  :- arr[first : end]
+  Search :- arr.index(no)
+  Update :- arr.[index] = value
+
+
+
+LOOPS / CONTROL STATEMENT / CONDITIONAL STATEMENT  :- 
+
+ Conditional Statements :- 
+  - Check one or more conditions
+  If           :- if (condition): //code
+  If..else     :- if (condition): //code  else: //code
+  Nested if    :- if (condition): if (condition): //code  else: //code
+  if..elif     :- if (condition): //code elif: //code else: //code
+  shorthand if :- if (condition): statements
+  If..else     :- statement_when_True if condition else statement_when_False
+
+ Loops :- 
+  - Execute block of code repeatdly until given condition is satisfied
+  While loop :- 
+	while expression:
+	  increment/decrement
+	  statements(s)
+	else :
+	  statements(s)
+	
+  For loop :-
+    for iterator_var in sequence(list/tuple/dict or range or len):
+	  statements(s)
+	  increment/decrement
+  	else : 
+	  statement(s)
+
+  Nested loop :-
+    while condition:
+	 while condtion:
+	  statement(s)
+	  increment/decrement
+	print(first loop)
+	
+    for iterator_var in sequence:
+	 for iterator_var in sequence
+		statement(s)
+	    increment/decrement
+	print(outside loop)
+
+
+ Statements :-
+  Break    : Terminate loop
+  Continue : Terminate current process and go to next position
+  Pass     : Not need to write code at time creation
+
+
+ Looping techniques :-
+  1)enumerate() : Print index no with value
+  2)zip()       : Combine 2 similar containers(list-tuple-set-dict)
+  3)iteritem()  : Dictionary print key and value simulatously
+  4)items()     : Similar to iteritem but memory consuption and time takeing 
+  5)sorted()    : Sort the enitre contianer
+  6)reversed()  : Print in reversed order
+  7)range       : range(start,end,step)
+
+
+ Pyramic pattern :
+  - Outer loop handle number of row
+  - Inner loop handle number of column
+  def ptn():
  	for i in  range(0,n)
 		for j in range(0 , i+1)
 			print("* ",end="")
 		print("\r")
-	n = 5
-	ptn(n)
+  n = 5
+  ptn(n)
 
-7)itertool module provide complex iterator
+
+ Itertool module provide complex iterator :-
   - __iter__ and __next__ converting obj to iterator
   - iterable which one can iterate over
   - iterator which is used to iterate over te object using next method
 
-8)Genrator 
- - looks like normal function but when we need to genrate value  
- - we achive using with yield keyword 
- - gernator function return genrator object by using next method or for loop 
+ Genrator :-
+  - looks like normal function but when used to generate value  
+  - Achive using with yield keyword 
+  - generator function return generator object by using next method or for loop 
 
 
------------------------------------------------------------------------------------------------------------------------------------------
 
-7)FUNCTION :-
+FUNCTION :-
 
 - Perform a computaional task repeatadly together 
 - Without right same code again and again
