@@ -1,0 +1,234 @@
+ document.write("Print data on screen\n");
+ 
+ Console :-
+  - console.log("Print Data on Console");
+  - console.info("Information");
+  - console.time("test");
+  - console.table(["b", 1, "c", 'd']);//(var.key for )
+  - console.error("wrong");
+  - console.warn("warning");
+  - console.timeEnd("test");
+  - console.clear();
+
+
+
+ Box property/window :-
+  alert("To majamane")
+  confirm("are you hacker");
+  Unm = prompt("Enter name");
+  document.write(Unm);
+
+
+
+ Variable:-
+  var FirstVar = "bhavin";
+  let SecondVar = 10;
+  const FixedVar = 10;
+  var ConvertVarType = String(SecondVar); | SecondVar.toString();
+  Number(Var) / parseInt(var) / parseFloat(var);
+
+  var a = "hi ";          //global variable
+  function aa() {
+    document.write(a);
+    var b = "ya ";      //local variables
+  }
+  aa();
+  document.write(b);
+
+
+
+ Operators :-
+  Arithmatic operator :- + , -, *, /, %, ++, --, **
+  Comparison operator :- ==, ===, !=, !==, >, <, >=, <=, null/undefined
+  Logical operator    :- && , ||, !
+  Ternary operator    :- condtion ? true : false;
+  
+
+
+ Datatype :- Dynamic typed language
+  Primitive :- stack
+   - Number
+   - String("",'',new String(construtor))
+   - boolean
+   - null(return object)
+   - undefined(create variable without value)
+  
+  Reference :- heap (all return object type / store address)
+   - Array
+   - Object
+   - Date(new date())
+   - function,
+   - set
+   - map 
+   
+  var ArrayO = ["bhavin", "bhesaniya"];
+  var ObjedtYe = { name1 : "bhavin", surn  : "bhesaniya", };
+  document.write(typeof ArrayObj);//show datatype of var
+
+
+ Numbers :-
+  var a = "99";
+  var a1 = 99.9978;
+  var c = Number(a);
+  var c1 = parseInt(a1);
+  var c2 = parseFloat(c);
+  var c3 = isFinite(a1);
+  var c4 = Number.isInteger(a1);
+  var c5 = a1.toFixed(2);
+  var c6 = a1.toPrecision(3);
+  console.log('sum of ${a} and ${b} is ${c}');
+
+
+ String :-
+  - String.fromCharCode("A");
+  - concat(" ",s1) | charAt(indexNo) | indexOf(entercharacter) | lastIndexOf(entercharacter) | substring(start,end)
+  - toUpperCase()  | toLowerCase()   | split(" ") | trim()     | length
+  - repeat(value)  | slice(start,end)| substr()   | startwith("string") | endwith("string") | charCodeAt(0)
+  - localCompare(s2);  // Greater return 1
+  - includes(value);   // Return true / false
+  - search(value);     // Return index no
+  - match(/bh/g);      // Return array  
+  - replace("oldword","new word");
+  
+  
+ 
+ Array :-
+  - var FirstArray = [10, 20, 30];  //single dimensional
+  - var ArrayMethod = new Array();
+  - var MultiDimensionalArray = [ [10, 20, 30], [40, 50, 60] ];
+    document.write(FirstArray); 
+  - FirstArray[1]            // Access specific value
+  - FirstArray[0] = 10.10;   // Modify Value
+  - delete FirstArray[2];    // Delete Value
+
+  Array Method :-
+   sort() | reverse() | pop() | shift() //delete first value | unshift() //enter value at first position
+   concat(Value) | join(space)| push() //enter value at last position
+   slice(0,1);     //slice array (start,end(-)last)
+   splice(pos,n);  //splice array(start,howmany,new)
+   Array.isArray(a);
+   indexOf(10,2);            //(searchitem,startno) -1 if not found
+   lastIndexOf(30,2);        //(searchitem,startno) -1 if not found
+   includes(10) ;            //search item in array -1 if not found
+   some(function);           //check one value return true/false
+   each(function);           //check all value return true/false
+   find(function);           //check firstvalue
+   findIndex(function);      //check firstvalueIndex
+   filter(che);              //check value if bigger than compare value or not
+   toString;
+   fill(100);                //fill all values with 100
+   valueOf();
+   forEach(function (value, inn))    //print value with index number
+   map(test);                        //print array of object
+  
+  Example :- 
+   var forIn =
+    {
+     fName: "bhavin",
+     lName: "bhesaniya",
+     array: ['bf', 'sh', 'gg'],
+     objinobj: {city: 'junagadh' },
+     functi: function () { return 55; },
+    };
+    forIn.foreach(function(item,index)
+    {
+      console.log(index , " => " + item);
+    });
+    
+
+
+ Function :-
+  function FunName()      // Pass arguments  | Pass default value 
+  {
+    // code
+    // Return value
+  }
+  FunName(); Function call
+  function()  //Function without name anonmyous
+  { //code }
+   
+  ArrowFunction :-
+    const ArrowFun = (ArgumentHere)=>{ //code };
+    ArrowFun();
+    ()=>{ }     //Arrow Function without name anonmyous throgh 
+  
+
+
+Condition and loop :-
+  if           
+  else if
+  if else
+  //False value by default :- 0, false, "empty string", undefined, null, Nan
+
+  Loops :-
+    for        :- for(initalization; condition; ++/--) { //code }
+    do..while  :- do( //code )while(condition)
+    while      :- while(condition) { //code }
+    for..in   
+    for..of
+    switch..case
+    break and continue
+      
+  //for in example :-  
+    for (var key in ObjName) //object name       
+    {  document.write('${key} => ${ObjName[key]}');  }
+    //when use (for in)we get index & value but when use (for of) loop we directly get value of iterable object
+    //for of note travsal object
+
+
+Objects :-
+ - Looks like collection of key value pairs
+ Ex :- 
+  var objConstrcutor = new Object();
+  var Obj = { 
+    fName: "bhavin",
+    "id" : 10,
+    mov : [ 'bf', 'sh', 'gg' ],
+    b   : { city: 'junagadh' },
+    dis : function () { return 55; },
+    ful : function () { return this.fName + "  " + this.lName; }
+  };
+    
+  //Type of access object value
+  console.log(Obj);   //print(Obj)
+  Obj.fName;           
+  Obj[id];   
+  Obj.dis();     //Print object function
+  Obj["dis"]();  //Print object function
+  Obj.fName = "BHAVIN";           // Modify Value  
+  Obj["NewPropertyName"] = Value; // Add new property
+  delete Obj.id;                  // Delete property      
+
+  Array of object :-
+  var d = 
+   [
+    { Name: 'bhavin', age: 10 },
+    { Name: 'bhavine', age: 11 },
+    { Name: 'bhavie', age: 12 }];       
+    console.log(d);
+    for (e = 0; e < d.length; e++) {
+      document.write(d[e].Name + "  " + d[e].age + " <br> ");
+    }
+        
+
+
+Document Object Model(DOM) :-
+ - Platform and language independent model representation of html and xml document
+ - Wihtout refresh page and generate dynamic output
+ - Define logical structure of the document 
+ - All element and attribute are organized in a hierchical tree-like structure
+ - Individual part is known as nodes
+
+
+
+Date :-
+  Var DateObj = new Date();
+  a.setDate(23); /setFullYear(2021); / setMonth(4); / setHours(14); / setSeconds(10); / setMilliseconds(111);
+  a.toDateString / getDate / getFullYear() / getMonth / getDate() / getHours / getMinutes() / getSeconds() 
+  getMiliseconds() 
+
+
+
+Event :-
+  onclick / ondbclick / oncontextmenu / onmouse,enter,out,down,up / key,press,up / onload / onunload / onresize onscroll
+  Add body tag fire event throgh function
