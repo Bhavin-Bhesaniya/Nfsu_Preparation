@@ -4,30 +4,30 @@ set2 = {"THIS","is","A","Set",1,2.3,True}
 set3 = set(("using constructor"))
 
 #Access list :-
-print("\nAccess List Using Print : ")
+print("\nAccess Set Using :")
 print(set1)
-print("\nUsing Through For Loop : ")
+print("\nThrough For Loop : ")
 for A in set2:
     print(A)
 #print(set2[6]) #Set is unindexed so this generate error
 
 
-#Add value, join ,Copy Values :-
+# Add, join ,Copy Values :-
 print("\nAdd Value, Join, Copy Values : ")
 set1.add("Add new item")       
-set1.update(set2)           #Add Any Iterable With Update Method
+set1.update(set2)           # Add Any Iterable With Update Method
 print("Set after Update Method :\n",set1)
-set4 = set1.union(set3)     #Create new set using uninon    
+set4 = set1.union(set3)     # Create new set using uninon    
 print("\nUnion set operations :\n",set4)
-seCpy = set1.copy()         #Create new set using existing set
+seCpy = set1.copy()         # Create new set using existing set
 print("\nCopy Method :\n",seCpy)
 
 
-#DIFFERNT SET OPERATION IN SET
+# DIFFERNT SET OPERATION IN SET
 print("\nDiffrence Set Operation :\n")
-set1.intersection_update(set2)      #return common value
+set1.intersection_update(set2)      # return common value
 print("Return Common Value :\n",set1)
-z = set1.intersection(set2)         #return common value withnew set
+z = set1.intersection(set2)         # return common value with new set
 print("Return Common Value With New Set :\n",z)
 
 sf  = { "set","method","check",1}
@@ -46,11 +46,10 @@ print(sf3)
 
 #Remove value :-
 print("\nRemove Value From Set : ")
-set1.remove("A")        #remove specific value if not genrate error
-set1.discard("A")       #remove specific value if not than not genrate error
-set1.pop()              #remove any value
+set1.remove("A")        # Remove specific value if not generate error
+set1.discard("A")       # Remove specific value if not than not generate error
+set1.pop()              # Remove any value
 print(set1)
 set1.clear()            
 print("Clear list : ",set1)
 del set1
-

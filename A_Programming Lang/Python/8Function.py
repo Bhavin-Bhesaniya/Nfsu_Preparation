@@ -1,22 +1,22 @@
 #Function :- Block of code that run when it is called
 
 
-#Create Function :-
+# Create Function :-
 def run():
     print("Yes it is run")
-run()   #Calling function
+run()   # Calling function
 
-#Passing Argument Function :-
+
+# Passing Argument Function :-
 print("\nPassing Argument Function : ")
-def Sname(fname):       #fname is parameter name
+def Sname(fname):       # fname is parameter name
     print("My name is " + fname)
-Sname("Bhavin")         #Argument passing to the function
+Sname("Bhavin")         # Argument passing to function
 a = "Bhavin A"          
-Sname(a)                #Passing Variable as argument
+Sname(a)                # Passing Variable as argument
 
 
-
-#Default Argument :-
+# Default Argument :-
 print("\nDefault Argument Function : ")
 def country(name = "India"):
     print("My country name is " + name)
@@ -33,38 +33,39 @@ def Cname(*fullname):
 Cname("Bhavin","Bhesaniya")
 
 
-#Keyword argument :-
+# Keyword argument :-
 print("\nKeyword Argument : ")
 def Cname(fname,lname):           
     print(fname + " " + lname)
 Cname(fname = "Bhavin",lname = "Bhesaniya")
 
 
-#**kwargs :- Passing no of keyword arguments :-
+# **kwargs :- Passing no of keyword argument
 print("\nPassing No Of Keyword Argument : **kwargs ")
 def Cname(**fullname):            
     print(fullname["fname"] + " " + fullname["lname"])
 Cname(fname = "Bhavin",lname="Bhesaniya")
 
 
-#Return Value From Function :-
+# Return Value From Function :-
 print("\nReturn Value from the function :")
 def sum(a,b):
     return print(a+b)
 sum(10,20)
 
 
-#RECURSION :- Function call itself it is known as recursion
+# RECURSION :- Function call itself known as recursion
 # tri_recursion is use for recursion
 
 
-#LAMDA :- Function without name or anonymous function
-#Syntax :- lambda arguments : expression
+# LAMDA :- Function without name or anonymous function
+# Syntax :- lambda arguments : expression
 print("\nLamda Function :")
 x = lambda p,n: p * n
 print(x(5,5))
 
-#First Class Function :-
+
+# First Class Function :-
 print("\nFirst Class Function :- \n")
 
 #1)Pass obj in var :-
@@ -97,6 +98,7 @@ add_15 = create_adder(15)
 print (add_15(10))
 
 
+
 #Yield Example :-
 print("\nYield Example :")
 def sqaure():
@@ -108,5 +110,3 @@ for x in sqaure():
     if x > 50:
         break
     print(x)
-
-
