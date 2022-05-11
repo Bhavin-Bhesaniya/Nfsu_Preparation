@@ -1,5 +1,36 @@
- document.write("Print data on screen\n");
- 
+ Document :-
+  Html / head / body  - top most select
+   - document.write("Print data on screen\n");
+   - document.documentElement;   //select entire document
+   - document.body;
+   - document.head;
+   - document.getElementByClassName("testClass");    //return all class in array can be use (for..of)
+   - document.getElementByTagName();
+   - document.all[]  :- head / title / body / links / images / form / DOCTYPE /images / URL / domain / baseURI;
+
+
+  Css Selector :-
+   - document.querySelector(".testClass");
+   - document.querySelectorAll(".testClass");
+   Example :-
+    let h1 =  document.getElementById("h1test");  
+    h1.innerHTML = "Hello world this line changed";  
+    // SecondWay(document.getElementById("h1test").innerHTML = value) //use innerText instadOf innerhtml
+    h2.style.cssPropertyAddAny = value;              //change effect
+    document.body.style.cssPropertyAddAny = value;   //change design of body 
+
+
+  Append Css class From Head :-  Object.className = Object.className + "styleClassName";  
+  
+
+Get Object Information :-
+ - window.getComputedStyle("objectName h1");       
+ Method get Information :-
+  styles.getPropertyValue("PropertyName"); 
+  attribute  :- document.getElementById().getAttribute().value | getAttributeNode | Attributes[].name/.value
+
+
+
  Console :-
   - console.log("Print Data on Console");
   - console.info("Information");
@@ -218,6 +249,11 @@ Document Object Model(DOM) :-
  - Define logical structure of the document 
  - All element and attribute are organized in a hierchical tree-like structure
  - Individual part is known as nodes
+
+ Get and set and remove dom Attribute :-
+  Get    :- ObjectName.getAttribute("attributeName/ IdName/ className/"); 
+  Second :- ObjectName.setAttribute("attributName","AttributeValue");
+  Remove :- document.getElementById().removeAttribute("attributename");
 
 
 

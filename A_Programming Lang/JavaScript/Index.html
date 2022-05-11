@@ -2,75 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java script Testing</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java script Testing</title>
 </head>
 
 <body>
 
 
-    <h1 id="h1test" class="testClass">Test Dom Selector With Id</h1>
-    <h1 class="testClass">Test Dom Selector With Second Class</h1> 
+  <h1 id="h1test" class="testClass">Test Dom Selector With Id</h1>
+  <h1 class="testClass">Test Dom Selector With Second Class</h1>
 
-    <button>Changing Style</button> 
-    <!--onclick="FunctionPassForAction"-->
-
-
-    <script>
-        /*
-
-        #1)Document Target Method :-
-
-          1)Html / head / body  - top most select
-            - document.documentElement;   //select entire document
-            - document.body;
-            - document.head;
-            - document.getElementByClassName("testClass");    //return all class in array can be use (for..of)
-            - document.getElementByTagName();
-            - document.all[]  :- head/ title / body/ links/ images/ form/ DOCTYPE/images/URL/domain/baseURI;
-          
-           2)Css Selector :-
-            - document.querySelector(".testClass");
-            - document.querySelectorAll(".testClass");  
-            
-            Example :-
-            let h1 =  document.getElementById("h1test");  
-            h1.innerHTML = "Hello world this line changed";  //SecondWay(document.getElementById("h1test").innerHTML = value) //use innerText instadOf innerhtml
-            h2.style.cssPropertyAddAny = value;              //change effect
-            document.body.style.cssPropertyAddAny = value;   //change design of body 
-
-            3)Append Css class From Head :-
-            - Object.className = Object.className + "styleClassName";
-
-        #2)Get Object Information :-
-          - window.getComputedStyle("objectName h1");
-          - 
-            
-            Method get Information :-
-            styles.getPropertyValue("PropertyName"); 
-            attribute  :- document.getElementById().getAttribute().value / getAttributeNode / Attributes[].name/.value
-
-        #3)Get and set and remove dom Attribute :-
-          1)Get :-
-          -  ObjectName.getAttribute("attributeName");
-          -  ObjectName.getAttribute("idname");     // ClassName InsteadOf idname
-
-          2)Second :-
-           -  ObjectName.setAttribute("attributName","AttributeValue");
-
-          3)Remove :-
-           - document.getElementById().removeAttribute("attributename");
+  <button>Changing Style</button>
+  <!--onclick="FunctionPassForAction"-->
 
 
+  <script>
+    /*
+
+    #1)Document Target Method :-
+
+      1)Html / head / body  - top most select
+        - document.documentElement;   //select entire document
+        - document.body;
+        - document.head;
+        - document.getElementByClassName("testClass");    //return all class in array can be use (for..of)
+        - document.getElementByTagName();
+        - document.all[]  :- head/ title / body/ links/ images/ form/ DOCTYPE/images/URL/domain/baseURI;
+      
+       2)Css Selector :-
+        - document.querySelector(".testClass");
+        - document.querySelectorAll(".testClass");  
         
-            
-         
+        Example :-
+        let h1 =  document.getElementById("h1test");  
+        h1.innerHTML = "Hello world this line changed";  //SecondWay(document.getElementById("h1test").innerHTML = value) //use innerText instadOf innerhtml
+        h2.style.cssPropertyAddAny = value;              //change effect
+        document.body.style.cssPropertyAddAny = value;   //change design of body 
 
-        */
+        3)Append Css class From Head :-
+        - Object.className = Object.className + "styleClassName";
+
+    #2)Get Object Information :-
+      - window.getComputedStyle("objectName h1");
+      - 
         
-    </script>
+        Method get Information :-
+        styles.getPropertyValue("PropertyName"); 
+        attribute  :- document.getElementById().getAttribute().value / getAttributeNode / Attributes[].name/.value
+
+    #3)Get and set and remove dom Attribute :-
+      1)Get :-
+      -  ObjectName.getAttribute("attributeName");
+      -  ObjectName.getAttribute("idname");     // ClassName InsteadOf idname
+
+      2)Second :-
+       -  ObjectName.setAttribute("attributName","AttributeValue");
+
+      3)Remove :-
+       - document.getElementById().removeAttribute("attributename");
+    */
+
+  </script>
 
 
 

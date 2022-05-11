@@ -47,5 +47,6 @@ Types of Bus(Address, Data, Control) :-
                       |||    |||   |||
                     Memory Input Output
 
- Address Bus :-
-  - Carry address                     
+  Address Bus :- Carry address, 16 bit(2^16)                    
+  Data Bus    :- Carry Data
+  Control Bus :- Carry Control and timing signals
