@@ -301,195 +301,235 @@ LOOPS / CONTROL STATEMENT / CONDITIONAL STATEMENT  :-
 
 
 FUNCTION :-
-
-- Perform a computaional task repeatadly together 
-- Without right same code again and again
-- Call function and reuse the code
-
-Syntax :
-    def function_name(parameters):
-	""" docstring """	#first string after the function is known as / describe functionality / optional
-	statements(s)
-	return [expression_list] #exit from function and go back to caller / if not return none
-
-- every variable is refrence when pass in function new refrence object created
-- change in refrence chain is broken
-
-
-Default argument :-
-- if value not pass at function call default argument is use
-ex :  def fun_name(a=10,b):	#a is default argument
-	print(a + b)
+ - Perform same computaional task repeatadly together Without write them again and again
+ - Every variable is refrence when pass in function new refrence object created
+ - pass statement for write empty function 
  
-	fun_name(,10)
+ Syntax :
+  def function_name(parameters):
+	  """ docstring """	 # First string after function known as / Describe functionality / Optional
+	  statement(s)
+	  return [expression_list]  # If not return none
 
-Keyword argument :-
-- we can pass keyword instead of value
-ex : def fun_name(fname,lname)
-	print(fname , lname)
-     fun_name(fname="bhavin",lname="bhesaniya")
-
-Variable length argument :- 
-- if we known how many argument pass we can use *argv as argument / pass keyword use **kwargs
-ex : def fun_name(*argv)	/ def fun_name(**kwargs)
-	for arg in *argv: 	
- 		print(arg)
-     fun_name(hi,i,am,bhavin) / fun_name(fname="bhavin",lname="bhesaniya",std="clg")
-
-Anonymous function :- 
-- a function without name written by lamda keyword
-ex : def cube(x) : return x * x * x 
-     cube_1 = lamda x : x * x * x (var = lamda argument : expression)
-     print(cube(7))
-     print(cube_1(7))
-
--Use pass statement for write empty function
-
-Partical Function :-
-- fix a certain no of argument of a function and genrate a new function
-- need to import from functool
-
-Nested function :-
-- A function inside another function
-- inner function scope within function
-
-Closure :-
-- closure is a function object that remebers values in enclosing scopes even if they are not present in memory
-
-Decorator :-
-- takes a function as its only parameter and returns a function
-- Syntax : @function_name / @function_name(para)
-- remove redunduncy
-- wrap another function in order to extend the behaviour of warpped fucntion,without permanently modifying it
-- chaining decorator meaning function with multiple decorator
-- Memoization technique used to avoid repeated calculation and speed up programs achieved by decorators
-
-__import__() :- runtime import module
-syn : __import__(name,globals(),locals(),fromlist/[],level)
-
-Coroutines :
-- Complex function is divided into sevreal self-contained function are called subroutines.
-- Subroutine in python called main function which have single entry level point
-- Corountines are generalization of subroutines which have multi entry level point
-
-Bit function :-
- int.bit_length()				 - return no. of bits in integer
- int.to_bytes(length,byteorder,*,signed=false)   - return array of bytes represnting an integer
- int.from_bytes(bytes,byteorder,*,signed=false)  - return the intger represented by the given array of bytes
+    
+ Default argument :-
+  - If value not pass at function call default argument use
+  Ex :
+    def fun_name(a=10,b):	 # A default argument
+	    print(a + b) 
+	  fun_name(,10)
+ 
+ 
+ Keyword argument :-
+  - Pass keyword instead of value
+  Ex : 
+    def fun_name(fname,lname)
+	    print(fname , lname)
+    fun_name(fname="bhavin",lname="bhesaniya")
 
 
+ Variable length argument :- 
+  - If don't known how many argument pass use *argv
+  - If don't known how many keyword To pass keyword use **kwargs
+  Ex : 
+   def fun_name(*argv)	| def fun_name(**kwargs)
+	  for arg in *argv: 	
+   		print(arg)
+   fun_name(hi,i,am,bhavin) | fun_name(fname="bhavin",lname="bhesaniya",std="clg")
 
 
------------------------------------------------------------------------------------------------------------------------------------------
+ Anonymous function :- 
+  - Function without name written by lamda keyword
+  Ex : 
+    cube_1 = lamda x : x * x * x (var = lamda argument : expression)  
+    print(cube_1(7))
 
-8)OOP :- 
-
-
-1)Class :-
-- Class is a blueprint that defines variable(attribute) and behaviour(method/characterisitc) common to all object of a certain kind. 
-- Syntax :- class classname :
-
-2)Object :-
-- Object is an entity that has a state and behaviour associated with it.
-- Object is an instance of the class
-- Syntax :- Access class 
-	 	objectname = classname()
-		objectname.methodname()
-- modify object properties :- object.variable = value
-- delete object :- del objectname / properties = del objectname.variable
-
-3)Self parameter :-
-- Class method must have an extra first parameter in the method definition.
-- Not need to give value for this parameter when it we called
-- Syntax :- def __methodname__(self,paramter) :
-- ex :- myobj.method(arg1,arg2) convert automatically into -> myclass.method(myobject,arg1,arg2)
-
-4)Init method :-
-- It run as soon as an object of a class is instantiated for assign value to object properties
-- this method automatically called
-- Syntax :- def __init__(self,paramter):
-		self.variable = value
+ 
+ Partical Function :-
+  - Fix certain no. of function argument and genrate new function
+  - Need to import from functool
 
 
-5)Class and instance variable(attribute) :-
-- Instance variable are variable whose value assigned inside a constructor or method with self
-- class variable are variable whose value is assigned in class
-- syntax :- class class_name:
+ Nested function :-
+  - Function inside another function
+  - inner function scope within function
+
+
+ Closure :-
+  - Function object that remebers values in enclosing scopes even if they are not present in memory
+
+
+ Decorator :-
+  - Takes function as only parameter and returns function
+  Syntax : @function_name / @function_name(para)
+  - Used to remove redunduncy
+  - Wrap another function in order to extend behaviour of warpped fucntion, without permanently modifying it
+  - Changeing decorator meaning function with multiple decorator
+  - Memoization technique used to avoid repeated calculation and speed up program achieved by decorators
+
+  __import__() :- runtime import module
+  syn : __import__(name, globals(), locals(), fromlist/[], level)
+
+
+ Coroutines :
+  - Divided into sevreal self-contained function are called subroutine
+  - Subroutine in python called main function which have single entry level point
+  - Corountines are generalization of subroutines which have multi entry level point
+
+
+ Bit function :-
+  int.bit_length()				                        - Return no. of bits in integer
+  int.to_bytes(length,byteorder,*,signed=false)   - Return array of bytes represnting integer
+  int.from_bytes(bytes,byteorder,*,signed=false)  - Return intger represented by given array of bytes
+
+
+
+OOP(Object Oriented Programming):- 
+ Class :-
+  - Class is blueprint that define variable(attribute) and behaviour(method/characterisitc) for common to all object 
+  Syntax :- class classname :
+
+ 
+ Object :-
+  - Entity that has state and behaviour associated with it
+  - Object is an instance of the class
+  Syntax :- 
+	 	objectname = classname() # Create class object
+		objectname.methodname()  # Access class method
+  Modify object properties :- object.variable = value
+  Delete object :- del objectname | properties = del objectname.variable
+
+ 
+
+ Self parameter :-
+  - Class method must have extra first parameter in method definition
+  - Not required to give value for this parameter when pass other arguments 
+  Syntax :- def __methodname__(self,paramter) :
+  Ex :- myobj.method(arg1,arg2) 
+  It Convert automatically into -> myclass.method(myobject,arg1,arg2)
+
+
+
+ Init method :-
+  - Run as soon as class object is instantiated for assign value to object properties
+  - This method automatically called
+  Syntax :- 
+    def __init__(self,paramter):
+		  self.variable = value
+ 
+ 
+
+ Class and instance variable(attribute) :-
+  - Instance variable are variable whose value assigned inside constructor or method with self
+  - Class variable are variable whose value is assigned in class
+  Syntax :- 
+    class class_name:
 			Claas_variable = value
-         	def __init__(self,name):
-			self.name = "bhavin"
-- Access :- classname.variablename  / objectname.variablename (classVar access by both method and instanceVar access by second)
-
-6)Static method :-
-- if declare variable that similar for all tochange value for all we need ex:- classname.classvarname = newvalue
-
-6)Inheritance :-
-- Class inherti from the another class called inheritance
-- Superclass/parentclass which inheritad by Childclass/Subclass
-- syntax :- class a(object):(parent/super)
-	    class b(a):
-- issubclass() function used check class is subclass or not
-- isinstance() check class is instance or not
-- multiple inheritance we seprated by , ex : class derived(a,b,c):
-- Access parentclass method  	       ex : parentclassname.methodname
-- Access parentclass instance variable ex : create method and than (self.parentclass instancevariable) / in method (parentclassname.instancevar)
-- Use Superclass ex : super(derived,self).__init__(var)
+      def __init__(self,name):
+			  self.name = "bhavin"
+  Access :- 
+    classname.variablename | objectname.variablename ( ClassVar access by both method and instanceVar access by second)
 
 
-7)Polymorphism :-
 
-- Same function name(but different signatures) being use for different types
-- class a() : def firstpolymethod(): print("hello")
-- class b() : def firstpolymethod(): print("hi,hello")
-- use for loop : for x in (obj_name): x.method()
-- poly in inheri achiev by :- inheri parent in base now u access 
-- create one function that take obj as parameter and make obj.method name than call function and pass object of the class
+ Static method :-
+  Ex:- classname.classvarname = newvalue
+
+
+
+ Inheritance :-
+  - Class that inherit from another class called inheritance
+  - Superclass/parentclass which inheritad by Childclass/Subclass
+  - issubclass() check class is subclass or not
+  - isinstance() check class is instance or not
+  
+  Syntax :- 
+    class a(object):(parent/super)
+	  class b(a) : ()
+  - Multiple inheritance we seprated by 
+    Ex : class derived(a,b,c) :
+
+  Access parentclass method :-
+    Ex : parentclassname.methodname
+  
+  Access parentclass instance variable :-
+    Ex : create method and than (self.parentclass instancevariable) | in method (parentclassname.instancevar)
+  
+  Use Superclass :- 
+    Ex : super(derived,self).__init__(var)
+
 
  
-8)Data Hiding :-
-- We use " __ "  befor attribute name and those attribute directly not visible outside
-- access by -> myobj.__myclass__myhidddenvariable
+ Polymorphism :-
+  - Same function name(but different signatures) being use for different types
+  Ex :-
+    class a() : 
+      def firstpolymethod(): 
+        print("hello")
+    class b() : 
+      def firstpolymethod(): 
+        print("hi,hello")
 
-9)Printing object :-
-- Given us Information about object we are working with 
-- achieve by __repr__ or __str__
+  - Use for loop : 
+  Ex :- for x in (obj_name): 
+          x.method()
+  
+  - Polymorphism in inheritance achieve by inherit parent in base 
+  - Create one function that take obj as parameter and make obj.method 
+    than call function and pass object of the class
 
-10)Class method vs Static method :-
-1)Class method
-- The @classmethod decorator, is a builtin function decorator that is an expression that gets evaluated after your function is defined.
-- A class method receives the class as implicit first argument, just like an instance method receives the instance
-- Bound to the class not to objectname
-- They have the access to the state of the class as it takes a class parameter that points to the class and not the object instance.
-- It can modify a class state that would apply across all the instances of the class. For example it can modify a class variable that will be applicable to all the instances.
 
-2) Static method :-
-- A static method does not receive an implicit first argument
-- A static method is also a method which is bound to the class and not the object of the class.
-- A static method can’t access or modify class state.
-- It is present in a class because it makes sense for the method to be present in class.
+ 
+ Data Hiding :-
+  - Use " __ "  before attribute name and those attribute directly not visible outside
+  - access by -> myobj.__myclass__myhidddenvariable
 
-Main Differnce :-
-- We generally use class method to create factory methods. Factory methods return class object ( similar to a constructor ) for different use cases.
-- We generally use static methods to create utility functions
 
-11)Constructor :-
-- Used for inialization of a object
-- __init__ is called constructor in python
-- two type :- 1)Default 2)Parameterized
-Syntax :- def __init__(self): / def __init__(self,a,b):
 
-12)Destructor :-
-- python not need because grabage collector
-- achieve by __del__ methods and called after the programme ended
-- syntax :- def __del__(self):
+ Printing object :-
+  - Give Information about object that working with 
+  - achieve by __repr__ or __str__
 
-13)first class object :-
-- First class objects in a language are handled uniformly throughout
-- First class function is treat as first class object
 
-  properties of first class function:-
-  - fun is a instance of a the object type
-  - fun can stored in variable
-  - pass the fun as a paramter for another function
-  - return the fun from a function 
-  - stored in datastructure
+
+ Class method vs Static method :-
+  Class method
+   - @classmethod decorator is built-in decorator that evaluated after function defined
+   - Class method receives class as implicit first argument just like an instance method receives instance
+   - Bound to class not to objectname
+   - They have access to state of class as it takes class parameter that points to class and not object instance
+   - It can modify class state that apply across all instances of class 
+   Ex :- It can modify class variable that applicable to all instances
+
+  Static method :-
+   - Does not receive implicit first argument
+   - Method which is bound to class and not to object of class
+   - Can’t access or modify class state
+ 
+  
+  Main Differnce :-
+   - Class method used to create factory method 
+   - Factory method return class object (Similar to constructor) for different use cases
+   - Use static methods to create utility function
+
+
+
+ Constructor :-
+  - Used for object initalization
+  - __init__ is called constructor in python
+  Two type :- 1)Default 2)Parameterized
+  Syntax   :- def __init__(self): | def __init__(self,a,b):
+
+
+
+ Destructor :-
+  - Not need because built-in garbage collector
+  - Achieve by __del__ method and called after programme ended
+  Syntax :- def __del__(self):
+
+
+
+ First class object :-
+  - Handled uniformly throughout
+  - First class function is treat as first class object
+
