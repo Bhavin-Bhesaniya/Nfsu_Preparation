@@ -48,14 +48,14 @@ Basic Topics :-
  WhiteSpace :- Used in C to describe blanks, tabs, newline characters and comments which ignore by compiler
 
 
- Comments :- 
+Comments :- 
    - Comment are ignored by compiler that programmer add to make code easier to read and understand
   Type :- //       - Single-line comment  
           /*...*/  - Multi-line comment 
 
 
 
- Keyword :-
+Keyword :-
   - Special meaning for compiler that we can not used as identifier 
   - All keyword must written in lower case
   
@@ -69,7 +69,7 @@ Basic Topics :-
    
 
 
- Identifier :-
+Identifier :-
   - Identifier is name used to identify variable, function or any other user-defined item
   - Set of Alphabets, letters and special character
   
@@ -86,7 +86,7 @@ Basic Topics :-
 
 
 
- Variable :-
+Variable :-
   - Container (storage area) to hold data which identify by its name
   - C is strongly typed language means that variable type cannot be changed once it is declared 
   - extern used to declare variable in any place
@@ -110,7 +110,7 @@ Basic Topics :-
  
 
 
- Literals :- Representing fixed values
+Literals :- Representing fixed values
   Ex :-  1, 2.5, 'c' 
 
   Types Of Literals :-
@@ -145,7 +145,7 @@ Basic Topics :-
 
 
 
- Data Types :-
+Data Types :-
   - Determines type and size of data associated with variables
   - Type of data type determine how much space is occupies in storage
   
@@ -166,24 +166,37 @@ Basic Topics :-
     unsigned long int	                      %lu
     unsigned long long int	                %llu
 
-   - Cannot declare void type variables
-   - To Check size of variable use sizeof() operator Ex :- sizeof(variableName);
-   - Signed and unsigned are type modifiers :-
-      Signed   - allow for storage both positive and negative numbers
-      Unsigned - allow for storage only positive numbers
+  - Cannot declare void type variables
+  - To Check size of variable use sizeof() operator Ex :- sizeof(variableName);
+  - Signed and unsigned are type modifiers :-
+    Signed   - Store both positive and negative number
+    Unsigned - Store only positive number
  
 
   Derive Data Type :-
    - Derived from primitive or built-in datatypes are referred to as Derived Data Types
    Types :- Function, Arrays, Pointers, Reference
 
+
   User-Defined Data Types :-
    - Defined by user are called user-defined data types
    Types :- Class, Structure, Union, Enumeration, Typedef    
 
 
+  Type Casting :-
+   - Convert variable from one data type to another data type
+   - Implicit conversion done by computer while explicitly casting done by cast operator
 
- Input Output(I/O) :-
+   Syntax :- (type_name) expression
+   Example :-
+    int sum = 17, count = 5;
+    double mean;
+    mean = (double) sum / count;
+    printf("Value of mean : %f\n", mean );
+
+
+
+Input Output(I/O) :-
   
   Output :-
    - printf() library function send formatted output on screen 
@@ -218,7 +231,7 @@ Basic Topics :-
 
 
  
- Operator :- 
+Operator :- 
   - Operator is symbol that operates on value or variable
  
   Arithmetic :- Perform Mathematical operations
@@ -254,7 +267,7 @@ Basic Topics :-
 
 
 
- Storage Classes :-
+Storage Classes :-
   - Defines scope (visibility) and life-time of variables and function within Program
   Types :- auto, register, static, extern
 
@@ -353,6 +366,43 @@ Function :-
  Function Call by Value :- Passing function arguments value
  Function Call by Reference :- Passing function arguments address
 
+ Recursion :- 
+  - Process of repeating items in self-similar way
+  - If Program allows you to call function inside same function called recursive
+  Example :-
+   void recursion() {
+    recursion(); /* function calls itself */
+   }
+
+ Variable Arguments :-
+  - C allowed to define function which can accept variable number of parameters based on requirement
+  Example :- 
+   int func(int, ... ) {}
+   int main() {
+    func(1, 2, 3);
+    func(1, 2, 3, 4);
+   }
+ - Use stdarg.h header file which provide functions and macros to implement functionality of variable argument
+
+ 
+ Command-line Arguments :-
+  - Pass some values from command line 
+  - Handled using main() function argument where argc refers to number of arguments passed and 
+    argv[] is pointer array which points to each argument passed to program
+  Example :-
+   int main( int argc, char *argv[] )  {
+    if( argc == 2 ) {
+      printf("The argument supplied is %s\n", argv[1]);
+    }
+   }
+  - argv[0] holds name of program itself 
+  - argv[1] is pointer to first command line argument supplied 
+  - *argv[n] is last argument 
+  - If no arguments are supplied argc will be one and if pass one argument then argc is set at 2
+  Output :-
+   - $./a.out "testing1 testing2" // Command-line argument
+   - The argument supplied is testing1 testing2
+   
 
 
 Array :-
@@ -505,5 +555,250 @@ Structure :-
    struct packed_struct {
     unsigned int f1:1;
    }pack;
-   */9
+
+
+
+Union :-
+ - Special data type that allows to store different data types in same memory location
+ - Define union with many members but only one member can contain value at given time 
+ - Provide efficient way of using same memory location for multiple-purpose
+ - Same memory location, can be used to store multiple types of data 
+ 
+ Syntax :- 
+  union [union tag] {
+    member definition;
+  }[one or more union variables];
+
+ Example :-
+  union Data {
+    int i;
+    float f;
+    char str[20];
+  } data;   
+    
+  Access :-  
+    union Data data;        
+    printf( "Memory size occupied by data : %d\n", sizeof(data));
+    data.i = 10;
+    printf( "data.i : %d\n", data.i);
+
+ 
+
+Bit Field :-
+
+
+
+typedef :-
+ - Give type new name
+ Syntax :- 
+  typedef unsigned char BYTE;
+  BYTE  b1, b2; // BYTE can be used as an abbreviation for the type unsigned char
+ 
+ typedef vs #define :-
+  - #define is C-directive which used to define aliases for various data types similar to typedef but 
+  - typedef is limited to giving symbolic names to types only where #define used to alias for all values as well
+  - typedef interpretation performed by compiler whereas #define statements are processed by pre-processor
+ 
+
+
+Input / Output :-
+ - C programming treats all the devices as files
+ - file pointers access file for reading and writing purpose
+
+  Standard File	     File   Pointer	Device
+ Standard input	    stdin	   Keyboard
+ Standard output	  stdout	 Screen
+ Standard error	    stderr	 Your Screen
+
+ getchar() and putchar() :-
+  - int getchar(void) function reads next available character from screen and return it as integer
+  - int putchar(int c) puts passed character on screen and returns same character
+  - getchar() reads only single character at time while putchar() puts only single character at a time
+  - Use method in loop for read more than one character from screen or display more than one character on screen
+ 
+  Ex :-
+   int c;
+   printf( "Enter a value :");
+   c = getchar( );
+   printf( "\nYou entered: ");
+   putchar( c ); 
+  Output :-
+   Enter a value : this is test
+   You entered: t  
+
+
+ gets() and puts() :-
+  - char *gets(char *s) read line from stdin into buffer pointed to by s until either terminating newline or 
+    EOF(End of File)
+  - int puts(const char *s) function write string 's' and 'a' trailing newline to stdout
+
+  Ex :-
+   char str[100];
+   printf( "Enter a value :");
+   gets( str );
+   printf( "\nYou entered: ");
+   puts( str );
+  Output :-
+   Enter value : this is test
+   You entered : this is test
+
+
+ scanf() and printf() :-
+  - int scanf(const char *format,..) read input from standard input stream stdin and scans that input according to
+    provided format
+  - int printf(const char *format,..) write output to standard output stream stdout and produces output according to
+    provided format
+  - format can be simple constant string but able to specify %s, %d, %c, %f, etc.. 
+  - scanf() expects input in same format as provided
+  - Secondly while reading string scanf() stops reading as soon as it encounters space
+  Ex :-
+    char str[100];
+    int i;
+    printf( "Enter a value :");
+    scanf("%s %d", str, &i);
+    printf( "\nYou entered: %s %d ", str, i); 
+  Output :-
+    Enter a value : seven 7
+    You entered: seven 7
+
+
+
+File I/O :-
+ - File represents sequence of bytes, regardless of it being text file or binary file
+ - C provide access on high level function as well as low level (OS level) call to handle file on storage device
   
+ Opening file :-
+  - fopen( ) function to create a new file or to open an existing file
+  - This call initialize object of FILE type which contain all necessary information to control stream
+  Syntax :- FILE *fopen(const char * filename, const char * mode);
+  - filename is string literal which use to name file and access mode can have following
+   Access mode :-
+    r - Open existing file for reading 
+    w - Open existing file for writing, if not existing create one 
+    a - Open text file for writing in appending mode, if not existing create
+    r+ - for both reading and writing
+    w+ - for both reading and writing, first truncate file to zero length if exist otherwise create file 
+    a+ - for both reading and writing, reading will start from beginning but writing only be appended
+   
+   For binary files :-
+    rb, wb, r+b, ab, rb+, wb+, w+b, ab+, a+b
+
+
+ Closing file :-    
+  - To close file use fclose( ) function
+  - fclose(-) return zero on success or EOF if there is an error in closing file
+  - flushes data still pending in buffer file, closes file and releases memory used for file+
+  - EOF is constant defined in header file stdio.h
+  Syntax :- int fclose( FILE *fp );
+
+ 
+ Writing file :-
+  - fputc() write character value of argument c to output stream referenced by fp 
+  - It return written character on success otherwise EOF if there is error
+  Syntax :- int fputc( int c, FILE *fp );
+  - fputs() write string s to output stream referenced by fp 
+  - It return non-negative value on success otherwise EOF returned in case of any error 
+  - Use int fprintf(FILE *fp,const char *format, ...) function as well to write string into file
+  Example :- 
+    FILE *fp;
+    fp = fopen("/tmp/test.txt", "w+");
+    fprintf(fp, "This is testing for fprintf...\n");
+    fputs("This is testing for fputs...\n", fp);
+    fclose(fp);
+  
+
+ Reading File :-
+  - fgetc() function read character from input file referenced by fp 
+  - return value is character read in case of any error it returns EOF
+  Syntax :- char *fgets( char *buf, int n, FILE *fp );
+  - fgets() reads up to n-1 characters from input stream referenced by fp
+
+ 
+ Binary I/O :- 
+  - size_t fread(void *ptr, size_t size_of_elements, size_t number_of_elements, FILE *a_file); 
+  - size_t fwrite(const void *ptr, size_t size_of_elements, size_t number_of_elements, FILE *a_file);
+
+
+
+PreProcessor :-
+ - Not part of compiler but separate step in compilation process
+ - It is just text substitution tool and it instructs compiler to do required pre-processing before actual compilation
+ - All preprocessor commands begin with hash symbol (#)
+  
+ PreProcessor Description
+  #define  - Substitutes preprocessor macro
+  #include - Insert particular header from another file
+  #undef   - Undefine preprocessor macro
+  #ifdef   - Return true if this macro is defined
+  #ifndef  - Return true if this macro is not defined
+  #if      - Test if compile time condition is true for
+  #else    - alternative for #if
+  #elif    - #else and #if in one statement
+  #endif   - Ends preprocessor conditional
+  #error   - Prints error message on stderr
+  #pragma  - Issues special commands to compiler using standardized method
+ 
+  Example :-
+   #include <stdio.h>     // Add System Library
+   #include "myheader.h"  // Add Local Library
+
+
+ Predefined Macros :- ANSI C defines a number of macros
+  __DATE__ - Current date as character literal in "MMM DD YYYY" format
+  __TIME__ - Current time as character literal in "HH:MM:SS" format
+  __FILE__ - Contain current filename as string literal
+  __LINE__ - Contain current line number as decimal constant
+  __STDC__ - Defined as 1 when compiler complies with ANSI standard
+
+  Example :- 
+    printf("File :%s\n", __FILE__ );
+    Output :- File :test.c
+
+
+ Preprocessor Operators :-
+  Macro Continuation (\) :- Confined single line, used to continue macro that is too long for single line
+  Stringize (#)          :- Used within macro definition convert macro parameter into string constant
+  Token Pasting (##)     :- Combine two arguments, Permit two separate token in macro definition join intosingle token
+  Defined()              :- Used in constant expressions to determine if identifier is defined using #define
+
+
+
+Header File :- 
+ - File with .h extension contain C function declarations and macro definitions shared between several source file
+ Two types :- System files and User-defined files
+ Syntax :- #include <System-file> and #include "User-file"
+
+
+
+Error Handling :-
+ - Does not provide direct support for error handling but provide access at lower level in the form of return value
+ - Most of C or even Unix function call return -1 or NULL in case of any error and set an error code errno
+ - find various error codes defined in <error.h> header file
+ - Value of 0 indicates that there is no error in the program
+
+ errno(), perror() and strerror()
+  - perror() display string pass to it followed by colon, space and then textual representation of current errno value
+  - strerror() return pointer to textual representation of current errno value
+  - Use stderr file stream to output all the error
+
+ Program Exit Status :-
+  - Exit program with value of EXIT_SUCCESS in case of program coming out after successful operation - 0
+  - EXIT_FAILURE which is defined as -1
+
+
+
+Memory Management :-
+ - Found in <stdlib.h>
+ void *calloc(int num, int size); - Allocate array of num elements each of which size in bytes will be size
+ void free(void *address);        - Releases block of memory block specified by address
+ void *malloc(size_t size);       - Allocate array of num bytes and leave them uninitialized
+ void *realloc(void *address, int newsize); - re-allocates memory extending it upto newsize
+
+ Allocation Dynamically :-
+  - if know size declare with :- char name[100]; / don't know :-  char *description;
+  - use calloc(200, sizeof(char)); instead of malloc(200 * sizeof(char));
+
+ Resizing and Releasing Memory :-
+  - operating system automatically release all memory allocated for program  
+  - but it release that memory by calling free()
+  - Increase or decrease size of allocated memory block by calling realloc()
