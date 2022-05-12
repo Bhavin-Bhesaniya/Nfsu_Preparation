@@ -70,86 +70,85 @@ Keyword :-
 
 
 Identifier :-
-  - Identifier is name used to identify variable, function or any other user-defined item
-  - Set of Alphabets, letters and special character
-  
-  All Identifier List :-   
-    CharacterSet       - A-Z,a-z 
-    Digit              - 0 to 9     
-    Special Character  - 31
-    WhiteSpace Character - Blank Space, Horizontal Tab, Carriage Return and Form Feed   
+ - Identifier is name used to identify variable, function or any other user-defined item
+ - Set of Alphabets, letters and special character
+ 
+ All Identifier List :-   
+  CharacterSet       - A-Z,a-z 
+  Digit              - 0 to 9     
+  Special Character  - 31
+  WhiteSpace Character - Blank Space, Horizontal Tab, Carriage Return and Form Feed   
 
-   Rules :-
-    - First letter either letter or underscore cannot use digit or any special character
-    - You cannot use keyword name as identifier
-    - Name Must be unique 
+ Rules :-
+  - First letter either letter or underscore cannot use digit or any special character
+  - You cannot use keyword name as identifier
+  - Name Must be unique 
 
 
 
 Variable :-
-  - Container (storage area) to hold data which identify by its name
-  - C is strongly typed language means that variable type cannot be changed once it is declared 
-  - extern used to declare variable in any place
-  - You can declare variable multiple times but defined only once
+ - Container (storage area) to hold data which identify by its name
+ - C is strongly typed language means that variable type cannot be changed once it is declared 
+ - extern used to declare variable in any place
+ - You can declare variable multiple times but defined only once
 
-  Ex :- 
-    int intValue = 10; // declare variable with int type
-    intValue = 10.10;  // Wrong cannot change int to float
-    float a,v,c;       // Variablelist with no value
-    int g = 10, n = 20;
+ Ex :- 
+  int intValue = 10; // declare variable with int type
+  intValue = 10.10;  // Wrong cannot change int to float
+  float a,v,c;       // Variablelist with no value
+  int g = 10, n = 20;
   
-  - Expression that refer to memory location are called "lvalue" expression
-  - rvalue refers to data value that is stored at some address in memory
+ - Expression that refer to memory location are called "lvalue" expression
+ - rvalue refers to data value that is stored at some address in memory
   
-  Scope :-
-   - Defined scope for variable or function can be accessed or not
-   - Inside function or block called local variable and outside called global variable
-   - Local variable can be accessed inside function or block only not accessible outside
-   - Global variable can be accessed anywhere in program throughout program 
-   - Local variable not initialized by system you must initialize it while global variable initialized automatically
+ Scope :-
+  - Defined scope for variable or function can be accessed or not
+  - Inside function or block called local variable and outside called global variable
+  - Local variable can be accessed inside function or block only not accessible outside
+  - Global variable can be accessed anywhere in program throughout program 
+  - Local variable not initialized by system you must initialize it while global variable initialized automatically
  
 
 
 Literals :- Representing fixed values
-  Ex :-  1, 2.5, 'c' 
+ Ex :-  1, 2.5, 'c' 
 
-  Types Of Literals :-
-    Integer :-
-     - Numeric literal(Number) without any fractional or exponential part
-     - Octal starts with 0 and hexadecimal starts with 0x
-      octal       (base 8)  :- 021, 077 
-      decimal     (base 10) :- 0, -8, 22
-      Hexadecimal (base 16) :- 0x7f, 0x2a
+ Types Of Literals :-
+  Integer :-
+   - Numeric literal(Number) without any fractional or exponential part
+   - Octal starts with 0 and hexadecimal starts with 0x
+     octal       (base 8)  :- 021, 077 
+     decimal     (base 10) :- 0, -8, 22
+     Hexadecimal (base 16) :- 0x7f, 0x2a
 
-    Floating :- Numeric literal that has either fractional or exponent form
-     Ex :- -2.0, 0.00234, -0.22E-5 (E-5 = 10-5)
+  Floating :- Numeric literal that has either fractional or exponent form
+   Ex :- -2.0, 0.00234, -0.22E-5 (E-5 = 10-5)
 
-    Characters :- Single character inside single quotation marks
-     Ex :- 'a', 'm', 'F', '2', '}'
+  Characters :- Single character inside single quotation marks
+   Ex :- 'a', 'm', 'F', '2', '}'
 
-    Escape Sequence :- Characters with backslashe which has special meaning
-     Ex :-  
-        \b - backspace      | \\ - Backslash              | \0 Null Character
-        \f - formfeed       | \' - Single Quotation Mark  | \" - Double Quotation Mark
-        \n - newline        | \r - return                 | \? - Quotation Mark    
-        \t - Horizontal tab | \v - vertical tab
+  Escape Sequence :- Characters with backslashe which has special meaning
+    \b - backspace      | \\ - Backslash              | \0 Null Character
+    \f - formfeed       | \' - Single Quotation Mark  | \" - Double Quotation Mark
+    \n - newline        | \r - return                 | \? - Quotation Mark    
+    \t - Horizontal tab | \v - vertical tab
 
-    String Literals :- Sequence of characters enclosed in double-quote marks 
-     Ex :- "String" , "" ,  "    ", "S", 
+  String Literals :- Sequence of characters enclosed in double-quote marks 
+    Ex :- "String" , "" ,  "    ", "S", 
 
-    Constants :- Variable value cannot be changed once declared
-     Ex :- const double PI = 3.14;
-           #define LENGTH 10          - preprocessor 
+  Constants :- Variable value cannot be changed once declared
+    Ex :- const double PI = 3.14;
+          #define LENGTH 10          - preprocessor 
 
-    void :- Represents absence type
+  void :- Represents absence type
 
 
 
 Data Types :-
-  - Determines type and size of data associated with variables
-  - Type of data type determine how much space is occupies in storage
+ - Determines type and size of data associated with variables
+ - Type of data type determine how much space is occupies in storage
   
-  Built-in :-1 byte = 8 bit, 1 kb = 1024 byte, 1mb = 1024kb    
+ Built-in :-1 byte = 8 bit, 1 kb = 1024 byte, 1mb = 1024kb    
     Type          Size     Range              Format Specifier    Example 
     char	       1 byte	−128 to 127         %c                  char test = 'B';
     short	       2 byte	−32,768 to 32,767                       short a = 10;
@@ -166,12 +165,13 @@ Data Types :-
     unsigned long int	                      %lu
     unsigned long long int	                %llu
 
-  - Cannot declare void type variables
-  - To Check size of variable use sizeof() operator Ex :- sizeof(variableName);
-  - Signed and unsigned are type modifiers :-
-    Signed   - Store both positive and negative number
-    Unsigned - Store only positive number
+ - Cannot declare void type variables
+ - To Check size of variable use sizeof() operator Ex :- sizeof(variableName);
+ - Signed and unsigned are type modifiers :-
+   Signed   - Store both positive and negative number
+   Unsigned - Store only positive number
  
+
 
   Derive Data Type :-
    - Derived from primitive or built-in datatypes are referred to as Derived Data Types
@@ -232,38 +232,38 @@ Input Output(I/O) :-
 
  
 Operator :- 
-  - Operator is symbol that operates on value or variable
+ - Operator is symbol that operates on value or variable
  
-  Arithmetic :- Perform Mathematical operations
-   Ex :- +, -, *, /, %(Reminder), ++, //
+ Arithmetic :- Perform Mathematical operations
+  Ex :- +, -, *, /, %(Reminder), ++, //
 
-  Assignment Operator :- Used for assign value to variable
-   Ex :- =, +=, -=, *=, /=, %= , <<=, >>= , &=, ^= , |=
+ Assignment Operator :- Used for assign value to variable
+  Ex :- =, +=, -=, *=, /=, %= , <<=, >>= , &=, ^= , |=
 
-  Relational Operator :- If relation is true returns 1 otherwise false(0)
-   Ex :- ==, >=, <=, !=, >, <
+ Relational Operator :- If relation is true returns 1 otherwise false(0)
+  Ex :- ==, >=, <=, !=, >, <
 
-  Logical Operator :- Returns either 0 or 1 depending upon whether expression results true or false
-    && - Logical AND return true if both condition is true
-    || - Logical OR return true if any condition is true
-    !  - Logical NOT return true if operand is 0
+ Logical Operator :- Returns either 0 or 1 depending upon whether expression results true or false
+  && - Logical AND return true if both condition is true
+  || - Logical OR return true if any condition is true
+  !  - Logical NOT return true if operand is 0
 
-  BitWise Operator :- Perform bit-level operation
-    &	Bitwise AND         |  |	Bitwise OR   | ^	Bitwise exclusive OR
-    ~	Bitwise complement  |  <<	Shift left   | >>	Shift right
+ BitWise Operator :- Perform bit-level operation
+  &	Bitwise AND         |  |	Bitwise OR   | ^	Bitwise exclusive OR
+  ~	Bitwise complement  |  <<	Shift left   | >>	Shift right
 
-  Comma Operator :- Link related expressions together
-   Ex :- int a, c = 5, d;
+ Comma Operator :- Link related expressions together
+  Ex :- int a, c = 5, d;
 
-  sizeof() Operator :-
-   - Unary operator that return size of data (constants, variables, array, structure, etc.)
-   - Format Specifier %zu is used to print value
+ sizeof() Operator :-
+  - Unary operator that return size of data (constants, variables, array, structure, etc.)
+  - Format Specifier %zu is used to print value
 
-  Unary operator :- Works with single operand 
-   Ex :- ++, -- 
+ Unary operator :- Works with single operand 
+  Ex :- ++, -- 
 
-  Other Operator :-
-   ?: Ternary operator     | &  Reference operator | *  Dereference operator | -> Member selection
+ Other Operator :-
+  ?: Ternary operator     | &  Reference operator | *  Dereference operator | -> Member selection
 
 
 
@@ -292,7 +292,7 @@ Storage Classes :-
 
 
 
-Control Flow :- 
+Control Flow (Condition | Loop | Statement | Switch Case):- 
 
  Condition  :-
   If               :- if(expression){  //True code  }
@@ -326,7 +326,6 @@ Control Flow :-
     statement;  
             
          
-
  Switch Case :-
   - Allow variable to be tested against list of values
   - Expression used in switch statement must have an integral or enumerated type
