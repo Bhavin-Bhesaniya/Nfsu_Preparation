@@ -8,7 +8,6 @@ Lec-2 :- Database Basic Intro
   2)DBMS :- Collection Of different database operations which perform easily on database Ex :- SQL Server, Oracle, MySQL
 
 
-
     
 Lec-3 :- File System vs DBMS
  - File system user When single user of that particular system Store and *-manage data
@@ -21,7 +20,6 @@ Lec-3 :- File System vs DBMS
   - Concurrency (Multiple People Access at same time) 
   - Security(RollBased Access Control)
   - Data Redundancy(Constraint)
-
 
 
 
@@ -38,7 +36,6 @@ Lec-4 :- DBMS Architecture 2 Tier VS 3 Tier
    - Security
    - Scalability
    - No Load Database because business layer ask proper data only 
-
 
 
 
