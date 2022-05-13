@@ -1,23 +1,22 @@
 Overview :-
  - C++ is middle-level language as it comprises combination of both high-level and low-level language features
  - Developed by Bjarne Stroustrup starting in 1979 at Bell Lab
- - Originally named C with Classes but later it was renamed C++ in 1983
+ - Originally named C with Classes but later it was renamed C++ in 1983(Simula 67 | Algol 88)
  - C++ is superset of C, any valid c program is valid in c++
  - C++ fully supports object-oriented programming including four pillars of object-oriented development −
    Encapsulation | Data hiding | Inheritance | Polymorphism
  - Statically typed, compiled, general-purpose, case-sensitive, free-form that supports procedural, object-oriented 
    and generic programming
  - Static typing means type checking is performed during compile-time as opposed to run-time
- - C++ Standard Library giving rich set of functions manipulating files, strings
  - Standard Template Library (STL) giving rich set of method manipulating data structures
- - C++ is portable, compilter compile code can run any OS
+ - C++ is portable, compiler compile code can run any OS
  - .cpp extension,  GNU C/C++ compiler used to compile code
 
 
 
 Basic Syntax | Comment :-
  Ex :-
-  #include <iostream>
+  #include <iostream.h>
   using namespace std;
   int main() { /* main() is where program execution begin */
     cout << "Hello World" << endl; /* prints Hello World */
@@ -29,6 +28,8 @@ Basic Syntax | Comment :-
  - Comment :- /* */ 
  - endl, which insert new-line character after every line
  - << operator used to pass multiple values out to screen
+ - iostream.h means input/output stream
+ - Stream means sequence of bytes
 
 
 
@@ -638,7 +639,6 @@ Input/Output :-
 
 
 
-
 Structure :-
  - Allow to combine different kind of data item
  - Structure are used to represent record
@@ -703,6 +703,8 @@ Classes and Object :-
  
  Class :-
   - Blueprint for object
+  - User-defined datatype that holds its own data member and member function which access by creating instance
+    of that class
   Syntax :-
   class Box {
     public:
@@ -733,14 +735,57 @@ Classes and Object :-
 
 
 Inheritance :-
-
+ - Provide opportunity to reuse code functionality and fast implementation time
+ - Instead of writing new class with similar data members and functions inherit members of existing class
+ - Existing class is called base/super/parent class and new class is referred as derived/Child class
+ - Inheritance implement is-a relationship
+ Syntax :- class derived-class: access-specifier base-class
+ 
+ Access Control :-
+  Access	         public	protected	private
+  Same class	      yes	    yes	      yes
+  Derived classes	  yes	    yes	      no
+  Outside classes	  yes	    no	      no
+ 
+ Type of Inheritance :-
+  Multiple :- class derived-class: access baseA, access baseB
+ 
 
 
 Overloading :-
+ - More than one definition for function name or operator in same scope, called function and operator overloading
+ - Same name declaration but both declarations have different arguments and different definition (implementation)
+ - Process of selecting the most appropriate overloaded function or operator is called overload resolution
+ 
+ Function Overloading :-
+  - Same name different arguments
+  Ex :-
+    void print(int i) {
+      cout << "Printing int: " << i << endl;
+    }
+    void print(double  f) {
+      cout << "Printing float: " << f << endl;
+    }
+    printData pd;  
+    pd.print(5); // Call print to print integer   
+    pd.print(500.263); // Call print to print float
+
+
+ Operator Overloading :-
+  - Overloaded operators are functions with special names : "operator"  keyword and followed by operator symbol
+  Ex :-
+   Box operator+(const Box& b);
+  
+  Not Overloadable :- ::	|  *  |	.	 | ?:
 
 
 
 Polymorphism :-
+ - Polymorphism means having many forms
+ - It occurs when there is hierarchy of classes and they are related by inheritance
+ - Polymorphism means Call to member function will cause different function to be executed depending on type of
+   object that invokes function
+ -   
 
 
 
