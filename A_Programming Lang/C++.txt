@@ -393,6 +393,598 @@ Math Operation :-
   srand/ rand()  - Return pseudo random number
 
 
+
+Array :-
+ - Used to Store collection of same type data in contiguous manner in fixed-size memory
+ - Array elements accessible via its index
+ - lowest address corresponds to first element and highest address to last element
+ - If element is greater than array size ArrayIndexOutOfBoundsException Throw
+ Syntax :- type array_name[arraysize];  // Size must be Integer
  
+ Example :- 
+  int arr[10];                 // One-Dimensional array
+  int arr[3] = {1,2,3};        // Initializing array 
+  arr[2] = 2;                  // Initializing array with specified index
+  int access_arr = arr[1];     // Access array element 
+  
+  int multi_arr[5][10];        // Two-Dimensional array - [Row][Column]
+  int multi_arr[5][10] = {1,2,3,4,5,6,7,8,9,10,11,12,13};
+  int val = multi_arr[2][5];   // Access array element
+  
+  int multi_arr[5][10][4]      // Multi-Dimensional array - [Row][Column][Dimension]
+
+
+ Passing Array as Function Arguments :- 
+  void myFunc(int *param)   |    (int param[10])    |   (int param[])
+
+
+ Return Array From Function :- 
+  int * myFunc()     
+
+ 
+ Pointer to array :-  
+  double *p;           // Declare Pointer  
+  double balance[10];  // Declare array
+  p = balance;         // Pass Array to Pointer
+  //balance is pointer to &balance[0], is the address of first element of array balance
+
+
+
+String :-
+ - String are one-dimensional array of characters terminated by null character '\0'   
+ Types of string representation :-
+  - C-style character string
+  - String class
+ Ex :- 
+  char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+  printf("Greeting message: %s\n", greeting );
+
+ Method :-
+  strcpy(s1,s2) | strcat(s1,s2) | strlen(s1) | strcmp(s1,s2) 
+  strchr(s1,ch) :- Return pointer to first occurrence of character ch in string s1
+  strstr(s1,s2) :- Returns pointer to first occurrence of string s2 in string s1 
+
+
+
+Pointer :-
+ - Every variable has location and every location has its address which accessed using ampersand (&) Operator
+ - Pointer is variable whose value is address of another variable
+ - * asterisk sign used to declare variable as pointer
+ Syntax :- type *variable_name;
+ 
+ Example :- 
+  int var = 10;
+  int *ip; or int *ip = NULL; // Null pointer 0 value
+  ip = &var; 
+  cout << "Value of *ip variable: " << *ip << endl; //10 - Normal ip print address and &var print variable address
+
+ 
+ Pointer Arithmetic :- ++, --, +, - 
+  Example :- 1000 | 1004
+
+ Pointer Comparsion :- >, <, == 
+
+
+ Array of Pointer :- 
+  int *ptr[variable] or int *ptr[10,20,30]
+  ptr[i] = &var[i]
+  *ptr[i] or ptr[i] 
+
+
+ Pointer to Pointer :-
+  - First pointer store address of second pointer and second pointer store address of variable
+  Example :-
+   int var = 30;
+   int *ptr;
+   int **pptr;
+   ptr = &var
+   pptr = &ptr  
+
+
+ Passing Pointer to Function :-
+  getSeconds(&sec);  // Declare function parameter as pointer type
+  void getSeconds(unsigned long *par) {
+    *par = time(NULL); 
+   return;
+  }
+
+  //Function which accept pointer also accept array
+  int balance[5] = {1000, 2, 3, 17, 50};
+  getAverage(balance, 5);
+   
+  double getAverage(int *arr, int size) {
+    int i, sum = 0;       
+    double avg;           
+    for(i = 0; i < size; ++i){sum += arr[i];}
+    avg = (double)sum / size;
+    return avg;
+  }  
+
+ 
+ Return Pointer from function in C :-
+  int * myFunction() {
+  }  
+
+ 
+
+References :-
+ - Reference variable is alias name for an already existing variable
+ - Once reference initialized with variable either variable name or reference name used to refer variable
+ - Used for function argument lists and function return values
+
+ References vs Pointer :-
+  - Reference cannot be null while Pointer be null
+  - Once reference initialized to object, cannot be changed refer to another object 
+  - Pointers can be pointed to another object at any time
+  - Reference must be initialized when it is created while Pointers can be initialized at any time
+ 
+ Syntax :- type& ref_name = ref_variable
+
+ Example :-
+  int i;
+  int& r = i; // Reference variable
+  i = 5;
+  cout << "Value of i : " << i << endl;
+  cout << "Value of i reference : " << r  << endl;
+  Output :-
+  Value of i : 5
+  Value of i reference : 5
+
+
+ Passing Parameter by Reference :-
+  void swap(int& x, int& y);
+  swap(a, b); 
+
+
+ Reference as return value :-
+  double vals[] = {10.1, 12.6, 33.1, 24.1, 50.0};
+  double& setValues(int i) {
+    return vals[i];   // return a reference to the ith element
+  } 
+  setValues(1) = 20.23; // change 2nd element
+
+
+
+Date and Time :-
+ - C++ inherits structs and functions for date and time manipulation from C
+ - To access date and time related functions and structures include <ctime> header file in C++ program
+ Types time-related :- clock_t, time_t, size_t, and tm
+ - Structure type tm hold date and time in the form of C structure
+ Ex :-
+  struct tm {
+    int tm_sec;   // seconds of minutes from 0 to 61
+    int tm_min;   // minutes of hour from 0 to 59
+    int tm_hour;  // hours of day from 0 to 24
+    ...
+  }
+
+ Function :-
+  time() - Return current calendar time of system in number of seconds elapsed since January 1, 1970
+         - If system has no time .1 is returned
+  *ctime() - Return pointer to string in the form of day month year hours:minutes:seconds year\n\0
+  *localtime() - Return pointer to tm structure representing local time
+  clock()   - Return value that approximates amount of time calling program has been running 
+            - Value of .1 is returned if time is not available
+  asctime() - Return pointer to string that contain information stored in structure pointed by time converted into
+              form: day month date hours:minutes:seconds year\n\0                          
+  gmtime() - Return pointer to tm structure representing Coordinated Universal Time (UTC), which is essentially 
+             Greenwich Mean Time (GMT)
+  mktime() - Return calendar-time equivalent of time found in structure pointed by time
+  difftime() - function calculate difference in seconds between time1 and time2
+  strftime() - Used to format date and time in specific format
+
+
+ Ex :-
+  # include <iostream>
+  # include <ctime>
+  using namespace std;
+  int main() {
+    time_t now = time(0);     // current date/time based on current system
+    char* dt = ctime(&now);   // convert now to string form
+    cout << "The local date and time is: " << dt << endl;
+    tm *gmtm = gmtime(&now);  // convert now to tm struct for UTC
+    dt = asctime(gmtm);
+    cout << "The UTC date and time is:"<< dt << endl;
+  }
+  Output :- 
+  The local date and time is : Sat Jan 8 20:07:41 2011
+  The UTC date and time is   : Sun Jan 9 03:07:41 2011 
+
+
+
+Input/Output :-
+ - C++ I/O occurs in streams which are sequences of bytes 
+ - If bytes flow from input device to main memory called input operation and from main memory to display screen called
+   output operation
+
+ I/O Library Header Files :-
+ <iostream> 
+  - Contain cin, cout, cerr and clog objects which correspond to standard input, output, un-buffered error and buffer
+    error stream
+ <iomanip> - Performing formatted I/O with parameterized stream manipulators such as setw and setprecision
+ <fstream> - For user-controlled file processing
+ 
+ Standard Output Stream (cout) :-
+  - Instance of ostream class
+  - cout is used with stream insertion operator which written as <<  
+  - Used to display the output on screen
+  Ex :- 
+   char str[] = "Hello C++";
+   cout << "Value of str is : " << str << endl;
+   Output :- Value of str is : Hello C++
+
+
+ Standard Input Stream (cin) :-
+  - Instance of istream class
+  - cin is used with stream extraction operator which written as >> 
+  - Used to display the output on screen
+  Ex :- 
+   char str[];
+   cout << "Enter Name : " << endl;
+   cin >> str;
+    cout << "Your name is: " << name << endl;
+   Output :- Your name is: cplusplus
+  - cin >> name >> age;  // extraction operator >> may be used more than once in single statement 
+ 
+
+ Standard Error Stream (cerr) | Standard Log Stream (clog) :-
+  - Both Instance of ostream class and unbuffered cerr while buffered clog
+  - Both used with stream insertion operator which written as <<  
+  - Used to display error and log on screen
+  Ex :- 
+   char str[] = "Hello error and log";
+   cerr << "Value of error is : " << str << endl;
+   clog << "Value of log is : " << str << endl;
+
+
+
+
+Structure :-
+ - Allow to combine different kind of data item
+ - Structure are used to represent record
+ - To declare structure struct keyword use
+ - Structure tag is optional and each member definition is normal variable definition, such as int 
+ - Before final semicolon, Specify one or more structure variables but it is optional
+ 
+
+ Defining Structure :-
+  struct [structure name] {
+  member definition;
+  member definition;
+  } [one or more structure variables];  
+ 
+
+ Example :-
+  struct Books {
+   char  title[50];
+   char  author[50];
+   char  subject[100];
+   int   book_id;
+  } book;
+
+
+ Accessing Structure :-
+  - To access structure member use member access operator (.)
+  struct Books Book1;
+  strcpy( Book1.title, "C Programming");
+  cout << "Book 1 title : " << Book1.title << endl;
+
+
+ Structure as Function Argument :-
+  - Pass structure as function argument is the same way pass any other variable or pointer
+  void printBook( struct Books book ){
+    cout << "Book title : " << book.title << endl;
+  }
+
+
+ Pointer to Structure :-
+  struct Books *struct_pointer; 
+  struct_pointer = &Book1;     // Store address of structure variable in above defined pointer variable
+  struct_pointer->title;       // To access members of structure using pointer
+
+  void printBook( struct Books *book ){
+    cout << "Book title : " << book->title <<endl; 
+  }
+
+ typedef :- Give structure alias name
+ Syntax :- 
+  typedef struct {
+    char  title[50];
+  }Books;
+  Books b1, b2;  // Books used as abbreviation for type unsigned char 
+  
+
+
+Classes and Object :-
+ - C++ support object-oriented programming are often called user-defined types
+ - Class used to specify form of object and it combines data representation and methods for manipulating data into
+   one neat package 
+ - Data and function within class are called members of class
+ 
+ Class :-
+  - Blueprint for object
+  Syntax :-
+  class Box {
+    public:
+      double length;          // Member variable
+      double breadth;  
+      double height;   
+      double getVolume(void); // Member Function
+  };
+  - public determine access modifier for class member
+  
+  Class Member Function :-
+   
+
+ Object :-
+  - Class provide blueprints for objects
+  Syntax :- 
+    Box Box1; 
+    Box Box2; 
+  - Each objects Box1 and Box2 will have their own copy of data members   
+
+  Access Member :-
+   - Public data members can directly access by members access operator(.)
+   Ex :-
+    Box1.height = 5.0; 
+    Box1.length = 6.0; 
+    Box1.breadth = 7.0;
+
+
+
+Inheritance :-
+
+
+
+Overloading :-
+
+
+
+Polymorphism :-
+
+
+
+Data Abstraction :-
+
+
+
+Data Encapsulation :-
+
+
+
+Interface(Abstract) class :-
+ - Interface describes behavior or capabilities of class without committing to particular implementation of that class
+ - Interfaces are implemented using abstract classes
+ - Purpose of abstract class to provide appropriate base class from which other class can inherit(Compilation Error)
+ - Abstract classes cannot be used to instantiate objects as it serves only interface
+ - Classes that used instantiate objects are called concrete classes
+ - Class is made abstract by declaring at least one of its functions as pure virtual function 
+ - Pure virtual function is specified by placing "= 0" in its declaration
+ Ex :-
+  class Box {
+    public:
+      virtual double getVolume() = 0; // pure virtual function  
+    private:
+      double length; 
+      double breadth;  
+      double height; 
+  };
+
+
+
+Files and Stream :-
+ - fstream read and write from a file
+ - To perform file processing <iostream> and <fstream> must be included
+ 
+ Different File Manipulation Header :- 
+  ofstream - Represent output file stream and used to create file and write information to files
+  ifstream - Represent input file stream and used to read information from files
+  fstream  - Represent file stream generally has capabilities of both ofstream and ifstream which means it can
+             create files, write information to files and read information from files
+ 
+
+ Opening File :-
+  - open() function which is member of fstream, ifstream and ofstream objects
+  Syntax :- void open(const char *filename, ios::openmode mode);
+  Different Mode :-
+   ios::app - Append mode, All output to that file to be appended to the end
+   ios::ate - Open file for output and move read/write control to end of file
+   ios::in  - Open file for reading
+   ios::out - Open file for writing
+   ios::trunc - If file already exists, its contents will be truncated before opening file
+  
+  Ex :-
+   ofstream outfile;  
+   fstream  afile;
+   outfile.open("file.dat", ios::out | ios::trunc ); // combine two or more of these values by ORing 
+
+
+ Closing file :-
+  - C++ terminates automatically and flushes all streams, release all allocated memory and close all opened files
+  Syntax :- void close();
+
+
+ Writing File :-
+  - Write to file from program using stream insertion operator(<<) just as use that operator to output info to screen
+  - Only difference is that use ofstream or fstream object instead of cout object
+
+ 
+ Reading File :-
+  - Read to file from program using stream extraction operator(>>) just as use that operator to input to screen
+  - Only difference is that use ofstream or fstream object instead of cout object 
+
+
+ File Position Pointer :-
+  - Both istream and ostream provide member functions for repositioning file-position pointer  
+  - These member functions are seekg ("seek get") for istream and seekp ("seek put") for ostream
+
+  fileObject.seekg(n); // position to the nth byte of fileObject (assumes ios::beg)
+  fileObject.seekg(n,ios::cur); // position n bytes forward in fileObject
+  fileObject.seekg(n,ios::end); // position n bytes back from end of fileObject
+  fileObject.seekg(0,ios::end); // position at end of fileObject
+
+
+
+Exception Handling :-
+ - Exception is problem that arises during execution of program
+ - Exceptions provide way to transfer control from one part of program to another
+ - try/catch block is placed around code that might generate exception 
+ - Code within try/catch block referred to as protected code
+ 
+ C++ exception handling is built upon three keyword :- try, catch, and throw
+  try :- 
+   - Identifie block of code for which particular exceptions will be activated 
+   - Followed by one or more catch blocks
+
+  catch :- 
+   - Program catches exception with exception handler at the place in program where you want to handle problem 
+
+  throw :- 
+   - Program throws exception when problem shows up
+
+
+ Syntax :-
+  try {
+    // protected code
+  } catch(ExceptionName e1) {
+     // catch block
+  } catch(ExceptionName n) {
+     // catch block
+  }
+
+ 
+ Throwing Exceptions :-
+  - Exception can be thrown anywhere within code block using throw Statement
+  Ex :- 
+    double division(int a, int b) {
+      if( b == 0 ) {
+        throw "Division by zero condition!";
+      }
+      return (a/b);
+    }
+
+
+ Catching Exceptions :-
+  try {
+    // protected code
+  } catch( ExceptionName e ) | catch(...) //Handle any type exception {
+    // code to handle ExceptionName exception
+  } 
+ 
+
+ C++ Standard Exception :-
+  - Provide list of standard exception defined in <exception>
+  std:exception -  Exception and parent class of all standard C++ exceptions
+
+
+
+Memory Management :- 
+ - Dynamic Memory in your C++ program is divided into two parts :-
+ Stack :- All variables declared inside function will take up memory from stack
+ Heap  :- unused memory of program and used to allocate memory dynamically when program runs
+ - Sometime don't know how many memory required so allocate memory at run time within heap 
+ - Using special operator new which returns address of allocated space
+ - If not need dynamic memory anymore use delete operator, which de-allocate memory that allocated by new operator
+
+ 
+ Syntax :- new data-type;
+  Ex :- 
+  double* pvalue  = NULL; // Pointer initialized with null
+  pvalue  = new double;   // Request memory for variable
+  *pvalue = 29494.99;     // Store value at allocated address
+  cout << "Value of pvalue : " << *pvalue << endl;
+  delete pvalue;          // Release memory pointed to by pvalue 
+  Output :- Value of pvalue : 29495
+ 
+ 
+ Dynamic Allocation For Array :-
+  char* pvalue  = NULL;         // Pointer initialized with null
+  pvalue  = new char[20];       // Request memory for the variable 
+  delete [] pvalue;             // Delete array pointed to by pvalue
+
+
+ Dynamic Memory Allocation for Object :-
+  class Box {
+   public:
+      Box()  { cout << "Constructor called!" <<endl; }
+      ~Box() { cout << "Destructor called!" <<endl;  }
+  };
+  Box* myBoxArray = new Box[4];  // Box is class
+  delete [] myBoxArray;          // Delete array
+ 
+ 
+
+Namespace :-
+ - Namespace is designed to overcome difficulty of same name 
+ - Use additional information to differentiate similar functions, classes, variables etc. with  same name available
+   in different libraries
+ Syntax :- 
+  namespace namespace_name {
+     // code declarations
+  }
+ Call Namespace-enabled function or variable using prepend(::) :-
+  namespace_name::code  // code could be variable or function
+
+
+ Ex :-
+  // first name space
+  namespace first_space {
+  void func() { cout << "Inside first_space" << endl; } }
+
+  // second name space
+  namespace second_space {
+  void func() { cout << "Inside second_space" << endl; } }
+   
+  int main () {
+   first_space::func();  // Calls function from first name space
+   second_space::func(); // Calls function from second name space 
+   return 0;
+  } 
+
+ 
+ Using directive :-
+  - To avoid prepending of namespaces with using namespace directive
+  Syntax :- 
+   using namespace first_space;
+   func(); // Call function from first name space
+  - Also use to add particular method Ex :- using std::cout;  
+
+ 
+ Nested namespace :- 
+  namespace namespace_name1 {
+    // code declarations
+    namespace namespace_name2 {
+      // code declarations
+    }
+  }
+  using namespace namespace_name1::namespace_name2; // Access members of namespace_name2
+  using namespace namespace_name1;                  // Access members of namespace:name1
+
+
+
+Template :-
+ 
+
+
+Preprocessor :-
+
+
+
+Signal Handling :-
+
+
+
+Multi-Threading :-
+
+
+
+Web Programming :-
+ 
+  
+
+ 
+
+ 
+
 
 

@@ -474,6 +474,7 @@ Function :-
 Array :-
  - Used to Store collection of same type data in contiguous manner in fixed-size memory
  - Array elements accessible via its index
+ - lowest address corresponds to first element and highest address to last element
  Syntax :- type array_name[arraysize];  // Size must be Integer
  
  Example :- 
