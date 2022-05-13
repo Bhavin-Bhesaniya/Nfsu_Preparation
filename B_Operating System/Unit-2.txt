@@ -13,27 +13,27 @@ Topic :-
 
 
 Process? Its Creation, Section and Termination :- 
-  Process Creation :-
-   - When user started executing program it become process 
-   - Program is passive entity it resides in secondary memory while procrss is active entity  
-   - Process is dynamic instance of program
-   - Process may have new program or may be duplicate of its parent process(Same code or data)
-   - Each process has unique id which may obtain resources either from operating system directly or from its parent process
-   - Each process has its own address space which contains code, data, stack and heap segments
-   - There are mainly two types of processes :- 1)Independent Process 2)Cooperative process
+ Process Creation :-
+  - When user started executing program it become process 
+  - Program is passive entity resides in secondary memory while procrss is active entity  
+  - It is dynamic instance of program
+  - Process may have new program or may be duplicate of its parent process(Same code or data)
+  - Each process has unique id which obtain resources either from operating system directly or from its parent process
+  - Each process has its own address space which contains code, data, stack and heap segments
+  Types of processes :- 1)Independent Process 2)Co-operative process
 
 
-  Process divided into four section :-
-   Stack : Contain temporary data such as method/function parameters, return address and local variables
-   Heap  : Dynamically memory allocation(Malloc, Calloc, Dalloc) for process during Run Time
-   Data  : Contain global and static variable
-   Text  : Contains executable instructions of program, read-only and shareable
+ Process divided into four section :-
+  Stack : Contain temporary data such as method/function parameters, return address and local variables
+  Heap  : Dynamically memory allocation(Malloc, Calloc, Dalloc) for process during Run Time
+  Data  : Contain global and static variable
+  Text  : Contains executable instructions of program, read-only and shareable
 
 
-  Process termination :- 
-   - Deletation of process or removing process from PCB 
-   - Parent process terminate child process If it exceeded its resource usage or its results is no more needed
-   - Process terminated normally by completing its task or because fatal error or killed by another process or forcefully killed by user
+ Process termination :- 
+  - Deletation of process or removing process from PCB 
+  - Parent process terminate child process If it exceeded its resource usage or its results is no more needed
+  - Process terminated normally by completing its task or because fatal error or killed by another process or forcefully killed by user
 
 
   Root Process     :- Kernal is first process created or say Root process of process tree 
