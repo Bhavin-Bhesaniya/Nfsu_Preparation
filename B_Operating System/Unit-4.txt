@@ -1,6 +1,6 @@
 Deadlock Handling
  
- Topics :- 
+Topics :- 
   - What is Deadlock
   - Resource Allocation Graph(RAG) in Deadlock | Single Instance
   - Handling Deadlock Using Various Methods

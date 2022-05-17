@@ -2,13 +2,13 @@ Disk Scheduling :-
 
 Hard-Disk Architecture :-
  Platter (Circle Shape)  :
-   - Every Platter has two surfaces upper-level and lower-level
-   - On Platter surface there is read-write head which are connected through actuator arm to use fetch and read data
-   - Read-Write head movement either in forward or backward only 
-   - On Platter surface there are tracks 
-   - Every track has fix no. of sectors where we put our data 
-   - To reach data -> Platter -> Surface(Upper/Lower) -> Track ->  Sector -> Data
-   - Every platter has Read-Write head which connect with Actuator Arm to find data
+  - Every Platter has two surfaces upper-level and lower-level
+  - On Platter surface there is read-write head which are connected through actuator arm to use fetch and read data
+  - Read-Write head movement either in forward or backward only 
+  - On Platter surface there are tracks 
+  - Every track has fix no. of sectors where we put our data 
+  - To reach data -> Platter -> Surface(Upper/Lower) -> Track ->  Sector -> Data
+  - Every platter has Read-Write head which connect with Actuator Arm to find data
    Formula DiskSize : P x S x T x S x D
  
  Spindal(Vertical Stick) : Connect Platter to move either in clock-wise or anti-clock-wise undirectional
@@ -28,7 +28,9 @@ Disk Scheduling Algorithm :-
  - To minimize seek time
  - FCFS And SSIF not required direction while SCAN and LOOK Required
  
- FCFS(First Come First Serve) :-
+ 
+
+FCFS(First Come First Serve) :-
   Request Queue : Every disk have request queue whenever user create request for data that data in what particular track stored in memory
                   management after mapping it, whatever track no comes it inserts in queue number  
   - No StarVastion(Request is waiting for its tern to work) in algorithm
@@ -53,7 +55,7 @@ Disk Scheduling Algorithm :-
 
 
 
- SSIF(Shortest Seek Time First) :-
+SSIF(Shortest Seek Time First) :-
   - Least of seek time to reach desired track means nearest of 50(R/W poistion)
   - Gives optimal result(Shortest Seek Time)
   - Response time is average
@@ -82,7 +84,7 @@ Disk Scheduling Algorithm :-
   
 
 
- SCAN :-
+SCAN :-
   - Also known as Elevator algorithm
   - Move in one direction till last point(199) and other direction stop last request point
   - It moves till becaus if dynamically request come
@@ -111,7 +113,7 @@ Disk Scheduling Algorithm :-
 
 
 
- LOOK :- 
+LOOK :- 
   - Not move till direction only last request   
   Find track movement Or Howmany time direction change :-
       (190-16) + (190-50)
@@ -120,7 +122,7 @@ Disk Scheduling Algorithm :-
 
 
 
- CSCAN(Circular Scan) :-
+CSCAN(Circular Scan) :-
   - Move in one direction till last point(199) and other direction stop last request point
   - than move to another direction till last point without fulfill any request(50-fill-199-nofill-0-fill last request)
   Find track movement Or Howmany time direction change :-
@@ -130,7 +132,7 @@ Disk Scheduling Algorithm :-
 
 
 
- CLOOK(Circular LOOK) :-
+CLOOK(Circular LOOK) :-
   - (50 - fill  - last-request(190) - Nofill  - 16(lowest-request) - fill last-request)
   Find track movement Or Howmany time direction change :-
       (190-50)   + (190-16) + (43-16)

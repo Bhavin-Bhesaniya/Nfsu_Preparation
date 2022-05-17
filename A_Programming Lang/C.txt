@@ -39,22 +39,19 @@ Installation :-
 
  
 C Program Structure :- 
- - .c --> .out(Executable Code) --> Output
- Preprocessor Commands    - Tell compiler Include library(stdio.h) file before going to actual compilation
- Functions                - main() function from where program execution begin  
+ - .c --> compiler --> .out(Executable Code) / .exe --> Output
+ Preprocessor Directive :- Tell compiler Include library(stdio.h) file before going to actual compilation
+ Function    - main() function from where program execution begin  
  Variables                  
  Statements & Expression
- Comments
+ Comment
  
-
  
 Token      :- Token is either keyword, identifier, constant, string literal or symbol
-WhiteSpace :- Used in C to describe blanks, tabs, newline characters and comments which ignore by compiler
-
 
 
 Comment :- 
- - Ignored by compiler 
+ - Ignored by compiler
  - Programmer add to make code easier to read and understand
  Type :- 
   //      - Single-line comment  
@@ -62,23 +59,9 @@ Comment :-
 
 
 
-Keyword :-
- - Special meaning for compiler that we can not used as identifier 
- - Must written in lower case
-  
- Keywords in ANSI C :-
-  void     int        char    double  float  short	signed  unsigned  long	
-  if       else       switch  case    break  continue goto
-  for      while      do      return
-  const    enum       extern  default
-  auto	   register	  struct
-  volatile static	    sizeof	typedef union
-   
-
-
 Identifier :-
- - Identifier is name used to identify variable, function or any other user-defined item
- - It is Set of Alphabets, letters and special character
+ - Set of Alphabets, letters and special character
+ - Used to identify variable, function or any other user-defined item 
  
  Types of Identifier :-   
   CharacterSet       - A-Z,a-z 
@@ -86,35 +69,6 @@ Identifier :-
   Special Character  - 31
   WhiteSpace Character - Blank Space, Horizontal Tab, Carriage Return and Form Feed   
 
- Rules :-
-  - First letter either letter or underscore cannot use digit or any special character
-  - You cannot use keyword name as identifier
-  - Name Must be unique 
- 
-
-
-Variable :-
- - Container (storage area) that hold data which identify by its name
- - C is strongly typed language means variable type cannot be changed once it is declared 
- - extern keyword used to declare variable in any place
- - You can declare variable multiple times but defined only once
-
- Ex :- 
-  int intValue = 10; // declare variable with int type
-  intValue = 10.10;  // Wrong cannot change int to float
-  float a,v,c;       // Variablelist with no value
-  int g = 10, n = 20;
-  
- - Expression that refer to memory location are called "lvalue" expression
- - rvalue refers to data value that is stored at some address in memory
-  
- Scope :-
-  - Scope defined variable or function can be accessible or not
-  - Inside function or block called local variable and outside called global variable
-  - Local variable only accessed inside function or block not accessible outside
-  - Global variable access anywhere in program throughout program 
-  - Local variable not initialized by system you must initialize it while global variable initialized automatically
- 
 
 
 Literals :- 
@@ -123,7 +77,6 @@ Literals :-
 
  Integer :-
   - Numeric literal(Number) without any fractional or exponential part
-  - Octal starts with 0 and hexadecimal starts with 0x
     octal       (base 8)  :- 021, 077 
     decimal     (base 10) :- 0, -8, 22
     Hexadecimal (base 16) :- 0x7f, 0x2a
@@ -150,44 +103,66 @@ Literals :-
  void :- Represents absence type
 
 
+  
+Variable :-
+ - Name of memory location which store some data
+ - extern keyword used to declare variable in any place
+ - Declare variable multiple times but defined only once
+ - Expression that refer to memory location are called "lvalue" expression
+ - rvalue refer to data value that stored at particular memory location
+
+ Ex :- 
+  int intValue = 10; // declare variable with int type
+  intValue = 10.10;  // Wrong cannot change int to float
+  float a,v,c;       // Variablelist with no value
+  int g = 10, n = 20;
+  
+ Rules :-
+  - First letter either alphabet or underscore cannot use digit or any special character
+  - Cannot use keyword
+  - no comma/blank space
+  - Name Must be unique
+  - Case-sensitive 
+  - No special character use other than _(Underscore)
+
+ Scope :-
+  - Scope defined variable or function can be accessible or not
+  - Inside function or block variable called local variable while outside called global variable
+  - Local variable only accessed inside function or block not accessible outside
+  - Global variable access anywhere in program throughout program 
+  - Local variable not initialized by system you must initialize it while global variable initialized automatically
+ 
+
 
 Data Types :-
- - Determine type and size of data associated with variables
- - Type of data type determine how much space is occupies in storage
+ - Determine type and size of variables data stored in memory
+ - To Check size of variable use sizeof() operator Ex :- sizeof(variableName);
+ - String and boolean not exist
   
  Built-in :- 1 byte = 8 bit, 1 kb = 1024 byte, 1mb = 1024kb    
   Type          Size     Range              Format Specifier    Example 
   char	       1 byte	−128 to 127         %c                  char test = 'B';
   short	       2 byte	−32,768 to 32,767                       short a = 10;
-  int	         4 byte	−32,768 to 32,767   %d, %i              int id  = 0;            |  -5, 10;
+  int	         2 byte	−32,768 to 32,767   %d, %i              int id  = 0;            |  -5, 10;
   float	       4 byte                     %f                  float no = 22.442e2;    
   double	     8 byte                     %lf                 double no = 22.442e2;
-  long int     8 byte                     %ld, %li            long a;
-  long double	 16 byte                    %Lf                 long double d;
+  long int     4 byte                     %ld, %li            long a;
+  long double	 10 byte                    %Lf                 long double d;
   unsigned int  4 byte	0 to 65,535       %u                  unsigned int x = 35;
-  short int	                              %hd
-  unsigned int	                          %u
-  long int	                              %li
-  long long int	                          %lli
-  unsigned long int	                      %lu
-  unsigned long long int	                %llu
+  
+  short int - %hd | unsigned int  - %u  
+  long int  - %li | long long int - %lli
+  unsigned long int	- %lu
 
- - Cannot declare void type variables
- - To Check size of variable use sizeof() operator Ex :- sizeof(variableName);
  Types of modifier :-
   Signed   - Store both positive and negative number
   Unsigned - Store only positive number
- 
 
- Derive Data Type :-
-  - Derived from primitive or built-in datatypes are referred to as Derived Data Types
+ Derive Data Type :- Derived from primitive or built-in datatype referred as Derived Data Types
   Types :- Function, Arrays, Pointers, Reference
 
-
- User-Defined Data Types :-
-  - Defined by user are called user-defined data types
-  Types :- Class, Structure, Union, Enumeration, Typedef    
-
+ User-Defined Data Types :- Defined by user are called user-defined data types
+  Types :- Structure, Union, Enumeration, Typedef    
 
  Type Casting :-
   - Convert variable from one data type to another data type
@@ -199,6 +174,57 @@ Data Types :-
     double mean;
     mean = (double) sum / count;
     printf("Value of mean : %f\n", mean );
+
+
+
+Keyword :-
+ - Special meaning for compiler that we can not used as identifier 
+ - Must written in lower case
+ - 32 keyword in C
+  
+ Keywords in ANSI C :-
+  void     int        char    double  float  short	signed  unsigned  long	
+  if       else       switch  case    break  continue goto
+  for      while      do      return
+  const    enum       extern  default
+  auto	   register	  struct
+  volatile static	    sizeof	typedef union
+   
+
+
+Operator :- 
+ - Operator is symbol that operates on value or variable
+ 
+ Arithmetic :- Perform Mathematical operation
+  Ex :- +, -, *, /, %(Reminder), ++, //
+
+ Assignment Operator :- Used for assign value to variable
+  Ex :- =, +=, -=, *=, /=, %= , <<=, >>= , &=, ^= , |=
+
+ Relational Operator :- If relation is true return 1 otherwise false(0)
+  Ex :- ==, >=, <=, !=, >, <
+
+ Logical Operator :- Return either 0 or 1 depending upon whether expression results true or false
+  && - Logical AND return true if both condition is true
+  || - Logical OR return true if any condition is true
+  !  - Logical NOT return true if operand is 0
+
+ BitWise Operator :- Perform bit-level operation
+  &	Bitwise AND         |  |	Bitwise OR   | ^	Bitwise exclusive OR
+  ~	Bitwise complement  |  <<	Shift left   | >>	Shift right
+
+ Comma Operator :- Link related expressions together
+  Ex :- int a, c = 5, d;
+
+ sizeof() Operator :-
+  - Unary operator that return size of data (constant, variables, array, structure, etc.)
+  - Format Specifier %zu is used to print value
+
+ Unary operator :- Works with single operand 
+  Ex :- ++, -- 
+
+ Other Operator :-
+  ?: Ternary operator     | &  Reference operator | *  Dereference operator | -> Member selection
 
 
 
@@ -290,71 +316,6 @@ Input / Output(I/O) :-
   Output :-
     Enter a value : seven 7
     You entered: seven 7
-
-
- 
-Operator :- 
- - Operator is symbol that operates on value or variable
- 
- Arithmetic :- Perform Mathematical operation
-  Ex :- +, -, *, /, %(Reminder), ++, //
-
- Assignment Operator :- Used for assign value to variable
-  Ex :- =, +=, -=, *=, /=, %= , <<=, >>= , &=, ^= , |=
-
- Relational Operator :- If relation is true return 1 otherwise false(0)
-  Ex :- ==, >=, <=, !=, >, <
-
- Logical Operator :- Return either 0 or 1 depending upon whether expression results true or false
-  && - Logical AND return true if both condition is true
-  || - Logical OR return true if any condition is true
-  !  - Logical NOT return true if operand is 0
-
- BitWise Operator :- Perform bit-level operation
-  &	Bitwise AND         |  |	Bitwise OR   | ^	Bitwise exclusive OR
-  ~	Bitwise complement  |  <<	Shift left   | >>	Shift right
-
- Comma Operator :- Link related expressions together
-  Ex :- int a, c = 5, d;
-
- sizeof() Operator :-
-  - Unary operator that return size of data (constant, variables, array, structure, etc.)
-  - Format Specifier %zu is used to print value
-
- Unary operator :- Works with single operand 
-  Ex :- ++, -- 
-
- Other Operator :-
-  ?: Ternary operator     | &  Reference operator | *  Dereference operator | -> Member selection
-
-
-
-Storage Classes :-
- - Define visibility(scope) and life-time of variable and function within Program
- Types :- auto, register, static, extern
-
- auto :- 
-  - Default storage class for all variable
-  Ex :- auto into st;
-   
-
- register :- 
-  - Declare local variables that stored in register instead of RAM for quick access
-  - Variable maximum size equal to register size (Usually one word)
-  - Can't applied unary '&' operator on it
-  - It Does not mean that register variable stored in register it depend on hardware implementation
-  Ex :- register int miles;
-
-
- static :-
-  - Initialized only once and destroyed when program completed its execution
-  - Compiler keep variables till the end of program
-  - Default value is 0
-  - When static used in global variable it one copy to be shared all objects of that class
-  Ex :-  static int b = 8;
-
-
- extern :- Used to declare global variable or function in another file
 
 
 
@@ -656,6 +617,32 @@ Union :-
   printf( "data.i : %d\n", data.i);
 
  
+
+Storage Classes :-
+ - Define visibility(scope) and life-time of variable and function within Program
+ Types :- auto, register, static, extern
+
+ auto :- 
+  - Default storage class for all variable
+  Ex :- auto into st;
+   
+ register :- 
+  - Declare local variables that stored in register instead of RAM for quick access
+  - Variable maximum size equal to register size (Usually one word)
+  - Can't applied unary '&' operator on it
+  - It Does not mean that register variable stored in register it depend on hardware implementation
+  Ex :- register int miles;
+
+ static :-
+  - Initialized only once and destroyed when program completed its execution
+  - Compiler keep variables till the end of program
+  - Default value is 0
+  - When static used in global variable it one copy to be shared all objects of that class
+  Ex :-  static int b = 8;
+
+ extern :- Used to declare global variable or function in another file
+
+
 
 Bit Field :-
 

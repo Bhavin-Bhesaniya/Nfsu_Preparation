@@ -1,6 +1,6 @@
 File System :-
  
- Intro to file system :-
+Intro to file system :-
    OS       File System
    Windows  NTFS
    DOS      FAT
@@ -14,7 +14,7 @@ File System :-
 
 
 
- File Attributes & Operations :-
+File Attributes & Operations :-
   Operations :- 
    Creating       -
    Reading        -
@@ -35,7 +35,7 @@ File System :-
 
 
 
- File Allocation Method :-
+File Allocation Method :-
   - Achieveing Efficient Disk Utilization  
   - Access data should be faster
 
@@ -94,7 +94,7 @@ File System :-
 
 
 
- Unix inode Structure :-
+Unix inode Structure :-
   -         
   Diagram :- Inode (Hybrid Approach) 
       Attributes      -> Store Metadata

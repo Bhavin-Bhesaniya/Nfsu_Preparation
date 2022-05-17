@@ -1,92 +1,96 @@
 Process Synchronization
- Topics :- 
-  - Process Synchronization
-  - Race Condition
-  - Producer Consumer Problem(Bounded Buffer Problem)
-  - Printer- Spooler Problem
-  - Critical Section Problem
-  - Condition For Synchronization
-  - Lock Variable/ Test_and_Set
-  - Turn Variable (Strict Alteration)
-  - SemaPhores
+Topic :- 
+ - Process Synchronization
+ - Race Condition
+ - Producer Consumer Problem(Bounded Buffer Problem)
+ - Printer- Spooler Problem
+ - Critical Section Problem
+ - Condition For Synchronization
+ - Lock Variable/ Test_and_Set
+ - Turn Variable (Strict Alteration)
+ - SemaPhores
 
 
 
- What is Process Synchronization :-
-  - Process Synchronization was introduced to handle Cooperative process problems
-    Process Mode :-
-     Serial   - Single process is executed completely like Non pre-emptive
-     Parallel - Multiple processes are executed
+What is Process Synchronization :-
+ - Process Synchronization was introduced to handle Cooperative process problem
+ Process Mode :-
+  Serial   - Single process is executed completely like Non pre-emptive
+  Parallel - Multiple processes are executed
     
-    Process Types :- Cooperative, Independent
-     Cooperative :- Type of process where one process execution affect other process execution because their share something
-                    like variable, memory(Buffer), code and in resource CPU, Printer etc.. 
-     Independent :- One process execution does not affect other process execution they not share anything 
+ Process Types :- Cooperative, Independent
+  Cooperative :- One process execution affect other process execution because their share something
+                 like variable, memory(Buffer), code and in resource CPU, Printer etc.. 
+  Independent :- One process execution does not affect other process execution they not share anything 
   
 
 
- Race condition :- 
-  - Several processes Access and Manipulate same data concurrently and outcome of execution depending on particular order in 
-    which accesses take place
-  - Due to these lost of data, Deadlock and many problems occure
-    
-  Example :- P1 and P2 process running on same system --> Constraint :- UniProcessor
-  
-    int shared = 5;
+
+Race condition :- 
+ - Several processes Access and Manipulate same data concurrently and outcome of execution depending on particular
+   order of access
+ - Processes doing race to say that my output is correct this condition known as race condition
+ - When more than one processes access same code segment that segment is known as critical section 
+ - Critical section contain shared variables or resources which are needed to be synchronized to maintain 
+   consistency of data variable
+ - Race condition occur inside critical section
+ - It can be avoided if critical section is treated as atomic instruction and proper thread synchronization use
+   lock or atomic variables
+ - Due to these lost of data, Deadlock and many problem occure   
+ 
+ Example :- P1 and P2 process running on same system --> Constraint :- UniProcessor
+  int shared = 5;
       P1                   P2
-    int X=Shard;       int Y= Shard;
-    X++;               Y--;
-    Sleep(1);          Sleep(1);      // Sleep means pause process not cpu so cpu move using Context Switch
-    Shared = X;        Shared = Y;
-    ANS :- 6           4
-    - If add one and remove one answer should be 5 but here 4 receive due to Cooperative process   
-    - These problem know as race condition
+  int X=Shard;       int Y=Shard;
+  X++;               Y--;
+  Sleep(1);          Sleep(1);      // Sleep means pause process not cpu so cpu switch using Context Switch
+  Shared = X;        Shared = Y;
+  ANS :- 6           4
+ - If add one and remove one value answer should be 5 but here 4 receive due to Co-operative process   
+ 
 
 
 
- Producer Consumer Problem (Bounded Buffer Problem):-
-  - Multi-Processor Problem   
-  Example :-
-    Producer Code :-                                                               Consumer Code :-                                               
-    int count = 0;  // Global variable Share in both      
-    void producer(void){                                                           void consumer(void){ 
-      int itemp;                                                                        int itemc;
-      while(true){                                                                      while(true){
-        roduce_item(itemp);                                                               while(count==0)     // Buffer empty go to infinite loop
-        while(count == n);    // Buffer overflow so we not add any extra item             item c = Buffer(Out);                                 
-        Buffer[in] = itemp;                                                               out = (out+1) mod n;  // Out local variable for buffer
-        in = (in+1) mod n;      //In is local variable for buffer                         count = count - 1;
-        count = count - 1; }}                                                             process_item(itemc);  }}
+Producer Consumer Problem (Bounded Buffer Problem):-
+ - Multi-Processor Problem   
+ Producer Code :-                                              Consumer Code :-                                               
+  int count = 0;  // Global variable Share in both      
+  void producer(void){                                       void consumer(void){ 
+   int itemp;                                                  int itemc;
+   while(true){                                                while(true){
+    roduce_item(itemp);                                          while(count==0)     // Buffer empty go infinite loop
+    while(count == n);  // Buffer overflow | not add extra item    item c = Buffer(Out);                                 
+    Buffer[in] = itemp;                                            out = (out+1) mod n;  // Out local variable for buffer
+    in = (in+1) mod n;  //In is local variable for buffer          count = count - 1;
+    count = count - 1; }}                                          process_item(itemc);  }}
 
-    Buffer :- n = 8 | Buffer[0...n-1] |   
-    
-    
-    // N is size of buffer if true  Buffer Overflow so we not add any extra item
-    // modn is used to repoisition from last to zero poistion if full
+  Buffer :- n = 8 | Buffer[0...n-1] |      
+  // N is size of buffer if true Buffer Overflow so we not add any extra item
+  // modn is used to repoisition from last to zero poistion if full
 
+ Case 1 :- 
+  Producer produce item --> x1 store In buffer using In variable than In value +1  --> count value 1   
+  --> consumer code run --> Consumer consume product in buffer --> out variable +1 --> count value -1 
 
-  Case 1 :- 
-    Producer produce item --> x1 store In buffer using In variable than In value +1  --> count value 1   
-    --> consumer code run --> Consumer consume product in buffer --> out variable +1 --> count value -1 
-
-    How Cpu load process :- 
-      Convert in microinstruction
-      load Rp, m[Count]   // Load count value from memory and load in register
-      INCREMENT Rp;       | Decrement Rp(Consumer) 
-      Store m[Count], Rp;
+  How Cpu load process :- 
+   Convert in microinstruction
+   load Rp, m[Count]   // Load count value from memory and load in register
+   INCREMENT Rp;       | Decrement Rp(Consumer) 
+   Store m[Count], Rp;
 
     
-  Case 2 :- If process not synchronization
-    --> Producer produce 3 items x1, x2, x3 so Count = 3, In = 4, Out = 0
-    --> Producer code run again but these time at count value store in memory process pre-emptive 
-        and go to consumer process so Pcb store process with Count = 3, Rp = 4, Out = 1 
-    --> Consumer consume product and decrement count but at time process pre-emptive and Count = 2 
-        Processs Instruction Flow => i1,i2 -> ci1,ci2 -> i3(Count = 4) -> c3 (Count = 2)    
-    --> In consumer process run count = 2 but in buffer item = 3 ans we get ans = 2 
+ Case 2 :- If process not synchronization
+  --> Producer produce 3 items x1, x2, x3 so Count = 3, In = 4, Out = 0
+  --> Producer code run again but these time at count value store in memory process pre-emptive 
+      and go to consumer process so Pcb store process with Count = 3, Rp = 4, Out = 1 
+  --> Consumer consume product and decrement count but at time process pre-emptive and Count = 2 
+      Processs Instruction Flow => i1,i2 -> ci1,ci2 -> i3(Count = 4) -> c3 (Count = 2)    
+  --> In consumer process run count = 2 but in buffer item = 3 ans we get ans = 2 
 
 
 
- Printer-Spooler Problem :-
+
+Printer-Spooler Problem :-
    - One printer in network different user use to print where printer is pheripheral device so it is very slower
    - Spooler is program when multiple user print document it goes into spooler diretory and then spooler give one by one to printer sequentially
    
@@ -108,44 +112,57 @@ Process Synchronization
 
 
 
- Critical Section Problem :-
-  - Part of program where shared resources are accessed by various processes(Co-operative)
-  - Program has two part :- 
-      Critical section  :- 
-       - Enforcing due to two program use different operation on shared variables or resources
-       To avoid :-
-        - Entry Section before using critical section                       
-        - One Program in Critical Section Other Program Cannot enter in Critical Section
-        - Exit Section After critical section execution
+
+Critical Section Problem :-
+ - Part of program where shared resources are accessed by various processes(Co-operative)
+ - When more than one processes access same code segment that segment is known as critical section 
+ - Contain shared variables or resources which needed to be synchronized to maintain consistency of data variable
  
-      Non-critical section :- 
-       - Code section that has no common resource
-
+ 
+ Program has two part :- 
+  Critical section  :- 
+   - Enforcing due to two program use different operation on shared variables or resources
+   To avoid :-
+    - Entry Section before using critical section                       
+    - One Program in Critical Section Other Program Cannot enter in Critical Section
+    - Exit Section After critical section execution
+ 
+   Simple Critical Section Solution :-
+    acquireLock();
+    Process Critical Section  
+    releaseLock();
   
+  Non-critical section :- 
+   - Code section that not have common resource
 
- Condition For Synchronization :-
-   - Method need to pass these 4 rules where First two Rules are primary rules must need to follow and 3,4 is secondary rules 
+
+
+
+Synchronization Condition :-
+ - Method need to pass these 4 rules where First two Rules are primary rules must need to follow and 3,4 is 
+   secondary rule
    
-  Mutual Exclusion :-
-   - If one process execute critical section we need to stop second process to execute critical section by using Entry Code section
-   - Allow only one process to execute critical section if we achieve its called Mutual Exclusion
+ Mutual Exclusion :-
+  - If One process execute critical section stop second process to execute critical section by using EntryCode section
+  - Allow one process to execute critical section called Mutual Exclusion
 
-  Progress :-
-   - If one process is interested to execute critical section but second process is not interested and not allow 
-     first process to execute critical section because second process entry section is not allowing for that so progress is stopped
-   - One process not stoping another process to execute critical section
-   - Progress must in synchronization    
+ Progress :-
+  - If one process is interested to execute critical section but second process is not interested
+  - Second process not allow first process to execute critical section because second process entry section is not
+    allowing for that so progress is stopped
+  - One process not stoping another process to execute critical section so Progress must be synchronization    
 
-  Bounded Wait :-
-   - It must be condition if one process N time execute there must be second process used critical section N time which we given   
+ Bounded Wait :-
+  - If one process N time execute there must be second process used critical section N time which we given   
    
-  No Assumption related to hardware or speed :-
-   - If we given any solution related process synchronization it not be related to hardware or speed of process
-   - It must be portable for all OS
-     
+ No Assumption related to hardware or speed :-
+  - If any solution related process synchronization it not be dependent(related) to hardware or speed of process
+  - Must be portable for all OS
+   
 
 
- Lock Variable :- 
+
+Lock Variable :- 
   - To avoid Critical Problem
   - Execute in User Mode, Multi-Processor Solution, No Mutual Exclusion Gurantee 
   - Main concept is if any one use critical section Acquire lock, process complete work and release lock
@@ -164,7 +181,7 @@ Process Synchronization
     
 
 
- Test_and_Set :- 
+Test_and_Set :- 
   - To achieve Mutual Exclusion 
   - Combine instruction 1 and 2 and make test_and_set instructions so it avoid pre-emptive between i1 and i2
     
@@ -184,7 +201,7 @@ Process Synchronization
 
 
 
- Turn Variable (Strict Alteration):-   
+Turn Variable (Strict Alteration):-   
   - Only work on 2 Process 
   - Run in USER Mode and achieve mutual exclusion, bound wait and No assumption but Not achieve progress
 
@@ -197,7 +214,8 @@ Process Synchronization
     Flow ==> P1 i1 run -> P2 i1 infinite -> P1 i2,i3 turn = 1 -> p2 i1 false, i2,i3 turn = 0
 
 
- SemaPhores :-
+
+SemaPhores :-
   - SemaPhore it is integer variable which is used in mutual exclusive manner by various concurrent coperative process
     in order to achieve process synchronization
    
@@ -294,3 +312,8 @@ Process Synchronization
   Question Solution :- Producer Consumer Problem Using SemaPhore    
   Question Solution :- Reader Writer Problem Using SemaPhore
   Question Solution :- Dining philosopher Problem Using SemaPhore
+
+
+
+Peterson Solution :-
+ - 
