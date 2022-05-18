@@ -1,14 +1,14 @@
 Introduction to Operating System :- Glavin
 
 Topics :-
-  - What is OS
-  - OS Duties | Function | Services | Features
-  - What is Kernel? Different OS Structure Type & Kernel Architecture? 
-  - Types Of OS 
-  - Spooling
-  - System Call 
-  - What is Booting & What happens when we turn on computer? BIOS VS UEFI | MBR vs GPT 
-  - RAM Vs ROM
+ - What is OS
+ - OS Duties | Function | Services | Features
+ - What is Kernel? Different OS Structure Type & Kernel Architecture? 
+ - Types Of OS 
+ - Spooling
+ - System Call 
+ - What is Booting & What happens when we turn on computer? BIOS VS UEFI | MBR vs GPT 
+ - RAM Vs ROM
   
 
 
@@ -35,6 +35,7 @@ What is OS?
    Second	    1955-65	      Transistors	              Batch System
    Third	    1965-80	      Integrated Circuits(IC)	 Multiprogramming
    Fourth	    Since 1980	  Large Scale Integration	PC
+
 
 
 
@@ -88,18 +89,22 @@ What is Kernel? Different OS Structure Type & Kernel Architecture :-
  - Shell is interface that helps to access kernel core features
  Type of Shell :- Command-line | Batch(Command Collection) | GUI
 
+
  Objectives of Kernel :
   - Establish communication between user level application and hardware
   - Decide state of incoming processes
   - Control disk management, memory management, task management
  
 
+
  Monolithic Architecture :-   
   - Entire OS working in kernel space so execution is fast and process run completely in single address space
   - It is static single binary file
-  - Kernel provides various services using system calls
-  - If single service fails its lead to entire system failure and to add new services entire architecture needs to modify
+  - Kernel provide various services using system calls
+  - If single service fail entire system failure
+  - To Add new services entire architecture needs to modify
   Example :- MS DOS, Unix, Linux, Open VMS, XTS-400
+
 
 
  Layered Architecture :-
@@ -110,21 +115,24 @@ What is Kernel? Different OS Structure Type & Kernel Architecture :-
   - Layer 1 to 6:- Hardware, CPU Scheduling, Memory Management, Process Management, I/O Buffer, User Program
   Example :- Windows NT
 
+
     
  Microkernel Architecture :-  
-  - Kernel is broken down into separate processes, known as servers
-  - Some servers run in kernel space and other in user-space
-  - Servers invoke "services" from each other by sending messages via IPC 
-  - If one server fails, other servers can still work efficiently. 
+  - Kernel is broken down into separate processes, known as services
+  - Some services run in kernel space and other in user-space
+  - Services invoke each other by sending messages via IPC 
+  - If one service fails, other still work efficiently
   - New services added in user space and does not require kernel to be modified which increased security and stability
-  - All kernel components live in a common shared address space Therefore no protection between OS and drivers 
-  Example :- MacOS, Windows NT, Mach, L4, AmigaOS, Minix, K42
+  - All kernel components live in common shared address space Therefore no protection between OS and drivers 
+  Example :- MacOS, Windows-NT, Mach, L4, AmigaOS, Minix, K42
+
 
 
  Modular Architecture :-
   - System parts allocated as independent files called modules which added to system at run time
-  - Requires small amount of time for load modules
+  - Require small amount of time for load modules
   
+
 
  Hybrid Kernel :-
   - Combination of both monolithic and mircrokernel 
@@ -137,6 +145,7 @@ What is Kernel? Different OS Structure Type & Kernel Architecture :-
 System Call :-
  - To use system functionality we need to go in kernel mode because we only can access user mode
  - System call is mechanism using which user program request kernel to access all system functionalities 
+
 
  Dual-mode operation :-
   - User mode 
@@ -151,29 +160,26 @@ System Call :-
     Kernel Mode                                 Execute System Call                 Mode Bit = 0 
 
 
- Type of System Call :- 
-  E.x. :- Fork, exec, getpid, getppid, wait, exit
-  File                        :- Open, read, write, close, create file
-  Device                      :- Read, write, Repoisition, 
-                                iocte(manipulates underlying device parameter of special files) 
-                                fcnte (access point for several advanced operations on file descriptors)
-  Security                    :- chmod(Chagen Privilege Mode), umask
-  Process Control             :- load, abort, execute, fork, wait, signal, allocate
-  Information                 :- getpid, attribute, get system data
-  Inter-Process Communication :- Pipe, shmget(Get Shared Memory), create/delete connection
+
+ Type of System Call :- Fork, exec, getpid, getppid, wait, exit
+  File    :- Open, read, write, close, create file
+  Device  :- Read, write, Repoisition, iocte(Manipulate special files), fcnte (access point fo advanced file operation)
+  IPC     :- Pipe, shmget(Get Shared Memory), create/delete connection
+  Security        :- chmod(Chagen Privilege Mode), umask
+  Information     :- getpid, attribute, get system data
+  Process Control :- load, abort, execute, fork, wait, signal, allocate
   
   Fork :-
-   - In UNIX Fork() Create child process of parent process
-   - Returns process ID which is generally process id of child process
-   - Return value 0 :- Child process , 1 :- Parent process, -1 : if child process not created
-   - Formula :- 2N-1 (Parent process) | 2N (Child process)
+   - Create child process of parent process
+   - Return process ID generally process id of child process
+   - Return value 0 :- Child process, 1 :- Parent process, -1 : if child process not created
+   Formula :- 2N-1 (Parent process) | 2N (Child process)
 
-  Exec :- exec replace current process with another (different) one
+  Exec :- Replace current process with another (different) process
 
   Wait :-
    - Used by parent process to determine termination of child process
-   - Parent process uses Wait() system call and gets exit status of child process as well as PID of child process 
-     which is terminated 
+   - get exit status of child process as well as PID of child process which is terminated 
  
 
 
@@ -275,22 +281,22 @@ Types of OS :–
 
 
 
-Spooling(Simultaneous Peripheral Operations Online) :- 
+Spooling(Simultaneous Peripheral Operation Online) :- 
  - Different Pheripheral devices(I/O Device) can run simultaneously 
  - Provide buffer area in secondary memory to save CPU time and user not need to wait for I/O process
 
 
 
 
-What is Booting & What happens when we turn on computer? BIOS VS UEFI | MBR vs GPT :-  
- - Process of loading OS 
+What is Booting & What happens when we turn on computer? :-  
+ - Booting is Process of loading OS 
  - When computer power is turned on, cpu move to BIOS which stored in EPROM to perform start-up procedure
  - BIOS run POST(power-on self test) process which check all hardware if any error beeps are hered which known as 
    POST beep codes
  - BIOSes following ACPI(Advanced Configuration and Power Interface) create tables that describing devices and manage
    power in computer 
  - On POST process successful BIOS load MBR(Master Boot Record) to RAM
- - MBR load bootstrap loader which load OS, Kernel and much more in RAM
+ - MBR load boot-loader which load OS, Kernel and much more in RAM
  - init is last step of kernel boot sequence which decied inital state of OS
  - In Linux its called GRUB(GRand Unified Bootloader) OR LLIO(Linux Loader-default)
   
@@ -299,33 +305,40 @@ What is Booting & What happens when we turn on computer? BIOS VS UEFI | MBR vs G
   Soft Booting - Restart / Ctrl + Alt + Del twice
 
 
- BIOS VS UEFI :-
-  - Both boot pc before booting OS but UEFI is modern solution
-  - CMOS(Complementary Metal-Oxide-Semiconductor) used for battery-backed memory where BIOS stores various setting on
-    motherboard which replaced with flash memory (also referred to as EEPROM)
-  - MS-DOS PCs released in 1980s had BIOS
-  - BIOS has limited functionality like boot upto 2.1 TB, run in 16bit processor mode and 1 MB of space to execute
-  - In 2007 PC Manufacturer agreed for UEFI 
-  - UEFI Firmware can boot drive 2.2 TB Or larger and use GPT Partition Scheme
-  - UEFI can run in 32-bit or 64-bit processor mode and has more address space to execute
-    
-
- MBR VS GPT(GUID Partition Table) :-
-  - Partition structure define how information is structured on partition and used during startup if partition bootable
-  - GPT is newer standard with many advantages while MBR for compatibility 
-  - MBR introduced by IBM in 1983 which located in beginning of drive that contain bootloader for installed OS
-  - If linux OS than GRUB Bootloader located in MBR
-  - MBR works with upto 2TB and supports upto 4 primary partitions
-  - GPT associated with UEFI and GUID Partition Table provide every partition ondrive has globally unique identifier
-  - GPT allow upto 128 partition and store multiple copices of bootloader
-  - GPT Provide cyclic redundancy check(CRC) to check data is corrupted or not to recover data
 
 
- NTFS VS ETL VS FAT32 VS exFAT :-
-  - NTFS(New Technology File System) use with windows by default
-  - EFL(Extensible Firmware Interface) usually harddisk drive or solid-state drive that used by computer having UEFI 
-  - FAT(File Allocation Table 32) 
-  - exFAT(Extended File Allocation Table)
+BIOS VS UEFI Firmware :-
+ - Both boot pc before booting OS but UEFI is modern solution
+ - CMOS(Complementary Metal-Oxide-Semiconductor) used for battery-backed memory where BIOS stores various setting on
+   motherboard which replaced with flash memory (also referred to as EEPROM)
+ - MS-DOS PCs released in 1980s had BIOS
+ - BIOS has limited functionality like boot upto 2.1 TB, run in 16-bit processor mode and 1 MB of space to execute
+ - In 2007 PC Manufacturer agreed for UEFI 
+ - UEFI Firmware can boot drive 2.2 TB Or larger and use GPT Partition Scheme
+ - UEFI can run in 32-bit or 64-bit processor mode and has more address space to execute
+
+
+
+
+MBR VS GPT(GUID Partition Table) :-
+ - Partition structure define how information is structured on partition and used during startup if partition bootable
+ - GPT is newer standard with many advantages while MBR for compatibility 
+ - MBR introduced by IBM in 1983 which located in beginning of drive that contain bootloader for installed OS
+ - If linux OS than GRUB Bootloader located in MBR
+ - MBR works with upto 2TB and supports upto 4 primary partitions
+ - GPT associated with UEFI and GUID Partition Table provide every partition ondrive has globally unique identifier
+ - GPT allow upto 128 partition and store multiple copices of bootloader
+ - GPT Provide cyclic redundancy check(CRC) to check data is corrupted or not to recover data
+
+
+
+
+NTFS VS ETL VS FAT32 VS exFAT :-
+ - NTFS(New Technology File System) use with windows by default
+ - EFL(Extensible Firmware Interface) usually hard-disk drive or solid-state drive that used by computer having UEFI 
+ - FAT(File Allocation Table 32) 
+ - exFAT(Extended File Allocation Table)
+
 
 
 
@@ -346,4 +359,15 @@ RAM(Random Access Memory) Vs ROM (Read-Only Memory):-
    PROM   :- Programmable ROM type of ROM is written or programmed only once
    EPROM  :- Erasable Programmable ROM reprogrammable using ultraviolet light
    EEPROM :- Electrically Erasable Programmable ROM using electric charge(Flash Memory) 
-   MASKROM :- Content programmed only by integrated circuit manufacturer 
+   MASKROM :- Content programmed only by integrated circuit manufacturer   
+
+
+
+32-bit and 64-bit Processor :-
+ - 32-bit and 64-bit processors tell us how much memory processor can access from CPU register
+ - CPU register stores memory addresses that tells how processor accesses data from RAM 
+ - One bit in register can reference individual byte in memory so 32-bit system can address maximum of 4 GB 
+   (4,294,967,296 bytes) of RAM
+ - Actual limit around 3.5 GB since part of register used to store other temporary values besides memory addresses
+ - Main difference is number of calculations per second perform
+
