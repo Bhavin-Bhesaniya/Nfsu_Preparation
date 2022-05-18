@@ -1,39 +1,42 @@
-Intor to Physical Layer :-
-
+Intro to Physical Layer :-
  - Last layer from sender side and top layer in receiver side
- - Physical Layer provide functionality to data-link layer
- - When all bits finally come from data-link layer, physical-layer needs to send it using transmission media like guided-unguided media
+ - Provide functionality to data-link layer
+ - When all bits come from data-link layer, physical-layer send it using transmission media like guided-unguided media
  - Physical Layer deals with hardware
  - Convert logical data into signal
 
  Functionality :-
-  Cabels and Connectors    - Twisted, Co-axial, Optical Fibers which used to send data on signal | BNC, MGRT, UTP Connectors (Join Cabel)
-  Physical Topology        - How to connect physical devices and Configuration? (Star, Mesh, Bus, Point-To-Point) 
+  Cabels and Connectors    - Twisted, Co-axial, Optical Fibers used to send data on signal 
+                             BNC, MGRT, UTP Connectors (Join Cabel)
+  Physical Topology        - How to Connect physical devices and Configuration? (Star, Mesh, Bus, Point-To-Point) 
   Hardware(Repeaters, Hub) - Increase signal strength | Hub for multipoint connection
   Transmission mode        - Simplex-mode(One way data send), Half-Duplex, Full-Duplex
   Encoding                 - Send data to either analog or digital signal
-  Multiplexing/ Demultiplexing - If increase machine on same Channel not need to create new channel use existing using time division 
-                                 Send N number of signal to single signal to send | Convert 1 signal to N no. of signal
+  Multiplexing/ Demultiplexing - 
+   - If machine increase on same Channel not need to create new channel use existing channel using time division 
+   - Send N number of signal to single signal to send 
+   - Convert 1 signal to N no. of signal
 
 
 
 Topologies :-
- - How devices are connected to each other 
+ - Describe how device are connected to each other 
 
  Mesh :- 
-  - Where all devices connect to each other or say support point-to-point communication
-    Realibility :- In system if single fails is there any method to send signal or say system works | Highest Realibility
-    Cost        :- Dependant of cable quality and quantity | High cost
-    Security    :- If a and d communicate other devices(b, c) doesn't no about that
-    Disadvantage :-
-     - High Maintenance
-     - Not support Multi-cast
-
-  - How many wired required :- 
-     NC2 Formula :- n(n-1)/2 
-     Here n is the number of nodes which represent no. of devices connected
+  - All devices connect to each other or say support point-to-point communication
   
-  - No. of ports(Connector) :- (N-1) | (N-1) * n = for total devices 
+  Realibility :- If single system fails other system sharing data | Highest Realibility
+  Cost        :- Dependant of cable quality and quantity          | High cost
+  Security    :- If a and d communicate other devices(b, c) doesn't no about that
+  
+  Disadvantage :-
+   - High Maintenance
+   - Not support Multi-cast
+
+  How many wired required :- 
+   - NC2 Formula :- n(n-1)/2 
+   - N is number of nodes which represent no. of devices connected
+   - No. of ports(Connector) :- (N-1) | (N-1) * n = for total devices 
 
 
 
@@ -43,21 +46,19 @@ Topologies :-
   - No of ports(Connector) :- N | N * N
   - Less Realibility because if hub is fails(Single-Point Failure) entire network fails 
   - Less Cost compared to Mesh
-  - Security is also less 
+  - less Security
   - Support Point-to-Point
 
 
 
  Bus :-
-  - Backbone cabel / Coaxial-cabel / Thick Ethernet wire(Bandwith is high) in which multiple devices are connected through drop line
-    using tape which connect Backbone cabel to Drop Line
+  - Backbone cabel | Coaxial-cabel | Thick Ethernet wire(High-Bandwith) in which multiple devices are connected through
+    drop line using tape which connect Backbone cabel to Drop Line
   - All devices connected on single line called bus topology
   - No of cabel = N + 1 (N : no of devices)
   - No of ports = 1     | 1 * N
-  - Single-Point Failure so No Realibility
-  - No Security
-  - Less Cost compared to Mesh
-  - At the end of cabel we can add Terminator or Repeaters(Increase Signal Strength & Join more Backbone Cabel) 
+  - Single-Point Failure so No Realibility | No Security | Less Cost compared to Mesh
+  - At the end of cabel we add Terminator or Repeaters(Increase Signal Strength & Join more Backbone Cabel) 
   - Support Multi-Point so Collision is high  
 
 
@@ -68,7 +69,7 @@ Topologies :-
   - No of ports = 1     | 1 * N  
   - Less Realibility | No Security | Less Cost compared to Mesh
   - Send Message in Unidirectionally  
-  - To remove collision we use Token-Ring
+  - Use Token-Ring to remove collision
 
 
 
@@ -92,66 +93,77 @@ Manchester encoding and differential manchester encoding :-
 
 Various Device in computer network :-
  Cabel :-
-  - To connect various devices which are physically separated
-  - Trasfer data through packets or signal form
+  - Connect variou device which are physically separated
+  - Transfer data through packets or signal form
 
   Unshielded Twisted-Pair Cabel :- 
    - Transfer data in form of electric signal
    - 10 Base T / 100 Base T
    - 10 means 10 MBPS(Mega Bit Per Second) data can be transfer per second
-   - Base has two types :-
-      BaseBrand :- At time Only one signal can be transmit if other signal come collision arise
-      BroadBand :- Multiple signal can be transmit parallel
+   Base has two types :-
+    BaseBrand :- Only one signal transmit at a time if other signal come collision arise
+    BroadBand :- Multiple signal can be parallel transmit
    - T means only 100 meter signal can be transmit than attuention occurs(Signal strength week)
    - Use in Ethernet LAN
 
   Coaxial Cabel :-
    - Transfer data in form of electric signal
    - 10 Base 2 / 10 Base 5
-   - Other means same but 2 and 5 means 200 and 500 meter distance
+   - 2 and 5 means 200 and 500 meter distance
 
   Fiber Optice :- 
    - Transfer data in form of light Signal
    - Speed of light signal is - 3x10^8
-   - 100 Base Fx
+   - 100 Base Fx 
    - Fx means fiber channel which cover 2km distance 
 
-  Question :- If N devices connect on network what is maximum collision domain ? --> N
-              Cable can filter or not :- If Two Lan connected it can move signal or not
-                - Filter means can we decied it can move further or not
-                Ans :- Yes, there is no software in cabel
+  Question :- 
+    If N devices connect on network, what is maximum collision domain ? --> N
+    Cable can filter or not :- 
+      - If Two Lan connected it can move signal or not
+      - Filter means can we decied it can move further or not
+    Ans :- Yes, there is no software in cabel
 
 
 
- Repeaters :-
+ Repeater :-
   - Works on physical layer pure hardware
-  - Increase strength of weak signal means Regenerates Strength of signal
-  - Amplifier also do this but if in starting signal strength is X, if it goes down Amplifier increases it 2x or 4x 
-    but if we use repeater strength will be same x -> x 
-  - We can increase distance of signal
-  - It is 2 port devices, also forwarding signal but not supporting filtering and maximum collision is N
+  - Increase strength distance of weak signal means Regenerate Strength of signal
+  - Amplifier also do this but if starting signal strength is X and it goes down Amplifier increases it 2x or 4x 
+    while repeater strength will be same x -> x 
+  - 2 port devices forwarding signal but not supporting filtering and maximum collision is N
 
 
 
- Hubs :-
-  - Pure Hardware device
-  - Multi-Point Repeater
-  - Hub is dedicated device which give functionality like if any wire has problems occured or power on or off there is small blink light
-    which repeater not provided
+ Hub :-
+  - Multi-Point Repeater Hardware device
+  - Provide small blink light functionality if any wire problem Occure or power on or off which repeater not provide
   - Support forwarding but not supporting filtering so high traffic which become collision domain problem
 
 
 
  Bridges :- 
-  - Connect two different LAN's works on physical and data-link layer
+  - 2 Port devices used to Connect two different LAN's works on physical and data-link layer
   - Support forwarding
   - Bridges can check MAC address means decided that packets send to forward or not
+
+
+
+ Switches :-
+  - Layer-2 (Data-Link Layer) device
+  - Multi-Port Bridges
+  - Full Duplex Link
+  - Traffic is minimal
+  - Collision Domain is Zero(0)
+
+
+
+ Routers :-
+  - Used to connect two different network
   - 
 
 
 
- Switches
- Routers
  Gateway
  IDS
  Firewall

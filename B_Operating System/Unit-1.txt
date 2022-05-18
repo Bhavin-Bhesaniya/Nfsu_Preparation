@@ -16,48 +16,70 @@ What is OS?
  - System Program that act as interface between user and computer hardware 
  - It Control execution of all kinds of programs and manage all resources of computer system
  - First OS is ATLAS developed by Tom Kilburn professoor at Manchester University in 1962 
+ - Provide environment in which user can execute its program 
+ 
  Primary Goals :- Windows | Mac : Machintosh  
   Convenience : Use Easiet way to any hardware 
+  Efficiency  : Use System resources efficiently
   Throughput  : Number of tasks executed per unit time  (Linux)
-  Efficiency  : Use resources efficiently
   Portability : Any hardware can run OS 
   Reliability :
   Scalbility  : Update features 
   Robutness   : If any error is encountered, solve error problem
-
  
+ Diagram :- User --> System and Application Programs -> Operating System -> Hardware
+ 
+ History :-
+  Generation	  Year	    Electronic device used	  Types of OS Device
+   First	    1945-55	      Vacuum Tubes	            Plug Boards
+   Second	    1955-65	      Transistors	              Batch System
+   Third	    1965-80	      Integrated Circuits(IC)	 Multiprogramming
+   Fourth	    Since 1980	  Large Scale Integration	PC
+
+
 
 OS Duties | Function | Services | Features :- 
 
  Resource Management | Resource Governance:-
   - Manage all kinds of resources both hardware and software using Schedulers to achieve parallel processing
 
+
  Process Management | Process Execution :-
   - Load program into memory, execute it in CPU and Handle it using various CPU Scheduling
   - Also Provide mechanism for process synchronization, Inter Process Communication(IPC) and Deadlock handling 
-   
+
+
  Storage/File management or Manipulation:-
-  - Support Storage allocation, Disk scheduling using File System and Manage all file operations based on permission mode
+  - Support Storage allocation, Disk scheduling using File System and Manage all file operation based on permission mode
+  - Data stores in various tracks of Hard disks that all managed by storage manager
+  - NTFS(New Technology File System) | NFS(Network File System)
+  - CFS(Clustered File System)       | CIFS(Common Internal File System)
+
 
  Memory management :-
   - Keep track of memory to identify which part being used by which Job(Process) 
   - Allocating and deallocating memory space of Primary(Main) Memory because size limits
 
- Protection, Security & Privacy:-
-  - OS controls all access to system resources to Ensure that external I/O devices are protected from invalid access attempt
+
+ Protection, Security & Privacy management :-
+  - Control access to system resources to Ensure that external I/O devices are protected from invalid access attempt
   - Windows use Kerberos Security Protocol
   
+
  I/O Device Management | I/O Operation :-
   - Keep tracks of all devices and Manage device communication between User and Device via their respective drivers 
-  - Program that responsible for this task is known as I/O controller.
+  - Program that responsible for this task is known as I/O controller
+
 
  Communication :-
-  - Communication may be implemented by two methods, either by Shared Memory or by Message Passing
+  - Implemented by two methods either by Shared Memory or by Message Passing
   - Handle routing, connection strategies
-  - Processes can be on one computer or on different computers, but they are connected through computer network
+  - Processes on one computer or on different computers but they are connected through computer network
+
 
  Error Handling | Error detection :-
   - OS constantly checks errors and takes appropriate action to ensure correct and consistent computing     
+
 
 
 
@@ -111,7 +133,8 @@ What is Kernel? Different OS Structure Type & Kernel Architecture :-
 
 
 
-SystemCall :-
+
+System Call :-
  - To use system functionality we need to go in kernel mode because we only can access user mode
  - System call is mechanism using which user program request kernel to access all system functionalities 
 
@@ -154,6 +177,7 @@ SystemCall :-
  
 
 
+
 Types of OS :– 
   Single process   :- MS DOS    1981
   Multiprogramming :- Dijkstra  1960
@@ -164,7 +188,7 @@ Types of OS :–
   - Set Similar kind of process(job) in same batch in First Come First Served(FCFS) manner for execution
   - When Job request for I/O at time CPU is Idle which is major disadvantages (Non-Preemption)
   - IBM create FORTRAN Alone with IBSYS 709X in 1960 
-
+   
   Example :-
     User ---> Set Job in ROM device ---> Go to operator ---> Operator group similar job and execute  
     ---> One time one process execute (No particular time for output) 
@@ -172,11 +196,13 @@ Types of OS :–
     ---> User use output in own system for process  
 
 
+
  Multi-programming :- IDLENESS
   - Increases CPU utilization by keeping multiple jobs(process) in main memory so that CPU always has one to execute
   - It is NonPre-emptive scheduling means if one process give cpu, cpu execute entire process completely and 
     only after completation of process, pick another process
   - Sometime cpu go for I/O operation at time cpu will pick another process from job pull So cpu IDLE time is zero   
+
 
 
  Multi-tasking | Time-Sharing :- Responsiveness
@@ -187,15 +213,18 @@ Types of OS :–
     in within given time
   - Due to its fast switching Security arise with program data, data communication and its reliability 
   - Response time should be minimal
+  Ex :- Multics, Unix
+
 
 
  Multi-Processing :-
   - In uni-processor system, only one process execute at time
   - Computer have more than one processor its called multiprocessing so multiple processes executed simultaneously
     to achieve Parallel processing 
-  - Multiple processors share computer bus, sometimes clock, memory and peripheral devices also
+  - Multiple processors share computer bus, sometimes clock, memory and peripheral device
   - Used to get more work done in shorter period of time, increased reliability
   Types :- Tightly Bound(Shared memory) | Loosely Bound(Distributed System)
+
 
 
  Multi-Threading :-
@@ -203,6 +232,7 @@ Types of OS :–
   - Increase Responsiveness, less costly
     
   
+
  Real-Time operating System(RTOS):-
   - Fixed time Constraint system where time constraint matter lot and can't be delays
   - Time taken by system to respond input and display required updated information is termed as response time   
@@ -214,6 +244,7 @@ Types of OS :–
    Soft-Real Time System :- Less restrictive with limited utility than hard-real time system
 
 
+
  Distributed Operating System | Cluster :-
   - Multiple Processors serve Multiple applications to multiple users using Central Processor
   - Processor communicate with each other through various communication lines like network connection which referred
@@ -223,11 +254,14 @@ Types of OS :–
   - Reduction of delays in processing and loading on host computer
   - Availability, Load balancing, Scalability     
   - If Processors connect with local network(Single network) like Single server it is called "Cluster Operating System"
+  Ex :- Locus
+
 
 
  Embedded System :-
   - Work on fixed machine like A.C.
   - You can't customally change its functionality  
+
 
 
  Network Operating System :-
@@ -236,13 +270,16 @@ Types of OS :–
     typically local area network (LAN), private network or to other networks
   - Centeralized Server so security manage and software upgrade easily and enable remote access 
   - Dependency on central server, High cost, Regular maintenance and update are some disadvantages
+  Ex :- Microsoft Windows Server 2003, Microsoft Windows Server 2008, UNIX, Linux, Mac OS X, Novell NetWare, and BSD
+
 
 
 
 Spooling(Simultaneous Peripheral Operations Online) :- 
  - Different Pheripheral devices(I/O Device) can run simultaneously 
  - Provide buffer area in secondary memory to save CPU time and user not need to wait for I/O process
-      
+
+
 
 
 What is Booting & What happens when we turn on computer? BIOS VS UEFI | MBR vs GPT :-  
@@ -298,7 +335,7 @@ RAM(Random Access Memory) Vs ROM (Read-Only Memory):-
   - For 32-bit Max Ram size :- 4 GB AND 64 : 16GB 
   Types :- 
    DRAM  - Dynamic RAM must be continuously refreshed otherwise all contents are lost
-   SRAM  - Static RAM is faster, needs less power, more expensive but need to be refreshed like DRAM.  
+   SRAM  - Static RAM is faster, needs less power, more expensive but need to be refreshed like DRAM
    SDRAM - Synchronous Dynamic RAM run at very high clock speeds
    DDR   – Double Data Rate  Provide synchronous Access Memory
 
@@ -309,4 +346,4 @@ RAM(Random Access Memory) Vs ROM (Read-Only Memory):-
    PROM   :- Programmable ROM type of ROM is written or programmed only once
    EPROM  :- Erasable Programmable ROM reprogrammable using ultraviolet light
    EEPROM :- Electrically Erasable Programmable ROM using electric charge(Flash Memory) 
-   MASKROM :- Contents can be programmed only by an integrated circuit manufacturer 
+   MASKROM :- Content programmed only by integrated circuit manufacturer 
