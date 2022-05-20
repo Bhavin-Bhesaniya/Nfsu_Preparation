@@ -1,0 +1,266 @@
+OSI and TCP/IP Model :-
+
+OSI(Open System Interconnection) :-
+ - Developed by ISO(International Organization for Standardization) in 1984
+ - Provide standard for sending and receiving data with other device using network functionality
+ - If client and server on same machine, will managed by OS (Inter-Process Communication)
+ - So in Computer network must be client and server both machine required physically separated
+ 
+ OSI model divided into 7 layers :-
+  Physical --> Data Link --> Network --> Transport --> Session --> Presentation -->  Application
+        Hardware Layer (1,2,3)          Heart of OSI           Software Layer(5,6,7)
+                                   Sender -->   <-- Receiver
+
+ Functionality :-
+  Mandatory :-
+   Error Control - Receiver receive same message or not
+   Flow Control  - Amount of data we send
+   Multiplexing / Demultiplexing :- Process that run on machine identify which process send data or receive data
+
+  Optional :-
+   Encryption | Decryption | Cryptographic
+   CheckPoint :- Downloading data at some point of time we need to add check point (Resume Downloading)
+ 
+ - OSI model acts as reference model and not implemented on Internet because of its late invention
+ - Model being used is TCP/IP model
+
+
+ Physical Layer(Layer 1) :-
+  - Lowest layer responsible for physical connection between device
+  - Contain information in the form of bits
+  - Responsible for transmitting individual bits from one node to next
+  - When receiving data this layer get signal received and convert it into 0s and 1s send them to Data Link layer
+  
+  Functionality :-
+   Bit Synchronization - Using clock, controls both sender and receiver thus providing synchronization at bit level
+   Bit rate control    - Defines transmission rate(Number of bits sent per second)
+   Physical Topologies - Specifies way in which different devices/nodes are arranged in network
+   Transmission mode   - Data flow between device in form of Simplex, half-duplex and full-duplex
+
+  Device :- Hub, Repeater, Modem, Cables 
+
+
+
+ Data-Link Layer :-
+  - Responsible for node-to-node delivery of message  
+  - Make sure data transfer is error-free from one node to another over physical layer
+  - When packet arrives in network it is responsibility of DLL to transmit it to Host using its MAC address
+  - Packet received from Network layer divided into frames depending on frame size of NIC(Network Interface Card)   
+  - Encapsulates Sender and Receiver’s MAC address in header
+  - Receiver’s MAC address obtained by placing ARP(Address Resolution Protocol) 
+  - It request on wire asking “Who has that IP address?” and destination host will reply with its MAC address
+  - Packet in Data Link layer is referred to as Frame
+  - Data Link layer is handled by NIC (Network Interface Card) and device drivers of host machines
+  DLL SubLayer :-
+    Logical Link Control(LLC) 
+    Media Access Control(MAC)
+  
+
+  Functionality :- 
+   Framing - Provides way for sender to transmit set of bits that are meaningful to the receiver using bit patterns
+   Physical Addressing - After creating frames add MAC address(Physical) of sender and receiver in header of each frame
+   Error Control  - Detects and retransmits damaged or lost frames
+   Flow Control   - Data rate must be constant on both sides
+   Access Control - Single communication channel shared by multiple devices MAC sub-layer determine which device has
+                    control over channel at given time
+    
+  Device :- Switch & Bridges
+
+ 
+
+ Network Layer(Layer 3) :-
+  - Transmission data from one host to other located in different networks
+  - Suppor Packet routing(Select shortest path from available routes)
+  - Sender & receiver’s IP addresses are placed in the header
+  - Segment in Network layer is referred as Packet 
+  
+  Functionality :-
+   Routing : Layer Protocols determine which route suitable from source to destination 
+   Logical Addressing :- 
+    - Sender & receiver’s IP addresses placed in Header by network layer to Identify each device on network uniquely 
+
+  Device :- Router
+
+
+
+ Transport Layer(Layer 4) :-
+  - Provide services to application layer and takes services from network layer   
+  - Data in transport layer referred to as Segments
+  - Responsible for End to End Delivery of complete message
+  - Provide acknowledgement of successful data transmission and re-transmits data if error found
+  - Transport layer is operated by the Operating System using system call
+
+  Sender-Side :-
+   - Receive formatted data from upper layers perform Segmentation and implements Flow & Error control 
+   - Add Source and Destination port number in its header and forward segmented data to Network Layer
+   - Sender needs to know port number associated with receiver’s(Destination) application
+  
+  Receiver-Side :-
+   - Read port number from its header and forward received Data to respective application
+   - Perform sequencing and reassembling of segmented data
+
+
+  Functionality :-
+   Segmentation and Reassembly -
+    - Accept message from (session) layer breaks into smaller units
+    - Each segments produced has header associated with it
+    - At destination station reassembles message
+  
+   Service Point Addressing :-
+    - Specifying Service Point or Port address in header makes sure that message delivered to correct process
+
+
+  Service :-
+   Connection-Oriented :- 
+    Phase :- Connection Establish --> Data Transfer --> Termination / Disconnection
+    - Receiving device send acknowledgement back to source after packet or group of packets is received 
+    - Reliable and Secure
+
+   Connection-less :-
+    Phase :- Data Transfer
+    - Receiver does not acknowledge receipt of packet
+    - Much faster and more reliable than connection-oriented
+
+
+
+ Session Layer(Layer 5) :-
+  - Establishment connection, maintenance of sessions, authentication and ensures security
+  - Session, Presentation and Application layer are integrated as single layer in TCP/IP model as “Application Layer”
+  - Implementation of these 3 layers is done by network application itself
+
+  Functionality :-
+   Session establishment, maintenance and termination :- Allow Process to do
+   Synchronization :- Allow process to add check-Point helps to identify error and data loss is avoided
+   Dialog Control  :- Allow two systems to start communication with each other in half-duplex or full-duplex
+
+
+ 
+ Presentation Layer(Layer 6) :-
+  - Also known as Translation layer
+  - Data from application layer extracted and manipulated as per required format to transmit over network
+  
+  Functionality :-
+   Translation : ASCII to EBCDIC
+   
+   Encryption / Decryption :- 
+    - Encryption translates data into another form or code 
+    - Encrypted data known as ciphertext and decrypted data known as plain text 
+    - Key value used for encrypting as well as decrypting data
+   
+   Compression : Reduces number of bits that need to be transmitted on network
+ 
+
+
+ Application Layer(Layer 7) :-
+  - Very top of OSI Model which implemented by network application
+  - These applications produce data which has to be transferred over network
+  - Layer serves as window for application services to access network and for displaying received information to user
+  - Application – Browsers, Skype Messenger, etc. 
+  - Application Layer is also called Desktop Layer
+
+  Functionality :-
+   - Network Virtual Terminal
+   - FTAM-File transfer access and management
+   - Mail Services
+   - Directory Services
+
+
+
+TCP/IP (Transmission Control Protocol/ Internet Protocol) vs OSI :-
+ TCP/IP more reliable | Not Strict Boundaries | Horizontal Approach | Protocol then model | Not assurance Packet
+ OSI    less reliable | Strict Boundaries     | Vertical   Approach | Model them Protocol | assurance Packet delivery
+
+  Application     Application  Application             Process to Process
+  Presentation       
+  Session                 
+  Transport       Transport    Transport               Host to Host
+  Network         Network      Internet                Source to destination
+  Data Link       Data Link    Network Access Layer    Node to Node
+  Physical        Physical     
+
+  7 Layer(OSI)    5 Layer(TCP/IP) 4 Layer(TCP/IP)
+
+
+
+TCP/IP Model :-
+ - Designed and developed by Department of Defense (DoD) in 1960s and based on standard protocols 
+ - First layer is Process layer on the behalf of sender and Network Access layer on the behalf of receiver
+ 
+ Layer :-
+  - Process/Application Layer
+  - Host-to-Host/Transport Layer
+  - Internet Layer
+  - Network Access/Link Layer
+  
+ Network Access Layer :-
+  - Corresponds to combination of Data Link Layer and Physical Layer of OSI model 
+  - Hardware addressing and protocols present in this layer allows for physical transmission of data
+  - ARP is protocol of Internet layer but there conflict about declaring it as protocol of Internet or Network layer
+  - It described as residing in layer 3 being encapsulated by layer 2 protocols
+
+
+ Internet Layer :- 
+  - Prallels functions of OSI’s Network layer
+  - Responsible for logical transmission of data over the entire network
+  
+  Protocol that used :-
+   IP(Internet Protocol) 
+    - Delivering packets from source host to destination host by looking at IP addresses in packet headers 
+    2 versions :- IPv4 and IPv6 
+     - IPv4 most of websites are using currently 
+     - But IPv6 is growing as number of IPv4 addresses are limited in number when compared to number of Users
+
+   ICMP(Internet Control Message Protocol) 
+    - Encapsulated within IP datagrams and responsible for providing hosts with information about network problems
+
+   ARP(Address Resolution Protocol) 
+    - Find hardware address of host from known IP address 
+    ARP Types :- Reverse ARP, Proxy ARP, Gratuitous ARP and Inverse ARP
+
+
+
+ Host-to-Host Layer :-
+  - Analogous to transport layer of OSI model
+  - Responsible for end-to-end communication and error-free delivery of data 
+  - It shields upper-layer applications from complexities of data
+  Protocol that used :- 
+   Transmission Control Protocol (TCP) 
+    - Provide reliable and error-free communication between end systems 
+    - Perform sequencing and segmentation of data 
+    - Acknowledgment feature and control flow of data through flow control mechanism 
+    - Very effective protocol but has a lot of overhead due to such features 
+    - Increased overhead leads to increased cost.
+   
+   User Datagram Protocol (UDP)  
+    - go-to protocol if application not require reliable transport as it is very cost-effective 
+    - Unlike TCP, which is connection-oriented protocol, UDP is connectionless
+
+
+
+ Application Layer :-
+  - Perform functions of top three layers of OSI model :- Application, Presentation and Session Layer 
+  - Responsible for node-to-node communication and controls user-interface specifications 
+  - Some of protocols present in this layer are :- 
+    HTTP, HTTPS, FTP, TFTP, Telnet, SSH, SMTP, SNMP, NTP, DNS, DHCP, NFS, X Window, LPD 
+  
+  Protocols that used :-
+   HTTP / HTTPS(Hypertext transfer protocol / -Secure) 
+    - Used by World Wide Web to manage communications between web browsers and servers
+    - HTTPS is combination of HTTP with SSL(Secure Socket Layer) 
+    - Efficient where browser need to fill out forms, sign in, authenticate and carry out bank transactions
+   
+   SSH(Secure Shell) :- 
+    - Terminal emulations software similar to Telnet 
+    - Maintain encrypted connection 
+    - It sets up secure session over TCP/IP connection
+   
+   NTP(Network Time Protocol) :- 
+    - Used to synchronize clocks standard time source on computer 
+    - Very useful in situations like bank transactions 
+    - Suppose you carry out transaction where computer reads time at 2:30 PM while server records it at 2:28 PM 
+    - Server can crash very badly if it’s out of sync
+
+
+ 
+ 
+

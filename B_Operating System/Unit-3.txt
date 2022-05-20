@@ -139,8 +139,7 @@ Critical Section Problem :-
 
 
 Synchronization Condition :-
- - Method need to pass these 4 rules where First two Rules are primary rules must need to follow and 3,4 is 
-   secondary rule
+ - Method need to pass these 4 rules where First two Rules are primary rules must need to follow and 3,4 is secondary rule
    
  Mutual Exclusion :-
   - If One process execute critical section stop second process to execute critical section by using EntryCode section
@@ -163,9 +162,9 @@ Synchronization Condition :-
 
 
 Lock Variable :- 
-  - To avoid Critical Problem
-  - Execute in User Mode, Multi-Processor Solution, No Mutual Exclusion Gurantee 
-  - Main concept is if any one use critical section Acquire lock, process complete work and release lock
+ - To avoid Critical Problem
+ - Execute in User Mode, Multi-Processor Solution, No Mutual Exclusion Gurantee 
+ - Main concept is if any one use critical section Acquire lock, process complete work and release lock
      
   Example :-                 Pesudo Code :-
     do {                     While(Lock == 1);  Entry
@@ -174,19 +173,19 @@ Lock Variable :-
       Release Lock            Lock = 0          Exit Code
     }
 
-  Case 1 :- Lock = 0 -> Show critical section is empty | Lock = 1 -> Show critical section is full
-            P1 Run Entry Code i1,i2 Lock = 1 , i3  --> P2 Run Entry Code i1 Lock  1 = 1 go infinite loop --> p1 execute i4 Lock = 0
+ Case 1 :- Lock = 0 -> Show critical section is empty | Lock = 1 -> Show critical section is full
+           P1 Run Entry Code i1,i2 Lock = 1 , i3  --> P2 Run Entry Code i1 Lock  1 = 1 go infinite loop --> p1 execute i4 Lock = 0
 
-  Case 2 :- P1 i1 pre-emptive --> P2 i1, i2, i3 pre-emptive -> P1 come back run i2 (Now lock value overwrite) --> Both in critical section  
+ Case 2 :- P1 i1 pre-emptive --> P2 i1, i2, i3 pre-emptive -> P1 come back run i2 (Now lock value overwrite) --> Both in critical section  
     
 
 
 Test_and_Set :- 
-  - To achieve Mutual Exclusion 
-  - Combine instruction 1 and 2 and make test_and_set instructions so it avoid pre-emptive between i1 and i2
+ - To achieve Mutual Exclusion 
+ - Combine instruction 1 and 2 and make test_and_set instructions so it avoid pre-emptive between i1 and i2
     
-  Example :- 
-    while(test_and_set(&lock));   // Call by reference we pass address
+ Example :- 
+  while(test_and_set(&lock));   // Call by reference we pass address
     critical section
     lock = false;
 
@@ -194,10 +193,10 @@ Test_and_Set :-
       boolean r = *target;
       *target = True;
       return r;
-    }
+  }
     
-    lock(False/1000) <-- target(1000)  R(False/1000)     
-        True
+  lock(False/1000) <-- target(1000)  R(False/1000)     
+      True
 
 
 
@@ -216,9 +215,9 @@ Turn Variable (Strict Alteration):-
 
 
 SemaPhores :-
-  - SemaPhore it is integer variable which is used in mutual exclusive manner by various concurrent coperative process
-    in order to achieve process synchronization
+ - SemaPhore is integer variable used in mutual exclusive manner by various coperative process to achieve process synchronization
    
+
   Types :- 
     Counting (-infinite to + infinite) (Integer variable value vary)
     Binary   (0,1) By default value is 1
@@ -226,6 +225,7 @@ SemaPhores :-
     Operation :-
      P(), Down, Wait                    :- Use in Entry Code and reduce pre-defined value of semaPhore
      V(), Up, Signal, Post, Release     :- Use in Exit Code and increase value of semaPhore
+
 
 
   Example :-
@@ -261,6 +261,7 @@ SemaPhores :-
     - Now i perform 6P() operation and 4V() operation what will be final result = 10 -6 = 4 + 4 = 8 
 
 
+
   Binary SemaPhore :-  
    - Integer Variable value is either 0 or 1
    - If SemaPhore value inital 1 process have chance to go in critical section and perform if 0 process is blocked
@@ -288,6 +289,7 @@ SemaPhores :-
 
     Case 1 :- S = 1 --> P2 Down() S = 0 IN CS --> P1 Down() S = 0 Block --> P2 UP() S = 0 Wake Up(P1) --> 
    
+
 
   Question Solution :- What is maximum no of processes that may present in CS at any point of time?
    - 10 Process Pi{i = 1 to 9} || mutex = 1 || P10 execute 

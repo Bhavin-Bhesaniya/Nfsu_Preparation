@@ -1,0 +1,294 @@
+Basic :-
+ - System which is connected to the network and is ready for communication known as Open System
+ - System which is not connected to the network and can't ready for communication known as Close System
+ 
+ - Interconnection of multiple devices that are connected using multiple paths for the purpose of sending/receiving 
+   data or media
+ - Network devices include routers, switches, hubs, and bridges
+
+ - Layout arrangement of different devices in network known as network topology
+ - Types of topology :- Bus, Star, Mesh, Ring, Tree, Point to point, Hybrid
+
+ - Internet invented by ARPANET in 1983 and controlled by 75 million server
+ - Backbone of internet is made by 550,000 miles of underwater cable
+ 
+ 
+ Networking Element :-
+  - At least two computers 
+  - Transmission medium either wired or wireless 
+  - Protocols or rules that govern communication 
+  - Network software such as Network Operating System 
+ 
+
+ Features :- Performance | Reliability | Security 
+
+
+
+
+Internet and Web :-
+ - Internet is global network comprised of smaller networks that are interconnected using communication protocols
+ - Internet is network of network that allows exchange data while web is way to access information through Internet
+ - Internet not governed by single authority 
+ - Ultimate authority for where Internet is going rest with Internet Society or ISOC
+ - ISOC is voluntary membership organization whose purpose to promote global information exchange through Internet
+ - IAB - Internet Architecture Board      meet regularly to review standards and allocate resources like addresses
+ - IETF- Internet Engineering Task Force  meet regularly to discuss operational and technical problem
+
+
+ URI(Uniform Resource Identifier) :-
+  - URI can be name, locator or both for online resource whereas URL is just locator
+  - URLs are subset of URIs
+  - URL is human-readable text that designed to replace IP addresses numbers that computer use communicate with server
+  - URL consists of protocol, domain name, and path 
+  
+  Syntax :- protocol://WebSiteName.topLevelDomain/path
+   Protocol       - HTTP or HTTPS
+   WebSiteName    - google
+   topLevelDomain - .com, .edu, .in
+   path           - Specific folder and/or subfolders that are on given website
+
+
+
+
+Internet and Web Programming :-
+ Client-side :- 
+  - When type URL like www.google.com browser convert into file containing :-
+    - GET /HTTP/1.1 (GET requesting some data from server, HTTP Protocol, 1.1. Protocol version) 
+  - File converted to binary by browser then sent to the server
+  - Go to destination and respond if it is received by sender only because of IP address
+  - Router send information to another and keeps on going until binary codes reach destination
+ 
+ Server-side :- 
+  - Server receive binary code and decode it and send response :- 
+    - HTTP/1.1 200 ok (where 200 ok is the status)
+    - Content-type:type/HTML
+    - Body of page
+  - Converted back to binary by server and sent to IP address that is requesting it
+  - Once codes received by client browser again decodes information display information
+  
+
+
+
+Internet Of Everything (IoE) :-
+ - Philosophy in which technology future is compromised of different types of appliances, devices and things 
+   connected to global internet
+ - IoT is about physical device and objects communicating but IoE bring network intelligence to bind all these concept
+   together into cohesive system
+
+
+
+Topologies :-
+ - Describe how device are connected to each other 
+ - Arrangement of network that comprises nodes and connecting line via sender and receiver referred as network topology
+
+ Mesh :- 
+  - All devices connect to each other or say support point-to-point communication
+  
+  Realibility :- If single system fails other system sharing data | Highest Realibility
+  Cost        :- Dependant of cable quality and quantity          | High cost
+  Security    :- If a and d communicate other devices(b, c) doesn't no about that
+  
+  Disadvantage :-
+   - High Maintenance
+   - Not support Multi-cast
+
+  - N is number of nodes which represent no. of devices connected
+  - How many wired required (NC2 Formula) :- n(n-1)/2 
+  - No. of ports(Connector) Required Devices :-  (N-1) 
+  - Total No. of ports(Connector) Required :- N * (N-1)
+
+
+
+ Star :- 
+  - Multi-pal device are connected to each other through Centeralized device called Hub(Multi-Port Device)
+  - Hub is central node and all other nodes are connected to the central node
+  - Support Point-to-Point
+  - No of cabel same as no of devices :- N
+  - No of ports(Connector) :- N | N * N
+  - Hub fails entire network fails No Realibility | No Security | Less Cost compared to Mesh
+
+
+
+ Bus :-
+  - Backbone, Coaxial-cabel, Thick Ethernet wire(High-Bandwith) in which multiple device are connecte through drop line 
+  - Tape connect Backbone cabel to Drop Line
+  - Transmit data from one-end to another in single direction
+  - Multi-Point connection so Collision is high  
+  - No of cabel = N + 1 (N : no of devices)
+  - No of ports = 1     | 1 * N
+  - Single-Point Failure so No Realibility | No Security | Less Cost compared to Mesh
+  - At the end of cabel we add Terminator or Repeaters(Increase Signal Strength & Join more Backbone Cabel) 
+
+
+ 
+ Ring :- 
+  - Multipal Bus topology design in ring shape
+  - No of cabel = N + 1 (N : no of devices)
+  - No of ports = 1     | 1 * N  
+  - Less Realibility | No Security | Less Cost compared to Mesh
+  - Send Message in Unidirectionally  
+  - Use Token-Ring to remove collision
+  - Repeater used for Ring topology with large number of nodes because if someone wants to send data to last node in
+    with 100 nodes then data will have to pass through 99 nodes to reach 100th node
+  - To prevent data loss repeaters are used in network
+
+
+
+ Tree :-
+  - Variation of Star topology where data flow in hierarchical structure
+  - Various secondary hubs connected to central hub which contain repeater
+  - Data flow from top to bottom(Center -> Secondary)
+  - Multi-Point Connection and Non-Robust if backbone fails topology crashes
+  - More device attached to single central hub
+  - Central hub fails entire system fail and high cost of cabling
+
+
+
+Types of Area Networks :-
+ 
+ LAN(Local Area Network) :-
+  - Connect network device in such a way that personal computers share data, tools and program
+  - Connect device by switch or stack of switches using private addressing scheme as defined by TCP/IP protocol
+  - Private addresses are unique in relation to other computers on local network 
+  - Routers found at boundary of LAN connecting them to larger WAN
+  - Cover smaller geographical area | Data transmit at very fast rate
+  - Communication medium used for LAN has twisted-pair cables and coaxial cables    
+
+
+ MAN(Metropolitan Area Network) :-
+  - Larger than LAN and smaller than WAN
+  - Cover large geographical area and may serve as ISP (Internet Service Provider)
+  - Provide High-speed connectivity but hard to design and maintain
+  - Network delay | Fault tolerance Less | Congestion High
+  - Use Modem and Wire/Cable for data transmission
+  
+
+ WAN(Wide Area Network) :-
+  - Cover Large geographical area might be confined within bounds of state or country
+  - Types of WAN :- Switched WAN | Point-To-Point WAN
+  - Fault tolerance Less | Congestion High
+  - Communication medium used for WAN is PSTN(Public Switched Telephone Network) or Satellite Link
+  - Devices used for transmission of data through WAN are Optic wires, Microwaves, and Satellites
+
+
+ MANET(Mobile Ad Hoc Network) :-
+  - Consist of set of mobile nodes connected wirelessly in self-configured, self-healing network without having 
+    fixed infrastructure  
+  - Free to move randomly as network topology changes frequently
+  - Each node behaves as router as they forward traffic to other specified nodes in the network
+  Types :- Vehicular(VANET) | SmartPhone(SPANC) | InternetBased(iMANET) | 
+
+ PAN (Personal Area Network)   | SAN (Storage Area Network)
+ VPN (Virtual Private Network) | EPN (Enterprise Private Network)
+
+
+
+Redundant Link problems :-
+ - Prevent nasty network failure
+ - Provide redundancy(back up when a link fails)
+ 
+ Broadcast Storm :- 
+  - Every Switch forward broadcast frame to each other generated by another device to all its ports
+  - If no loop avoidance switches flood broadcast endlessly and consume all bandwidth which Shutdown entire network 
+ 
+ 
+ Multiple copies :-
+  - Device receive multiple copies of same frame if A frame arrive from different network segments at same time
+ 
+
+ MAC Table Thrashing :-
+  - Switches use MAC address table to forward out the frames but when switch receives data from multiple switch
+    at time therefore it will lead to instability in MAC table in switch C
+  - Spanning Tree Protocol(STP) used to prevent these loops 
+  - It block down (port) path using its own mechanism by which single path is available for frame delivery at time  
+
+
+
+Type of line configuration :-
+ - Network is two or more devices connected through link
+ - Link is communication pathway that transfers data from one device to another
+ 
+ Point-to-Point Connection :-
+  - Provide dedicated link between two devices
+  - Use actual length of wire or cable to connect two ends but other option such as microwave or satellite also possible
+ 
+ Multipoint Connection :-
+  - Two or more devices share single link that is capacity of the channel is shared now
+  Spatial Sharing :- Several devices share link simultaneously 
+  Temporal(Time) Sharing :- If users must take turns using link then it's called Time Shared Line configuration
+
+
+
+Digital Subscriber Line/Loop(DSL) :-
+ - Communication medium which used to transfer data on internet through copper wire telecommunication line
+ - Provide by ISP for High speed broadband Internet access also Modem
+ - Splitter used to split frequency and make sure that they can’t get interrupted
+ - No additional wire required because it use existing telecommunication line for both internet and telephone
+ - Cost-efficient we choose different connection speeds and pricing from various providers
+ - Works only on local telephone infrastructure so limited physical distance
+
+ Symmetric DSL(SDSL) :- 
+  - Provide 2MBPS equal speed both uploading(Upstream) and downloading(DownStream) data transfer for small organization
+
+ ASymmetric DSL(ADSL) :- 
+  - Provide wider frequency range for downstream transfers
+  - 20 Mbps downstream and 1.5 Mbps upstream, it is because most users download more data than they upload
+
+
+
+Scrambling in Digital electronic :-
+ - Signal that represent data also be digital or analog
+ - To send signal must convert data into signal 
+ - This conversion can be Analog to Analog, Analog to Digital, Digital to Analog or Digital to Digital
+ - Digital to Digital conversion involves three techniques – Line Coding, Block Coding, and Scrambling 
+ - Line Coding always needed whereas Block Coding and Scrambling depending upon need
+ - Scrambling not increase number of bits and provide synchronization 
+ - Problem with technique like Bipolar AMI(Alternate Mark Inversion) is that continuous sequence of zero’s create 
+   synchronization problems one solution to this is Scrambling
+ 
+
+ Types of Line Coding :-
+  - Self-synchronizing both receiver and sender clock should be synchronized
+  - Error-detecting capability and less complexity
+
+  Unipolar 
+   - Non Return to Zero(NRZ) positive voltage defines bit 1 and the zero voltage defines bit 0
+   - Signal does not return to zero at the middle of the bit thus it is called NRZ
+   - Uses more power as compared to polar scheme to send one bit per unit line resistance
+
+  Polar (eg. NRZ-L, NRZ-I, RZ, and Biphase – Manchester and differential Manchester)
+   - NRZ-L and NRZ-I similar to Unipolar but use two levels of amplitude (voltages)
+   - Return to Zero(RZ) uses three values positive, negative and zero
+
+  Bipolar (eg. AMI and Pseudoternary) | ultilevel | Multitransition
+ 
+
+
+ Scrambling Techniques :-
+  B8ZS(Bipolar with 8-zero substitution) :-
+   - Similar to Bipolar AMI except when eight consecutive zero-level voltages are encountered they are replaced by 
+     sequence "000VB0VB"
+   - V(Violation) is non-zero voltage which means signal have same polarity as previous non-zero voltage
+   - B(Bipolar) also non-zero voltage level which is accordance with AMI rule
+
+
+  HDB3(High-density bipolar3-zero) :-
+   - Four consecutive zero-level voltages are replaced with sequence “000V” or “B00V”
+ 
+ 
+ 
+Manchester encoding and differential manchester encoding :-
+ - Transmission of data means convert upper layer digital data(0,1 form) to analog or digital signal
+ - To encode data digital to digital we use manchester and differential manchester encoding
+ - Dr.thomas and IEEE802.3 convention
+ Manchester :-
+  0 -->  -|_
+  1 -->  _|-
+
+ Different Manchester Encoding :-
+  0 --> |-|_ , |_|- 
+  1 --> -|_  , _|-
+
+
+Wireshark Network Protocol Analyzer capture and analyze packets transmitted/received via Network Interface Card (NIC)
+
