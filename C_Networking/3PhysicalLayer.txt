@@ -1,9 +1,10 @@
 Intro to Physical Layer :-
- - Last layer from sender side and top layer in receiver side
+ - Last layer from sender side and top layer in receiver side deals with hardware
  - Provide functionality to data-link layer
  - When all bits come from data-link layer, physical-layer send it using transmission media like guided-unguided media
- - Physical Layer deals with hardware
  - Convert logical data into signal
+ - Contain information in the form of bits 
+ - Responsible for transmitting individual bits from one node to next
 
  Functionality :-
   Cabels and Connectors    - Twisted, Co-axial, Optical Fibers used to send data on signal 
@@ -19,7 +20,7 @@ Intro to Physical Layer :-
 
 
 
-Various Device in computer network :-
+Various Device in Network :-
  Cabel :-
   - Connect variou device which are physically separated
   - Transfer data through packets or signal form
@@ -29,21 +30,24 @@ Various Device in computer network :-
    - 10 Base T / 100 Base T
    - 10 means 10 MBPS(Mega Bit Per Second) data can be transfer per second
    Base has two types :-
-    BaseBrand :- Only one signal transmit at a time if other signal come collision arise
-    BroadBand :- Multiple signal can be parallel transmit
+    BaseBrand :- Only one signal transmit at time if other signal come collision arise(Dedicated cable bandwidth)
+    BroadBand :- Multiple signal can be parallel transmit and cable bandwidth split into separate ranges
    - T means only 100 meter signal can be transmit than attuention occurs(Signal strength week)
    - Use in Ethernet LAN
+
 
   Coaxial Cabel :-
    - Transfer data in form of electric signal
    - 10 Base 2 / 10 Base 5
    - 2 and 5 means 200 and 500 meter distance
 
+
   Fiber Optice :- 
    - Transfer data in form of light Signal
    - Speed of light signal is - 3x10^8
    - 100 Base Fx 
    - Fx means fiber channel which cover 2km distance 
+
 
   Question :- 
     If N devices connect on network, what is maximum collision domain ? --> N
@@ -56,7 +60,8 @@ Various Device in computer network :-
 
  Repeater :-
   - Works on physical layer pure hardware
-  - Increase strength distance of weak signal means Regenerate Strength of signal
+  - Regenerate signal over same network before signal become too weak or corrupted 
+  - So as to extend length to which signal can be transmitted over same network
   - Amplifier also do this but if starting signal strength is X and it goes down Amplifier increases it 2x or 4x 
     while repeater strength will be same x -> x 
   - 2 port devices forwarding signal but not supporting filtering and maximum collision is N
@@ -65,34 +70,389 @@ Various Device in computer network :-
 
  Hub :-
   - Multi-Point Repeater Hardware device
-  - Provide small blink light functionality if any wire problem Occure or power on or off which repeater not provide
   - Support forwarding but not supporting filtering so high traffic which become collision domain problem
+  - Not have intelligence to find out best path for data packets which leads to inefficiencies and wastage
+  - Provide small blink light functionality if any wire problem Occure or power on or off which repeater not provide
+  Types :-
+   Active Hub :- 
+    - Own power supply and clean, boost and relay signal along with network 
+    - It serves both as repeater as well as wiring center 
+    - These are used to extend maximum distance between nodes
+
+   Passive Hub :- 
+    - Collect wiring from nodes and power supply from active hub 
+    - Relay signals onto network without cleaning and boosting them and can’t be used to extend distance between nodes
+
+   Intelligent Hub :- 
+    - Works like active hubs and includes remote management capabilities 
+    - Provide flexible data rates to network devices 
+    - Enables administrator to monitor traffic passing through hub and configure each port in hub
 
 
 
  Bridges :- 
-  - 2 Port devices used to Connect two different LAN's works on physical and data-link layer
+  - 2 Port devices used to Connect two different LAN's works working on same protocol on data-link layer
+  - Bridge is repeater with functionality of filtering content by reading MAC address of source and destination
   - Support forwarding
-  - Bridges can check MAC address means decided that packets send to forward or not
+  Types of Bridges :-
+   Transparent Bridges :- 
+    - Stations are completely unaware of bridge’s existence Whether bridge is added or deleted from network, 
+      reconfiguration of stations is unnecessary 
+    - These bridges make use of two processes forwarding and learning
+   
+   Source Routing Bridges :- 
+    - Routing operation is performed by source station and frame specifies which route to follow 
+    - Host can discover frame by sending special frame called discovery frame, which spread through entire network
+      using all possible paths to destination
 
 
 
  Switches :-
-  - Layer-2 (Data-Link Layer) device
-  - Multi-Port Bridges
+  - Multi-Port Bridges with buffer and its design boost its efficiency(No ports imply less traffic) and performance
+  - Data-Link Layer device
   - Full Duplex Link
-  - Traffic is minimal
-  - Collision Domain is Zero(0)
+  - Perform error checking before forwarding data and correct port only so Traffic is minimal
+  - Collision Domain is Zero(0) but broadcast domain remaining same
 
 
 
  Routers :-
-  - Used to connect two different network
-  - 
+  - Used to connect two different network (Network Layer device)
+  - Device like switch that routes data packets based on their IP addresses
+  - Connect LAN, WAN together for dynamically updating routing table based on decision make on routing data packets
+  - Router divide broadcast domains of hosts connected through it
 
 
 
- Gateway
- IDS
- Firewall
- Modem   
+ Gateway :-
+  - Passage to connect two networks together that work upon different networking models
+  - Work as messenger agents that take data from one system, interpret it and transfer it to another system
+  - It also called protocol converters and operate at any network layer
+  - More complex than switches or routers
+
+ 
+
+ Brouter :-
+  - Bridging router is device that combines features of both bridge and router
+  - Work either at data link layer or network layer
+  - Work as router for routing packets across networks and working as bridge for filtering local area network traffic
+ 
+
+
+ NIC(Network interface card) 
+  - Network adapter that used to connect computer to the network 
+  - Installed in computer to establish LAN 
+  - It has unique id that written on chip and has connector to connect cable to it 
+  - Cable acts as interface between computer and router or modem 
+  - Works on both physical and data link layer of network model
+
+
+
+Transmission Media :-
+ - Transmission medium is physical path between transmitter and receiver 
+ - It is channel through data sent from one place to another
+  
+ Types of Transmission Media :-
+  Guided Media :-
+   - Referred as Wired or Bounded transmission media
+   - Signals transmitted are directed and confined in narrow pathway by using physical links
+   - High Speed | Secure | Used for short distance
+
+   Twisted Pair Cable :-
+    Unshielded Twisted-Pair Cabel(UTP) :- 
+      - Two insulated copper wires twisted around one another has ability to block interference and not depend on 
+        physical shield, Used in telephone application
+      - Transfer data in form of electric signal
+      - 10 Base T / 100 Base T
+      - 10 means 10 MBPS(Mega Bit Per Second) data can be transfer per second
+      - T means only 100 meter signal can be transmit than attuention occurs(Signal strength week)
+      - Use in Ethernet LAN
+      - Least Expensive | Easy to install | High Speed | Short distance transmission due to attenuation
+      
+      Base has two types :-
+        BaseBrand :- Only one signal transmit at a time if other signal come collision arise
+        BroadBand :- Multiple signal can be parallel transmit
+
+      Difference between baseband and broadband :-
+          Baseband                                                Broadband
+      - Digital signalling                                  - Analog signalling
+      - Frequency division multiplexing is not possible     - Possible
+      - Baseband is bi-directional transmission             - unidirectional
+      - Short distance signal travelling                    - long
+      - Entire bandwidth is for single signal transmission  - Simultaneous multiple signals different frequencies
+      - Ethernet is using Basebands for LAN                 - Used to transmit cable TV to premises
+
+
+    Shielded Twisted-Pair(STP) :-
+     - Consists of special jacket(copper braid covering or foil shield) to block external interference
+     - Used in fast-data-rate Ethernet and in voice and data channels of telephone lines
+     - Higher data rate compare to UTP | Eliminates Cross Talk | More Expensive | Diffcult to install
+
+
+   Coaxial Cable :-
+    - Outer plastic covering insulation layer made of PVC or Teflon and 2 parallel conductors each having separate 
+      insulated protection cover
+    - Cable TVs and analog television networks widely use Coaxial cables
+    - High Bandwidth | Better noise Immunity | Easy to install and expand | Inexpensive
+    - Single cable failure disrupt entire network
+
+    Base has two types :-
+      BaseBrand :- Only one signal transmit at time if other signal come collision arise(Dedicated cable bandwidth)
+      BroadBand :- Multiple signal can be parallel transmit and cable bandwidth split into separate ranges   
+
+
+   Optical Fiber Cable :-
+    - Uses concept of reflection of light through core made up of glass or plastic
+    - Core is surrounded by less dense glass or plastic covering called cladding
+    - Used for transmission of large volumes of data 
+    - Cable can be unidirectional or bidirectional
+    - WDM(Wavelength Division Multiplexer) support both direction
+    - Increased capacity and bandwidth | Lighweight | Less signal attenuation 
+    - Diffcult to install and maintain | High Cost  | Fragile
+
+
+   Stripline :-
+    - Transverse electromagnetic(TEM) transmission line medium invented by Robert M. Barrett of Air Force Cambridge
+      Research Centre in 1950
+    - Earliest form of planar transmission line
+    - Use conducting material to transmit high-frequency waves it is also called waveguide
+
+
+
+  Unguided Media :-
+   - Referred as Wireless or Unbounded transmission media 
+   - No physical medium required for transmission of electromagnetic signals
+   - Less Secure | Used for larger distances | Signal broadcasted through air
+   
+   Radio Waves :-
+    - Easy to generate and penetrate through buildings 
+    - Sending and receiving through antennas
+    - Frequency Range:3KHz – 1GHz 
+    - AM and FM radios and cordless phones use Radio waves for transmission
+    - Further Categorized as (i) Terrestrial and (ii) Satellite
+
+
+   Microwaves :-
+    - Line of sight transmission 
+    - Sending and receiving antennas need to be properly aligned with each other
+    - Distance covered by signal is directly proportional to height of antenna 
+    - Frequency Range : 1GHz – 300GHz 
+    - Used for mobile phone communication and television distribution
+   
+
+   Infrared :-
+    - Short distance communication because cannot penetrate through obstacles
+    - Frequency Range:300GHz – 400THz 
+    - Used in TV remotes, wireless mouse, keyboard, printer, etc..
+
+
+
+
+Transmission mode :-
+ - Transferring data between two devices also known as Communication mode
+ - Buses and networks are designed to allow communication to occur between individual devices that are interconnected
+ 
+ Types of transmission mode :-
+ Simplex Mode :-
+  - Communication is unidirectional 
+  - Use entire capacity of channel to send data in one direction
+  Example : Keyboard and traditional monitors 
+  - Keyboard only introduce input and monitor only give output
+ 
+
+ Half-Duplex Mode :-
+  - Both transmit and receive but not at same time 
+  - When one device is sending other can only receive and vice versa 
+  - Used in cases where there is no need for communication in both directions at same time 
+  - Entire capacity of channel utilized for each direction
+  Example : In Walkie-talkie message sent one at time and messages are sent in both direction
+  Channel capacity  = Bandwidth * Propagation Delay
+
+ 
+ Full-Duplex Mode :-
+  - Both transmit and receive simultaneously 
+  - Signals going in one direction share capacity of link with signals going in another direction this sharing
+    occur in two ways :- 
+    - Either link must contain two physically separate transmission paths one for sending and other for receiving
+    - Capacity is divided between signals traveling in both directions
+  - Used when communication in both directions required all time 
+  - Channel capacity must be divided between two directions
+  Example :- Telephone Network in which there is communication between two persons by telephone line
+  Channel Capacity  = 2 * Bandwidth * Propagation Delay
+
+
+
+
+Signal Conversion :-
+ Digital Signal : 
+  - Represents data as sequence of discrete values at any given time it can only take on one of finite number of values
+
+ Analog Signal :- 
+  - Signal is any continuous signal for which time varying feature of signal is representation of some other time
+    varying quantity i.e., analogous to another time varying signal
+
+
+ Analog to Digital Signal :-
+ 
+  Pulse Code Modulation(PCM):-
+   - Change analog signal to digital data
+   Process :- Sampling | Quantization | Encoding
+   
+   Low Pass Filter :-
+    - Eliminates high frequency component present in input analog signal to ensure that input signal sampler is free
+      from unwanted frequency components
+    - This is done to avoid aliasing of message signal
+   
+
+   Sampling :-
+    - Process of measuring amplitude of continuous-time signal at discrete instants
+    - Converting continuous signal into discrete signal
+    Idel Sampling    :- Known as Instantaneous sampling pulses from analog signal are sampled
+    Natural Sampling :- 
+     - Practical method of sampling in which pulse have finite width equal to T
+     - Result is sequence of samples that retain shape of analog signal
+    Flat Top Sampling :- Top of samples remains constant by using circuit
+
+    Nyquist Theorem :-
+     - Sampling rate must be at least 2 times highest frequency contained in signal 
+     - Also known as minimum sampling rate and given by :- Fs = 2 * fh
+   
+   
+   Quantization :-
+    - Sampling is series of pulses with amplitude values between maximum and minimum amplitudes of signal 
+    - Set of amplitudes infinite with non-integral values between two limits
+    - D = (Vmax - Vmin) / L
+    - Normalized pulse amplitude modulation(PAM) value is calculated using formula :- amplitude / d
+
+
+   Encoding :-
+    - Digitization of analog signal is done by encoder 
+    - After each sample is quantized and number of bits per sample is decided each sample changed to n bit code 
+    - Encoding also minimizes bandwidth used
+
+
+
+  DELTA MODULATION :-
+    - Find change from previous value
+    Modulator :- 
+     - Used at sender site to create stream of bits from analog signal 
+     - Process records small positive change called delta 
+     - If delta is positive process records a 1 else process records a 0 
+     - It build second signal that resembles staircase 
+     - Input signal is then compared with this gradually made staircase signal
+     Rules :- 
+      - Input analog signal higher than lastvalue of staircase signal increase delta by 1 and bit in digital data is 1
+      - Input analog signal lower than lastvalue of staircase signal decrease delta by 1 and bit in digital data is 0
+
+
+
+  ADAPTIVE DELTA MODULATION(ADM):-
+    - Performance of delta modulator improved significantly by making step size of modulator assume time-varying form 
+    - Larger step-size is needed where message has steep slope of modulating signal 
+    - Smaller step-size is needed where message has small slope and Size is adapted according to level of input signal 
+      these method knows as ADM    
+
+
+
+ Digital to Analog conversion :-
+  Amplitude Shift Keying :-
+   - Carrier signal is analog and data to be modulated is digital 
+   - Aanalog carrier signal is modified to reflect binary data
+   - Binary signal gives zero value when binary data represent 0 while gives carrier output when data is 1 
+   - Frequency and phase of carrier signal remain constant
+   - Transmit digital data over optical fiber | 
+   - Receiver and transmitter have simple design which makes it comparatively inexpensive
+   - Offer high bandwidth efficiency
+   - Susceptible to noise interference and entire transmissions could be lost due to this | Lower Power Efficiency
+
+
+  Frequency Shift Keying :-
+  Phase Shift Keying :-  
+   Binary Phase Shift Keying(BPSK) :-
+   Quadrature Shift Keying(QPSK) :-
+
+
+ 
+ Analog to Analog Conversion :-  
+  - Representation of analog information by analog signal
+  Amplitude Modulation
+  Frequency Modulation
+  Phase Modulation
+
+
+
+
+Wireless Communication :- 
+ - Data travel through air, there must be some constraints within which wireless communication takes place    
+ - All wireless devices must follow a common standard i.e, IEEE 802.11
+ - Wireless coverage must be there where devices are expected to use
+ - Wired network under IEEE standard 802.3 while wireless network under IEEE standard 802.11
+ - IEEE stands for "Institute of Electrical and Electronics Engineers" is an organization composed of engineers 
+   that issues and manages standards for electrical and electronic devices
+
+
+ Basic of Wireless Communication :-
+  - Takes places through RF(radio frequency) one device Transmitter send signal to other device Receiver 
+  - Two devices (transmitter and receiver) must use same frequency (or channel) to be able to communicate 
+  - If large number of wireless devices communicate at same time radio frequency cause interference with each other
+  - Interference increases as no of devices increases
+  - All wireless devices operate in half duplex mode to avoid collision or interference
+  - To achieve full duplex mode, devices uses different frequency or channel of transmission and receiving of signal
+  - wireless communication is Full-duplex but technically it is not
+
+
+
+ Radio Frequency :-
+  - Sender(transmitter) send alternating current into section of wire(antenna) 
+  - This sets up moving electric and magnetic field that away as travelling waves 
+  - Electric and magnetic field moves along each other at right angle to each other 
+  - Signal must keep changing or alternating by cycle up and down to keep electric and magnetic field cyclic and 
+    pushing forward 
+  - No of cycles wave taking in second is called Frequency of wave
+  So :- frequency = no of cycles per second  
+  - Electromagnetic waves not travel in straight line 
+  - They travel by expanding in all direction away from antenna
+  
+  Unit	    Abbreviation	Meaning
+   Hertz	    Hz        	Cycles per second
+   Kilohertz	KHz	        1000 Hz
+   Megahertz	MHz	        1,000,000 Hz
+   Gigahertz	GHz	        1,000,000,000 Hz
+
+
+
+ Basic Service Set(BSS):-
+  - To regulate connection to devices, make every wireless service area closed group of mobile devices that form
+    around fixed device
+  - IEEE calls this standard BSS
+  - At center of every BSS there is access point (AP), it Provide services that are necessary to form infrastructure 
+    of Wireless communication 
+  - AP operates in infrastructure mode and uses single wireless channel 
+  - All devices that want to connect to AP must use that same channel
+  - Because operation of BSS depends on AP BSS is bounded to area covered by AP 
+  - Area up to which AP’s signal is reachable, This area is called Basic Service Area (BSA) or cell 
+  - Cell is usually circular shape with center as AP 
+  - AP serves as single point of contact for BSS 
+  - AP use unique BSS identifier(BSSID) based on its own MAC address to advertise it’s existence to all devices in cell
+  - AP also advertises human-readable text string called Service Set identifier(SSID) to uniquely identify AP 
+  - BSSID as machine-readable unique tag to identify wireless service and SSID human-readable service tag
+  - Membership of mobile devices with BSS is called Association 
+  - Once associated device becomes BSS client or 802.11 station (STA) 
+  - As long as devices connected to AP all data communication passes through AP using BSSID as source and destination
+    address 
+  - You can think why all traffic must pass through AP? 
+  - They simply communicate with other devices directly without AP as middleman
+  - If we don’t do so then whole point of wireless service will go in vain 
+  - Sending data through AP make it stable and controllable
+
+
+
+ Repeater :-
+  - AP in wireless infrastructure usually connected back to switched networks 
+  - BSS has limited signal coverage area(BSA) 
+  - To extend signal coverage add additional AP but in some scenarios not possible, Solution is Repeater
+  - Repeater is just AP configured in Repeater mode 
+  - Wireless repeater takes signal as input and retransmits signals in new cell around Repeater 
+  - Repeater uses two transmitters and receiver to keep original and repeated signals isolated on different channel
+
+

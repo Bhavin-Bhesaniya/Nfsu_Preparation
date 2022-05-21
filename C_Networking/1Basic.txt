@@ -290,5 +290,7 @@ Manchester encoding and differential manchester encoding :-
   1 --> -|_  , _|-
 
 
+
+
 Wireshark Network Protocol Analyzer capture and analyze packets transmitted/received via Network Interface Card (NIC)
 
