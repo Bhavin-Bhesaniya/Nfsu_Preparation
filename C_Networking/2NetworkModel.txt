@@ -41,7 +41,7 @@ OSI(Open System Interconnection) :-
 
 
 
- Data-Link Layer :-
+ Data-Link Layer(Layer 2) :-
   - Responsible for node-to-node delivery of message  
   - Make sure data transfer is error-free from one node to another over physical layer
   - When packet arrives in network it is responsibility of DLL to transmit it to Host using its MAC address
@@ -192,6 +192,7 @@ TCP/IP Model :-
   - Internet Layer
   - Network Access/Link Layer
   
+
  Network Access Layer :-
   - Corresponds to combination of Data Link Layer and Physical Layer of OSI model 
   - Hardware addressing and protocols present in this layer allows for physical transmission of data

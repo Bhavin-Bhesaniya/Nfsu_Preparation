@@ -1,0 +1,31 @@
+Intro to Data-Link Layer :-
+  - Responsible for node-to-node delivery of message  
+  - Make sure data transfer is error-free from one node to another over physical layer
+  - When packet arrives in network it is responsibility of DLL to transmit it to Host using its MAC address
+  - Packet received from Network layer divided into frames depending on frame size of NIC(Network Interface Card)   
+  - Encapsulates Sender and Receiver’s MAC address in header
+  - Receiver’s MAC address obtained by placing ARP(Address Resolution Protocol) 
+  - It request on wire asking “Who has that IP address?” and destination host will reply with its MAC address
+  - Packet in Data Link layer is referred to as Frame
+  - Data Link layer is handled by NIC (Network Interface Card) and device drivers of host machines
+  - Protocol used are Ethernet, token ring, FDDI and PPP
+
+  DLL SubLayer :-
+    Logical Link Control(LLC) 
+    Media Access Control(MAC)
+ 
+ Service :-
+  Framing and Link Access | Reliable Delivery | Flow control | Error Detection | Error Correction | Half & Full-Duplex
+
+ 
+Error Detection :-
+ - Error is situation when message received at receiver end is not identical to message transmitted
+ Types :- 
+ Single-Bit Error :-
+  - One bit of given data unit is changed from 1 to 0 or from 0 to 1
+  - It not appear in Serial Data Transmission but mainly occurs in Parallel Data Transmission
+  
+ Burst Error :-
+  - Two or more bit changed from 1 to 0 or from 0 to 1
+  - Determined from first corrupted bit to last corrupted bit
+  - 
