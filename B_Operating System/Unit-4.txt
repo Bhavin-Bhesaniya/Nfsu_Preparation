@@ -1,24 +1,23 @@
 Deadlock Handling
  
 Topics :- 
-  - What is Deadlock
-  - Resource Allocation Graph(RAG) in Deadlock | Single Instance
-  - Handling Deadlock Using Various Methods
-  - Bankers Algorithm
+ - What is Deadlock
+ - Resource Allocation Graph(RAG) in Deadlock | Single Instance
+ - Handling Deadlock Using Various Methods
+ - Bankers Algorithm
 
 
 
-What is Deadlock :-
- - Deadlock is a situation where one process holding resources and waiting for another resourc At same time another 
-   process B demands blocking resource which hold by process A, 
- - Process B is waiting state unless and until process A releases occupied resource
+Deadlock :-
+ - Process A holding R1 resource and waiting for R2 resource for operation but R2 resource is holding by process B 
+   which waiting for R1 resource for operation which hold by process A
  - If 2 and more processes are waiting on happening of some event but that event doesn't happen called deadlock  
  
  For Deadlock 4 Necessary Condition :-
   Mutual exclusion - Process must use resource in Mutual exclusion manner means one by one | No Inter-leaving
                    - Only one process can use at time
-  No Premption     - No switching | Resource cannot be taken from process unless process releases resource
   Hold and Wait    - If one process hold one resource and waiting for another resource
+  No Premption     - No switching | Resource cannot be taken from process unless process releases resource
   Circular Wait    - Processes are waiting another resource in circular form
 
  - <- (Hold) | -> (Request) 
@@ -34,26 +33,24 @@ What is Deadlock :-
 
   
 
-
 Resource Allocation Graph(RAG) in Deadlock | Single Instance :-
- - RAG is most efficient and convenient way to represent state of the system
+ - Efficient and convenient way to represent state of the system
  - Means how resources are allocated to process and how processes have been assigned multiple resources
  - Used to Check in system there is deadlock or not 
  
  Graph :-
   - Every graph has Vertex and edge two things
   - Vertex has two types:-
-    Process vertex   :- Number of processes running in system are represented by vertex are generally represented in circle
-    Resource vertex  :- Resource like CPU, memory are represented in Rectangle
-      Type of Resource Vertex :-
-       - Single instance     : CPU, Monitor 
-       - Multiple instances  : Register, Printer
+    Process vertex  :- No. of processes running in system are represented by vertex which represented in circle
+    Resource vertex :- Resource like CPU, memory are represented in Rectangle
+     Type of Resource Vertex :-
+      Single instance    : CPU, Monitor         [.]
+      Multiple instances : Register, Printer    [...]
   
   - Edge has two types :- 
-    Assign Edge  :- Resource connected with process if arrow moving towards process(P1 <- R1)
-    Request Edge :- Resource connected with process if arrow going towards process (P1 -> R1)
+    Request Edge :- Arrow going towards process (P1 -> R2)
+    Assign Edge  :- Arrow moving towards process(P1 <- R1)
  
-
 
   Example :- Single-instance Vertex
     p1 <-- R1 |  p2 <-- R2  | p3 --> R1,R2
@@ -63,11 +60,10 @@ Resource Allocation Graph(RAG) in Deadlock | Single Instance :-
     p2  0     1       0    0
     p3  0     0       1    1     
 
-    Availability (0 , 0) --> P1 Executed --> (1, 0) --> p2 Executed --> (1, 1) --> p3 Executed
-  - If RAG has circular wait(cycle) and single instance resources there will be always deadlock
-  - If RAG has circular wait(cycle) and multi-instance resources there will be not always deadlock
+   Availability (0 , 0) --> P1 Executed --> (1, 0) --> p2 Executed --> (1, 1) --> p3 Executed
+   - RAG has circular wait(cycle) and single instance resources there will be always deadlock
+   - RAG has circular wait(cycle) and multi-instance resources there will be not always deadlock
    
-
 
   Example :- Multiple-instance Vertex
     p1 <-- R1 |  p1 --> R2  |  P2 <-- R2  | P2 --> R1| p3 <-- R2

@@ -1,8 +1,8 @@
 Basic :-
- - System which is connected to the network and is ready for communication known as Open System
- - System which is not connected to the network and can't ready for communication known as Close System
+ - System which connected to the network and ready for communication known as Open System
+ - System which not connected to the network and can't ready for communication known as Close System
  
- - Interconnection of multiple devices that are connected using multiple paths for the purpose of sending/receiving 
+ - Inter-connection of multiple devices that are connected using multiple paths for the purpose of sending/receiving 
    data or media
  - Network devices include routers, switches, hubs, and bridges
 

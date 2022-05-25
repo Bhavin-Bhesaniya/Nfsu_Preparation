@@ -2,7 +2,7 @@ Memory Management & Virtual Memory Management
 
 Topics :-
  - Memory Management & Degree of MultiProgramming
- - Contiguous Memory Management Techniques :-
+ - Contiguous Memory Management Techniques
  - Non-Contiguous Memory Management
  - What is Thrashing
  - What is Overlay
@@ -10,140 +10,162 @@ Topics :-
 
 
 Memory Management & Degree of MultiProgramming :-
- - Method of managing primary memory
- - Efficient utilization of memory
+ - Method of managing and Efficient utilization of primary memory
  - More No of process(Degree of multi-programming) in ram CPU utilization is high
  - Memory is large arrays of byte where every byte has some address
  - Some part of memory occupied by OS when system start
+ 
+ Function :- Memoey Allocation(Ready -> Running), Deallocation(Running -> Terminate) and 
+             Protection(P1,P2 -> P1cpu -> Access only allocate resources)
+ 
+ Goal :- Maximum Utilization(Minimum Fragmentation) | Run Larger Programs with limited space(Using Virtual memory)
 
  Formula :-
   k - I/O Operation time
   Cpu Time = (1-k^n)  # n means no of process
 
+ MMT :-
+  Contiguous     :- Enitre process store in consecutive location | Fixed Partition, Variable Partition
+  Non-contiguous :- Process store in non-consecutive location    | Paging, Segmentation
+ 
+
 
 
 Contiguous Memory Management Techniques :-
-
  - Provide Contiguous Memory Block for process in RAM
+ - Enitre process store in consecutive location 
+
+ Fixed Partition | Static Partition :-
+  - No of Partition is fixed in memory and evey partition accommodate only one process 
+  - Partition size will be same or may not same
+  - Process put any partition of memory but in same partition only
+  - Spanning is not allow means put entire process in same partition not allow to put in different partition
   
-  Fixed Partition | Static Partition :-
-   - No of Partition is fixed in memory but Partition size will be same or may not same
-   - Due to Contiguous allocation spanning is not allowed
-   - Spanning means put entire process in same partition not allow to put in different partition
-   - We can able to put process in any partition in memory but in same partition only
-   Ex :- If P1 = 2MB and M1 = 4MB remaining M1 2MB size was wasted which was called Internal Fragmentation 
-   - If process size bigger than partition size in memory it generate problem of size limit partition because we 
-     partition memory during configuration
-   - Fixed no of partition so Not add more processes in RAM above partition size
-   - When we have availability of memory in different slots and combination of all space is equal to process size or less size
-     but still not allowed due to contiguous it's called External Fragmentation
-   - So Whenever internal Fragmentation arise their must be an external Fragmentation  
-   - Used in main Frame computer during 1960 
+  - Used in main Frame computer during 1960 
+  - Process size bigger than partition size in memory it generate problem of size limit partition
+  - Fixed no of partition so Not add more processes in RAM above partition size
+  - Combination of all available memory in different slots equal to process size or less size
+    but not allowed due to contiguous called External Fragmentation
+  - So Whenever internal Fragmentation arise their must be an external Fragmentation  
+  
+  Ex :- If P1 = 2MB and M1 = 4MB remaining M1 2MB size was wasted which was called Internal Fragmentation 
+
 
   
-  Variable Partition | Dynamic Partition :-   
-   - Whenever process are coming into ram only then we are allocating space to the process based on their space requirements
-    Advantages :-  
-     - No chance for internal Fragmentation
-     - No limitation on Degree of programming(No Of Process)
-     - No limitation on process size 
+ Variable Partition | Dynamic Partition :-   
+  - Allocating space for process based on their space requirements(Partition size Same as process size)
+  - Main memory not divided into partition initially 
 
-    Disadvantages :-
-     - If one process complete its execution in RAM one hole (4MB)
-     - If two process of same size complete its execution now one process come with has bigger size than available RAM space
-       4MB + 4MB BUT Process 8MB so external fragmentation arise
-     - To remove we able to use Compaction means remaining space to one side and process to other side but it is undesirable
-       means we need to stop process or we need to move process from one address to another which take more time
-     - Allocation and deallocation little bit complex  
+  Advantages :-  
+   - No chance for internal Fragmentation
+   - No limitation on Degree of programming(No Of Process) and process size 
+
+  Disadvantages :-
+   - Process complete its execution in RAM it create one hole (4MB)
+   - Two process complete its execution now one process come with bigger size than available RAM in space
+     4MB + 4MB BUT Process size 8MB so external fragmentation
+   - To remove fragmentation use Compaction means collect all allocated process one side and remaining space other side
+     means stop process or move process from one address to another which take more time
+   - Allocation and deallocation little bit complex  
    
 
-   How to allocate process in Hole :-
-    First-Fit :- Allocate first hole that is big enough for that process            
-               - P1=15KB | S1=25KB | S2=35KB store in S1
-               - Search from beginning so searching time low and fast 
-               - But remaining portion of memory create big holes in memory  
+
+ Process Allocation Policy(How to allocate process in Hole):-
+  First-Fit :- 
+   - Allocate first partition that big enough for that process            
+   - P1=15KB => S1=25KB | S2=35KB store in S1
+   - Search from beginning so searching time low and fast 
+   - Remaining portion of memory create big holes in memory so internal Fragmentation
 
 
-    Next-Fit  :- Same as first fit but start search always from last allocated hole 
-               - p2=15KB | S2=28KB | S3=30KB store in S2 Not S1
-               - Not need to search from beginning because First-Fit already searched
+  Next-Fit  :- 
+   - Same as first fit but start search always from last allocated hole 
+   - p2=15KB => S2=28KB | S3=30KB store in S2 Not S1
+   - Not need to search from beginning because First-Fit already searched
 
 
-    Best-Fit  :- Search entire list and allocate smallest hole that is big enough for process so minimal internal fragmentation
-               - If add process in hole remaining portion will be least 
-               - Problem arise that it create tiny holes which may not helpful for other and it also search entire ram so very Slow
-               - p2=15KB | S5=22KB | S8=20KB  Store in S8 Not S2 
+  Best-Fit  :- 
+   - Search entire list and allocate smallest partition that big enough for process so minimal internal fragmentation
+   - If add process in hole remaining portion will be least 
+   - Problem Create tiny holes which not helpful for other and search entire ram so very Slow
+   - p2=15KB => S5=22KB | S8=20KB  Store in S8 Not S2 
                 
-    Worst-Fit :- Allocate largest hole
-                - p2=15KB | S5=22KB | S8=20KB  Store in S5 Not S8
-                - Problem arise that it create big holes where other process join but it also search entire ram so very Slow
+  
+  Worst-Fit :- 
+   - Allocate largest hole
+   - p2=15KB => S5=22KB | S8=20KB  Store in S5 Not S8
+   - Problem Create big holes where other process join but search entire ram so very Slow
 
    
-   Example :- 
-    Request from process are 300kb, 25k, 125k, 50k so which will be best for it :-
-    R1 = 150KB  | R2 = 350KB  # Hole
-      First Fit :- P1 --> R2(50) | P2 --> R1(125)  | P3 --> R1(0)  | P4 -->R2(0)
-      Best Fit  :- P1 --> R2(50) | P2 --> R2(25)   | P3 --> R1(25) | P4 Not fit with space because R1(25), R2(25)
-      Worst Fit :- P1 --> R2(50) | P2 --> R1(125)  | P3 --> R1(0)  | P4 -->R2(0)
+  Example :- 
+   Request from process are 300kb, 25k, 125k, 50k so which will be best for it :-
+   R1 = 150KB  | R2 = 350KB  # Hole
+    First Fit :- P1 --> R2(50) | P2 --> R1(125)  | P3 --> R1(0)  | P4 -->R2(0)
+    Best Fit  :- P1 --> R2(50) | P2 --> R2(25)   | P3 --> R1(25) | P4 Not fit with space because R1(25), R2(25)
+    Worst Fit :- P1 --> R2(50) | P2 --> R1(125)  | P3 --> R1(0)  | P4 -->R2(0)
 
 
-   Example With TimeLine :- BestFit
-    Calculate time at which "J7" will be completed _____ :- ANS :- b if ask when enter time it ANS :- 11
-    a)17    b)19    c)20    d)37
+  Example With TimeLine :- BestFit
+   Calculate time at which "J7" will be completed _____ :- ANS :- b if ask when enter time it ANS :- 11
+   a)17    b)19    c)20    d)37
     
-    RNo.        J1  J2   J3   J4   J5   J6    J7   J8
-    RSize       2K  14K  3K   6K   6K   10K   7K   20K
-    UsageTime   4   10   2    8    4    1     8    6 
+   RNo.        J1  J2   J3   J4   J5   J6    J7   J8
+   RSize       2K  14K  3K   6K   6K   10K   7K   20K
+   UsageTime   4   10   2    8    4    1     8    6 
 
-    Partition Size :- R1(4K) | R2(8K) | R3(20K) | R4(2K)
+   Partition Size :- R1(4K) | R2(8K) | R3(20K) | R4(2K)
 
-    Gannt Chart :- 0    2       4        8       10     11      12          19
-                        J3     J1       J4       J2     J6      J5(8+4)     J7
+   Gannt Chart :- 0    2       4        8       10     11      12          19
+                       J3     J1       J4       J2     J6      J5(8+4)     J7
 
-    Solve :- J1 --> R1(0)() | J2 --> R3(6K) | J3 --> R1(1K) | J4 --> R2(2K)
-            - Slot full waiting for release other process 
-             J4C --> R2(8K) | J5 --> R2(2K) | J2C --> R3(20K) | J6 --> R3(10K)
-            - At time 11 J6 Remove and At 12 J5 Remove but we need to consider 11 time
-             J6C --> R3(20K) | J7 --> R3(13K)  
+   Solve :- 
+    - J1 --> R1(0)() | J2 --> R3(6K) | J3 --> R1(1K) | J4 --> R2(2K)
+    - Slot full waiting for release other process 
+      J4C --> R2(8K) | J5 --> R2(2K) | J2C --> R3(20K) | J6 --> R3(10K)
+    - At time 11 J6 Remove and At 12 J5 Remove but we need to consider 11 time
+      J6C --> R3(20K) | J7 --> R3(13K)  
        
 
 
-Non-Contiguous Memory Management Techniques:-
- - Allocate memory in non-contiguous manner and process can be divided and able to place in different location
- - For removing external fragmentation
- - Proble arise holes created dynamically so whenever process need to come in ram it need to check holes and its size
-   than according size need to divided process to fit in that location so it is very time consuming
- - To solve these we divided process before enter in ram, and that called pages
+
+Non-Contiguous Memory Management Techniques :-
+ - Process divided and able to place in different location which removing external fragmentation
+ - Problem arise that holes are created dynamically so whenever process come in ram Check holes and its size 
+   than according size divided process to fit in that location so very time consuming
+ - To solve these divided process before enter in ram that called pages
  - Size of Page = Size of Frame(Main memory Partition)
 
 
-  Paging :-
-   - Divide process in equal size of pages and insert into frames of main memory
-   - Frame no and pages no represent in binary so its always start with 0
-   - Convert Cpu generated logical address into absolute address which is known as Mapping which done by MMU(Memory Management Unit)
-   - MMU use page table which containing frame number that address where process page is allocated in main memory
-   - Every process has its own page table
-   - number of entries in particular page tables always equal to number of pages 
-   - CPU always works on logical address space(LAS) which created by two factor :- page number and page offset(sizeof page)
-   - Physical address space (PAS) represent location of bytes in memory it depends on size of memory 
-     :- Frame number and Frame offset(sizeof frame)
-   - Page offset = Frame offset
+ Paging :-
+  - Process is Divided in equal size of pages and insert into Frames(Physical memory Partition)
+  - Frame and pages numbers are represent in binary so its always start with 0
+  - Every process has its own page table that containing frame number where process page is allocated in memory
+  - Number of entries in particular page tables equal to number of page :- Page offset = Frame offset
+  - Page table also store in main memory in form of pages
 
+  Mapping :- Process of Convert Cpu generated logical address into absolute address done by MMU(Memory Management Unit)
+
+  - CPU works on logical address space(LAS) which created by two factor :- Page  number and page  offset(sizeof page)
+  - Physical address space (PAS) represent location of bytes in memory  :- Frame number and Frame offset(sizeof frame)
+
+  Formula :- 
+    Page Table Size = No. of entries in P.T.  * 1 Entry Size
+                    = No. of pages in process * 1 Entry Size(Frame no + Extra bits) 
    
-   Page Table Entry :-
-    - Page table Use MMU to convert logical address into physical address for mapping
-      First Field  -> Frame No (Mandatory)
-      Second Field -> Valid-1/Invalid-0 | These field tells whether that page is present or not at that location(Page Fault) 
-      Protection(RWX)(Read Write Execute) -> Check which Permission on particular file or page  
-      Reference(0/1)  -> When we swapping swapout page we need to tells either we bring that page in past using LRU(least recently used)
-      Caching         -> Enable or disable caching 
-      Dirty/Modified  -> If user change any page data or say update data we use these field to also update data in secondary memory
+  Page Table Entry :-
+   - Page table Use MMU to convert logical address into physical address for mapping
+   First Field  -> Frame No (Mandatory)
+   Second Field -> Valid-1/Invalid-0 | Tells whether page is present or not at that location(Page Fault) 
+   Protection(RWX)(Read Write Execute) -> Check Permission on particular file or page  
+   Reference(0/1)  -> When swapping page it need to tell either bring that page in past using LRU(least recently used)
+   Caching         -> Enable or disable caching 
+   Dirty/Modified  -> User change any page data or update data use these field to update data in secondary memory
 
 
-  Multi-level | 2-Level Paging :-
-   - If page table size bigger than main memory frame size so we need to divided it into smaller page(Outer page) and stored
-     page into outer page
 
+ Multi-level | 2-Level Paging :-
+  - Page table size bigger than main memory frame size so divided it into smaller page(Outer page) and stored
+    page into outer page
 
   Inverted Paging :-
    - Instead of keeping all page table of all processes there will be only one page table(Global Page Table)
@@ -152,16 +174,16 @@ Non-Contiguous Memory Management Techniques:-
    - Problem in Inverted Paging is searching time because it use Linear Search 
 
 
-  Segmentation :-
-   - Divide process into releated parts(segments) and then we put into memory
-   - Paging divided prcoess without known user which occurs in different problems(Function Problem C Program)
-   - In paging all page size have same while in segments size are not same
-   - In Main memory base represent from where segments its started 
-   - Here Segmente table convert logical address into physical address
-   - Segment table contain --> Segment' No   : Base address  (From where its start)  : Segmente Size
-   - Trap if cpu demand is higher than actual segment size 
+ Segmentation :-
+  - Divide process into releated parts(segments) and then we put into memory
+  - Paging divided prcoess without known user which occurs in different problems(Function Problem C Program)
+  - In paging all page size have same while in segments size are not same
+  - In Main memory base represent from where segments its started 
+  - Here Segmente table convert logical address into physical address
+  - Segment table contain --> Segment' No   : Base address  (From where its start)  : Segmente Size
+  - Trap if cpu demand is higher than actual segment size 
 
-  Segmented Paging :-
+ Segmented Paging :-
 
 
 
@@ -175,11 +197,13 @@ What is Thrashing :-
 
 
 
+
 What is Overlay :-
  - If process size if more than size of memory, then i can make that process accommodate in main memory which known as overlay
  - Os has not any drivers for overlay so user need to decied how to bring partition in program to use proper functionality
  - Partition should be independent 
  - Use in embedded system
+
 
 
 
