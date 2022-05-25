@@ -17,7 +17,7 @@ Process? Its Creation, Section and Termination :-
  
  Process Creation :-
   - When user started executing program it become process 
-  - Program is passive entity resides in secondary memory while procrss is active entity  
+  - Program is passive entity resides in secondary memory while procrss is active entity in main memory 
   - It is dynamic instance of program
   - Process may have new program or may be duplicate of its parent process(Same code or data)
   - Each process has unique id which obtain resources either from operating system directly or from its parent process
@@ -32,11 +32,15 @@ Process? Its Creation, Section and Termination :-
   Defunct process :- Process which completed their execution by exit() system call but still entry in Process Table 
 
 
- Process divided into four section :-
+ Process divided into four section :- 
+  - Between Stack and Heap if extra space required allocated 
   Stack : Contain temporary data such as method/function parameters, return address and local variables
   Heap  : Dynamically memory allocation(Malloc, Calloc, Dalloc) for process during Run Time
   Data  : Contain global and static variable
-  Text  : Contains executable instructions of program, read-only and shareable
+  Code-Section/Text : Contain executable instructions of program, read-only and shareable
+
+ 
+ Process DataStructure :- Instruction | Representation/Implementation | Operation | Attribute
 
 
  Process termination :- 
@@ -52,12 +56,12 @@ Process State :-
  - Each process represented by Process Control Block(PCB) also called Task Control Block
 
  State :-
-  New   :- 
+  New :- 
    - Initial state where process first created/started in secondary memory(ROM)(Job Queue)
   
   Ready :- 
    - Long-term scheduler load Process from secondary memory to main memory(RAM)(Ready Queue)
-   - Where process is waiting to be assigned to processor(CPU)
+   - Here process is waiting to be assigned to processor(CPU)
    - Multiprogramming means number of processes are in ready states to increases CPU utilization
 
   Running :- 
@@ -80,14 +84,14 @@ Process State :-
 
 PCB(Process Control Block) :-  
  - PCB is data structure maintained by Operating System for every process using process ID
- - Entry of all PCBs of current processes is in Process Table 
+ - Entry of current processes in Process Table 
  - Process Table has status of each and every process that is created in OS along with their PIDs
 
  PCB Process Information :-
   Pointer :- Stack pointer that required saved when process switched from one state to another to retain position
   Process State    : Store respective state of process
   Process ID       : Identifier of process
-  Program Counter  : Store counter which Address next instruction executed for this process
+  Program Counter  : Store address counter from where next instruction executed for this process
   CPU Register     : Process stored for execution(Running state)
   Open File list   : List of all open file for process
   Memory Management Information : Include Page table, segment table etc.
@@ -105,7 +109,7 @@ Process Scheduling :-
 
  Scheduling queues :-
   - OS maintenance all PCBs in Process Scheduling queues to perform process scheduling
-  Job Queue     - As Process enter in system put in job queue which keeps all processes in system 
+  Job Queue     - As Process enter in system(New State) put in job queue which keeps all processes in system 
   Ready Queue   - Process that residing in memory are ready for execution are kept in ready queue
   Device Queue  - Process waiting for particular I/O resource are kept in device queue
 
@@ -134,13 +138,14 @@ Process Scheduling :-
    - Invoked when waiting state is full(device queue) due to lots of I/O request
    - Need to move process in suspended state
    - Remove suspended process from RAM to secondary storage its called Swapping
+   - Swapping is done based on priority its called rolling 
    - After complete I/O operation process join waiting state if space in waiting state otherwie wait for some time
 
 
 
  Types of Scheduling :-
   Non-Preemptive scheduling | Co-Operating scheduling :-
-   - Process keeps in cpu until it terminates(Complete) also known as multiprogramming
+   - Process keeps in cpu until it terminates(Complete) also known as Multiprogramming
    Ex :- Windows 3.1X
 
   Preemptive scheduling :- 
@@ -160,8 +165,6 @@ Process Scheduling :-
 Context Switching :-       
  - Store and restore process state in PCB so that process execution resumed from same point at later time
  - Multitasking OS enable multiple processes to share single CPU
- - When scheduler switch process from executing one to another, state of current running process stored into PCB 
-   At time second process can start executing
  - To avoid amount of context switching some hardware system allow two or more sets of processor registers
  
  Information Stored During Switching:-
@@ -175,21 +178,286 @@ Context Switching :-
 
  
 Inter-Process communication (IPC):-
- - Allow processes to communicate with each other and synchronise their actions without using same address space. 
- - IPC can be achieved using shared memory and message passing
+ - Allow processes to communicate with each other and synchronize their action without using same address space
+ - IPC achieved using shared memory and message passing
  
  Reason to use IPC :-
+  - Process synchronization  
   - Information sharing
   - Computational Speedup
   - Modularity 
   - Convenience
-  - Process synchronization  
   
  Pipe :-
-  - Communication medium between two or more related or inter-related processes
-  - Either within one process or communication between child and parent processes
+  - Pipe is Communication medium between two or more related or inter-related processes
+  - Either within one process or between child and parent processes
   - Filling process means writing into pipe and reading process is retrieving from pipe
   
+
+
+
+Scheduling Algorithm :-
+ - Gantt Chart(Henry Gantt) Use to sloveing numerical calculation
+ - These algorithms either Pre-emptive or Non-Preemptive
+
+ Scheduling Criteria :-
+  ↑ CPU utilization  - As busy as possible (0 to 100 percent), in real life 40(normal) to 90 (heavy) usage 
+  ↑ Throughput       - Number of processes that are completed per unit time (N/Length)
+  ↓ Turnaround time  - Time from submission to completion(Time Spent in different queue + CPU + in different I/O device)
+  ↓ Waiting time     - Time spent in ready queue 
+  ↓ Response time    - Time from submission to first response
+
+
+ Time Terms :-
+  Arrival Time    - Process enter Ready Queue or State            (Enter Process)     11 : 00
+  Burst Time      - Time required by process to execute on CPU    (Duration)          15 min
+  Completion Time - Process complete its execution                (Leave Process)     12 : 00
+  Turnaround Time - Completion time - Arrival Time                                    (12-11) = 1 hour
+  Waiting Time    - Turnaround time - Burst Time                                      (11-15) = 45 min 
+  Response time   - Time from submission to process get CPU first time - Arrival Time (11.30 - 11) = 30 min   
+  Scheduling Length - Max Completion time - Min Arrival time
+
+
+
+ First-Come First-Served(FCFS) Scheduling :-
+  - Non-Preemptive
+  Adv :- Easy to implement | No Complex Logic | No Starvation
+  Dis :- Poor performance and average waiting time is high | Convoy Effect
+  Convoy Effect - Small processes need to wait if large process given to cpu   
+   
+  Criteria :- Arrival Time : Check Who Come First Use in Gantt Chart
+
+  Example :- 
+   P No. |  AT  |  BT  |  CT  |  TAT(CT-AT) |  WT(TAT-BT)  | RT(Cpu First get- AT)
+    p1      0      2      2       2            0              0
+    p2      1      2      4       3            1              1  
+    p3      5      3      8       3            0              0
+    p4      6      4      12      6            2              2
+
+   Gantt  :-  |  p1  |  p2  |  CPU IDLE  |  p3  |  p4  |         # CPU Starting from 0  
+              0      2      4            5      8     12
+
+   Average Turnaround Time :- 2 + 3 + 3 + 6 = 14/4 = 3.5
+   Average Waiting Time    :- 0 + 1 + 0 + 2 = 3/4  = 0.75 
+   Throughput :- 12-0 = 12 | 4 / 12 = 3  
+
+
+
+ Shortest-Job-First(SJF) Scheduling :-
+  - Non-Preemptive   
+  Adv :- Minimum avg. waiting time in non-preemptive | Better throughput 
+  Dis :- Cannot Pratical implemented | Longer process may suffer from Starvation
+
+  Criteria :- Process with smallest Burst Time(Execution Time)
+
+  Example :-
+   P No. |  AT  |  BT  |  CT  |  TAT(CT-AT) |  WT(TAT-BT)  | RT(Cpu First get- AT)
+    p1      1      3      6        5              2           2
+    p2      2      4      10       8              4           4  
+    p3      1      2      3        2              0           0
+    p4      4      4      14       10             6           6
+
+   Gantt  :- 
+    | CPU Idle |  p3  |  p1  |  p2  |  p4  |    # First check which process arrived than check lowest burst time
+    0          1      3      6      10     14
+      
+   - Two process have same Arrival Time burst time check
+   - Not same Arrival Time but already in queue check burst time
+   - When both burst time and arrival time same check lower process ID
+
+   Average Turnaround Time :- 5 + 8 + 2 + 10 = 25/4 = 6.25
+   Average Waiting Time    :- 2 + 4 + 0 + 6 = 12/4  = 3
+
+
+
+ Shortest Remaining Time First(SRTF) (SJF With Pre-emption) :-
+  - Pre-emptive 
+  - Starvation | Waiting Time is lower
+  Adv :- Minimum avg. waiting time in non-preemptive | Better throughput 
+  Dis :- Cannot Pratical implemented(OS don't know about burst time) | Longer process may suffer from Starvation
+
+  Criteria :- Burst Time(Execution Time)
+
+  Example :-
+   P No. |  AT  |  BT  |  CT  |  TAT(CT-AT) |  WT(TAT-BT)  | RT(Cpu First get- AT)
+    p1      0      5      9         9             4           0
+    p2      1      3      4         3             0           0  
+    p3      2      4      13        11            7           7
+    p4      4      1      5         1             0           0
+
+   Gantt  :- | p1 -4 | p2 -2 | p2 -1 | p2 0 | p4 0 | p1 0 | p3 0 |        
+     Cpu  :- 0       1       2       3      4      5      9      13 
+ 
+   - Starting from 0 and check lower arrival time with 1 execution time
+   - If any other lower process arrive and which burst time is lower than previous process add it in cpu otherwise 
+     continue old process
+   - Last execution time known as completion time
+
+   Average Turnaround Time :- 24/4 = 6 
+   Average Waiting Time    :- 11/4 = 2.75 
+
+
+ 
+ Highest Response Ratio Next(HRRN) Scheduling :-
+  - Not only favors short jobs but also decrease Waiting Time for longer jobs
+  - Non-Preemptive
+  Criteria :- Response Ratio
+  Formula  :- RR = W + S / S  (W - Waiting Time | S - Burst Time) 
+
+  Example :-
+    PNo. |  AT  |  BT  |  CT  |  TAT(CT-AT) |  WT(TAT-BT)  | RT(Cpu First get- AT)
+    p1      0      5      5         5             0           0
+    p2      1      3      8         7             4           4  
+    p3      2      4      13        11            7           7
+    p4      4      1      9         5             4           4
+
+   Gantt  :- |  P1  |  P2  |  P4  |  P3  |  
+     Cpu  :- 0      5      8      9     13
+
+   After p1 :-
+    RR(P2) = (1-5) + 3 / 3 = 2.33   #Highest response ratio will be in CPU
+    RR(P3) = (2-5) + 4 / 4 = 1.75
+    RR(P4) = (4-5) + 1 / 1 = 2
+
+   After p2 :-
+    RR(P3) = (2-8) + 4 / 4 = 2
+    RR(P4) = (4-8) + 1 / 1 = 5
+   
+   Average Turnaround Time :- 28/4 = 7 
+   Average Waiting Time    :- 15/4 = 3.75 
+
+
+
+ Round-Robin Scheduling :-
+  - Select process from ready queue and move in cpu(Running Queue)
+  - Use time quantam and within time if finish terminate process otherwise send back in running state
+  - Here maintenance required on ready queue also 
+  Adv :- No Starvation | Better Interactiveness 
+  Dis :- WT AND TAT is more | Degrade to FCFS(If slice is very large)
+
+  Criteria :- Time Quantam Use(Pre-emptive)
+
+  Example :-
+   PNo. |  AT  |  BT  |  CT  |  TAT(CT-AT) |  WT(TAT-BT)  | RT(Cpu First get- AT)
+    p1     0      5      12        12             7             0
+    p2     1      4      11        10             6             1  
+    p3     2      2      6         4              2             2
+    p4     4      1      9         5              0             4
+
+   Time Quantam :- 2 
+  
+   ReadyQueue :- | p1 | p2 | p3 | p1 | p4 | p2 | p1  # Check process in ready queue or not if yes add in cpu
+    Cpu       :- 0    2                              # Process not completed back to ready queue check p4 arrival    
+
+   Running    :- | p1 -3 | p2 -2 | p3 0 | p1 -1 | p4 0 | p2 0 | p1 0|
+    Cpu       :- 0       2       4      6       8      9     11    12
+          
+   How many time context switches happen :- 
+    - Not calculate first and last cpu time | :- Ans : 6 | 
+    - BT % Time Quantam = 3 + 2 + 1 + 1 - 1 = 6 (-1 because first time not include) 
+
+   Average Turnaround Time :- 29/4 = 7.25 
+   Average Waiting Time    :- 15/4 = 3.75     
+
+
+
+ Priority Scheduling :-
+  Adv :- Better Response time
+  Dis :- Low priority suffer from starvation   
+  
+  Pre-emptive Priority Scheduling :-
+   - Starvation  
+
+   Criteria :- Priority Use in Gantt Chart
+
+   Example :-
+    Priority | PNo. |  AT  |  BT  |  CT  |  TAT(CT-AT) |  WT(TAT-BT)  | RT(Cpu First get- AT)
+    10         p1     0      5      12       12             7           0
+    20         p2     1      4      8        7              3           0  
+    30         p3     2      2      4        2              0           7
+    40         p4     4      1      5        1              0           0
+
+   Gantt :-  | p1 -4 | p2 -3 | p3 -1 | p3 0 | p4 0 | p2 0 | p1 0 |    # After process its burst time
+   Cpu   :-  0       1       2       3      4      5      8      12
+    
+   - Higher no higher priority (40)
+   - Two process in ready queue check priority
+   - Process with higher priority process here
+   - 2 process have same priority and same arrival time use process Id sequence
+
+   Average Turnaround Time :- 22/4 = 5.5 
+   Average Waiting Time    :- 10/4 = 2.5 
+
+
+
+  Non-Preemptive Priority Scheduling :- 
+   Example :-
+    Priority | PNo. |  AT  |  BT  |  CT  |  TAT(CT-AT) |  WT(TAT-BT)  |  RT(Cpu First get- AT)
+     2         p1      0      4      4         4              0           0
+     4         p2      1      2      25        24             22          22  
+     6         p3      2      3      23        21             18          18
+    10         p4      3      5      9         6              1           1
+     8         p5      4      1      20        16             15          15
+    12         p6      5      4      13        8              4           4  
+     9         p7      6      6      19        13             7           7
+    
+   Gantt  :-  |   p1   |   p4   |   p6   |   p7   |   p5   |   p3   |   p2   |  
+   Cpu    :-  0        4        9        13       19       20       23       25
+
+
+
+  Pre-emptive Priority Scheduling with I/O And CPU burst Time:-
+   Criteria :- Priority Use in Gantt Chart
+
+   Example :-
+    Priority Process No ArrivalTime  Cpu Burst Time | I/O Burst Time | CPU  | Complete Time  
+     2           p1            0           1              5            3          10
+     3           p2            2           3              3            1          15
+     1           p3            3           2              3            1           9
+     4           p4            3           2              4            1          18
+
+   Gantt :-  |  p1  C1-0  |  CPU IDLE  |  p2  C1-2 |  p3  C1-1 |  p3 C1-0  |  p2  C1-1  |   p1  C2-2 |  p1  C2-1 |      
+   Cpu   :-  0      SI    1            2           3           4      SI   5            6   CI       7           8
+
+             |  p3  C2-0  |  p1 C2-0   |  p2  C1-0 |  p4  C2-0 |  CPU IDLE |  p2 C2-0   |   CPU IDLE |  p4 C2-0  |    
+             8    CI      9           10      SI  11     SI   13          14           15           17          18 
+
+
+
+ Multi-level Queue Scheduling :-
+  - For different types of processes why single ready queue is used
+  - Use different queues for every process
+  - Every process will have it own algorithm
+
+  Types :- Time-Slicing | Fixed Priority Preemptive Scheduling
+   
+  StarVashion :- 
+   - Higher priority process arise than lower level process not executed at time 
+   - Aging prevent StarVashion 
+   - Aging waiting for particular point of time after that increase process priority
+   
+  Inter-Queue Scheduling :- 
+   - Pre-emptive priority scheduling or RR(80% time for foreground processes and 20% time for background processes)
+   
+  Diagram :- 
+    Highest Priority ---> System Process  --> Round-Robin  ------|
+                                                                 |
+    Medium Priority  ---> Interactive PS  -->    SJF       ---[ CPU ]      
+                                                                 |  
+    Lowest Priority  ---> Batch Process   -->    FCFS      ------|
+
+
+
+ Multi-level Feedback Queue Scheduling :-
+  - Lowest priority process give feedback and it slowely update and execute
+  - If process completed remove it from queue otherwise give feedback and push to higher priority 
+  - If process uses too much CPU time it will be moved to lower priority queue 
+  - Aging prevent StarVashion
+
+
+
+ LRTF(Longest Remaining Time First) Scheduling :-
+
 
 
 
@@ -275,222 +543,3 @@ Thread :-
 
 
 
-
-Scheduling Algorithm :-
- - Gantt Chart(Henry Gantt) Use to sloveing numerical calculation
- - These algorithms either Pre-emptive or Non-Preemptive
-
- Scheduling Criteria :-
-  ↑ CPU utilization  - As busy as possible (0 to 100 percent), in real life 40(normal) to 90 (heavy) usage 
-  ↑ Throughput       - Number of processes that are completed per unit time 
-  ↓ Turnaround time  - Time from submission to completion(Time Spent in different queue + CPU + in different I/O device)
-  ↓ Waiting time     - Time spent in ready queue 
-  ↓ Response time    - Time from submission to first response
-
-
- Time Terms :-
-  Arrival Time    - Process enter Ready Queue or State            (Enter Process)     11 : 00
-  Burst Time      - Time required by process to execute on CPU    (Duration)          15 min
-  Completion Time - Process complete its execution                (Leave Process)     12 : 00
-  Turnaround Time - Completion time - Arrival Time                                    (12-11) = 1 hour
-  Waiting Time    - Turnaround time - Burst Time                                      (11-15) = 45 min 
-  Response time   - Time from submission to process get CPU first time - Arrival Time (11.30 - 11) = 30 min   
-
-
-
- First-Come First-Served(FCFS) Scheduling :-
-  - Non-Preemptive
-  - Poor performance and average waiting time is high
-  Convoy Effect - Small processes need to wait if large process given to cpu   
-   
-  Criteria :- Arrival Time : Check Who Come First Use in Gantt Chart
-
-  Example :-
-   Process No. | Arrival Time | Burst Time(Execution Time) | Completion Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
-    p1             0                2                            2              2                     0             0
-    p2             1                2                            4              3                     1             1  
-    p3             5                3                            8              3                     0             0
-    p4             6                4                           12              6                     2             2
-
-   Gantt  :-  | p1 |  p2  |  CPU IDLE |  p3  | p4  |         # CPU Starting from 0  
-              0    2      4           5      8     12
-
-   Average Turnaround Time :- 2 + 3 + 3 + 6 = 14/4 = 3.5
-   Average Waiting Time    :- 0 + 1 + 0 + 2 = 3/4  = 0.75 
-
-
-
-
- Shortest-Job-First(SJF) Scheduling :-
-  - Non-Preemptive 
-  - Optimal but cannot be implemented
-
-  Criteria :- Process with smallest Burst Time(Execution Time)
-
-  Example :-
-   Process No. | Arrival Time | Burst Time(Execution Time) |Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
-    p1             1                3                            6              5                     2             2
-    p2             2                4                           10              8                     4             4  
-    p3             1                2                            3              2                     0             0
-    p4             4                4                           14             10                     6             6
-
-   Gantt  :- 
-    | CPU Idle |  p3  |  p1  |  p2  |  p4  |          # First check which process arrived than check lowest burst time
-    0          1      3      6      10     14
-      
-   - Two process have same Arrival Time burst time check
-   - Not same Arrival Time but already in queue check burst time
-   - When both burst time and arrival time same check lower process ID
-
-   Average Turnaround Time :- 5 + 8 + 2 + 10 = 25/4 = 6.25
-   Average Waiting Time    :- 2 + 4 + 0 + 6 = 12/4  = 3
-
-
-
-
- Shortest Remaining Time First(SRTF) (SJF With Pre-emption) :-
-  - Pre-emptive 
-
-  Criteria :- Burst Time(Execution Time)
-
-  Example :-
-   Process No. | Arrival Time | Burst Time(Execution Time) | Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
-    p1             0                5                            9              9                     4             0
-    p2             1                3                            4              3                     0             0  
-    p3             2                4                           13             11                     7             7
-    p4             4                1                            5              1                     0             0
-
-   Gantt  :- | p1 -4 | p2 -2 | p2 -1 | p2 0 | p4 0 | p1 0 | p3 0|        
-     Cpu  :- 0       1       2       3      4      5      9     13 
- 
-   - Starting from 0 and check lower arrival time with 1 execution time
-   - If any other lower process arrive and which burst time is lower than previous process add it in cpu otherwise continue old process
-   - Last execution time known as completion time
-
-   Average Turnaround Time :- 24/4 = 6 
-   Average Waiting Time    :- 11/4 = 2.75 
-
-
-
-
- Round-Robin Scheduling :-
-  - When process in ready queue select it and move in cpu(Running Queue)
-  - RR Scheduling cpu use time quantam and within time if finish terminate process otherwise send back in running state
-  - Here maintenance required on ready queue also 
-
-  Criteria :- Time Quantam Use(Pre-emptive)
-
-  Example :-
-   Process No. | Arrival Time | Burst Time(Execution Time) | Complete Time | TAT(Turnaround Time) | WT(Wait Time) | Response time(RT) 
-    p1             0                5                           12             12                     7             0
-    p2             1                4                           11             10                     6             1  
-    p3             2                2                            6              4                     2             2
-    p4             4                1                            9              5                     0             4
-
-   Time Quantam :- 2 
-  
-   Ready Queue :- | p1 | p2 | p3 | p1 | p4 | p2 | p1     # Check process in ready queue or not if yes add in cpu
-     Cpu       :- 0    2                                 # If process not completed bring back to ready queue but check p4 arrival    
-
-   Running     :- | p1 -3 | p2 -2 | p3 0 | p1 -1 | p4 0 | p2 0 | p1 0|
-     Cpu       :- 0       2       4      6       8      9     11    12
-          
-   - How many time context switches happern :- Not calculate first and last cpu time | :- Ans : 6 | 
-
-   Average Turnaround Time :- 29/4 = 7.25 
-   Average Waiting Time    :- 15/4 = 3.75     
-
-
-
-
- Priority Scheduling :-
-   
-  Pre-emptive Priority Scheduling :-
-   
-   Criteria :- Priority Use in Gantt Chart
-
-   Example :-
-    Priority Process No  Arrival-Time  Burst Time(Execution Time)  Complete Time  TAT(Turnaround Time)  WT(Wait Time)  Response time(RT) 
-    10           p1            0                5                       12             12                     7             0
-    20           p2            1                4                        8              7                     3             0  
-    30           p3            2                2                        4              2                     0             7
-    40           p4            4                1                        5              1                     0             0
-
-   Gantt :-  | p1 -4 | p2 -3 | p3 -1 | p3 0 | p4 0 | p2 0 | p1 0 |    # After process its burst time
-   Cpu   :-  0       1       2       3      4      5      8      12
-    
-   - Higher no higher priority (40)
-   - Two process in ready queue check priority
-   - Process with higher priority process here
-   - 2 process have same priority and same arrival time use process Id sequence
-
-   Average Turnaround Time :- 22/4 = 5.5 
-   Average Waiting Time    :- 10/4 = 2.5 
-
-
-
-  Non-Preemptive Priority Scheduling :- 
-   Example :-
-    Priority Process No ArrivalTime  Burst Time(Execution Time)  Complete Time  TAT(Turnaround Time)  WT(Wait Time)  Response time(RT) 
-     2           p1            0                4                       4              4                    0              0
-     4           p2            1                2                      25             24                   22             22  
-     6           p3            2                3                      23             21                   18             18
-    10           p4            3                5                       9              6                    1              1
-     8           p5            4                1                      20             16                   15             15
-    12           p6            5                4                      13              8                    4              4  
-     9           p7            6                6                      19             13                    7             7
-    
-   Gantt  :-  |  p1  |  p4  |  p6  |   p7   |   p5   |   p3   |   p2   |  
-   Cpu    :-  0      4      9      13      19       20       23       25
-
-
-
-  Pre-emptive Priority Scheduling with I/O And CPU burst Time:-
-   Criteria :- Priority Use in Gantt Chart
-
-   Example :-
-    Priority Process No ArrivalTime  Cpu Burst Time | I/O Burst Time | CPU  | Complete Time  
-     2           p1            0           1              5            3          10
-     3           p2            2           3              3            1          15
-     1           p3            3           2              3            1           9
-     4           p4            3           2              4            1          18
-
-   Gantt :-  |  p1  C1-0  |  CPU IDLE  |  p2  C1-2 |  p3  C1-1 |  p3 C1-0  |  p2  C1-1  |   p1  C2-2 |  p1  C2-1 |      
-   Cpu   :-  0      SI    1            2           3           4      SI   5            6   CI       7           8
-
-             |  p3  C2-0  |  p1 C2-0   |  p2  C1-0 |  p4  C2-0 |  CPU IDLE |  p2 C2-0   |   CPU IDLE |  p4 C2-0  |    
-             8    CI      9           10      SI  11     SI   13          14           15           17          18 
-
-
-
-
- Multi-level Queue Scheduling :-
-  - In real life when we have different types of processes so why single ready queue is used
-  - There will be different queues must be for every process
-  - Every process will have it own algorithm
-   
-  StarVashion :- If higher priority proces arise than lower level process not executed at time to solve it multi-level queue feedback use
-   
-  Inter-Queue Scheduling :- Pre-emptive priority scheduling or RR(80% time for foreground processes and 20% time for background processes)
-   
-  Diagram :- 
-    Highest Priority ---> System Process  --> Round-Robin  ------|
-                                                                 |
-    Medium Priority  ---> Interactive PS  -->    SJF       ---[ CPU ]      
-                                                                 |  
-    Lowest Priority  ---> Batch Process   -->    FCFS      ------|
-
-
-
-
- Multi-level Feedback Queue Scheduling :-
-  - Lowest priority process give feedback and it slowely update and execute
-  - If process completed remove it from queue otherwise give feedback and push to higher priority 
-  - If process uses too much CPU time it will be moved to lower priority queue 
-  - Aging prevent StarVashion
-
-
-
- LRTF(Longest Remaining Time First) Scheduling :-
-
- Highest Response Ratio Next(HRRN) Scheduling :-  
