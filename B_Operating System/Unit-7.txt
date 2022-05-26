@@ -1,119 +1,56 @@
-File System :-
- 
-Intro to file system :-
-   OS       File System
-   Windows  NTFS
-   DOS      FAT
-   UNIX     Unix
-   Linux    Extended
-   BigData  zfs | Data Wide 
-  - File System is software which manages how data will be permanently stored and fetched
-  - User manage their data in file format
-  - Folder(Directory) is collection of related files
-  - File System mapping data on sector(Divide file logically and stored or fetched stored files) 
+I/O Management :-
+ - Two main responsibility of computer :- Process and I/O
+ - Some process perform more I/O and Minimal Processing
+ - I/O devices vary widely in function and speed
+
+ - I/O Subsystem of the kernel separate rest of kernel from complexities of managing I/O Device
+ - Device drivers provide uniform device access interface to i/o subsystem
+ Diagram :-
+                      Kernel                        # 1 to 3 Software
+                Kernel I/O Subsystem
+    Device Driver-1     ... Device Driver-N
+    Device Controller-1 ... Device Controller -N    # Hardware
+        Device 1            Device - N
 
 
-
-File Attributes & Operations :-
-  Operations :- 
-   Creating       -
-   Reading        -
-   Writing        -
-   Deleting       - Delete entire file with all attribute
-   Truncating     - Delete entire file only not attribute
-   Repositioning  - 
-
-  Attributes :- Meta Data of file
-   Name            -   
-   Extension(Type) -
-   Identifier      -
-   Location        -
-   Size            -
-   Modified Date | Creation Date -
-   Protection    | Permission    -
-   Encryption    | Compression   - 
+ Types of devices :-
+  Storage         :- Disk | USB
+  Transmission    :- Modem
+  Human-Interface :- Keyboard | Mouse | Display
+  Specialized     :- Microscope | Telescope 
 
 
-
-File Allocation Method :-
-  - Achieveing Efficient Disk Utilization  
-  - Access data should be faster
-
-  Contiguous Allocation :-
-   - Store file block contiguous and block size dependent on harddisk block size
-   - Directory contain every file information
-   - Disk will become fragmented and Difficult to grow file 
-   - Easy to implement and Excellent Read Performance 
-   
-    Example :- File-A
-        Directory
-      File  Start  Length
-      A     0       3
-      B     6       5
-      C     14      4
-
-          Disk 
-      0  1  2  3  4  5      A(0-3)
-      6  7  8  9  10 11     B(6-10)
-      12 13 14 15 16 17     C(14-17)
-   
-
-
-  Non-Contiguous Allocation :-
-   Linked-List Allocation
-    - Use pointer to identify file block (Data/NextBlockAddress) in last -1 
-    - Remove external fragmentation, file size can increase
-    - Large Seek Time, Random/Direct Access Difficult, Overhad of Pointers
-
-    Example :- File-A
-        Directory
-      File  Start  
-      F1     2       
-
-          Disk 
-      0  1  2  3  4  5    F1(2,9)  
-      6  7  8  9  10 11   F1(9,11)  
-      12 13 14 15 16 17   F1(11,-1)  
-
-
-   Indexed Allocation :-
-    - Create index block of file which give information of file block
-    - Support direct access and No external fragmentation
-    - Pointer overhead, Multi-level index
-    - UNIX use inode structure where i represent index 
-
-    Example :- File-A
-        Directory
-      File  Index Block
-      F1     2       
-
-          Disk 
-      0  1  2  3  4  5    B1(2)
-      6  7  8  9  10 11   B2(9)(IB6 - Give other block information for access) 
-      12 13 14 15 16 17   B3(12)  
-
-
-
-Unix inode Structure :-
-  -         
-  Diagram :- Inode (Hybrid Approach) 
-      Attributes      -> Store Metadata
-      Direct Block    -> Stored Pointer which directly point to data block
-      Single Indirect -> Data block(Not give data) -> Give Pointer(Address) -> Which bring you to data block
-      Double Indirect -> Data Block -> Pointer -> Data Block (2) -> Finally Give Data
-      Triple Indirect -> Data Block -> Pointer -> Data Block (2) -> Pointer -> Data Block (3) -> Finally Give Data
+ Hardware :-
+  Port :- 
+   - Connection point where device is connected
+   - I/o port consists of :- Status Register | Control Register | Data-in/Out Register 
   
+  Bus  :- Set of wires to transfer data and control information
+  Controller :- Control port on device
 
-  Question :-
-   - File system uses unix inode data structure which contain 8 direct block addresses,
-     one indirect block, one double and one triple indirect block
-   - Size of each disk block is 128byte and size of each block address is 8Byte
-   - Find maximum file size?
-   
-   BlockSize = 128
-   Total No. Of pointer in one Disk Block = 128/8 16(2^4) 
-   Pointer -> (8(DB) + 16(SI) + (16x16)(DI) + (16x16x16)(TI)) x 128   
-            =  8(1 + 2 + 2x16 + 2x16x16) x 128
-            =  8(35+512)x 128
-            =  8(547)x128 (128X8 = 1024KB)
-            =  547 KB    
+
+ Modes of Performing I/O :-
+  - Polling(Busy-waiting)  |  Interrupt  | DMA (Burst | Cycle Stealing | Direct Virtual Memory Access(DVMA))
+
+
+ Complementary Devices :-
+  - Teletype = Keyboard + Display   |   Photocopier = Scanner + Printer
+ 
+
+ Virtual Devices :- PDF Printer
+
+
+ Properties of Device :-
+  - Character-Stream versus block
+  - Sequential access versus Random access
+  - Synchronization versus asynchronous
+  - Sharable versus Dedicated
+  - Speed
+  - Read-only, Write-only, Read-Write
+
+
+ Service I/O System :-
+  - I/O Scheduling  |  Buffering  |  Caching  |  Error Handling  |  I/O Protection  |  Spooling 
+
+ 
+ 

@@ -13,12 +13,12 @@ Topic :-
 
 
 What is Process Synchronization :-
- - Process Synchronization was introduced to handle Cooperative process problem
+ - Handle Co-operative process problem like Inconsistancy, Loss of data and Deadlock
  Process Mode :-
   Serial   - Single process is executed completely like Non pre-emptive
   Parallel - Multiple processes are executed
     
- Process Types :- Cooperative, Independent
+ Process Types :-
   Cooperative :- One process execution affect other process execution because their share something
                  like variable, memory(Buffer), code and in resource CPU, Printer etc.. 
   Independent :- One process execution does not affect other process execution they not share anything 
@@ -26,16 +26,33 @@ What is Process Synchronization :-
 
 
 
-Race condition :- 
- - Several processes Access and Manipulate same data concurrently and outcome of execution depending on particular
-   order of access
- - Processes doing race to say that my output is correct this condition known as race condition
+Critical Section Problem :-
+ - Part of program where shared resources are accessed by various processes(Co-operative)
  - When more than one processes access same code segment that segment is known as critical section 
- - Critical section contain shared variables or resources which are needed to be synchronized to maintain 
-   consistency of data variable
+ - Contain shared variables or resources which needed to be synchronized to maintain consistency of data variable
+ - It avoided if critical section is treated as atomic instruction and proper thread synchronization
+ 
+ Program has two part :- 
+  Critical section  :- Two process use different operation on shared variables or resources
+   To avoid :-
+    - Entry Section before using critical section                       
+    - One Program in Critical Section Other Program Cannot enter in Critical Section
+    - Exit Section After critical section execution
+ 
+   Simple Critical Section Solution :-
+    acquireLock();
+    Process Critical Section  
+    releaseLock();
+  
+  Non-critical section :- Code section that not have common resource
+
+
+
+
+Race condition Problem :- 
+ - Process Access same data concurrently and outcome of execution depending on particular order of access
+ - Processes doing race to aceess data known as race condition
  - Race condition occur inside critical section
- - It can be avoided if critical section is treated as atomic instruction and proper thread synchronization use
-   lock or atomic variables
  - Due to these lost of data, Deadlock and many problem occure   
  
  Example :- P1 and P2 process running on same system --> Constraint :- UniProcessor
@@ -43,7 +60,7 @@ Race condition :-
       P1                   P2
   int X=Shard;       int Y=Shard;
   X++;               Y--;
-  Sleep(1);          Sleep(1);      // Sleep means pause process not cpu so cpu switch using Context Switch
+  Sleep(1);          Sleep(1);      // Sleep means pause process not cpu so cpu Context Switch process
   Shared = X;        Shared = Y;
   ANS :- 6           4
  - If add one and remove one value answer should be 5 but here 4 receive due to Co-operative process   
@@ -91,71 +108,47 @@ Producer Consumer Problem (Bounded Buffer Problem):-
 
 
 Printer-Spooler Problem :-
-   - One printer in network different user use to print where printer is pheripheral device so it is very slower
-   - Spooler is program when multiple user print document it goes into spooler diretory and then spooler give one by one to printer sequentially
+ - One printer in network different user use to print where printer is pheripheral device so it is very slower
+ - Spooler is program when multiple user print document it goes into spooler diretory and then spooler give one by one to printer sequentially
    
-   Code :- If user need to add his document in spooler diretory
-    Load Ri, m[in]        // In is shared variable where m[in] memory location of in | Ri is register and i is process id
-    Store SD[Ri], "F-N"   // SD is spooler diretory and SD[Ri] Spooler diretory of zero store
-    Increment Ri
-    Store m[in], Ri 
+ Code :- If user need to add his document in spooler diretory
+  Load Ri, m[in]        // In is shared variable where m[in] memory location of in | Ri is register and i is process id
+  Store SD[Ri], "F-N"   // SD is spooler diretory and SD[Ri] Spooler diretory of zero store
+  Increment Ri
+  Store m[in], Ri 
 
-   Case 1 :- 
-    --> Store f1.doc in IN variable so IN value = 0, Ri = 1 
-    --> NoW SD = 1 in spooler diretory
-    --> Ri = 2, m[in] = 2
+  Case 1 :- 
+   - Store f1.doc in IN variable so IN value = 0, Ri = 1 
+   - NoW SD = 1 in spooler diretory
+   - Ri = 2, m[in] = 2
 
-   Case 2 :- P1 i1,i2,i3     In = 3, R1 = 4 
-             P2 i1,i2,i3,i4  In = 3, R2 = 4 , In = 4
-             P1 i4 
-           - Override file on same location , loss of data 
-
-
-
-
-Critical Section Problem :-
- - Part of program where shared resources are accessed by various processes(Co-operative)
- - When more than one processes access same code segment that segment is known as critical section 
- - Contain shared variables or resources which needed to be synchronized to maintain consistency of data variable
- 
- 
- Program has two part :- 
-  Critical section  :- 
-   - Enforcing due to two program use different operation on shared variables or resources
-   To avoid :-
-    - Entry Section before using critical section                       
-    - One Program in Critical Section Other Program Cannot enter in Critical Section
-    - Exit Section After critical section execution
- 
-   Simple Critical Section Solution :-
-    acquireLock();
-    Process Critical Section  
-    releaseLock();
-  
-  Non-critical section :- 
-   - Code section that not have common resource
+  Case 2 :- 
+   P1 i1,i2,i3     In = 3, R1 = 4 
+   P2 i1,i2,i3,i4  In = 3, R2 = 4 , In = 4
+   P1 i4 
+   - Override file on same location , loss of data 
 
 
 
 
 Synchronization Condition :-
- - Method need to pass these 4 rules where First two Rules are primary rules must need to follow and 3,4 is secondary rule
+ - Process pass these 4 rules where First two Rules are primary rules must need to follow and 3,4 is secondary rule
    
  Mutual Exclusion :-
   - If One process execute critical section stop second process to execute critical section by using EntryCode section
-  - Allow one process to execute critical section called Mutual Exclusion
+  - Only one process execute critical section at time called Mutual Exclusion
 
  Progress :-
-  - If one process is interested to execute critical section but second process is not interested
+  - One process is interested to execute critical section but second process is not interested
   - Second process not allow first process to execute critical section because second process entry section is not
     allowing for that so progress is stopped
   - One process not stoping another process to execute critical section so Progress must be synchronization    
 
  Bounded Wait :-
-  - If one process N time execute there must be second process used critical section N time which we given   
+  - One process N time execute there must be second process used critical section N given time
    
  No Assumption related to hardware or speed :-
-  - If any solution related process synchronization it not be dependent(related) to hardware or speed of process
+  - Process synchronization not dependent(related) to hardware or speed of process
   - Must be portable for all OS
    
 
@@ -163,8 +156,8 @@ Synchronization Condition :-
 
 Lock Variable :- 
  - To avoid Critical Problem
- - Execute in User Mode, Multi-Processor Solution, No Mutual Exclusion Gurantee 
- - Main concept is if any one use critical section Acquire lock, process complete work and release lock
+ - Execute in User Mode |  Multi-Processor Solution  |  No Mutual Exclusion Gurantee and Bounded | Progress
+ - If process use critical section Acquire lock --> Complete process --> release lock
      
   Example :-                 Pesudo Code :-
     do {                     While(Lock == 1);  Entry
@@ -173,15 +166,46 @@ Lock Variable :-
       Release Lock            Lock = 0          Exit Code
     }
 
- Case 1 :- Lock = 0 -> Show critical section is empty | Lock = 1 -> Show critical section is full
-           P1 Run Entry Code i1,i2 Lock = 1 , i3  --> P2 Run Entry Code i1 Lock  1 = 1 go infinite loop --> p1 execute i4 Lock = 0
+ Case 1 :- 
+  Lock = 0 -> CS empty | Lock = 1 -> CS full
+  P1 Run Entry Code i1,i2 Lock = 1 , i3  --> 
+  P2 Run Entry Code i1 Lock  1 = 1 go infinite loop --> 
+  p1 execute i4 Lock = 0
 
- Case 2 :- P1 i1 pre-emptive --> P2 i1, i2, i3 pre-emptive -> P1 come back run i2 (Now lock value overwrite) --> Both in critical section  
+ Case 2 :- 
+  P1 i1 pre-emptive --> 
+  P2 i1, i2, i3 pre-emptive -> 
+  P1 come back run i2 (Now lock value overwrite) --> Both in critical section  
     
 
 
-Test_and_Set :- 
+
+Turn Variable (Strict Alteration):-   
+ - Only work on 2 Process 
+ - Run in USER Mode | Achieve Mutual exclusion, Bound wait, No assumption | Not achieve progress(if 1 process not run)
+
+ Example :- int turn = 0
+     P1                        P2
+  While(!turn = 0);         While(!turn = 1);   -> Entry Code
+  Critical Section          Critical Section
+  turn = 1;                 turn = 0;           -> Exit Code
+
+  P1 i1 run -> P2 i1 infinite -> 
+  P1 i2,i3 turn = 1 -> 
+  p2 i1 false, i2,i3 turn = 0
+
+
+
+
+Peterson Solution :-
+ - 
+
+
+
+
+Test_and_Set(Hardware):- 
  - To achieve Mutual Exclusion 
+ - Return current value flag and sets it to true
  - Combine instruction 1 and 2 and make test_and_set instructions so it avoid pre-emptive between i1 and i2
     
  Example :- 
@@ -189,109 +213,100 @@ Test_and_Set :-
     critical section
     lock = false;
 
-    boolean test_and_set(boolean *target){ // target pointer variable 
-      boolean r = *target;
-      *target = True;
-      return r;
+  boolean test_and_set(boolean *target){ // target pointer variable 
+    boolean r = *target;
+    *target = True;
+    return r;
   }
     
   lock(False/1000) <-- target(1000)  R(False/1000)     
-      True
+    True
 
 
 
-Turn Variable (Strict Alteration):-   
-  - Only work on 2 Process 
-  - Run in USER Mode and achieve mutual exclusion, bound wait and No assumption but Not achieve progress
-
-  Example :- int turn = 0
-    P1                        P2
-    While(!turn = 0);         While(!turn = 1);   -> Entry Code
-    Critical Section          Critical Section
-    turn = 1;                 turn = 0;           -> Exit Code
-
-    Flow ==> P1 i1 run -> P2 i1 infinite -> P1 i2,i3 turn = 1 -> p2 i1 false, i2,i3 turn = 0
+Swap() :-
 
 
 
-SemaPhores :-
- - SemaPhore is integer variable used in mutual exclusive manner by various coperative process to achieve process synchronization
-   
 
-  Types :- 
-    Counting (-infinite to + infinite) (Integer variable value vary)
-    Binary   (0,1) By default value is 1
+Semaphore :-
+ - Integer variable used in mutual exclusive manner by various co-operative process to achieve process synchronization
 
-    Operation :-
-     P(), Down, Wait                    :- Use in Entry Code and reduce pre-defined value of semaPhore
-     V(), Up, Signal, Post, Release     :- Use in Exit Code and increase value of semaPhore
+ Types :- 
+  Counting (-infinite to + infinite) (Integer variable value vary)
+  Binary   (0,1) By default value is 1
+
+ Operation :-
+  P(), Down, Wait, Degrade                :- Use in Entry Code and reduce pre-defined SemaPhore value
+  V(), Up, Signal, Post, Release, Upgrade :- Use in Exit Code and increase SemaPhore value
 
 
 
-  Example :-
-   Case - 1 :-  
-    - In starting critical section is total free and multiple processes want to enter into critical section
-    - In entry section Down() code and exit section Up() code are running
+ Example :-
+  Case - 1 :-  
+   - In entry section Down() code and exit section Up() code are running
 
-    Down(SemaPhore S){          // S is semaPhore Variable Name
-      S value = S.value - 1;    // Inital value 3 now S = 2 | Now P2 Come S = 1 | Now P3 Come S = 0 | Now P4 Come S = -1
-      if(S.value<0){            // Condition False so P1 go in critical section | Now P2 also go in critical section | P3 also
-        Put Process(PCB) in Suspended list, sleep();  // P4 in Sleep Mode or say We Block Process list
-      }else{ return; } }  
-    
-    - SemaPhore value -4 :- estimate that already 4 processes in block list
-    - SemaPhore value  0 :- No other processes can enter in critical section and No Process in Suspended list or Block List
-    - If process come from critical section it need to execute exit code Up()
-    - At present SemaPhore value is -1 and in critical section p1,p2,p3 and in block list p4
-    - Wake up means convert process from block list to ready queue
-
-    Up(SemaPhore S){          
-      S.value = S.value + 1;  // Now S value = 0 and P4 in ready queue not in critical section it will try to go in critical section 
-      if(S.value <=  0){      
-        Select Process(PCB) from Suspended list wake up(); // P4 in Ready queue
-      }
+   Down(SemaPhore S){          // S is semaPhore Variable Name
+    S value = S.value - 1;    // Inital value 3 now S = 2 | Now P2 Come S = 1 | Now P3 Come S = 0 | Now P4 Come S = -1
+    if(S.value<0){            // Condition False so P1 go in critical section | Now P2 also go in critical section | P3 also
+      Put Process(PCB) in Suspended list, sleep();  // P4 in Sleep Mode or say We Block Process list
     }
+    else{ return; } }  
+    
+   - SemaPhore value -4 :- estimate that already 4 processes in block list
+   - SemaPhore value  0 :- No other processes can enter in critical section and No Process in Suspended list or Block List
+   - If process come from critical section it need to execute exit code Up()
+   - At present SemaPhore value is -1 and in critical section p1,p2,p3 and in block list p4
+   - Wake up means convert process from block list to ready queue
 
-    - Now P4 try to enter critical section but S = -1 so p4 again in Block List
-    - Now p3 come out from critical section Now S value = 0
+   Up(SemaPhore S){          
+    S.value = S.value + 1;  // Now S value = 0 and P4 in ready queue not in critical section it will try to go in critical section 
+    if(S.value <=  0){      
+      Select Process(PCB) from Suspended list wake up(); // P4 in Ready queue
+    }
+   }
+
+   - Now P4 try to enter critical section but S = -1 so p4 again in Block List
+   - Now p3 come out from critical section Now S value = 0
     
 
-   Case 2 :-
-    - SemaPhore value is = 10 so 10 process can go in critical section 
-    - Now i perform 6P() operation and 4V() operation what will be final result = 10 -6 = 4 + 4 = 8 
+
+  Case 2 :-
+   - SemaPhore value is = 10 so 10 process can go in critical section 
+   - Now i perform 6P() operation and 4V() operation what will be final result = 10 -6 = 4 + 4 = 8 
 
 
 
-  Binary SemaPhore :-  
-   - Integer Variable value is either 0 or 1
-   - If SemaPhore value inital 1 process have chance to go in critical section and perform if 0 process is blocked
-   - Not going in -1 because it is binary
-   - If inital semaPhore value for all process is 0 then process will be deadlock
+ Binary SemaPhore :-  
+  - Integer Variable value is either 0 or 1
+  - If SemaPhore value inital 1 process chance to go in critical section and perform if 0 process is blocked
+  - Not going in -1 because it is binary
+  - If inital semaPhore value for all process is 0 then process will be deadlock
 
-    Operation :-
-    Down(SemaPhore S){    // S value = 1
-      if(S.Value == 1){
-        S.Value = 0;     // SuccessFull Operation means process operation in Down S = 0 
-      }else{
-        Sleep(); // Block These Process and Place in Suspended list
-      }
+  Operation :-
+  Down(SemaPhore S){    // S value = 1
+    if(S.Value == 1){
+      S.Value = 0;     // SuccessFull Operation means process operation in Down S = 0 
+    }else{
+      Sleep(); // Block These Process and Place in Suspended list
     }
-    S = 1 0, 0 0
-    S = 0 1, 1 1 
+  }
+  S = 1 0, 0 0
+  S = 0 1, 1 1 
 
-    Up(SemaPhore S){     // S value = 0         
-      if(Suspended list is empty){ // If no process is here value 1 otherwise go into else and wakeUp
-        S.value = 1;
-      }else{
-        wakeUp(); // Select Process from Suspended list
-      }
+  Up(SemaPhore S){     // S value = 0         
+    if(Suspended list is empty){ // If no process is here value 1 otherwise go into else and wakeUp
+      S.value = 1;
+    }else{
+      wakeUp(); // Select Process from Suspended list
     }
+  }
 
-    Case 1 :- S = 1 --> P2 Down() S = 0 IN CS --> P1 Down() S = 0 Block --> P2 UP() S = 0 Wake Up(P1) --> 
+  Case 1 :- S = 1 --> P2 Down() S = 0 IN CS --> P1 Down() S = 0 Block --> P2 UP() S = 0 Wake Up(P1) --> 
    
 
 
-  Question Solution :- What is maximum no of processes that may present in CS at any point of time?
+ Question Solution :- What is maximum no of processes that may present in CS at any point of time?
    - 10 Process Pi{i = 1 to 9} || mutex = 1 || P10 execute 
     repeat                                      repeat                        
      P(Mutex) - Entry Code                        V(Mutex) - Entry Code
@@ -307,15 +322,11 @@ SemaPhores :-
     - P10 release from critical section so Mutex 0 --> 1 and P3 in critical section So Mutex 1 --> 0
     - Now P10 again join and release     
 
-    
-    
 
-
-  Question Solution :- Producer Consumer Problem Using SemaPhore    
-  Question Solution :- Reader Writer Problem Using SemaPhore
-  Question Solution :- Dining philosopher Problem Using SemaPhore
+ Question Solution :- Producer Consumer Problem Using SemaPhore    
+ Question Solution :- Reader Writer Problem Using SemaPhore
+ Question Solution :- Dining philosopher Problem Using SemaPhore
 
 
 
-Peterson Solution :-
- - 
+

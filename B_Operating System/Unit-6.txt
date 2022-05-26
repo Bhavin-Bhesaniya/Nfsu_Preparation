@@ -1,17 +1,143 @@
-Disk Scheduling :-
+File System :-
+ 
+File system :-
+ - File is named collection of related information that is recorded on secondary storage
+ - File System is software which manages how data will be permanently stored, managed and fetched
+ - User manage their data in file format
+ - Folder(Directory) is collection of related files
+ - File System mapping data on sector(Divide file logically and stored or fetched stored files) 
+ 
+ Types of OS and its File System :-
+  Windows,  NTFS/FAT32  |  DOS, FAT  |  UNIX, Unix  |  Linux,  EXT2,3,4  |  MacOS, HFS+  |  BigData, zfs|Data Wide 
+
+
+
+File Attributes & Operations :-
+ Operations :- Creating  |  Reading  |  Writing  |  Deleting  | Truncating - Delete entire file only not attribute
+  
+ Attributes :- Meta Data of file
+  Name  |  Extension(Type)  |  Author  |  Date  |  Size  |  Permission  |  Compression  |  Location 
+  Creation, Modified, Accessed  |  Protection(Encryption)  
+
+
+
+File Directory Structure :-
+ Single-level directory :- 
+  - Only one folder and all file inside this Folder
+  - Name should be Unique |  Distgenius for multiple users
+
+ Two-level directory      :- Different user have different folder 
+ Tree Structure Directory :- Root directory have different directory, sub directory etc..
+
+
+
+File Allocation Method :-
+ - Achieve Efficient Disk Utilization with faster data access
+
+ Contiguous Allocation :-
+  - Store file block contiguous and block-size dependent on hard-disk block size
+  - Directory contain every file information
+  - Access :- Sequential, Random/Direct
+  - Disk become fragmented and Difficult to increase file size
+  - Easy to implement and Excellent Read Performance 
+  
+  Example :- File-Allocation Table
+   FileName  Start Block No.  No.of Blocks(Length)
+    A             0                3
+    B             6                5
+    C             14               4
+
+            Disk 
+      0  1  2  3  4  5      A(0-3)
+      6  7  8  9  10 11     B(6-10)
+      12 13 14 15 16 17     C(14-17)
+   
+
+
+ Non-Contiguous Allocation :-
+
+  Linked-List Allocation :- 
+   - Use pointer to identify file block (Data/Next-BlockAddress) in last -1 
+   - Remove external fragmentation, file size can increase
+   - Large Seek Time, Random/Direct Access Difficult, Overhad of Pointers
+
+   Example :- 
+    File  Start   
+    F1     2       
+
+        Disk 
+    0  1  2  3  4  5    F1(2,9)  
+    6  7  8  9  10 11   F1(9,11)  
+    12 13 14 15 16 17   F1(11,-1)  
+
+
+  Indexed Allocation :-
+   - Create one index block of file which give information of entire file block
+   - Support direct access, sequential access and No external fragmentation but internal
+   - Pointer overhead, Multi-level index
+   - UNIX use inode structure where i represent index 
+
+   Example :- File-A
+    File  Index Block
+     F1     2       
+       Disk 
+    0  1  2  3  4  5    B1(2)
+    6  7  8  9  10 11   B2(9)(IB6 - Give other block information for access) 
+    12 13 14 15 16 17   B3(12)  
+
+  
+
+ Unix I-node Structure :- 
+  - Index node is data structure in Unix style file system that describes file-system objects such as file or directory
+  - Each inode stores Attributes(Metadata) and Direct Block location(Stored Pointer that directly point to data block)
+  - No. of inode limits total number of files/directories that stored in file system
+
+  I-node infomation :-
+   - Administrative Information(Permission, Time-Stamp etc...)
+   - No. of direct blocks(Typically-12) that contain first 12 blocks of file
+   - Single Indirect Block -> Data block(Not give data) -> Give Pointer(Address) -> Which bring data block
+   - Double Indirect Block -> Data Block -> Pointer -> Data Block (2) -> Finally Give Data
+   - Triple Indirect Block -> Data Block -> Pointer -> Data Block (2) -> Pointer -> Data Block (3) -> Finally Give Data 
+ 
+
+ 
+ Question :-
+  - File system uses unix inode data structure which contain 8 direct block addresses, one indirect block, 
+    one double and one triple indirect block
+  - Size of each disk block is 128byte and size of each block address is 8Byte
+  - Find maximum file size?
+   
+  BlockSize = 128
+  Total No. Of pointer in one Disk Block = 128/8 16(2^4) 
+  Pointer -> (8(DB) + 16(SI) + (16x16)(DI) + (16x16x16)(TI)) x 128   
+          =  8(1 + 2 + 2x16 + 2x16x16) x 128
+          =  8(35+512)x 128
+          =  8(547)x128 (128X8 = 1024KB)
+          =  547 KB    
+
+
+
 
 Hard-Disk Architecture :-
  Platter (Circle Shape)  :
   - Every Platter has two surfaces upper-level and lower-level
-  - On Platter surface there is read-write head which are connected through actuator arm to use fetch and read data
+  - Every platter has Read-Write head which connect with Actuator Arm to find data
   - Read-Write head movement either in forward or backward only 
   - On Platter surface there are tracks 
   - Every track has fix no. of sectors where we put our data 
-  - To reach data -> Platter -> Surface(Upper/Lower) -> Track ->  Sector -> Data
-  - Every platter has Read-Write head which connect with Actuator Arm to find data
-   Formula DiskSize : P x S x T x S x D
- 
+  - Sector is addressable unit of disk
+  - Collection of consecutive sectors known as Cluster
+  - Collection of tracks of same radius from all surfaces known as Cylinder and content in disk store in cylinder-wise
+
+  
  Spindal(Vertical Stick) : Connect Platter to move either in clock-wise or anti-clock-wise undirectional
+  
+ To reach data -> Platter -> Surface(Upper/Lower) -> Track ->  Sector -> Data
+ Formula DiskSize = P x S x T x S x D
+ No. of sector(NS)= 2 * P * T * No. of sectors per track
+ Address size     = logx2(Ns) - Bits
+ Sector Capacity  = 2 * No. of Platter * No. of Tracks Per Surface * No. of Sector per track * 1 Sector Capacity 
+
 
 
 
@@ -19,158 +145,209 @@ Disk Access Time :-
  Seek Time        :- Time taken by R/W head to reach desired track
  Rotation Time    :- Time taken by one full rotation(360)
  Rotation Latency :- Time taken to reach desired track(Half of Rotation Time)
- Transfer Time    :- Data To be transfer/ Transfer rate;
-                     Transfer rate(Data Rate) = {No. of Heads x Capacity of one track x No. of rotation in onse second } 
+ Sector/Transfer Time :- Data To be transfer/ Transfer rate;
+  Transfer rate(Data Rate) = No. of Heads x Capacity of one track x No. of rotation in one second
+  Total DiskTime         :- Seek Time + Rotation Latency + 1 Sector/Transfer Time
+  Avg. Rotation Latency  :- 1 Disk Rotation time / 2
+  1 Sector/Transfer Time :- 1 Disk Rotation time / No. of sectors per track
+ 
+ 
+ Question :-
+  Disk with 16 Platter, 2 Surface per track, 1k Tracks per surface, 2k Sectors per track, 2048 bytes per sector
+  Disk Rotates with 3000 RPM | Seek time 10ms
+  - Find Disk Capacity?
+  - Number of bits required for addressing disk?
+  - Find Disk Access time?
+  - Find Disk Transfer time?
+
+  1) 2 * 16 * 1k * 2k * 2kb = 2^37B = 128GB 
+  2) 2 * 16 * 1k * 2k = 2^26B = 26bits
+  3) 10ms + 20ms/2 + 20ms/2k =  20.01 msec 
+
+
+
+
+Disk Partition :-
+ Two types :- Low-Level Partition(Physical Partition)  | High-Level Partition(Logical Partition)
+ Low-Level Partition :- Creating tracks and sector done by Manufacturer
+ 
+ High-Level Partition(Logical) :- 
+  - Creating Drive partitions done by User using OS
+  Two Types :- Primary  |  Extended
+  - In primary OS Stored and user file
+  - In extended only user file stored
+  - We can make more than one primary partition for different OS and not able to store 2 OS in single Partition
+
+
+
+
+Disk Block :- 
+  - Disk --> File System --> User View
+  - Logical representation of smallest unit of disk
+  - OS divided logical partition into single blocks
+  - 1 block ==> 1 to 2 Disk Sector
+
+  Question :-
+   Number of Disk Blocks = 2^16
+   Size of each block    = 1KB
+   Total size of Disk    = 64 MB 
+  - File smaller than block should occupied entire block hence internal Fragmentation
+
+ 
+
+
+Free space Management :-  
+ Free List     :- Linked List of all free blocks
+ Bitmap Method :- N blocks in disk => n-bit into^n => if bit is 0 block is free if 1 is occupied
+ - No searching in free list but in bitmap we search for first zero
+ - Free list is faster in allocating free blocks
+ - Free list size is variable where as bitmap size is constant
+
 
 
 
 Disk Scheduling Algorithm :-
- - To minimize seek time
+ - Done by OS to schedule I/O request To minimize seek time
  - FCFS And SSIF not required direction while SCAN and LOOK Required
- 
+ Request Queue :- 
+  - Whenever user create request for data which stored in particular track after mapping it, whatever track number
+    come it insert in queue number 
+ Seek Time = (No. of head Movement * 1 Head Movement time) + Extra Delay  
  
 
-FCFS(First Come First Serve) :-
-  Request Queue : Every disk have request queue whenever user create request for data that data in what particular track stored in memory
-                  management after mapping it, whatever track no comes it inserts in queue number  
-  - No StarVastion(Request is waiting for its tern to work) in algorithm
+ FCFS(First Come First Serve) :-
+  - No StarVation(Every Request gets fair chance) | No indefinite PostPonement
   - Performance without looking data request(Seek time higher)
 
-  Question :- A disk contatins 200 tracks(0-199) request queue contain track no. 82,170, 140, 24, 16, 190 respectively
-              current poistion of R/W head =50 calculate total no. of tracks movement by R/W head using FCFS?
-
-              0             50                  199
-                                82
-                                        170               
-                        43
-                                    140
-                    24
-                16                                        
-                                             190  
-
-    Find track movement Or Howmany time direction change :-
-        (82-50) + (170-82) + (170-43) + (140-43) + (140-24) + (24-16) + (190-16)  OR (170-50) + (170-43) + (140-43) + (140-16) + (190-16)
-      =  32     +   88     +  127     +   97     +  116     +   8     +   174    
-      = 642
-
-
-
-SSIF(Shortest Seek Time First) :-
-  - Least of seek time to reach desired track means nearest of 50(R/W poistion)
-  - Gives optimal result(Shortest Seek Time)
-  - Response time is average
-  - StarVation occurs because some time one request wait for long-time
-  - Overhad generate because we need to find every time nearest poistion so we need to check entire list which increase complexity
+  Question :- 
+   - Disk contatin 200 tracks(0-199) request queue contain track no. 82, 170, 140, 24, 16, 190 respectively
+     current poistion of R/W head=50 calculate total no. of tracks movement by R/W head using FCFS?
+      0       50             199(Cylinder)
+                82
+                      170               
+            43
+                  140
+         24
+       16                                      
+                         190  
 
   
-  Question :- A disk contatins 200 tracks(0-199) request queue contain track no. 82,170, 140, 24, 16, 190 respectively
-              current poistion of R/W head =50 calculate total no. of tracks movement by R/W head using SSIF?
-            - If R/W head is takes 1nanosecond to move from one track to another then total time taken?   
-
-              0             50                  199
-                        43
-                    24
-                16              
-                                82
-                                  140
-                                      170
-                                         190
+  Find track movement Or Howmany time direction change :-
+   (82-50) + (170-82) + (170-43) + (140-43) + (140-24) + (24-16) + (190-16)   # Track No - Last R/W
+   OR (170-50) + (170-43) + (140-43) + (140-16) + (190-16)               # One Direction Last - To last Direction R/W 
+   = 32  +  88  +  127  +  97  +  116  +  8  +  174    
+   = 642
 
 
-    Find track movement Or Howmany time direction change :-
-        (50-16) + (190-16)
-      =  34     +   174     
-      =  208
-  
+
+ SSIF(Shortest Seek Time First) :-
+  - Reach desired track which has least of seek time means nearest of 50(R/W poistion)
+  - Give optimal result(Shortest Seek Time)
+  - Response time decrease | Throughput increase
+  - StarVation occur
+  - Overhead because find every time nearest poistion so required check entire list which increase complexity
 
 
-SCAN :-
-  - Also known as Elevator algorithm
+  Question :- 
+   - Disk contatin 200 tracks(0-199) request queue contain track no. 82,170, 140, 24, 16, 190 respectively
+     current poistion of R/W head =50 calculate total no. of tracks movement by R/W head using SSIF?
+   - If R/W head take 1 nanosecond to move from one track to another then total time taken?   
+    0        50              199
+          43
+        24
+      16              
+                82
+                  140
+                     170
+                        190
+
+
+  Find track movement Or Howmany time direction change :-
+     (50-16) + (190-16)  # R/W - Last most distance
+    =  34    +   174     
+    =  208
+
+
+
+ SCAN(Elevator) :- 
   - Move in one direction till last point(199) and other direction stop last request point
-  - It moves till becaus if dynamically request come
-  - Once you change direction and request occurs dynamically then you can't go back 
+  - Once change direction and request occurs dynamically then can't go back 
+  - Direction to larger value
+  - High Throughput | Low Variance in Response time 
+  - Long waiting for some request
 
 
-  Question :- A disk contatins 200 tracks(0-199) request queue contain track no. 82,170, 140, 24, 16, 190 respectively
-              current poistion of R/W head =50 calculate total no. of tracks movement by R/W head using SCAN?
-            - If R/W head is takes 1nanosecond to move from one track to another then total time taken?  :- 332 x 1ns = 332  
-            - Direction to larger value
-
-              0             50                  199
-                                82
-                                  140
-                                      170
-                                         190  
-                        43
-                    24
-                16              
-
-
-    Find track movement Or Howmany time direction change :-
-        (199-16) + (199-50)
-      =  183     +   149     
-      =  332
+  Question :- 
+   - Disk contatin 200 tracks(0-199) request queue contain track no. 82,170, 140, 24, 16, 190 respectively
+     current poistion of R/W head =50 calculate total no. of tracks movement by R/W head using SCAN?
+   - If R/W head takes 1nanosecond to move from one track to another then total time taken?  :- 332 x 1ns = 332  
+    0       50           199
+              82
+                140
+                   170
+                      190  
+          43
+        24
+      16              
 
 
-
-LOOK :- 
-  - Not move till direction only last request   
   Find track movement Or Howmany time direction change :-
-      (190-16) + (190-50)
-      =  174     +   140     
-      =  314
+    (199-16) + (199-50)  # Go one-direction till end
+   =  183     +   149     
+   =  332
 
 
+ 
+ C-SCAN(Circular-Scan) :-
+  - Move in one direction till last point(199) and other direction till last point then last request point
+  - (50 --> 199 Nofill --> 0 - then fill last request)
+  - Provide uniform waiting time
 
-CSCAN(Circular Scan) :-
-  - Move in one direction till last point(199) and other direction stop last request point
-  - than move to another direction till last point without fulfill any request(50-fill-199-nofill-0-fill last request)
   Find track movement Or Howmany time direction change :-
-      (199-50)   + (199-0) + (43-0)
-      =  174     +   199   + 43
-      =  391 
+    (199-50) + (199-0) + (43-0)
+   =  174    +   199   +  43
+   =  391 
 
 
 
-CLOOK(Circular LOOK) :-
-  - (50 - fill  - last-request(190) - Nofill  - 16(lowest-request) - fill last-request)
-  Find track movement Or Howmany time direction change :-
-      (190-50)   + (190-16) + (43-16)
-      =  341 
+ LOOK :- 
+  - Not move till last direction move only till last request   
+  (190-16) + (190-50)   # Highest Last Point - Direction
+  =  174     +   140     
+  =  314
 
+
+
+ C-LOOK(Circular LOOK) :-
+  (50-fill --> last-request(190) --> 16(lowest-request) --> Then fill last-request)
+  (190-50) + (190-16) + (43-16)
+   = 341 
 
 
 
  Question Solution :-
   - Track Request in Queue :- 95, 180, 34, 119, 11, 123, 62, 64  USE C-SCAN 
   - R/W head is at location 50 
-  - If track are number from 0 to 199, head is moving towards small track
-    Find total seek time? 2ns times to move from one track to another while serving these request is?
-    Assume moving one end to another end will take 10ms
+  - Track number from 0 to 199, head is moving towards small track
+  - Find total seek time? 
+  - 2ns times to move from one track to another while serving these request is?(Head movement time)
+  - Assume moving one end to another end will take 10ms(Extra Delay)
 
-    Diagram :-
-      0      50                  199
-          34
-        11
-                              180
-                          123             
-                      119
-                    95
-                  64
-                62 
+  Diagram :-
+    0    50              199
+       34
+     11
+                     180
+                   123             
+                119
+              95
+            64
+          62 
 
-    Find track movement Or Howmany time direction change :-    (50 - 0 - 199(Nofill) - 199-62)
-      (50-0) + (199-62) + 10
-     = ((50+137)x2) + 10
-     = 384       
+
+  Find Seek Time :-    
+   (50 - 0 - 199(Nofill) - 199-62)
+   (50-0) + (199-62) + 10
+   = ((50+137)x 2) + 10     (No. of head Movement * 1 Head Movement time) + Extra Delay
+   = 384       
  
-  - Consider three CPU intensive process 
-  - Which require 10, 20, 30 times units and arrives at 0, 2, 6 respectively 
-  - How many context switches if OS use STRF(Shortest Job First Pre-emption) Algo? Do not count at time zero and at the end?
-        Arrival Time Burst Time(Execution Time)
-    P1    0           10
-    p2    2           20
-    p3    6           30
-
-    |  p1  |   p2  |   p3  |    Ans :- 2 (p1->p2 p2->p3) 
-    0      10      30      60       

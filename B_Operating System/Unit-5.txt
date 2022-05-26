@@ -188,7 +188,7 @@ Non-Contiguous Memory Management Techniques :-
 
 
 
-What is Thrashing :-
+Thrashing :-
  - Directly linked with Degree of Multi-Programming
  - Cpu ask for page and its not available its called Page Fault and it is done by Page Fault Service Time 
  - When service page Fault it take lots of time and entire OS busy in servicing page Fault
@@ -198,7 +198,7 @@ What is Thrashing :-
 
 
 
-What is Overlay :-
+Overlay :-
  - If process size if more than size of memory, then i can make that process accommodate in main memory which known as overlay
  - Os has not any drivers for overlay so user need to decied how to bring partition in program to use proper functionality
  - Partition should be independent 

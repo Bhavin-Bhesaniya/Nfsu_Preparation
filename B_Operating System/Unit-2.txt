@@ -459,7 +459,18 @@ Scheduling Algorithm :-
  LRTF(Longest Remaining Time First) Scheduling :-
 
 
+ Question :-
+  - Consider Three CPU intensive process 
+  - Which require 10, 20, 30 times units and arrives at 0, 2, 6 respectively 
+  - How many context switches if OS use STRF(Shortest Job First Pre-emption) Algo? 
+  - Not count at time zero and at the end?
+      Arrival Time Burst Time(Execution Time)
+  P1    0           10
+  p2    2           20
+  p3    6           30
 
+  |  p1  |   p3  |   p2   |    Ans :- 2 (p1->p2 p2->p3) 
+  0      10      40      60        
 
 Thread :-
  - Smallest sequences of instructions that independently managed by CPU scheduler
