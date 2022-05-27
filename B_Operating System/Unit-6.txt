@@ -1,8 +1,8 @@
-File System :-
+File System and DiskScheduling :-
  
-File system :-
+File System :-
  - File is named collection of related information that is recorded on secondary storage
- - File System is software which manages how data will be permanently stored, managed and fetched
+ - File System is software which manage how data will be permanently stored, managed and fetched
  - User manage their data in file format
  - Folder(Directory) is collection of related files
  - File System mapping data on sector(Divide file logically and stored or fetched stored files) 
@@ -21,7 +21,7 @@ File Attributes & Operations :-
 
 
 
-File Directory Structure :-
+File/Directory Structure :-
  Single-level directory :- 
   - Only one folder and all file inside this Folder
   - Name should be Unique |  Distgenius for multiple users

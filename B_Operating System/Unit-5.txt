@@ -15,23 +15,27 @@ Memory Management & Degree of MultiProgramming :-
  - Memory is large arrays of byte where every byte has some address
  - Some part of memory occupied by OS when system start
  
- Function :- Memoey Allocation(Ready -> Running), Deallocation(Running -> Terminate) and 
-             Protection(P1,P2 -> P1cpu -> Access only allocate resources)
+ Function :- 
+  Memoey Allocation(Ready -> Running), Deallocation(Running -> Terminate) and 
+  Protection(P1,P2 -> P1cpu -> Access only allocate resources)
  
- Goal :- Maximum Utilization(Minimum Fragmentation) | Run Larger Programs with limited space(Using Virtual memory)
+ Goal :- 
+  Maximum Utilization(Minimum Fragmentation) 
+  Run Larger Program with limited space(Using Virtual memory)
 
  Formula :-
   k - I/O Operation time
   Cpu Time = (1-k^n)  # n means no of process
 
- MMT :-
+ MMT Types :-
   Contiguous     :- Enitre process store in consecutive location | Fixed Partition, Variable Partition
   Non-contiguous :- Process store in non-consecutive location    | Paging, Segmentation
  
 
 
 
-Contiguous Memory Management Techniques :-
+Contiguous Me
+mory Management Techniques :-
  - Provide Contiguous Memory Block for process in RAM
  - Enitre process store in consecutive location 
 
