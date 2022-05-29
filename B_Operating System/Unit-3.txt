@@ -12,7 +12,7 @@ Topic :-
 
 
 
-What is Process Synchronization :-
+Process Synchronization :-
  - Handle Co-operative process problem like Inconsistancy, Loss of data and Deadlock
  Process Mode :-
   Serial   - Single process is executed completely like Non pre-emptive

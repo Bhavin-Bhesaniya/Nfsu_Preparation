@@ -34,15 +34,14 @@ Memory Management & Degree of MultiProgramming :-
 
 
 
-Contiguous Me
-mory Management Techniques :-
+Contiguous Memory Management Techniques :-
  - Provide Contiguous Memory Block for process in RAM
  - Enitre process store in consecutive location 
 
  Fixed Partition | Static Partition :-
-  - No of Partition is fixed in memory and evey partition accommodate only one process 
+  - No. of Partition is fixed in memory and evey partition accommodate only one process 
   - Partition size will be same or may not same
-  - Process put any partition of memory but in same partition only
+  - Process put in any partition of memory but only in same partition
   - Spanning is not allow means put entire process in same partition not allow to put in different partition
   
   - Used in main Frame computer during 1960 
@@ -133,28 +132,38 @@ mory Management Techniques :-
 
 
 Non-Contiguous Memory Management Techniques :-
- - Process divided and able to place in different location which removing external fragmentation
+ - Process divided and place in different location for removing external fragmentation
  - Problem arise that holes are created dynamically so whenever process come in ram Check holes and its size 
    than according size divided process to fit in that location so very time consuming
- - To solve these divided process before enter in ram that called pages
+ - To solve these divide process before enter in ram that called pages
  - Size of Page = Size of Frame(Main memory Partition)
 
 
  Paging :-
-  - Process is Divided in equal size of pages and insert into Frames(Physical memory Partition)
-  - Frame and pages numbers are represent in binary so its always start with 0
+  - Process Divided in equal size of pages and insert into same size Frames(Physical memory Partition)
+  - Frame and page numbers are represent in binary so its always start with 0
   - Every process has its own page table that containing frame number where process page is allocated in memory
-  - Number of entries in particular page tables equal to number of page :- Page offset = Frame offset
   - Page table also store in main memory in form of pages
+  - Number of entries in page tables = Number of page in process 
+  - Each entry in page tables contains = Frame No. + Extra-bits
 
-  Mapping :- Process of Convert Cpu generated logical address into absolute address done by MMU(Memory Management Unit)
+  Diagram :-
+   Process        Page Table       Physical Memory
+               PageNo. Frame No   Frame No
+    Pg-1          2       2         0       Pg-N   
+    Pg-2          1       1         1       Pg-1                
+    Pg-N          N       0         2       Pg-2
+                                      
 
-  - CPU works on logical address space(LAS) which created by two factor :- Page  number and page  offset(sizeof page)
-  - Physical address space (PAS) represent location of bytes in memory  :- Frame number and Frame offset(sizeof frame)
+  Mapping :- 
+   - Process of Convert Cpu generated logical address into absolute address done by MMU(Memory Management Unit)
+   - CPU works on logical address space(LAS) which created by two factor :- Page  number and page  offset(sizeof page)
+   - Physical address space (PAS) represent location of bytes in memory  :- Frame number and Frame offset(sizeof frame)
 
   Formula :- 
     Page Table Size = No. of entries in P.T.  * 1 Entry Size
                     = No. of pages in process * 1 Entry Size(Frame no + Extra bits) 
+   
    
   Page Table Entry :-
    - Page table Use MMU to convert logical address into physical address for mapping
@@ -163,54 +172,118 @@ Non-Contiguous Memory Management Techniques :-
    Protection(RWX)(Read Write Execute) -> Check Permission on particular file or page  
    Reference(0/1)  -> When swapping page it need to tell either bring that page in past using LRU(least recently used)
    Caching         -> Enable or disable caching 
-   Dirty/Modified  -> User change any page data or update data use these field to update data in secondary memory
+   Dirty/Modified  -> User change any page data or update data to update data in secondary memory
 
 
 
- Multi-level | 2-Level Paging :-
-  - Page table size bigger than main memory frame size so divided it into smaller page(Outer page) and stored
-    page into outer page
+  Multi-level | 2-Level Paging :-
+   - Page table size bigger than main memory frame size divided it into smaller page(Outer page) and stored
+     page into outer page
+
+
 
   Inverted Paging :-
-   - Instead of keeping all page table of all processes there will be only one page table(Global Page Table)
+   - Instead of keeping all page table of all process there will be only one page table(Global Page Table)
    - Global page table contain --> Frame No | Page No | Process ID 
-   - No of frame in frame table same no of page entries
-   - Problem in Inverted Paging is searching time because it use Linear Search 
+   - No. of frame in frame table is same no. of page entries
+   - Problem is searching time because it use Linear Search 
+
 
 
  Segmentation :-
-  - Divide process into releated parts(segments) and then we put into memory
-  - Paging divided prcoess without known user which occurs in different problems(Function Problem C Program)
-  - In paging all page size have same while in segments size are not same
-  - In Main memory base represent from where segments its started 
-  - Here Segmente table convert logical address into physical address
-  - Segment table contain --> Segment' No   : Base address  (From where its start)  : Segmente Size
-  - Trap if cpu demand is higher than actual segment size 
+  - Divide process into segment(Releated Part) then put into memory
+  - Each segment has different logical address space of program
+  - When process executed corresponding segmentation loaded into non-contiguous memory though every segment loaded 
+    into contiguous block of available memory
+  - Segment contain program main, utility function, data structure etc..
+  - Paging divided process without known user which occurs in different problems(Function Problem C Program)
+  - In paging all page size same while in segment size are not same
+  - OS maintain Segment map table which used to convert logical address into physical address
+  - Segment table contain --> Segment No  :  Segment Size  :  Base address(From where its start)
+  Trap :- If cpu demand is higher than actual segment size 
 
- Segmented Paging :-
+  Diagram :-
+     Process      Segment Map Table                       Main Memory
+                Segment Number   Size   Memory Address     OS 
+    Segment-1         1           400    100              
+    Segment-N         N            x     NM                100 
+                                                           NM
 
-
+  
 
 
 Thrashing :-
  - Directly linked with Degree of Multi-Programming
- - Cpu ask for page and its not available its called Page Fault and it is done by Page Fault Service Time 
- - When service page Fault it take lots of time and entire OS busy in servicing page Fault
- - Page Hit Decreases and page Fault become heavy Due to that CPU utilization will decreases suddenly which known as Thrashing
+ - Cpu ask for page but its not available called Page Fault and it check by Page Fault Service Time 
+ - When page fault service takes lots of time and entire OS busy in servicing page Fault
+ - Page Hit Decreases and page Fault become heavy Due to that CPU utilization decreases suddenly known as Thrashing
  - To remove it either increases main memory size or decreases long-term scheduler speed
 
 
 
 
 Overlay :-
- - If process size if more than size of memory, then i can make that process accommodate in main memory which known as overlay
- - Os has not any drivers for overlay so user need to decied how to bring partition in program to use proper functionality
- - Partition should be independent 
+ - If process size is more than size of memory then that process accommodate in main memory which known as overlay
+ - Os has not any drivers for overlay so user need to decied how to bring partition in program to use functionality
+ - Partition should be independent
  - Use in embedded system
 
 
 
 
 Virtual Memory :-
- - Provide illusion where we can also able to execute process if its size is larger than memory 
+ - Provide illusion where we able to execute process if its size is larger than physical memory called virtual memory 
  - Divided process --> Allow only Required Process Page in main memory
+ - It is section of hard disk that's set up to emulate computer's RAM
+ - Advantage of this scheme is that programs can be larger than physical memory 
+ - MMU translate virtual addresses into physical addresses
+ 
+ Purpose :- 
+  - Extend use of physical memory by using disk 
+  - Memory protection because each virtual address translated to physical addresses 
+
+ Diagram :- 
+    Virtual Address   Physical Address
+  0     A               0 
+  4K    B               4K     C 
+  8K    C               8K    
+  12k   D               12K     
+                        16K    A
+            Secondary Memory  
+              D
+              B
+
+ - Virtual memory implemented by demand paging or demand segmentation system
+ 
+
+ Demand Paging :-
+  - Similar to paging with swapping processes reside in secondary memory and page loaded only on demand not in advance 
+  - During context switch OS does not copy any old program’s pages out to the disk or any of the new program’s pages
+    into main memory Instead, it begin executing new program after loading first page and fetches that program’s page
+    as they referenced
+  - While executing program if program references page which not available in main memory because it was swapped out
+    ,Processor treat as invalid memory reference as page fault and transfer control from program to OS for demand 
+    page back into memory
+  - Large virtual memory | Efficient memory usage | No limit on degree of multiprogramming
+  - Number of tables and amount of processor overhead for handling page interrupts are greater than in the case of 
+    simple page management techniques
+
+ 
+
+Page Replacement Algorithm :- 
+ - Used by OS to decides which memory pages to swap out, write to disk when page of memory needs to be allocated
+ - Paging happens whenever page fault occurs and free page not be used for allocation
+ - Lesser waiting time for page-insert the better is the algorithm
+ - PRA look limited information about accessing pages provided by hardware and tries to select pages that should
+   be replaced to minimize total number of page misses and balancing it with primary storage cost and processor time
+   of algorithm itself
+ - Evaluate algorithm by running it on particular string of memory reference and computing number of page fault
+
+ Reference String :-
+  - String of memory references is called reference string
+  - Generated artificially or by tracing given system and recording address of each memory reference
+  - Latter choice produces large number of data
+  - For given page size consider only page number not entire address
+  
+ First-in-first-out(FIFO) :-
+  -  

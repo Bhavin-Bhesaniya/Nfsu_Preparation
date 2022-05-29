@@ -24,17 +24,16 @@ Component of Linux :-
 
 
 
-Architecture :-
- Linux OS 
+Linux Architecture :-
   System    User     User    Compilers
   Software  Process  Utility
           System Library
             Kernel
           Kernel Module
 
- Hardware layer - Consists of all peripheral devices (RAM/HDD/CPU etc..)
- Kernel    - Core component of OS which interacts directly with hardware provides low level services to upper layer
- Shell     - Interface to kernel hiding complexity of kernel's functions from users
+ Hardware - Consists of all peripheral devices (RAM/HDD/CPU etc..)
+ Kernel   - Core component of OS which interacts directly with hardware provides low level services to upper layer
+ Shell    - Interface to kernel hiding complexity of kernel's functions from users
  Utilities/Application - Program that provide most of user functionalities of os
 
 
@@ -55,8 +54,3 @@ Feature :-
  Multiprogramming :- Multiple applications run at same time
  Hierarchical File System :- Provide standard file structure in which system files/user files are arranged
         
-
-
-
-
-
