@@ -393,7 +393,8 @@ Function :-
  Recursion :- 
   - Process of repeating items in self-similar way
   - If Program allow you to call function inside same function its called recursive
-  
+  - Stacks are used to handling recursion in C
+
   Example :-
    void recursion() {
     recursion(); /* function calls itself */
@@ -523,7 +524,7 @@ Pointer :-
 
 
 String :-
- - String are one-dimensional array of characters terminated by null character '\0'   
+ - One-dimensional array of characters terminated by null character '\0'   
  Ex :- 
   char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
   printf("Greeting message: %s\n", greeting );
@@ -541,7 +542,9 @@ Structure :-
  - To define structure struct keyword use
  - Structure tag is optional and each member definition is normal variable definition, such as int 
  - Before final semicolon, Specify one or more structure variables but it is optional
- 
+ - Functions are not allowed inside structs in C
+ - Size of struct equal to sum of sizes of its individual variables With 2 integer size is 4 + 4  = 8bytes
+
 
  Defining Structure :-
   struct [structure name] {
@@ -597,7 +600,8 @@ Union :-
  - Declare union with many member but only one member can contain value at given time 
  - Provide efficient way of using same memory location for multiple-purpose
  - Same memory location, used to store multiple types of data 
- 
+ - Size of Union equal to size of largest variable which is part of it
+
  Syntax :- 
   union [union tag] {
     member definition;
@@ -790,6 +794,7 @@ Error Handling :-
 
 
 Memory Management :-
+ - In stati
  - Found in <stdlib.h>
  void *calloc(int num, int size); - Allocate array of num element each of size in bytes
  void free(void *address);        - Release block of memory block specified by address
@@ -804,3 +809,4 @@ Memory Management :-
   - OS automatically release all memory allocate for program  
   - To release memory call free() 
   - Increase or decrease size of allocated memory block by calling realloc()
+  - delete keyword used to free memory from pointer allocated using new keyword

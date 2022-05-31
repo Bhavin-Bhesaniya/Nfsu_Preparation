@@ -1,166 +1,118 @@
-Basic :-
- - System which connected to the network and ready for communication known as Open System
- - System which not connected to the network and can't ready for communication known as Close System
- 
- - Inter-connection of multiple devices that are connected using multiple paths for the purpose of sending/receiving 
-   data or media
- - Network devices include routers, switches, hubs, and bridges
-
- - Layout arrangement of different devices in network known as network topology
- - Types of topology :- Bus, Star, Mesh, Ring, Tree, Point to point, Hybrid
-
+Intro to Networking :-
+ - System which connected to the network and ready for communication known as Open System not connected and can't 
+   ready known as Close System
+ - Inter-connection of multiple devices that are connected using multiple path for sending/receiving data or media
+ - Internet is global network comprised of smaller networks that are interconnected using communication protocols
  - Internet invented by ARPANET in 1983 and controlled by 75 million server
+ - Internet not governed by single authority but Ultimate authority is with Internet Society or ISOC
+ - ISOC voluntary membership organization purpose to promote global information exchange through Internet
+ - IAB - Internet Architecture Board review standard and allocate resources like addresses
+ - IETF- Internet Engineering Task Force discuss operational and technical problem
  - Backbone of internet is made by 550,000 miles of underwater cable
+ - In future it compromised of different types of appliances, devices and things connected to global internet
+ - IoT is about physical device and objects communicating but IoE bring network intelligence to bind all these concept
+   together into cohesive system
+ 
+
+ Features :- Performance | Reliability | Security | Scalability | Resource Sharing 
+ Types of topology :- Bus, Star, Mesh, Ring, Tree, Point to point, Hybrid
+ Types of devices  :- Router, Switch, Hub, Bridge
  
  
  Networking Element :-
-  - At least two computers 
+  - Have At least two computers 
   - Transmission medium either wired or wireless 
   - Protocols or rules that govern communication 
   - Network software such as Network Operating System 
  
 
- Features :- Performance | Reliability | Security 
-
-
-
-
-Internet and Web :-
- - Internet is global network comprised of smaller networks that are interconnected using communication protocols
- - Internet is network of network that allows exchange data while web is way to access information through Internet
- - Internet not governed by single authority 
- - Ultimate authority for where Internet is going rest with Internet Society or ISOC
- - ISOC is voluntary membership organization whose purpose to promote global information exchange through Internet
- - IAB - Internet Architecture Board      meet regularly to review standards and allocate resources like addresses
- - IETF- Internet Engineering Task Force  meet regularly to discuss operational and technical problem
-
-
- URI(Uniform Resource Identifier) :-
-  - URI can be name, locator or both for online resource whereas URL is just locator
-  - URLs are subset of URIs
-  - URL is human-readable text that designed to replace IP addresses numbers that computer use communicate with server
-  - URL consists of protocol, domain name, and path 
-  
-  Syntax :- protocol://WebSiteName.topLevelDomain/path
-   Protocol       - HTTP or HTTPS
-   WebSiteName    - google
-   topLevelDomain - .com, .edu, .in
-   path           - Specific folder and/or subfolders that are on given website
-
-
-
-
-Internet and Web Programming :-
- Client-side :- 
-  - When type URL like www.google.com browser convert into file containing :-
-    - GET /HTTP/1.1 (GET requesting some data from server, HTTP Protocol, 1.1. Protocol version) 
-  - File converted to binary by browser then sent to the server
-  - Go to destination and respond if it is received by sender only because of IP address
-  - Router send information to another and keeps on going until binary codes reach destination
  
- Server-side :- 
-  - Server receive binary code and decode it and send response :- 
+
+Computer Network Architecture :-
+ - Architecture defined physical and logical design of software, hardware, protocols,media and data transmission
+ - Link is communication pathway that transfers data from one device to another
+
+ Peer-To-Peer :-
+  - All computers are linked together with equal privilege and responsibilities for processing data
+  - Useful for small environments, usually up to 10 computers but not has dedicated server
+  - Provide dedicated link between two devices
+  - Less costly No dedicated server | One Stop Other Works | Easy to maintain
+  - Not Centeralized system so no data backup | Security | Special permission for each computer if its goes down no data
+ 
+ 
+ Multipoint Connection :-
+  - Two or more devices share single link that is capacity of the channel is shared now
+  Spatial Sharing        :- Several devices share link simultaneously 
+  Temporal(Time) Sharing :- If users must take turns using link then it's called Time Shared Line configuration
+
+ 
+ Client-Server :-
+  - Designed for end users called clients to access resources from centeral computer called server
+  - Server responsible for manage resources and Security
+  - Client send request for resource through internet,Server receiving request and check request,Send response to client
+  - Centeralized So data backup | Dedicated Server Performance Improve | Security better | Fast Resource Sharing
+  - Costly(Server) | Server failure entire network stop
+
+
+  Client-side :- 
+   - When type URL(www.google.com) browser convert into file :-
+    - GET /HTTP/1.1 (GET requesting some data from server, HTTP Protocol, 1.1. Protocol version) 
+   - File converted to binary by browser then sent to the server and receive respond back to the sender IP address
+   - Router send information to another and keeps on going until binary codes reach destination
+ 
+  Server-side :- 
+   - Server receive binary code and decode it and send response :- 
     - HTTP/1.1 200 ok (where 200 ok is the status)
     - Content-type:type/HTML
     - Body of page
-  - Converted back to binary by server and sent to IP address that is requesting it
-  - Once codes received by client browser again decodes information display information
+   - Converted back to binary by server and sent to IP address that requesting it
+   - Once codes received by client browser again decodes information display information
   
-
-
-
-Internet Of Everything (IoE) :-
- - Philosophy in which technology future is compromised of different types of appliances, devices and things 
-   connected to global internet
- - IoT is about physical device and objects communicating but IoE bring network intelligence to bind all these concept
-   together into cohesive system
-
-
-
-Topologies :-
- - Describe how device are connected to each other 
- - Arrangement of network that comprises nodes and connecting line via sender and receiver referred as network topology
-
- Mesh :- 
-  - All devices connect to each other or say support point-to-point communication
   
-  Realibility :- If single system fails other system sharing data | Highest Realibility
-  Cost        :- Dependant of cable quality and quantity          | High cost
-  Security    :- If a and d communicate other devices(b, c) doesn't no about that
-  
-  Disadvantage :-
-   - High Maintenance
-   - Not support Multi-cast
-
-  - N is number of nodes which represent no. of devices connected
-  - How many wired required (NC2 Formula) :- n(n-1)/2 
-  - No. of ports(Connector) Required Devices :-  (N-1) 
-  - Total No. of ports(Connector) Required :- N * (N-1)
-
-
-
- Star :- 
-  - Multi-pal device are connected to each other through Centeralized device called Hub(Multi-Port Device)
-  - Hub is central node and all other nodes are connected to the central node
-  - Support Point-to-Point
-  - No of cabel same as no of devices :- N
-  - No of ports(Connector) :- N | N * N
-  - Hub fails entire network fails No Realibility | No Security | Less Cost compared to Mesh
-
-
-
- Bus :-
-  - Backbone, Coaxial-cabel, Thick Ethernet wire(High-Bandwith) in which multiple device are connecte through drop line 
-  - Tape connect Backbone cabel to Drop Line
-  - Transmit data from one-end to another in single direction
-  - Multi-Point connection so Collision is high  
-  - No of cabel = N + 1 (N : no of devices)
-  - No of ports = 1     | 1 * N
-  - Single-Point Failure so No Realibility | No Security | Less Cost compared to Mesh
-  - At the end of cabel we add Terminator or Repeaters(Increase Signal Strength & Join more Backbone Cabel) 
-
-
  
- Ring :- 
-  - Multipal Bus topology design in ring shape
-  - No of cabel = N + 1 (N : no of devices)
-  - No of ports = 1     | 1 * N  
-  - Less Realibility | No Security | Less Cost compared to Mesh
-  - Send Message in Unidirectionally  
-  - Use Token-Ring to remove collision
-  - Repeater used for Ring topology with large number of nodes because if someone wants to send data to last node in
-    with 100 nodes then data will have to pass through 99 nodes to reach 100th node
-  - To prevent data loss repeaters are used in network
+
+InterNetwork :-
+ - Two or more computer network LANs or WAN connected using devices and they configured by local addressing scheme
+ - Interconnection between public, private, commercial, industrial, or government computer network
+ - It use internet protocol and model used is OSI
+ - Based on internet protocol such as TCP/IP
+
+ Extranet :-
+  - Used for information sharing whose have login credentials 
+  - lowest level of internetworking as MAN, WAN and cannot have single LAN, must connection to external network
+
+ Intranet :-
+  - Used for information sharing by organization for only to its employees 
+  - Communication | Time-Saving | Collabration | Platform-independany | Cost-efficient
 
 
 
- Tree :-
-  - Variation of Star topology where data flow in hierarchical structure
-  - Various secondary hubs connected to central hub which contain repeater
-  - Data flow from top to bottom(Center -> Secondary)
-  - Multi-Point Connection and Non-Robust if backbone fails topology crashes
-  - More device attached to single central hub
-  - Central hub fails entire system fail and high cost of cabling
 
-
-
-Types of Area Networks :-
+Types of Area Network :-
  
  LAN(Local Area Network) :-
-  - Connect network device in such a way that personal computers share data, tools and program
-  - Connect device by switch or stack of switches using private addressing scheme as defined by TCP/IP protocol
+  - Group of computers connected to each other in small geographical area such as building, for fast data transfer
+  - Connect device by switch or cable using private addressing scheme as defined by TCP/IP protocol
   - Private addresses are unique in relation to other computers on local network 
   - Routers found at boundary of LAN connecting them to larger WAN
-  - Cover smaller geographical area | Data transmit at very fast rate
-  - Communication medium used for LAN has twisted-pair cables and coaxial cables    
+  - Less costly | High Security
 
+ 
+ PAN(Personal Area Network) :-
+  - Network arranged within individual person typically within range of 10 meters for personal use
+  - Cover 30 feet area
+  - Device like bluetooth, phone, laptop, etc.
+  Types :- Wireless(Wifi, Bluetooth)  |  Wired(USB Cable)
 
+ 
  MAN(Metropolitan Area Network) :-
   - Larger than LAN and smaller than WAN
-  - Cover large geographical area and may serve as ISP (Internet Service Provider)
+  - Cover large geographical area and may known as ISP (Internet Service Provider)
   - Provide High-speed connectivity but hard to design and maintain
   - Network delay | Fault tolerance Less | Congestion High
   - Use Modem and Wire/Cable for data transmission
+  Protocol used :- RS-232(Request to send)  |  Frame Relay  | ATM(asynchronous transfer mode) 
+                   ISDN(Integrated Services Digital Network)| OC-3  | ADSL(Asymmetric Digital Subscriber Line)
   
 
  WAN(Wide Area Network) :-
@@ -172,14 +124,272 @@ Types of Area Networks :-
 
 
  MANET(Mobile Ad Hoc Network) :-
-  - Consist of set of mobile nodes connected wirelessly in self-configured, self-healing network without having 
-    fixed infrastructure  
-  - Free to move randomly as network topology changes frequently
+  - Consist set of mobile nodes connected wirelessly in self-configured(Network without having fixed infrastructure)
+  - Free to move as network topology changes frequently
   - Each node behaves as router as they forward traffic to other specified nodes in the network
   Types :- Vehicular(VANET) | SmartPhone(SPANC) | InternetBased(iMANET) | 
 
- PAN (Personal Area Network)   | SAN (Storage Area Network)
- VPN (Virtual Private Network) | EPN (Enterprise Private Network)
+ 
+ SAN (Storage Area Network) | VPN (Virtual Private Network) | EPN (Enterprise Private Network)
+
+
+
+
+Various Device in Network :-
+ Cabel :-
+  - Connect variou device which are physically separated
+  - Transfer data through packets or signal form
+
+  Unshielded Twisted-Pair Cabel :- 
+   - Transfer data in form of electric signal
+   - 10 Base T / 100 Base T
+   - 10 means 10 MBPS(Mega Bit Per Second) data can be transfer per second
+   Base has two types :-
+    BaseBrand :- Only one signal transmit at time if other signal come collision arise(Dedicated cable bandwidth)
+    BroadBand :- Multiple signal can be parallel transmit and cable bandwidth split into separate ranges
+   - T means only 100 meter signal can be transmit than attuention occurs(Signal strength week)
+   - Use in Ethernet LAN
+
+
+  Coaxial Cabel :-
+   - Transfer data in form of electric signal
+   - 10 Base 2 / 10 Base 5
+   - 2 and 5 means 200 and 500 meter distance
+
+
+  Fiber Optice :- 
+   - Transfer data in form of light Signal
+   - Speed of light signal is - 3x10^8
+   - 100 Base Fx 
+   - Fx means fiber channel which cover 2km distance 
+
+
+  Question :- 
+    If N devices connect on network, what is maximum collision domain ? --> N
+    Cable can filter or not :- 
+      - If Two Lan connected it can move signal or not
+      - Filter means can we decied it can move further or not
+    Ans :- Yes, there is no software in cabel
+
+
+
+ Repeater :-
+  - Works on physical layer pure hardware
+  - Regenerate signal over same network before signal become too weak or corrupted 
+  - So as to extend length to which signal can be transmitted over same network
+  - Amplifier also do this but if starting signal strength is X and it goes down Amplifier increases it 2x or 4x 
+    while repeater strength will be same x -> x 
+  - 2 port devices forwarding signal but not supporting filtering and maximum collision is N
+
+
+
+ Hub :-
+  - Multi-Point Repeater Hardware device
+  - Support forwarding but not supporting filtering so high traffic which become collision domain problem
+  - Not have intelligence to find out best path for data packets which leads to inefficiencies and wastage
+  - Provide small blink light functionality if any wire problem Occure or power on or off which repeater not provide
+ 
+  Active Hub :- 
+   - Own power supply, clean, boost and relay signal along with network 
+   - Serve both as repeater as well as wiring center 
+   - Extend maximum distance between nodes
+
+  Passive Hub :- 
+   - Collect wiring from nodes and power supply from active hub 
+   - Relay signals on network without cleaning and boosting them and can’t extend distance between nodes
+
+  Intelligent Hub :- 
+   - Works like active hubs and includes remote management capabilities 
+   - Provide flexible data rates to network devices 
+   - Enables administrator to monitor traffic passing through hub and configure each port in hub
+
+
+
+ Bridges :- 
+  - 2 Port devices used to Connect two different LAN's works working on same protocol on data-link layer
+  - Bridge is repeater with functionality of filtering content by reading MAC address of source and destination
+  - Support forwarding
+ 
+  Types of Bridges :-
+   Transparent Bridges :- 
+    - Stations are completely unaware of bridge’s existence Whether bridge is added or deleted from network, 
+      reconfiguration of stations is unnecessary 
+    - These bridges make use of two processes forwarding and learning
+   
+   Source Routing Bridges :- 
+    - Routing operation is performed by source station and frame specifies which route to follow 
+    - Host can discover frame by sending special frame called discovery frame, which spread through entire network
+      using all possible paths to destination
+
+
+
+ Switches :-
+  - Multi-Port Bridges with buffer and its design boost its efficiency(No ports imply less traffic) and performance
+  - Data-Link Layer device
+  - Full Duplex Link
+  - Perform error checking before forwarding data and correct port only so Traffic is minimal
+  - Collision Domain is Zero(0) but broadcast domain remaining same
+
+
+
+ Router :-
+  - Used to connect two different network (Network Layer device)
+  - Device like switch that routes data packets based on their IP addresses
+  - Connect LAN, WAN together for dynamically updating routing table based on decision make on routing data packets
+  - Router divide broadcast domains of hosts connected through it
+  - Determine best path from available paths for transmission of the packet
+  - Security | Realibility | Performance | Network Range
+
+
+
+ Gateway :-
+  - Passage to connect two networks together that work upon different networking models
+  - Work as messenger agents that take data from one system, interpret it and transfer it to another system
+  - It also called protocol converters and operate at any network layer
+  - More complex than switches or routers
+
+ 
+
+ Brouter :-
+  - Bridging router is device that combines features of both bridge and router
+  - Work either at data link layer or network layer
+  - Work as router for routing packets across networks and working as bridge for filtering local area network traffic
+ 
+
+
+ NIC(Network interface card) :-
+  - Network adapter hardware component used to connect computer to the network 
+  - MAC address(Stored in PROM) or Physical address encoded on chip which assigned by IEEE to identify NIC uniquely
+    and has connector to connect cable to it 
+  - Cable act as interface between computer and router or modem 
+  - Works on both physical and data link layer of network model
+  - Support transfer rate of 10,100 to 1000 MB/S
+  - Wireshark Network Protocol Analyzer capture and analyze packets transmitted/receive via Network Interface Card(NIC)
+  Types :-
+   Wired    : Present inside motherboard, Cables and connectors used to transfer data
+   Wireless : Contain antenna to obtain connection over wireless network
+   
+
+
+ Modem :-
+  - Allow computer to connect to the internet over existing telephone line
+  - Not integrated with motherboard rather than it installed on PCI slot found on motherboard
+  - Also known as Modulator/Demodulator 
+  - Convert digital data into analog signal over telephone lines
+  Types :- Standard PC Modem or Dial-up Modem  |  Celluar Modem  |  Cable Modem
+
+
+
+
+Topologies :-
+ - Layout arrangement of different devices in network that Describe how device are connected to each other in network
+ Types :- Physical(Geometric Representation of nodes)  |  Logical
+
+
+ Mesh :- 
+  - All devices connect to each other or say support point-to-point communication
+  - Used for wireless network WAN implementations where communication failures are a critical concern
+  
+  Realibility :- If single system fails other system sharing data | Highest Realibility
+  Cost        :- Dependant of cable quality and quantity          | High cost
+  Security    :- If a and d communicate other devices(b, c) doesn't no about that
+  
+  Disadvantage :- High Maintenance |  Not support Multi-cast
+
+  - N is number of nodes which represent no. of devices connected
+    How many wired required (NC2 Formula) :- n(n-1)/2 
+    No. of ports(Connector) Required Devices :-  (N-1) 
+    Total No. of ports(Connector) Required :- N * (N-1)
+
+  Types :-
+   Full Mesh    :- Each computer connected to all available computers network
+   Partial Mesh :- Not all but certain computer connected to those computer with which they communicate frequently 
+
+
+
+ Star :- 
+  - Multi-pal device are connected to each other through Centeralized device called Hub, Switches or Server
+  - Support Point-to-Point
+  - Coaxial cable or RJ-45 cables are used to connect computer
+  - No of cabel same as no of devices :- N
+  - No of ports(Connector) :- N | N * N
+  - Hub fails entire network fails No Realibility | No Security | Less Cost compared to Mesh
+
+
+
+ Bus :-
+  - Backbone cabel in which multiple device are connect through drop line 
+  - Tape connect Backbone cabel to Drop Line
+  - Use 802.3 and 802.4 Standard network
+  - Access method of bus is CSMA(Carrier Sense Multiple Access)
+  - Transmit data from one-end to another in single direction
+  - When send data all nodes receive data whether it has been addressed or not
+  - Multi-Point connection so Collision is high  
+  - Single-Point Failure so No Realibility | No Security | Less Cost compared to Mesh | Diffcult Troublshooting
+  
+  Attenuation - loss of signal leads to communication issues Used Repeaters to regenerate signal
+  - At the end of cabel add Terminator or Repeaters(Increase Signal Strength & Join more Backbone Cabel) 
+  
+  No of cabel = N + 1 (N : no of devices)
+  No of ports = 1     | 1 * N
+
+
+  CSMA :-
+   - Media access control used to control data flow so that data integrity maintained(Not packet lost)
+   - Problems occur when two nodes send messages simultaneously
+
+   CSMA CD(Collision detection) :- Access method detect collision, Once detected sender stop transmitting data 
+   CSMA CA(Collision Avoidance) :- 
+    - Access method avoid collision by checking whether transmission media is busy or not
+    - If busy then sender waits until media becomes idle 
+    
+
+
+ Ring :- 
+  - Multipal Bus topology design in ring shape
+  - No of cabel = N + 1 (N : no of devices)
+  - No of ports = 1     | 1 * N  
+  - Less Realibility | No Security | Less Cost compared to Mesh | No Termination Point | Single Failure | Delay
+  - Send Message in Unidirectionally  
+  - Use Token-Ring to remove collision
+  - Repeater used for Ring topology with large number of nodes because if someone wants to send data to last node in
+    with 100 nodes then data will have to pass through 99 nodes to reach 100th node
+  - To prevent data loss repeaters are used in network
+  Access method :-
+  Token passing
+   - Token is passed from one node to another until reach destination
+   - Sender modifies token by putting address along with data
+   - Once token received by destination device then it send acknowledgment to the sender
+   Token :- Frame that circulate around network
+
+
+
+ Tree :-
+  - Combination of Star and bus topology where data flow in hierarchical structure
+  - Various secondary hubs connected to central hub which contain repeater
+  - Data flow from top to bottom(Center -> Secondary)
+  - Multi-Point Connection and Non-Robust if backbone fails topology crashes
+  - More device attached to single central hub
+  - Central hub fails entire system fail and high cost of cabling
+  - Only one path exists between two nodes for data transmission Thus, it form parent-child hierarchy
+  - Broadband Transmission | Easily Expandable and Manageable | Error Detection |
+  - Diffcult Troublshooting and Reconfiguration
+
+
+
+
+URI(Uniform Resource Identifier) :-
+ - URI can be name, locator or both for online resource whereas URL is just locator
+ - URLs are subset of URIs
+ - URL is human-readable text that designed to replace IP addresses numbers that computer use communicate with server
+ - URL consists of protocol, domain name, and path 
+  
+ Syntax :- protocol://WebSiteName.topLevelDomain/path
+  Protocol       - HTTP or HTTPS
+  WebSiteName    - google
+  topLevelDomain - .com, .edu, .in
+  path           - Specific folder and/or subfolders that are on given website
+
 
 
 
@@ -204,20 +414,6 @@ Redundant Link problems :-
 
 
 
-Type of line configuration :-
- - Network is two or more devices connected through link
- - Link is communication pathway that transfers data from one device to another
- 
- Point-to-Point Connection :-
-  - Provide dedicated link between two devices
-  - Use actual length of wire or cable to connect two ends but other option such as microwave or satellite also possible
- 
- Multipoint Connection :-
-  - Two or more devices share single link that is capacity of the channel is shared now
-  Spatial Sharing :- Several devices share link simultaneously 
-  Temporal(Time) Sharing :- If users must take turns using link then it's called Time Shared Line configuration
-
-
 
 Digital Subscriber Line/Loop(DSL) :-
  - Communication medium which used to transfer data on internet through copper wire telecommunication line
@@ -233,64 +429,4 @@ Digital Subscriber Line/Loop(DSL) :-
  ASymmetric DSL(ADSL) :- 
   - Provide wider frequency range for downstream transfers
   - 20 Mbps downstream and 1.5 Mbps upstream, it is because most users download more data than they upload
-
-
-
-Scrambling in Digital electronic :-
- - Signal that represent data also be digital or analog
- - To send signal must convert data into signal 
- - This conversion can be Analog to Analog, Analog to Digital, Digital to Analog or Digital to Digital
- - Digital to Digital conversion involves three techniques – Line Coding, Block Coding, and Scrambling 
- - Line Coding always needed whereas Block Coding and Scrambling depending upon need
- - Scrambling not increase number of bits and provide synchronization 
- - Problem with technique like Bipolar AMI(Alternate Mark Inversion) is that continuous sequence of zero’s create 
-   synchronization problems one solution to this is Scrambling
- 
-
- Types of Line Coding :-
-  - Self-synchronizing both receiver and sender clock should be synchronized
-  - Error-detecting capability and less complexity
-
-  Unipolar 
-   - Non Return to Zero(NRZ) positive voltage defines bit 1 and the zero voltage defines bit 0
-   - Signal does not return to zero at the middle of the bit thus it is called NRZ
-   - Uses more power as compared to polar scheme to send one bit per unit line resistance
-
-  Polar (eg. NRZ-L, NRZ-I, RZ, and Biphase – Manchester and differential Manchester)
-   - NRZ-L and NRZ-I similar to Unipolar but use two levels of amplitude (voltages)
-   - Return to Zero(RZ) uses three values positive, negative and zero
-
-  Bipolar (eg. AMI and Pseudoternary) | ultilevel | Multitransition
- 
-
-
- Scrambling Techniques :-
-  B8ZS(Bipolar with 8-zero substitution) :-
-   - Similar to Bipolar AMI except when eight consecutive zero-level voltages are encountered they are replaced by 
-     sequence "000VB0VB"
-   - V(Violation) is non-zero voltage which means signal have same polarity as previous non-zero voltage
-   - B(Bipolar) also non-zero voltage level which is accordance with AMI rule
-
-
-  HDB3(High-density bipolar3-zero) :-
-   - Four consecutive zero-level voltages are replaced with sequence “000V” or “B00V”
- 
- 
- 
-Manchester encoding and differential manchester encoding :-
- - Transmission of data means convert upper layer digital data(0,1 form) to analog or digital signal
- - To encode data digital to digital we use manchester and differential manchester encoding
- - Dr.thomas and IEEE802.3 convention
- Manchester :-
-  0 -->  -|_
-  1 -->  _|-
-
- Different Manchester Encoding :-
-  0 --> |-|_ , |_|- 
-  1 --> -|_  , _|-
-
-
-
-
-Wireshark Network Protocol Analyzer capture and analyze packets transmitted/received via Network Interface Card (NIC)
 

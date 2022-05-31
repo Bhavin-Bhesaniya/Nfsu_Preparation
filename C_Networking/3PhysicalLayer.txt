@@ -20,133 +20,6 @@ Intro to Physical Layer :-
 
 
 
-Various Device in Network :-
- Cabel :-
-  - Connect variou device which are physically separated
-  - Transfer data through packets or signal form
-
-  Unshielded Twisted-Pair Cabel :- 
-   - Transfer data in form of electric signal
-   - 10 Base T / 100 Base T
-   - 10 means 10 MBPS(Mega Bit Per Second) data can be transfer per second
-   Base has two types :-
-    BaseBrand :- Only one signal transmit at time if other signal come collision arise(Dedicated cable bandwidth)
-    BroadBand :- Multiple signal can be parallel transmit and cable bandwidth split into separate ranges
-   - T means only 100 meter signal can be transmit than attuention occurs(Signal strength week)
-   - Use in Ethernet LAN
-
-
-  Coaxial Cabel :-
-   - Transfer data in form of electric signal
-   - 10 Base 2 / 10 Base 5
-   - 2 and 5 means 200 and 500 meter distance
-
-
-  Fiber Optice :- 
-   - Transfer data in form of light Signal
-   - Speed of light signal is - 3x10^8
-   - 100 Base Fx 
-   - Fx means fiber channel which cover 2km distance 
-
-
-  Question :- 
-    If N devices connect on network, what is maximum collision domain ? --> N
-    Cable can filter or not :- 
-      - If Two Lan connected it can move signal or not
-      - Filter means can we decied it can move further or not
-    Ans :- Yes, there is no software in cabel
-
-
-
- Repeater :-
-  - Works on physical layer pure hardware
-  - Regenerate signal over same network before signal become too weak or corrupted 
-  - So as to extend length to which signal can be transmitted over same network
-  - Amplifier also do this but if starting signal strength is X and it goes down Amplifier increases it 2x or 4x 
-    while repeater strength will be same x -> x 
-  - 2 port devices forwarding signal but not supporting filtering and maximum collision is N
-
-
-
- Hub :-
-  - Multi-Point Repeater Hardware device
-  - Support forwarding but not supporting filtering so high traffic which become collision domain problem
-  - Not have intelligence to find out best path for data packets which leads to inefficiencies and wastage
-  - Provide small blink light functionality if any wire problem Occure or power on or off which repeater not provide
-  Types :-
-   Active Hub :- 
-    - Own power supply and clean, boost and relay signal along with network 
-    - It serves both as repeater as well as wiring center 
-    - These are used to extend maximum distance between nodes
-
-   Passive Hub :- 
-    - Collect wiring from nodes and power supply from active hub 
-    - Relay signals onto network without cleaning and boosting them and can’t be used to extend distance between nodes
-
-   Intelligent Hub :- 
-    - Works like active hubs and includes remote management capabilities 
-    - Provide flexible data rates to network devices 
-    - Enables administrator to monitor traffic passing through hub and configure each port in hub
-
-
-
- Bridges :- 
-  - 2 Port devices used to Connect two different LAN's works working on same protocol on data-link layer
-  - Bridge is repeater with functionality of filtering content by reading MAC address of source and destination
-  - Support forwarding
-  Types of Bridges :-
-   Transparent Bridges :- 
-    - Stations are completely unaware of bridge’s existence Whether bridge is added or deleted from network, 
-      reconfiguration of stations is unnecessary 
-    - These bridges make use of two processes forwarding and learning
-   
-   Source Routing Bridges :- 
-    - Routing operation is performed by source station and frame specifies which route to follow 
-    - Host can discover frame by sending special frame called discovery frame, which spread through entire network
-      using all possible paths to destination
-
-
-
- Switches :-
-  - Multi-Port Bridges with buffer and its design boost its efficiency(No ports imply less traffic) and performance
-  - Data-Link Layer device
-  - Full Duplex Link
-  - Perform error checking before forwarding data and correct port only so Traffic is minimal
-  - Collision Domain is Zero(0) but broadcast domain remaining same
-
-
-
- Routers :-
-  - Used to connect two different network (Network Layer device)
-  - Device like switch that routes data packets based on their IP addresses
-  - Connect LAN, WAN together for dynamically updating routing table based on decision make on routing data packets
-  - Router divide broadcast domains of hosts connected through it
-
-
-
- Gateway :-
-  - Passage to connect two networks together that work upon different networking models
-  - Work as messenger agents that take data from one system, interpret it and transfer it to another system
-  - It also called protocol converters and operate at any network layer
-  - More complex than switches or routers
-
- 
-
- Brouter :-
-  - Bridging router is device that combines features of both bridge and router
-  - Work either at data link layer or network layer
-  - Work as router for routing packets across networks and working as bridge for filtering local area network traffic
- 
-
-
- NIC(Network interface card) 
-  - Network adapter that used to connect computer to the network 
-  - Installed in computer to establish LAN 
-  - It has unique id that written on chip and has connector to connect cable to it 
-  - Cable acts as interface between computer and router or modem 
-  - Works on both physical and data link layer of network model
-
-
 
 Transmission Media :-
  - Transmission medium is physical path between transmitter and receiver 
@@ -249,36 +122,35 @@ Transmission Media :-
 
 
 Transmission mode :-
- - Transferring data between two devices also known as Communication mode
+ - Transferring data between two devices also known as Communication / Directional mode
  - Buses and networks are designed to allow communication to occur between individual devices that are interconnected
- 
- Types of transmission mode :-
+ - Defined in Physical layer
+
  Simplex Mode :-
   - Communication is unidirectional 
-  - Use entire capacity of channel to send data in one direction
-  Example : Keyboard and traditional monitors 
-  - Keyboard only introduce input and monitor only give output
+  - Device can only send data but cannot receive at same time
+  - Use entire capacity of channel to send data in one direction so more data transmitted
+  - Unidirectional so No inter-communication between devices
+  Example : Keyboard and Monitors | Radio 
  
 
  Half-Duplex Mode :-
   - Both transmit and receive but not at same time 
   - When one device is sending other can only receive and vice versa 
-  - Used in cases where there is no need for communication in both directions at same time 
-  - Entire capacity of channel utilized for each direction
-  Example : In Walkie-talkie message sent one at time and messages are sent in both direction
+  - Entire capacity of channel utilized for each direction at time
+  - It possible to perform error detection
   Channel capacity  = Bandwidth * Propagation Delay
+  Example : In Walkie-talkie message sent one at time and messages are sent in both direction
 
  
  Full-Duplex Mode :-
-  - Both transmit and receive simultaneously 
-  - Signals going in one direction share capacity of link with signals going in another direction this sharing
-    occur in two ways :- 
-    - Either link must contain two physically separate transmission paths one for sending and other for receiving
-    - Capacity is divided between signals traveling in both directions
-  - Used when communication in both directions required all time 
+  - Bi-directional where Both device transmit and receive data simultaneously 
   - Channel capacity must be divided between two directions
-  Example :- Telephone Network in which there is communication between two persons by telephone line
+  - Signal go in one direction share capacity of link with signal going in other direction this sharing occur two ways:- 
+    - Link contain two physically separate transmission path one for sending and other for receiving
+    - Capacity divided between signals traveling in both direction
   Channel Capacity  = 2 * Bandwidth * Propagation Delay
+  Example :- Telephone Network in which there is communication between two persons by telephone line
 
 
 
@@ -456,3 +328,59 @@ Wireless Communication :-
   - Repeater uses two transmitters and receiver to keep original and repeated signals isolated on different channel
 
 
+
+ 
+Manchester encoding and differential manchester encoding :-
+ - Transmission of data means convert upper layer digital data(0,1 form) to analog or digital signal
+ - To encode data digital to digital we use manchester and differential manchester encoding
+ - Dr.thomas and IEEE802.3 convention
+ Manchester :-
+  0 -->  -|_
+  1 -->  _|-
+
+ Different Manchester Encoding :-
+  0 --> |-|_ , |_|- 
+  1 --> -|_  , _|-
+
+
+
+
+Scrambling in Digital electronic :-
+ - Signal that represent data also be digital or analog
+ - To send signal must convert data into signal 
+ - This conversion can be Analog to Analog, Analog to Digital, Digital to Analog or Digital to Digital
+ - Digital to Digital conversion involves three techniques – Line Coding, Block Coding, and Scrambling 
+ - Line Coding always needed whereas Block Coding and Scrambling depending upon need
+ - Scrambling not increase number of bits and provide synchronization 
+ - Problem with technique like Bipolar AMI(Alternate Mark Inversion) is that continuous sequence of zero’s create 
+   synchronization problems one solution to this is Scrambling
+ 
+
+ Types of Line Coding :-
+  - Self-synchronizing both receiver and sender clock should be synchronized
+  - Error-detecting capability and less complexity
+
+  Unipolar 
+   - Non Return to Zero(NRZ) positive voltage defines bit 1 and the zero voltage defines bit 0
+   - Signal does not return to zero at the middle of the bit thus it is called NRZ
+   - Uses more power as compared to polar scheme to send one bit per unit line resistance
+
+  Polar (eg. NRZ-L, NRZ-I, RZ, and Biphase – Manchester and differential Manchester)
+   - NRZ-L and NRZ-I similar to Unipolar but use two levels of amplitude (voltages)
+   - Return to Zero(RZ) uses three values positive, negative and zero
+
+  Bipolar (eg. AMI and Pseudoternary) | ultilevel | Multitransition
+ 
+
+
+ Scrambling Techniques :-
+  B8ZS(Bipolar with 8-zero substitution) :-
+   - Similar to Bipolar AMI except when eight consecutive zero-level voltages are encountered they are replaced by 
+     sequence "000VB0VB"
+   - V(Violation) is non-zero voltage which means signal have same polarity as previous non-zero voltage
+   - B(Bipolar) also non-zero voltage level which is accordance with AMI rule
+
+
+  HDB3(High-density bipolar3-zero) :-
+   - Four consecutive zero-level voltages are replaced with sequence “000V” or “B00V”
+ 
