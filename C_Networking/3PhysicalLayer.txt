@@ -426,6 +426,7 @@ Transmission Media :-
     - Repeater uses two transmitters and receiver to keep original and repeated signals isolated on different channel
 
  
+ 
 
 Multiplexing / Demultiplexing :-
  
@@ -544,29 +545,161 @@ Multiplexing / Demultiplexing :-
 
 
 Switching :-
-When a user accesses the internet or another computer network outside their immediate location, messages are sent through the network of transmission media. This technique of transferring the information from one computer network to another network is known as switching.
-Switching in a computer network is achieved by using switches. A switch is a small hardware device which is used to join multiple computers together with one local area network (LAN).
-Network switches operate at layer 2 (Data link layer) in the OSI model.
-Switching is transparent to the user and does not require any configuration in the home network.
-Switches are used to forward the packets based on MAC addresses.
-A Switch is used to transfer the data only to the device that has been addressed. It verifies the destination address to route the packet appropriately.
-It is operated in full duplex mode.
-Packet collision is minimum as it directly communicates between source and destination.
-It does not broadcast the message as it works with limited bandwidth.
+ - Transferring information from one computer network to another network known as switching achieved by using switches
+ - Switch is small hardware device which used to join multiple computers together with one local area network(LAN)
+ - Network switches operate at layer 2 (Data link layer) in OSI model
+ - It is transparent to user and not require any configuration in home network
+ - Switches forward packets based on MAC addresses to route packet appropriately
+ - Operated in full duplex mode
+ - Packet collision is minimum as it directly communicate between source and destination
+ - It does not broadcast message as it works with limited bandwidth
+ 
+ Why Switching Concept required?
+  Bandwidth : It is defined as the maximum transfer rate of a cable. It is a very critical and expensive resource. Therefore, switching techniques are used for the effective utilization of the bandwidth of a network.
+  Collision: Collision is the effect that occurs when more than one device transmits the message over the same physical media, and they collide with each other. To overcome this problem, switching technology is implemented so that packets do not collide with each other.
 
 
-Why is Switching Concept required?
-Switching concept is developed because of the following reasons:
+ Advantages :-
+  - Increases bandwidth of network
+  - Reduce workload on individual PC
+  - Increases overall performance of network by reducing traffic
+  - less frame collision as switch creates collision domain for each connection
 
-Bandwidth: It is defined as the maximum transfer rate of a cable. It is a very critical and expensive resource. Therefore, switching techniques are used for the effective utilization of the bandwidth of a network.
-Collision: Collision is the effect that occurs when more than one device transmits the message over the same physical media, and they collide with each other. To overcome this problem, switching technology is implemented so that packets do not collide with each other.
-Advantages of Switching:
-Switch increases the bandwidth of the network.
-It reduces the workload on individual PCs as it sends the information to only that device which has been addressed.
-It increases the overall performance of the network by reducing the traffic on the network.
-There will be less frame collision as switch creates the collision domain for each connection.
-Disadvantages of Switching:
-A Switch is more expensive than network bridges.
-A Switch cannot determine the network connectivity issues easily.
-Proper designing and configuration of the switch are required to handle multicast packets.
+
+ Disadvantages of Switching :-
+  - More expensive than network bridges
+  - Cannot determine network connectivity issues easily
+  - Proper designing and configuration required to handle multicast packet
+
+
+ Switching Modes :- 
+  - Transmitting data with the help of MAC address, Perform error checking on transmitted and received frames
+  - Different modes used for forwarding packets known as Switching modes
+  - Different parts of frame are recognized 
+  - Frame consists of several parts such as preamble, destination MAC address, source MAC address, user's data, FCS
+  
+  Store-and-forward :-
+   - Intermediate nodes store received frame and then check for errors before forwarding packets to next node
+   - On receiving entire frame, switch store frame into switch buffer memory known as process of storing frame
+   - After frame stored check If error found message discarded otherwise message forward to next node(forwarding frame)
+   - CRC (Cyclic Redundancy Check) uses number of bits to check for errors on received frame
+   - Store-and-forward ensure High level of security as destination network not be affected by corrupted frames
+   - It is highly reliable as it not forward collided frames
+
+
+  Cut-through Switching :-
+   - Forward packet after destination address identified without waiting for entire frame to be received
+   - Once frame received check first six bytes of frame following preamble, switch check destination in switching table
+     and forward frame to destination
+   - Low wait time / latency rate as it forward packets as soon as it identifies destination MAC address
+   - No error checking Therefore errors sent with or without errors to the receiver
+   - Collision is not detected, if frames have collided also be forwarded
+
+  
+  Fragment-free Switching :-
+   - Read atleast 64 bytes of frame before forwarding to next node to provide error-free transmission
+   - Combine speed of Cut-through Switching with error checking functionality
+   - Check 64 bytes of ethernet frame where addressing information is available
+   - Collision is detected it will not be forwarded further
+ 
+
+
+ Switching Techniques :-
+  - Decide best route for data transmission
+  - Connect system for making one to one communication
+
+  Diagram :-
+                                Switching Techniques
+    Circuit Switchin             Message Switching             Packet Switching
+  Space Division  Time Division                       Datagram Approach    Virtual Circuit Approach
+                                                                    Switched Virtual Circuit  Perment Virtual Circuit
+
+
+
+  Circuit Switching :-
+   - Establish dedicated path between sender and receiver before communication starts
+   - Once connection established then will exist until connection terminated
+   - Circuit switching in a network operates in a similar way as the telephone works.
+   - When user wants to send data request signal sent to receiver then receiver sends back acknowledgment to ensure
+     availability of the dedicated path 
+   - After receiving acknowledgment transfer data on dedicated path
+   - Used in public telephone network and voice transmission
+   - Fixed data transferred at time in circuit switching technology
+   
+   Communication circuit switching has 3 phases : Circuit establishment | Data transfer | Circuit Disconnect
+
+   Space Division Switches :
+    - Single transmission path accomplished in switch by using physically separate set of crosspoint
+    - Achieved by using crossbar switch 
+    - Crossbar switch is metallic crosspoint or semiconductor gate that enabled or disabled by control unit
+    - Crossbar switch made by using semiconductor
+    Ex. Xilinx crossbar switch using FPGAs
+    - Switching at high speed, high capacity and nonblocking switches
+    
+    Crossbar Switch :-
+     - N input lines and N output lines
+     - It n2 intersection points known as crosspoints
+     - No. of crosspoints increases as number of stations is increased Become very expensive for large switch 
+    
+
+   Multistage Switch :-
+    - Splitting crossbar switch into smaller units then interconnecting them
+    - Reduces number of crosspoints and if one path fails then there will be availability of another path
+    - Dedicated Communication channel | Fixed bandwidth
+    - Once dedicated path established only delay occurs in speed of data transmission
+    - Take approx 10 seconds for connection during which no data transmitted
+    - More expensive | Inefficient use | Connection dedicated therefore no other data transferred even channel free
+
+
+  Message Switching :-
+   - Message transferred as complete unit and routed through intermediate nodes at which it stored and forwarded
+   - Not establishment dedicated path between sender and receiver
+   - Destination address appended to the message 
+   - Provide dynamic routing as message routed through intermediate nodes based on available information in message
+   - Each and every node stores entire message then forward to next node 
+   - It treats each message as independent entity
+
+   Advantages :-
+    - Data channel shared among devices that improve efficiency of using available bandwidth
+    - Most efficient route
+    - Traffic congestion reduced because message is temporarily stored in nodes
+    - Message priority used to manage the network
+    - Message size varied Therefore, it supports unlimited size of data
+   
+
+   Disadvantages :-  
+    - Sufficient storage required to store messages until message is forwarded
+    - Long delay occur due to storing and forwarding facility provided by message switching technique
+
+  
+  Packet Switching :-
+   - Message sent in one go but it is divided into smaller pieces then they are sent individually
+   - Smaller pieces packets given unique number to identify their order at receiving end
+   - Every packet contain information in its headers such as source address, destination address and sequence number
+   - Packet will travel across network and taking shortest path as possible
+   - All packet reassembled at receiving end in correct order
+   - If any packet is missing or corrupted then message will be sent to resend message
+   - If correct order of packets is reached then acknowledgment message sent
+
+   
+   Datagram Packet switching(Connectionless switching):-
+    - Packet is known as datagram that consider as independent entity 
+    - Each packet contain information 
+    - Packets reassembled at receiving end in correct order
+    - Path is not fixed, Intermediate nodes take routing decisions to forward packets
+    
+
+   Virtual Circuit Switching(Connection-Oriented switching):-
+    - Pre-planned route established before messages are sent
+    - Call request and call accept packet used to establish connection between sender and receiver
+    - If user wants to terminate connection clear signal is sent for termination
+    
+   
+   Advantages Of Packet Switching :- Cost-effective | Reliable | Efficient 
+
+   Disadvantages Of Packet Switching :-
+    - Cannot be implemented in those applications that require low delay and high-quality services
+    - Complex protocols used and requires high implementation cost
+    - If network overloaded or corrupted then it require retransmission of lost packets 
+    - It also lead to the loss of critical information if errors are nor recovered
 
