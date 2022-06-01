@@ -1,5 +1,5 @@
 Intro to Physical Layer :-
- - Last layer from sender side and top layer in receiver side deals with hardware
+ - Last layer from sender side and top layer in receiver side deal with hardware
  - Provide functionality to data-link layer
  - When all bits come from data-link layer, physical-layer send it using transmission media like guided-unguided media
  - Convert logical data into signal
@@ -17,106 +17,6 @@ Intro to Physical Layer :-
    - If machine increase on same Channel not need to create new channel use existing channel using time division 
    - Send N number of signal to single signal to send 
    - Convert 1 signal to N no. of signal
-
-
-
-
-Transmission Media :-
- - Transmission medium is physical path between transmitter and receiver 
- - It is channel through data sent from one place to another
-  
- Types of Transmission Media :-
-  Guided Media :-
-   - Referred as Wired or Bounded transmission media
-   - Signals transmitted are directed and confined in narrow pathway by using physical links
-   - High Speed | Secure | Used for short distance
-
-   Twisted Pair Cable :-
-    Unshielded Twisted-Pair Cabel(UTP) :- 
-      - Two insulated copper wires twisted around one another has ability to block interference and not depend on 
-        physical shield, Used in telephone application
-      - Transfer data in form of electric signal
-      - 10 Base T / 100 Base T
-      - 10 means 10 MBPS(Mega Bit Per Second) data can be transfer per second
-      - T means only 100 meter signal can be transmit than attuention occurs(Signal strength week)
-      - Use in Ethernet LAN
-      - Least Expensive | Easy to install | High Speed | Short distance transmission due to attenuation
-      
-      Base has two types :-
-        BaseBrand :- Only one signal transmit at a time if other signal come collision arise
-        BroadBand :- Multiple signal can be parallel transmit
-
-      Difference between baseband and broadband :-
-          Baseband                                                Broadband
-      - Digital signalling                                  - Analog signalling
-      - Frequency division multiplexing is not possible     - Possible
-      - Baseband is bi-directional transmission             - unidirectional
-      - Short distance signal travelling                    - long
-      - Entire bandwidth is for single signal transmission  - Simultaneous multiple signals different frequencies
-      - Ethernet is using Basebands for LAN                 - Used to transmit cable TV to premises
-
-
-    Shielded Twisted-Pair(STP) :-
-     - Consists of special jacket(copper braid covering or foil shield) to block external interference
-     - Used in fast-data-rate Ethernet and in voice and data channels of telephone lines
-     - Higher data rate compare to UTP | Eliminates Cross Talk | More Expensive | Diffcult to install
-
-
-   Coaxial Cable :-
-    - Outer plastic covering insulation layer made of PVC or Teflon and 2 parallel conductors each having separate 
-      insulated protection cover
-    - Cable TVs and analog television networks widely use Coaxial cables
-    - High Bandwidth | Better noise Immunity | Easy to install and expand | Inexpensive
-    - Single cable failure disrupt entire network
-
-    Base has two types :-
-      BaseBrand :- Only one signal transmit at time if other signal come collision arise(Dedicated cable bandwidth)
-      BroadBand :- Multiple signal can be parallel transmit and cable bandwidth split into separate ranges   
-
-
-   Optical Fiber Cable :-
-    - Uses concept of reflection of light through core made up of glass or plastic
-    - Core is surrounded by less dense glass or plastic covering called cladding
-    - Used for transmission of large volumes of data 
-    - Cable can be unidirectional or bidirectional
-    - WDM(Wavelength Division Multiplexer) support both direction
-    - Increased capacity and bandwidth | Lighweight | Less signal attenuation 
-    - Diffcult to install and maintain | High Cost  | Fragile
-
-
-   Stripline :-
-    - Transverse electromagnetic(TEM) transmission line medium invented by Robert M. Barrett of Air Force Cambridge
-      Research Centre in 1950
-    - Earliest form of planar transmission line
-    - Use conducting material to transmit high-frequency waves it is also called waveguide
-
-
-
-  Unguided Media :-
-   - Referred as Wireless or Unbounded transmission media 
-   - No physical medium required for transmission of electromagnetic signals
-   - Less Secure | Used for larger distances | Signal broadcasted through air
-   
-   Radio Waves :-
-    - Easy to generate and penetrate through buildings 
-    - Sending and receiving through antennas
-    - Frequency Range:3KHz – 1GHz 
-    - AM and FM radios and cordless phones use Radio waves for transmission
-    - Further Categorized as (i) Terrestrial and (ii) Satellite
-
-
-   Microwaves :-
-    - Line of sight transmission 
-    - Sending and receiving antennas need to be properly aligned with each other
-    - Distance covered by signal is directly proportional to height of antenna 
-    - Frequency Range : 1GHz – 300GHz 
-    - Used for mobile phone communication and television distribution
-   
-
-   Infrared :-
-    - Short distance communication because cannot penetrate through obstacles
-    - Frequency Range:300GHz – 400THz 
-    - Used in TV remotes, wireless mouse, keyboard, printer, etc..
 
 
 
@@ -155,74 +55,159 @@ Transmission mode :-
 
 
 
-Signal Conversion :-
+Digital Transmission / Signal Conversion :- 
+ - Signal that represent data in either digital or analog form
+ - To send data must convert into signal 
+ - It may be Analog to Analog, Analog to Digital, Digital to Analog or Digital to Digital
+ 
  Digital Signal : 
-  - Represents data as sequence of discrete values at any given time it can only take on one of finite number of values
+  - Represent data as sequence of discrete value at any given time and take only on one of finite number of values
 
  Analog Signal :- 
   - Signal is any continuous signal for which time varying feature of signal is representation of some other time
     varying quantity i.e., analogous to another time varying signal
 
+ 
+ Digital-to-Digital :-
+  - Digital to Digital conversion involves three techniques – Line Coding, Block Coding, and Scrambling 
+  Line Coding :- 
+   - Always needed whereas Block Coding and Scrambling depending upon need
+   - Self-synchronizing both receiver and sender clock should be synchronized
+   - Error-detecting capability and less complexity
+  
+  Scrambling  :- 
+   - Not increase number of bits and provide synchronization 
+   - Problem with Bipolar AMI(Alternate Mark Inversion) is that continuous sequence of zero’s create synchronization 
+     problems one solution to this is Scrambling
+ 
+
+  Types of Digital-to-Digital encoding :-
+  Unipolar :-
+   - Non Return to Zero(NRZ) positive voltage defines bit 1 and zero voltage defines bit 0
+   - Signal does not return to zero at the middle of the bit thus it is called NRZ
+   - Uses more power as compared to polar scheme to send one bit per unit line resistance
+   - Polarity assigned to 1 binary state
+   Problem :- DC Component  |  Synchronization
+
+
+  Polar :-
+   - Uses two voltage levels :- one positive and another is negative
+   - By using two voltage level average voltage level reduced and DC component problem is alleviated   
+   Types :- NRZ (NRZ-L)(NRZ-I)  |  RZ  |  BIPHASE(Manchester)(Different Manchester) 
+
+
+   NRZ(Non-Return Zero):-
+    - level of signal represented either positive or negative    
+    NRZ-L :- Level of signal depend on type of bit that it represent Either 0(Positive) and 1(Negative)
+    NRZ-I :- Inversion of voltage level that represent in bit, 0 no change and 1 bit represent change voltage level
+
+
+   RZ(Return to Zero) :- 
+    - Use three values positive, negative and zero for signal change of each bit to achieve synchronization
+    - 1 bit is represented by positive-to-zero and 0 bit is represented by negative-to-zero  
+
+   
+   BIPHASE(Manchester and differential manchester encoding) :- 
+    - Transmission of data means convert upper layer digital data(0,1 form) to analog or digital signal
+    - To encode data digital to digital we use manchester and differential manchester encoding
+    - Dr.thomas and IEEE802.3 convention
+    
+    Manchester :-
+      0 -->  -|_
+      1 -->  _|-
+
+    Different Manchester Encoding :-
+      0 --> |-|_ , |_|- 
+      1 --> -|_  , _|-
+
+  
+  Bipolar :- AMI and Pseudoternary  |  Ultilevel  |  Multitransition
+   - Represent three voltage levels: positive, negative, and zero 
+   - Binary 0 represent Zero level and 1 represented by alternating positive and negative voltage
+   - If first 1 bit represented by positive amplitude then second 1 bit represented by negative voltage 
+     third 1 bit by positive amplitude and so on
+   Types :- AMI  |  B8ZS  |  HDB3
+
+   AMI(Alternative Mark Inversion) :- 
+    - Mark work comes from telegraphy which means 1 So it redefined as alternate 1 inversion
+    - 0 bit represented by zero level and 1 bit represented by alternating positive and negative voltages
+    - DC Component Zero  |  Sequence of 1s bits are synchronized
+    - Not ensure synchronization of long string of 0s bits
+   
+
+   B8ZS(Bipolar with 8-zero substitution) :-
+    - Similar to AMI except when eight consecutive zero-level voltage encountered they replaced by sequence "000VB0VB"
+    - V(Violation) is non-zero voltage which means signal have same polarity as previous non-zero voltage
+    - B(Bipolar) also non-zero voltage level which is accordance with AMI rule
+
+
+   HDB3(High-density bipolar3-zero) :-
+    - Four consecutive zero-level voltages are replaced with sequence “000V” or “B00V”
+
+ 
 
  Analog to Digital Signal :-
- 
-  Pulse Code Modulation(PCM):-
-   - Change analog signal to digital data
-   Process :- Sampling | Quantization | Encoding
+  - When analog signal digitalized knows as Analog to Digital Signal
+  - Information contain in continuous wave form is converted in digital pulses
+  - Require reduction in number of values in analog message so that they represented in digital stream
+
+
+  PAM(Pulse Amplitude Modulation) :-
+   - Take analog signal, samples it and generate series of digital pulse based on result of sampling where sampling
+     means measuring amplitude of signal at equal intervals
+   - Not useful data communication as it translate original wave form into pulses but these pulses are not Digital
+
+
+  PCM(Pulse Code Modulation):-
+   - Modify PAM Signal to form signal To achieve PCM quantizes PAM pulses
+
+   Process :- PAM  |  Quantization  |  Binary Encoding  |  Digital-to-digital encoding
    
    Low Pass Filter :-
     - Eliminates high frequency component present in input analog signal to ensure that input signal sampler is free
       from unwanted frequency components
-    - This is done to avoid aliasing of message signal
+    - Avoid aliasing of message signal
    
 
    Sampling :-
     - Process of measuring amplitude of continuous-time signal at discrete instants
     - Converting continuous signal into discrete signal
-    Idel Sampling    :- Known as Instantaneous sampling pulses from analog signal are sampled
-    Natural Sampling :- 
-     - Practical method of sampling in which pulse have finite width equal to T
-     - Result is sequence of samples that retain shape of analog signal
-    Flat Top Sampling :- Top of samples remains constant by using circuit
-
+    Type :- Idel | Natural | Flat-Top
+    
     Nyquist Theorem :-
      - Sampling rate must be at least 2 times highest frequency contained in signal 
      - Also known as minimum sampling rate and given by :- Fs = 2 * fh
    
    
    Quantization :-
-    - Sampling is series of pulses with amplitude values between maximum and minimum amplitudes of signal 
-    - Set of amplitudes infinite with non-integral values between two limits
+    - Process of assigning integral values in specific range to sampled instances
     - D = (Vmax - Vmin) / L
     - Normalized pulse amplitude modulation(PAM) value is calculated using formula :- amplitude / d
 
 
    Encoding :-
-    - Digitization of analog signal is done by encoder 
-    - After each sample is quantized and number of bits per sample is decided each sample changed to n bit code 
-    - Encoding also minimizes bandwidth used
-
+    - Digitization of analog signal is done by encoder but it also minimizes bandwidth used
 
 
   DELTA MODULATION :-
-    - Find change from previous value
-    Modulator :- 
-     - Used at sender site to create stream of bits from analog signal 
-     - Process records small positive change called delta 
-     - If delta is positive process records a 1 else process records a 0 
-     - It build second signal that resembles staircase 
-     - Input signal is then compared with this gradually made staircase signal
-     Rules :- 
-      - Input analog signal higher than lastvalue of staircase signal increase delta by 1 and bit in digital data is 1
-      - Input analog signal lower than lastvalue of staircase signal decrease delta by 1 and bit in digital data is 0
+   - Find change from previous value
+   Modulator :- 
+    - Used at sender site to create stream of bits from analog signal 
+    - Process records small positive change called delta 
+    - If delta is positive process records a 1 else process records a 0 
+    - It build second signal that resembles staircase 
+    - Input signal is then compared with this gradually made staircase signal
+    Rules :- 
+     - Input analog signal higher than lastvalue of staircase signal increase delta by 1 and bit in digital data is 1
+     - Input analog signal lower than lastvalue of staircase signal decrease delta by 1 and bit in digital data is 0
 
 
 
   ADAPTIVE DELTA MODULATION(ADM):-
-    - Performance of delta modulator improved significantly by making step size of modulator assume time-varying form 
-    - Larger step-size is needed where message has steep slope of modulating signal 
-    - Smaller step-size is needed where message has small slope and Size is adapted according to level of input signal 
-      these method knows as ADM    
+   - Performance of delta modulator improved significantly by making step size of modulator assume time-varying form 
+   - Larger step-size is needed where message has steep slope of modulating signal 
+   - Smaller step-size is needed where message has small slope and Size is adapted according to level of input signal 
+     these method knows as ADM    
 
 
 
@@ -237,150 +222,351 @@ Signal Conversion :-
    - Offer high bandwidth efficiency
    - Susceptible to noise interference and entire transmissions could be lost due to this | Lower Power Efficiency
 
-
   Frequency Shift Keying :-
-  Phase Shift Keying :-  
-   Binary Phase Shift Keying(BPSK) :-
-   Quadrature Shift Keying(QPSK) :-
+   Binary Phase Shift Keying(BPSK)
+   Quadrature Shift Keying(QPSK)
 
 
  
  Analog to Analog Conversion :-  
   - Representation of analog information by analog signal
-  Amplitude Modulation
-  Frequency Modulation
-  Phase Modulation
+   Amplitude Modulation
+   Frequency Modulation
+   Phase Modulation
 
 
 
 
-Wireless Communication :- 
- - Data travel through air, there must be some constraints within which wireless communication takes place    
- - All wireless devices must follow a common standard i.e, IEEE 802.11
- - Wireless coverage must be there where devices are expected to use
- - Wired network under IEEE standard 802.3 while wireless network under IEEE standard 802.11
- - IEEE stands for "Institute of Electrical and Electronics Engineers" is an organization composed of engineers 
-   that issues and manages standards for electrical and electronic devices
-
-
- Basic of Wireless Communication :-
-  - Takes places through RF(radio frequency) one device Transmitter send signal to other device Receiver 
-  - Two devices (transmitter and receiver) must use same frequency (or channel) to be able to communicate 
-  - If large number of wireless devices communicate at same time radio frequency cause interference with each other
-  - Interference increases as no of devices increases
-  - All wireless devices operate in half duplex mode to avoid collision or interference
-  - To achieve full duplex mode, devices uses different frequency or channel of transmission and receiving of signal
-  - wireless communication is Full-duplex but technically it is not
-
-
-
- Radio Frequency :-
-  - Sender(transmitter) send alternating current into section of wire(antenna) 
-  - This sets up moving electric and magnetic field that away as travelling waves 
-  - Electric and magnetic field moves along each other at right angle to each other 
-  - Signal must keep changing or alternating by cycle up and down to keep electric and magnetic field cyclic and 
-    pushing forward 
-  - No of cycles wave taking in second is called Frequency of wave
-  So :- frequency = no of cycles per second  
-  - Electromagnetic waves not travel in straight line 
-  - They travel by expanding in all direction away from antenna
+Transmission Media :-
+ - Transmission medium is physical path between transmitter and receiver 
+ - It is channel through data sent from one place to another into electronic signals
+ - In copper-based network, bits in the form of electrical signals while in Fiber its light pluses
+ - It works at layer-1
+ Two types :- Wired and Wireless in wired medium important while in wireless signal important 
   
-  Unit	    Abbreviation	Meaning
-   Hertz	    Hz        	Cycles per second
-   Kilohertz	KHz	        1000 Hz
-   Megahertz	MHz	        1,000,000 Hz
-   Gigahertz	GHz	        1,000,000,000 Hz
+
+ Factor to Consider :-
+  Bandwidth :- All factor remaining constant, greater bandwidth of medium, higher signal rate of data transmission
+  Transmission impairment :- Quality of signals get destroyed due to transmission impairment
+  Interference : Process of disrupting signal when it travel over communication medium on addition of unwanted signal
+
+
+ Cause of Transmission impairment :-
+  Attenuation :- Strength of signal decreases with increasing distance which causes loss of energy
+  Distortion  :- 
+   - Occure When signal shape is change 
+   - It Examined from different signals having different frequencies 
+   - Each frequency has its own propagation speed so they reach at different time which leads to delay distortion
+  
+  Noise :- Data is transmitted over medium at time some unwanted signal added to it which create noise
+
+
+ Types of Transmission Media :-
+
+  Guided Media(Wired or Bounded) :-
+   - Physical medium through which signal are transmitted
+   - Signal transmitted are directed and confined in pathway by using physical links
+   - High Speed | Secure | Used for short distance
+
+   Twisted Pair Cable :-
+    - Physical medium made up of pair of cables twisted with each other
+    - Two copper wire arranged in regular spiral pattern
+    - Degree of reduction in noise interference is determined by number of turns per foot
+    - Cheap | Easy installation | Range 0 to 3.5KHz
+
+
+    Unshielded Twisted-Pair Cabel(UTP) :- 
+     - Transfer data in form of electric signal
+     - Used in telephone application, Ethernet LAN
+     - Least Expensive | Easy to install | High Speed | Short distance transmission due to attenuation
+     - 10 Base T / 100 Base T
+     - 10 means 10 MBPS(Mega Bit Per Second) data transfer per second
+     - T means only 100 meter signal can be transmit than attuention occurs(Signal strength week)
+ 
+     Base has two types :-
+      BaseBrand :- 
+       - Only one digital signal transmit bi-directional in short distance at time if other signal go collision arise
+       - Ethernet use but Frequency division multiplexing is not possible
+      
+      BroadBand :- 
+       - Multiple analog signal can be parallel transmit in long distance unidirectional
+       - Used to transmit cable TV to premises and division Possible
+        
+      
+
+    Shielded Twisted-Pair(STP) :-
+     - Consists of special jacket(copper braid covering or foil shield) to block external interference
+     - Used in fast-data-rate Ethernet and in voice and data channels of telephone lines
+     - Higher data rate and Capacity compare to UTP | Eliminates Cross Talk | 
+     - More Expensive | Diffcult to install | Higher attenuation rate
 
 
 
- Basic Service Set(BSS):-
-  - To regulate connection to devices, make every wireless service area closed group of mobile devices that form
-    around fixed device
-  - IEEE calls this standard BSS
-  - At center of every BSS there is access point (AP), it Provide services that are necessary to form infrastructure 
-    of Wireless communication 
-  - AP operates in infrastructure mode and uses single wireless channel 
-  - All devices that want to connect to AP must use that same channel
-  - Because operation of BSS depends on AP BSS is bounded to area covered by AP 
-  - Area up to which AP’s signal is reachable, This area is called Basic Service Area (BSA) or cell 
-  - Cell is usually circular shape with center as AP 
-  - AP serves as single point of contact for BSS 
-  - AP use unique BSS identifier(BSSID) based on its own MAC address to advertise it’s existence to all devices in cell
-  - AP also advertises human-readable text string called Service Set identifier(SSID) to uniquely identify AP 
-  - BSSID as machine-readable unique tag to identify wireless service and SSID human-readable service tag
-  - Membership of mobile devices with BSS is called Association 
-  - Once associated device becomes BSS client or 802.11 station (STA) 
-  - As long as devices connected to AP all data communication passes through AP using BSSID as source and destination
-    address 
-  - You can think why all traffic must pass through AP? 
-  - They simply communicate with other devices directly without AP as middleman
-  - If we don’t do so then whole point of wireless service will go in vain 
-  - Sending data through AP make it stable and controllable
+   Coaxial Cable :-
+    - Outer plastic covering insulation layer made of PVC or Teflon and 2 parallel conductors each having separate 
+      insulated protection cover
+    - Cable TVs and analog television networks widely use
+    - Middle core responsible for data transferring whereas copper mesh prevents from EMI(Electromagnetic interference)
+    - High Bandwidth with high speed | Better Shielded | Easy to install and expand
+    - Single cable failure disrupt entire network | More expensive
+
+    Two types :-
+      BaseBrand :- One signal can transmit at time if other signal come collision arise(Dedicated cable bandwidth)
+      BroadBand :- Multiple signal parallel transmit and cable bandwidth split into separate ranges   
 
 
 
- Repeater :-
-  - AP in wireless infrastructure usually connected back to switched networks 
-  - BSS has limited signal coverage area(BSA) 
-  - To extend signal coverage add additional AP but in some scenarios not possible, Solution is Repeater
-  - Repeater is just AP configured in Repeater mode 
-  - Wireless repeater takes signal as input and retransmits signals in new cell around Repeater 
-  - Repeater uses two transmitters and receiver to keep original and repeated signals isolated on different channel
+   Fiber Optical Cable :-
+    - Uses concept of reflection of light through core made up of glass or plastic
+    - Core is surrounded by plastic covering called cladding
+    - It Cable can be unidirectional or bidirectional
+    - WDM(Wavelength Division Multiplexer) support both direction
+    - Increased capacity and bandwidth with faster transmission of large volume data | Lighweight | Less attenuation
+    - Diffcult to install and maintain | High Cost  | Fragile
 
+    Element :-
+     Core :- 
+      - Narrow strand of glass or plastic known as core 
+      - light transmission area of fiber
+      - More area of core, more light will be transmitted into fiber
+
+     Cladding :- 
+      - Concentric layer of glass is known as cladding 
+      - Provide lower refractive index at core interface as to cause reflection within core so that light waves 
+        transmitted through fiber
+
+     Jacket :- 
+      - Protective coating consisting of plastic is known as jacket 
+      - Preserve fibre strength, absorb shock and extra fibre protection
+
+
+
+   Stripline :-
+    - Transverse electromagnetic(TEM) invented by Robert M. Barrett of Air Force Cambridge Research Centre in 1950
+    - Earliest form of planar transmission line
+    - Use conducting material to transmit high-frequency waves it is also called waveguide
+
+
+
+  Unguided Media(Wireless or Unbounded):-
+   - No physical medium required for transmission of electromagnetic waves
+   - Air is media through which electromagnetic energy flow easily
+   - Less Secure | Used for larger distances | Signal broadcasted through air
+   - Data travel through air, there must be some constraints within which wireless communication takes place
+   - Wired network under IEEE standard 802.3 while wireless network under IEEE standard 802.11
+   - IEEE stands for "Institute of Electrical and Electronics Engineers"
+   - Access point (AP) Provide services that are necessary for Wireless communication infrastructure
+
+   Radio Waves :-
+    - Easy to generate, transmitted in all direction(omnidirectional) of space and penetrate through building
+    - Useful for multicasting 
+    - Sending and receiving through antennas
+    - Frequency Range:3KHz – 1GHz 
+    - FM radios and cordless phones use Radio waves for transmission
+    - Higher Transmission Rate | penetrate wall | WAN And Celluar Phone
+    - No of cycles wave taking in second called Frequency of wave :- frequency = no of cycles per second  
+    - Electromagnetic waves not travel in straight line They travel in all direction away from antenna
+    - Signal must keep changing or alternating by cycle up and down to keep electric and magnetic field cyclic and 
+      pushing forward 
+
+    Unit	    Abbreviation	Meaning
+     Hertz	    Hz        	Cycles per second
+     Kilohertz	KHz	        1000 Hz
+     Megahertz	MHz	        1,000,000 Hz
+     Gigahertz	GHz	        1,000,000,000 Hz
+
+
+
+   Microwaves :-
+
+    Terrestrial  Microwaves :-
+     - Transmit focused beam of radio signal from one ground-based microwave transmission antenna to another
+     - Sending and receiving antennas need to be properly aligned with each other
+     - Distance covered by signal is directly proportional to height of antenna 
+     - Antenna are mounted on towers to send beam to another antenna which is km away
+     - Used for mobile phone communication and television distribution
+     - Unidirectional | Line of sight transmission 
+     - Frequency Range : 1GHz – 1000GHz  | Bandwidth : 1 to 10Mbps | Cheaper than cable | Free from land acquisition
+     - Eavesdropping(Insecure Connection) | Out of phase signal | Limited bandwidth | Susceptible for weather
+
+
+    Satellite Microwaves :-
+     - Satellite is physical object that revolves around earth at known height
+     - More reliable now days as it offers more flexible
+     - Communicate with any point on global
+     - Accept signal that transmitted from earth station and amplifies signal 
+     - Amplified signal retransmitted to another earth station
+     
+
+   Infrared :-
+    - Short distance communication because cannot penetrate through obstacles
+    - Frequency Range:300GHz – 400THz 
+    - Used in TV remotes, wireless mouse, keyboard, printer, etc..
+    - High bandwidth and High data rate |  Sun rays interfere infrared waves
+
+   
+   Basic Service Set(BSS):-
+    - To regulate connection to devices, make every wireless service area closed group of mobile devices that form
+      around fixed device IEEE calls this standard BSS
+    - AP serves single point of contact for BSS 
+    - AP use unique BSS identifier(BSSID) on its own MAC address to advertise it’s existence to all devices in cell
+    - Also advertises human-readable text string called Service Set identifier(SSID) to uniquely identify AP 
+    - Membership of mobile devices with BSS is called Association 
+    - Once associated device becomes BSS client or 802.11 station (STA) 
+    - As long device connect to AP all data communication pass through AP using BSSID as source and destination address 
+    - Sending data through AP make it stable and controllable
+
+  
+   Repeater :-
+    - AP in wireless infrastructure usually connected back to switched networks 
+    - BSS has limited signal coverage area(BSA) 
+    - To extend signal coverage add additional AP but in some scenarios not possible, Solution is Repeater
+    - Repeater is just AP configured in Repeater mode 
+    - Wireless repeater takes signal as input and retransmits signals in new cell around Repeater 
+    - Repeater uses two transmitters and receiver to keep original and repeated signals isolated on different channel
+
+ 
+
+Multiplexing / Demultiplexing :-
+ 
+ Multiplexing :-
+  - Process of combining and send multiple data streams over single medium known as multiplexing and hardware used for
+    multiplexing known as multiplexer.
+  - Multiplexer(MUX) combine n input lines to generate single output line 
+  - Multiplexing follows many-to-one(N input lines one output line)
+ 
+
+ Demultiplexing :-
+  - Achieved using device called Demultiplexer(DEMUX) available at receiving end 
+  - DEMUX separate signal into its component signals(one input and n outputs) 
+  - Demultiplexing follows one-to-many approach
+
+ 
+ Why Multiplexing?
+  - At time only one signal can transfer from sender to receiver in transmission medium
+  - If multiple signal to share on medium then medium must be divided in such way that each signal given some portion
+    of available bandwidth  
+  - When multiple signals share common medium there is possibility of collision
+  - Multiplexing concept used to avoid such collision
+
+ 
+ History of Multiplexing :-
+  - Multiplexing used in telecommunications in which several telephone calls are carried through single wire
+  - It originated in telegraphy in early 1870s and now widely used in communication
+  - George Owen Squier developed telephone carrier multiplexing in 1910
+
+  Diagram :- https://static.javatpoint.com/tutorial/computer-network/images/concept-of-multiplexing.png
+
+  Advantages of Multiplexing :- 
+   - More than one signal sent over single medium
+   - Medium bandwidth utilized effectively
 
 
  
-Manchester encoding and differential manchester encoding :-
- - Transmission of data means convert upper layer digital data(0,1 form) to analog or digital signal
- - To encode data digital to digital we use manchester and differential manchester encoding
- - Dr.thomas and IEEE802.3 convention
- Manchester :-
-  0 -->  -|_
-  1 -->  _|-
+ Multiplexing Techniques :-
+                            Multiplexing
+  Frequency-division    Wavelength Division          Time-Division
+    Multiplexing          Multiplexing                Multiplexing
+                                            Synchronous TDM   Asynchronous TDM
 
- Different Manchester Encoding :-
-  0 --> |-|_ , |_|- 
-  1 --> -|_  , _|-
+ 
+ Frequency-division Multiplexing (FDM) :-
+  - Subdivide available bandwidth into different frequency channels and allocate them to different devices
+  - Device 1 has frequency channel of range from 1 to 5
+  - Input signal translated into frequency band using modulation technique and combine by multiplexerto composite signal
+  - Using modulation input signals are transmitted into frequency bands and then combined to form a composite signal
+  - Carrier which used for modulating signals are known as sub-carriers and represented as f1,f2..fn
+  - Mainly used in radio broadcasts and TV networks
 
+  Advantages :-
+   - Used for analog signal | Simple and easy modulation | Large no. of signal sent simultaneously 
+   - Not require synchronization between sender and receiver
 
-
-
-Scrambling in Digital electronic :-
- - Signal that represent data also be digital or analog
- - To send signal must convert data into signal 
- - This conversion can be Analog to Analog, Analog to Digital, Digital to Analog or Digital to Digital
- - Digital to Digital conversion involves three techniques – Line Coding, Block Coding, and Scrambling 
- - Line Coding always needed whereas Block Coding and Scrambling depending upon need
- - Scrambling not increase number of bits and provide synchronization 
- - Problem with technique like Bipolar AMI(Alternate Mark Inversion) is that continuous sequence of zero’s create 
-   synchronization problems one solution to this is Scrambling
+  Disadvantages :-
+   - Used only when low-speed channels required | Suffer problem of crosstalk | Large number of modulators required
+   - Require high bandwidth channel
  
 
- Types of Line Coding :-
-  - Self-synchronizing both receiver and sender clock should be synchronized
-  - Error-detecting capability and less complexity
-
-  Unipolar 
-   - Non Return to Zero(NRZ) positive voltage defines bit 1 and the zero voltage defines bit 0
-   - Signal does not return to zero at the middle of the bit thus it is called NRZ
-   - Uses more power as compared to polar scheme to send one bit per unit line resistance
-
-  Polar (eg. NRZ-L, NRZ-I, RZ, and Biphase – Manchester and differential Manchester)
-   - NRZ-L and NRZ-I similar to Unipolar but use two levels of amplitude (voltages)
-   - Return to Zero(RZ) uses three values positive, negative and zero
-
-  Bipolar (eg. AMI and Pseudoternary) | ultilevel | Multitransition
  
+ Wavelength Division Multiplexing (WDM) :-
+  - Same as FDM except that optical signals are transmitted through fibre optic cable to increase it capacity
+  - Utilize high data rate capability of fibre optic cable
+  - Optical signals combined with help of multiplexer and separates at receiver end using demultiplexer
+  - Multiplexing and Demultiplexing achieved by using prism
+  - Prism perform role of multiplexer by combining various optical signal to form composite signal and composite signal
+    is transmitted through fibre optical cable
+  - Prism also perform reverse operation, i.e., demultiplexing signal.
 
 
- Scrambling Techniques :-
-  B8ZS(Bipolar with 8-zero substitution) :-
-   - Similar to Bipolar AMI except when eight consecutive zero-level voltages are encountered they are replaced by 
-     sequence "000VB0VB"
-   - V(Violation) is non-zero voltage which means signal have same polarity as previous non-zero voltage
-   - B(Bipolar) also non-zero voltage level which is accordance with AMI rule
-
-
-  HDB3(High-density bipolar3-zero) :-
-   - Four consecutive zero-level voltages are replaced with sequence “000V” or “B00V”
  
+ Time Division Multiplexing(TDM) :-
+  - Digital technique in which all signals operate at same frequency with different time
+  - Total time available in channel is distributed among different users 
+  - Therefore each user allocated with different time interval known as Time slot at which data is transmitted by sender
+  - User takes control of channel for fixed amount of time
+  - Data is not transmitted simultaneously rather data transmitted one-by-one
+  - Signal is transmitted in the form of frames 
+  - Frame contain cycle of time slots in which each frame contain one or more slots dedicated to each user
+  - Used to multiplex both digital and analog signals but mainly used to multiplex digital signals
+  
+  Synchronous TDM :-
+   - Time slot is pre-assigned to every device irrespective of fact that device contain data or not.
+   - If device not have data then slot remain empty
+   - Signals sent in form of frames 
+   - Time slots are organized in the form of frames
+   - If device not have data for particular time slot then empty slot transmitted
+   - Popular Synchronous TDM are T-1 multiplexing, ISDN multiplexing, and SONET multiplexing
+   - If there are n device then there are n slots
+ 
+   Disadvantages Of Synchronous TDM :
+    - Capacity of channel is not fully utilized as empty slots also transmitted 
+    - Speed of the transmission medium should be greater than total speed of input lines 
+  
+
+  Asynchronous / Statistical TDM :-
+   - Time slots are not fixed 
+   - Time slots allocated to only those devices which have data to send 
+   - Transmit only data from active workstations
+   - It dynamically allocates time slots to the devices
+   - Total speed of input lines greater than capacity of channel
+   - Accept incoming data stream and create frame that contain only data with no empty slots
+   - Each slot contain address part that identifies source of data
+    
+   Diagram :- [Address | Data]
+
+   - Difference is that many slots in Synchronous TDM are unutilized but in Asynchronous TDM fully slots utilized 
+   - This leads to smaller transmission time and efficient utilization of capacity of the channel.
+   - In Synchronous TDM if n sending devices then there are n time slots 
+   - In Asynchronous TDM, if there are n sending devices then there are m time slots where m is less than n (m<n)
+   - Number of slots in frame depends on statistical analysis of number of input lines
+
+
+
+
+Switching :-
+When a user accesses the internet or another computer network outside their immediate location, messages are sent through the network of transmission media. This technique of transferring the information from one computer network to another network is known as switching.
+Switching in a computer network is achieved by using switches. A switch is a small hardware device which is used to join multiple computers together with one local area network (LAN).
+Network switches operate at layer 2 (Data link layer) in the OSI model.
+Switching is transparent to the user and does not require any configuration in the home network.
+Switches are used to forward the packets based on MAC addresses.
+A Switch is used to transfer the data only to the device that has been addressed. It verifies the destination address to route the packet appropriately.
+It is operated in full duplex mode.
+Packet collision is minimum as it directly communicates between source and destination.
+It does not broadcast the message as it works with limited bandwidth.
+
+
+Why is Switching Concept required?
+Switching concept is developed because of the following reasons:
+
+Bandwidth: It is defined as the maximum transfer rate of a cable. It is a very critical and expensive resource. Therefore, switching techniques are used for the effective utilization of the bandwidth of a network.
+Collision: Collision is the effect that occurs when more than one device transmits the message over the same physical media, and they collide with each other. To overcome this problem, switching technology is implemented so that packets do not collide with each other.
+Advantages of Switching:
+Switch increases the bandwidth of the network.
+It reduces the workload on individual PCs as it sends the information to only that device which has been addressed.
+It increases the overall performance of the network by reducing the traffic on the network.
+There will be less frame collision as switch creates the collision domain for each connection.
+Disadvantages of Switching:
+A Switch is more expensive than network bridges.
+A Switch cannot determine the network connectivity issues easily.
+Proper designing and configuration of the switch are required to handle multicast packets.
+
