@@ -2,12 +2,12 @@ Intro to Networking :-
  - System which connected to the network and ready for communication known as Open System not connected and can't 
    ready known as Close System
  - Inter-connection of multiple devices that are connected using multiple path for sending/receiving data or media
- - Internet is global network comprised of smaller networks that are interconnected using communication protocols
+ - Internet is global network comprised of smaller networks that interconnected using communication protocols
  - Internet invented by ARPANET in 1983 and controlled by 75 million server
  - Internet not governed by single authority but Ultimate authority is with Internet Society or ISOC
- - ISOC voluntary membership organization purpose to promote global information exchange through Internet
- - IAB - Internet Architecture Board review standard and allocate resources like addresses
- - IETF- Internet Engineering Task Force discuss operational and technical problem
+ 
+ IAB  - Internet Architecture Board review standard and allocate resources like addresses
+ IETF - Internet Engineering Task Force discuss operational and technical problem
  - Backbone of internet is made by 550,000 miles of underwater cable
  - In future it compromised of different types of appliances, devices and things connected to global internet
  - IoT is about physical device and objects communicating but IoE bring network intelligence to bind all these concept
