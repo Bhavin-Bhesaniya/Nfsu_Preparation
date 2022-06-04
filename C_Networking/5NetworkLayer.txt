@@ -42,6 +42,7 @@ Introduction to Network Layer(Layer-3) :-
 
 
 
+
 Network Addressing :-
  - Network addresses are always logical, i.e., software-based addresses.
  - Host is also known as end system that has one link to network 
@@ -141,6 +142,7 @@ Network Addressing :-
 
 
 
+
 Routing :-
  - Process of selecting path for data transferred which performed by pecial device known as router
  - Router work at network layer in OSI model and internet layer in TCP/IP model
@@ -216,10 +218,7 @@ Routing :-
 
 
 
-
-
-
-Network Layer Protocols :-
+Network Layer Protocol :-
  
  ARP(Address Resolution Protocol) :-
   - Associate IP address with MAC address
@@ -256,372 +255,209 @@ Network Layer Protocols :-
 
  ICMP(Internet Control Message Protocol) :-
   - Used by host and router to send notification of IP datagram problem back to sender
-  - ICMP uses echo test/reply to check whether the destination is reachable and responding.
-ICMP handles both control and error messages, but its main function is to report the error but not to correct them.
-An IP datagram contains the addresses of both source and destination, but it does not know the address of the previous router through which it has been passed. Due to this reason, ICMP can only send the messages to the source, but not to the immediate routers.
-ICMP protocol communicates the error messages to the sender. ICMP messages cause the errors to be returned back to the user processes.
-ICMP messages are transmitted within IP datagram.
-Network Layer Protocols
-The Format of an ICMP message
-Network Layer Protocols
-The first field specifies the type of the message.
-The second field specifies the reason for a particular message type.
-The checksum field covers the entire ICMP message.
-Error Reporting
-ICMP protocol reports the error messages to the sender.
+  - ICMP uses echo test/reply to check whether destination is reachable and responding
+  - ICMP handles both control and error messages but it report error to sender not to correct them
+  - IP datagram contain address of both source and destination but not know address of previous router through which
+    it passed, Due to this reason ICMP only send messages to source but not to immediate routers
+  - ICMP messages are transmitted within IP datagram
 
-Five types of errors are handled by the ICMP protocol:
+  Diagram :-  [ IP header | ICMP Message ]
 
-Destination unreachable
-Source Quench
-Time Exceeded
-Parameter problems
-Redirection
-Network Layer Protocols
-Destination unreachable: The message of "Destination Unreachable" is sent from receiver to the sender when destination cannot be reached, or packet is discarded when the destination is not reachable.
-Source Quench: The purpose of the source quench message is congestion control. The message sent from the congested router to the source host to reduce the transmission rate. ICMP will take the IP of the discarded packet and then add the source quench message to the IP datagram to inform the source host to reduce its transmission rate. The source host will reduce the transmission rate so that the router will be free from congestion.
-Time Exceeded: Time Exceeded is also known as "Time-To-Live". It is a parameter that defines how long a packet should live before it would be discarded.
-There are two ways when Time Exceeded message can be generated:
+  Format :- ICMP Message
+    0       7   8       15  16      31  
+    8-bit type  8-bit code  16-bit Checksum
+   
+   - First field specifies message type
+   - Second Reason for particular message type
+   - Checksum field cover entire ICMP message
 
-Sometimes packet discarded due to some bad routing implementation, and this causes the looping issue and network congestion. Due to the looping issue, the value of TTL keeps on decrementing, and when it reaches zero, the router discards the datagram. However, when the datagram is discarded by the router, the time exceeded message will be sent by the router to the source host.
+  
+  Error Reporting :-
+   - ICMP protocol reports the error messages to the sender.
+   Types of error handle :- Destination unreachable | Source Quench | Time Exceeded | Parameter problem | Redirection
 
-When destination host does not receive all the fragments in a certain time limit, then the received fragments are also discarded, and the destination host sends time Exceeded message to the source host.
+   Destination unreachable :
+    - Sent from receiver to sender when destination cannot be reached or discard destination not reachable
+   
+   Source Quench :- 
+    - Congestion control, message sent from congested router to source host to reduce transmission rate 
+    - ICMP take IP of discarded packet and then add source quench message to IP datagram to inform source host to 
+      reduce its transmission rate 
+    - Source host will reduce transmission rate so that router will free from congestion
 
-Parameter problems: When a router or host discovers any missing value in the IP datagram, the router discards the datagram, and the "parameter problem" message is sent back to the source host.
-Redirection: Redirection message is generated when host consists of a small routing table. When the host consists of a limited number of entries due to which it sends the datagram to a wrong router. The router that receives a datagram will forward a datagram to a correct router and also sends the "Redirection message" to the host to update its routing table.
-
-
-IGMP(Internet Group Message Protocol) :-
-The IP protocol supports two types of communication:
-Unicasting: It is a communication between one sender and one receiver. Therefore, we can say that it is one-to-one communication.
-Multicasting: Sometimes the sender wants to send the same message to a large number of receivers simultaneously. This process is known as multicasting which has one-to-many communication.
-The IGMP protocol is used by the hosts and router to support multicasting.
-The IGMP protocol is used by the hosts and router to identify the hosts in a LAN that are the members of a group.
-Network Layer Protocols
-IGMP is a part of the IP layer, and IGMP has a fixed-size message.
-The IGMP message is encapsulated within an IP datagram.
-Network Layer Protocols
-The Format of IGMP message
-Network Layer Protocols
-Where,
-
-Type: It determines the type of IGMP message. There are three types of IGMP message: Membership Query, Membership Report and Leave Report.
-
-Maximum Response Time: This field is used only by the Membership Query message. It determines the maximum time the host can send the Membership Report message in response to the Membership Query message.
-
-Checksum: It determines the entire payload of the IP datagram in which IGMP message is encapsulated.
-
-Group Address: The behavior of this field depends on the type of the message sent.
-
-For Membership Query, the group address is set to zero for General Query and set to multicast group address for a specific query.
-For Membership Report, the group address is set to the multicast group address.
-For Leave Group, it is set to the multicast group address.
-IGMP Messages
-Network Layer Protocols
-Membership Query message
-This message is sent by a router to all hosts on a local area network to determine the set of all the multicast groups that have been joined by the host.
-It also determines whether a specific multicast group has been joined by the hosts on a attached interface.
-The group address in the query is zero since the router expects one response from a host for every group that contains one or more members on that host.
-Membership Report message
-The host responds to the membership query message with a membership report message.
-Membership report messages can also be generated by the host when a host wants to join the multicast group without waiting for a membership query message from the router.
-Membership report messages are received by a router as well as all the hosts on an attached interface.
-Each membership report message includes the multicast address of a single group that the host wants to join.
-IGMP protocol does not care which host has joined the group or how many hosts are present in a single group. It only cares whether one or more attached hosts belong to a single multicast group.
-The membership Query message sent by a router also includes a "Maximum Response time". After receiving a membership query message and before sending the membership report message, the host waits for the random amount of time from 0 to the maximum response time. If a host observes that some other attached host has sent the "Maximum Report message", then it discards its "Maximum Report message" as it knows that the attached router already knows that one or more hosts have joined a single multicast group. This process is known as feedback suppression. It provides the performance optimization, thus avoiding the unnecessary transmission of a "Membership Report message".
-Leave Report
-When the host does not send the "Membership Report message", it means that the host has left the group. The host knows that there are no members in the group, so even when it receives the next query, it would not report the group.
+   Time Exceeded / Time-To-Live :- 
+    - Parameter that define how long packet should live before it would be discarded
+    - Sometime packet discarded due to bad routing implementation and this causes looping issue and network congestion
+    - Due to looping issue value of TTL keeps on decrementing and when it reaches zero router discard datagram 
+    - However when datagram discarded by router time exceeded message sent by router to source host
+    - When destination host not receive all fragments in certain time limit then received fragment also discarded 
+      and destination host send time Exceeded message to source host
+    Types :-
+    Parameter problem :- 
+     - When router or host discover any missing value in IP datagram, router discard datagram and "parameter problem" 
+       message sent back to source host
+    
+    Redirection :- 
+     - Message generated when host consist of small routing table 
+     - When host consist of limited number of entries due to which it send datagram to wrong router
+     - Router that receive datagram will forward datagram to correct router and also send "Redirection message" to 
+       host to update its routing table
 
 
+ IGMP(Internet Group Message Protocol) :-
+  - IGMP used by hosts and router to support multicasting and identify host in LAN that are members of group
+  Support two type communication : Unicasting  | Multicasting
+  Unicasting   :- Communication between one sender and one receiver (one-to-one)
+  Multicasting :- Sometime sender want to send same message to large number of receivers simultaneously(one-to-many)
 
+  - IGMP part of IP layer and has fixed-size message
+  - IGMP message encapsulated within IP datagram
 
-Routing algorithm
-In order to transfer the packets from source to the destination, the network layer must determine the best route through which packets can be transmitted.
-Whether the network layer provides datagram service or virtual circuit service, the main job of the network layer is to provide the best route. The routing protocol provides this job.
-The routing protocol is a routing algorithm that provides the best path from the source to the destination. The best path is the path that has the "least-cost path" from source to the destination.
-Routing is the process of forwarding the packets from source to the destination but the best route to send the packets is determined by the routing algorithm.
-Classification of a Routing algorithm
-The Routing algorithm is divided into two categories:
+  Diagram :-  
+    IP Header  |  IGMP Message
+    20 byte       8 Byte
+  
+  Format of IGMP message :-
+    Type   |  Maximum Response Time  |  Checksum
+    8-bit  |  8-bits                 |  8-bit | 8-bit 
 
-Adaptive Routing algorithm
-Non-adaptive Routing algorithm
-Routing algorithm
-Adaptive Routing algorithm
-An adaptive routing algorithm is also known as dynamic routing algorithm.
-This algorithm makes the routing decisions based on the topology and network traffic.
-The main parameters related to this algorithm are hop count, distance and estimated transit time.
-An adaptive routing algorithm can be classified into three parts:
+   Type : Type of IGMP message, three types of IGMP message : Membership Query, Membership Report and Leave Report
+    Group Address : Behavior of this field depend on type of message sent 
+      Membership Query :- Group address set zero for General Query and set to multicast for specific query
+      Membership Report:- Group address is set to multicast group address
+      Leave Group :- Set to multicast group address
 
-Centralized algorithm: It is also known as global routing algorithm as it computes the least-cost path between source and destination by using complete and global knowledge about the network. This algorithm takes the connectivity between the nodes and link cost as input, and this information is obtained before actually performing any calculation. Link state algorithm is referred to as a centralized algorithm since it is aware of the cost of each link in the network.
-Isolation algorithm: It is an algorithm that obtains the routing information by using local information rather than gathering information from other nodes.
-Distributed algorithm: It is also known as decentralized algorithm as it computes the least-cost path between source and destination in an iterative and distributed manner. In the decentralized algorithm, no node has the knowledge about the cost of all the network links. In the beginning, a node contains the information only about its own directly attached links and through an iterative process of calculation computes the least-cost path to the destination. A Distance vector algorithm is a decentralized algorithm as it never knows the complete path from source to the destination, instead it knows the direction through which the packet is to be forwarded along with the least cost path.
-Non-Adaptive Routing algorithm
-Non Adaptive routing algorithm is also known as a static routing algorithm.
-When booting up the network, the routing information stores to the routers.
-Non Adaptive routing algorithms do not take the routing decision based on the network topology or network traffic.
-The Non-Adaptive Routing algorithm is of two types:
-
-Flooding: In case of flooding, every incoming packet is sent to all the outgoing links except the one from it has been reached. The disadvantage of flooding is that node may contain several copies of a particular packet.
-
-Random walks: In case of random walks, a packet sent by the node to one of its neighbors randomly. An advantage of using random walks is that it uses the alternative routes very efficiently.
-
-Differences b/w Adaptive and Non-Adaptive Routing Algorithm
-Basis Of Comparison	Adaptive Routing algorithm	Non-Adaptive Routing algorithm
-Define	Adaptive Routing algorithm is an algorithm that constructs the routing table based on the network conditions.	The Non-Adaptive Routing algorithm is an algorithm that constructs the static table to determine which node to send the packet.
-Usage	Adaptive routing algorithm is used by dynamic routing.	The Non-Adaptive Routing algorithm is used by static routing.
-Routing decision	Routing decisions are made based on topology and network traffic.	Routing decisions are the static tables.
-Categorization	The types of adaptive routing algorithm, are Centralized, isolation and distributed algorithm.	The types of Non Adaptive routing algorithm are flooding and random walks.
-Complexity	Adaptive Routing algorithms are more complex.	Non-Adaptive Routing algorithms are simple.
+   Maximum Response Time :- 
+    - Used Only by Membership Query message 
+    - It determine maximum time host can send Membership Report message in response to Membership Query message
+   
+   Checksum :- Determine entire payload of IP datagram in which IGMP message encapsulated
 
 
 
 
-Distance Vector Routing Algorithm
-The Distance vector algorithm is iterative, asynchronous and distributed.
-Distributed: It is distributed in that each node receives information from one or more of its directly attached neighbors, performs calculation and then distributes the result back to its neighbors.
-Iterative: It is iterative in that its process continues until no more information is available to be exchanged between neighbors.
-Asynchronous: It does not require that all of its nodes operate in the lock step with each other.
-The Distance vector algorithm is a dynamic algorithm.
-It is mainly used in ARPANET, and RIP.
-Each router maintains a distance table known as Vector.
-Three Keys to understand the working of Distance Vector Routing Algorithm:
-Knowledge about the whole network: Each router shares its knowledge through the entire network. The Router sends its collected knowledge about the network to its neighbors.
-Routing only to neighbors: The router sends its knowledge about the network to only those routers which have direct links. The router sends whatever it has about the network through the ports. The information is received by the router and uses the information to update its own routing table.
-Information sharing at regular intervals: Within 30 seconds, the router sends the information to the neighboring routers.
-Distance Vector Routing Algorithm
-Let dx(y) be the cost of the least-cost path from node x to node y. The least costs are related by Bellman-Ford equation,
+Routing algorithm :-
+ - Routing is process of forwarding packet from source to destination but best route to send packet determined by 
+   routing algorithm
+ Classification of a Routing algorithm :-  Adaptive Routing   |  Non-adaptive Routing
 
-dx(y) = minv{c(x,v) + dv(y)}
-Where the minv is the equation taken for all x neighbors. After traveling from x to v, if we consider the least-cost path from v to y, the path cost will be c(x,v)+dv(y). The least cost from x to y is the minimum of c(x,v)+dv(y) taken over all neighbors.
+ Adaptive Routing algorithm(Dynamic routing algorithm)(Complex) :-
+  - Makes routing decisions based on topology and network traffic
+  - Parameters used are hop count, distance and estimated transit time
+  Adaptive routing classified into three parts :-
+   Centralized algorithm(Global routing algorithm) :- 
+    - Compute least-cost path between source and destination by using complete and global knowledge about network 
+    - Take connectivity between nodes and link cost as input and this information obtained before performing any 
+      calculation 
+    - Link state algorithm referred as centralized algorithm since it aware of cost of each link in network
+   
+   Isolation algorithm :- 
+    - Obtain routing information by using local information rather than gathering information from other nodes
 
-With the Distance Vector Routing algorithm, the node x contains the following routing information:
-
-For each neighbor v, the cost c(x,v) is the path cost from x to directly attached neighbor, v.
-The distance vector x, i.e., Dx = [ Dx(y) : y in N ], containing its cost to all destinations, y, in N.
-The distance vector of each of its neighbors, i.e., Dv = [ Dv(y) : y in N ] for each neighbor v of x.
-Distance vector routing is an asynchronous algorithm in which node x sends the copy of its distance vector to all its neighbors. When node x receives the new distance vector from one of its neighboring vector, v, it saves the distance vector of v and uses the Bellman-Ford equation to update its own distance vector. The equation is given below:
-
-dx(y) = minv{ c(x,v) + dv(y)}     for each node y in N
-The node x has updated its own distance vector table by using the above equation and sends its updated table to all its neighbors so that they can update their own distance vectors.
-
-Algorithm
-At each node x,
-Initialization
+   Distributed algorithm :- 
+    - Compute least-cost path between source and destination in iterative and distributed manner 
+    - Node not has knowledge about cost of all network links 
+    - In beginning node contain information only about its own directly attached link and through iterative process of
+      calculation compute least-cost path to destination 
+    - Distance vector algorithm is decentralized algorithm as it never know complete path from source to destination 
+      instead it knows direction through which packet is to be forwarded along with least cost path
+  
 
 
-for all destinations y in N:
-Dx(y) = c(x,y)     // If y is not a neighbor then c(x,y) = ∞
-for each neighbor w
-Dw(y) = ?     for all destination y in N.
-for each neighbor w
-send distance vector Dx = [ Dx(y)  : y in N ] to w
-loop
-  wait(until I receive any distance vector from some neighbor w)
-  for each y in N:
-  Dx(y) = minv{c(x,v)+Dv(y)}
-If Dx(y) is changed for any destination y
-Send distance vector Dx = [ Dx(y) : y in N ] to all neighbors
-forever
-Note: In Distance vector algorithm, node x update its table when it either see any cost change in one directly linked nodes or receives any vector update from some neighbor.
-Let's understand through an example:
+ Non-Adaptive Routing algorithm(Static routing algorithm)(Simple)  :-
+  - When booting up network routing information stores to routers
+  - Do not take routing decision based on network topology or network traffic instead of using static table 
+  Non-Adaptive Routing algorithm is of two types :
+   Flooding :- 
+    - Every incoming packet sent to all outgoing links, 
+    Disadvantage :- Node contain several copies of particular packet
 
-Sharing Information
-Distance Vector Routing Algorithm
-In the above figure, each cloud represents the network, and the number inside the cloud represents the network ID.
-All the LANs are connected by routers, and they are represented in boxes labeled as A, B, C, D, E, F.
-Distance vector routing algorithm simplifies the routing process by assuming the cost of every link is one unit. Therefore, the efficiency of transmission can be measured by the number of links to reach the destination.
-In Distance vector routing, the cost is based on hop count.
-Distance Vector Routing Algorithm
-In the above figure, we observe that the router sends the knowledge to the immediate neighbors. The neighbors add this knowledge to their own knowledge and sends the updated table to their own neighbors. In this way, routers get its own information plus the new information about the neighbors.
+   Random walks :- 
+    - Packet sent by node to one of its neighbors randomly 
+    Advantage :- Uses alternative routes very efficiently
 
-Routing Table
-Two process occurs:
+ 
 
-Creating the Table
-Updating the Table
-Creating the Table
-Initially, the routing table is created for each router that contains atleast three types of information such as Network ID, the cost and the next hop.
 
-Distance Vector Routing Algorithm
-NET ID: The Network ID defines the final destination of the packet.
-Cost: The cost is the number of hops that packet must take to get there.
-Next hop: It is the router to which the packet must be delivered.
-Distance Vector Routing Algorithm
-In the above figure, the original routing tables are shown of all the routers. In a routing table, the first column represents the network ID, the second column represents the cost of the link, and the third column is empty.
-These routing tables are sent to all the neighbors.
-For Example:
+Distance Vector Routing Algorithm(Dynamic Algorithm) :-
+ - Each router maintain distance table known as Vector and mainly used in ARPANET and RIP
+ Iterative    : Process continue until no more information available to be exchanged between neighbors
+ Distributed  : Each node receive information from one or more of its directly attached neighbors perform calculation 
+                and then distribute result back to its neighbor
+ Asynchronous : All of its nodes operate in lock step with each other
+ 
+ Keys to understand working of Distance Vector Routing Algorithm :-
+  Knowledge about whole network  |  Routing only to neighbors  |  Information sharing at regular intervals(Within 30 second)
 
-A sends its routing table to B, F & E.  
-B sends its routing table to A & C.  
-C sends its routing table to B & D.  
-D sends its routing table to E & C.  
-E sends its routing table to A & D.  
-F sends its routing table to A.  
-Updating the Table
-When A receives a routing table from B, then it uses its information to update the table.
-The routing table of B shows how the packets can move to the networks 1 and 4.
-The B is a neighbor to the A router, the packets from A to B can reach in one hop. So, 1 is added to all the costs given in the B's table and the sum will be the cost to reach a particular network.
-Distance Vector Routing Algorithm
-After adjustment, A then combines this table with its own table to create a combined table.
-Distance Vector Routing Algorithm
-The combined table may contain some duplicate data. In the above figure, the combined table of router A contains the duplicate data, so it keeps only those data which has the lowest cost. For example, A can send the data to network 1 in two ways. The first, which uses no next router, so it costs one hop. The second requires two hops (A to B, then B to Network 1). The first option has the lowest cost, therefore it is kept and the second one is dropped.
-Distance Vector Routing Algorithm
-The process of creating the routing table continues for all routers. Every router receives the information from the neighbors, and update the routing table.
-Final routing tables of all the routers are given below:
+ Least cost related by Bellman-Ford equation :- dx(y) = minv{c(x,v) + dv(y)}
+ 
+ 
+
+
+Sharing Information :-
+ - Distance vector routing algorithm simplifie routing process by assuming cost of every link is one unit 
+ - Therefore efficiency of transmission measured by number of links to reach destination
+ - Cost is based on hop count
+ - Routers get its own information plus new information about neighbor
+
+
+ Routing Table :- Creating Table  |  Updating Table
+  Creating Table :-
+   - Created for each router that contain atleast three types of information such Network ID cost and next hop
+   NET ID   : Network ID define final destination of packet
+   Cost     : Cost is number of hops that packet must take to get there
+   Next hop : It is router to which packet must be delivered
+   - These routing tables are sent to all neighbors
+
+   For Example :
+    A send its routing table to B, F & E. 
+    B send its routing table to A & C  
+    C send its routing table to B & D
+  
+
+  Updating the Table :-
+   - When A receive routing table from B then it use its information to update table
+   - Combined table may contain some duplicate data 
+   - Every router receive information from neighbor and update routing table
 
 
 
 
-Link State Routing
-Link state routing is a technique in which each router shares the knowledge of its neighborhood with every other router in the internetwork.
+Link State Routing(Dijkstra's algorithm):-
+ - Each router share knowledge of its neighborhood with every other router in internetwork
+ Key to understand Link State Routing algorithm :-
+  Knowledge about neighborhood : Instead of sending its routing table, a router sends the information about its neighborhood only. A router broadcast its identities and cost of the directly attached links to other routers.
+  Flooding : Router send information to every other router except its neighbor
+  Information sharing : Router send information to every other router only when change occurs in information
 
-The three keys to understand the Link State Routing algorithm:
+ Link State Routing has two phases:
+  Reliable Flooding :-
+   Initial state: Each node knows the cost of its neighbors
+   Final state: Each node knows the entire graph
 
-Knowledge about the neighborhood: Instead of sending its routing table, a router sends the information about its neighborhood only. A router broadcast its identities and cost of the directly attached links to other routers.
-Flooding: Each router sends the information to every other router on the internetwork except its neighbors. This process is known as Flooding. Every router that receives the packet sends the copies to all its neighbors. Finally, each and every router receives a copy of the same information.
-Information sharing: A router sends the information to every other router only when the change occurs in the information.
-Link State Routing has two phases:
-Reliable Flooding
-Initial state: Each node knows the cost of its neighbors.
-Final state: Each node knows the entire graph.
-Route Calculation
-Each node uses Dijkstra's algorithm on the graph to calculate the optimal routes to all nodes.
+  Route Calculation :-
+   - Each node uses algorithm on graph to calculate optimal routes to all nodes
+   - Used to find the shortest path from one node to every other node in the network.
+   - Dijkstra's algorithm is iterative and it has property that after kth iteration of algorithm, least cost path are
+     well known for k destination nodes
+   c(i, j) : Link cost from node i to node j, If i and j node not directly linked, then c(i, j) = ∞
+   D(v): It defines the cost of the path from source code to destination v that has the least cost currently
+   P(v): It defines the previous node (neighbor of v) along with current least cost path from source to v
+   N: It is the total number of nodes available in the network.
 
-The Link state routing algorithm is also known as Dijkstra's algorithm which is used to find the shortest path from one node to every other node in the network.
-The Dijkstra's algorithm is an iterative, and it has the property that after kth iteration of the algorithm, the least cost paths are well known for k destination nodes.
-Let's describe some notations:
-c( i , j): Link cost from node i to node j. If i and j nodes are not directly linked, then c(i , j) = ∞.
-D(v): It defines the cost of the path from source code to destination v that has the least cost currently.
-P(v): It defines the previous node (neighbor of v) along with current least cost path from source to v.
-N: It is the total number of nodes available in the network.
-Algorithm
-Initialization
-N = {A}     // A is a root node.
-for all nodes v
-if v adjacent to A
-then D(v) = c(A,v)
-else D(v) = infinity
-loop
-find w not in N such that D(w) is a minimum.
-Add w to N
-Update D(v) for all v adjacent to w and not in N:
-D(v) = min(D(v) , D(w) + c(w,v))
-Until all nodes in N
-In the above algorithm, an initialization step is followed by the loop. The number of times the loop is executed is equal to the total number of nodes available in the network.
+   Example :
+    Step 1 :- 
+     - Initialization step, currently known least cost path from A to its directly attached neighbors, B, C, D are 
+       2,5,1 respectively 
+     - Cost from A to B is set to 2, from A to D is set to 1 and from A to C is set to 5. The cost from A to E and F are set to infinity as they are not directly linked to A.
+     a) Calculating shortest path from A to B
+      v = B, w = D  
+    D(B) = min( D(B) , D(D) + c(D,B) )  
+         = min( 2, 1+2)>  
+         = min( 2, 3)  
+     - Minimum value is 2, Therefore currently shortest path from A to B is 2
 
-Let's understand through an example:
-
-Link State Routing
-In the above figure, source vertex is A.
-
-
-Step 1:
-The first step is an initialization step. The currently known least cost path from A to its directly attached neighbors, B, C, D are 2,5,1 respectively. The cost from A to B is set to 2, from A to D is set to 1 and from A to C is set to 5. The cost from A to E and F are set to infinity as they are not directly linked to A.
-
-Step	N	D(B),P(B)	D(C),P(C)	D(D),P(D)	D(E),P(E)	D(F),P(F)
-1	A	2,A	5,A	1,A	∞	∞
-Step 2:
-In the above table, we observe that vertex D contains the least cost path in step 1. Therefore, it is added in N. Now, we need to determine a least-cost path through D vertex.
-
-a) Calculating shortest path from A to B
-
-v = B, w = D  
-D(B) = min( D(B) , D(D) + c(D,B) )  
-     = min( 2, 1+2)>  
-     = min( 2, 3)  
-The minimum value is 2. Therefore, the currently shortest path from A to B is 2.  
-b) Calculating shortest path from A to C
-
-v = C, w = D  
-D(B) = min( D(C) , D(D) + c(D,C) )  
-     = min( 5, 1+3)  
-     = min( 5, 4)  
-The minimum value is 4. Therefore, the currently shortest path from A to C is 4.</p>  
-c) Calculating shortest path from A to E
-
-v = E, w = D  
-D(B) = min( D(E) , D(D) + c(D,E) )  
-     = min( ∞,  1+1)  
-     = min(∞, 2)  
-The minimum value is 2. Therefore, the currently shortest path from A to E is 2.  
-Note: The vertex D has no direct link to vertex E. Therefore, the value of D(F) is infinity.
-Step	N	D(B),P(B)	D(C),P(C)	D(D),P(D)	D(E),P(E)	D(F),P(F)
-1	A	2,A	5,A	1,A	∞	∞
-2	AD	2,A	4,D		2,D	∞
-Step 3:
-In the above table, we observe that both E and B have the least cost path in step 2. Let's consider the E vertex. Now, we determine the least cost path of remaining vertices through E.
-
-a) Calculating the shortest path from A to B.
-
-v = B, w = E  
-D(B) = min( D(B) , D(E) + c(E,B) )  
-     = min( 2 , 2+ ∞ )  
-     = min( 2, ∞)  
-The minimum value is 2. Therefore, the currently shortest path from A to B is 2.  
-b) Calculating the shortest path from A to C.
-
-v = C, w = E  
-D(B) = min( D(C) , D(E) + c(E,C) )  
-     = min( 4 , 2+1 )  
-     = min( 4,3)  
-The minimum value is 3. Therefore, the currently shortest path from A to C is 3.  
-c) Calculating the shortest path from A to F.
-
-v = F, w = E  
-D(B) = min( D(F) , D(E) + c(E,F) )  
-     = min( ∞ , 2+2 )  
-     = min(∞ ,4)  
-The minimum value is 4. Therefore, the currently shortest path from A to F is 4.  
-Step	N	D(B),P(B)	D(C),P(C)	D(D),P(D)	D(E),P(E)	D(F),P(F)
-1	A	2,A	5,A	1,A	∞	∞
-2	AD	2,A	4,D		2,D	∞
-3	ADE	2,A	3,E			4,E
-Step 4:
-In the above table, we observe that B vertex has the least cost path in step 3. Therefore, it is added in N. Now, we determine the least cost path of remaining vertices through B.
-
-a) Calculating the shortest path from A to C.
-
-v = C, w = B  
-D(B) = min( D(C) , D(B) + c(B,C) )  
-     = min( 3 , 2+3 )  
-     = min( 3,5)  
-The minimum value is 3. Therefore, the currently shortest path from A to C is 3.  
-b) Calculating the shortest path from A to F.
-
-v = F, w = B  
-D(B) = min( D(F) , D(B) + c(B,F) )  
-     = min( 4, ∞)  
-     = min(4, ∞)  
-The minimum value is 4. Therefore, the currently shortest path from A to F is 4.  
-Step	N	D(B),P(B)	D(C),P(C)	D(D),P(D)	D(E),P(E)	D(F),P(F)
-1	A	2,A	5,A	1,A	∞	∞
-2	AD	2,A	4,D		2,D	∞
-3	ADE	2,A	3,E			4,E
-4	ADEB		3,E			4,E
-Step 5:
-In the above table, we observe that C vertex has the least cost path in step 4. Therefore, it is added in N. Now, we determine the least cost path of remaining vertices through C.
-
-a) Calculating the shortest path from A to F.
-
-v = F, w = C  
-D(B) = min( D(F) , D(C) + c(C,F) )  
-     = min( 4, 3+5)  
-     = min(4,8)  
-The minimum value is 4. Therefore, the currently shortest path from A to F is 4.  
-Step	N	D(B),P(B)	D(C),P(C)	D(D),P(D)	D(E),P(E)	D(F),P(F)
-1	A	2,A	5,A	1,A	∞	∞
-2	AD	2,A	4,D		2,D	∞
-3	ADE	2,A	3,E			4,E
-4	ADEB		3,E			4,E
-5	ADEBC					4,E
-Final table:
-Step	N	D(B),P(B)	D(C),P(C)	D(D),P(D)	D(E),P(E)	D(F),P(F)
-1	A	2,A	5,A	1,A	∞	∞
-2	AD	2,A	4,D		2,D	∞
-3	ADE	2,A	3,E			4,E
-4	ADEB		3,E			4,E
-5	ADEBC					4,E
-6	ADEBCF					
-Disadvantage:
-Heavy traffic is created in Line state routing due to Flooding. Flooding can cause an infinite looping, this problem can be solved by using Time-to-leave field
+   Disadvantage :-
+    - Heavy traffic is created in Line state routing due to Flooding 
+    - Flooding cause infinite looping, this problem solved by using Time-to-leave field
 

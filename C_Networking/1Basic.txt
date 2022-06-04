@@ -378,20 +378,6 @@ Topologies :-
 
 
 
-URI(Uniform Resource Identifier) :-
- - URI can be name, locator or both for online resource whereas URL is just locator
- - URLs are subset of URIs
- - URL is human-readable text that designed to replace IP addresses numbers that computer use communicate with server
- - URL consists of protocol, domain name, and path 
-  
- Syntax :- protocol://WebSiteName.topLevelDomain/path
-  Protocol       - HTTP or HTTPS
-  WebSiteName    - google
-  topLevelDomain - .com, .edu, .in
-  path           - Specific folder and/or subfolders that are on given website
-
-
-
 
 Redundant Link problems :-
  - Prevent nasty network failure
