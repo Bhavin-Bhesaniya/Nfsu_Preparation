@@ -144,7 +144,7 @@ Network Addressing :-
 
 
 Routing :-
- - Process of selecting path for data transferred which performed by pecial device known as router
+ - Process of selecting path for data transferred which performed by Special device known as router
  - Router work at network layer in OSI model and internet layer in TCP/IP model
  - Router forward packet based on information in packet header and forwarding table
  - Routing algorithm nothing but software responsible for deciding optimal path for packet transfer

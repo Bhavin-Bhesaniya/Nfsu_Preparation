@@ -126,10 +126,37 @@ Transport Layer protocol :-
 
   
  TCP(Transmission Control Protocol) :-
-  - Connection-oriented protocol means connection established between both ends of transmission 
-  - For creating connection TCP generate virtual circuit between sender and receiver for duration of transmission
-  
-  Features :-
+  - Connection-oriented protocol means connection established at both end during transmission 
+  - For creating connection TCP generate virtual circuit(Handshake) between sender and receiver for transmission
+  - Ensure data transmission in ordered and secure manner
+  - TCP use high-level protocol such as FTP, HTTP and SMTP
+  - Reliable communication in TCP termed as PAR(Positive Acknowledgement Re-transmission)
+  - Handshake known as SYN-SYN-ACK and requires both client and server response to exchange data 
+  - SYN means synchronize Sequence Number and ACK means acknowledgment
+
+  Diagram :- (TCP Connection)(3-way Handshake)
+    Client              Server
+    Sends SYN           Receives SYN    (Connection Request)
+    Receives SYN+ACK    Sends SYN+ACK   (Connection Request received and build connection)
+    Sends ACK           Receives ACK    (Connection Establish)
+
+
+  Diagram :- (TCP Termination)(4-way Handshake)
+    - FIN segment specifies a termination request sent by one device to the other
+    Client               Server
+    Sends FIN      -->   Receives FIN       
+    FIN_ACK_WAIT   <--   Sends ACK          (Waiting State for client)
+    FIN_WAIT_2     <--   Sends FIN          (Send ACK FIN termination request)
+    Last ACK       -->   Connection Closed  ()
+
+    FIN          :- (Termination Request)
+    FIN_ACK_WAIT :- Client wait for ACK of FIN Termination request from server
+    ACK          :- Server send ACK when receive FIN termination request(Ready to close connection)
+    FIN_WAIT_2   :- Client wait for FIN Segment from server(Signal sent by server for ready to termination)
+    FIN(Server end) and ACK(Client send signal to server that terminate connection)
+
+
+  Feature :-
    Stream data transfer :- 
     - Transfer data in form of contiguous stream of bytes 
     - Group bytes in form of TCP segment and then passed it to IP layer for transmission to destination 
@@ -164,6 +191,7 @@ Transport Layer protocol :-
     - To achieve it each TCP should have sending and receiving buffers so that segments flow in both direction
     - Suppose A wants to send and receive data from B :-
       Establish connection | Data is exchanged | Connection terminated
+
 
 
   TCP Segment Format :-
@@ -211,6 +239,7 @@ Transport Layer protocol :-
    Urgent pointer : If URG flag set to 1 then this 16-bit field offset from sequence number indicating that it is last
                     urgent data byte
    Options and padding : Optional field that convey additional information to receiver
+
 
 
  Differences b/w TCP & UDP

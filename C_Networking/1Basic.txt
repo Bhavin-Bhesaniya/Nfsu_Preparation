@@ -233,12 +233,37 @@ Various Device in Network :-
 
 
  Router :-
-  - Used to connect two different network (Network Layer device)
-  - Device like switch that routes data packets based on their IP addresses
-  - Connect LAN, WAN together for dynamically updating routing table based on decision make on routing data packets
-  - Router divide broadcast domains of hosts connected through it
-  - Determine best path from available paths for transmission of the packet
-  - Security | Realibility | Performance | Network Range
+  - Physical or virtual internetworking device that designed to receive, analyze and forward data packet between 
+    two different network/ router (Network Layer device)
+  - Examine destination IP address of given data packet and use it header for forwarding packet and 
+    routing tables decide best path to transfer packet
+  - Use ICMP protocol to communicate between two or more network
+  - Virtual router use virtual router redundancy protocol to Increase network Realibility which is done by configuring
+    as default gateway and it run on server
+  - Router is more capable than other network Device
+
+  How works?
+   - Analyze destination IP address(Given in packet header) --> Compare with routing table --> Transfer particular
+     direction(Set of rules compute best path for route)
+   - Router use modem such as cabel  or DSL model to allow communication
+   - Router has port to connect different device to internet at same time
+   - Routing table determine where data come from and where to send 
+
+  Types of routing table :- Static(manually configure)  |  Dynamic (Based on network activity)
+
+  Types of Routers :-
+    Wireless Router  |  Brouter  |  Core Router  |  Edge Router  |  BroadBand Router  
+
+  Benefits :-
+   Security  |  Performance Enhancement  |  Realibility  |  Networking Range
+
+  Routing Protocol :-
+   Open Shortest Path First (OSPF)
+   Border Gateway Protocol (BGP)
+   Interior Gateway Routing Protocol (IGRP)
+   Enhanced Interior Gateway Routing Protocol (EIGRP)
+   Exterior Gateway Protocol (EGP)
+   Routing Information Protocol (RIP)
 
 
 
