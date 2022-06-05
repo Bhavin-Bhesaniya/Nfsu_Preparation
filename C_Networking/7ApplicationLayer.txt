@@ -1,5 +1,5 @@
 Intro to Application Layer(Layer-7):-
- - End user interact directly with software application and Program are based on client and servers
+ - End user interact directly with software application that based on client and server
  
  Function :- Identifying communication partner  |  Determining resource availability  |  Synchronizing communication
  

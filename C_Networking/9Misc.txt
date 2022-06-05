@@ -1,6 +1,0 @@
-Layer Architecture :-
-
-
-Protocol :-
- - Set of rules that are implemented on specific entities
- - If any Nodes need to communicate in network that must follow protocol rules for communication otherwise not connect
