@@ -1,26 +1,23 @@
 Introduction to Network Layer(Layer-3) :-
-  - Translates logical addresses into physical addresses
-  - It determine route from source to destination and also manage traffic problem such as switching, routing and 
-    control congestion of data packet
-  - Move packet from sending host to receiving host
+ - Translate logical addresses into physical addresses
+ - It determine route from source to destination and manage traffic problem such as switching, routing and 
+   control congestion of data packet
   
   Function :-
-   Routing :- Move packet from Sending host router's input link to another router's output link 
-   Internetworking :- It provide logical connection between different types of networks
-   Fragmentation   :- Breaking packet into smallest individual data unit that travel through different network
-   Logical Addressing :- 
-    - Used to Distinguish between source and destination system 
-    - Add header to packet which include logical addresses of both sender and receiver
+   Routing          :- Move packet from Sending host router's input link to another router's output link 
+   Internetworking  :- Provide logical connection between different types of networks
+   Fragmentation    :- Breaking packet into smallest individual data unit that travel through different network
+   Logical Addressing :-  Add logical addresses of both sender and receiver into packet header
 
    Forwarding & Routing :- 
     - Every router has forwarding table 
     - Router forward packet by examining packet's header field then using it value to index into forwarding table 
     - Value store in forwarding table corresponding to header field value indicate router's outgoing interface link
-      to which packet is to be forwarded
+      to which packet forwarded
     - Routing algorithm can be centralized or decentralized
 
     Diagram :- Forwarding Table
-     HeaderValue  OutputLink
+      HeaderValue  OutputLink
         0100        3
         0101        2
         0100        2
@@ -28,39 +25,33 @@ Introduction to Network Layer(Layer-3) :-
 
 
   Services :- 
-   Guaranteed delivery :- Guarantees that packet arrive at its destination
-   Guaranteed delivery with bounded delay :- Packet delivered within specified host-to-host delay bound
-   In-Order packets      : Packet arrives at destination in the order in which they are sent
-   Guaranteed max jitter : 
-    - Amount of time taken between two successive transmission at sender is equal to time taken receipt at destination
+   Guaranteed delivery   :- Guarantees that packet receive to receiver
+   with bounded delay    :- Packet delivered within specified host-to-host delay bound
+   In-Order packets      :- Packet arrives at destination in the order in which they are sent
+   Guaranteed max jitter :- Time taken between two transmission at sender equal to time taken receipt at destination
    
-   Security services : 
+   Security services :- 
     - Security using session key between source and destination host 
-    - Source host encrypt payloads of data being sent to destination host 
-    - Destination host would then decrypt payload 
+    - Source host encrypt payload of data being sent to destination host 
+    - Destination host then decrypt payload 
     - Maintain data integrity and source authentication service
-
 
 
 
 Network Addressing :-
  - Network addresses are always logical, i.e., software-based addresses.
- - Host is also known as end system that has one link to network 
  - Boundary between host and link is known as interface Therefore host have only one interface
  - Router is different from host in that it has two or more links that connect to it 
  - When router forward datagram then it forward packet to one of the links 
- - Boundary between router and link is known as interface and router have multiple interface one for each of its link 
- - Each interface capable of sending and receiving IP packet so IP requires each interface have an address
- - Each IP address 32 bits long and represented in form of "dot-decimal notation" where each byte written in decimal 
-   form separated by period 
- - IP address would look like 193.32.216.9 where 193 represent decimal notation of first 8 bits of an address, 
-   32 represent second 8 bit address
- - First three bytes in IP address specifies network and last byte of IP address specifies host in network
+ - Each interface capable of sending and receiving IP packet so IP require each interface have address
+ - Each IP address 32-bit long represented in form of "dot-decimal notation" where each byte written in decimal form
+ - IP address would look like 193.32.216.9 where 193 represent decimal notation of first 8 bits of address
+ - First three byte in IP address specifies network and last byte of IP address specifies host in network
 
 
  Classful Addressing :-
-  IP address is divided into sub-classes : Class A  |  Class B  |  Class C  |  Class D  |  Class E
-  Ip address is divided into two parts :- Network ID : Represent number of network | Host ID : Represent number of host
+  IP address divided into sub-classes : Class A  |  Class B  |  Class C  |  Class D  |  Class E
+  Ip address  divided into two part :- Network ID : Represent number of network | Host ID : Represent number of host
 
   Diagram :- 
                 Byte-1      Byte-2      Byte-3      Byte-4     (8-bit)
@@ -70,152 +61,163 @@ Network Addressing :-
     Class D     <----------- MultiCast Address ----------->
     Class E     <---------------- RESERVED --------------->
 
+  Rules for assigning Host ID :
+   - Used to determine host within network 
+   - Host ID must be unique 
+   - All bits set to 0 cannot be assigned as it represent network ID of IP address
+   - All bits set to 1 cannot be assigned as it is reserved for multicast address
+
+
+  Rules for assigning Network ID :
+   - If host located within same local network then assigned with same network ID 
+   - Cannot start with 127 as 127 is used by Class A
+   - All bit set to 0 cannot be assigned as it specify particular host on local network
+   - All bits set to 1 cannot be assigned as it is reserved for multicast address
+  
+
 
   Class A :-
-    - IP address assigned to those network that contain large number of hosts
-    - NET ID is 8 bit and host ID is 24 bits long
-    - First bit in higher order bits of first octet is always set to 0 and remaining 7 bits determine network ID 
-    - 24 bit determine host ID in any network
-    - Total number of network in Class A = 2^7 = 128 network address
-    - Total number of hosts in   Class A = 2^24 - 2 = 16,777,214 host address
-
+   - IP address assigned to those network that contain large number of host
+   - NET ID 8 bit and host ID 24 bits long
+   - First bit in higher order bits of first octet is always set to 0 and remaining 7 bit determine network ID 
+   - 24 bit determine host ID in any network
+   - Total number of network in Class A = 2^7 = 128 network address
+   - Total number of hosts in   Class A = 2^24 - 2 = 16,777,214 host address
                        7 bit      24 bit
     Diagram :- | 0 |  NET ID  |  Host ID | 
 
   
   Class B :-
    - IP address assigned to those network that range from small-sized to large-sized network
-   - NET ID is 16 bit and host ID is 16 bits long
-   - Higher order bit of first octet is always set to 0,1 and remaining 14 bits determine network ID and 16 bit Host ID
+   - NET ID and host ID is 16 bits long
+   - Higher order bit of first octet is always set to 1,0 and remaining 14 bit determine network ID and 16 bit Host ID
    - Total number of network in Class A = 2^14 = 16384 network address
    - Total number of hosts in   Class A = 2^16 - 2 = 65534 host address
                           14 bit      16 bit
-    Diagram :- | 0 | 1 |  NET ID  |  Host ID  | 
+    Diagram :- | 1 | 0 |  NET ID  |  Host ID  | 
 
 
-  Class B :-
-   - IP address is assigned to only small-sized networks
-   - NET ID is 24 bit and host ID is 8 bits long
+  Class C :-
+   - IP address assigned to only small-sized network
+   - NET ID 24 bit and host ID 8 bits long
    - Higher order bit of first octet is always set to 1,1,0 and remaining 21 bit determine network ID and 8 bit Host ID
-   - Total number of network in Class A = 2^21 = 2097152 network address
-   - Total number of hosts in   Class A = 2^8 - 2 = 254 host address
+   - Total number of network in Class C = 2^21 = 2097152 network address
+   - Total number of hosts in   Class C = 2^8 - 2 = 254 host address
                           14 bit      16 bit
     Diagram :- | 1 | 1 | 0 |  NET ID  |  Host ID  | 
       
  
   Class D :-
    - IP address reserved for multicast addresses and not possess subnetting 
-   - Higher order bits of first octet is always set to 1110 and remaining bits determine host ID in network.
+   - Higher order bits of first octet is always set to 1110 and remaining bit determine host ID in network
                                    28 bit
     Diagram :- | 1 | 1 | 1 | 0 |  Host ID  |  
 
 
   Class E :-
-   - IP address used for future use or for research and development purposes 
-   - Does not possess any subnetting 
-   - Higher order bits of first octet always set to 1111 and remaining bits determine host ID in network
+   - IP address used for future use or for research and development purposes and not possess any subnetting 
+   - Higher order bit of first octet always set to 1111 and remaining bits determine host ID in network
                                   28 bit
     Diagram :- | 1 | 1 | 1 | 0 |  Host ID  |
 
 
-  Rules for assigning Host ID :
-   - Used to determine host within any network 
-   - Host ID must be unique 
-   - All bits are set to 0 cannot be assigned as it represent network ID of IP address
-   - All bits are set to 1 cannot be assigned as it is reserved for multicast address
-
-
-  Rules for assigning Network ID :
-   - If host located within same local network then they assigned with same network ID 
-   - Cannot start with 127 as 127 is used by Class A
-   - All bit set to 0 cannot be assigned as it specify particular host on local network
-   - All bits set to 1 cannot be assigned as it is reserved for multicast address
-  
-  
-  Classful Network Architecture
+  Example :-
    Class  Higher bits	     NET ID bits	HOST ID bits   No.of networks	No.of hosts per network	Range
-     A	  0	        8	        24	            27	         2^24	        0.0.0.0 to 127.255.255.255
-     B	  10	    16	        16	            214	         2^16	        128.0.0.0 to 191.255.255.255
-     C	  110	    24	        8	            221	         2^8	        192.0.0.0 to 223.255.255.255
-     D	  1110	Not Defined	 Not Defined	Not Defined	  Not Defined	    224.0.0.0 to 239.255.255.255
-     E	  1111	Not Defined	 Not Defined	Not Defined	  Not Defined	    240.0.0.0 to 255.255.255.255
-
+     A	  0	        8	        24	           27	         2^24	        0.0.0.0 to 127.255.255.255
+     B	  10	     16	        16	          214	         2^16	        128.0.0.0 to 191.255.255.255
+     C	  110	     24	        8	            221	         2^8	        192.0.0.0 to 223.255.255.255
+     D	  1110	Not Defined	 Not Defined	Not Defined	  Not Defined	  224.0.0.0 to 239.255.255.255
+     E	  1111	Not Defined	 Not Defined	Not Defined	  Not Defined	  240.0.0.0 to 255.255.255.255
 
 
 
 Routing :-
- - Process of selecting path for data transferred which performed by Special device known as router
- - Router work at network layer in OSI model and internet layer in TCP/IP model
- - Router forward packet based on information in packet header and forwarding table
- - Routing algorithm nothing but software responsible for deciding optimal path for packet transfer
- - Routing protocols use metric to determine best path for packet delivery 
+ - Process of forward packet based on information in packet header and forwarding table 
+ - Router work at network layer in OSI model and internet layer in TCP/IP model 
+ - Routing algorithm software responsible for deciding optimal path for packet transfer
+ - Routing protocol use metric to determine best path for packet delivery 
  
- Routing Metrics and Costs :-
-  - Determining best route to destination 
-  - Metric is network variable standard measurement such as hop count, bandwidth, delay, current load on path etc
-    it used by routing algorithm to determine optimal path to destination
+ Routing Metric :-
+  - Metric is network variable used for standard measurement such as hop count, bandwidth, delay, current load on path
   - Some routing protocols use dynamic metrics means that their value assigned by system administrator
 
-  Common metric values :-
-   Hop count :- 
-    - Specifies number of passes through internetworking devices such as router, packet must travel in route to move
-    - If protocol consider hop as primary metric value then path with least hop count considered as best path to move
-   
-   Delay :- 
-    - Time taken by router to process, queue and transmit datagram to interface 
-    - Protocol use to determine delay values for all links along path end-to-end 
-    - Path having lowest delay value will considered as best path
-   
-   Bandwidth :- 
-    - Capacity of link is known as bandwidth of link 
-    - It Measured in terms of bits per second
-    - Link that has higher transfer rate like gigabit is preferred over lower capacity like 56 kb 
-    - Protocol determine bandwidth capacity for all links along path and overall higher bandwidth considered best route
+  Hop count :- Protocol consist hop as primary metric value then path with least hop count considered best to move
+  Delay     :- Time taken by router to process, queue and transmit datagram to interface 
+  
+  Bandwidth :- 
+    - Capacity of link known as Bandwidth measured in terms of bits per second
+    - Link that has higher transfer rate like gigabit is preferred over lower capacity
+    - Higher bandwidth considered best route
 
-   Load :- 
-    - Degree to which network resource such as router or network link is busy 
-    - Calculated in such as CPU utilization, packets processed per second 
+  Load :- 
+    - Calculated network resource such as CPU utilization, packets processed per second 
     - If traffic increases then load value also increased and changes with respect to change in traffic
 
-   Reliability :- 
-    - Composed of a fixed value that depend on network links and its value is measured dynamically 
-    - Some networks go down more often than others
-    - After network failure some network links repaired more easily than other network links 
-    - Factor for Reliability that numeric values assigned by system administrator
+  Reliability :- 
+   - Composed of fixed value that depend on network link and its value measured dynamically 
+   - Some network go down more often than other
+   - After network failure some network link repaired more easily than other network link
+   - Factor for Reliability that numeric value assigned by system administrator
 
 
- Types of Routing :- Static Routing | Default Routing | Dynamic Routing
+ Types of Routing :- 
 
   Static Routing (Nonadaptive Routing) :-
-   - Administrator manually add routes in routing table and router send packet based on table
-   - Routing decisions not made by condition or topology of networks
-   
-   Advantages    :- No Overhead(Cpu usage) | Not Bandwidth | Security Administrator 
-   Disadvantages :- Very difficult for large network | Administrator good knowledge of topology required 
+   - Administrator manually add route in routing table to send packet based on table
+   - Routing decision not made by condition or topology of network
+   - No Overhead(Cpu usage) | Not Bandwidth | Security Administrator 
+   - Very difficult for large network | Administrator good knowledge of topology required 
+
 
   Default Routing :-
-   - Router is configured to send all packets to same hop device and it doesn't matter whether it belongs to particular
-     network or not
-   - Used when network deal with single exit point
-   - Useful when bulk of transmission network transmit data to same device
+   - Router send all packet to same hop device and it doesn't matter whether it belong to particular network or not
+   - Used when network deal with single exit point(Same device)
    - When specific route mentioned in routing table router will choose specific route rather than default route
-   - Default route is chosen only when specific route is not mentioned in routing table
+   - Default route is chossen only when specific route not mentioned in routing table
 
   
   Dynamic Routing(Adaptive Routing):-
-   - Router adds new route in routing table for each packet in response to changes in condition or topology of network
-   - Dynamic protocol used to discover new routes to reach destination
-   - RIP and OSPF protocol used to discover new routes
+   - Router add new route in routing table for each packet in response to change in condition or topology of network
+   - Dynamic protocol RIP and OSPF used to discover new routes
    - If any route goes down then automatic adjustment made to reach destination
-
-   Features :- 
-    - All router must have same dynamic routing protocol in order to exchange routes
-    - If router discover any change in the condition of topology then router broadcast information to all other router
-   
-   Advantages    :- Easier to configure | More effective in selecting best route
-   Disadvantages :- More expensive in terms of CPU and bandwidth usage | Less secure 
+   - All router must have same dynamic routing protocol in order to exchange route
+   - If router discover any change in topology condition then router broadcast information to all other router
+   - Easier to configure | More effective in selecting best route
+   - More expensive in terms of CPU and bandwidth usage | Less secure
    
 
+
+Routing algorithm :-
+ Adaptive Routing algorithm(Dynamic routing algorithm)(Complex) :-
+  - Parameters used are hop count, distance and estimated transit time
+  
+  Centralized algorithm(Global routing algorithm) :- 
+   - Compute least-cost path between source and destination by using knowledge about network(Network Cost)
+   - Link state algorithm referred as centralized algorithm since it aware of cost of each link in network
+   
+  Isolation algorithm :- 
+   - Obtain routing information by using local information rather than gathering information from other node
+
+  Distributed algorithm :- 
+   - Compute least-cost path between source and destination in iterative and distributed manner 
+   - Beginning node contain information only about its own directly attached link and through iterative process of
+     calculation compute least-cost path to destination 
+   - Decentralized algorithm as never know complete path from source to destination instead it knows direction through
+     which packet is to be forwarded along with least cost path
+  
+
+ Non-Adaptive Routing algorithm(Static routing algorithm)(Simple)  :-
+  - When booting up network routing information store to router
+  - Not take routing decision based on network topology or network traffic instead of using static table 
+  
+  Flooding :- 
+   - Every incoming packet sent to all outgoing links
+   Disadvantage :- Node contain several copies of particular packet
+
+  Random walks :- 
+   - Packet sent by node to one of its neighbors randomly 
+   Advantage :- Uses alternative routes very efficiently
+ 
 
 
 Network Layer Protocol :-
@@ -335,64 +337,19 @@ Network Layer Protocol :-
 
 
 
-
-Routing algorithm :-
- - Routing is process of forwarding packet from source to destination but best route to send packet determined by 
-   routing algorithm
- Classification of a Routing algorithm :-  Adaptive Routing   |  Non-adaptive Routing
-
- Adaptive Routing algorithm(Dynamic routing algorithm)(Complex) :-
-  - Makes routing decisions based on topology and network traffic
-  - Parameters used are hop count, distance and estimated transit time
-  Adaptive routing classified into three parts :-
-   Centralized algorithm(Global routing algorithm) :- 
-    - Compute least-cost path between source and destination by using complete and global knowledge about network 
-    - Take connectivity between nodes and link cost as input and this information obtained before performing any 
-      calculation 
-    - Link state algorithm referred as centralized algorithm since it aware of cost of each link in network
-   
-   Isolation algorithm :- 
-    - Obtain routing information by using local information rather than gathering information from other nodes
-
-   Distributed algorithm :- 
-    - Compute least-cost path between source and destination in iterative and distributed manner 
-    - Node not has knowledge about cost of all network links 
-    - In beginning node contain information only about its own directly attached link and through iterative process of
-      calculation compute least-cost path to destination 
-    - Distance vector algorithm is decentralized algorithm as it never know complete path from source to destination 
-      instead it knows direction through which packet is to be forwarded along with least cost path
-  
-
-
- Non-Adaptive Routing algorithm(Static routing algorithm)(Simple)  :-
-  - When booting up network routing information stores to routers
-  - Do not take routing decision based on network topology or network traffic instead of using static table 
-  Non-Adaptive Routing algorithm is of two types :
-   Flooding :- 
-    - Every incoming packet sent to all outgoing links, 
-    Disadvantage :- Node contain several copies of particular packet
-
-   Random walks :- 
-    - Packet sent by node to one of its neighbors randomly 
-    Advantage :- Uses alternative routes very efficiently
-
- 
-
-
 Distance Vector Routing Algorithm(Dynamic Algorithm) :-
- - Each router maintain distance table known as Vector and mainly used in ARPANET and RIP
+ - Each router maintain distance table known as Vector that used in ARPANET and RIP
  Iterative    : Process continue until no more information available to be exchanged between neighbors
  Distributed  : Each node receive information from one or more of its directly attached neighbors perform calculation 
                 and then distribute result back to its neighbor
  Asynchronous : All of its nodes operate in lock step with each other
  
  Keys to understand working of Distance Vector Routing Algorithm :-
-  Knowledge about whole network  |  Routing only to neighbors  |  Information sharing at regular intervals(Within 30 second)
+  Knowledge about whole network | Routing only to neighbors | Information sharing at regular intervals(Within 30 second)
 
  Least cost related by Bellman-Ford equation :- dx(y) = minv{c(x,v) + dv(y)}
  
  
-
 
 Sharing Information :-
  - Distance vector routing algorithm simplifie routing process by assuming cost of every link is one unit 
@@ -403,11 +360,11 @@ Sharing Information :-
 
  Routing Table :- Creating Table  |  Updating Table
   Creating Table :-
-   - Created for each router that contain atleast three types of information such Network ID cost and next hop
+   - Created for each router that contain atleast three types of information such Network ID, cost and next hop
+   - These routing table sent to all neighbours
    NET ID   : Network ID define final destination of packet
-   Cost     : Cost is number of hops that packet must take to get there
-   Next hop : It is router to which packet must be delivered
-   - These routing tables are sent to all neighbors
+   Cost     : Number of hops that packet take to get there
+   Next hop : Router to which packet must be delivered
 
    For Example :
     A send its routing table to B, F & E. 
@@ -415,49 +372,28 @@ Sharing Information :-
     C send its routing table to B & D
   
 
-  Updating the Table :-
+  Updating Table :-
    - When A receive routing table from B then it use its information to update table
    - Combined table may contain some duplicate data 
    - Every router receive information from neighbor and update routing table
 
 
 
-
 Link State Routing(Dijkstra's algorithm):-
- - Each router share knowledge of its neighborhood with every other router in internetwork
- Key to understand Link State Routing algorithm :-
-  Knowledge about neighborhood : Instead of sending its routing table, a router sends the information about its neighborhood only. A router broadcast its identities and cost of the directly attached links to other routers.
-  Flooding : Router send information to every other router except its neighbor
-  Information sharing : Router send information to every other router only when change occurs in information
+ Knowledge about neighborhood : 
+   - Instead of sending its routing table, router sends information about its neighborhood only 
+   - Router broadcast its identities and cost of directly attached links to other router
+ Flooding : Router send information to every other router except its neighbor
+ Information sharing : Router send information to every other router only when change occurs in information
 
- Link State Routing has two phases:
-  Reliable Flooding :-
-   Initial state: Each node knows the cost of its neighbors
-   Final state: Each node knows the entire graph
+ Reliable Flooding :- Initial state : Each node know cost of its neighbors | Final state : Each node know entire graph
 
-  Route Calculation :-
-   - Each node uses algorithm on graph to calculate optimal routes to all nodes
-   - Used to find the shortest path from one node to every other node in the network.
-   - Dijkstra's algorithm is iterative and it has property that after kth iteration of algorithm, least cost path are
+ Route Calculation :-
+  - Dijkstra's algorithm is iterative and it has property that after kth iteration of algorithm, least cost path are
      well known for k destination nodes
    c(i, j) : Link cost from node i to node j, If i and j node not directly linked, then c(i, j) = ∞
-   D(v): It defines the cost of the path from source code to destination v that has the least cost currently
-   P(v): It defines the previous node (neighbor of v) along with current least cost path from source to v
-   N: It is the total number of nodes available in the network.
+   D(v) : Define cost of path from source code to destination v that has least cost currently
+   P(v) : Define previous node(Neighbor of v) along with current least cost path from source to v
+   N    : Total number of nodes available in network
 
-   Example :
-    Step 1 :- 
-     - Initialization step, currently known least cost path from A to its directly attached neighbors, B, C, D are 
-       2,5,1 respectively 
-     - Cost from A to B is set to 2, from A to D is set to 1 and from A to C is set to 5. The cost from A to E and F are set to infinity as they are not directly linked to A.
-     a) Calculating shortest path from A to B
-      v = B, w = D  
-    D(B) = min( D(B) , D(D) + c(D,B) )  
-         = min( 2, 1+2)>  
-         = min( 2, 3)  
-     - Minimum value is 2, Therefore currently shortest path from A to B is 2
-
-   Disadvantage :-
-    - Heavy traffic is created in Line state routing due to Flooding 
-    - Flooding cause infinite looping, this problem solved by using Time-to-leave field
-
+  Disadvantage :- Heavy traffic created in Line state routing due to Flooding(Infinite lopping) (Slove Time-to-leave)

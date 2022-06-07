@@ -73,7 +73,7 @@ Frontend Languages :-
 
 
 
-Backend Languages :- 
+Backend Language :- 
  PHP    :- Server-side scripting language because its code executed on server-side
  Python :- Python is programming language that lets you work quickly and integrate systems more efficiently
  Java   :- Popular and widely used programming languages and platforms

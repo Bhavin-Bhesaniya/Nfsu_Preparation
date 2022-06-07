@@ -1,7 +1,6 @@
 Introduction to Network Security :-
  - Measures taken by business or organization to monitor and prevent unauthorized access from outside attacker
  - Network Administrator control access to data and software on network
- - Network administrator assign user ID and password to authorized person
 
  Aspect of Network Security :-
   Privacy : 
@@ -21,8 +20,31 @@ Introduction to Network Security :-
    - Sender must not deny sending message that he or she send 
    - Burden of proving identity comes on receiver
    Ex :- Money transfer
+ 
 
+ CIA(Confidentiality, Integrity, Availability) :-
+  - Model that designed to guide policies for information security within organization
+  
+  Confidentiality :-
+   - Only authorized individuals/systems can view sensitive or classified information 
+   - To avoid Attacker attack use encryption techniques to safeguard data so that even if attacker gain access to 
+     not be able to decrypt it 
+   - Encryption include AES(Advanced Encryption Standard) and DES(Data Encryption Standard) 
+   - Another way through VPN tunnel 
+   - VPN stands for Virtual Private Network and helps data to move securely over network
 
+  Integrity :
+   - Data has not been modified to check it use hash function
+   - Corruption of data is failure to maintain data integrity 
+   Types :- SHA (Secure Hash Algorithm) and MD5(Message Direct 5)
+   - MD5 is 128-bit and SHA-1 is 160-bit hash 
+
+  Availability :
+   - Network available to its users This applies to systems and to data 
+   - Network administrator maintain hardware make regular upgrade have plan for fail-over and prevent bottleneck
+   - Attack such as DoS or DDoS may render network unavailable as resources of network get exhausted 
+   
+   
 
 Privacy :-
  - Encryption/decryption technique is used to achieve privacy form unauthorized parties 
@@ -191,3 +213,84 @@ PGP(Pretty Good Privacy) :-
  Disadvantages of PGP Encryption :
   Administration is difficult | Compatibility(Verson) issues | Complexity | No Recovery(Loss Password)
 
+
+
+Firewall :-
+ - Network security device either hardware or software-based which monitors all incoming and outgoing traffic and 
+   based on defined set of security rules it accept, reject/block or drops(No reply) that specific traffic
+ - Establishe barrier between secured internal networks and outside untrusted network such as Internet
+
+ Need for Firewall :-
+  - Before Firewall, network security was performed by Access Control Lists(ACLs) residing on routers 
+  - ACLs are rules that determine whether network access should be granted or denied to specific IP address
+  - But ACL cannot determine nature of packet it is blocking and not capacity to keep threats out of network 
+
+
+ How Firewall Works :-
+  - Firewall match network traffic against rule set defined in its table 
+  - Rule matched action is applied to network traffic
+  - Rule defined on firewall based on necessity and security policies of organization
+  - From server perspective network traffic either outgoing or incoming 
+  - Outgoing traffic originated from server itself and allowed to pass 
+  - Most traffic which reach on firewall is one of these three major Transport Layer protocols :- TCP, UDP or ICMP 
+  - All these types have source address and destination address and port number
+  - ICMP uses type code instead of port number which identifies purpose of packet
+
+  Default policy :- 
+   - Difficult to explicitly cover every possible rule on firewall 
+   - Firewall always have default policy that consists of action (accept, reject or drop)
+   - If no rule is defined about SSH connection to server on firewall it follow default policy 
+   
+
+ Generation of Firewall :-
+  First Generation-Packet Filtering Firewall :-  
+   - Control network access by monitoring outgoing and incoming packet and allowing them to pass or stop based on 
+     source and destination IP address, protocol and port 
+   - Analyses traffic at transport protocol layer(but mainly uses first 3 layers)
+   - Treat each packet in isolation 
+   - No ability to tell whether packet is part of existing stream of traffic
+   - It allow or deny packet based on unique packet header
+   - Maintains filtering table which decide whether packet will be forwarded or discarded 
+   
+  Second Generation- Stateful Inspection Firewall :- 
+   - Determine connection state of packet 
+   - Keep track of state of networks connection travelling across it, such as TCP stream 
+   - So filtering decisions not only based on defined rules but also on packet’s history in state table
+
+  Third Generation-Application Layer Firewall :- 
+   - Inspect and filter packets on any OSI layer
+   - Ability to block specific content, also recognize when certain application and protocol(like HTTP, FTP) are misuse
+   - It is hosts that run proxy servers 
+   - Proxy firewall prevent direct connection between either side of firewall, each packet has to pass through proxy 
+   Note :- Application Layer Firewall also used as Network Address Translator(NAT)
+
+  Next Generation Firewalls (NGFW) :- 
+   - Stop modern security breaches like advance malware attack and application-layer attacks 
+   - Consist of Deep Packet Inspection, Application Inspection, SSL/SSH inspection and many functionalities to protect
+    
+ 
+ Types of Firewall :-
+  Host-based Firewall :- 
+   - Installed on each network node which control incoming and outgoing packet 
+   - Software application comes as part of OS 
+   - Required because network firewall cannot provide protection inside trusted network 
+   - Protect each host from attacks and unauthorized access
+
+  Network-based Firewall :- 
+   - Function on network level that filter all incoming and outgoing traffic across network 
+   - Protect internal network by filtering traffic using rules defined on firewall
+   - It might have two or more network interface cards(NICs) 
+   - It is usually dedicated system with proprietary software installed
+
+  Packet-filter Firewall :-
+   - Works in network layer that applies set of rules on each packet based on outcome decide forwarded or not
+   Diagram :-   [ Allowed Packet ]  <--  ( Packet-Filtering router )    <-- Incoming Packet
+                                                    |
+                                                Disallowed Packet
+
+  Application Gateway(Bastion Host)(Application proxies) :-
+   - Operates at application level that provide most secure type data connection because they examine every layer of 
+     communication includeing Application data
+   Diagram :-  Secured Network --> First Firewall -- Secured Lan -- Second Firewall <--> Internet 
+                                                          |
+                                                    Proxy Service

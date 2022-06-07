@@ -1,97 +1,47 @@
 Intro to Transport Layer(Layer 4) :- 
- - Provide communication services directly to application processes that running on different host
  - Provide logical communication between application processes running on different host 
- - Although application process on different host are not physically connected, application process use logical 
-   communication provided by transport layer to send messages to each other
- - Transport layer protocol implemented in end system but not in network routers
- - Computer network provide more than one protocol to network applications 
- Ex :- TCP and UDP two transport layer protocols that provide different set of service to network layer
-
- - All transport layer protocol provide multiplexing/demultiplexing, reliable data transfer, bandwidth guarantees and 
-   delay guarantees likes services
- - Each application in application layer has ability to send message by using TCP or UDP 
- - Application communicates by using either of these two protocols 
+ - Transport layer protocol implemented in end system not in network routers
+ - Transport layer provide multiplexing/demultiplexing, reliable data transfer, bandwidth guarantees likes service
+ - TCP and UDP two transport layer protocol that provide different set of service to network layer
  - Both TCP and UDP will then communicate with internet protocol in internet layer 
  - Application can read and write to transport layer Therefore communication is two-way process
 
  Diagram :- Application[AP] --> <-- Transport[TCP | UDP] --> <-- Internet[IP] --> <--
 
  
- Services :-
-  - Data link layer provide servic within single network while transport layer provide services across internetwork 
-    made up of many networks 
-  - End-to-end delivery | Addressing | Reliable delivery | Flow control | Multiplexing
-  
+ Service :-  
   End-to-end delivery :- Transmit entire message to destination 
-  
+
   Reliable delivery   :- 
    - Retransmitting lost and damaged packet
-   It has four aspects : Error control | Sequence control | Loss control | Duplication control
-
-   Error Control :-
-    - Primary role because no transmission will be 100 percent error-free delivery so it provide error-free transmission
-    - Error handling mechanism but it ensures only node-to-node error-free delivery 
-    - However it not ensure the end-to-end reliability
-    - Data link layer check for error between each network 
-    - If error is introduced inside one of routers then this error will not be caught by data link layer 
-    - It only detect error that introduced between beginning and end of link 
-    - Therefore transport layer perform checking for errors end-to-end to ensure that packet arrived correctly
-  
-   Sequence Control :-
-    - On sending end transport layer ensuring that packet received from upper layers can be used by lower layers 
-    - On receiving end it ensures that various segment of transmission correctly reassembled
-    
-   Loss Control :-
-    - All fragment of transmission arrive at destination not some of them 
-    - On sending end all fragments of transmission are given sequence numbers by transport layer 
-    - These sequence numbers allow receiver's transport layer to identify missing segment
-
-   Duplication Control :-
-    - No duplicate data arrive at destination 
-    - Sequence number used to identify lost packets similarly allow receiver to identify and discard duplicate segment
+   Error Control    :- Perform error checking for end-to-end host to ensure that packet arrived correctly
+   Sequence Control :- Receiving end it ensure that various segment of transmission correctly reassembled
+   Loss Control     :- Not all fragment arrive at same time so provide sequence number that identify missing segment
+   Duplication Control :- Sequence number identify and discard duplicate segment
 
 
   Flow Control :
    - Prevent sender from overwhelming receiver
-   - If receiver is overloaded with too much data then receiver discards packets and asking for retransmission of 
+   - If receiver is overloaded with too much data then receiver discard packets and asking for retransmission of 
      packet which increase network congestion and reducing system performance 
-   - It uses sliding window protocol that make data transmission more efficient as well as it control flow of data so
-     that receiver does not become overwhelmed 
-    - Sliding window protocol is byte oriented rather than frame oriented
+   - Sliding window protocol used to prevent it and it is byte oriented rather than frame oriented
 
-  
+
   Multiplexing :-
    - Improve transmission efficiency
+   Upward multiplexing   :-(3in1) Make cost-effective send transmissions bound for same destination along same path 
+   Downward multiplexing :-(1in3) Split connection among several path to improve throughput when low or slow layer cap.
+  
 
-   Multiplexing occur in two ways :-
-    Upward multiplexing :- (3in1)
-     - Multiple transport layer connections use same network connection 
-     - To make more cost-effective layer send several transmissions bound for same destination along same path 
-       
-    Downward multiplexing :- (1in3)
-     - One layer connection uses multiple network connection
-     - Allow layer to split connection among several path to improve throughput 
-     - Used when networks have low or slow capacity
-   
-   
   Addressing :-
-   - According to layered model transport layer interact with functions of session layer 
-   - Many protocols combine session, presentation and application layer protocols into single application layer
-   - In these cases delivery to session layer means delivery to application layer 
-   - Data generated by application on one machine must be transmitted to correct application on another machine
-   - In this case addressing is provided by the transport layer.
-   - Layer provide user address which specified as station or port 
+   - Data generated by application on one machine must transmitted to correct application on another machine
+   - Layer provide user address which specified station or port of destination
    - Port variable represent particular TS user of specified station known as Transport Service access point(TSAP) 
    - Each station has only one transport entity
-   - Transport layer protocol need to know which upper-layer protocol are communicating
+  
 
 
-
-
-Transport Layer protocol :-
- Represented by two protocols: TCP and UDP
- - IP protocol in network layer deliver datagram from source host to destination host
- - Nowadays OS supports multiuser and multiprocessing environment an executing program called process 
+Transport Layer protocol :- TCP and UDP
  - When A host sends a message to other host means source process sending process to destination process 
  - Layer protocol define some connection to individual ports known as protocol ports
  - IP protocol is host-to-host protocol used to deliver packet from source host to destination host while transport 
@@ -99,15 +49,14 @@ Transport Layer protocol :-
    to IP services and from IP services to destination port
  - Each port defined by positive integer address and it is of 16 bits
 
- 
  UDP(User Datagram Protocol) :-
-  - Connectionless protocol that provide nonsequenced transport functionality
+  - Connection-less protocol provide non=sequenced transport functionality
   - Used when reliability and security are less important than speed and size
   - UDP add transport-level addresses, checksum error control and length information of data from upper layer
-  - Packet produced by UDP protocol is known as user datagram
+  - Packet produced by UDP protocol as User Datagram
 
   User Datagram Format :-
-   - User datagram has 16-byte header which is shown below:
+   - User datagram has 16-byte header :-
     Source Port Address(16bits)   Destination Port Address(16bits)
     Total Length of 16 bits       Checksum(16bits)
                              DATA          
@@ -121,13 +70,13 @@ Transport Layer protocol :-
   Disadvantages :-
    - Not provide any sequencing or reordering function 
    - Not specify damaged packet when reporting error
-   - UDP discover that error occurred but not specify which packet lost as it not contain ID or sequencing number of
-     particular data segment
+   - UDP discover error but not specify which packet lost as it not contain ID or sequencing number of data segment
 
-  
+
+
  TCP(Transmission Control Protocol) :-
   - Connection-oriented protocol means connection established at both end during transmission 
-  - For creating connection TCP generate virtual circuit(Handshake) between sender and receiver for transmission
+  - TCP generate virtual circuit(Handshake) between sender and receiver for transmission
   - Ensure data transmission in ordered and secure manner
   - TCP use high-level protocol such as FTP, HTTP and SMTP
   - Reliable communication in TCP termed as PAR(Positive Acknowledgement Re-transmission)
@@ -136,13 +85,13 @@ Transport Layer protocol :-
 
   Diagram :- (TCP Connection)(3-way Handshake)
     Client              Server
-    Sends SYN           Receives SYN    (Connection Request)
-    Receives SYN+ACK    Sends SYN+ACK   (Connection Request received and build connection)
-    Sends ACK           Receives ACK    (Connection Establish)
+    Send SYN           Receive SYN  (Connection Request)
+    Receive SYN+ACK   Send SYN+ACK  (Connection Request received and build connection)
+    Send ACK           Receive ACK  (Connection Establish)
 
 
   Diagram :- (TCP Termination)(4-way Handshake)
-    - FIN segment specifies a termination request sent by one device to the other
+   - FIN segment specifies termination request sent by one device to other
     Client               Server
     Sends FIN      -->   Receives FIN       
     FIN_ACK_WAIT   <--   Sends ACK          (Waiting State for client)
@@ -152,48 +101,19 @@ Transport Layer protocol :-
     FIN          :- (Termination Request)
     FIN_ACK_WAIT :- Client wait for ACK of FIN Termination request from server
     ACK          :- Server send ACK when receive FIN termination request(Ready to close connection)
-    FIN_WAIT_2   :- Client wait for FIN Segment from server(Signal sent by server for ready to termination)
+    FIN_WAIT_2   :- Signal sent by server for ready to termination
     FIN(Server end) and ACK(Client send signal to server that terminate connection)
 
 
   Feature :-
-   Stream data transfer :- 
-    - Transfer data in form of contiguous stream of bytes 
-    - Group bytes in form of TCP segment and then passed it to IP layer for transmission to destination 
-    - TCP itself segment data and forward to IP
-   
+   Reliability  :- Sequence number to each byte expect positive ACK from receiving TCP if not within time retransmitted
+   Flow Control :- Receiver TCP send ACK with indicating number bytes receive without overflowing its internal buffer
+   Full Duplex  :- Use buffer so that segment flow in both direction at same time 
+   Multiplexing :- Combination of different process into single process transmit it over network
+   Stream data transfer :- Transfer data in form of contiguous stream of bytes(TCP Segement) than pass to IP layer
+   Logical Connection   :- Combination of socket, sequence number and window size | Identified by socket pair
 
-   Reliability :- 
-    - Assign sequence number to each byte transmitted and expect positive ACK from receiving TCP 
-    - If ACK is not received within timeout interval then data retransmitted to destination
-    - Receiving TCP uses sequence number to reassemble segment 
-
-
-   Flow Control :- 
-    - Receiver TCP send ACK back to sender indicating number bytes receive without overflowing its internal buffer
-    - Number of bytes is sent in ACK in form of highest sequence number that it receive without any problem with
-    - Also referred as window mechanism
-   
-
-   Multiplexing :- 
-    - Process of accepting data from different application and forwarding to different application on different compute
-    - At receiving end data is forwarded to correct application known as demultiplexing 
-    - TCP transmit packet to correct application by using logical channels known as ports
-
-
-   Logical Connections :- 
-    - Combination of socket, sequence number and window size called logical connection 
-    - Each connection identified by the pair of socket and used by sending and receiving processes
-   
- 
-   Full Duplex :- 
-    - Data flow in both direction at same time 
-    - To achieve it each TCP should have sending and receiving buffers so that segments flow in both direction
-    - Suppose A wants to send and receive data from B :-
-      Establish connection | Data is exchanged | Connection terminated
-
-
-
+  
   TCP Segment Format :-
     Source port address 16 bits        Destination Port Address 16 bit
                         Sequence Number 32 bits
@@ -202,54 +122,35 @@ Transport Layer protocol :-
     4bit   6 bits   R  C  S  S  Y  I
                     G  K  R  T  N  N
                            Options  &  Padding
-
-                            
-   Source port address      :- Define 16-bit field address of application program in source computer
-   Destination port address :- Define 16-bit field address of application program in receiver computer
-  
-   Sequence number :- 
-    - Stream of data divided into two or more TCP segments 
-    - 32-bit sequence number field represent position of data in original data stream
-  
-   Acknowledgement number :- 
-    - 32-field ACK number ACK data from other communicating devices 
-    - If ACK field set to 1 then it specifies sequence number that receiver is expecting to receive
-  
-   Header Length(HLEN) :- 
-    - Size of TCP header in 32-bit words Minimum 5 words and maximum 15 word size
-    - Therefore maximum size of TCP header is 60 bytes and minimum size of  TCP header is 20 bytes
-  
-   Reserved :- 6 bit field which reserved for future use
-  
+                     
+   Source port address      :- 16-bit address of application program in source computer
+   Destination port address :- 16-bit address of application program in receiver computer
+   Sequence number :- Stream of data divide into two or more TCP segment and sequence number represent data position 
+   Acknowledgement number :- ACK field set to 1 then it specifies sequence number that receiver is expecting is receive
+   Header Length(HLEN)    :- Minimum 5 words(20bytes) and maximum 15 word size(60 byte)
+   Reserved     :- Reserved for future use
    Control bits :- Define use of segment or serves as validity check for other field
+   Window Size  :- Size of window
+   Checksum     :- Used in error detection
+   Options and padding :- Additional information to receiver
+  
 
    Types of flags in control field :-
-    URG : Data in a segment is urgent
-    ACK : Validates acknowledgement number
-    PSH : Inform sender that higher throughput is needed so if possible data pushed with higher throughput
-    RST : Reset bit is reset TCP connection when there is any confusion occurs in sequence number
-    SYN : Synchronize sequence numbers in three types of segments :- 
-          Connection request, Connection confirmation (With ACK bit set), Confirmation ACK
-    FIN : Inform receiving TCP module that sender has finished sending data
-          Used in connection termination in three types of segments :- 
-          - termination request, termination confirmation, ACK of termination confirmation
+    URG : Data in segment is urgent, Set 1 indicating that last urgent data byte 
+    ACK : Validate acknowledgement number
+    PSH : Inform sender that higher throughput needed
+    RST : Reset TCP connection when there is any confusion occurs in sequence number
+    SYN : Synchronize sequence numbers Segement :- Connection request | Confirmation(With ACK bit set)|Confirmation ACK
+    FIN : Inform that sendeing data finished    :- Termination request | Confirmation | ACK Confirmation
   
-   Window Size : 16-bit field that define size of window
-   Checksum    : 16-bit field used in error detection
-   Urgent pointer : If URG flag set to 1 then this 16-bit field offset from sequence number indicating that it is last
-                    urgent data byte
-   Options and padding : Optional field that convey additional information to receiver
-
 
 
  Differences b/w TCP & UDP
     Comparison	                  TCP	                                       UDP
-  Transmission type  Virtual circuit before transmitting   Transmit data directly to destination without verifying
-  Connection Type	   Connection-Oriented                   Connectionless protocol
+  Transmission type  Virtual circuit created               Transmit data directly without verifying
+  Connection Type	   Connection-Oriented                   Connectionless
   Speed	             Slow	                                 High
-  Reliability	       Reliable protocol                     Unreliable protocol
+  Reliability	       Reliable                              Unreliable
   Header size	       20 bytes	                             8 bytes
-  Acknowledgement	   Wait for ACK of data and ability 	   Neither take ACK nor it retransmits damaged frame
+  Acknowledgement	   Wait for ACK data and ability 	       Neither take ACK nor it retransmit damaged frame
                      to resend lost packet 
-
-

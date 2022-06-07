@@ -1,84 +1,68 @@
-Intro to Physical Layer :-
+Introduction to Physical Layer(Layer-1) :-
  - Last layer from sender side and top layer in receiver side deal with hardware
- - Provide functionality to data-link layer
- - When all bits come from data-link layer, physical-layer send it using transmission media like guided-unguided media
- - Convert logical data into signal
- - Contain information in the form of bits 
- - Responsible for transmitting individual bits from one node to next
-
+ - Store information in form of bits and Convert it into signal for transmission using guided-unguided media
+ 
  Functionality :-
   Cabels and Connectors    - Twisted, Co-axial, Optical Fibers used to send data on signal 
-                             BNC, MGRT, UTP Connectors (Join Cabel)
-  Physical Topology        - How to Connect physical devices and Configuration? (Star, Mesh, Bus, Point-To-Point) 
-  Hardware(Repeaters, Hub) - Increase signal strength | Hub for multipoint connection
-  Transmission mode        - Simplex-mode(One way data send), Half-Duplex, Full-Duplex
-  Encoding                 - Send data to either analog or digital signal
+                           - BNC, MGRT, UTP Connector(Join Cabel)
+  Physical Topology        -  Connect Pysical device and Configuration it (Star, Mesh, Bus, Tree, Ring, Point-To-Point) 
+  Hardware(Repeater, Hub)  - Increase signal strength | Hub for multipoint connection
+  Transmission mode        - Simplex-mode, Half-Duplex, Full-Duplex
+  Encoding                 - Send data into analog or digital signal
   Multiplexing/ Demultiplexing - 
    - If machine increase on same Channel not need to create new channel use existing channel using time division 
-   - Send N number of signal to single signal to send 
-   - Convert 1 signal to N no. of signal
+   - Send N number of signal in single signal known as Multiplexing
+   - Convert single signal to N no. of signal known as demultiplexing
 
 
 
-
-Transmission mode :-
- - Transferring data between two devices also known as Communication / Directional mode
- - Buses and networks are designed to allow communication to occur between individual devices that are interconnected
- - Defined in Physical layer
+Transmission mode :- 
 
  Simplex Mode :-
   - Communication is unidirectional 
-  - Device can only send data but cannot receive at same time
+  - Single Device at same time only send data but cannot receive
   - Use entire capacity of channel to send data in one direction so more data transmitted
-  - Unidirectional so No inter-communication between devices
   Example : Keyboard and Monitors | Radio 
  
 
  Half-Duplex Mode :-
-  - Both transmit and receive but not at same time 
-  - When one device is sending other can only receive and vice versa 
+  - Both Device transmit and receive data but not at same time 
   - Entire capacity of channel utilized for each direction at time
   - It possible to perform error detection
-  Channel capacity  = Bandwidth * Propagation Delay
+  Channel capacity = Bandwidth * Propagation Delay
   Example : In Walkie-talkie message sent one at time and messages are sent in both direction
 
  
  Full-Duplex Mode :-
   - Bi-directional where Both device transmit and receive data simultaneously 
-  - Channel capacity must be divided between two directions
-  - Signal go in one direction share capacity of link with signal going in other direction this sharing occur two ways:- 
-    - Link contain two physically separate transmission path one for sending and other for receiving
-    - Capacity divided between signals traveling in both direction
+  - Channel capacity must divided between two direction
+  - Link contain two physically separate transmission path one for sending and other for receiving
   Channel Capacity  = 2 * Bandwidth * Propagation Delay
   Example :- Telephone Network in which there is communication between two persons by telephone line
 
 
 
-
 Digital Transmission / Signal Conversion :- 
- - Signal that represent data in either digital or analog form
- - To send data must convert into signal 
- - It may be Analog to Analog, Analog to Digital, Digital to Analog or Digital to Digital
+ - To send data over network must convert into signal 
+ - Signal either digital or analog form
  
- Digital Signal : 
-  - Represent data as sequence of discrete value at any given time and take only on one of finite number of values
+ Digital Signal :- Represent data as sequence of discrete value
 
  Analog Signal :- 
   - Signal is any continuous signal for which time varying feature of signal is representation of some other time
-    varying quantity i.e., analogous to another time varying signal
+    varying quantity
 
  
  Digital-to-Digital :-
   - Digital to Digital conversion involves three techniques – Line Coding, Block Coding, and Scrambling 
+  
   Line Coding :- 
-   - Always needed whereas Block Coding and Scrambling depending upon need
-   - Self-synchronizing both receiver and sender clock should be synchronized
+   - Self-synchronizing both receiver and sender clock
    - Error-detecting capability and less complexity
   
-  Scrambling  :- 
-   - Not increase number of bits and provide synchronization 
-   - Problem with Bipolar AMI(Alternate Mark Inversion) is that continuous sequence of zero’s create synchronization 
-     problems one solution to this is Scrambling
+  Scrambling  :- Not increase number of bits and provide synchronization 
+  
+     
  
 
   Types of Digital-to-Digital encoding :-
@@ -147,30 +131,28 @@ Digital Transmission / Signal Conversion :-
  
 
  Analog to Digital Signal :-
-  - When analog signal digitalized knows as Analog to Digital Signal
-  - Information contain in continuous wave form is converted in digital pulses
-  - Require reduction in number of values in analog message so that they represented in digital stream
+  - Information contain in continuous wave form converted in digital pulses
+  - Require reduction in number of values in analog message so that it represented in digital stream
 
 
   PAM(Pulse Amplitude Modulation) :-
-   - Take analog signal, samples it and generate series of digital pulse based on result of sampling where sampling
-     means measuring amplitude of signal at equal intervals
-   - Not useful data communication as it translate original wave form into pulses but these pulses are not Digital
+   - Generate series of digital pulse based on result of sampling where sampling means measuring amplitude of signal
+     at equal interval
+   - Not useful for data communication as it translate original wave form into pulses but these pulses are not Digital
 
 
   PCM(Pulse Code Modulation):-
-   - Modify PAM Signal to form signal To achieve PCM quantizes PAM pulses
+   - Modify PAM Signal to signal form for achieve PCM quantizes PAM pulses
 
    Process :- PAM  |  Quantization  |  Binary Encoding  |  Digital-to-digital encoding
    
    Low Pass Filter :-
-    - Eliminates high frequency component present in input analog signal to ensure that input signal sampler is free
-      from unwanted frequency components
+    - Eliminate high frequency component that present in input analog signal to ensure that input signal sampler
+      is free from unwanted frequency component
     - Avoid aliasing of message signal
    
 
    Sampling :-
-    - Process of measuring amplitude of continuous-time signal at discrete instants
     - Converting continuous signal into discrete signal
     Type :- Idel | Natural | Flat-Top
     
@@ -185,22 +167,20 @@ Digital Transmission / Signal Conversion :-
     - Normalized pulse amplitude modulation(PAM) value is calculated using formula :- amplitude / d
 
 
-   Encoding :-
-    - Digitization of analog signal is done by encoder but it also minimizes bandwidth used
+   Encoding :- Digitization of analog signal is done by encoder but it also minimize bandwidth used
 
 
   DELTA MODULATION :-
    - Find change from previous value
    Modulator :- 
-    - Used at sender site to create stream of bits from analog signal 
-    - Process records small positive change called delta 
+    - Used at sender side to create stream of bits from analog signal 
+    - Process record small positive change called delta 
     - If delta is positive process records a 1 else process records a 0 
     - It build second signal that resembles staircase 
     - Input signal is then compared with this gradually made staircase signal
     Rules :- 
      - Input analog signal higher than lastvalue of staircase signal increase delta by 1 and bit in digital data is 1
      - Input analog signal lower than lastvalue of staircase signal decrease delta by 1 and bit in digital data is 0
-
 
 
   ADAPTIVE DELTA MODULATION(ADM):-
@@ -230,50 +210,43 @@ Digital Transmission / Signal Conversion :-
  
  Analog to Analog Conversion :-  
   - Representation of analog information by analog signal
-   Amplitude Modulation
-   Frequency Modulation
-   Phase Modulation
-
+  Types :- Amplitude Modulation | Frequency Modulation | Phase Modulation
 
 
 
 Transmission Media :-
- - Transmission medium is physical path between transmitter and receiver 
+ - Physical path between transmitter and receiver 
  - It is channel through data sent from one place to another into electronic signals
- - In copper-based network, bits in the form of electrical signals while in Fiber its light pluses
- - It works at layer-1
- Two types :- Wired and Wireless in wired medium important while in wireless signal important 
+ - In copper-based network, bits in form of electrical signal while in Fiber its light pluses
+ Types :- Wired  |  Wireless(Signal)
   
 
  Factor to Consider :-
-  Bandwidth :- All factor remaining constant, greater bandwidth of medium, higher signal rate of data transmission
-  Transmission impairment :- Quality of signals get destroyed due to transmission impairment
+  Bandwidth :- Greater bandwidth of medium, higher signal rate of data transmission
+  Transmission impairment :- Quality of signal get destroyed due to transmission impairment
   Interference : Process of disrupting signal when it travel over communication medium on addition of unwanted signal
 
 
  Cause of Transmission impairment :-
-  Attenuation :- Strength of signal decreases with increasing distance which causes loss of energy
+  Noise       :- During Data transmission unwanted signal added to it which create noise
+  Attenuation :- Strength of signal decreases with distance increasing which causes loss of energy
+  
   Distortion  :- 
-   - Occure When signal shape is change 
-   - It Examined from different signals having different frequencies 
+   - Occure When signal shape change 
    - Each frequency has its own propagation speed so they reach at different time which leads to delay distortion
   
-  Noise :- Data is transmitted over medium at time some unwanted signal added to it which create noise
 
 
  Types of Transmission Media :-
 
   Guided Media(Wired or Bounded) :-
-   - Physical medium through which signal are transmitted
-   - Signal transmitted are directed and confined in pathway by using physical links
+   - Physical medium through which signal transmitted
    - High Speed | Secure | Used for short distance
 
    Twisted Pair Cable :-
-    - Physical medium made up of pair of cables twisted with each other
-    - Two copper wire arranged in regular spiral pattern
+    - Two copper wire twisted with each other in regular spiral pattern
     - Degree of reduction in noise interference is determined by number of turns per foot
     - Cheap | Easy installation | Range 0 to 3.5KHz
-
 
     Unshielded Twisted-Pair Cabel(UTP) :- 
      - Transfer data in form of electric signal
@@ -284,50 +257,46 @@ Transmission Media :-
      - T means only 100 meter signal can be transmit than attuention occurs(Signal strength week)
  
      Base has two types :-
-      BaseBrand :- 
+      BaseBand :- 
        - Only one digital signal transmit bi-directional in short distance at time if other signal go collision arise
-       - Ethernet use but Frequency division multiplexing is not possible
+       - Ethernet use
       
       BroadBand :- 
-       - Multiple analog signal can be parallel transmit in long distance unidirectional
-       - Used to transmit cable TV to premises and division Possible
+       - Multiple analog signal parallel transmit in long disance unidirectional
+       - Used in cable TV
         
-      
 
     Shielded Twisted-Pair(STP) :-
-     - Consists of special jacket(copper braid covering or foil shield) to block external interference
-     - Used in fast-data-rate Ethernet and in voice and data channels of telephone lines
+     - Consist of special jacket(Copper braid covering or foil shield) to block external interference
+     - Used in fast-data-rate Ethernet | Voice | Data channel of telephone line
      - Higher data rate and Capacity compare to UTP | Eliminates Cross Talk | 
      - More Expensive | Diffcult to install | Higher attenuation rate
 
 
-
    Coaxial Cable :-
-    - Outer plastic covering insulation layer made of PVC or Teflon and 2 parallel conductors each having separate 
+    - Outer plastic covering insulation layer made of PVC or Teflon and 2 parallel conductor each having separate 
       insulated protection cover
-    - Cable TVs and analog television networks widely use
-    - Middle core responsible for data transferring whereas copper mesh prevents from EMI(Electromagnetic interference)
+    - Middle core responsible for data transferring whereas copper mesh prevent from EMI(Electromagnetic interference)
+    - Used in Cable TVs and analog television network
     - High Bandwidth with high speed | Better Shielded | Easy to install and expand
     - Single cable failure disrupt entire network | More expensive
 
-    Two types :-
-      BaseBrand :- One signal can transmit at time if other signal come collision arise(Dedicated cable bandwidth)
+    Types :-
+      BaseBrand :- One signal transmit at time if other signal come collision arise(Dedicated cable bandwidth)
       BroadBand :- Multiple signal parallel transmit and cable bandwidth split into separate ranges   
-
 
 
    Fiber Optical Cable :-
     - Uses concept of reflection of light through core made up of glass or plastic
     - Core is surrounded by plastic covering called cladding
-    - It Cable can be unidirectional or bidirectional
+    - Cable may be unidirectional or bidirectional
     - WDM(Wavelength Division Multiplexer) support both direction
     - Increased capacity and bandwidth with faster transmission of large volume data | Lighweight | Less attenuation
     - Diffcult to install and maintain | High Cost  | Fragile
 
     Element :-
      Core :- 
-      - Narrow strand of glass or plastic known as core 
-      - light transmission area of fiber
+      - Narrow strand of glass or plastic
       - More area of core, more light will be transmitted into fiber
 
      Cladding :- 
@@ -336,9 +305,8 @@ Transmission Media :-
         transmitted through fiber
 
      Jacket :- 
-      - Protective coating consisting of plastic is known as jacket 
+      - Protective plastic coating known as jacket 
       - Preserve fibre strength, absorb shock and extra fibre protection
-
 
 
    Stripline :-
@@ -347,28 +315,24 @@ Transmission Media :-
     - Use conducting material to transmit high-frequency waves it is also called waveguide
 
 
-
   Unguided Media(Wireless or Unbounded):-
    - No physical medium required for transmission of electromagnetic waves
    - Air is media through which electromagnetic energy flow easily
-   - Less Secure | Used for larger distances | Signal broadcasted through air
-   - Data travel through air, there must be some constraints within which wireless communication takes place
    - Wired network under IEEE standard 802.3 while wireless network under IEEE standard 802.11
    - IEEE stands for "Institute of Electrical and Electronics Engineers"
-   - Access point (AP) Provide services that are necessary for Wireless communication infrastructure
+   - Access point(AP) Provide services that are necessary for Wireless communication infrastructure
+   - Less Secure | Used for larger distances | Signal broadcasted through air
 
    Radio Waves :-
     - Easy to generate, transmitted in all direction(omnidirectional) of space and penetrate through building
-    - Useful for multicasting 
-    - Sending and receiving through antennas
-    - Frequency Range:3KHz – 1GHz 
-    - FM radios and cordless phones use Radio waves for transmission
-    - Higher Transmission Rate | penetrate wall | WAN And Celluar Phone
-    - No of cycles wave taking in second called Frequency of wave :- frequency = no of cycles per second  
-    - Electromagnetic waves not travel in straight line They travel in all direction away from antenna
     - Signal must keep changing or alternating by cycle up and down to keep electric and magnetic field cyclic and 
       pushing forward 
-
+    - Frequency Range :- 3KHz – 1GHz 
+    - Useful for multicasting like FM radios and cordless phones
+    - Sending and receiving through antennas
+    - Higher Transmission Rate | penetrate wall | WAN And Celluar Phone
+    - No of cycles wave taking in second called Frequency of wave :- frequency = no of cycles per second  
+    
     Unit	    Abbreviation	Meaning
      Hertz	    Hz        	Cycles per second
      Kilohertz	KHz	        1000 Hz
@@ -376,23 +340,20 @@ Transmission Media :-
      Gigahertz	GHz	        1,000,000,000 Hz
 
 
-
    Microwaves :-
 
     Terrestrial  Microwaves :-
-     - Transmit focused beam of radio signal from one ground-based microwave transmission antenna to another
-     - Sending and receiving antennas need to be properly aligned with each other
+     - One ground-based microwave transmission single antenna to another antennas
      - Distance covered by signal is directly proportional to height of antenna 
-     - Antenna are mounted on towers to send beam to another antenna which is km away
      - Used for mobile phone communication and television distribution
      - Unidirectional | Line of sight transmission 
-     - Frequency Range : 1GHz – 1000GHz  | Bandwidth : 1 to 10Mbps | Cheaper than cable | Free from land acquisition
-     - Eavesdropping(Insecure Connection) | Out of phase signal | Limited bandwidth | Susceptible for weather
+     - Frequency Range : 1GHz – 1000GHz   | Bandwidth : 1 to 10Mbps | Cheaper than cable | Free from land acquisition
+     - Eavesdropping(Insecure Connection) | Out of phase signal     | Limited bandwidth  | Susceptible for weather
 
 
     Satellite Microwaves :-
-     - Satellite is physical object that revolves around earth at known height
-     - More reliable now days as it offers more flexible
+     - Satellite is physical object that revolves around earth
+     - More reliable and flexible
      - Communicate with any point on global
      - Accept signal that transmitted from earth station and amplifies signal 
      - Amplified signal retransmitted to another earth station
@@ -400,82 +361,46 @@ Transmission Media :-
 
    Infrared :-
     - Short distance communication because cannot penetrate through obstacles
-    - Frequency Range:300GHz – 400THz 
+    - Frequency Range : 300GHz – 400THz 
     - Used in TV remotes, wireless mouse, keyboard, printer, etc..
-    - High bandwidth and High data rate |  Sun rays interfere infrared waves
+    - High bandwidth and High data rate | Sun rays interfere infrared waves
 
    
    Basic Service Set(BSS):-
-    - To regulate connection to devices, make every wireless service area closed group of mobile devices that form
+    - To regulate connection to device, make every wireless service area closed group of mobile devices that form
       around fixed device IEEE calls this standard BSS
-    - AP serves single point of contact for BSS 
+    - AP(Access Point) serves single point of contact for BSS 
     - AP use unique BSS identifier(BSSID) on its own MAC address to advertise it’s existence to all devices in cell
-    - Also advertises human-readable text string called Service Set identifier(SSID) to uniquely identify AP 
-    - Membership of mobile devices with BSS is called Association 
-    - Once associated device becomes BSS client or 802.11 station (STA) 
+    - Also advertises human-readable text string called Service Set Identifier(SSID) to uniquely identify AP 
+    - Membership of mobile device with BSS is called Association 
+    - Once associated device become BSS client or 802.11 station (STA) 
     - As long device connect to AP all data communication pass through AP using BSSID as source and destination address 
-    - Sending data through AP make it stable and controllable
-
+    
   
    Repeater :-
-    - AP in wireless infrastructure usually connected back to switched networks 
-    - BSS has limited signal coverage area(BSA) 
-    - To extend signal coverage add additional AP but in some scenarios not possible, Solution is Repeater
+    - AP in wireless infrastructure usually connected back to switched network 
     - Repeater is just AP configured in Repeater mode 
-    - Wireless repeater takes signal as input and retransmits signals in new cell around Repeater 
-    - Repeater uses two transmitters and receiver to keep original and repeated signals isolated on different channel
+    - Wireless repeater takes signal as input and retransmit signals in new cell around Repeater 
+    - Repeater use two transmitters and receiver to keep original and repeated signals isolated on different channel
 
  
  
-
 Multiplexing / Demultiplexing :-
- 
- Multiplexing :-
-  - Process of combining and send multiple data streams over single medium known as multiplexing and hardware used for
-    multiplexing known as multiplexer.
-  - Multiplexer(MUX) combine n input lines to generate single output line 
-  - Multiplexing follows many-to-one(N input lines one output line)
- 
-
- Demultiplexing :-
-  - Achieved using device called Demultiplexer(DEMUX) available at receiving end 
-  - DEMUX separate signal into its component signals(one input and n outputs) 
-  - Demultiplexing follows one-to-many approach
-
- 
+ - Process of combining multiple data stream over single medium known as multiplexing and hardware used for
+   multiplexing known as multiplexer
+ - Multiplexer(MUX) combine N input lines to generate single output line(Many-to-one) 
+ - Receiver Separate receive signal into its component signals(one-to-many) Achieved using Demultiplexer(DEMUX) 
+ - Multiplexing used in telecommunications in which several telephone calls carried through single wire
+ - George Owen Squier developed telephone carrier multiplexing in 1910
+   
  Why Multiplexing?
-  - At time only one signal can transfer from sender to receiver in transmission medium
-  - If multiple signal to share on medium then medium must be divided in such way that each signal given some portion
-    of available bandwidth  
-  - When multiple signals share common medium there is possibility of collision
-  - Multiplexing concept used to avoid such collision
-
- 
- History of Multiplexing :-
-  - Multiplexing used in telecommunications in which several telephone calls are carried through single wire
-  - It originated in telegraphy in early 1870s and now widely used in communication
-  - George Owen Squier developed telephone carrier multiplexing in 1910
-
-  Diagram :- https://static.javatpoint.com/tutorial/computer-network/images/concept-of-multiplexing.png
-
-  Advantages of Multiplexing :- 
-   - More than one signal sent over single medium
-   - Medium bandwidth utilized effectively
-
-
- 
- Multiplexing Techniques :-
-                            Multiplexing
-  Frequency-division    Wavelength Division          Time-Division
-    Multiplexing          Multiplexing                Multiplexing
-                                            Synchronous TDM   Asynchronous TDM
+  - Only one signal transfer from sender to receiver at time in transmission medium  
+  - When multiple signals share common medium there is possibility of collision to avoid it Multiplexing use
+  - Medium bandwidth utilized effectively
 
  
  Frequency-division Multiplexing (FDM) :-
-  - Subdivide available bandwidth into different frequency channels and allocate them to different devices
-  - Device 1 has frequency channel of range from 1 to 5
-  - Input signal translated into frequency band using modulation technique and combine by multiplexerto composite signal
-  - Using modulation input signals are transmitted into frequency bands and then combined to form a composite signal
+  - Divide available bandwidth into different frequency channel and allocate it to different device
   - Carrier which used for modulating signals are known as sub-carriers and represented as f1,f2..fn
   - Mainly used in radio broadcasts and TV networks
 
@@ -484,116 +409,78 @@ Multiplexing / Demultiplexing :-
    - Not require synchronization between sender and receiver
 
   Disadvantages :-
-   - Used only when low-speed channels required | Suffer problem of crosstalk | Large number of modulators required
+   - Used only for low-speed channel | Suffer problem of crosstalk | Large number of modulators required
    - Require high bandwidth channel
  
-
  
  Wavelength Division Multiplexing (WDM) :-
   - Same as FDM except that optical signals are transmitted through fibre optic cable to increase it capacity
-  - Utilize high data rate capability of fibre optic cable
-  - Optical signals combined with help of multiplexer and separates at receiver end using demultiplexer
   - Multiplexing and Demultiplexing achieved by using prism
-  - Prism perform role of multiplexer by combining various optical signal to form composite signal and composite signal
-    is transmitted through fibre optical cable
-  - Prism also perform reverse operation, i.e., demultiplexing signal.
+  - Prism Combining various optical signal into form composite signal and transmitted it 
+  
 
-
- 
  Time Division Multiplexing(TDM) :-
-  - Digital technique in which all signals operate at same frequency with different time
-  - Total time available in channel is distributed among different users 
-  - Therefore each user allocated with different time interval known as Time slot at which data is transmitted by sender
+  - All signal operate at same frequency with different time
+  - Total time available in channel distributed among different user
   - User takes control of channel for fixed amount of time
-  - Data is not transmitted simultaneously rather data transmitted one-by-one
+  - Data not transmitted simultaneously rather data transmitted one-by-one
   - Signal is transmitted in the form of frames 
-  - Frame contain cycle of time slots in which each frame contain one or more slots dedicated to each user
+  - Frame contain cycle of time slot in which each frame contain one or more slot dedicated to each user
   - Used to multiplex both digital and analog signals but mainly used to multiplex digital signals
   
   Synchronous TDM :-
-   - Time slot is pre-assigned to every device irrespective of fact that device contain data or not.
-   - If device not have data then slot remain empty
-   - Signals sent in form of frames 
-   - Time slots are organized in the form of frames
-   - If device not have data for particular time slot then empty slot transmitted
+   - Time slot is pre-assigned to every device irrespective of fact that device contain data or not
+   - If device not have data then slot remain empty then empty slot transmitted
    - Popular Synchronous TDM are T-1 multiplexing, ISDN multiplexing, and SONET multiplexing
-   - If there are n device then there are n slots
  
    Disadvantages Of Synchronous TDM :
-    - Capacity of channel is not fully utilized as empty slots also transmitted 
-    - Speed of the transmission medium should be greater than total speed of input lines 
+    - Channel Capacity not fully utilized as empty slot also transmitted 
+    - Speed of transmission medium should be greater than total speed of input lines 
   
 
   Asynchronous / Statistical TDM :-
-   - Time slots are not fixed 
-   - Time slots allocated to only those devices which have data to send 
-   - Transmit only data from active workstations
-   - It dynamically allocates time slots to the devices
-   - Total speed of input lines greater than capacity of channel
-   - Accept incoming data stream and create frame that contain only data with no empty slots
-   - Each slot contain address part that identifies source of data
+   - Time slots are not fixed and allocated to those device which have data to send 
+   - Transmit only data from active workstation
+   - It dynamically allocate time slot to device
+   - Total speed of input line greater than capacity of channel
+   - Accept incoming data stream and create frame that contain only data with no empty slot
+   - Each slot contain address part that identifie data source
     
-   Diagram :- [Address | Data]
+   Diagram :- [ Address | Data ]
 
    - Difference is that many slots in Synchronous TDM are unutilized but in Asynchronous TDM fully slots utilized 
-   - This leads to smaller transmission time and efficient utilization of capacity of the channel.
-   - In Synchronous TDM if n sending devices then there are n time slots 
-   - In Asynchronous TDM, if there are n sending devices then there are m time slots where m is less than n (m<n)
-   - Number of slots in frame depends on statistical analysis of number of input lines
-
+   - Number of slots in frame depend on statistical analysis of number of input lines
 
 
 
 Switching :-
- - Transferring information from one computer network to another network known as switching achieved by using switches
- - Switch is small hardware device which used to join multiple computers together with one local area network(LAN)
- - Network switches operate at layer 2 (Data link layer) in OSI model
- - It is transparent to user and not require any configuration in home network
+ - Small hardware device which join multiple computers together with one local area network(LAN)
  - Switches forward packets based on MAC addresses to route packet appropriately
  - Operated in full duplex mode
  - Packet collision is minimum as it directly communicate between source and destination
  - It does not broadcast message as it works with limited bandwidth
+ - Increases bandwidth and performance of network by reducing traffic | Less frame collision 
+ - More expensive than bridges | Cannot determine connectivity issues easily | Proper configuration required 
  
  Why Switching Concept required?
-  Bandwidth : It is defined as the maximum transfer rate of a cable. It is a very critical and expensive resource. Therefore, switching techniques are used for the effective utilization of the bandwidth of a network.
-  Collision: Collision is the effect that occurs when more than one device transmits the message over the same physical media, and they collide with each other. To overcome this problem, switching technology is implemented so that packets do not collide with each other.
+  Bandwidth : Maximum transfer rate of cable | Critical and expensive resource |
+  Collision : When more than one device transmit message over same physical media and they collide with each other 
 
 
- Advantages :-
-  - Increases bandwidth of network
-  - Reduce workload on individual PC
-  - Increases overall performance of network by reducing traffic
-  - less frame collision as switch creates collision domain for each connection
-
-
- Disadvantages of Switching :-
-  - More expensive than network bridges
-  - Cannot determine network connectivity issues easily
-  - Proper designing and configuration required to handle multicast packet
-
-
- Switching Modes :- 
-  - Transmitting data with the help of MAC address, Perform error checking on transmitted and received frames
-  - Different modes used for forwarding packets known as Switching modes
-  - Different parts of frame are recognized 
-  - Frame consists of several parts such as preamble, destination MAC address, source MAC address, user's data, FCS
-  
+ Switching Modes :-   
   Store-and-forward :-
-   - Intermediate nodes store received frame and then check for errors before forwarding packets to next node
+   - Intermediate node store received frame then check for errors before forwarding packet to next node
    - On receiving entire frame, switch store frame into switch buffer memory known as process of storing frame
-   - After frame stored check If error found message discarded otherwise message forward to next node(forwarding frame)
-   - CRC (Cyclic Redundancy Check) uses number of bits to check for errors on received frame
-   - Store-and-forward ensure High level of security as destination network not be affected by corrupted frames
-   - It is highly reliable as it not forward collided frames
+   - After frame stored check If error found message otherwise discarded message and forward to next node
+   - CRC(Cyclic Redundancy Check) uses number of bits to check for errors on received frame
 
 
   Cut-through Switching :-
    - Forward packet after destination address identified without waiting for entire frame to be received
-   - Once frame received check first six bytes of frame following preamble, switch check destination in switching table
-     and forward frame to destination
-   - Low wait time / latency rate as it forward packets as soon as it identifies destination MAC address
-   - No error checking Therefore errors sent with or without errors to the receiver
-   - Collision is not detected, if frames have collided also be forwarded
+   - Once frame received check first six bytes of frame then forward frame to destination
+   - Low wait time/latency rate as it forward packes as soon as it identifies destination MAC address
+   - No error checking Therefore errors sent with or without error to receiver
+   - Collision not detected, if frames have collided also forwarded
 
   
   Fragment-free Switching :-
@@ -605,28 +492,15 @@ Switching :-
 
 
  Switching Techniques :-
-  - Decide best route for data transmission
-  - Connect system for making one to one communication
-
-  Diagram :-
-                                Switching Techniques
-    Circuit Switchin             Message Switching             Packet Switching
-  Space Division  Time Division                       Datagram Approach    Virtual Circuit Approach
-                                                                    Switched Virtual Circuit  Perment Virtual Circuit
-
-
-
   Circuit Switching :-
-   - Establish dedicated path between sender and receiver before communication starts
+   - Establish dedicated path between sender and receiver before communication start
    - Once connection established then will exist until connection terminated
-   - Circuit switching in a network operates in a similar way as the telephone works.
-   - When user wants to send data request signal sent to receiver then receiver sends back acknowledgment to ensure
-     availability of the dedicated path 
-   - After receiving acknowledgment transfer data on dedicated path
+   - When user wants to send data request signal sent to receiver then receiver send back acknowledgment (ACK)to ensure
+     availability of dedicated path 
+   - After receiving ack transfer data on dedicated path
    - Used in public telephone network and voice transmission
-   - Fixed data transferred at time in circuit switching technology
-   
-   Communication circuit switching has 3 phases : Circuit establishment | Data transfer | Circuit Disconnect
+   - Fixed data transferred at time
+
 
    Space Division Switches :
     - Single transmission path accomplished in switch by using physically separate set of crosspoint
@@ -654,10 +528,10 @@ Switching :-
   Message Switching :-
    - Message transferred as complete unit and routed through intermediate nodes at which it stored and forwarded
    - Not establishment dedicated path between sender and receiver
-   - Destination address appended to the message 
-   - Provide dynamic routing as message routed through intermediate nodes based on available information in message
+   - Destination address appended to message 
+   - Provide dynamic routing as message routed through intermediate node based on available information in message
    - Each and every node stores entire message then forward to next node 
-   - It treats each message as independent entity
+   - It treat each message as independent entity
 
    Advantages :-
     - Data channel shared among devices that improve efficiency of using available bandwidth
@@ -673,33 +547,57 @@ Switching :-
 
   
   Packet Switching :-
-   - Message sent in one go but it is divided into smaller pieces then they are sent individually
-   - Smaller pieces packets given unique number to identify their order at receiving end
+   - Message divided into smaller pieces then sent individually
+   - Smaller pieces packet given unique number to identify their order at receiving end
    - Every packet contain information in its headers such as source address, destination address and sequence number
-   - Packet will travel across network and taking shortest path as possible
+   - Packet travel across network and taking shortest path as possible
    - All packet reassembled at receiving end in correct order
-   - If any packet is missing or corrupted then message will be sent to resend message
-   - If correct order of packets is reached then acknowledgment message sent
-
+   - If any packet is missing or corrupted then message sent to resend message
+   - If correct order of packet reached then acknowledgment message sent
+   - Cost-effective | Reliable | Efficient 
+   - Complex protocol | High implementation cost | overloaded network require retransmission of lost packets
+   
    
    Datagram Packet switching(Connectionless switching):-
-    - Packet is known as datagram that consider as independent entity 
-    - Each packet contain information 
-    - Packets reassembled at receiving end in correct order
-    - Path is not fixed, Intermediate nodes take routing decisions to forward packets
-    
+   
 
    Virtual Circuit Switching(Connection-Oriented switching):-
     - Pre-planned route established before messages are sent
     - Call request and call accept packet used to establish connection between sender and receiver
     - If user wants to terminate connection clear signal is sent for termination
-    
-   
-   Advantages Of Packet Switching :- Cost-effective | Reliable | Efficient 
 
-   Disadvantages Of Packet Switching :-
-    - Cannot be implemented in those applications that require low delay and high-quality services
-    - Complex protocols used and requires high implementation cost
-    - If network overloaded or corrupted then it require retransmission of lost packets 
-    - It also lead to the loss of critical information if errors are nor recovered
 
+
+Redundant Link problems :-
+ - Prevent nasty network failure
+ - Provide redundancy(back up when a link fails)
+ 
+ Broadcast Storm :- 
+  - Every Switch forward broadcast frame to each other generated by another device to all its ports
+  - If no loop avoidance switches flood broadcast endlessly and consume all bandwidth which Shutdown entire network 
+ 
+ Multiple copies :-
+  - Device receive multiple copies of same frame if A frame arrive from different network segments at same time
+
+ MAC Table Thrashing :-
+  - Switches use MAC address table to forward out the frames but when switch receives data from multiple switch
+    at time therefore it will lead to instability in MAC table in switch C
+  - Spanning Tree Protocol(STP) used to prevent these loops 
+  - It block down (port) path using its own mechanism by which single path is available for frame delivery at time  
+
+
+
+Digital Subscriber Line/Loop(DSL) :-
+ - Communication medium which used to transfer data on internet through copper wire telecommunication line
+ - Provide by ISP for High speed broadband Internet access also Modem
+ - Splitter used to split frequency and make sure that they can’t get interrupted
+ - No additional wire required because it use existing telecommunication line for both internet and telephone
+ - Cost-efficient we choose different connection speeds and pricing from various providers
+ - Works only on local telephone infrastructure so limited physical distance
+
+ Symmetric DSL(SDSL) :- 
+  - Provide 2MBPS equal speed both uploading(Upstream) and downloading(DownStream) data transfer for small organization
+
+ ASymmetric DSL(ADSL) :- 
+  - Provide wider frequency range for downstream transfers
+  - 20 Mbps downstream and 1.5 Mbps upstream, it is because most users download more data than they upload

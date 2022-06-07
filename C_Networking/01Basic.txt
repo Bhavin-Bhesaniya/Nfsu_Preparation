@@ -1,126 +1,94 @@
-Intro to Networking :-
- - System which connected to the network and ready for communication known as Open System not connected and can't 
-   ready known as Close System
- - Inter-connection of multiple devices that are connected using multiple path for sending/receiving data or media
- - Internet is global network comprised of smaller networks that interconnected using communication protocols
- - Internet invented by ARPANET in 1983 and controlled by 75 million server
+Introducion of Networking :-
+ - Inter-connection of multiple device using multiple path for sending/receiving data or media
+ - Two or more computer connect and use transmission medium either wired or wireless with Protocols known as Networking 
+ - Internet is global network comprised of smaller network that interconnected using communication protocol
+ - It is invented by ARPANET in 1983 and controlled by 75 million server
  - Internet not governed by single authority but Ultimate authority is with Internet Society or ISOC
- 
+ - Backbone of internet is made by 550,000 miles of underwater cable
  IAB  - Internet Architecture Board review standard and allocate resources like addresses
  IETF - Internet Engineering Task Force discuss operational and technical problem
- - Backbone of internet is made by 550,000 miles of underwater cable
- - In future it compromised of different types of appliances, devices and things connected to global internet
- - IoT is about physical device and objects communicating but IoE bring network intelligence to bind all these concept
-   together into cohesive system
- 
 
  Features :- Performance | Reliability | Security | Scalability | Resource Sharing 
  Types of topology :- Bus, Star, Mesh, Ring, Tree, Point to point, Hybrid
  Types of devices  :- Router, Switch, Hub, Bridge
  
  
- Networking Element :-
-  - Have At least two computers 
-  - Transmission medium either wired or wireless 
-  - Protocols or rules that govern communication 
-  - Network software such as Network Operating System 
- 
 
- 
-
-Computer Network Architecture :-
- - Architecture defined physical and logical design of software, hardware, protocols,media and data transmission
- - Link is communication pathway that transfers data from one device to another
+Network Architecture :-
+ - Architecture defined physical and logical design of software, hardware, protocol and data transmission
+ - Link is communication pathway that transfer data from one device to another
 
  Peer-To-Peer :-
-  - All computers are linked together with equal privilege and responsibilities for processing data
-  - Useful for small environments, usually up to 10 computers but not has dedicated server
-  - Provide dedicated link between two devices
-  - Less costly No dedicated server | One Stop Other Works | Easy to maintain
-  - Not Centeralized system so no data backup | Security | Special permission for each computer if its goes down no data
+  - Provide dedicated link between two device
+  - Use in small environment up to 10 computer
+  - Less costly No dedicated server        | Easy to maintain | One Stop Other Work 
+  - No Centeralized system(No data backup) | Security         | Special permission for each computer
  
  
  Multipoint Connection :-
-  - Two or more devices share single link that is capacity of the channel is shared now
+  - Two or more device share single link
   Spatial Sharing        :- Several devices share link simultaneously 
-  Temporal(Time) Sharing :- If users must take turns using link then it's called Time Shared Line configuration
+  Temporal(Time) Sharing :- If user must take turns using link then it's called Time Shared Line configuration
 
  
  Client-Server :-
-  - Designed for end users called clients to access resources from centeral computer called server
+  - End user client access resources from centeral computer called server
   - Server responsible for manage resources and Security
-  - Client send request for resource through internet,Server receiving request and check request,Send response to client
+  - Client send request for resource through internet, Server receiving and process request, Send response to client
   - Centeralized So data backup | Dedicated Server Performance Improve | Security better | Fast Resource Sharing
-  - Costly(Server) | Server failure entire network stop
-
-
-  Client-side :- 
-   - When type URL(www.google.com) browser convert into file :-
-    - GET /HTTP/1.1 (GET requesting some data from server, HTTP Protocol, 1.1. Protocol version) 
-   - File converted to binary by browser then sent to the server and receive respond back to the sender IP address
-   - Router send information to another and keeps on going until binary codes reach destination
- 
-  Server-side :- 
-   - Server receive binary code and decode it and send response :- 
-    - HTTP/1.1 200 ok (where 200 ok is the status)
-    - Content-type:type/HTML
-    - Body of page
-   - Converted back to binary by server and sent to IP address that requesting it
-   - Once codes received by client browser again decodes information display information
-  
+  - Costly(Server) | Server failure entire network stop  
   
  
-
-InterNetwork :-
- - Two or more computer network LANs or WAN connected using devices and they configured by local addressing scheme
- - Interconnection between public, private, commercial, industrial, or government computer network
- - It use internet protocol and model used is OSI
- - Based on internet protocol such as TCP/IP
-
- Extranet :-
-  - Used for information sharing whose have login credentials 
-  - lowest level of internetworking as MAN, WAN and cannot have single LAN, must connection to external network
-
- Intranet :-
-  - Used for information sharing by organization for only to its employees 
-  - Communication | Time-Saving | Collabration | Platform-independany | Cost-efficient
-
-
-
 
 Types of Area Network :-
  
  LAN(Local Area Network) :-
-  - Group of computers connected to each other in small geographical area such as building, for fast data transfer
-  - Connect device by switch or cable using private addressing scheme as defined by TCP/IP protocol
+  - Group of computer connected in small geographical area such as building for fast data transfer
+  - Connect device by switch or cable using private addressing scheme defined by TCP/IP protocol
   - Private addresses are unique in relation to other computers on local network 
-  - Routers found at boundary of LAN connecting them to larger WAN
+  - Router of LAN connecting them to larger WAN
+  - Lan use either Ethernet or token-ring technology and it may be wired or wireless
   - Less costly | High Security
 
  
  PAN(Personal Area Network) :-
-  - Network arranged within individual person typically within range of 10 meters for personal use
-  - Cover 30 feet area
-  - Device like bluetooth, phone, laptop, etc.
-  Types :- Wireless(Wifi, Bluetooth)  |  Wired(USB Cable)
-
+  - Individual person netowork within range of 10 meters
+  - Piconet is Bluetooth-enabled which contain up to 8 devices connected together in master-slave fashion
+  Types  :- Wireless(Wifi, Bluetooth)  |  Wired(USB Cable)
+  Device :- Bluetooth | Phone | Laptop
  
+
  MAN(Metropolitan Area Network) :-
-  - Larger than LAN and smaller than WAN
-  - Cover large geographical area and may known as ISP (Internet Service Provider)
+  - Larger than LAN and smaller than WAN expands throughout city such as cable TV network
+  - It in form of Ethernet, Token-Ring, ATM or FDDI(Fiber Distributed Data Interface), Modem and provide by ISP
   - Provide High-speed connectivity but hard to design and maintain
   - Network delay | Fault tolerance Less | Congestion High
-  - Use Modem and Wire/Cable for data transmission
-  Protocol used :- RS-232(Request to send)  |  Frame Relay  | ATM(asynchronous transfer mode) 
-                   ISDN(Integrated Services Digital Network)| OC-3  | ADSL(Asymmetric Digital Subscriber Line)
+  Protocol used :- 
+    RS-232(Request to send)  |  Frame Relay  | ATM(Asynchronous transfer mode) 
+    ISDN(Integrated Services Digital Network)| OC-3  | ADSL(Asymmetric Digital Subscriber Line)
   
 
  WAN(Wide Area Network) :-
   - Cover Large geographical area might be confined within bounds of state or country
-  - Types of WAN :- Switched WAN | Point-To-Point WAN
-  - Fault tolerance Less | Congestion High
   - Communication medium used for WAN is PSTN(Public Switched Telephone Network) or Satellite Link
-  - Devices used for transmission of data through WAN are Optic wires, Microwaves, and Satellites
+  - Data transmission through WAN are Optic wires, Microwaves, and Satellites
+  - Fault tolerance Less | Congestion High
+  Types of WAN :- Switched WAN | Point-To-Point WAN
+
+
+ InterNetwork :-
+  - Two or more LANs or WAN connected using device and configured by local addressing scheme
+  - Interconnection between public, private, commercial, industrial, or government computer network
+  - It use internet protocol(IP) such as TCP/IP and OSI model
+  - Internet use high speed backbone fiber optics and it laid under sea known as submarine communication cable
+
+  Extranet :-
+   - Used for information sharing whose have login credentials 
+   - lowest level of internetworking as MAN, WAN and cannot have single LAN, must connection to external network
+
+  Intranet :-
+   - Used for information sharing by organization for only to its employees 
+   - Communication | Time-Saving | Collabration | Platform-independany | Cost-efficient
 
 
  MANET(Mobile Ad Hoc Network) :-
@@ -131,7 +99,6 @@ Types of Area Network :-
 
  
  SAN (Storage Area Network) | VPN (Virtual Private Network) | EPN (Enterprise Private Network)
-
 
 
 
@@ -174,13 +141,11 @@ Various Device in Network :-
 
 
  Repeater :-
-  - Works on physical layer pure hardware
-  - Regenerate signal over same network before signal become too weak or corrupted 
-  - So as to extend length to which signal can be transmitted over same network
-  - Amplifier also do this but if starting signal strength is X and it goes down Amplifier increases it 2x or 4x 
-    while repeater strength will be same x -> x 
-  - 2 port devices forwarding signal but not supporting filtering and maximum collision is N
-
+  - Works on 2 port physical layer device 
+  - Regenerate signal strength over same network before signal become too weak or corrupted 
+  - Forwarding signal but not supporting filtering and maximum collision is N
+  - It not amplify signal means it regenerate signal again rather than Increase it strength to 2X or 4X like Amplifier
+  
 
 
  Hub :-
@@ -234,9 +199,9 @@ Various Device in Network :-
 
  Router :-
   - Physical or virtual internetworking device that designed to receive, analyze and forward data packet between 
-    two different network/ router (Network Layer device)
-  - Examine destination IP address of given data packet and use it header for forwarding packet and 
-    routing tables decide best path to transfer packet
+    two different network/ router (Network Layer device)(Connect two different network Like LAN -> WAN )
+  - Check destination IP address given in data packet header for forwarding packet
+  - Routing tables decide best path to transfer packet
   - Use ICMP protocol to communicate between two or more network
   - Virtual router use virtual router redundancy protocol to Increase network Realibility which is done by configuring
     as default gateway and it run on server
@@ -305,139 +270,126 @@ Various Device in Network :-
 
 
 
-
 Topologies :-
  - Layout arrangement of different devices in network that Describe how device are connected to each other in network
  Types :- Physical(Geometric Representation of nodes)  |  Logical
 
 
  Mesh :- 
-  - All devices connect to each other or say support point-to-point communication
-  - Used for wireless network WAN implementations where communication failures are a critical concern
-  
-  Realibility :- If single system fails other system sharing data | Highest Realibility
-  Cost        :- Dependant of cable quality and quantity          | High cost
-  Security    :- If a and d communicate other devices(b, c) doesn't no about that
-  
+  - All devices connect to each other or say point-to-point communication
+  - Used for wireless network WAN implementations where communication failures are critical concern
+  Realibility  :- If single system fails other system sharing data | Highest Realibility
+  Cost         :- Dependant of cable quality and quantity          | High cost
+  Security     :- If a and d communicate other devices(b, c) doesn't no about that
   Disadvantage :- High Maintenance |  Not support Multi-cast
-
-  - N is number of nodes which represent no. of devices connected
-    How many wired required (NC2 Formula) :- n(n-1)/2 
-    No. of ports(Connector) Required Devices :-  (N-1) 
-    Total No. of ports(Connector) Required :- N * (N-1)
 
   Types :-
    Full Mesh    :- Each computer connected to all available computers network
    Partial Mesh :- Not all but certain computer connected to those computer with which they communicate frequently 
+  
+  N is number of nodes which represent no. of devices connected
+   How many wired required (NC2 Formula)    :- N(N-1)/2 
+   No. of ports(Connector) Required Devices :- N-1
+   Total No. of ports(Connector) Required   :- N * (N-1)
 
 
 
  Star :- 
   - Multi-pal device are connected to each other through Centeralized device called Hub, Switches or Server
   - Support Point-to-Point
-  - Coaxial cable or RJ-45 cables are used to connect computer
+  - Coaxial cable or RJ-45 cables used to connect computer
   - No of cabel same as no of devices :- N
   - No of ports(Connector) :- N | N * N
-  - Hub fails entire network fails No Realibility | No Security | Less Cost compared to Mesh
+  - Hub fail entire network fail No Realibility | No Security | Less Cost compared to Mesh
 
 
 
  Bus :-
-  - Backbone cabel in which multiple device are connect through drop line 
+  - One Backbone cabel in which multiple device connect through drop line and Use 802.3 and 802.4 Standard network
   - Tape connect Backbone cabel to Drop Line
-  - Use 802.3 and 802.4 Standard network
-  - Access method of bus is CSMA(Carrier Sense Multiple Access)
   - Transmit data from one-end to another in single direction
+  - Access method is CSMA(Carrier Sense Multiple Access)
   - When send data all nodes receive data whether it has been addressed or not
-  - Multi-Point connection so Collision is high  
-  - Single-Point Failure so No Realibility | No Security | Less Cost compared to Mesh | Diffcult Troublshooting
+  - Multi-Point connection so High Collision
+  - Single-Point Failure No Realibility | No Security | Less Cost compared to Mesh | Diffcult Troublshooting
   
-  Attenuation - loss of signal leads to communication issues Used Repeaters to regenerate signal
-  - At the end of cabel add Terminator or Repeaters(Increase Signal Strength & Join more Backbone Cabel) 
+  Attenuation - 
+   - Loss of signal lead communication issues Used Repeaters to regenerate signal
+   - At end of cabel add Terminator or Repeaters(Increase Signal Strength & Join more Backbone Cabel) 
   
   No of cabel = N + 1 (N : no of devices)
   No of ports = 1     | 1 * N
 
 
   CSMA :-
-   - Media access control used to control data flow so that data integrity maintained(Not packet lost)
-   - Problems occur when two nodes send messages simultaneously
+   - Media access control(MAC) used to control data flow so that data integrity maintained(Not packet lost)
+   - Problem occur when two node send messages simultaneously
 
-   CSMA CD(Collision detection) :- Access method detect collision, Once detected sender stop transmitting data 
+   CSMA CD(Collision detection) :- Detect collision sender stop transmitting data 
    CSMA CA(Collision Avoidance) :- 
-    - Access method avoid collision by checking whether transmission media is busy or not
+    - Avoid collision by checking whether transmission media is busy or not
     - If busy then sender waits until media becomes idle 
     
 
 
  Ring :- 
-  - Multipal Bus topology design in ring shape
-  - No of cabel = N + 1 (N : no of devices)
-  - No of ports = 1     | 1 * N  
-  - Less Realibility | No Security | Less Cost compared to Mesh | No Termination Point | Single Failure | Delay
-  - Send Message in Unidirectionally  
-  - Use Token-Ring to remove collision
-  - Repeater used for Ring topology with large number of nodes because if someone wants to send data to last node in
+  - Multipal Bus topology design in ring shape to Send Message in Unidirectionally  
+  - Repeater used in Ring topology with large number of nodes because if someone want to send data to last node in
     with 100 nodes then data will have to pass through 99 nodes to reach 100th node
-  - To prevent data loss repeaters are used in network
-  Access method :-
-  Token passing
-   - Token is passed from one node to another until reach destination
+  - Use Token-Ring to remove collision
+  - Less Realibility | No Security | Less Cost compared to Mesh | No Termination Point | Single Failure | Delay
+  No of cabel = N + 1 (N : no of devices)
+  No of ports = 1     | 1 * N  
+  
+  Token passing :-
+   - Token passed from one node to another until reach destination
    - Sender modifies token by putting address along with data
-   - Once token received by destination device then it send acknowledgment to the sender
+   - Once token received by destination device then it send acknowledgment to sender
    Token :- Frame that circulate around network
 
 
 
  Tree :-
   - Combination of Star and bus topology where data flow in hierarchical structure
-  - Various secondary hubs connected to central hub which contain repeater
+  - Secondary hubs connected to central hub which contain repeater
   - Data flow from top to bottom(Center -> Secondary)
-  - Multi-Point Connection and Non-Robust if backbone fails topology crashes
-  - More device attached to single central hub
-  - Central hub fails entire system fail and high cost of cabling
+  - Multi-Point Connection and Non-Robust if Central hub fails entire system fail and high cost of cabling
   - Only one path exists between two nodes for data transmission Thus, it form parent-child hierarchy
   - Broadband Transmission | Easily Expandable and Manageable | Error Detection |
   - Diffcult Troublshooting and Reconfiguration
 
 
 
+Types of Ethernet :-
+
+ Ethernet :-
+  - Invented by Bob Metcalfe and D.R. Boggs in 1970 and standardized in IEEE 802.3 in 1980
+  - Uses Carrier Sense Multi Access/Collision Detection (CSMA/CD) technology to detect collision
+  - Ethernet connector is network interface card(NIC) equipped with 48-bits MAC address to identify device
+  - Use 10BASE-T where 10 depict 10MBPS speed and BASE stands for baseband and T stands for Thick Ethernet
+  - 10BASE-T use coaxial cable or Cat-5 twisted pair cable with RJ-45 connector
+  - Follow star topology with 100 meter length and device connect use hub/switch
 
 
-Redundant Link problems :-
- - Prevent nasty network failure
- - Provide redundancy(back up when a link fails)
- 
- Broadcast Storm :- 
-  - Every Switch forward broadcast frame to each other generated by another device to all its ports
-  - If no loop avoidance switches flood broadcast endlessly and consume all bandwidth which Shutdown entire network 
- 
- 
- Multiple copies :-
-  - Device receive multiple copies of same frame if A frame arrive from different network segments at same time
- 
-
- MAC Table Thrashing :-
-  - Switches use MAC address table to forward out the frames but when switch receives data from multiple switch
-    at time therefore it will lead to instability in MAC table in switch C
-  - Spanning Tree Protocol(STP) used to prevent these loops 
-  - It block down (port) path using its own mechanism by which single path is available for frame delivery at time  
+ Fast-Ethernet :-
+  - Run on UTP, Optical Fiber and wirelessly with speed up to 100 MBPS and standard named as 100BASE-T in IEEE 803.2
+    using Cat-5 twisted pair cable 
+  - Use CSMA/CD for wired and CSMA/CA (CA stands for Collision Avoidance) for wireless Ethernet LAN
+  - Fast Ethernet on fiber defined under 100BASE-FX standard which provide speed up to 100 MBPS on fiber 
+  - On fiber 100 meter in half-duplex and maximum 2000 meters in full-duplex over multimode fiber
 
 
+ Giga-Ethernet :-
+  - In 1995, Giga-Ethernet provide speed up to 1000 mbits/second with IEEE802.3ab standardize 
+  - Giga-Ethernet over UTP using Cat-5, Cat-5e and Cat-6 cables 
+  - IEEE802.3ah defines Giga-Ethernet over Fiber
 
 
-Digital Subscriber Line/Loop(DSL) :-
- - Communication medium which used to transfer data on internet through copper wire telecommunication line
- - Provide by ISP for High speed broadband Internet access also Modem
- - Splitter used to split frequency and make sure that they can’t get interrupted
- - No additional wire required because it use existing telecommunication line for both internet and telephone
- - Cost-efficient we choose different connection speeds and pricing from various providers
- - Works only on local telephone infrastructure so limited physical distance
-
- Symmetric DSL(SDSL) :- 
-  - Provide 2MBPS equal speed both uploading(Upstream) and downloading(DownStream) data transfer for small organization
-
- ASymmetric DSL(ADSL) :- 
-  - Provide wider frequency range for downstream transfers
-  - 20 Mbps downstream and 1.5 Mbps upstream, it is because most users download more data than they upload
-
+ Virtual LAN :-
+  - Shared media in Ethernet create one single Broadcast domain and one single Collision domain 
+  - Introduction of switches to Ethernet removed single collision domain issue and device connected to switch work
+    in its separate collision domain
+  - But even Switches cannot divide network into separate Broadcast domain
+  - VLAN divide single Broadcast domain into multiple Broadcast domain 
+  - Host in one VLAN cannot speak to host in another 
+  - By default, all hosts placed into same VLAN

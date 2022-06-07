@@ -4,19 +4,9 @@ Intro to Application Layer(Layer-7):-
  Function :- Identifying communication partner  |  Determining resource availability  |  Synchronizing communication
  
  Services :-
-  Network Virtual terminal :- 
-   - Allow user to log on to remote host 
-   - Remote host think that it is communicating with one of its own terminal, so it allows user to log on
-
-  File Transfer, Access and Management(FTAM) :- 
-   - Allow user to access files in remote computer 
-   - FTAM define hierarchical of virtual file in terms of file structure, file attribute and perform operation
-   
-  Addressing :- 
-   - For communication between client and server need addressing 
-   - When client made request to server, request contain server address and its own address
-   - Server response client request to achieve this kind of addressing, DNS is used
-
+  Network Virtual terminal(NVT)              :- Allow user to log on to remote host
+  File Transfer, Access and Management(FTAM) :- Access files in remote computer 
+  Addressing        :- When client made request to server, request contain server address and its own address, DNS used
   Mail Services     :- Provide Email forwarding and storage
   Directory Service :- Distributed database provide access for global information about various objects and service
   Authentication    :- Authenticate sender or receiver's message or both
@@ -24,71 +14,45 @@ Intro to Application Layer(Layer-7):-
 
 
 Network Application Architecture :-
- - Network architecture fixed and provides set of services to application while application architecture designed by 
-   application developer and defines how application should be structured over various end system
-
- Application architecture is of two types :- Client-Server  |  Peer-to-Peer
+ - Provides set of service to application designed by application developer
+ Application architecture types :- Client-Server  |  Peer-to-Peer
 
  Client-server architecture :- 
-  - Application program running on local machine known as client send request to another application program and 
-    program that serves request is known as a server 
+  - Application program running on local machine known as client send request to another application program that 
+    serves request known as server 
+  - Server provide service for many client not just for single client(many-to-one relationship)
+  Diagram :- Client(Send Request to perform task) --> Internet <-- Server(Process Request and Send Response)
 
-   Characteristics :-
-    - Client not directly communicate with each other 
-    - Server has fixed well-known address known as IP address because server is always on while client always contact
-      server by sending packet to sender's IP address
+  Advantages :-
+    Centralized(All data stored in server) | Security    (All shared resources centrally administered)
+    Performance(Dedicated server)          | Scalability (Handle number of client)
    
-   Disadvantage :-
-    - Single-server based architecture which is incapable of holding all requests from the client
+  Disadvantage :- Single-server architecture incapable of holding all request from client | Server Down
  
 
  P2P (peer-to-peer) architecture : 
-  - No dedicated server in data center 
-  - Peers are computers which are not owned by service provider 
-  - Most of peers reside in homes, offices, schools and universities 
   - Peers communicate with each other without passing information through dedicated server
+  - Peers are computer which reside in homes, offices, schools and universities 
   - Application based on P2P architecture includes file sharing and internet telephony
-
-  Features :- 
-   Self scalability : In a file sharing system, although each peer generates a workload by requesting the files, each peer also adds a service capacity by distributing the files to the peer.
-   Cost-effective   : Not require significant server infrastructure and server bandwidth
-
-
-
-Client and Server model :-
- - Server provide network service to client to perform user based tasks 
- Diagram :- Client(Send Request to perform task) --> Internet <-- Server(Process Request and Send Response)
- 
- - Application program known as client program, running on local machine that request for service from application 
-   program known as server program, running on remote machine
- - Server provide service for many client not just for single client 
- - Therefore, client-server follow many-to-one relationship
-
- Advantages :-
-  Centralized : Centralized back-up possible (All data stored in server)
-  Security    : More secure as all shared resources are centrally administered
-  Performance : Dedicated server increases speed and performance of sharing resources and overall system
-  Scalability : Increase number of client and server separately 
-  
- Disadvantages :- 
-  - Traffic Congestion(Large number of request to same server)
-  - Not have Robustness(When server is down, then client requests cannot be met)
-  - Very decisive, Hardware not serve certain number of client 
-  - Sometime Resource exist in server but may not exist in client
+  Feature :- Self-Scalability  |  Cost-effective (Not require Server)
 
 
 
 DNS(Domain Name System) :-
- - DNS is directory service that provide mapping between name of host on network and its numerical address
- - Each node in tree has domain name and a full domain name is sequence of symbols specified by dots
- - DNS service translate domain name into IP addresses which help user by providing user-friendly names when looking
-   for other host instead of remembering IP addresses
- - DNS is TCP/IP protocol divided into three different section :- Generic domain | Country domain | Inverse domain
+ - Directory service provide mapping between host name on network and its numerical address
+ - Each node in tree has domain name and full domain name is sequence of symbols specified by dots
+ - Client request contain name which converted into IP address known as forward DNS lookups while request containing
+   IP address which converted into name known as reverse DNS lookup
+ - DNS implement distributed database to store name of all host available on internet 
+ - If client web browser send request containing hostname then DNS resolver send reques to DNS server to obtain IP
+   address of hostname, If DNS server not contain IP address associated with hostname then it forward request to 
+   another DNS server 
+ Protocol divided into three different section :- Generic domain | Country domain | Inverse domain
 
 
  Generic Domain :- 
-  - Specify registered hosts according to their generic behavior
-  - Each node in tree define domain name, which is index to DNS database
+  - Host registered according their generic behavior
+  - Each node in tree define domain name, which index to DNS database
   - It uses three-character label and these label describe organization type
   
   Label	Description
@@ -101,91 +65,66 @@ DNS(Domain Name System) :-
    info	Information service provider         |   museum	Museum & other nonprofit organization
 
 
- Country Domain :-
-  - It use two-character country abbreviation(E.x :- us for United State)
+ Country Domain :- Use two-character country abbreviation(E.x :- us for United State)
 
 
  Inverse Domain :- 
-  - Used for mapping address to name 
+  - Mapping address to name 
   - When server receive request from client and server contain file of only authorize client 
   - To determine whether client is authorized or not, it send query to DNS server and ask for mapping address to name
 
 
- Working of DNS :-
-  - DNS client send request to server while DNS servers send responses to client
-  - Client request contain name which converted into IP address known as forward DNS lookups while request containing
-    IP address which converted into name known as reverse DNS lookup
-  - DNS implement distributed database to store name of all host available on internet
-  - If client like web browser send request containing hostname then piece of software such as DNS resolver send request
-    to DNS server to obtain IP address of hostname
-  - If DNS server not contain IP address associated with hostname then it forward request to another DNS server 
-
-
 
 FTP(File transfer protocol) :-
- - Provided by TCP/IP used for transmitting files from one host to another
- - Transferring web page file from their creator to computer that acts as server for other computer on internet
+ - Transferring web page file from their creator to server or other computer on internet
  - Also used for downloading file from other server
- - Objectives of FTP :- Sharing of file | Transfer data more reliably and efficiently
- - Two system may have different ways to represent text and data and different directory structure
+ - Objectives of FTP is Transfer data more reliably and efficiently
+ - Two system have different directory structure, way to represent text and data
  - FTP protocol overcome these problem by establishing two connection between hosts
  - One connection for data transfer and another connection for control connection
- FTP client has three component :- User interface | Control process | Data transfer process 
- FTP server has two component   :- Server control process  |  Server data transfer process
-
-
- Types of connections in FTP :-
-  Control Connection :- 
-   - Simple rules for communication made between control processes
-   - Through control connection, transfer line of command or line of response at time 
-   - Remain connected during entire interactive FTP session
-
-  Data Connection :- 
-   - Very complex rules as data types may vary 
-   - Made between data transfer processes 
-   - Data connection open when command come for transferring files and close when file is transferred
-
-
- FTP Client :-
-  - Program that implement FTP which allow to transfer file between two hosts on internet
-  - Allow user to connect to remote host and upload or download file
-  - It has set of command that use to connect to host, transfer files and close connection
-  - FTP also available as built-in component in Web browser 
-  
-  
- Advantages of FTP :- Speed | Efficient | Security(ID,Password) | Back & forth movement(Transfer file back and forth)
-  
- Disadvantages of FTP :-
+ 
+ Control Connection   :- Transfer line of command or line of response at time and Remain connected during FTP session
+ Data Connection      :- Data connection open when command come for transferring file and close when file transferred
+ FTP Client Component :- User interface | Control process | Data transfer process 
+ FTP Server Component :- Server control process | Server data transfer process
+ 
+ Advantages    :- Speed | Efficient | Security(ID,Password) | Back & forth movement(Transfer file back and forth)
+ Disadvantages :- 
   - Some provider not use encryption file transfer that allow unwanted eavesdropping
   - Size limit of file is 2GB that sent and doesn't run simultaneous transfers to multiple receiver
   - Not compatible with every system
 
 
 
+ FTP Client :-
+  - Program that implement FTP to transfer file between host on internet
+  - Allow user to connect remote host and upload or download file
+  - Provide Set of command that use to connect to host, transfer files and close connection
+  - FTP also available as built-in component in Web browser 
+  
+
+
 Telnet(Terminal Network):- 
- - Allow user to log on to remote computer to perform different operation
- - It provide connection to remote computer in such way that local terminal appears to be at remote side
+ - Allow user to log on remote computer to perform different operation
  
- Type of login :- Local Login | Remote Login
+ Type of login :- 
  
   Local Login :-
-   Diagram(Local) :- https://static.javatpoint.com/tutorial/computer-network/images/computer-network-telnet.png
-   - When user log into local computer, then it is known as local login.
-   - When running terminal emulator keystroke entered by user are accepted by terminal driver
+   - When user log in local computer known as local login
+   - When running terminal emulator keystroke entered by user accepted by terminal driver
    - Terminal driver then passe these character to OS which invoke desired application program
    - However OS has special meaning to special characters 
   
   Remote login :-
-   Diagram :- https://static.javatpoint.com/tutorial/computer-network/images/computer-network-telnet2.png 
    - When user wants to access application program on remote computer then user must perform remote login
    
    At local site :-
     - User send keystroke to terminal driver, character then sent to TELNET client 
-    - TELNET client transform character to universal character known as virtual terminal character and deliver them
-      to local TCP/IP stack
+    - TELNET client transform character to universal character known as virtual terminal character and deliver to local
+      TCP/IP stack
   
    At remote site :-
-    - Command in NVT(Network Virtual Terminal) forms are transmitted to TCP/IP at remote machine 
+    - Command in NVT(Network Virtual Terminal) form are transmitted to TCP/IP at remote machine 
     - Here character are delivered to OS and then pass to TELNET server 
     - TELNET server transform character which understandable by remote computer 
     - However character cannot be directly passed to OS as remote OS not receive character from TELNET server 
@@ -194,8 +133,8 @@ Telnet(Terminal Network):-
 
   
  Network Virtual Terminal (NVT) :-
-  - Interface that defines how data and commands are sent across network
-  - TELNET solves OS Special character issue by defining universal interface known as network virtual interface
+  - Interface that define how data and command are sent across network
+  - TELNET solve OS Special character issue by defining universal interface known as network virtual interface
   - TELNET client translate character that come from local terminal into NVT form and then delivers them to network 
   - Telnet server then translates data from NVT form into form which can be understandable by remote computer
   Diagram :-
