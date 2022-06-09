@@ -1,0 +1,360 @@
+SQL(Structured Query Language) 
+ - Standard language for Storing and managing data in RDBMS
+ - Enable to perform CRUD operation on relational database
+ 
+ Rules :-
+  - Not case sensitive, keywords written in uppercase
+  - Use single SQL statement on one or multiple text line
+  - SQL depend on tuple relational calculus and relational algebra
+
+ SQL process :-
+  - When SQL command executing, then system carry out request and SQL engine interpret task
+  - Component optimization Engine, Query engine, Query dispatcher, classic
+  - All non-SQL queries are handled by classic query engine, but SQL query engine won't handle logical file
+
+ Characteristics of SQL :-
+  - Easy to learn and Access data from RDBMS
+  - Execute queries against database to describe data
+  - CRUD operation and view, stored procedure, function in database
+  - Set permissions on tables, procedures and view
+ 
+ Advantages of SQL :- High speed | No coding needed | Well defined | Portability | Interactive | Multiple data view
+
+
+
+SQL Datatype :- 
+ - Define values that column contain
+ - Every column required to have name and data type in database table
+ 
+ Binary Datatypes :- 
+  Data Type	Description
+  binary	    Max length of 8000 byte, Fixed-length binary data
+  varbinary	Max length of 8000 byte, variable-length binary data.
+  image	    Max length of 2,147,483,647 bytes, contain variable-length binary data
+
+ Numeric Datatype :-
+  Data type	 	        Description                                   From	To
+  float	      Specify floating-point value e.g. 6.2, 2.9 etc.       -1.79E + 308	
+  real	      Specifies single precision floating point number      -3.40e + 38
+  int	      Integer value
+  smallint	  Small integer value
+  bit	      Number of bit to store
+  decimal	  Numeric value that have decimal number
+  numeric	  Specify numeric value
+
+
+ Character String Datatype :-
+  Data type     	Description
+  char	    8000 character, Fixed-length non-unicode character
+  varchar	8000 character. variable-length non-unicode character
+  text	    2,147,483,647 character, variable-length non-unicode character
+
+
+ Date and time Datatype :-
+  Datatype	Description
+   date	        Store year, month and days value
+   time	        Store hour, minute and second values
+   timestamp	Store year, month, day, hour, minute and second value
+
+
+
+SQL Command :-
+ - Instructions used to communicate with database 
+ - Perform specific tasks, functions, and queries of data
+ 
+ Data Definition Language (DDL) :-
+  - Change structure of table like creating table, deleting table, altering table, etc.
+  - Command auto-committed
+  
+  CREATE :-
+   - Create new table in database
+   Syntax :- CREATE TABLE TABLE_NAME (COLUMN_NAME DATATYPES[,....]);
+
+  DROP :- 
+   - Delete both structure and record stored in table
+   Syntax :- DROP TABLE table_name;
+
+  ALTER :- 
+   - Alter structure of database either to modify existing attribute or probably to add new attribute
+   Syntax :- 
+    ALTER TABLE table_name ADD column_name COLUMN-definition;
+    ALTER TABLE table_name MODIFY(column_definitions....);  
+
+  TRUNCATE :- 
+   - Delete all rows from table and free space containing table
+   Syntax :- TRUNCATE TABLE table_name;  
+
+
+
+ Data Manipulation Language (DML):-
+  - Modify database, Responsible for all form of changes in database
+  - Command not auto-committed they can be rollback
+  
+  INSERT :- 
+   - Insert data into row of table
+   Syntax :- 
+    - INSERT INTO TABLE_NAME (col1, col2, col3,.... col N) VALUES (value1, value2, value3, .... valueN); // with
+    - INSERT INTO TABLE_NAME VALUES (value1, value2, value3, .... valueN);  // Without Column Name
+ 
+   Note :- 
+    - If add value for all column then there is no need to specify column name
+    - But sure that entering values in same order as column exists
+
+  
+  UPDATE :- 
+   - Update or modify value of column in table
+   Syntax :- 
+    - UPDATE table_name SET [column_name1= value1,...column_nameN = valueN] [WHERE CONDITION];
+    - UPDATE table_name SET column_name = value WHERE condition;
+    - UPDATE table_name SET column1 = value1, column2 = value2, WHERE condition;  
+    - UPDATE table_name SET column_name = value1;  
+
+
+  DELETE :- 
+   - Remove one or more row from table
+   Syntax :-  
+    - DELETE FROM table_name [WHERE condition];  
+    - DELETE FROM table_name WHERE some_condition;  
+    - DELETE * FROM table_name;    
+   Note :- 
+    - Using WHERE clause, delete single as well as multiple record 
+    - If delete all record from table then don't need to use WHERE clause 
+   
+
+
+ Data Control Language(DCL):- 
+  - Grant and revoke authority from any database user
+  
+  Grant :- 
+   - Give user access privileges to database
+   Syntax :- GRANT SELECT, UPDATE ON MY_TABLE TO SOME_USER, ANOTHER_USER;  
+ 
+  Revoke :- 
+   - Take back permissions from user
+   Syntax :- REVOKE SELECT, UPDATE ON MY_TABLE FROM USER1, USER2;  
+
+
+
+ Transaction Control Language(TCL) :-
+  - TCL command only use with DML command like INSERT, DELETE and UPDATE only
+  - Automatically committed in database that's why they cannot be used while creating tables or dropping them
+  
+  Commit :-  
+   - Save all transactions to database
+   Syntax : COMMIT;  
+  
+  Rollback :- 
+   - Undo transactions that have not already been saved to database
+   Syntax :- ROLLBACK;  
+
+  SAVEPOINT :- 
+   - Roll transaction back to certain point without rolling back entire transaction
+   Syntax :- SAVEPOINT SAVEPOINT_NAME;  
+
+
+ 
+ Data Query Language(DQL):-
+  - Fetch data from database
+  SELECT :-
+   - Select data from table in database based on condition described by WHERE clause
+   - Return data stored in table known as result-set
+   Syntax :- 
+    - SELECT expression FROM TABLES WHERE conditions;  
+    - SELECT column1, column-N FROM table_name;  
+    - SELECT  *  FROM table_name;  
+
+
+
+SQL Operator :-
+ Arithmetic Operator :- + | - | * | / | %	
+ Comparison Operator :- = | != | <> | > | < | >= | <= | !> | !<
+ Logical Operator    :- 
+   ALL	    Compare value to all values in another value set
+   AND	    Allow existence of multiple condition in SQL statement
+   ANY	    Compare values in list according to condition
+   BETWEEN	Search for values that are within set of value
+   IN	    Compare value to that specified list value
+   NOT	    Reverse meaning of any logical operator
+   OR	    Combine multiple condition in SQL statement
+   EXISTS	Search for presence of row in specified table
+   LIKE	    Compare value to similar values using wildcard operator
+
+
+
+Views :-
+ - Virtual table contain rows and columns
+ - Select fields from one or more tables present in database
+ - View either have specific row based on certain condition or all rows of table
+
+ Creating view :- 
+  - CREATE VIEW view_name AS SELECT column1, column2.... FROM table_name WHERE condition;  
+  - CREATE VIEW DetailsView AS SELECT NAME, ADDRESS FROM Student_Detail WHERE STU_ID < 4;  
+  - SELECT * FROM DetailsView;  
+
+ 
+ Creating View from multiple tables :- 
+  - CREATE VIEW MarksView AS  SELECT Student_Detail.NAME, Student_Detail.ADDRESS, Student_Marks.MARKS  
+    FROM Student_Detail, Student_Mark WHERE Student_Detail.NAME = Student_Marks.NAME;  
+  To display data of View MarksView :- SELECT * FROM MarksView;  
+
+
+ Deleting View :-
+  - DROP VIEW view_name;
+
+
+
+Index :-
+ - Special lookup tables used to retrieve data from database very fast
+ - It speed up select queries and where clauses 
+ - But it show down data input with insert and update statement without affecting data
+ 
+ Create Index :- CREATE INDEX index_name ON table_name (column1, column2, ...);  
+ Unique Index :- CREATE UNIQUE INDEX index_name ON table_name (column1, column2, ...);  
+ Drop Index   :- DROP INDEX index_name;  
+
+
+
+Sub Query :-
+ - Query within another SQL query and embedded within WHERE clause
+
+ Rules :- 
+  - Placed in number of SQL clauses like WHERE clause, FROM clause, HAVING clause
+  - Use Subquery with SELECT, UPDATE, INSERT, DELETE statements along with operator like =, <, >, >=, <=, IN, BETWEEN,
+  - Outer query known as main query and inner query is subquery
+  - Subqueries are on right side of comparison operator enclosed in parentheses
+  - ORDER BY command cannot be used But GROUP BY used to perform same function as ORDER BY command
+
+ Subqueries with Select :-
+  - SELECT column_name FROM table_name WHERE column_name expression operator   
+    (SELECT column_name  from table_name WHERE ... );  
+
+ Subqueries with INSERT :-
+  - INSERT INTO table_name (column1, column2, column3....) SELECT * FROM table_name WHERE VALUE OPERATOR  
+
+ Subqueries with UPDATE :-
+  - UPDATE table SET column_name = new_value WHERE VALUE OPERATOR (SELECT COLUMN_NAME FROM TABLE_NAME WHERE condition);  
+
+ Subqueries with DELETE :-
+  - DELETE FROM TABLE_NAME WHERE VALUE OPERATOR (SELECT COLUMN_NAME FROM TABLE_NAME WHERE condition);   
+
+
+
+SQL Clauses :-
+ GROUP BY :-
+  - Arrange data into group used with SELECT query
+  - Follow WHERE clause in SELECT statement and precedes ORDER BY clause
+  - Also used with aggregation function
+  Syntax :- SELECT column FROM table_name WHERE conditions GROUP BY column ORDER BY column  
+
+
+ HAVING :-
+  - Specify search condition for group or aggregate
+  - Having is used in GROUP BY clause 
+  - If not using GROUP BY clause then use HAVING function like WHERE clause
+  Syntax :- SELECT column1, column2 FROM table_name WHERE condition GROUP BY column1, column2 HAVING conditions
+            ORDER BY column1, column2;  
+
+ ORDER BY :-
+  - Sort result-set in ascending or descending order
+  - Sort record in ascending order by default 
+  - DESC keyword sort record in descending order
+  Syntax :- SELECT column1, column2 FROM table_name WHERE condition ORDER BY column1, column2... ASC|DESC; 
+
+
+
+SQL Aggregate Function :- 
+ - Perform calculation on multiple row of single column of table and return single value
+ - Also used to summarize data
+ 
+ COUNT :- 
+  - Count number of rows in database table and work on both numeric and non-numeric data type
+  - Uses COUNT(*) that return count of all rows in specified table 
+  - COUNT(*) consider duplicate and Null
+  Syntax :- COUNT(*)  or  COUNT( [ALL|DISTINCT] expression )  
+
+ SUM :- 
+  - Calculate sum of all selected column and works on numeric fields only
+  Syntax :- SUM()  or  SUM( [ALL|DISTINCT] expression )  
+   
+ AVG :- 
+  - Calculate average value of numeric type and return average of all non-Null value
+  Syntax :- AVG() or  AVG( [ALL|DISTINCT] expression )  
+
+ MAX :- 
+  - Find maximum value of certain column 
+  Syntax :- MAX()  or  MAX( [ALL|DISTINCT] expression )  
+ 
+ MIN :- 
+  - Find minimum value of certain column
+  Syntax :- MIN()  or  MIN( [ALL|DISTINCT] expression )  
+
+
+
+JOIN :-
+ - Combine two or more tables or records in database
+
+ INNER JOIN :-
+  - Return combination of all rows from both tables where condition satisfies
+  Syntax :- SELECT table1.column1, table1.column2, table2.column1 FROM table1 INNER JOIN table2  
+            ON table1.matching_column = table2.matching_column;  
+
+ LEFT JOIN :-
+  - Return all values from left table and matching values from right table 
+  - If there is no matching join value, it will return NULL
+  Syntax :- SELECT table1.column1, table1.column2, table2.column1, FROM table1 LEFT JOIN table2  
+            ON table1.matching_column = table2.matching_column;  
+
+ RIGHT JOIN :-
+  - Return all values from rows of right table and matched values from left table 
+  - If there is no matching in both tables, it will return NULL
+  Syntax :- SELECT table1.column1, table1.column2, table2.column1 FROM table1 RIGHT JOIN table2  
+            ON table1.matching_column = table2.matching_column;  
+
+ FULL JOIN :-
+  - Result of combination of both left and right outer join 
+  - Join tables have all record from both tables 
+  - It puts NULL on the place of matches not found
+  Syntax :- SELECT table1.column1, table1.column2, table2.column1 FROM table1 FULL JOIN table2  
+            ON table1.matching_column = table2.matching_column;  
+
+
+
+Set :-
+ - Combine two or more SQL SELECT statement
+
+ Union :-
+  - Combine result of two or more SQL SELECT queries
+  - All number of datatype and column must be same in both tables on which UNION operation is being applied.
+  - Eliminate duplicate rows from its resultset
+  Syntax :- SELECT column_name FROM table1 UNION SELECT column_name FROM table2;  
+
+
+ Union All :-
+  - Return set without removing duplication and sorting data
+  Syntax :- SELECT column_name FROM table1 UNION ALL SELECT column_name FROM table2;  
+
+
+ Intersect :-
+  - Return common rows from both SELECT statement
+  - Number of datatype and column must be same
+  - It has no duplicates and it arranges data in ascending order by default
+  Syntax :- SELECT column_name FROM table1  INTERSECT  SELECT column_name FROM table2;  
+
+
+ Minus :-
+  - Display rows which present in first query but absent in second query
+  - It has no duplicates and data arranged in ascending order by default
+  Syntax :- SELECT column_name FROM table1 MINUS SELECT column_name FROM table2;  
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,167 @@
+File Organization
+The File is a collection of records. Using the primary key, we can access the records. The type and frequency of access can be determined by the type of file organization which was used for a given set of records.
+File organization is a logical relationship among various records. This method defines how file records are mapped onto disk blocks.
+File organization is used to describe the way in which the records are stored in terms of blocks, and the blocks are placed on the storage medium.
+The first approach to map the database to the file is to use the several files and store only one fixed length record in any given file. An alternative approach is to structure our files so that we can contain multiple lengths for records.
+Files of fixed length records are easier to implement than the files of variable length records.
+Objective of file organization
+It contains an optimal selection of records, i.e., records can be selected as fast as possible.
+To perform insert, delete or update transaction on the records should be quick and easy.
+The duplicate records cannot be induced as a result of insert, update or delete.
+For the minimal cost of storage, records should be stored efficiently.
+Types of file organization:
+File organization contains various methods. These particular methods have pros and cons on the basis of access or selection. In the file organization, the programmer decides the best-suited file organization method according to his requirement.
+
+Types of file organization are as follows:
+
+DBMS File Organization
+Sequential file organization
+Heap file organization
+Hash file organization
+B+ file organization
+Indexed sequential access method (ISAM)
+Cluster file organization
+
+
+
+
+
+
+Sequential File Organization
+This method is the easiest method for file organization. In this method, files are stored sequentially. This method can be implemented in two ways:
+
+1. Pile File Method:
+It is a quite simple method. In this method, we store the record in a sequence, i.e., one after another. Here, the record will be inserted in the order in which they are inserted into tables.
+In case of updating or deleting of any record, the record will be searched in the memory blocks. When it is found, then it will be marked for deleting, and the new record is inserted.
+DBMS Sequential File Organization
+Insertion of the new record:
+Suppose we have four records R1, R3 and so on upto R9 and R8 in a sequence. Hence, records are nothing but a row in the table. Suppose we want to insert a new record R2 in the sequence, then it will be placed at the end of the file. Here, records are nothing but a row in any table.
+
+DBMS Sequential File Organization
+2. Sorted File Method:
+In this method, the new record is always inserted at the file's end, and then it will sort the sequence in ascending or descending order. Sorting of records is based on any primary key or any other key.
+In the case of modification of any record, it will update the record and then sort the file, and lastly, the updated record is placed in the right place.
+DBMS Sequential File Organization
+Insertion of the new record:
+Suppose there is a preexisting sorted sequence of four records R1, R3 and so on upto R6 and R7. Suppose a new record R2 has to be inserted in the sequence, then it will be inserted at the end of the file, and then it will sort the sequence.
+
+DBMS Sequential File Organization
+Pros of sequential file organization
+It contains a fast and efficient method for the huge amount of data.
+In this method, files can be easily stored in cheaper storage mechanism like magnetic tapes.
+It is simple in design. It requires no much effort to store the data.
+This method is used when most of the records have to be accessed like grade calculation of a student, generating the salary slip, etc.
+This method is used for report generation or statistical calculations.
+Cons of sequential file organization
+It will waste time as we cannot jump on a particular record that is required but we have to move sequentially which takes our time.
+Sorted file method takes more time and space for sorting the records.
+
+
+
+
+
+
+
+Heap file organization
+It is the simplest and most basic type of organization. It works with data blocks. In heap file organization, the records are inserted at the file's end. When the records are inserted, it doesn't require the sorting and ordering of records.
+When the data block is full, the new record is stored in some other block. This new data block need not to be the very next data block, but it can select any data block in the memory to store new records. The heap file is also known as an unordered file.
+In the file, every record has a unique id, and every page in a file is of the same size. It is the DBMS responsibility to store and manage the new records.
+DBMS Heap file organization
+Insertion of a new record
+Suppose we have five records R1, R3, R6, R4 and R5 in a heap and suppose we want to insert a new record R2 in a heap. If the data block 3 is full then it will be inserted in any of the database selected by the DBMS, let's say data block 1.
+
+DBMS Heap file organization
+If we want to search, update or delete the data in heap file organization, then we need to traverse the data from staring of the file till we get the requested record.
+
+If the database is very large then searching, updating or deleting of record will be time-consuming because there is no sorting or ordering of records. In the heap file organization, we need to check all the data until we get the requested record.
+
+Pros of Heap file organization
+It is a very good method of file organization for bulk insertion. If there is a large number of data which needs to load into the database at a time, then this method is best suited.
+In case of a small database, fetching and retrieving of records is faster than the sequential record.
+Cons of Heap file organization
+This method is inefficient for the large database because it takes time to search or modify the record.
+This method is inefficient for large databases.
+
+
+
+
+
+B+ File Organization
+B+ tree file organization is the advanced method of an indexed sequential access method. It uses a tree-like structure to store records in File.
+It uses the same concept of key-index where the primary key is used to sort the records. For each primary key, the value of the index is generated and mapped with the record.
+The B+ tree is similar to a binary search tree (BST), but it can have more than two children. In this method, all the records are stored only at the leaf node. Intermediate nodes act as a pointer to the leaf nodes. They do not contain any records.
+DBMS B+ File Organization
+The above B+ tree shows that:
+There is one root node of the tree, i.e., 25.
+There is an intermediary layer with nodes. They do not store the actual record. They have only pointers to the leaf node.
+The nodes to the left of the root node contain the prior value of the root and nodes to the right contain next value of the root, i.e., 15 and 30 respectively.
+There is only one leaf node which has only values, i.e., 10, 12, 17, 20, 24, 27 and 29.
+Searching for any record is easier as all the leaf nodes are balanced.
+In this method, searching any record can be traversed through the single path and accessed easily.
+Pros of B+ tree file organization
+In this method, searching becomes very easy as all the records are stored only in the leaf nodes and sorted the sequential linked list.
+Traversing through the tree structure is easier and faster.
+The size of the B+ tree has no restrictions, so the number of records can increase or decrease and the B+ tree structure can also grow or shrink.
+It is a balanced tree structure, and any insert/update/delete does not affect the performance of tree.
+Cons of B+ tree file organization
+This method is inefficient for the static method.
+
+
+
+
+
+
+Indexed sequential access method (ISAM)
+ISAM method is an advanced sequential file organization. In this method, records are stored in the file using the primary key. An index value is generated for each primary key and mapped with the record. This index contains the address of the record in the file.
+
+DBMS Indexed sequential access method
+If any record has to be retrieved based on its index value, then the address of the data block is fetched and the record is retrieved from the memory.
+
+Pros of ISAM:
+In this method, each record has the address of its data block, searching a record in a huge database is quick and easy.
+This method supports range retrieval and partial retrieval of records. Since the index is based on the primary key values, we can retrieve the data for the given range of value. In the same way, the partial value can also be easily searched, i.e., the student name starting with 'JA' can be easily searched.
+Cons of ISAM
+This method requires extra space in the disk to store the index value.
+When the new records are inserted, then these files have to be reconstructed to maintain the sequence.
+When the record is deleted, then the space used by it needs to be released. Otherwise, the performance of the database will slow down.
+
+
+
+
+
+
+
+Cluster file organization
+When the two or more records are stored in the same file, it is known as clusters. These files will have two or more tables in the same data block, and key attributes which are used to map these tables together are stored only once.
+This method reduces the cost of searching for various records in different files.
+The cluster file organization is used when there is a frequent need for joining the tables with the same condition. These joins will give only a few records from both tables. In the given example, we are retrieving the record for only particular departments. This method can't be used to retrieve the record for the entire department.
+DBMS Cluster file organization
+DBMS Cluster file organization
+In this method, we can directly insert, update or delete any record. Data is sorted based on the key with which searching is done. Cluster key is a type of key with which joining of the table is performed.
+
+Types of Cluster file organization:
+Cluster file organization is of two types:
+
+1. Indexed Clusters:
+In indexed cluster, records are grouped based on the cluster key and stored together. The above EMPLOYEE and DEPARTMENT relationship is an example of an indexed cluster. Here, all the records are grouped based on the cluster key- DEP_ID and all the records are grouped.
+
+2. Hash Clusters:
+It is similar to the indexed cluster. In hash cluster, instead of storing the records based on the cluster key, we generate the value of the hash key for the cluster key and store the records with the same hash key value.
+
+Pros of Cluster file organization
+The cluster file organization is used when there is a frequent request for joining the tables with same joining condition.
+It provides the efficient result when there is a 1:M mapping between the tables.
+Cons of Cluster file organization
+This method has the low performance for the very large database.
+If there is any change in joining condition, then this method cannot use. If we change the condition of joining then traversing the file takes a lot of time.
+This method is not suitable for a table with a 1:1 condition.
+
+
+
+
+
+
+
+
+
+

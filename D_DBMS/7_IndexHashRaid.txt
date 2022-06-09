@@ -1,0 +1,353 @@
+Indexing in DBMS
+Indexing is used to optimize the performance of a database by minimizing the number of disk accesses required when a query is processed.
+The index is a type of data structure. It is used to locate and access the data in a database table quickly.
+Index structure:
+Indexes can be created using some database columns.
+
+DBMS Indexing in DBMS
+The first column of the database is the search key that contains a copy of the primary key or candidate key of the table. The values of the primary key are stored in sorted order so that the corresponding data can be accessed easily.
+The second column of the database is the data reference. It contains a set of pointers holding the address of the disk block where the value of the particular key can be found.
+Indexing Methods
+DBMS Indexing in DBMS
+Ordered indices
+The indices are usually sorted to make searching faster. The indices which are sorted are known as ordered indices.
+
+Example: Suppose we have an employee table with thousands of record and each of which is 10 bytes long. If their IDs start with 1, 2, 3....and so on and we have to search student with ID-543.
+
+In the case of a database with no index, we have to search the disk block from starting till it reaches 543. The DBMS will read the record after reading 543*10=5430 bytes.
+In the case of an index, we will search using indexes and the DBMS will read the record after reading 542*2= 1084 bytes which are very less compared to the previous case.
+Primary Index
+If the index is created on the basis of the primary key of the table, then it is known as primary indexing. These primary keys are unique to each record and contain 1:1 relation between the records.
+As primary keys are stored in sorted order, the performance of the searching operation is quite efficient.
+The primary index can be classified into two types: Dense index and Sparse index.
+Dense index
+The dense index contains an index record for every search key value in the data file. It makes searching faster.
+In this, the number of records in the index table is same as the number of records in the main table.
+It needs more space to store index record itself. The index records have the search key and a pointer to the actual record on the disk.
+DBMS Indexing in DBMS
+Sparse index
+In the data file, index record appears only for a few items. Each item points to a block.
+In this, instead of pointing to each record in the main table, the index points to the records in the main table in a gap.
+DBMS Indexing in DBMS
+Clustering Index
+A clustered index can be defined as an ordered data file. Sometimes the index is created on non-primary key columns which may not be unique for each record.
+In this case, to identify the record faster, we will group two or more columns to get the unique value and create index out of them. This method is called a clustering index.
+The records which have similar characteristics are grouped, and indexes are created for these group.
+Example: suppose a company contains several employees in each department. Suppose we use a clustering index, where all employees which belong to the same Dept_ID are considered within a single cluster, and index pointers point to the cluster as a whole. Here Dept_Id is a non-unique key.
+
+DBMS Indexing in DBMS
+The previous schema is little confusing because one disk block is shared by records which belong to the different cluster. If we use separate disk block for separate clusters, then it is called better technique.
+
+DBMS Indexing in DBMS
+Secondary Index
+In the sparse indexing, as the size of the table grows, the size of mapping also grows. These mappings are usually kept in the primary memory so that address fetch should be faster. Then the secondary memory searches the actual data based on the address got from mapping. If the mapping size grows then fetching the address itself becomes slower. In this case, the sparse index will not be efficient. To overcome this problem, secondary indexing is introduced.
+
+In secondary indexing, to reduce the size of mapping, another level of indexing is introduced. In this method, the huge range for the columns is selected initially so that the mapping size of the first level becomes small. Then each range is further divided into smaller ranges. The mapping of the first level is stored in the primary memory, so that address fetch is faster. The mapping of the second level and actual data are stored in the secondary memory (hard disk).
+
+DBMS Indexing in DBMS
+For example:
+
+If you want to find the record of roll 111 in the diagram, then it will search the highest entry which is smaller than or equal to 111 in the first level index. It will get 100 at this level.
+Then in the second index level, again it does max (111) <= 111 and gets 110. Now using the address 110, it goes to the data block and starts searching each record till it gets 111.
+This is how a search is performed in this method. Inserting, updating or deleting is also done in the same manner.
+
+
+
+
+
+
+
+
+B+ Tree
+The B+ tree is a balanced binary search tree. It follows a multi-level index format.
+In the B+ tree, leaf nodes denote actual data pointers. B+ tree ensures that all leaf nodes remain at the same height.
+In the B+ tree, the leaf nodes are linked using a link list. Therefore, a B+ tree can support random access as well as sequential access.
+Structure of B+ Tree
+In the B+ tree, every leaf node is at equal distance from the root node. The B+ tree is of the order n where n is fixed for every B+ tree.
+It contains an internal node and leaf node.
+DBMS B+ Tree
+Internal node
+An internal node of the B+ tree can contain at least n/2 record pointers except the root node.
+At most, an internal node of the tree contains n pointers.
+Leaf node
+The leaf node of the B+ tree can contain at least n/2 record pointers and n/2 key values.
+At most, a leaf node contains n record pointer and n key values.
+Every leaf node of the B+ tree contains one block pointer P to point to next leaf node.
+Searching a record in B+ Tree
+Suppose we have to search 55 in the below B+ tree structure. First, we will fetch for the intermediary node which will direct to the leaf node that can contain a record for 55.
+
+So, in the intermediary node, we will find a branch between 50 and 75 nodes. Then at the end, we will be redirected to the third leaf node. Here DBMS will perform a sequential search to find 55.
+
+DBMS B+ Tree
+B+ Tree Insertion
+Suppose we want to insert a record 60 in the below structure. It will go to the 3rd leaf node after 55. It is a balanced tree, and a leaf node of this tree is already full, so we cannot insert 60 there.
+
+In this case, we have to split the leaf node, so that it can be inserted into tree without affecting the fill factor, balance and order.
+
+DBMS B+ Tree
+The 3rd leaf node has the values (50, 55, 60, 65, 70) and its current root node is 50. We will split the leaf node of the tree in the middle so that its balance is not altered. So we can group (50, 55) and (60, 65, 70) into 2 leaf nodes.
+
+If these two has to be leaf nodes, the intermediate node cannot branch from 50. It should have 60 added to it, and then we can have pointers to a new leaf node.
+
+DBMS B+ Tree
+This is how we can insert an entry when there is overflow. In a normal scenario, it is very easy to find the node where it fits and then place it in that leaf node.
+
+B+ Tree Deletion
+Suppose we want to delete 60 from the above example. In this case, we have to remove 60 from the intermediate node as well as from the 4th leaf node too. If we remove it from the intermediate node, then the tree will not satisfy the rule of the B+ tree. So we need to modify it to have a balanced tree.
+
+After deleting node 60 from above B+ tree and re-arranging the nodes, it will show as follows:
+
+DBMS B+ Tree
+
+
+
+
+
+
+
+
+Hashing
+In a huge database structure, it is very inefficient to search all the index values and reach the desired data. Hashing technique is used to calculate the direct location of a data record on the disk without using index structure.
+
+In this technique, data is stored at the data blocks whose address is generated by using the hashing function. The memory location where these records are stored is known as data bucket or data blocks.
+
+In this, a hash function can choose any of the column value to generate the address. Most of the time, the hash function uses the primary key to generate the address of the data block. A hash function is a simple mathematical function to any complex mathematical function. We can even consider the primary key itself as the address of the data block. That means each row whose address will be the same as a primary key stored in the data block.
+
+DBMS Hashing
+The above diagram shows data block addresses same as primary key value. This hash function can also be a simple mathematical function like exponential, mod, cos, sin, etc. Suppose we have mod (5) hash function to determine the address of the data block. In this case, it applies mod (5) hash function on the primary keys and generates 3, 3, 1, 4 and 2 respectively, and records are stored in those data block addresses.
+
+DBMS Hashing
+Types of Hashing:
+DBMS Hashing
+Static Hashing
+Dynamic Hashing
+
+
+
+
+
+Static Hashing
+In static hashing, the resultant data bucket address will always be the same. That means if we generate an address for EMP_ID =103 using the hash function mod (5) then it will always result in same bucket address 3. Here, there will be no change in the bucket address.
+
+Hence in this static hashing, the number of data buckets in memory remains constant throughout. In this example, we will have five data buckets in the memory used to store the data.
+
+DBMS Static Hashing
+Operations of Static Hashing
+Searching a record
+When a record needs to be searched, then the same hash function retrieves the address of the bucket where the data is stored.
+
+Insert a Record
+When a new record is inserted into the table, then we will generate an address for a new record based on the hash key and record is stored in that location.
+
+Delete a Record
+To delete a record, we will first fetch the record which is supposed to be deleted. Then we will delete the records for that address in memory.
+
+Update a Record
+To update a record, we will first search it using a hash function, and then the data record is updated.
+
+If we want to insert some new record into the file but the address of a data bucket generated by the hash function is not empty, or data already exists in that address. This situation in the static hashing is known as bucket overflow. This is a critical situation in this method.
+
+To overcome this situation, there are various methods. Some commonly used methods are as follows:
+
+1. Open Hashing
+When a hash function generates an address at which data is already stored, then the next bucket will be allocated to it. This mechanism is called as Linear Probing.
+
+For example: suppose R3 is a new address which needs to be inserted, the hash function generates address as 112 for R3. But the generated address is already full. So the system searches next available data bucket, 113 and assigns R3 to it.
+
+DBMS Static Hashing
+2. Close Hashing
+When buckets are full, then a new data bucket is allocated for the same hash result and is linked after the previous one. This mechanism is known as Overflow chaining.
+
+For example: Suppose R3 is a new address which needs to be inserted into the table, the hash function generates address as 110 for it. But this bucket is full to store the new data. In this case, a new bucket is inserted at the end of 110 buckets and is linked to it.
+
+DBMS Static Hashing
+
+
+
+
+
+
+
+
+Dynamic Hashing
+The dynamic hashing method is used to overcome the problems of static hashing like bucket overflow.
+In this method, data buckets grow or shrink as the records increases or decreases. This method is also known as Extendable hashing method.
+This method makes hashing dynamic, i.e., it allows insertion or deletion without resulting in poor performance.
+How to search a key
+First, calculate the hash address of the key.
+Check how many bits are used in the directory, and these bits are called as i.
+Take the least significant i bits of the hash address. This gives an index of the directory.
+Now using the index, go to the directory and find bucket address where the record might be.
+How to insert a new record
+Firstly, you have to follow the same procedure for retrieval, ending up in some bucket.
+If there is still space in that bucket, then place the record in it.
+If the bucket is full, then we will split the bucket and redistribute the records.
+For example:
+Consider the following grouping of keys into buckets, depending on the prefix of their hash address:
+
+DBMS Dynamic Hashing
+The last two bits of 2 and 4 are 00. So it will go into bucket B0. The last two bits of 5 and 6 are 01, so it will go into bucket B1. The last two bits of 1 and 3 are 10, so it will go into bucket B2. The last two bits of 7 are 11, so it will go into B3.
+
+DBMS Dynamic Hashing
+Insert key 9 with hash address 10001 into the above structure:
+Since key 9 has hash address 10001, it must go into the first bucket. But bucket B1 is full, so it will get split.
+The splitting will separate 5, 9 from 6 since last three bits of 5, 9 are 001, so it will go into bucket B1, and the last three bits of 6 are 101, so it will go into bucket B5.
+Keys 2 and 4 are still in B0. The record in B0 pointed by the 000 and 100 entry because last two bits of both the entry are 00.
+Keys 1 and 3 are still in B2. The record in B2 pointed by the 010 and 110 entry because last two bits of both the entry are 10.
+Key 7 are still in B3. The record in B3 pointed by the 111 and 011 entry because last two bits of both the entry are 11.
+DBMS Dynamic Hashing
+Advantages of dynamic hashing
+In this method, the performance does not decrease as the data grows in the system. It simply increases the size of memory to accommodate the data.
+In this method, memory is well utilized as it grows and shrinks with the data. There will not be any unused memory lying.
+This method is good for the dynamic database where data grows and shrinks frequently.
+Disadvantages of dynamic hashing
+In this method, if the data size increases then the bucket size is also increased. These addresses of data will be maintained in the bucket address table. This is because the data address will keep changing as buckets grow and shrink. If there is a huge increase in data, maintaining the bucket address table becomes tedious.
+In this case, the bucket overflow situation will also occur. But it might take little time to reach this situation than static hashing.
+
+
+
+
+
+
+
+RAID
+RAID refers to redundancy array of the independent disk. It is a technology which is used to connect multiple secondary storage devices for increased performance, data redundancy or both. It gives you the ability to survive one or more drive failure depending upon the RAID level used.
+
+It consists of an array of disks in which multiple disks are connected to achieve different goals.
+
+RAID technology
+There are 7 levels of RAID schemes. These schemas are as RAID 0, RAID 1, ...., RAID 6.
+
+These levels contain the following characteristics:
+
+It contains a set of physical disk drives.
+In this technology, the operating system views these separate disks as a single logical disk.
+In this technology, data is distributed across the physical drives of the array.
+Redundancy disk capacity is used to store parity information.
+In case of disk failure, the parity information can be helped to recover the data.
+Standard RAID levels
+RAID 0
+RAID level 0 provides data stripping, i.e., a data can place across multiple disks. It is based on stripping that means if one disk fails then all data in the array is lost.
+This level doesn't provide fault tolerance but increases the system performance.
+Example:
+Disk 0	Disk 1	Disk 2	Disk 3
+20	21	22	23
+24	25	26	27
+28	29	30	31
+32	33	34	35
+In this figure, block 0, 1, 2, 3 form a stripe.
+
+In this level, instead of placing just one block into a disk at a time, we can work with two or more blocks placed it into a disk before moving on to the next one.
+
+Disk 0	Disk 1	Disk 2	Disk 3
+20	22	24	26
+21	23	25	27
+28	30	32	34
+29	31	33	35
+In this above figure, there is no duplication of data. Hence, a block once lost cannot be recovered.
+
+Pros of RAID 0:
+In this level, throughput is increased because multiple data requests probably not on the same disk.
+This level full utilizes the disk space and provides high performance.
+It requires minimum 2 drives.
+Cons of RAID 0:
+It doesn't contain any error detection mechanism.
+The RAID 0 is not a true RAID because it is not fault-tolerance.
+In this level, failure of either disk results in complete data loss in respective array.
+RAID 1
+This level is called mirroring of data as it copies the data from drive 1 to drive 2. It provides 100% redundancy in case of a failure.
+
+Example:
+Disk 0	Disk 1	Disk 2	Disk 3
+A	A	B	B
+C	C	D	D
+E	E	F	F
+G	G	H	H
+Only half space of the drive is used to store the data. The other half of drive is just a mirror to the already stored data.
+
+Pros of RAID 1:
+The main advantage of RAID 1 is fault tolerance. In this level, if one disk fails, then the other automatically takes over.
+In this level, the array will function even if any one of the drives fails.
+Cons of RAID 1:
+In this level, one extra drive is required per drive for mirroring, so the expense is higher.
+RAID 2
+RAID 2 consists of bit-level striping using hamming code parity. In this level, each data bit in a word is recorded on a separate disk and ECC code of data words is stored on different set disks.
+Due to its high cost and complex structure, this level is not commercially used. This same performance can be achieved by RAID 3 at a lower cost.
+Pros of RAID 2:
+This level uses one designated drive to store parity.
+It uses the hamming code for error detection.
+Cons of RAID 2:
+It requires an additional drive for error detection.
+RAID 3
+RAID 3 consists of byte-level striping with dedicated parity. In this level, the parity information is stored for each disk section and written to a dedicated parity drive.
+In case of drive failure, the parity drive is accessed, and data is reconstructed from the remaining devices. Once the failed drive is replaced, the missing data can be restored on the new drive.
+In this level, data can be transferred in bulk. Thus high-speed data transmission is possible.
+Disk 0	Disk 1	Disk 2	Disk 3
+A	B	C	P(A, B, C)
+D	E	F	P(D, E, F)
+G	H	I	P(G, H, I)
+J	K	L	P(J, K, L)
+Pros of RAID 3:
+In this level, data is regenerated using parity drive.
+It contains high data transfer rates.
+In this level, data is accessed in parallel.
+Cons of RAID 3:
+It required an additional drive for parity.
+It gives a slow performance for operating on small sized files.
+RAID 4
+RAID 4 consists of block-level stripping with a parity disk. Instead of duplicating data, the RAID 4 adopts a parity-based approach.
+This level allows recovery of at most 1 disk failure due to the way parity works. In this level, if more than one disk fails, then there is no way to recover the data.
+Level 3 and level 4 both are required at least three disks to implement RAID.
+Disk 0	Disk 1	Disk 2	Disk 3
+A	B	C	P0
+D	E	F	P1
+G	H	I	P2
+J	K	L	P3
+In this figure, we can observe one disk dedicated to parity.
+
+In this level, parity can be calculated using an XOR function. If the data bits are 0,0,0,1 then the parity bits is XOR(0,1,0,0) = 1. If the parity bits are 0,0,1,1 then the parity bit is XOR(0,0,1,1)= 0. That means, even number of one results in parity 0 and an odd number of one results in parity 1.
+
+C1	C2	C3	C4	Parity
+0	1	0	0	1
+0	0	1	1	0
+Suppose that in the above figure, C2 is lost due to some disk failure. Then using the values of all the other columns and the parity bit, we can recompute the data bit stored in C2. This level allows us to recover lost data.
+
+RAID 5
+RAID 5 is a slight modification of the RAID 4 system. The only difference is that in RAID 5, the parity rotates among the drives.
+It consists of block-level striping with DISTRIBUTED parity.
+Same as RAID 4, this level allows recovery of at most 1 disk failure. If more than one disk fails, then there is no way for data recovery.
+Disk 0	Disk 1	Disk 2	Disk 3	Disk 4
+0	1	2	3	P0
+5	6	7	P1	4
+10	11	P2	8	9
+15	P3	12	13	14
+P4	16	17	18	19
+This figure shows that how parity bit rotates.
+
+This level was introduced to make the random write performance better.
+
+Pros of RAID 5:
+This level is cost effective and provides high performance.
+In this level, parity is distributed across the disks in an array.
+It is used to make the random write performance better.
+Cons of RAID 5:
+In this level, disk failure recovery takes longer time as parity has to be calculated from all available drives.
+This level cannot survive in concurrent drive failure.
+RAID 6
+This level is an extension of RAID 5. It contains block-level stripping with 2 parity bits.
+In RAID 6, you can survive 2 concurrent disk failures. Suppose you are using RAID 5, and RAID 1. When your disks fail, you need to replace the failed disk because if simultaneously another disk fails then you won't be able to recover any of the data, so in this case RAID 6 plays its part where you can survive two concurrent disk failures before you run out of options.
+Disk 1	Disk 2	Disk 3	Disk 4
+A0	B0	Q0	P0
+A1	Q1	P1	D1
+Q2	P2	C2	D2
+P3	B3	C3	Q3
+Pros of RAID 6:
+This level performs RAID 0 to strip data and RAID 1 to mirror. In this level, stripping is performed before mirroring.
+In this level, drives required should be multiple of 2.
+Cons of RAID 6:
+It is not utilized 100% disk capability as half is used for mirroring.
+It contains very limited scalability.
+
+
+
+
