@@ -1,13 +1,9 @@
-What is Data?
+What is Data and Database?
  - Data is collection of information that translated into different form for efficient usage and processing
- - Data is interchangeable
-
-
-What is Database? :-
- - Database is organized collection of data into tables, so that easily accessed, retrieve and managed
- - Modern database managed by Database management system (DBMS)
+ - Database organized collection of data into tables so that easily accessed, retrieve and managed
+ - Data stored in database is in row and column format which called table
  - SQL or Structured Query Language used to operate on data stored in database
- - Cylindrical structure used to display image of database
+ - Cylindrical structure display image of database
 
 
 
@@ -20,64 +16,44 @@ Types of Databases :-
 
  Centralized Database :-
   - Store data at centralized database system 
-  - It comfort users to access stored data from different location through several application
-  - These application contain authentication process to let users access data securely
-  
-  Advantages :-
-   - Decreased risk of data management
-   - Data consistency maintained
-   - Provide better data quality which enables organization to establish data standard
-   - Less costly 
-  
-  Disadvantages :- 
-   - Size is large which increases response time for fetching data
-   - Not easy to update such extensive database system
-   - Server failure entire data will be lost which could be huge loss
+  - User access stored data from different location through several application
+  Advantages    :- Decreased risk     | Data consistency maintained     | Provide better data quality | Less costly 
+  Disadvantages :- Not easy to update | Response time for fetching data | Server failure entire data lost
 
 
- Distributed Database :-
+ Distributed Database(DDB) :-
   - Data distributed among different database system of organization are connected via communication links 
   - Link Help end-users to access data easily 
+  - Modular development possible  |  One server failure not affect entire data set
+  Ex :- Cassandra
+  Homogeneous DDB   : Execute on same OS, use same application process and carry same hardware device
+  Heterogeneous DDB : Execute on different OS under different application procedure and carry different hardware device
   
-  Types :-
-   Homogeneous DDB  : Execute on same OS, use same application process and carry same hardware device
-   Heterogeneous DDB: Execute on different OS under different application procedure and carry different hardware device
   
-  Advantages :- 
-   - Modular development possible 
-   - One server failure not affect entire data set
-
-
  Relational Database :-
-  - 1970-Present, Store data in form of rows(tuple) and column(attributes) and together form table(relation) 
+  - 1970-Present, Store data in form of rows and column(attributes) together in form of table(relation) 
   - Use SQL for storing, manipulating as well as maintaining data 
   - E.F. Codd invented relational database model in 1970 
-  - Each table in database carrie key that make data unique from other
+  - Each table in database carry key that make data unique from other
   - Instance is table with rows or column
   - Schema specifies structure like name of relation, type of each column and name
   - Use some mathematical concept like set theory and predicate logic
   - First internet database application had been created in 1995
   
-  Properties :-
-   Atomicity   :- Ensure data operation complete either success or failure | Follow 'all or nothing' strategy
-   Consistency :- Perform any operation over data, its value before and after operation should be preserved 
-   Isolation   :- Concurrent user accessing data at same time from database 
-   Durability  :- Once it complete operation and commit on data, it changes should remain permanent  
+  Properties :- ACID
 
 
  NoSQL Database :-
-  - Storing wide range of data set 
-  - It not store data only in tabular form but in several different way
+  - Storing wide range of data set
+  - Not store data only in tabular form but in several different way
+  Advantage    :- High Scalability | High Availability    | Quickly Access       | Not required store data in structur
+  Disadvantage :- Open source      | Management challenge | GUI is not available | Backup
 
-  Types :-
-   Key-value storage  :- Store every single item as key(or attribute name) holding its value together(Redis)
-   Graph Databases    :- Storing data in graph-like structure (Social networking website use)
-   Wide-column stores :- Data stored in large column together, instead of storing in row(Big Table)
-   Document-oriented Database :- Store in JSON document(MongoDB)
-
-
-  Advantage    :- High Scalability | High Availability | Quickly Access | Not required to store data in structured
-  Disadvantage :- Open source | Management challenge | GUI is not available | Backup
+  Storage Types :-  
+  Key-value storage  :- Store every single item as key(or attribute name) holding its value together(Redis)
+  Graph Databases    :- Storing data in graph-like structure (Social networking website use)
+  Wide-column store  :- Data stored in large column together, instead of storing in row(Big Table)
+  Document-oriented Database :- Store in JSON document(MongoDB)
 
 
  Cloud database(Database as service (DBaaS)):-
@@ -86,11 +62,11 @@ Types of Databases :-
   Advantage :- Lower cost | Automated | Increased accessibility 
   
 
- Object-oriented Databases(OOD) :-
-  - Use object-based data model approach for storing data in database system 
-  - Data represented and stored as objects which similar to object used in OOP language
-  - Object are real-world entity and type are collection of object
-  
+ Object-oriented Databases(OODB) :-
+  - Use object-based data model approach for storing data 
+  - Data represented and stored in form of objects and classes which similar to object used in OOP language
+  - Object are real-world entity and classes are collection of object
+  Ex :- PostgreSQL
   Properties :- Object | Class | Inheritance | Polymorphism | Encapsulation
   
   
@@ -118,126 +94,81 @@ Types of Databases :-
    - Complexity | Difficult to design and maintain
 
 
- Personal Database :-
-  - Storing data on user's system,  designed for single user
-
-
- Operational Database :-
-  - Create and update database in real-time 
-  - Executing and handling daily data operations 
-
-
- Enterprise Database :-
-  - Large organization or enterprise use for managing massive amount of data
-  - Multi processes are supportable over Enterprise database
-  - Allow executing parallel queries on system
-
-
 
 DBMS (Data Base Management System) :-
  - Software used to store and retrieve data
- - Provide interface to perform various operation like creation, deletion, modification
+ - Provide interface to perform various operation
  - Accept request from application and provide specific data through OS
  
  Advantage    :- Control Redundancy | Data sharing | Backup | Multiple user interfaces | Security
  Disadvantage :- Size | Cost | Complexity | 
 
- Types of Architecture :-
-  1-Tier Architecture :-
-   - Database directly available to user
-   - Any changes done directly be done on database itself 
-   - Doesn't provide handy tool for end user
-   - Used for local application where programmers directly communicate with database for quick response
+ 1-Tier Architecture :-
+  - Database directly available to user and changes directly done by database itself 
+  - Doesn't provide handy tool for end user
+  - Used for local application where programmer directly communicate with database for quick response
   
-  2-Tier Architecture :-
-   - Basic client-server, Application on client end directly communicate with database at server side
-   - For this interaction, API's like :- ODBC, JDBC are used
-   - User on client-side and server provide functionalitie to application :- query processing and transaction management
-   Diagram :-  [DB](Server-Side) --> [Application | User](Client-Side)
+ 2-Tier Architecture :-
+  - Client-server, Application on client communicate with database at server side
+  - For this API's Used like :- ODBC, JDBC
+  Diagram :-  [DB](Server-Side) --> [Application | User](Client-Side)
 
-  3-Tier Architecture :-
-   - Client can't directly communicate with server
-   - Application on client-end interact with application server which further communicate with database system
-   Diagram :-  [DB | Application Server ]  <--> [Application Client | User]
+ 3-Tier Architecture :-
+  - Client can't directly communicate with server
+  - Application on client-end interact with application server which further communicate with database system
+  Diagram :-  [DB | Application Server ]  <--> [Application Client | User]
    
 
 
 RDBMS (Relational Database Management System) :-
- - RDBMS is tabular DBMS that maintain security, integrity, accuracy and consistecy of data introduced by E. F. Codd
- Component :- Table | Record/ Tuple | Field/Column name /Attribute | Instance | Schema | Key
+ - Tabular DBMS that maintain security, integrity, accuracy and consistecy of data introduced by E. F. Codd
+ - Data represented in rows
+ - It contains several tables and each table has its primary key
+ - Due to collection of organized set of tables, data accessed easily in RDBMS
  
- - All modern database management systems are based on RDBMS
- 
- How it work :-
-  - Data represented in terms of tuples (rows) in RDBMS
-  - It contains several tables, and each table has its primary key
-  - Due to collection of organized set of tables, data accessed easily in RDBMS
-
  Brief History of RDBMS :-
   - From 1970 to 1972, E.F. Codd published paper to propose using relational database model
   - RDBMS originally based on E.F. Codd's relational model invention
-  
+
+ Component :- Table | Record/ Tuple | Field/Column name /Attribute | Instance | Schema | Key
  
- What is table/Relation? :-
-  - Everything in relational database is stored in the form of relation 
-  - RDBMS database uses tables to store data 
+ Table :-
+  - Everything in relational database is stored in form of relation 
   - Table is collection of related data entries and contain rows and columns to store data 
-  - Each table represent some real-world object such as person, place or event about which information is collected 
   - Organized collection of data into relational table known as logical view of database
+  - Each table represent some real-world object such as person, place or event about which information is collected 
+  - Unique name and Does not contain duplicate tuples
+  - All attributes in relation are atomic (Each cell of relation contain exactly one value)
   
-  Properties of a Relation :-
-   - Each relation has a unique name by which it is identified in the database
-   - Relation does not contain duplicate tuples
-   - The tuples of a relation have no specific order
-   - All attributes in relation are atomic (Each cell of relation contain exactly one value)
-   - Table is simplest example of data stored in RDBMS
+ Row or record :-
+  - Row of table called record or tuple that contain specific information of each entry in table 
+  - Horizontal entity in table    
 
-
- What is row or record? :-
-  - Row of table is also called record or tuple 
-  - It contain specific information of each entry in table 
-  - It is horizontal entity in table 
-
-  Properties of row :-
-   - No two tuples are identical to each other in all their entries
-   - All tuples of the relation have the same format and the same number of entries
-   - The order of the tuple is irrelevant
-   - They are identified by their content, not by their position
-   
-
- What is a column/attribute? :-
-  - Column is vertical entity in table which contain all information associated with specific field in table 
-  
-  Properties of an Attribute :-
-   - Every attribute of a relation must have a name
-   - Null values are permitted for the attributes
-   - Default value specified for attribute automatically inserted if no other value is specified for an attribute
-   - Attribute that uniquely identify each tuple of relation are primary key
+ Column/attribute :-
+  - Vertical entity in table which contain all information associated with specific field in table 
+  - Every attribute of relation must have name
+  - Null values permitted for attributes
+  - Default value specified for attribute automatically inserted if no other value is specified for an attribute
+  - Attribute that uniquely identify each record are primary key
  
- 
- What is data item/Cells? :-
+ Data item/Cells? :-
   - Smallest unit of data in table is individual data item 
-  - It is stored at intersection of tuples and attribute
-
-  Properties of data items :-
-   - Data items are atomic
-   - Data items for an attribute should be drawn from the same domain
-   
-
- Degree :- Total number of attributes that comprise relation is known as degree of table
+  - Data items are atomic
+  
+ Degree :- Total number of attributes that comprise relation known as degree of table
 
  Cardinality :- 
-  - Total number of tuples at any one time in relation is known as table's cardinality 
-  - Relation whose cardinality is 0 called empty table
+  - Total number of record at one time in relation known as table's cardinality 
+  - Relation whose cardinality 0 called empty table
 
  Domain :-
   - Possible values each attribute contain 
-  - It can be specified using standard data types such as integers, floating numbers, etc. 
-  - For example, An attribute entitled Marital_Status may be limited to married or unmarried values.
+  - Specified using standard data types such as integers, floating numbers, etc.
+  - Ex :- Attribute entitled Marital_Status may be limited to married or unmarried value
 
  NULL Values :-
-  - The NULL value of the table specifies that the field has been left blank during record creation
-  - It is different from the value filled with zero or a field that contains space
+  - Specifies that field has been left blank during record creation
+  - It is different from value filled with zero or field that contain space
 
  Data Integrity :-
   Entity integrity :- No duplicate rows in table
@@ -261,7 +192,7 @@ Difference between DBMS and RDBMS :-
 
 
 
-Three schema Architecture / ANSI/SPARC / Three-level:- 
+Three schema Architecture | ANSI/SPARC | Three-level:- 
  - Describe structure of specific database system
  - Separate user application and physical database
 

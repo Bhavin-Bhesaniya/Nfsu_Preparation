@@ -22,7 +22,7 @@ SQL(Structured Query Language)
 
 
 
-SQL Datatype :- 
+Datatype :- 
  - Define values that column contain
  - Every column required to have name and data type in database table
  
@@ -58,7 +58,7 @@ SQL Datatype :-
 
 
 
-SQL Command :-
+Command :-
  - Instructions used to communicate with database 
  - Perform specific tasks, functions, and queries of data
  
@@ -165,7 +165,7 @@ SQL Command :-
 
 
 
-SQL Operator :-
+Operator :-
  Arithmetic Operator :- + | - | * | / | %	
  Comparison Operator :- = | != | <> | > | < | >= | <= | !> | !<
  Logical Operator    :- 
@@ -239,7 +239,7 @@ Sub Query :-
 
 
 
-SQL Clauses :-
+Clauses :-
  GROUP BY :-
   - Arrange data into group used with SELECT query
   - Follow WHERE clause in SELECT statement and precedes ORDER BY clause
@@ -262,7 +262,7 @@ SQL Clauses :-
 
 
 
-SQL Aggregate Function :- 
+Aggregate Function :- 
  - Perform calculation on multiple row of single column of table and return single value
  - Also used to summarize data
  
@@ -345,16 +345,4 @@ Set :-
   - Display rows which present in first query but absent in second query
   - It has no duplicates and data arranged in ascending order by default
   Syntax :- SELECT column_name FROM table1 MINUS SELECT column_name FROM table2;  
-
-
-
-
-
-
-
-
-
-
-
-
 

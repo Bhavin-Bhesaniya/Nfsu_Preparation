@@ -1,296 +1,155 @@
-DBMS Concurrency Control
-Concurrency Control is the management procedure that is required for controlling concurrent execution of the operations that take place on a database.
-
-But before knowing about concurrency control, we should know about concurrent execution.
-
-Concurrent Execution in DBMS
-In a multi-user system, multiple users can access and use the same database at one time, which is known as the concurrent execution of the database. It means that the same database is executed simultaneously on a multi-user system by different users.
-While working on the database transactions, there occurs the requirement of using the database by multiple users for performing different operations, and in that case, concurrent execution of the database is performed.
-The thing is that the simultaneous execution that is performed should be done in an interleaved manner, and no operation should affect the other executing operations, thus maintaining the consistency of the database. Thus, on making the concurrent execution of the transaction operations, there occur several challenging problems that need to be solved.
-Problems with Concurrent Execution
-In a database transaction, the two main operations are READ and WRITE operations. So, there is a need to manage these two operations in the concurrent execution of the transactions as if these operations are not performed in an interleaved manner, and the data may become inconsistent. So, the following problems occur with the Concurrent Execution of the operations:
-
-Problem 1: Lost Update Problems (W - W Conflict)
-The problem occurs when two different database transactions perform the read/write operations on the same database items in an interleaved manner (i.e., concurrent execution) that makes the values of the items incorrect hence making the database inconsistent.
-
-For example:
-
-Consider the below diagram where two transactions TX and TY, are performed on the same account A where the balance of account A is $300.
-
-DBMS Concurrency Control
-At time t1, transaction TX reads the value of account A, i.e., $300 (only read).
-At time t2, transaction TX deducts $50 from account A that becomes $250 (only deducted and not updated/write).
-Alternately, at time t3, transaction TY reads the value of account A that will be $300 only because TX didn't update the value yet.
-At time t4, transaction TY adds $100 to account A that becomes $400 (only added but not updated/write).
-At time t6, transaction TX writes the value of account A that will be updated as $250 only, as TY didn't update the value yet.
-Similarly, at time t7, transaction TY writes the values of account A, so it will write as done at time t4 that will be $400. It means the value written by TX is lost, i.e., $250 is lost.
-Hence data becomes incorrect, and database sets to inconsistent.
-
-Dirty Read Problems (W-R Conflict)
-The dirty read problem occurs when one transaction updates an item of the database, and somehow the transaction fails, and before the data gets rollback, the updated database item is accessed by another transaction. There comes the Read-Write Conflict between both transactions.
-
-For example:
-
-Consider two transactions TX and TY in the below diagram performing read/write operations on account A where the available balance in account A is $300:
-
-DBMS Concurrency Control
-At time t1, transaction TX reads the value of account A, i.e., $300.
-At time t2, transaction TX adds $50 to account A that becomes $350.
-At time t3, transaction TX writes the updated value in account A, i.e., $350.
-Then at time t4, transaction TY reads account A that will be read as $350.
-Then at time t5, transaction TX rollbacks due to server problem, and the value changes back to $300 (as initially).
-But the value for account A remains $350 for transaction TY as committed, which is the dirty read and therefore known as the Dirty Read Problem.
-Unrepeatable Read Problem (W-R Conflict)
-Also known as Inconsistent Retrievals Problem that occurs when in a transaction, two different values are read for the same database item.
-
-For example:
-
-Consider two transactions, TX and TY, performing the read/write operations on account A, having an available balance = $300. The diagram is shown below:
-
-DBMS Concurrency Control
-At time t1, transaction TX reads the value from account A, i.e., $300.
-At time t2, transaction TY reads the value from account A, i.e., $300.
-At time t3, transaction TY updates the value of account A by adding $100 to the available balance, and then it becomes $400.
-At time t4, transaction TY writes the updated value, i.e., $400.
-After that, at time t5, transaction TX reads the available value of account A, and that will be read as $400.
-It means that within the same transaction TX, it reads two different values of account A, i.e., $ 300 initially, and after updation made by transaction TY, it reads $400. It is an unrepeatable read and is therefore known as the Unrepeatable read problem.
-Thus, in order to maintain consistency in the database and avoid such problems that take place in concurrent execution, management is needed, and that is where the concept of Concurrency Control comes into role.
-
-Concurrency Control
-Concurrency Control is the working concept that is required for controlling and managing the concurrent execution of database operations and thus avoiding the inconsistencies in the database. Thus, for maintaining the concurrency of the database, we have the concurrency control protocols.
-
-Concurrency Control Protocols
-The concurrency control protocols ensure the atomicity, consistency, isolation, durability and serializability of the concurrent execution of the database transactions. Therefore, these protocols are categorized as:
-
-Lock Based Concurrency Control Protocol
-Time Stamp Concurrency Control Protocol
-Validation Based Concurrency Control Protocol
-
-
-
-
-
-
-Lock-Based Protocol
-In this type of protocol, any transaction cannot read or write data until it acquires an appropriate lock on it. There are two types of lock:
-
-1. Shared lock:
-
-It is also known as a Read-only lock. In a shared lock, the data item can only read by the transaction.
-It can be shared between the transactions because when the transaction holds a lock, then it can't update the data on the data item.
-2. Exclusive lock:
-
-In the exclusive lock, the data item can be both reads as well as written by the transaction.
-This lock is exclusive, and in this lock, multiple transactions do not modify the same data simultaneously.
-There are four types of lock protocols available:
-1. Simplistic lock protocol
-It is the simplest way of locking the data while transaction. Simplistic lock-based protocols allow all the transactions to get the lock on the data before insert or delete or update on it. It will unlock the data item after completing the transaction.
-
-2. Pre-claiming Lock Protocol
-Pre-claiming Lock Protocols evaluate the transaction to list all the data items on which they need locks.
-Before initiating an execution of the transaction, it requests DBMS for all the lock on all those data items.
-If all the locks are granted then this protocol allows the transaction to begin. When the transaction is completed then it releases all the lock.
-If all the locks are not granted then this protocol allows the transaction to rolls back and waits until all the locks are granted.
-
-DBMS Lock-Based Protocol
-3. Two-phase locking (2PL)
-The two-phase locking protocol divides the execution phase of the transaction into three parts.
-In the first part, when the execution of the transaction starts, it seeks permission for the lock it requires.
-In the second part, the transaction acquires all the locks. The third phase is started as soon as the transaction releases its first lock.
-In the third phase, the transaction cannot demand any new locks. It only releases the acquired locks.
-
-DBMS Lock-Based Protocol
-There are two phases of 2PL:
-
-Growing phase: In the growing phase, a new lock on the data item may be acquired by the transaction, but none can be released.
-
-Shrinking phase: In the shrinking phase, existing lock held by the transaction may be released, but no new locks can be acquired.
-
-In the below example, if lock conversion is allowed then the following phase can happen:
-
-Upgrading of lock (from S(a) to X (a)) is allowed in growing phase.
-Downgrading of lock (from X(a) to S(a)) must be done in shrinking phase.
-Example:
-
-
-DBMS Lock-Based Protocol
-The following way shows how unlocking and locking work with 2-PL.
-
-Transaction T1:
-
-Growing phase: from step 1-3
-Shrinking phase: from step 5-7
-Lock point: at 3
-Transaction T2:
-
-Growing phase: from step 2-6
-Shrinking phase: from step 8-9
-Lock point: at 6
-4. Strict Two-phase locking (Strict-2PL)
-The first phase of Strict-2PL is similar to 2PL. In the first phase, after acquiring all the locks, the transaction continues to execute normally.
-The only difference between 2PL and strict 2PL is that Strict-2PL does not release a lock after using it.
-Strict-2PL waits until the whole transaction to commit, and then it releases all the locks at a time.
-Strict-2PL protocol does not have shrinking phase of lock release.
-
-DBMS Lock-Based Protocol
-It does not have cascading abort as 2PL does.
-
-
-
-
-
-
-Timestamp Ordering Protocol
-The Timestamp Ordering Protocol is used to order the transactions based on their Timestamps. The order of transaction is nothing but the ascending order of the transaction creation.
-The priority of the older transaction is higher that's why it executes first. To determine the timestamp of the transaction, this protocol uses system time or logical counter.
-The lock-based protocol is used to manage the order between conflicting pairs among transactions at the execution time. But Timestamp based protocols start working as soon as a transaction is created.
-Let's assume there are two transactions T1 and T2. Suppose the transaction T1 has entered the system at 007 times and transaction T2 has entered the system at 009 times. T1 has the higher priority, so it executes first as it is entered the system first.
-The timestamp ordering protocol also maintains the timestamp of last 'read' and 'write' operation on a data.
-Basic Timestamp ordering protocol works as follows:
-
-1. Check the following condition whenever a transaction Ti issues a Read (X) operation:
-
-If W_TS(X) >TS(Ti) then the operation is rejected.
-If W_TS(X) <= TS(Ti) then the operation is executed.
-Timestamps of all the data items are updated.
-2. Check the following condition whenever a transaction Ti issues a Write(X) operation:
-
-If TS(Ti) < R_TS(X) then the operation is rejected.
-If TS(Ti) < W_TS(X) then the operation is rejected and Ti is rolled back otherwise the operation is executed.
-Where,
-
-TS(TI) denotes the timestamp of the transaction Ti.
-
-R_TS(X) denotes the Read time-stamp of data-item X.
-
-W_TS(X) denotes the Write time-stamp of data-item X.
-
-Advantages and Disadvantages of TO protocol:
-TO protocol ensures serializability since the precedence graph is as follows:
-
-DBMS Timestamp Ordering Protocol
-TS protocol ensures freedom from deadlock that means no transaction ever waits.
-But the schedule may not be recoverable and may not even be cascade- free.
-
-
-
-
-
-
-
-Validation Based Protocol
-Validation phase is also known as optimistic concurrency control technique. In the validation based protocol, the transaction is executed in the following three phases:
-
-Read phase: In this phase, the transaction T is read and executed. It is used to read the value of various data items and stores them in temporary local variables. It can perform all the write operations on temporary variables without an update to the actual database.
-Validation phase: In this phase, the temporary variable value will be validated against the actual data to see if it violates the serializability.
-Write phase: If the validation of the transaction is validated, then the temporary results are written to the database or system otherwise the transaction is rolled back.
-Here each phase has the following different timestamps:
-
-Start(Ti): It contains the time when Ti started its execution.
-
-Validation (Ti): It contains the time when Ti finishes its read phase and starts its validation phase.
-
-Finish(Ti): It contains the time when Ti finishes its write phase.
-
-This protocol is used to determine the time stamp for the transaction for serialization using the time stamp of the validation phase, as it is the actual phase which determines if the transaction will commit or rollback.
-Hence TS(T) = validation(T).
-The serializability is determined during the validation process. It can't be decided in advance.
-While executing the transaction, it ensures a greater degree of concurrency and also less number of conflicts.
-Thus it contains transactions which have less number of rollbacks.
-
-
-
-
-
-
-Thomas write Rule
-Thomas Write Rule provides the guarantee of serializability order for the protocol. It improves the Basic Timestamp Ordering Algorithm.
-
-The basic Thomas write rules are as follows:
-
-If TS(T) < R_TS(X) then transaction T is aborted and rolled back, and operation is rejected.
-If TS(T) < W_TS(X) then don't execute the W_item(X) operation of the transaction and continue processing.
-If neither condition 1 nor condition 2 occurs, then allowed to execute the WRITE operation by transaction Ti and set W_TS(X) to TS(T).
-If we use the Thomas write rule then some serializable schedule can be permitted that does not conflict serializable as illustrate by the schedule in a given figure:
-
-
-DBMS Thomas write Rule
-Figure: A Serializable Schedule that is not Conflict Serializable
-
-In the above figure, T1's read and precedes T1's write of the same data item. This schedule does not conflict serializable.
-
-Thomas write rule checks that T2's write is never seen by any transaction. If we delete the write operation in transaction T2, then conflict serializable schedule can be obtained which is shown in below figure.
-
-
-DBMS Thomas write Rule
-Figure: A Conflict Serializable Schedule
-
-
-
-
-
-
-Multiple Granularity
-Let's start by understanding the meaning of granularity.
-
-Granularity: It is the size of data item allowed to lock.
-
-Multiple Granularity:
-It can be defined as hierarchically breaking up the database into blocks which can be locked.
-The Multiple Granularity protocol enhances concurrency and reduces lock overhead.
-It maintains the track of what to lock and how to lock.
-It makes easy to decide either to lock a data item or to unlock a data item. This type of hierarchy can be graphically represented as a tree.
-For example: Consider a tree which has four levels of nodes.
-
-The first level or higher level shows the entire database.
-The second level represents a node of type area. The higher level database consists of exactly these areas.
-The area consists of children nodes which are known as files. No file can be present in more than one area.
-Finally, each file contains child nodes known as records. The file has exactly those records that are its child nodes. No records represent in more than one file.
-Hence, the levels of the tree starting from the top level are as follows:
-Database
-Area
-File
-Record
-
-DBMS Multiple Granularity
-In this example, the highest level shows the entire database. The levels below are file, record, and fields.
-
-There are three additional lock modes with multiple granularity:
-
-Intention Mode Lock
-Intention-shared (IS): It contains explicit locking at a lower level of the tree but only with shared locks.
-
-Intention-Exclusive (IX): It contains explicit locking at a lower level with exclusive or shared locks.
-
-Shared & Intention-Exclusive (SIX): In this lock, the node is locked in shared mode, and some node is locked in exclusive mode by the same transaction.
-
-Compatibility Matrix with Intention Lock Modes: The below table describes the compatibility matrix for these lock modes:
-
-
-DBMS Multiple Granularity
-It uses the intention lock modes to ensure serializability. It requires that if a transaction attempts to lock a node, then that node must follow these protocols:
-
-Transaction T1 should follow the lock-compatibility matrix.
-Transaction T1 firstly locks the root of the tree. It can lock it in any mode.
-If T1 currently has the parent of the node locked in either IX or IS mode, then the transaction T1 will lock a node in S or IS mode only.
-If T1 currently has the parent of the node locked in either IX or SIX modes, then the transaction T1 will lock a node in X, SIX, or IX mode only.
-If T1 has not previously unlocked any node only, then the Transaction T1 can lock a node.
-If T1 currently has none of the children of the node-locked only, then Transaction T1 will unlock a node.
-Observe that in multiple-granularity, the locks are acquired in top-down order, and locks must be released in bottom-up order.
-
-If transaction T1 reads record Ra9 in file Fa, then transaction T1 needs to lock the database, area A1 and file Fa in IX mode. Finally, it needs to lock Ra2 in S mode.
-If transaction T2 modifies record Ra9 in file Fa, then it can do so after locking the database, area A1 and file Fa in IX mode. Finally, it needs to lock the Ra9 in X mode.
-If transaction T3 reads all the records in file Fa, then transaction T3 needs to lock the database, and area A in IS mode. At last, it needs to lock Fa in S mode.
-If transaction T4 reads the entire database, then T4 needs to lock the database in S mode.
-
-
-
-
-
-
-
-
-Recovery with Concurrent Transaction
-Whenever more than one transaction is being executed, then the interleaved of logs occur. During recovery, it would become difficult for the recovery system to backtrack all logs and then start recovering.
-To ease this situation, 'checkpoint' concept is used by most DBMS.
-As we have discussed checkpoint in Transaction Processing Concept of this tutorial, so you can go through the concepts again to make things more clear.
+Concurrency Control :- 
+ - Management procedure that required for controlling concurrent execution of operation that take place on database
+ - But before knowing about concurrency control, we should know about concurrent execution
+
+ Concurrent Execution in DBMS :-
+  - When multiple user access same database at time known as concurrent execution of database 
+  - Same database is executed simultaneously on multi-user system by different user
+  
+ Problems with Concurrent Execution :-
+  Lost Update Problems (W - W Conflict) :-
+   - Two different database transaction perform read/write operation on same database item in interleaved manner 
+     that makeing database inconsistent
+
+  Dirty Read Problems (W-R Conflict) :-
+   - When one transaction update item of database and somehow transaction fail and before data gets rollback updated 
+     database item accessed by another transaction 
+   - There comes the Read-Write Conflict between both transactions
+
+  Unrepeatable Read Problem (W-R Conflict) | Inconsistent Retrievals Problem :-
+   - Two different value read for same database item
+
+ 
+
+Concurrency Control Protocol :-
+ - Working concept that required for controlling and managing concurrent execution of database operation thus avoiding
+   inconsistencies in database 
+ 
+ Protocols :-
+  - Ensure ACID property and serializability of concurrent execution of database transaction 
+   
+  Lock-Based Protocol :-
+   - Any transaction cannot read or write data until it acquire appropriate lock on it 
+   
+   Types of lock :-
+    Shared lock :- 
+     - Known as Read-only lock where data item only read by transaction
+     - It shared between transaction because when transaction hold lock then it can't update data on data item
+    
+    Exclusive lock :-
+     - Data item both read as well as written by transaction
+     - Lock is exclusive and multiple transactions not modify same data simultaneously
+     
+   
+   Types of lock protocols :- 
+    Simplistic lock protocol :-
+      - Allow all transaction to get lock on data before insert, delete or update on it 
+      - Unlock data item after completing transaction
+
+
+    Pre-claiming Lock Protocol :-
+     - Evaluate transaction to list all data item on which they need lock
+     - Before initiating execution of transaction, it request DBMS for all lock on all those data item
+     - If all lock granted then this protocol allow transaction to begin 
+     - When transaction completed then it releases all lock
+     - If all lock not granted then protocol allow transaction to roll back and wait until all locks granted
+
+
+    Two-phase locking (2PL) :-
+     - Execution of transaction start it seeks permission for lock it require
+     - Transaction acquires all locks 
+     - Started as soon as transaction releases its first lock
+     - Transaction cannot demand any new locks only releases acquired lock
+
+     Growing phase   :- New lock on data item acquired by transaction but none can be released
+     Shrinking phase :- Existing lock held by transaction may be released but no new lock acquired
+
+    Strict Two-phase locking (Strict-2PL) :-
+     - First phase, after acquiring all lock transaction continues to execute normally
+     - Does not release lock after using it
+     - Wait until whole transaction to commit then it releases all locks at time
+     - Not have shrinking phase of lock release
+
+
+  
+  Timestamp Ordering Protocol :-
+   - Order transaction based on their Timestamp means ascending order of transaction creation
+   - Older transaction priority higher that's why it execute first 
+   - To determine transaction timestamp uses system time or logical counter
+   - Start working as soon as transaction created
+
+   Advantages and Disadvantages of TO protocol:
+    - TO protocol ensures serializability
+    - Ensure freedom from deadlock means no transaction ever waits
+    - But schedule may not be recoverable and may not even be cascade-free
+
+
+
+  Validation Based Protocol | Optimistic concurrency control:-
+   Read phase :- 
+    - Transaction T read and executed 
+    - Read value of various data item and store them in temporary local variable
+    - Perform all write operation on temporary variable without update to actual database
+
+   Validation phase :- 
+    - Temporary variable value validated against actual data to see if it violate serializability
+  
+   Write phase :- 
+    - Temporary result written to database or system otherwise transaction rolled back
+
+   Each phase has different timestamp :-
+    Start(Ti)       : Ti started its execution.
+    Validation (Ti) : Ti finishes its read phase and starts its validation phase
+    Finish(Ti)      : Ti finishes its write phase
+    TS(T) = validation(T)
+
+   - Serializability determined during validation process can't be decided in advance
+   - While executing transaction it ensure greater degree of concurrency less number of conflict
+   - It contain transaction which have less number of rollback
+
+
+
+Thomas write Rule :-
+ - Provide guarantee of serializability order for protocol 
+ - Improve Basic Timestamp Ordering Algorithm
+
+ Rules :-
+  - If TS(T) < R_TS(X) then transaction T aborted and rolled back operation is rejected
+  - If TS(T) < W_TS(X) then don't execute W_item(X) operation of transaction and continue processing
+  - If neither condition 1 nor condition 2 occurs, then allowed to execute WRITE operation by transaction Ti and set 
+    W_TS(X) to TS(T)
+  
+
+
+Multiple Granularity :
+ Granularity : Size of data item allowed to lock
+
+ Multiple Granularity :-
+  - Hierarchically breaking up database into blocks which can be locked
+  - Enhance concurrency and reduces lock overhead
+  - Maintain track of what to lock and how to lock
+  - It make easy to decide either to lock data item or to unlock data item 
+  
+  Level of the tree :- Database | Area | File | Record
+   - First level or higher level show entire database
+   - Second level represent node type area 
+   - Area consist of children node which known as file 
+   - No file present in more than one area
+   - Finally each file contain child nodes known as record 
+   - File has exactly those record that are its child node
+   - No record represent in more than one file
+
+
+ Lock mode with multiple granularity :-
+  Intention Mode Lock :-
+   Intention-shared (IS)    : Explicit locking at lower level of tree but only with shared lock
+   Intention-Exclusive (IX) : Explicit locking at lower level with exclusive or shared locks
+   Shared & Intention-Exclusive (SIX) : Node locked in shared mode and exclusive mode by same transaction
+   Compatibility Matrix with Intention Lock Modes :- 
+
+
+
+Recovery with Concurrent Transaction :-
+ - During recovery it become difficult for recovery system to backtrack all log then start recovering
+ - Checkpoint concept used 
+ 

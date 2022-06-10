@@ -212,7 +212,6 @@ Relational Algebra :-
 
 
 
-
 Join Operation :- 
  - Combine related tuples from different relation, if and only if given join condition is satisfied 
  
