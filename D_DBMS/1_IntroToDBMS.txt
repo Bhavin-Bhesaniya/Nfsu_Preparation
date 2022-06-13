@@ -96,7 +96,7 @@ Types of Databases :-
 
 
 DBMS (Data Base Management System) :-
- - Software used to store and retrieve data
+ - Software that used to store and retrieve data
  - Provide interface to perform various operation
  - Accept request from application and provide specific data through OS
  
@@ -105,7 +105,7 @@ DBMS (Data Base Management System) :-
 
  1-Tier Architecture :-
   - Database directly available to user and changes directly done by database itself 
-  - Doesn't provide handy tool for end user
+  - Client, Server and Database all reside in same machine
   - Used for local application where programmer directly communicate with database for quick response
   
  2-Tier Architecture :-
@@ -116,59 +116,33 @@ DBMS (Data Base Management System) :-
  3-Tier Architecture :-
   - Client can't directly communicate with server
   - Application on client-end interact with application server which further communicate with database system
-  Diagram :-  [DB | Application Server ]  <--> [Application Client | User]
+  Diagram :-  [ DB ]  <-->  [ Application Server ]  <--> [ Application Client | User]
    
 
 
 RDBMS (Relational Database Management System) :-
  - Tabular DBMS that maintain security, integrity, accuracy and consistecy of data introduced by E. F. Codd
- - Data represented in rows
- - It contains several tables and each table has its primary key
- - Due to collection of organized set of tables, data accessed easily in RDBMS
- 
- Brief History of RDBMS :-
-  - From 1970 to 1972, E.F. Codd published paper to propose using relational database model
-  - RDBMS originally based on E.F. Codd's relational model invention
+ - It contains several tables and each table has its primary key which uniquely identify record
+ - From 1970 to 1972, E.F. Codd published paper to propose using relational database model
 
  Component :- Table | Record/ Tuple | Field/Column name /Attribute | Instance | Schema | Key
- 
- Table :-
-  - Everything in relational database is stored in form of relation 
-  - Table is collection of related data entries and contain rows and columns to store data 
-  - Organized collection of data into relational table known as logical view of database
-  - Each table represent some real-world object such as person, place or event about which information is collected 
-  - Unique name and Does not contain duplicate tuples
-  - All attributes in relation are atomic (Each cell of relation contain exactly one value)
-  
- Row or record :-
-  - Row of table called record or tuple that contain specific information of each entry in table 
-  - Horizontal entity in table    
+  Table           :- Collection of related data entries that store data in rows and columns of table 
+  Row or record   :- Row of table called record or tuple that contain specific information of each entry in table 
+  Column/attribute:- Vertical entity which contain all information associated with specific field in table 
+  Data item/Cells :- Smallest unit of table in which atomic data store  
+  Degree          :- Total number of attributes that comprise relation known as degree of table
+  Cardinality     :- Total number of record at one time in relation known as table's cardinality
+  Domain          :- Possible values each attribute contain Specified using standard data types such as integer
+  NULL Values     :- Specifie that field has been left blank during record creation
 
- Column/attribute :-
-  - Vertical entity in table which contain all information associated with specific field in table 
-  - Every attribute of relation must have name
-  - Null values permitted for attributes
-  - Default value specified for attribute automatically inserted if no other value is specified for an attribute
-  - Attribute that uniquely identify each record are primary key
- 
- Data item/Cells? :-
-  - Smallest unit of data in table is individual data item 
-  - Data items are atomic
-  
- Degree :- Total number of attributes that comprise relation known as degree of table
 
- Cardinality :- 
-  - Total number of record at one time in relation known as table's cardinality 
-  - Relation whose cardinality 0 called empty table
-
- Domain :-
-  - Possible values each attribute contain 
-  - Specified using standard data types such as integers, floating numbers, etc.
-  - Ex :- Attribute entitled Marital_Status may be limited to married or unmarried value
-
- NULL Values :-
-  - Specifies that field has been left blank during record creation
-  - It is different from value filled with zero or field that contain space
+ Schema and Instance :-
+  - Data which stored in database at particular moment of time is called instance of database
+  - Overall design of database called schema
+  - Database schema is skeleton structure of database that represent logical view of entire database
+  - Schema contain schema object like table, foreign key, primary key, views, columns, data types, stored procedure etc.
+  - Schema represented by using visual diagram that show database object and relationship with each other
+  - Process of database creation called data modeling
 
  Data Integrity :-
   Entity integrity :- No duplicate rows in table
@@ -193,8 +167,10 @@ Difference between DBMS and RDBMS :-
 
 
 Three schema Architecture | ANSI/SPARC | Three-level:- 
- - Describe structure of specific database system
- - Separate user application and physical database
+ - Describe structure of database system
+ - Schema Define database entities and relationship among them
+ - Enable multiple users to access same data with personalized view while storing underlying data only once 
+ - Separate user's view from physical structure of database 
 
 
  Diagram :-
@@ -210,105 +186,60 @@ Three schema Architecture | ANSI/SPARC | Three-level:-
   - Not good for small DBMS because it takes more time
  
 
- Objective of Three schema Architecture :- 
-  - Enable multiple users to access same data with personalized view while storing underlying data only once 
-  - Separate user's view from physical structure of database 
- 
-
  Internal Level(Physical Schema) :-
   - Describe physical storage structure of database
   - Define that how data stored in block
   - Data compression and encryption | Optimization internal structure | Representation of stored field
   Storage space allocation Ex :- B-Trees, Hashing
-  Access path Ex :- Specification of primary and secondary keys, indexes, pointers and sequencing
+  Access Path :- Primary and secondary keys, indexes, pointers and sequencing
 
 
  Conceptual Level(Logical Level):-
-  - Describe structure of whole database and what relationship exists among those data
-  - Internal detail such as implementation of data structure are hidden
+  - Logical representation of data as object and relationship among them 
+  - Describe structure of whole database and what relationship exist among those data
+  - Object known as entities and relationship association among these entities 
+  - Set of attributes describe entitie known as 'Entity Set' and set of relationships known as 'relationship set'
+  - It define tables, views and Integrity constraint
   - Programmers and database administrator work at this level
+  - Designed by Peter Chen and published in 1976 paper 
+  Ex :-  student_name, student_id describe 'student' entity 
 
 
- External Level(View Schema):-
-  - Show different view of database
-  - Each view schema describe database part that particular user group is interested and hide remaining database from 
-    that user group
+ External Level(View Schema):- Show different view of database
   
 
  Mapping between Views :-
-  - Three level of DBMS architecture don't exist independently of each other their must be correspondence
-  - This correspondence known as Mapping
+  - Three level of DBMS architecture correspondence with each other level known as Mapping
  
-  Types of Mapping :-
-   Conceptual / Internal Mapping :
-    - Correspondence between record and field of conceptual level and files and data structures of internal level
+  Conceptual | Internal Mapping:-
+   - Correspondence between record and field of conceptual level and files and data structures of internal level
 
-   External/ Conceptual Mapping :-
-    - Correspondence between particular external and conceptual view
+  External/ Conceptual Mapping :-
+   - Correspondence between particular external and conceptual view
 
 
  Data independence :-
-  - Refer to modify schema at one level of database system without altering schema at next higher level
+  - Modify datbase schema at one level without altering schema at next higher level
 
-  Types :-
-   Logical Data Independence :-
-    - Able to change conceptual schema without having to change external schema
-    - Separate external level from conceptual view
-    - At user interface level, Change in conceptual view of data not affect user view of data
+  Logical Data Independence :-
+   - Change conceptual schema without change external schema
+   - Separate external level from conceptual view
+   - At user interface level, Change in conceptual view of data not affect user view of data
   
-   Physical Data Independence :-
-    - Change internal schema without change conceptual schema
-    - If do any change in storage size of database system server then Conceptual structure of database not be affected
-    - Separate conceptual level from internal level
-    - Occure at logical interface level
+  Physical Data Independence :-
+   - Change internal schema without change conceptual schema
+   - If do any change in storage size of database system server then Conceptual structure of database not be affected
+   - Separate conceptual level from internal level
+   - Occure at logical interface level
    
-   Diagram :-  
-      External Level   <--->   Logical Level   <--->   Physical Level   <--> Stored Database
-                         |                       | 
-             Logical Data Independence    Physical Data Independence
+  Diagram :-  
+    External Level   <--->   Logical Level   <--->   Physical Level   <--> Stored Database
+                       |                       | 
+          Logical Data Independence    Physical Data Independence
 
 
 
-Data Models :-
- - Modeling of data description, data semantics and consistency constraint of data 
- - Provide tools for describing design of database at each level of data abstraction 
- 
- Relational Data Model :- 
-  - Design data in form of rows and columns within table 
-  - Use tables for representing data and in-between relationships 
-
- Entity-Relationship Data Model :-  
-  - Logical representation of data as object and relationship among them 
-  - Object known as entities and relationship association among these entities 
-  - Designed by Peter Chen and published in 1976 papers 
-  - Used in database designing
-  - Set of attributes describe entitie and set of known as 'Entity Set' and set of same type of relationships known
-    as 'relationship set'
-  Ex :-  student_name, student_id describe 'student' entity 
-
- Object-based Data Model :- 
-  - Extension of ER model with notion of function, encapsulation and object identity as well 
-  - Support rich type system that include structured and collection type 
-  - 1980 objects are nothing but data carrying its properties
- 
- Semistructured Data Model :- 
-  - Allow data specification at places where individual data item of same type may have different attribute set 
-  - Extensible Markup Language also known as XML widely used for representing semistructured data 
-
-
-
-Schema and Instance :-
- - Data which stored in database at particular moment of time is called instance of database
- - Overall design of database called schema
- - Database schema is skeleton structure of database that represent logical view of entire database
- - Schema contain schema object like table, foreign key, primary key, views, columns, data types, stored procedure etc.
- - Schema represented by using visual diagram that show database object and relationship with each other
- - Process of database creation called data modeling
- - Schema diagram display only some aspect of schema like name of record type, data type and constraint 
-
-
-
-Database Language :- 
+Database Language (DDL | DML | DCL | TCL):- 
  - DB language and interface used to read, store and update the data in the database.
  
  Types :-
@@ -385,11 +316,6 @@ ACID Properties :-
   - Ensure data after successful execution of operation become permanent store in database 
   - Even if system fails or leads to crash database still survives
   
+
+Bit -> Byte -> Field -> Record -> File -> Database
  
-
-
-
-
-
-
-

@@ -1,17 +1,35 @@
+Transaction :-
+ - Single logical unit of work which accesses and possible modifies content of database
+ - Set of operation called transaction
+
+ State of Transaction :-  
+  Active state        :- First state of every transaction where transaction being executed
+  Partially committed :- Transaction executes its final operation but data still not saved to database
+  Committed :- Execute all operation successfully and Change permanently saved on database system
+  Failed    :- Any checks made by database recovery system fail then transaction said to be in failed state
+  Aborted   :- 
+   - Transaction reached failed state then recovery system make sure database in previous consistent state
+   - If not then it abort or roll back transaction to bring database into consistent state
+   - After aborting transaction recovery module select one of two operation :- Re-start transaction | Kill transaction
+  Terminated :-  
+
+
+
 Transaction property :-
  - Used to maintain consistency in database before and after transaction
 
  Atomicity :- 
-  - If any operation performed on data either performed or executed completely or should not be executed at all
+  - If any operation performed on data either executed completely or not executed
   - Transaction need to complete till commit if fails it rollback
   - Failed transaction not be resumed but restart
+  Operation :- Abort(No Change) | Commit(Save Transaction)
 
  Consistency :- 
   - Value should remain preserved always 
   - If change in database made, it should remain preserved always 
    
  Isolation(Separation) :- 
-  - Data should not affect other one and may occur concurrently
+  - Data should not affect one other and may occur concurrently
   - Operation on one database should begin when operation on first database get complete 
   - If two operation performed on two different database, they not affect value of one another 
   - When occur simultaneously consistency should remain maintained 
@@ -23,91 +41,33 @@ Transaction property :-
 
 
 
-States of Transaction :-  
- Active state        :- First state of every transaction where transaction being executed
- Partially committed :- Transaction executes its final operation but data still not saved to database
- Committed :- Execute all operation successfully and Change permanently saved on database system
- Failed    :- Any checks made by database recovery system fail then transaction said to be in failed state
- Aborted   :- 
-  - Transaction reached failed state then recovery system make sure database in previous consistent state
-  - If not then it abort or roll back transaction to bring database into consistent state
-  - After aborting transaction recovery module select one of two operation :- Re-start transaction | Kill transaction
-
-
-
 Schedule :-
- - Series of operation from one transaction to another transaction known as schedule 
- - Used to preserve order of operation in each individual transaction
+ - Maintain Series order of operation from one transaction to another transaction known as schedule 
 
- Serial Schedule :- 
-  - One transaction executed completely before starting another transaction 
-  
- Non-serial Schedule :-
-  - If interleaving of operation allowed then there will be non-serial schedule
-  - Contain many possible order in which system execute individual operation of transaction
-
- Serializable schedule :-
-  - Find non-serial schedule that allow transaction to execute concurrently without interfering with one another
-  - It identifiewhich schedule correct when execution of transaction have interleaving of their operation
+ Serial Schedule     :- One transaction executed completely before starting another transaction 
+ Non-serial Schedule :- If interleaving of operation allowed then there will be non-serial schedule
+ 
+ Serializable Schedule :-
+  - Non-serial schedule that allow transaction to execute concurrently without interfering with one another
+  - It identifie which schedule correct when execution of transaction have interleaving of their operation
   - Non-serial schedule serializable if its result equal to result of its transaction executed serially
 
+  Testing Serializability :-
+   - If graph contain single edge Ti → Tj then all instruction of Ti executed before first instruction of Tj
+   - Schedule S contain cycle then S is non-serializable 
+   - No cycle then S known as serializable
 
+  
 
-Testing Serializability :-
- - Test Serializability of schedule
- - If precedence graph contain single edge Ti → Tj then all instruction of Ti executed before first instruction of Tj
- - If precedence graph for schedule S contain cycle then S is non-serializable 
- - If precedence graph has no cycle then S known as serializable
-
-
-
-Conflict Serializable Schedule :-
- - Schedule is called conflict serializability if after swapping of non-conflicting operations, it transform into 
-   serial schedule
- - Schedule will be conflict serializable if conflict equivalent to serial schedule
- 
- Conflicting Operation :- Both belong to separate transaction | Same data item | Contain at least one write operation
-
- Conflict Equivalent :-
-  - One transformed to another by swapping non-conflicting operations
-  - Two schedule conflict equivalent :- Contain same set of transaction | Each pair operation ordered same way
-
-
-
-View Serializability :-
- - Schedule view serializable if its view equivalent to serial schedule
- - If A schedule conflict serializable then it will be view serializable
- - View serializable does not conflict serializable contains blind write
- 
- View Equivalent :-
-  Initial Read :- Both schedule must be the same 
-  Updated Read :- 
-  Final Write  :-
-
-  Step 1: final updation on data items
-  Step 2: Initial Read
-  Step 3: Final Write
-
-
-
-Recoverability of Schedule :- 
+Failure Transaction :-
+ - To find where problem has occurred
  - Sometime transaction not execute completely due to software issue, system crash or hardware failure 
  - In that case, failed transaction has to be rollback 
  
- Irrecoverable schedule :- 
-  - If Tj read updated value of Ti and Tj committed before Ti commit
-
- Recoverable with cascading rollback :- 
-  - If Tj read updated value of Ti and Commit of Tj delayed till commit of Ti
-
-
-
-Failure Classification :-
- - To find where problem has occurred, generalize failure into following categories :-
 
  Transaction failure :-
-  - Occur when it fail to execute or when it reache point from where it can't go any further 
-  - If few transaction or process is hurt, then its called transaction failure
+  - Occur when it fail to execute or when it reach point from where it can't go any further 
+  - If few transaction or process hurt then its called transaction failure
 
   Reason for transaction failure :-  
    Logical error :- If transaction cannot complete due to some code error or internal error
@@ -126,47 +86,36 @@ Failure Classification :-
 
 
 Log-Based Recovery :-
- - Log is sequence of record 
+ - Log is sequence of record, Any operation performed on database then it will be recorded in log
  - Log of each transaction maintained in some stable storage so that if any failure occur then it recovered from there
- - Any operation performed on database then it will be recorded in log
+ - All logs created and stored in stable storage and database updated when transaction commit
 
- Deferred database modification :-
-  - If transaction does not modify database until it has committed
-  - All logs created and stored in stable storage and database updated when transaction commit
+ Deferred database modification  :- Transaction not modify database until it committed
+ Immediate database modification :- Database modification occur while transaction still active
  
- Immediate database modification :-
-  - If database modification occurs while transaction is still active
-  - Database modified immediately after every operation 
-  
- 
- Recovery using Log record :-
+ Recovery using Log record :- 
   - When system crashed then system consult log to find which transaction need to be undone and redone
   
 
 
 Checkpoint :-
  - All previous logs removed from system and permanently stored in storage disk(Like bookmark)
- - While transaction execution such checkpoint are marked and transaction executed then using step of transaction 
-   log files will be created.
- - When it reaches to checkpoint then transaction updated into database and till that point entire log file removed 
-   from file 
+ - While transaction execution such checkpoint log files will be created
+ - When reache to checkpoint then transaction updated into database and till that point entire log file remove from file 
  - Then log file updated with new step of transaction till next checkpoint
  
- Recovery using Checkpoint :-
-  - Read log files from end to start and maintain two list redo-list and an undo-list
+ Recovery using Checkpoint :- Read log file from end to start and maintain two list redo-list and an undo-list
 
 
 
 Deadlock in DBMS :-
- - Two or more transaction waiting indefinitely for one another to give up locks 
- 
+ - Two or more transaction waiting indefinitely for one another to give up lock
  
  Deadlock Avoidance :-
   - Detect any deadlock situation in advance 
   - Wait for graph used for detecting deadlock situation but this method suitable only for smaller database
   - For larger database, deadlock prevention method used
  
-
  Deadlock Detection :-
   - DBMS should detect whether transaction involved in deadlock or not 
   - Lock manager maintain Wait for graph to detect deadlock cycle in database

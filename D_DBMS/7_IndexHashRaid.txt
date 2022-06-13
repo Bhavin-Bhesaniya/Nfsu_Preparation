@@ -1,5 +1,6 @@
 Indexing :-
- - Optimize performance of database by minimizing number of disk accesses required when query is processe
+
+ - Optimize database performance by minimizing number of disk accesses required when query process
  - Type of data structure that used to locate and access data in database table quickly
  Index structure :- [ Search Key | Data Reference ]
   
@@ -7,38 +8,38 @@ Indexing :-
  - Value of primary key stored in sorted order so that corresponding data accessed easily
  - Second column of database is data reference that contain set of pointer holding address of disk block where value
    of particular key found
+ - Hold actual address of memory location where data stored
 
  Indexing Method :-
-  Ordered indices :- 
-   - Indices are sorted to make searching faster known as ordered indices
+  Ordered indices :- Indices sorted to make searching faster known as ordered indices
   
   Primary Index :-
-   - If index created on basis of primary key of table then it known as primary indexing 
+   - If index created on base of table primary key known as primary indexing 
    - Primary keys are unique to each record and contain 1:1 relation between record
    
-   Dense index  :- Contain index record for every search key value in data file which make searching faster   
-   Sparse index :- In data file, index record appear only for few items and Each item point to block
+   Dense index  :- 
+    - Contain index record of every search key value make searching faster but Require more space to store index
+    - Index record contain search key value and pointer to actual record on disk
+
+   Sparse index :- 
+    - In data file, index record appear only for few items not for everyone and Each item point to block
+    - Search record used index if not found than perform sequential search unitl data found
 
 
- Clustering Index :-
-  - Ordered data file 
-  - Sometime index created on non-primary key column which may not be unique for each record
-  - Group two or more column to get unique value and create index out of them it called clustering index
-  - Record which have similar characteristics are grouped and indexes are created for these group
+  Clustering Index :-
+   - Group two or more column to get unique value and create index out of them called clustering index
+   - Record which have similar characteristics grouped and indexes are created for these group
+   - Ordered data file 
+   - Sometime index created on non-primary key column which not be unique for each record
  
 
- Secondary Index :-
-  - In sparse indexing as size of table grows size of mapping also grow 
-  - These mapping kept in primary memory so that address fetch should be faster 
-  - Then secondary memory search actual data based on address got from mapping If mapping size grow then fetching
-    address itself becomes slower 
-  - In this case sparse index will not be efficient 
-  - To overcome this problem, secondary indexing introduced
-  - In secondary indexing to reduce size of mapping another level of indexing introduced
-  - Huge range for columns is selected initially so that mapping size of first level becomes small 
-  - Then each range further divided into smaller ranges 
-  - Mapping of first level stored in primary memory, so that address fetch is faster 
-  - Mapping of second level and actual data stored in the secondary memory (hard disk)
+  Secondary Index :-
+   - In Sparse index As Size of table grows size of mapping also grow which fetch data from database based on address 
+   - To overcome this problem, secondary indexing introduced
+   - Huge range for column selected initially so that mapping size of first level becomes small 
+   - Then each range further divided into smaller range
+   - Mapping of first level stored in primary memory so that address fetch is faster 
+   - Mapping of second level and actual data stored in secondary memory (hard disk)
 
 
 

@@ -1,27 +1,16 @@
 SQL(Structured Query Language) 
  - Standard language for Storing and managing data in RDBMS
  - Enable to perform CRUD operation on relational database
- 
- Rules :-
-  - Not case sensitive, keywords written in uppercase
-  - Use single SQL statement on one or multiple text line
-  - SQL depend on tuple relational calculus and relational algebra
-
- SQL process :-
-  - When SQL command executing, then system carry out request and SQL engine interpret task
-  - Component optimization Engine, Query engine, Query dispatcher, classic
-  - All non-SQL queries are handled by classic query engine, but SQL query engine won't handle logical file
-
- Characteristics of SQL :-
-  - Easy to learn and Access data from RDBMS
-  - Execute queries against database to describe data
-  - CRUD operation and view, stored procedure, function in database
-  - Set permissions on tables, procedures and view
- 
+ - Not case sensitive, keywords written in uppercase
  Advantages of SQL :- High speed | No coding needed | Well defined | Portability | Interactive | Multiple data view
 
+ SQL process :-
+  - When SQL command executing system carry out request and SQL engine interpt task
+  - Component optimization Engine, Query engine, Query dispatcher, classic
+  - All non-SQL queries are handled by classic query engine but SQL query engine won't handle logical file
 
-
+ 
+ 
 Datatype :- 
  - Define values that column contain
  - Every column required to have name and data type in database table
@@ -31,6 +20,7 @@ Datatype :-
   binary	    Max length of 8000 byte, Fixed-length binary data
   varbinary	Max length of 8000 byte, variable-length binary data.
   image	    Max length of 2,147,483,647 bytes, contain variable-length binary data
+
 
  Numeric Datatype :-
   Data type	 	        Description                                   From	To
@@ -46,14 +36,14 @@ Datatype :-
  Character String Datatype :-
   Data type     	Description
   char	    8000 character, Fixed-length non-unicode character
-  varchar	8000 character. variable-length non-unicode character
+  varchar	  8000 character, Variable-length non-unicode character
   text	    2,147,483,647 character, variable-length non-unicode character
 
 
  Date and time Datatype :-
-  Datatype	Description
-   date	        Store year, month and days value
-   time	        Store hour, minute and second values
+  Datatype	    Description
+   date	      Store year, month and days value
+   time	      Store hour, minute and second values
    timestamp	Store year, month, day, hour, minute and second value
 
 
@@ -294,26 +284,22 @@ JOIN :-
  - Combine two or more tables or records in database
 
  INNER JOIN :-
-  - Return combination of all rows from both tables where condition satisfies
+  - Return record that have matching value in both tables
   Syntax :- SELECT table1.column1, table1.column2, table2.column1 FROM table1 INNER JOIN table2  
             ON table1.matching_column = table2.matching_column;  
 
  LEFT JOIN :-
-  - Return all values from left table and matching values from right table 
-  - If there is no matching join value, it will return NULL
+  - Return all record from left table and matching record from right table 
   Syntax :- SELECT table1.column1, table1.column2, table2.column1, FROM table1 LEFT JOIN table2  
             ON table1.matching_column = table2.matching_column;  
 
  RIGHT JOIN :-
-  - Return all values from rows of right table and matched values from left table 
-  - If there is no matching in both tables, it will return NULL
+  - Return all record from right table and matched record from left table 
   Syntax :- SELECT table1.column1, table1.column2, table2.column1 FROM table1 RIGHT JOIN table2  
             ON table1.matching_column = table2.matching_column;  
 
  FULL JOIN :-
-  - Result of combination of both left and right outer join 
-  - Join tables have all record from both tables 
-  - It puts NULL on the place of matches not found
+  - Return all records when there is match in either left or right table
   Syntax :- SELECT table1.column1, table1.column2, table2.column1 FROM table1 FULL JOIN table2  
             ON table1.matching_column = table2.matching_column;  
 

@@ -1,107 +1,101 @@
 Concurrency Control :- 
- - Management procedure that required for controlling concurrent execution of operation that take place on database
- - But before knowing about concurrency control, we should know about concurrent execution
+ - Management procedure required for controlling concurrent execution of operation on database
+ - When multiple user access same database at time known as concurrent execution of database 
+ - Recovery with Concurrent Transaction used Checkpoint concept  
 
- Concurrent Execution in DBMS :-
-  - When multiple user access same database at time known as concurrent execution of database 
-  - Same database is executed simultaneously on multi-user system by different user
-  
  Problems with Concurrent Execution :-
-  Lost Update Problems (W - W Conflict) :-
-   - Two different database transaction perform read/write operation on same database item in interleaved manner 
-     that makeing database inconsistent
+ Lost Update Problem (W - W Conflict) :-
+  - Read/write operation on same database in interleaved manner that makeing database inconsistent
 
-  Dirty Read Problems (W-R Conflict) :-
-   - When one transaction update item of database and somehow transaction fail and before data gets rollback updated 
-     database item accessed by another transaction 
-   - There comes the Read-Write Conflict between both transactions
-
-  Unrepeatable Read Problem (W-R Conflict) | Inconsistent Retrievals Problem :-
-   - Two different value read for same database item
+ Dirty Read Problem (W-R Conflict) :-
+  - One transaction update database but failed before rollback another transaction access that database 
+  
+ Unrepeatable Read Problem (W-R Conflict) | Inconsistent Retrievals Problem :-
+  - Two different value read for same database item
 
  
 
 Concurrency Control Protocol :-
- - Working concept that required for controlling and managing concurrent execution of database operation thus avoiding
-   inconsistencies in database 
- 
- Protocols :-
-  - Ensure ACID property and serializability of concurrent execution of database transaction 
+ - Concept that controlling and managing concurrent execution thus avoiding inconsistencies in database 
+ - Ensure ACID property and serializability of concurrent execution of database transaction 
+
+ Lock-Based Protocol :-
+  - Any transaction cannot read or write data until it acquire appropriate lock on it 
+  - Maintain transaction at time of execution
    
-  Lock-Based Protocol :-
-   - Any transaction cannot read or write data until it acquire appropriate lock on it 
-   
-   Types of lock :-
-    Shared lock :- 
-     - Known as Read-only lock where data item only read by transaction
-     - It shared between transaction because when transaction hold lock then it can't update data on data item
+  Types of lock :-
+   Shared lock :- 
+    - Known as Read-only lock where data item only read by transaction
+    - It shared between transaction because when transaction hold lock then it can't update data on data item
     
-    Exclusive lock :-
-     - Data item both read as well as written by transaction
-     - Lock is exclusive and multiple transactions not modify same data simultaneously
-     
-   
-   Types of lock protocols :- 
-    Simplistic lock protocol :-
-      - Allow all transaction to get lock on data before insert, delete or update on it 
-      - Unlock data item after completing transaction
+   Exclusive lock :-
+    - Data item both read as well as written by transaction
+    - Lock is exclusive and multiple transactions not modify same data simultaneously
+
+   Binary Lock :-
+    - Lock on data item in two state either locked or unlocked
 
 
-    Pre-claiming Lock Protocol :-
-     - Evaluate transaction to list all data item on which they need lock
-     - Before initiating execution of transaction, it request DBMS for all lock on all those data item
-     - If all lock granted then this protocol allow transaction to begin 
-     - When transaction completed then it releases all lock
-     - If all lock not granted then protocol allow transaction to roll back and wait until all locks granted
+  Types of lock protocols :- 
+   Simplistic lock protocol :-
+    - Allow all transaction to get lock on data before insert, delete or update on it 
+    - Unlock data item after completing transaction
 
 
-    Two-phase locking (2PL) :-
-     - Execution of transaction start it seeks permission for lock it require
-     - Transaction acquires all locks 
-     - Started as soon as transaction releases its first lock
-     - Transaction cannot demand any new locks only releases acquired lock
-
-     Growing phase   :- New lock on data item acquired by transaction but none can be released
-     Shrinking phase :- Existing lock held by transaction may be released but no new lock acquired
-
-    Strict Two-phase locking (Strict-2PL) :-
-     - First phase, after acquiring all lock transaction continues to execute normally
-     - Does not release lock after using it
-     - Wait until whole transaction to commit then it releases all locks at time
-     - Not have shrinking phase of lock release
+   Pre-claiming Lock Protocol :-
+    - Evaluate transaction to list all data item on which they need lock
+    - Before initiating execution of transaction, it request DBMS for all lock on all those data item
+    - If all lock granted then this protocol allow transaction to begin 
+    - When transaction completed then it releases all lock
+    - If all lock not granted then protocol allow transaction to roll back and wait until all locks granted
 
 
+   Two-phase locking (2PL) :-
+    - Execution of transaction start it seeks permission for lock it require
+    - Transaction acquires all locks 
+    - Started as soon as transaction releases its first lock
+    - Transaction cannot demand any new locks only releases acquired lock
+
+    Growing phase   :- New lock on data item acquired by transaction but none can be released
+    Shrinking phase :- Existing lock held by transaction may be released but no new lock acquired
+
+
+   Strict Two-phase locking (Strict-2PL) :-
+    - First phase, after acquiring all lock transaction continues to execute normally
+    - Does not release lock after using it
+    - Wait until whole transaction to commit then it releases all locks at time
+    - Not have shrinking phase of lock release
+
+ 
+ Timestamp Ordering Protocol :-
+  - To determine transaction timestamp uses system time or logical counter
+  - Start working as soon as transaction created
+  - Transaction order based on their Timestamp means ascending order of transaction creation
+  - Older transaction priority higher execute first 
+
+  Advantages and Disadvantages of TO protocol:
+   - TO protocol ensures serializability
+   - Ensure freedom from deadlock means no transaction ever waits
+   - But schedule may not be recoverable and may not even be cascade-free
+
+
+ Validation Based Protocol | Optimistic concurrency control:-
+  Read phase :- 
+   - Transaction T read and executed 
+   - Read value of various data item and store them in temporary local variable
+   - Perform all write operation on temporary variable without update to actual database
+
+  Validation phase :- 
+   - Temporary variable value validated against actual data to see if it violate serializability
   
-  Timestamp Ordering Protocol :-
-   - Order transaction based on their Timestamp means ascending order of transaction creation
-   - Older transaction priority higher that's why it execute first 
-   - To determine transaction timestamp uses system time or logical counter
-   - Start working as soon as transaction created
+  Write phase :- 
+   - Temporary result written to database or system otherwise transaction rolled back
 
-   Advantages and Disadvantages of TO protocol:
-    - TO protocol ensures serializability
-    - Ensure freedom from deadlock means no transaction ever waits
-    - But schedule may not be recoverable and may not even be cascade-free
-
-
-
-  Validation Based Protocol | Optimistic concurrency control:-
-   Read phase :- 
-    - Transaction T read and executed 
-    - Read value of various data item and store them in temporary local variable
-    - Perform all write operation on temporary variable without update to actual database
-
-   Validation phase :- 
-    - Temporary variable value validated against actual data to see if it violate serializability
-  
-   Write phase :- 
-    - Temporary result written to database or system otherwise transaction rolled back
-
-   Each phase has different timestamp :-
-    Start(Ti)       : Ti started its execution.
-    Validation (Ti) : Ti finishes its read phase and starts its validation phase
-    Finish(Ti)      : Ti finishes its write phase
-    TS(T) = validation(T)
+  Each phase has different timestamp :-
+   Start(Ti)       : Ti started its execution.
+   Validation (Ti) : Ti finishes its read phase and starts its validation phase
+   Finish(Ti)      : Ti finishes its write phase
+   TS(T) = validation(T)
 
    - Serializability determined during validation process can't be decided in advance
    - While executing transaction it ensure greater degree of concurrency less number of conflict
@@ -125,31 +119,22 @@ Multiple Granularity :
  Granularity : Size of data item allowed to lock
 
  Multiple Granularity :-
-  - Hierarchically breaking up database into blocks which can be locked
+  - Hierarchically breaking up database into blocks which locked
   - Enhance concurrency and reduces lock overhead
-  - Maintain track of what to lock and how to lock
-  - It make easy to decide either to lock data item or to unlock data item 
+  - Decide either lock data item or unlock data item 
   
-  Level of the tree :- Database | Area | File | Record
+  Level of tree :- Database | Area | File | Record
    - First level or higher level show entire database
-   - Second level represent node type area 
-   - Area consist of children node which known as file 
-   - No file present in more than one area
-   - Finally each file contain child nodes known as record 
-   - File has exactly those record that are its child node
+   - Second level represent Node type area 
+   - Area consist of children node known as file 
+   - Each file contain child node known as record 
    - No record represent in more than one file
 
 
- Lock mode with multiple granularity :-
-  Intention Mode Lock :-
-   Intention-shared (IS)    : Explicit locking at lower level of tree but only with shared lock
-   Intention-Exclusive (IX) : Explicit locking at lower level with exclusive or shared locks
-   Shared & Intention-Exclusive (SIX) : Node locked in shared mode and exclusive mode by same transaction
-   Compatibility Matrix with Intention Lock Modes :- 
+ Lock mode(Intention Mode Lock) with multiple granularity :- 
+  Intention-shared (IS)    : Explicit locking at lower level of tree but only with shared lock
+  Intention-Exclusive (IX) : Explicit locking at lower level with exclusive or shared lock
+  Shared & Intention-Exclusive (SIX) : Node locked in shared mode and exclusive mode by same transaction
+  Compatibility Matrix with Intention Lock Modes : 
 
-
-
-Recovery with Concurrent Transaction :-
- - During recovery it become difficult for recovery system to backtrack all log then start recovering
- - Checkpoint concept used 
  
