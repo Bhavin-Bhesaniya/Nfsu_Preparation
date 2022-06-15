@@ -1,9 +1,9 @@
-What is Unix?
- - Unix OS is set of programs that act as link between computer and user
- - Users communicate with kernel through program known as shell 
- - Shell is command line interpreter translate commands entered by user into language that understood by kernel
+Introduction Unix/Linux :-
+ - OS that act as interface link between computer and user
  - Developed in 1969 by AT&T employees Ken Thompson, Dennis Ritchie, Douglas McIlroy, and Joe Ossanna at Bell Lab
- - Multiuser system and multitasking environment
+ - User communicate with kernel through shell 
+ - Shell is command line interpreter translate command entered by user into language that understood by kernel
+
 
  Unix Architecture :-
   Kernel - Heart of OS interact with hardware and perform memory management, task scheduling and file management
@@ -11,84 +11,119 @@ What is Unix?
   Command and Utilities - Use in day to day activities | 250 command plus numerous others provided through 3rd party
   Files and Directories - Data of Unix organized into files then organized into directories than tree-like structure
                           called filesystem
-
-
- System Bootup :-
-  Login Unix - 
-    login: user name(Case-sensitive)
-    password : 
   
- 
- Command :-
-  cal - Show calender
   
-  Change Password :-
-    passwd
-    (current) Unix password : 
-    New UNIX password : 
-    Retype new UNIX password : 
-    passwd : all authentication tokens updated successfully
-
-  Listing Directories and Files :- 
-   - Data -> File -> Directories -> File System  
-
-   ls - List out all files or directories available in directory
-   
-  
-  whoami - Find out "who you are" currently login | List account name associated with current login
-  
-  Who is Logged in? 
-   users - Show all user in system
-   who   - Show username with login time
-
-  Logout - Logout form system will clean up everything and break session
-
- 
- System Shutdown :- 
-  - Super user or root user need to shut down system
-  halt - Brings system down immediately
-  init 0 - Powers off system using predefined script to synchronize and clean up system prior to shutting down
+ Shutdown System :- 
+  - Super user or root user able to shut down system
+  halt - Bring system down immediately
+  init 0 - Power off system using predefined script to synchronize and clean up system prior to shutting down
   init 6 - Reboot system by shutting it down completely then restarting it
   poweroff - Shut down system by powering off
   reboot   - Reboot system
-  shutdown - Shuts down system
+  shutdown - Shut down system
   
 
 
-Unix Basic Utilities - Printing, Email 
- Printing File :-
-  pr - Does minor formatting of files on terminal screen or for printer 
-  lp / lpr     - Print file onto paper
-  lpstat / lpq - Show what's in printer queue :- request IDs, owners, file sizes, status of request
-  cancel - Terminate printing request from lp command 
-  lprm   - Terminate all lpr request 
+Environment Variable :- 
+ - Variable is used to store value in number, text, filename, device or any other type of data
+ - Environment variables accessing with $ sign as prefix 
+ - /etc/profile maintained by system administrator that contain shell initialization information required for all user
+ - Terminal type automatically configured by either login or getty program 
+ Setting Terminal Type :- - $PATH=/bin:/usr/bin
   
- Sending Email :-
-  - $mail [-s subject] [-c cc-addr] [-b bcc-addr] to-addr
-    -s :- Specifies subject on command line
-    -c :- Send carbon copies to list of users, List commaseparated list of name
-    -b :- Send blind carbon copies to list
   
-  Ex :- $mail -s "Test Message" admin@yahoo.com
-        $mail -s "Report 05/06/07" admin@yahoo.com < demo.txt 
+ PS1 and PS2 Variables :-
+  - Character that shell display as command prompt stored in PS1 variable 
+  \t - Current time, expressed as HH:MM:SS
+  \d - Current date, expressed as Weekday Month Date
+  \n - Newline
+  \s - Current shell environment
+  \W - Working directory
+  \w - Full path of working directory
+  \u - Current user’s username
+  \h - Hostname of current machine
+  \# - Command number of current command, Increases when new command entered
+  \$ - If effective UID is 0 (If logged as root) end prompt with # character
+   > - Default secondary prompt but changed by re-defining PS2 shell variable
+
+ 
+ Environment Variables :-
+  TZ     -  Refer to Time zone, take values like GMT, AST
+  IFS    -  Internal Field Separator used by parser for word splitting after expansion
+  PWD    -  Current working directory
+  UID    -  Numeric ID of current user, initialized at shell startup
+  HOME   -  Home directory of current user
+  LANG   -  Default system locale |  LC_ALL override this
+  PATH   -  Search path for command
+  TERM   -  Display type
+  SHLVL  -  Built-in exit command end current session
+  RANDOM   -  Generate random integer between 0 and 32,767 each time referenced
+  DISPLAY  -  Identifier for display that X11 program use by default
+  LD_LIBRARY_PATH - Dynamic linker contain colonseparated list of directories 
+ 
+  Example : echo $PATH | Output :-  /usr/local/bin:/bin:/usr/bin:/home/amrood/bin:/usr/local/bin
+
+
+
+Processes Management :-
+ - Process is instance of running program
+ - Unix track processes through five-digit Unique ID number known as pid or process ID 
+ 
+ Foreground Process :-
+  - By default, every process start runs in foreground 
+  - Get input from keyboard send output to screen
+  - Program running in foreground is time-consuming, no other command run(start any other processes) because prompt
+    not available until program finishe processing and comes out
+  - Type ls -> Process request -> Send Response -> Display output
+
+
+ Background Processes :-
+  - Run without being connected to keyboard 
+  - If background process requires any keyboard input, it waits
+  - Add ampersand(&) at end of command to start background process
+  Advantage :- Run other command without waiting to complete another command
+
+
+ Display Running Processes :-
+  ps - See processes running on system
+  ps -f :- Provide more information about process
+   
+
+ Stop Process :-
+  - CTRL + C keystroke(Default interrupt character) exit command when process running in foreground mode
+  - If process running in background its Job ID use with ps command  | Ex :- $kill 6738
   
-  - Check incoming email :- mail
+
+ Parent and Child Process :- 
+  - Each unix process has two ID number assigned to it : PID and PPID
+  - Each user process has parent process 
+  - Most command that run have shell as their parent
+  
+
+ Zombie and Orphan Processes :-
+  - When child process killed, parent process updated via SIGCHLD signal 
+  - Sometime parent process killed before its child killed called orphan processes
+  - When process killed but still process show in Z state known as zombie or defunct process 
+  - They completed execution then dead but still find entry in process table
 
 
+ Daemon Processes :-
+  - System background processes that run with permission of root and service requests from other process
+  - Daemon not controlling terminal and  cannot open/dev/tty 
+  - It runs in background usually waiting for something happen that capable of working with 
+ 
 
-Unix - System Performance
- Unix has following major resource types that need to be monitored and tuned :-
-  CPU | Memory | Disk space | Communications lines | I/O Time | Network Time | Applications programs
 
- Performance Component :-
+System Performance :-
+ Require monitored :- CPU | Memory | Disk space | Communication line | I/O Time | Network Time | Application program
+
+ Process Component :-
   User State CPU   - Amount of time CPU spend for running user program
   System State CPU - Amount of time CPU spend in system state on behalf of System program
   I/O Time and Network Time  - Time spent for moving data and servicing I/O request
-  Virtual Memory Performance - Includes context switching and swapping
-  
-  
+  Virtual Memory Performance - Include context switching and swapping
+   
  Performance Tools :- 
-  ps     - Report snapshot of current processes
   top    - Display system tasks
   prof   - Facilitate Process Profiling
   time   - Help time simple command or give resource usage
@@ -98,3 +133,223 @@ Unix - System Performance
   netstat     - Print network and masquerade connection, routing table, interface statistic, multicast membership
   nice/renice - Run program with modified scheduling priority
 
+
+
+vi Editor | VIM(Vi IMproved) :-
+ - vi is case-sensitive Editor enable Notepad like Facilitate
+ - Tilde (~) on each line of editor following cursor that represent unused line 
+ - Available on all Unix | Implementation similar to board | Require very few resource | User-friendly
+
+ Create or open file :-
+  vi filename     - Create new file if it not exist otherwise open existing file in read-only mode
+  vi -R filename  - Open existing file in read-only mod
+
+  
+ Different Mode :-
+  Command mode - Perform administrative tasks such as saving, executing command | Whatever type interpreted as command
+  Insert mode  - Insert text into file | Typeing interpreted as input and placed in file
+  - vi always starts in command mode 
+  - To write data in file always go in insert mode
+  - Moving cursor within File must be in command mode
+  - Editing Files In insert mode 
+  - Change characters, words, or lines in vi without deleting them using Change command  
+
+
+ Key for vi :-
+  i   -> Enter text
+  Esc -> Insert mode to command(2 time Click)
+  :q  -> Getting Out of vi
+  :q! -> To ignore modified message 
+  :w  -> Save content (:w filename2)  
+  :wq/ZZ -> Save and quit
+  k  Up one line                  | j  Down one line
+  h  Left one character position  | l  Right one character position
+  
+  i   Insert text before current cursor location
+  I   Insert text at beginning of current line
+  a   Insert text after current cursor location
+  A   Insert text at end of current line
+  o   Create new line for text entry below cursor location
+  O   Create new line for text entry above cursor location
+  
+  x   Delete character under cursor location
+  X   Delete character before cursor location
+  dw  Delete from current cursor location to next word
+  d^  Delete from current cursor position to beginning of the line
+  d$  Delete from current cursor position to end of the line
+  D   Delete from cursor position to end of current line
+  dd  Delete line cursor is on
+
+  cc  Remove line content and leaving in insert mode
+  cw  Change word from cursor to lowercase w end of word
+  r   Replace character under cursor 
+  R   Overwrite multiple characters beginning with character currently under cursor | Esc to stop overwriting
+  s   Replace current character with character you type
+  S   Delete line on cursor and replaces with new text
+    
+  yy  Copy current line
+  yw  Copy current word from character lowercase w cursor is on until end of word
+  p   Put copied text after cursor
+  P   Puts yanked text before cursor
+
+  /   search forward(downwards) in file
+  ?   search backward (upwards) in tfile
+  n/N Repeat previous search command in same or opposite direction, respectively 
+  ^   Search at beginning of line (Use at beginning of search expression)
+  .   Match single character
+  *   Match zero or more previous character
+  $   End of line (Use at end of search expression)
+  [   Start set of matching or non-matching expression
+  <   Escaped with backslash to find ending or beginning of word
+  >   Helps to see '<' character description above
+  f/F search for character on current line only, f search forwards and F searches backwards
+  t/T search for character on current line only, t moves to position before character and T after character
+
+ 
+ Set Command :-
+  :set ic     Ignore case when searching
+  :set ai     Set autoindent
+  :set noai   Unset autoindent
+  :set nu     Display lines with line numbers on left side
+  :set sw     Set width of software tabstop
+  :set ws     If wrapscan set and word not found, it will try searching for it at beginning
+  :set wm     Value greater than zero editor automatically "word wrap"
+  :set ro     Changes file type to "read only"
+  :set term   Print terminal type
+  :set bf     Discard control characters from input
+
+  
+ Running Command :-
+   - Substitution command (:s/) enables quickly replace words or groups of words within your file 
+   - :s/search/replace/g
+
+
+
+Pipes and Filters :-
+ - Pipe Connect two command together by putting vertical bar (|) between two command
+ - Program take input from another program -> Perform operation -> Result to standard output Known as filter
+ Ex :- $ls -l | grep "Aug"
+
+ grep :- Search file or files for lines that have certain pattern (Globally search for regular expression)
+  -v   Print all line that not match pattern
+  -n   Print matched line and its line number
+  -l   Print only names of files with matching lines (letter "l")
+  -c   Print only count of matching line
+  -i   Match either upper or lowercase
+
+ sort :- Arrange lines of text alphabetically(Default) or numerically
+  -n  Sort numerically and ignores blanks and tabs
+  -r  Reverses sort order
+  -f  Sort upper and lowercase together
+  +x  Ignore first x field when sorting
+
+
+
+Network Communication :-
+ - In distributed environment need to communicate with remote users and also need to access remote Unix machines
+ 
+ Ping Utility :- 
+  ping - command send echo request to available host on network 
+  - Tracking | Isolating | Testing | Measuring Status | Managing hardware and software problem on network
+  Syntax  :- $ping hostname or ip-address
+   
+
+ Ftp Utility :-
+  - Help for upload and download file from one computer to another computer after authenticated
+  - Connect and login to remote host | Navigate directories | List directory content | Put and get file
+  Syntax :- $ftp hostname or ip-address | Prompt login ID and password 
+
+  put filename - Upload file from local machine to the remote machine
+  get filename - Download file from remote machine to the local machine
+  prompt off   - Turn prompt off, By default receive prompt to upload or download files using mput or mget command
+  prompt on    - Turn prompt on
+  cd dirname   - Change directory to dirname on remote machine
+  lcd dirname  - Change directory to dirname on local machine
+  dir  - List all files available in current directory of remote machine
+  quit - Help logout from current login
+  mput filelist - Upload more than one file from local machine to remote machine
+  mget filelist - Download more than one file from remote machine to local machine
+ 
+
+ Telnet Utility :- 
+  - Allow user at one site to make connection, login then conduct work on computer at another site
+  Ex :- telnet amrood.com
+ 
+
+ Finger Utility :-
+  - Display information about user on given host either local or remote
+  - Finger may be disabled on other systems for security reason
+  finger :- Check all logged-in users on the local machine
+  finger username :- Get information about specific user available on local machine 
+
+
+ Printing File :-
+  pr     - Does minor formatting files on terminal screen or for printer 
+  lprm   - Terminate all lpr request 
+  cancel - Terminate printing request from lp command 
+  lp / lpr     - Print file onto paper
+  lpstat / lpq - Show what's in printer queue :- request IDs, owners, file sizes, status of request
+  
+
+ Sending Email :-
+  $mail [-s subject] [-c cc-addr] [-b bcc-addr] to-addr
+   -s :- Specifies subject on command line
+   -c :- Send carbon copies to list of users, List commaseparated list of name
+   -b :- Send blind carbon copies to list
+  
+  Ex :- 
+   $mail -s "Test Message" admin@yahoo.com
+   $mail -s "Report 05/06/07" admin@yahoo.com < demo.txt 
+  
+  
+
+Regular Expressions with SED(Stream Editor) :-
+ - Sequence of character used to match character in String or file
+ - Stream-oriented editor was created exclusively for executing script 
+
+ Invoking SED :
+  - Before we start, let us ensure we have a local copy of /etc/passwd text file to work with sed.
+  - cat command dump content of /etc/passwd to sed through pipe into sed's pattern space 
+  Syntax :- $ cat /etc/passwd | sed
+  Usage  :- sed [OPTION]... {script-other-script} [input-file]...
+
+  SED General Syntax :- /pattern/action
+   - Pattern is regular expression and action is one of commands 
+   - Slash character (/) that surround pattern required because they used as delimiter
+  
+ 
+ Regular Expression :-
+  ^   Match beginning of lines
+  $   Match end of lines
+  .   Match any single character
+  *   Match zero or more occurrences of the previous character
+ 
+  [a-z]    Single lowercase letter
+  [A-Z]    Single uppercase letter
+  [0-9]    Single number
+  / */     One or more spaces
+  /a.c/    Lines that contain strings such as a+c, a-c, abc, match, and a3c
+  /a*c/    Same strings along with strings such as ace, yacc, and arctic
+  /^$/     Blank lines
+  /^.*$/   Entire line whatever it is
+  [a-zA-Z] Single letter
+  /[tT]he/ Matche string The and the
+  [a-zA-Z0-9] Single letter or number
+
+
+ Character Class Keywords :-
+  - Using alphabet character class keyword, print only those lines in /etc/syslog.conf file that start with alphaletter
+  Ex :- $ cat /etc/syslog.conf | sed -n '/^[[:alpha:]]/p'
+  
+  [[:lower:]]     Lowercase letters [a-z]
+  [[:upper:]]     Uppercase letters [A-Z]
+  [[:alpha:]]     Alphabetic [a-z A-Z]
+  [[:alnum:]]     Alphanumeric [a-z A-Z 0-9]
+  [[:blank:]]     Blank characters (spaces or tabs)
+  [[:digit:]]     Numbers [0-9]
+  [[:cntrl:]]     Control characters
+  [[:graph:]]     Any visible characters (excludes whitespace)
+  [[:print:]]     Printable characters (non-control characters)
+  [[:punct:]]     Punctuation characters
+  [[:space:]]     Whitespace
+  [[:xdigit:]]    Hex digits [0-9 a-f A-F]

@@ -1,0 +1,28 @@
+Command :-
+  cal    - Show calender
+  passwd - Change Password 
+  ls     - List out all files or directories available in directory
+  whoami - Find out "who you are" currently login | List account name associated with current login
+  who    - Show username with login time
+  users  - Show all user in system
+  logout - Logout form system clean up everything and break session
+  ps     - See processes running on system
+  kill   - Kill process from memory
+  grep   - Search files for lines that have certain pattern (Globally search for regular expression)
+  sort   - Arrange lines of text alphabetically(Default) or numerically
+  dir    - List all files available in current directory
+  cd     - Change directory
+  chown  - "change owner" change file owner
+  chgrp  - "change group" change group of file
+  
+  ping   - Send request to available host on network 
+  ftp    - Upload and download file from one computer to another computer after authenticated
+  telnet - Allow user at one site to make connection login then conduct work on computer at another site
+  finger - Check all logged-in users on local machine
+  mail   - Check incoming email and send
+  finger username - Get information about specific user available on local machine 
+
+  vi filename    - Create new file if it not exist otherwise open existing file in read-only mode
+  vi -R filename - Open existing file in read-only mode
+  cat filename   - See content of file
+  wc filename    - Get count of total number of lines, words, and characters contained in file
