@@ -1,0 +1,100 @@
+What is Unix?
+ - Unix OS is set of programs that act as link between computer and user
+ - Users communicate with kernel through program known as shell 
+ - Shell is command line interpreter translate commands entered by user into language that understood by kernel
+ - Developed in 1969 by AT&T employees Ken Thompson, Dennis Ritchie, Douglas McIlroy, and Joe Ossanna at Bell Lab
+ - Multiuser system and multitasking environment
+
+ Unix Architecture :-
+  Kernel - Heart of OS interact with hardware and perform memory management, task scheduling and file management
+  Shell  - Command line interpreter translate command into kernal language | C Shell, Bourne Shell and Korn Shell 
+  Command and Utilities - Use in day to day activities | 250 command plus numerous others provided through 3rd party
+  Files and Directories - Data of Unix organized into files then organized into directories than tree-like structure
+                          called filesystem
+
+
+ System Bootup :-
+  Login Unix - 
+    login: user name(Case-sensitive)
+    password : 
+  
+ 
+ Command :-
+  cal - Show calender
+  
+  Change Password :-
+    passwd
+    (current) Unix password : 
+    New UNIX password : 
+    Retype new UNIX password : 
+    passwd : all authentication tokens updated successfully
+
+  Listing Directories and Files :- 
+   - Data -> File -> Directories -> File System  
+
+   ls - List out all files or directories available in directory
+   
+  
+  whoami - Find out "who you are" currently login | List account name associated with current login
+  
+  Who is Logged in? 
+   users - Show all user in system
+   who   - Show username with login time
+
+  Logout - Logout form system will clean up everything and break session
+
+ 
+ System Shutdown :- 
+  - Super user or root user need to shut down system
+  halt - Brings system down immediately
+  init 0 - Powers off system using predefined script to synchronize and clean up system prior to shutting down
+  init 6 - Reboot system by shutting it down completely then restarting it
+  poweroff - Shut down system by powering off
+  reboot   - Reboot system
+  shutdown - Shuts down system
+  
+
+
+Unix Basic Utilities - Printing, Email 
+ Printing File :-
+  pr - Does minor formatting of files on terminal screen or for printer 
+  lp / lpr     - Print file onto paper
+  lpstat / lpq - Show what's in printer queue :- request IDs, owners, file sizes, status of request
+  cancel - Terminate printing request from lp command 
+  lprm   - Terminate all lpr request 
+  
+ Sending Email :-
+  - $mail [-s subject] [-c cc-addr] [-b bcc-addr] to-addr
+    -s :- Specifies subject on command line
+    -c :- Send carbon copies to list of users, List commaseparated list of name
+    -b :- Send blind carbon copies to list
+  
+  Ex :- $mail -s "Test Message" admin@yahoo.com
+        $mail -s "Report 05/06/07" admin@yahoo.com < demo.txt 
+  
+  - Check incoming email :- mail
+
+
+
+Unix - System Performance
+ Unix has following major resource types that need to be monitored and tuned :-
+  CPU | Memory | Disk space | Communications lines | I/O Time | Network Time | Applications programs
+
+ Performance Component :-
+  User State CPU   - Amount of time CPU spend for running user program
+  System State CPU - Amount of time CPU spend in system state on behalf of System program
+  I/O Time and Network Time  - Time spent for moving data and servicing I/O request
+  Virtual Memory Performance - Includes context switching and swapping
+  
+  
+ Performance Tools :- 
+  ps     - Report snapshot of current processes
+  top    - Display system tasks
+  prof   - Facilitate Process Profiling
+  time   - Help time simple command or give resource usage
+  gprof  - Display call graph profile data
+  uptime - System Load Average
+  vmstat - Report virtual memory statistics
+  netstat     - Print network and masquerade connection, routing table, interface statistic, multicast membership
+  nice/renice - Run program with modified scheduling priority
+

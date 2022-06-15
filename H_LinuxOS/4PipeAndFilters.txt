@@ -1,0 +1,21 @@
+Unix - Pipes and Filters
+ - Pipe Connect two command together by putting vertical bar (|) on between two command
+ - When program takes input from another program, perform operation on that input and write result to standard output 
+   Referred as filter
+
+ grep :- Searche file or files for lines that have certain pattern (Globally search for regular expression)
+  Ex :- $ls -l | grep "Aug"
+  -v   Print all lines that not match pattern
+  -n   Print matched line and its line number
+  -l   Print only names of files with matching lines (letter "l")
+  -c   Print only count of matching line
+  -i   Match either upper or lowercase
+
+ 
+ sort :- Arrange lines of text alphabetically(Default) or numerically
+   -n  Sort numerically and ignores blanks and tabs
+   -r  Reverses sort order
+   -f  Sort upper and lowercase together
+   +x  Ignore first x field when sorting
+
+ Pipe Ex :- $ls -l | grep "Aug" | sort +4n

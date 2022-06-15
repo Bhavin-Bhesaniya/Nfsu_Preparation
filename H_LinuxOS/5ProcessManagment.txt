@@ -1,0 +1,79 @@
+Unix - Processes Management
+ - Process is instance of running program
+ - OS track processes through five-digit Unique ID number known as pid or process ID 
+ 
+ Foreground Process :-
+  - By default, every process that start runs in foreground 
+  - Get input from keyboard send it output to screen
+  - Program running in foreground is time-consuming, no other command run(start any other processes) because prompt
+    would not be available until program finishes processing and comes out
+  - Type ls -> Process request fetch response -> Display output
+
+
+ Background Processes :-
+  - Run without being connected to keyboard 
+  - If background process requires any keyboard input, it waits
+  - Add ampersand(&) at end of command to start background process
+  Advantage :- Able to run other command not have to wait until it completes to start another
+
+ 
+ Listing Running Processes :-
+  ps - See processes running on system
+   -f  - Provide more information about process 
+   -a  - Show information about all users
+   -x  - Show information about processes without terminal
+   -u  - Show additional information like -f option
+   -e  - Display extended information
+
+  ps -f :-
+   UID  - User ID that process belongs to person running it
+   PID  - Process ID
+   PPID - Parent process ID (ID of process that started it)
+   C    - Process CPU utilization
+   STIME- Process start time
+   TTY  - Terminal type associated with process
+   TIME - CPU time taken by process
+   CMD  - Command that started this process
+
+
+ Stopping Processes :-
+  - Sending CTRL + C keystroke(Default interrupt character) exit command 
+  - This works when process running in foreground mode
+  - If process running in background its Job ID using ps command 
+  Ex :- 
+    $ps -f
+    UID PID PPID C STIME TTY TIME CMD
+    amrood 6738 3662 0 10:23:03 pts/6 0:00 first_one
+    $kill 6738
+    Terminated
+
+
+ Parent and Child Processes :- 
+  - Each unix process has two ID numbers assigned to it : PID and PPID
+  - Each user process in system has parent process
+  - Most command that run have shell as their parent
+  
+
+ Zombie and Orphan Processes :-
+  - When child process killed, parent process updated via SIGCHLD signal 
+  - Then parent do some other task or restart new child as needed 
+  - Sometime parent process killed before its child killed 
+  - In this "Parent of all processes" init process becomes new PPID (parent process ID) 
+  - These processes called orphan processes
+  
+  - When process is killed, ps listing may still show process with Z state known as zombie or defunct process 
+  - Process is dead and not being used 
+  - These processes are different from orphan processes 
+  - They completed execution but still find entry in process table
+
+
+ Daemon Processes :-
+  - Daemons are system-related background processes that often run with permissions of root and services requests from
+    other processes
+  - Daemon not controlling terminal
+  - It cannot open/dev/tty 
+  - Daemon process runs in background usually waiting for something to happen that capable of working with 
+  - If program that calls for lengthy processing then it’s worth to make it daemon and run it in background
+  
+  top :- Showing processes sorted by various criteria like CPU utilization, memory usage etc..
+ 

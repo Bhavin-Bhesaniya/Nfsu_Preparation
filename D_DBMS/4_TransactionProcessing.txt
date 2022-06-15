@@ -1,6 +1,7 @@
 Transaction :-
+ - Group of task or Set of operation called transaction
  - Single logical unit of work which accesses and possible modifies content of database
- - Set of operation called transaction
+ - 
 
  State of Transaction :-  
   Active state        :- First state of every transaction where transaction being executed
@@ -143,3 +144,5 @@ Deadlock in DBMS :-
    - After minute delay younger transaction restarted but with same timestamp
    - If older transaction held resource which requested by Younger transaction then younger transaction asked to wait
      until older releases it
+
+

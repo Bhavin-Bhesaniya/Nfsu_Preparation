@@ -1,0 +1,249 @@
+Unix - File Management
+ - Data -> File -> Directories -> File System  
+ Ordinary Files      :- Contain data, text, or program instruction 
+ Special Files       :- Provide access to hardware 
+ Directories(Folder) :- Store both special and ordinary file 
+ 
+ Listing Files :-
+  ls - List files and directories stored in current directory
+   -l :- Get more information about listed file
+  
+  Ex :-
+  $ls -l
+   total 1962188
+   drwxrwxr-x 2 amrood amrood 4096 Dec 25 09:59 uml
+  
+   First Column  - Represent file type, Permission
+   Second Column - Represent Number of memory blocks taken by file or directory
+   Third Column  - Represent owner of file
+   Fourth Column - Represent group of owner
+   Fifth Column  - Represent file size in byte
+   Sixth Column  - Represent date and time when file created or modified for last time
+   Seventh Column- Represent file or directory name
+ 
+  These characters indicate the type of the file that's listed :-
+   - :- Regular file such as an ASCII text file, binary executable, or hard link
+   b :- Block input/output device file such as physical hard drive
+   c :- Character special file, Raw input/output device file such as a physical hard drive.
+   d :- Directory file that contain listing of other files and directories
+   l :- Symbolic link file, Links on any regular file
+   p :- Named pipe, Mechanism for interprocess communication
+   s :- Socket used for interprocess communication
+
+ 
+ Metacharacter :-
+  - Special meaning in Unix * (Display all matches) | ? (Matches single character)
+  ls ch*.doc :- Displays all file names of which start with ch and end with .doc
+
+
+ Hidden Files :-
+  - Invisible file first character of which dot or Period character(.) 
+  - Unix program (including the shell) use most of these files to store configuration information
+     
+  .profile - Bourne shell(sh) initialization script
+  .kshrc   - Korn shell (ksh) initialization script
+  .cshrc   - C shell (csh) initialization script
+  .rhosts  - Remote shell configuration file
+
+  ls -a :- To list invisible files
+  Single dot(.)  - Represent current directory
+  Double dot(..) - Represent parent directory
+
+
+ Creating Files :-
+  - vi filename (Open vi editor) -> Press i (Come into edit mode start write) -> esc (Out of edit mode)
+  - Press Shift + Z together to come out from vi
+
+ Editing Files :-
+  - vi filename
+  - l key to move right | h move left | k move upside | j move downside
+
+ Display Content of File :-
+  cat filename - See content of file 
+  cat -b filename - Display line numbers with output 
+
+ Counting Words in file :-
+  wc filename - Get count of total number of lines, words, and characters contained in file
+
+ Copying Files  :- cp source_file destination_file
+ Renaming Files :- mv old_file new_file
+ Deleting Files :- rm filename
+
+ 
+ Standard Unix Stream :-
+  stdin  - Standard input as file descriptor 0  | Unix read default input from STDIN
+  stdout - Standard output as file descriptor 1 | Write default output at STDOUT
+  stderr - Standard error as file descriptor 2  | Write all error messages at STDERR
+
+
+
+Unix - Directory Management :-
+ - Directory is store file names and related information 
+ - All files whether ordinary, special, or directory contained in directories
+ - Hierarchical structure used for organizing files and directorie.
+ - Tree has single root node, slash character (/) and all other directories contained below it
+
+ Home Directory :-
+  - Find yourself when first login is called your home directory.
+  cd ~ - Go in home directory anytime 
+  cd ~username - User home directory
+  cd -  :- Go in last Directory
+
+ Absolute/Relative Pathname :-
+  - Directories arranged in hierarchy with root (/) at top 
+  - Position of any file within hierarchy is described by its pathname
+  - Element of pathname separated by a / 
+  - Pathname is absolute if it described in relation to root thus absolute pathname always begin with /
+  Ex :- /etc/passwd
+  
+ Directory command :- 
+  pwd - Determine where you are within filesystem at time
+  ls dirname       :- To list files in directory
+  mkdir dirname    :- Creating Directories
+  mkdir -p dirname :- Create all required parent directories
+  rmdir dirname    :- Removing Directories
+  cd dirname       :- Changing Directories
+  mv olddir newdir :- Rename Directories
+  .(dot)           :- Filename .(dot) represent current working directory
+  ..(dot dot)      :- Represent directory one level above current working directory(Parent directory)
+  ls -la           :- Show listing of current working directories/files
+
+
+
+Unix - File Permission / Access Mode :-
+ Owner permission - Determine what action owner of file can perform on file
+ Group permission - Determine what action user, who is member of group that file belongs to perform on file
+ Other(world) permission - What action all other user perform on file
+
+ Permission Indicators :-
+  ls -l :- First column represents different access modes
+   - Permission broken into groups of threes and each position in group denote specific permission in this order
+   - Read (r), write (w), execute (x) 
+   - First three character(2-4) represent permissions for file's owner 
+   - Second group of three character (5-7) consist of permission for group 
+   - Last group of three characters (8-10) represent permissions for everyone else\
+
+
+ File Access Modes :-
+  Read    - View content of file 
+  Write   - Capability to modify or remove file content
+  Execute - Able to run file as program
+
+  Changing Permission :-
+   chmod - Change file or directory Permissions
+   chmod in Symbolic Mode - Add, delete or specify permission set using operator
+     +  - Add permission to file or directory
+     -  - Remove permission from a file or directory.
+     =  - Set permission
+
+   chmod with Absolute Permissions :- Use number to specify each set of permission for file
+     0	---  No permission
+     1	--x  Execute permission	
+     2	-w-  Write permission
+     3	-wx  Execute and write
+     4	r--  Read 
+     5	r-x  Read and execute 
+     6	rw-  Read and write
+     7	rwx  All  
+
+ 
+ Changing Owners and Group :-
+  chown - "change owner" change owner of file
+  chgrp - "change group" change group of file
+  chown user filelist  - Value of user either user name on system or user id (uid)
+  chgrp group filelist -  Value of group either group name on system or group id (GID)
+
+ 
+ SUID and SGID File Permission :-
+  - Executed with special privileges in order to accomplish its task
+  - New password stored in file /etc/shadow
+  - Additional permission known as Set User ID (SUID) and Set Group ID (SGID) bits
+
+
+
+Unix - File System Basic :-
+ - File system is logical collection of files on partition or disk 
+ - Partition is container for information and span entire hard drive if desired
+ 
+ Directory Structure :-
+  - Hierarchical structure with root (/) at base of file system and all other directories spreading from there
+  - Root directory (/) that contain other files and directories
+  - Each file or directory is uniquely identified by inode
+  - Root directory has inode number 2 and lost+found directory has inode number of 3 
+  - Inode numbers 0 and 1 not used 
+  - File inode number seen by specifying -i option to ls command
+
+   
+ Directory :-
+  /     - Root directory which should contain only directories needed at top level of file structure
+  /bin  - Executable files are located available to all users
+  /dev  - Device drivers
+  /etc  - Supervisor directory commands, configuration files, disk configuration files, valid user lists, groups, 
+          ethernet, hosts, where to send critical messages
+  /lib  - Contain shared library files other kernel-related files
+  /boot - Booting system file
+  /home - Home directory for users and other accounts
+  /mnt  - Mount temporary file system such as cdrom and floppy for CD-ROM drive and floppy diskette drive respectively
+  /proc - All processes marked as file by process number or other information that dynamic to system
+  /tmp  - Hold temporary files used between system boot
+  /usr  - Used for miscellaneous purposes used by many users 
+        - Include administrative commands, shared files, library files, and other
+  /var  - Variable-length files such as log that contain variable amount of data
+  /sbin - Binary(executable) files for system administration   |  Ex :- fdisk and ifconfig utlities
+  /kernel - Kernel files
+
+ 
+ Navigating File System :-
+  cat filename - Display filename
+  cd dirname   - Moves to identified directory
+  cp file1 file2    - Copies one file/directory to specified location
+  file filename     - Identifie file type (binary, text, etc)
+  find filename dir - Find file/directory
+  head filename  -  Show beginning of file
+  less filename  -  Browses through file from end or beginning
+  tail filename  - Shows end of file
+
+  ls dirname - Show content of specified directory
+  mkdir dirname - Create specified directory
+  more filename - Browses through file from beginning to end
+  mv file1 file2 - Move location of or renames file/directory
+  pwd - Shows current directory user is in
+  rm filename - Remove file
+  rmdir dirname - Remove directory
+  touch filename - Create blank file or modifies existing file or its attributes
+  whereis filename - Show location of file
+  which filename   - Show location of file if it in PATH
+  
+  df(Disk Free) - Manage partition space 
+  df -k         - Display disk space usage in kilobytes
+  -h (human readable) - Display output in format 
+  du(Disk usage) - Specify directories to show disk space usage on particular directory
+
+
+ Mounting File System :-
+  - File system must be mounted in order to be usable by system 
+  mount - To see what is currently mounted (available for use) 
+  /mnt  - Temporary mount(CDROM drives, remote network drives, floppy drives) located 
+  mount -t file_system_type device_to_mount directory_to_mount_to
+ 
+ 
+ Unmounting File System :-
+  umount - To unmount(remove) file system from system
+
+
+ User and Group Quotas :-
+  - Provide mechanisms by which amount of space used by single user or all users within specific group 
+    limited to value defined by administrator
+  - Quotas operate around two limit that allow user to take some action if amount of space or number of disk block
+    start to exceed administrator defined limits
+  Soft Limit - If user exceed limit there is grace period that allow user to free up some space
+  Hard Limit - No further files or blocks can be allocated
+
+  quota      - Display disk usage and limits for user of group
+  edquota    - Quota editor, Users or Groups quota edited
+  quotacheck - Scan filesystem for disk usage, creates, checks and repairs quota files
+  setquota   - Command line quota editor
+  quotaon    - Disk quotas should be enabled on one or more filesystem
+  quotaoff   - Disk quotas should be disabled for one or more filesystem
+  repquota   - Print summary of disc usage and quotas for specified file system
+  
