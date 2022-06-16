@@ -3,7 +3,6 @@ File Management :-
  - Logical collection of files on partition or disk 
  - Partition is container for information and span entire hard drive if desired
  - Directory store file name and related information 
-
  
  
  Directory Structure :-

@@ -72,6 +72,7 @@ Shell Variable :-
    export - to make variable $NAME visible to programs run by shell
 
 
+
 Special Variables :-
  $echo $$  - Write PID of current shell −29949
   $0   Filename of current script

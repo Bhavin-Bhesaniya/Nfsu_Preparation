@@ -785,7 +785,6 @@ Polymorphism :-
  - It occurs when there is hierarchy of classes and they are related by inheritance
  - Polymorphism means Call to member function will cause different function to be executed depending on type of
    object that invokes function
- -   
 
 
 
