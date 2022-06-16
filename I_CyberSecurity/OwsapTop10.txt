@@ -1,0 +1,149 @@
+What is OWASP(Open Web Application Security Project)?
+ - OWASP nonprofit security organization that conducts security assessment and gives insights into critical security
+   flaws in software
+ - OWASP primarily focuses on the back end rather than design issues
+ - OWASP ZAP(Zed Attack Proxy) integrated vulnerability scanning tool for detecting flaws in web-based application
+ - Constantly updated document that outlines web application security concern, focusing on 10 most significant issue 
+ - Raise awareness about application security by identifying some most critical risks facing organization
+ - OWASP Top 10 vulnerabilities reflect widespread agreement on most severe web security deficiencies
+
+ Injection :-
+  - Injection flaws happen when untrusted data sent to interpreter as part of command or query 
+  - Injection attack meddle fundamental security concept of access control 
+  - injection is not specific to a technology or programming language
+  - Malicious user tinker with search feature in hope of injecting input called payload to perform unintended result
+    by vulnerable system 
+  - If successful malicious user trick application to revert sensitive information
+
+  Injection Vulnerabilities :- 
+   - SQL injection | OS command injection | Lightweight directory access protocol (LDAP) injection
+   
+  Preventing Injection Attacks :- 
+   - Secure interface | Utilize server-side user authentication
+   - Special characters should be approached with caution
+
+
+
+ Broken Authentication :- 
+   - Authentication process where user grant genuinity of who they are 
+   - Attacker mimic someone and gain access to their data or functionality 
+   - Authentication and session involve cookies that provide easy way for attacker to try and portray someone else
+   - Application functionalities linked to authentication and session management frequently implemented improperly 
+     allowing intruders to compromise passwords, keys, or session tokens or exploit other implementation defects to
+     temporarily or permanently assume other users’ identities
+   
+   Broken Authentication :- Compromised credentials such as username and password
+   
+   Broken Authentication Vulnerabilities :-
+    - Insecure login form | Logout management | Administration portal | Session ID in URL
+   
+   Preventing broken authentication attack :-
+    - Use modern framework | HTTP only and secure flags on cookies | password hashing algorithm
+    - Use combination of independent pen testing and code review
+    
+    
+
+ Sensitive Data Exposure :-
+   - Attackers steal or modify such clumsily-defended data to conduct credit card fraud, identity theft or other crime
+   - Sensitive data negotiated without extra protection such as encryption at rest or in transit and require special 
+     precaution when exchanged with browser
+
+   Sensitive Data Exposure Vulnerabilities :- Credential stuffing | Password-based attack
+   
+   Preventing Sensitive Data Exposure :-
+    - PCI, GDPR and many more security 
+    - Reduce scope of blast radius
+    - Ensure best security practices
+
+
+  
+ XML External Entities : -
+   - XML ability to define new entities such as turn and foo 
+   - Simple text replacement that in-lined in XML declaration but they refer to external file
+   - XXE attacks take advantage of ability to read arbitrary files and URIs to allow wide range of attack scenarios
+   
+   Preventing XXE Attacks :-
+    - Reducing[13][14] XXE attack generally straightforward and require passing additional flags to XML parser 
+    - Generally speaking, these[15][16] attacks flags for disallowing inline DTDs and removing entities entirely
+    
+
+
+ Broken Access Control  :-
+   - Whenever hacker exploit access to system known as breach access control 
+   - Attacker access computer either as user or administrator
+   - Restriction on what authenticated user allowed to do are often not enforced 
+   - Attacker exploit these flaws to access unauthorized functionality of data such as access other user account 
+     view sensitive files, modify another user data, change access rights etc..
+   
+   Preventing Broken Access Control Attacks :- 
+    - Implement access control
+    - Manage multiple access profiles and follow least privileged policy
+    - Use of logging and monitoring
+    - Continuous testing application
+    
+  
+
+ Security Misconfiguration :-
+   - It caused by insecure default setup, ad hoc configuration, open cloud storage, incorrect HTTP header and verbose 
+     error messages revealing sensitive information
+   - All OS, frameworks, libraries and application not only be securely set up but also patched or upgraded promptly
+   
+   Ex :- Open S3 bucket | Unencrypted database | Default admin credential | Unnecessary ports or services
+         Verbose error messages or server version information
+   
+   Preventing Security Misconfiguration Attacks:
+    Hardened system : Use automated process such as cloud formation
+    Patch and update software : Prioritize patches and implement their impact
+ 
+ 
+  
+ Cross-site Scripting (XSS) :-
+   - XSS code injection attack executed on client-side of web application
+   - Attacker inject malicious script through web browser 
+   - Malicious script executed when victim visits web page or web server
+   - Cross-site scripting utilized to steal sensitive information such as cookies, session token and other private data
+
+   Preventing :- Escape user input | Consider all input as threat | Data validation | Sanitize data
+ 
+  
+  
+ Insecure Deserialization :-
+   - Happen in remote code execution 
+   - Not allow for remote code execution they leveraged to launch attack such as replay attack, injection attack and 
+     privilege escalation attack
+   - Occur when program fails to sufficiently secure this procedure 
+   - If default parameter utilized application have little control over what data deserialized 
+   - Any incoming serialized visual data may be included with no authentication or safeguard
+
+   Preventing :- 
+    - Prevent data from tampering while the objects are getting serialized
+    - Log to detect insecure deserialization | Code isolation
+
+
+
+ Using Components with Known Vulnerabilities :-
+   - Online service that contain component known as security flaws 
+   - Known vulnerability component might be component itself, CMS utilized, webserver, plugin loaded or even library
+     used by one of these libraries
+   - Libraries, frameworks, and other software modules nearly always executed with full right 
+   - Attack that takes advantage of weak component might result in significant data loss or server takeover 
+   - Application that use component with known vulnerabilities may bypass application protection and enable variety 
+     of potential attack and consequences
+
+   Preventing :-
+    - In event that patches cannot be addressed, maintain continuous inventory and monitor OWASP dependency check
+    - Deserialization issues detected by using application security tool 
+    - Penetration testing confirm that issues exist
+ 
+
+
+ Insufficient Logging and Monitoring :-
+   - Affect underlying infrastructure not only computer HTTP server 
+   - Large number of logs—practically all new device produce unique record so log handling becomes huge issue 
+   - Information gathering become too much to successfully monitor and manage
+   - So all individual log collected together and aggregated
+
+   Preventing :-
+    - Programmer examine testing record to detect potential flaws and vulnerabilities 
+    - SAST systems aid in detection of unlogged safety issue
+    

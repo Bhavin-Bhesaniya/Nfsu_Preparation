@@ -1,0 +1,322 @@
+What is CyberSecuirty? 
+ - Technique and practices designed to protect digital data
+ - Cyber related to technology which contain system, network and programs or data
+ - Security related to protection include system security, network security, application and information security
+
+
+
+CIA(Confidentiality Integrity Availability) Triad :-
+ - Security model that developed to help people think about various parts of IT security
+
+
+ Confidentiality :-
+  - Preventing private data from unauthorized parties
+  - Keep identity of authorized parties involved in sharing and holding data private and anonymous
+  - It Compromised by cracking poorly encrypted data, Man-in-the-middle (MITM) attacks, disclosing sensitive data
+  - Amount of damage suffered if confidentiality was breached  
+
+  Measures to establish confidentiality :-
+   - Data encryption 
+   - Two-factor authentication 
+   - Biometric verification 
+   - Security tokens 
+   - Access control
+ 
+ 
+ Integrity  :-
+  - Protecting information from being modified by unauthorized parties(Deletion or modification)
+  
+  Measures for integrity :- 
+   - Cryptographic checksums 
+   - Using file permissions 
+   - Uninterrupted power supplies 
+   - Data backups 
+ 
+ 
+ Availability :-
+  - Make sure that Authorized parties able to access information when needed
+  
+  Measures to availability :-
+   - Backing up data to external drives 
+   - Implementing firewall
+   - Having backup power supplies 
+   - Data redundancy
+
+
+
+Types of Cyber attacks :-
+ - Exploitation of computer system and network 
+ - Use malicious code to alter computer code, logic or data to lead cybercrimes such as information and identity theft
+
+ Types of attacks :- Web-based | System-based | Active | Passive
+
+ Web-based attacks :-
+  - Attack which occur on a website or web applications
+  
+  Injection attacks :-
+   - Some data will be injected into web application to manipulate application and fetch required information
+   Ex :- SQL Injection, code Injection, log Injection, XML Injection etc. 
+  
+
+  DNS Spoofing :-
+  - Malicious Data pased into DNS resolver's cache causing name server to return incorrect IP address that diverting 
+    traffic to attackers computer or any other computer
+  - It can go for long period of time without being detected and cause serious security issues
+
+
+  Session Hijacking :-
+   - Attack on user session over protected network
+   - Web application create cookies to store state and user session 
+   - By stealing cookies, attacker have access to all of user data
+
+
+  Phishing :-
+   - Attempt to steal sensitive information like user login credentials and credit card number 
+   - It occurs when attacker masquerading as trustworthy entity in electronic communication
+  
+
+  Brute force :-
+   - Use trial and error method 
+   - Attack generates large number of guesses and validate them to obtain actual data like user password and personal 
+     identification number  
+   - Used by criminals to crack encrypted data or by security analyst to test organization's network security
+
+
+  Denial of Service  :-
+   - It Make server or network resource unavailable to user 
+   - It accomplishes by flooding target with traffic or sending it information that triggers crash 
+   - Single system and single internet connection used to attack on server 
+   
+   It classified into following :-
+    Volume-based     :- Saturate bandwidth of attacked site measured in bit per second
+    Protocol attacks :- Consume actual server resources measured in packet
+    Application layer attacks :- Crash web server measured in request per second
+  
+  
+  Dictionary attack :-
+   - Use stored list of commonly used password and validated them to get original password
+  
+  
+  URL Interpretation :-
+   - Change certain parts of URL and one make server to deliver web pages for which he is not authorized to browse
+  
+  
+  File Inclusion attack :-
+   - Allow attacker to access unauthorized or essential files which available on web server or to execute malicious
+     files on web server by making use of include functionality 
+
+  Man in the middle attacks :-
+   - Allow attacker to intercept connection Between Client and server and acts as bridge between them 
+   - Now Attcker able to read, insert and modify data in intercepted connection
+ 
+ 
+ System-based attack :-
+  - Intended to compromise computer or Computer network
+  
+  Virus :-
+   - Self-replicating malicious computer program that replicates itself into computer program when executed 
+   - It attach itself to host file or hard drive sector
+   - Replicates each time host used for destruction or corruption of data
+   - Attach files with execution capabilities such as .doc, .exe, and .bat extensions
+   - Often distributes via e-mail
+   Ex :- Stoned, Michelangelo, Melissa, I Love You
+ 
+  
+  Worm  :-
+   - Types of malware whose primary function to replicate itself to spread to uninfected computers 
+   - Worms often originate from email attachments that appear to be from trusted sender
+   - It Can install backdoor in infected computer
+   - Is usually introduced into system through vulnerability
+   - Infect one system and spread to other systems on network
+   Ex :- Code Red
+ 
+  
+  Trojan horse :-
+   - Malicious program that unexpected changes to computer setting and unusual activity, even when computer should idle  
+   - Appear as normal application but when opened/executed some malicious code will run in background
+   - Cannot replicate itself
+   - Often contain spying function(such as packet sniffer) or backdoor that allow computer to be remotely controlled
+   - Often is hidden in useful software such as screen savers or games
+   Ex : Back Orifice, Net Bus, Whack-a-Mole
+
+
+  Backdoors :-
+   - Bypasses normal authentication process 
+   - Developer create backdoor so that application or OS accessed for troubleshooting  or other purposes
+  
+
+  Bots/Robot :-
+   - Automated process that interacts with other network services
+   - Some run automatically while other only execute when receive specific input 
+   Ex :- Crawler, Chatroom  bots and malicious bots
+
+
+  Logic Bomb :-
+   - Malware that lies dormant until triggered
+   - Example of asynchronous attack
+   - Trigger activity may be specific date and time, launching specific program or processing specific type of activity
+   - Do not self-replicate
+
+ 
+ Active attacks :- 
+  - Network exploit in which hacker attempts to make change to data on target or data en route to target
+  
+  Masquerade :- 
+   - Intruder pretend to be particular user of system to gain access or to gain greater privileges than they authorized
+   - Masquerade attempted through stolen login IDs and passwords, finding security gaps in programs or 
+     through bypassing authentication mechanism
+  
+  Session replay :- 
+   - Hacker steal authorized user’s log in information by stealing session ID
+   - Intruder gains access and ability to do anything that authorized user can do on website
+
+  Message modification :-  
+   - Intruder alters packet header addresses to direct message to different destination or modify data on target machine
+  
+  Denial of service(DoS) :-  
+   - Users deprived of access to network or web resource 
+   - Accomplished by overwhelming target with more traffic than it handle
+
+  Distributed denial-of-service (DDoS) :- 
+   - Exploit large numbers of compromised system(botnet or zombie army) attack single target
+
+ 
+ Passive Attack :-
+  - Scarce from classification perspective but carried out with relative ease, particularly if traffic not encrypted
+ 
+  Eavesdropping(tapping) :- 
+   - Attacker listen to messages exchanged by two entities
+   - Unencrypted information such password sent in response to HTTP request, may be retrieved by attacker.
+ 
+  Traffic analysis :- 
+   - Attacker looks at metadata transmitted in traffic in order to deduce information relating to exchange and 
+     participating entities
+   - In cases where encrypted data used traffic analysis lead to attacks by ecryptanalysis whereby attacker obtain 
+     information or succeed in unencrypting traffic
+  
+  Software Attacks :- 
+   - Malicious code(malware) type of software designed to take over or damage computer user's os without user's 
+     knowledge or approval 
+   - Difficult to remove and very damaging 
+ 
+ 
+ Hardware Attack :- 
+  - Affect embedded radio-frequency identification (RFID) chips and memory 
+  - Eavesdropping :- Gaining access to protected memory without opening other hardware 
+  - Inducing faults causing interruption of normal behaviour 
+  - Hardware modification tampering with invasive operations 
+  - Backdoor creation presence of hidden methods for bypassing normal computer authentication system
+  - Counterfeiting product asset that produce extraordinary operation and those gain malicious access to system
+
+
+
+7 layer of cyber security :-
+ - Centre of layer critical assets whom we need to protect
+ 
+ 1. Mission Critical Assets - Actual data need to protect 
+ 2. Data Security - Control, Protect storage and transfer of data
+ 3. Application Security - Protect access to application from unauthorized 
+ 4. Endpoint Security  - Protect connection between devices and network
+ 5. Network Security   - Protect organization’s network from prevent unauthorized access of network
+ 6. Perimeter Security - Include both physical and digital security methodologies that protect business overall
+ 7. Human Layer -  
+  - Weakest link in any cyber security posture  
+  - Include phishing simulation and access management control that protect mission critical assets from a wide 
+    variety of human threats, including cyber criminal malicious insider and negligent user
+
+
+
+Vulnerability, threat, Harmful acts :-
+ Threats :-
+  - Security incidents or circumstances with potential to have negative outcome for your network or other data 
+    management system
+  - Phishing attacks result in installation of malware 
+  - Failure of staff member to follow data protection protocols cause data breach
+  - Tornado that takes down company’s data headquarters, disrupting access
+  - Intentional threats include criminal hacking or malicious insider stealing information 
+  - Accidental threats involve employee error technical malfunction or event that causes physical damage such as fire
+    or natural disaster
+
+ 
+ Vulnerabilities :-
+  - Gaps or weaknesses in system that make threat possible and tempt threat actor to exploit them
+  - When threat probability multiplied by potential loss that may result, cyber security experts refer to this as risk
+  Types :- SQL injection | Server Misconfiguration | Cross-site Scripting | Transmitting sensitive data in non-
+           encrypted plain text format
+  Categories :-
+   Corrupted (Loss of integrity) | Leaky (Loss of confidentiality) | Unavailable or very slow (Loss of availability) 
+ 
+ 
+ – Threat represent potential security harm to asset when vulnerabilities are exploited 
+  Attacks are threats that have been carried out :-
+   Passive  - Use information from system without affecting system resource
+   Active   - Alter system resources or affect operation 
+   Insider  - Initiated by entity inside organization  
+   Outsider - Initiated from outside perimeter
+
+
+ Cyber criminals :-
+  - Access to enormous amounts of hardware, software, and data
+  - They have potential to cripple much of effective business and government throughout world 
+  - One approach to prevention to understand who commit these crime and why
+  - Many studies have attempted to determine the characteristics of computer criminals
+  - By sudying those future to spot likely criminals and prevent crimes from occurring
+
+  Motive of attackers :- 
+   inadvertent action :- Insiders that taken without malicious or harmful intent 
+   deliberate action  :- insiders or outsiders taken intentionally and are meant to do harm 
+                         Political  |  Economical  | Socio-Cultural
+   inaction :- Insider such as failure to act in given situation either because of lack skills, knowledge, 
+  
+ 
+  Cyber Threats-Cyber Warfare | Cyber Crime | Cyber Espionage :- 
+   - Cyber warfare involve action by nation-state or international organization to attack and attempt to damage another
+     nation's computers or information network through Ex :- computer viruses or denial-of-service attack
+   - Cybercrime is criminal activity that doing by individuals or organizations by either target computer network or 
+     networked device for make money 
+   - Cyber spying or cyber espionage act or practice of obtaining secrets and information without permission and 
+     knowledge of holder of information from   
+  
+  Effects of CyberCrime :-
+   - According to 2018 report published by McAfee economic impact of cybercrimes estimated to cost global economy 
+     nearly $600 billion annually
+   - Financial loss | Investor perception | Value of businesses | Loss of sensitive customer data
+
+  How to Prevent Cyber Crimes?
+   - Backup all data, system and considerations 
+   - Enforce concrete security and keep it up to date
+   - Never give out personal information to stranger
+   - Check security settings to prevent cybercrime 
+   - Using antivirus software
+   - When visiting unauthorized websites, keep your information secure
+   - Use virtual private networks (VPNs) : Hide our IP addresses
+   - Restriction on access to your most valuable data
+
+
+
+Security Policies :- 
+ - Set of rules which issued by organization to ensure that user who authorized to access company technology and 
+   information assets comply with rules and guidelines related to security of information
+ - "living document" means document never finished but it continuously updated as requirement of technology 
+ - It manage network security 
+ - Most policies are automatically created during installation  
+ Need :- Efficiency  |  Discipline and accountability  |  Educate employees on security literacy            
+
+ Virus and Spyware Protection policy :- 
+  - Helps to detect threads in files to detect application that exhibits suspicious behavior
+  - Remove and repairs side effect of viruses and security risks by using signatures
+ 
+ Firewall Policy :- 
+  - Blocks unauthorized users from accessing system and network that connect to Internet
+  - Detect attacks by cybercriminals and removes unwanted sources of network traffic
+
+ Intrusion Prevention policy :- 
+  - Automatically detect and blocks network attacks and browser attack
+  - Also protect application from vulnerabilities and check contents of one or more data packages and detects malware
+    which coming through legal ways
+ 
+ Application and Device Control :- 
+  - Protect system's resources from application and manage peripheral devices that attach to system
+  - Device control policy applies to both Windows and Mac computers whereas application control policy applied only
+    to Windows client
+ 
