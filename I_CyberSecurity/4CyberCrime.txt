@@ -1,0 +1,113 @@
+What is the Definition of Cyber Crime?
+Let us start with the definition of cybercrime. Cybercrime refers to criminal conduct committed with the aid of a computer or other electronic equipment connected to the internet. Individuals or small groups of people with little technical knowledge and highly organized worldwide criminal groups with relatively talented developers and specialists can engage in cybercrime.
+
+Cybercriminals or hackers who want to generate money, commit a majority of cybercrimes. Individuals and organizations are both involved in cybercrime. Aside from that, cybercriminals might utilize computers or networks to send viruses, malware, pornographic material, and other unlawful data.
+
+To make money, cybercriminals engage in a range of profit-driven criminal acts, including stealing and reselling identities, gaining access to financial accounts, and fraudulently utilizing credit cards to obtain funds.
+
+Examples of Basic CyberCrimes
+Stolen credit card information: The most common cybercrime is when a person’s credit card information is stolen and used unlawfully to acquire or purchase goods or services over the internet.
+Hacking into a government website: Another type of cybercrime is tampering with sensitive government data.
+Theft of user accounts: Yahoo experienced a serious data breach from 2013 to 2016  that resulted in the theft of three billion user accounts. The attackers gained access to private information and passwords that were used to access user accounts in other online services. Most of this data is available even today on the dark web.
+Compromised IoT devices: In 2016, over one million connected devices in the IoT were compromised by attackers who took advantage of existing software vulnerabilities. It is the largest DDoS attack to date and one that caused outages in the global DNS affecting popular services including Netflix, PayPal, Twitter, and many more.
+Loss of control and access to content: The WannaCry attack, which was allegedly launched by North Korea, in 2017, unleashed ransomware that locked down content on user devices. This ransomware rapidly spread itself and infected 300,000 computers worldwide. The victims had to pay hundreds of dollars to restore their data.
+Phishing campaigns: The phishing campaigns infiltrate corporate networks by sending authentic-looking fraudulent emails to users in an organization and tricking them into performing actions such as downloading attachments or clicking on links. The viruses or malware then spreads to the systems, and, eventually, ends up in the organizations’ networks.
+Some other common examples of cybercrimes include the sale of illegal items, such as drugs, arms, or counterfeit goods, illegal gambling, solicitation, production, distribution, or possession of child pornography, etc.
+
+Take a peek at Intellipaat’s YouTube page for a free cybersecurity video:
+
+
+Classification of CyberCrimes
+Cybercrimes are broadly categorized into three fields:
+
+Individual: It is a cybercrime that entails a single individual disseminating malicious or unlawful material via the internet. For example, distributing pornography, human trafficking, and online stalking.
+Property: This cybercrime involves obtaining access to individuals’ bank or credit card information, accessing their funds, making online transactions, or executing phishing schemes to persuade individuals to give away personal information.
+Government: While these cybercrimes are uncommon, they are nevertheless considered significant offenses. It entails breaking into government databases and hacking official websites.
+Take a look at our blog Cyber Security tutorial to learn briefly about cybersecurity
+
+What are the Different Types of Cyber Crime?
+There are several types of cybercrimes; the most common ones are email frauds, social media frauds, banking frauds, ransomware attacks, cyber espionage, identity theft, clickjacking, spyware, etc. Let us now see how these crimes are executed.
+
+Malware
+Malware is a broad phrase that encompasses a wide range of cyberattacks such as Trojans, viruses, and worms. Malware can simply be described as code written to steal data or destroy things on a computer.
+
+How malware causes harm can assist us to classify the type of virus that we are dealing with. So, let us talk about it!
+
+Viruses: Viruses, like their biological namesakes, attach themselves to clean files and infect other clean files. Viruses can spread uncontrollably, causing damage to the core functionality as well as deleting and corrupting files. Viruses usually appear as executable files downloaded from the internet.
+Trojan: This type of malware masquerades as legitimate software that can be hacked. It prefers to function invisibly and creates security backdoors that allow other viruses to enter the system.
+Worms: Worms use the network’s interface to infect a whole network of devices, either locally or via the internet. Worms infect more machines with each successive infected machine.
+Phishing
+Phishing frequently poses as a request for information from a reputable third party. Phishing emails invite users to click on a link and enter their personal information.
+
+In recent years, phishing emails have become much more complex, making it impossible for some users to distinguish between a real request for information and a fraudulent one. Phishing emails are sometimes lumped in with spam, but they are far more dangerous than a simple advertisement.
+
+There are five steps to phishing:
+
+Preparation: The phisher must pick a business to target and figure out how to obtain the email addresses of that business’ customers.
+Setup: Once the phisher has decided which entity to mimic and who the victims will be, the setup process can begin. The phisher constructs and distributes communications and collects data.
+Carry out the attack: This is a process that most people are familiar with. The phisher sends a fake message that appears to come from a well-known source.
+Phishing
+Recording data: The phisher keeps track of the information that victims submit to websites or pop-up windows.
+Identity theft and fraud: The phisher uses the collected information to make unlawful transactions or perform other forms of fraud; up to a quarter of the victims never fully recover.
+Enroll in our Cyber Security courses to be a master in this domain!
+
+DDoS Attack
+As the name suggests, a denial-of-service (DoS) attack focuses on disrupting network service. Attackers transmit a large amount of data traffic via the network until it becomes overloaded and stops working. A DoS attack can be carried out in a variety of ways, but the most common is a distributed denial-of-service (DDoS) attack. It involves the attacker sending traffic or data, by utilizing several machines, that will overload the system.
+
+An individual may not recognize that their computer has been hijacked and is helping to the DoS attack in many cases. Disrupting services can have major ramifications for security and internet access; many large-scale DoS attacks have occurred in the past. Many instances of large-scale DoS attacks have been implemented as a single sign of protests toward governments.
+
+Become a Cyber Security Expert
+Man-in-the-middle Attack
+A man-in-the-middle attack can obtain information from the end-user and the entity with which they are communicating by impersonating the endpoints in the online information exchange.
+
+Let us take a look at an example to learn more about this attack.
+
+If the user is banking online, the man in the middle would communicate with the user by impersonating the bank. The man in the middle would receive all information transferred between the user and the bank including sensitive data related to bank accounts.
+
+Preparing for job interviews? Have a look at our cybersecurity interview questions to excel in your hiring journey!
+
+Drive-by Download Attack
+To become infected, we no longer need to click to accept a download or install a software update. Simply opening a compromised webpage may now allow dangerous code to be installed on our device. We only need to visit or drive by a website by clicking accept for any software, and malicious code will be downloaded in the background on our device.
+
+The unintentional download of a virus or malicious software onto a computer or mobile device is referred to as a download from these pages.
+
+Drive-by downloads typically take advantage of or exploit an out-of-date browser, app, or operating system with security flaws.
+
+Cyber Attacks
+Effects of CyberCrime
+According to a 2018 report published by McAfee, the economic impact of cybercrimes is estimated to cost the global economy nearly $600 billion annually.
+
+Financial loss is one of the obvious effects of cybercrimes, and it can be quite significant. But cyber crimes also have several other disastrous consequences for businesses such as:
+
+Investor perception can become a huge problem after a security breach causing a drop in the value of businesses.
+Businesses may also face increased costs for borrowing, and raising more capital can be challenging as well after a security breach.
+Loss of sensitive customer data can result in penalties and fines for failing to protect customer data. Businesses may be sued over data breaches.
+Due to loss of reputation and damaged brand identity after a cyberattack, customers’ trust in a business will decline. Businesses not only end up losing current customers but also find it difficult to gain new customers.
+Direct costs may also be incurred such as the cost of hiring cybersecurity companies for remediation, increased insurance premium costs, public relations (PR), and other services related to the attack.
+Want to learn more about Ethical Hacking? Enroll in our CEH Training and Certification!
+
+How to Prevent Cyber Crimes?
+Backup all data, system, and considerations: This enables data stored earlier to assist businesses in recovering from an unplanned event.
+Enforce concrete security and keep it up to date: Choose a firewall with features that protect against malicious hackers, malware, and viruses. This enables businesses to identify and respond to threats more quickly. 
+Never give out personal information to a stranger: They can use the information to commit fraud.
+Check security settings to prevent cybercrime: A cyber firewall checks your network settings to see if anyone has logged into your computer.
+Using antivirus software: Using antivirus software helps to recognize any threat or malware before it infects the computer system. Never use cracked software as it may impose the serious risk of data loss or malware attack.
+When visiting unauthorized websites, keep your information secure: Using phishing websites, information can easily bypass the data.
+Use virtual private networks (VPNs): VPNs enable us to hide our IP addresses.
+Restriction on access to your most valuable data: Make a folder, if possible, so that no one can see confidential documents.
+Tips for crime
+Cyber Security and CyberCrime
+Cyber security is a domain that is designed to eliminate cybercrime. Cyber security can also be referred to as IT security.
+
+Cyber security is the backbone of the network and information security. Cyber security applies various techniques to safeguard data from data breaches. As organizations move online, there is an increasing need for cyber security to protect data from malicious activities.
+
+Cyber criminality is a kind of criminal behavior involving unauthorized access to computer systems. The number of attacks is increasing day by day. Hackers are becoming smarter in their activities. The importance of cyber security now is more than ever.
+
+Cyber security gives in-depth knowledge about how to control or recover from cyberattacks.
+
+Want to gain in-depth knowledge and hands-on experience in Ethical Hacking? Enroll today in our CEH Training and Certification!
+
+Conclusion
+India was the country with the highest number of cybercrimes in 2020, amounting to 4.5 million. Cybercrime refers to criminal behavior committed by using a computer or other electronic device connected to the internet. This blog provides information about cybercrime, the various risks it poses, and the strategies for prevention from the same.
+
+Cybercrime is the criminal behavior of unauthorized access to computer systems. Cyber security provides a thorough understanding of how cyber attacks can be controlled or recovered. Online courses provide advice on how cyber crimes and cybercrime hazards can be prevented, protected, and recovered.

@@ -1,11 +1,9 @@
-Unix - Shell
+Shell Introduction :-
  - Shell provide interface in which we can run our commands, programs, and shell script
- - It take input and executes it and after finish it display that program's output
+ - It take input and send to os executes it and after finish it display that program's output
+ - default is bash written by Stephen Bourne in 1977
+ Shell Prompt :- [username @system_name  ~(Current working Dir)] $ Input command here
   
- Shell Prompt :-
-  - $ which called command prompt issued by shell 
-  - Word is unbroken set of character, Spaces and tabs separate word
-
 
  Shell Types :-
   Bourne shell − $ character default prompt | Korn shell (ksh) | Bourne Again shell (bash) | POSIX shell (sh)
@@ -44,7 +42,7 @@ Unix - Shell
 
 
 
-Unix - Using Shell Variable :-
+Shell Variable :-
  - Variable is character string to which assign value 
  - Shell enables you to create, assign, and delete variables
  - Store any value you want in variable
@@ -57,29 +55,6 @@ Unix - Using Shell Variable :-
   Valid names   :-  _ALI  | TOKEN_A   | VAR_1  | ALTO
   Invalid names :-  2_VAR | -VARIABLE | VAR_A! | alto
 
-  
- Defining Variables :- 
-  Syntax :- variable_name=variable_value 
-  Ex :- NAME="Zara Ali"    // Scalar variable hold only one value at time
-
-
- Accessing Values :-
-  - To access value stored in variable dollar sign ($) with variable name
-  Ex :- 
-   NAME="Zara Ali"
-   echo $NAME
-
- 
- Read-only Variable :- 
-  - Read-only value cannot be changed
-  Ex :- readonly NAME
-
-
- Unsetting / deleting Variables :-
-  - Direct shell to remove variable from list of variables that it tracks 
-  - Once unset cannot access stored value in variable
-  Syntax :- unset variable_name | unset NAME
-
 
  Variable Types :-
   Local - Present within current shell instance and not available to other program
@@ -87,8 +62,17 @@ Unix - Using Shell Variable :-
   Environment - Available to any child process of shell  
 
 
+ Defining Variables :- 
+  Syntax :- variable_name=variable_value 
+  Ex :- 
+   NAME="Zara Ali"    // Scalar variable hold only one value at time  | = operator used
+   echo $NAME         // Access
+   readonly NAME      // Read-only value cannot be changed
+   unset NAME         // unset cannot access stored value in variable
+   export - to make variable $NAME visible to programs run by shell
 
-Unix - Special Variables :-
+
+Special Variables :-
  $echo $$  - Write PID of current shell −29949
   $0   Filename of current script
   $n   Correspond to argument with which script was invoked | N is positive decimal number
@@ -120,7 +104,7 @@ Unix - Special Variables :-
 
 
 
-Unix - Shell Array :-
+Shell Array :-
  - Array Hold multiple values at same time 
   
 
@@ -144,7 +128,7 @@ Unix - Shell Array :-
 
 
 
-Unix - Shell Operator :-
+Shell Operator :-
  - Arithmetic | Relational | Boolean | String | File Test 
  - There must be spaces between operator and expression 
  Ex :- 2+2 is not correct | Written as 2 + 2
@@ -211,7 +195,7 @@ Unix - Shell Operator :-
  
  
 
-Unix - Shell Decision Making
+Shell Decision Making :-
  - if...else | case...esac 
 
  if...else statement :-
@@ -225,7 +209,7 @@ Unix - Shell Decision Making
 
 
 
-Unix - Shell Loop Types and Control :- 
+Shell Loop Types and Control :- 
  - Execute set of command repeatedly until given condition not false
  - while  |  for  |  until  |  select 
  - until loop execute until given condition become true
@@ -253,7 +237,7 @@ Unix - Shell Loop Types and Control :-
 
 
 
-Unix - Shell Substitution :- 
+Shell Substitution :- 
  - Encounters expression that contain one or more special character 
  Escape sequences used in echo command :-
    \\    backslash
@@ -283,7 +267,7 @@ Unix - Shell Substitution :-
 
 
 
-Unix - Shell Quoting Mechanism :-
+Shell Quoting Mechanism :-
  Metacharacters :-
   - Special meaning while using them in any Shell Script and causes termination of word unless quoted
   - ? match with single character and * match more than one character 
@@ -301,7 +285,7 @@ Unix - Shell Quoting Mechanism :-
 
 
 
-Unix - Shell Input/Output Redirections :-
+Shell Input/Output Redirections :-
  - Terminal -> Command -> Take Input(Standard Input) -> Process -> Output(Standard Output)
 
  Output Redirection :-
@@ -340,7 +324,7 @@ Unix - Shell Input/Output Redirections :-
 
 
 
-Unix - Shell Function
+Shell Function :-
  - Perform repetitive tasks to create code reuse 
  
  Creating Function :-
@@ -396,7 +380,7 @@ Unix - Shell Function
  
  
 
-Unix - Shell Manpage Help :-
+Shell Manpage Help :-
  - Unix's version of Help files called man pages 
  - Not sure how to use command then Man Pages help with every step
  Syntax :- $man command

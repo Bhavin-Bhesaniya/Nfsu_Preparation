@@ -1,0 +1,80 @@
+What is CIA in Cyber Security?
+The CIA Triad is an information security model, which is widely popular. It guides an organization’s efforts towards ensuring data security. The three principles—confidentiality, integrity, and availability which is also the full for CIA in cybersecurity, form the cornerstone of a security infrastructure. In fact, it is ideal to apply these principles to any security program.
+
+The CIA Triad
+Confidentiality makes sure that only authorized personnel are given access or permission to modify data
+Integrity helps maintain the trustworthiness of data by having it in the correct state and immune to any improper modifications
+Availability means that the authorized users should be able to access data whenever required
+The CIA Triad is so elementary to information security that anytime data violation or any number of other security incidents occur, it is definitely due to one or more of these principles being compromised. So, the CIA Triad is always on top of the priority list for any infosec professional.
+
+Security experts assess threats and vulnerabilities thinking about the impact that they might have on the CIA of an organization’s assets. Based on that assessment, the security team enforces a specific set of security controls to minimize the risks within that environment.
+
+Examples of CIA Triad
+To have a better understanding of how the CIA Triad works in practice, consider an ATM that allows users to access bank balances and other information. An ATM incorporates measures to cover the principles of the triad:
+
+The two-factor authentication (debit card with the PIN code) provides confidentiality before authorizing access to sensitive data.
+The ATM and bank software ensure data integrity by maintaining all transfer and withdrawal records made via the ATM in the user’s bank accounting.
+The ATM provides availability as it is for public use and is accessible at all times.
+Brief History of the CIA Triad
+The CIA Triad came to form over time as wisdom passed among information security professionals rather than by a single proponent. The formalization of confidentiality can be traced back to the 1976 U.S. Air Force study. Integrity, on the other hand, was found in a 1987 paper that mentioned that commercial computing requires a special focus on data correctness. The conception of availability is not clearly known, but the idea rose to prominence in 1988 due to the attack of the Morris worm, which had devastating effects back then on thousands of major UNIX machines and the internet had to be partitioned for days to fix the mess.
+
+It is, however, not clear when the CIA became a triad. The foundational concept seems to have been established by 1998.
+
+Become a Cyber Security Expert
+Importance of the CIA Triad
+Now that we have covered what the CIA is, it is time to understand why it is more effective as a triad. The CIA Triad, in a way, helps make sense of the diverse security techniques, software, and services available. Rather than a shot in the dark, it helps to clearly draw a picture of what is exactly required that will address the security concerns.
+
+The three concepts exist in tension with one another when it is worked as a triad. For example, requiring elaborate authentication, in turn, helps ensure confidentiality, but at the same time, some people who have the right to the data may not get access, thereby, reducing availability.
+
+As one is forming information security policies, the CIA Triad will help make more effective decisions on which of the three principles is most useful for the specific set of data and for the organization overall.
+
+Enroll in our CEH Training to become a Certified Ethical Hacking professional!
+
+Confidentiality in Cyber Security
+We have already briefly explained what confidentiality is. In practice, it’s about access control for users of data to prevent unauthorized activities. This means that only those authorized can access specific assets. Unauthorized users are actively prevented from obtaining access, thus maintaining confidentiality.
+
+Let’s take the following examples for instance.
+
+In the case of the payroll database of employees in an organization, only authorized employees to have access to the database. Additionally, within that group of authorized users, there could be more stringent limitations added on precise information that the group is allowed to access.
+
+Another good example of confidentiality is the personal information of e-commerce customers. Sensitive information like credit card details, contact information, shipping details, or other personal information needs to be secured to prevent unauthorized access and exposure.
+
+Violation of confidentiality can happen in many ways. It can occur through direct attacks, which are specifically designed to gain illegal access to systems, databases, applications, etc. For example, escalation of system privileges, network reconnaissance, electronic eavesdropping, man-in-the-middle attacks, etc. Human error can also be a reason for violation just as much as inadequate security measures.
+
+Human errors include weak passwords; shared user accounts, shoulder surfing, no data encryption, poor, or absence of authentication systems, theft of physical equipment and storage devices. etc.
+
+There are several countermeasures that can be taken to protect confidentiality. It includes data classification and labelling; strong authentication mechanisms, tight access controls, steganography, data encryption during a process, transit, and storage, remote wipe capabilities, and education and training on cybersecurity for all.
+
+Integrity in Cyber Security
+When one thinks of integrity, one thinks about the state of something being whole or undivided. However, in cybersecurity or InfoSec, integrity is all about making sure that data has not been messed with or manipulated, and therefore it is authentic, correct, and reliable.
+
+For example, in e-commerce, customers expect products, pricing, and other related details to be accurate and that it will not be altered once the order is placed. Similarly, in banking, a sense of trust regarding banking information and account balances has to be established by ensuring that these details are authentic and have not been tampered with.
+
+Basically, ensuring integrity involves protecting the data at all times—in use, in transit (sending an email, uploading or downloading files, etc.), and when stored in a storage device, data centre, or cloud.
+
+Like confidentiality, integrity can be compromised in different ways. It can happen directly through the intrusion of detection systems, modification of configuration files, change of system logs to avoid detection) or human errors.
+
+Countermeasures like encryption, digital signatures, hashing, and digital certificates can help maintain data integrity. Aside from these, intrusion detection systems, strong authentication mechanisms, version control, auditing, and access controls can ensure integrity.
+
+It is a given that integrity also closely ties in with the concept of non-repudiation, which means that one will not be able to deny certain actions as being not true. For example, if an email with a digital signature was sent or received, the integrity will be maintained for these kinds of online transactions that happen.
+
+Learn cybersecurity from this blog by Intelliipaat and get a headstart!
+
+Availability in Cyber Security
+Systems, applications, and data will lose their value if they are not accessible by their authorized users whenever they require them. Availability is the accessibility of networks, systems, applications, and data by authorized users in a timely fashion whenever resources are required.
+
+Availability can be compromised if there is a hardware or software failure, natural disasters, power failure, or human error. DDoS attacks are one of the more common reasons for the violation of availability.
+
+Availability can be ensured through network, server, application, and service redundancy. Hardware fault tolerance in servers and storage is another good countermeasure to avoid violation of availability. DoS protection solutions, system upgrades, regular software patching, comprehensive disaster recovery plans, backups, etc. are all ways to ensure availability.
+
+Enrol in a reliable Cyber Security Course and climb up the career ladder.
+
+Implementation of the CIA Triad
+It is not just enough to know the CIA Triad, but one also has to understand the precedence of the three depending on various factors. It is to be then implemented accordingly. Factors can be the security goals of an organization, the nature of the business, the industry, and any applicable regulatory requirements.
+
+Take, for instance, a government intelligence service. Without a doubt, confidentiality is the most critical in such organizations. On the other hand, if you have to consider a financial institution, integrity is the most important as accurate records of transactions and balances could prevent catastrophic damages. Healthcare and e-commerce, however, need to give preference to availability to avoid downtime or loss of life.
+
+It is also important to keep in mind that prioritizing one or more principles of the CIA Triad could affect the other. For instance, a system that requires high confidentiality and integrity might have to give up on speedy performance that other systems might prefer or require more. This tradeoff is not necessarily a bad thing since the decisions are made consciously with expertise. So, every organization has to decide the implementation of the CIA Triad based on their individual requirements.
+
+Conclusion
+When a company maps out a security program, the CIA Triad can serve as a useful yardstick that justifies the need for the security controls that are considered. All security actions inevitably lead back to one or more of the three principles.

@@ -1,6 +1,8 @@
 Command :-
-  cal    - Show calender
+  cal    - Show this month calender
+  date   - print current time/date
   passwd - Change Password 
+  echo   - print characters to screen
   ls     - List out all files or directories available in directory
   whoami - Find out "who you are" currently login | List account name associated with current login
   who    - Show username with login time
@@ -14,6 +16,11 @@ Command :-
   cd     - Change directory
   chown  - "change owner" change file owner
   chgrp  - "change group" change group of file
+  !!     - Redo previous command 
+  hostname - name of this computer
+  history  - show all command used
+  man/info/help - provide knowledge about command  
+
   
   ping   - Send request to available host on network 
   ftp    - Upload and download file from one computer to another computer after authenticated

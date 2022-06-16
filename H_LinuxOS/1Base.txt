@@ -1,16 +1,18 @@
 Introduction Unix/Linux :-
  - OS that act as interface link between computer and user
- - Developed in 1969 by AT&T employees Ken Thompson, Dennis Ritchie, Douglas McIlroy, and Joe Ossanna at Bell Lab
+ - Unix Developed in 1969 by AT&T employees Ken Thompson, Dennis Ritchie, Douglas McIlroy, and Joe Ossanna at Bell Lab
  - User communicate with kernel through shell 
  - Shell is command line interpreter translate command entered by user into language that understood by kernel
+ - Linux is free and open source software Development and distribution first used in 1991
+ - Linux OS written by Linux Torvalds and Richard Stallmen GNU Utilities
 
 
- Unix Architecture :-
-  Kernel - Heart of OS interact with hardware and perform memory management, task scheduling and file management
-  Shell  - Command line interpreter translate command into kernal language | C Shell, Bourne Shell and Korn Shell 
-  Command and Utilities - Use in day to day activities | 250 command plus numerous others provided through 3rd party
-  Files and Directories - Data of Unix organized into files then organized into directories than tree-like structure
-                          called filesystem
+ Architecture :-
+  Hardware - like CPU, Monitor, USB, Printer etc..
+  Kernel   - Heart of OS interact with hardware and perform memory management, task scheduling and file management
+  Shell    - Command line interpreter translate command into kernal language | C Shell, Bourne Shell and Korn Shell 
+  Command / Utilities - Use in day to day activities | 250 command plus numerous others provided through 3rd party
+  Files / Directories - Data of Unix organized into files then organized into directories tree-like structure
   
   
  Shutdown System :- 
@@ -30,6 +32,7 @@ Environment Variable :-
  - /etc/profile maintained by system administrator that contain shell initialization information required for all user
  - Terminal type automatically configured by either login or getty program 
  Setting Terminal Type :- - $PATH=/bin:/usr/bin
+ printenv - Show all currently defined environment variable
   
   
  PS1 and PS2 Variables :-
@@ -68,7 +71,13 @@ Environment Variable :-
 Processes Management :-
  - Process is instance of running program
  - Unix track processes through five-digit Unique ID number known as pid or process ID 
- 
+ ps    :- See processes running on system
+ ps -f :- Provide more information about process
+ top   :- Active process
+ - CTRL + C keystroke(Default interrupt character) exit command when process running in foreground mode
+ - If process running in background its Job ID use with ps command  | Ex :- $kill 6738 / kill %1 (1 jobs)
+   
+
  Foreground Process :-
   - By default, every process start runs in foreground 
   - Get input from keyboard send output to screen
@@ -78,21 +87,10 @@ Processes Management :-
 
 
  Background Processes :-
-  - Run without being connected to keyboard 
-  - If background process requires any keyboard input, it waits
   - Add ampersand(&) at end of command to start background process
+  - c+z and bg used to run in background
   Advantage :- Run other command without waiting to complete another command
-
-
- Display Running Processes :-
-  ps - See processes running on system
-  ps -f :- Provide more information about process
-   
-
- Stop Process :-
-  - CTRL + C keystroke(Default interrupt character) exit command when process running in foreground mode
-  - If process running in background its Job ID use with ps command  | Ex :- $kill 6738
-  
+ 
 
  Parent and Child Process :- 
   - Each unix process has two ID number assigned to it : PID and PPID
@@ -139,6 +137,7 @@ vi Editor | VIM(Vi IMproved) :-
  - vi is case-sensitive Editor enable Notepad like Facilitate
  - Tilde (~) on each line of editor following cursor that represent unused line 
  - Available on all Unix | Implementation similar to board | Require very few resource | User-friendly
+ More editor :- gedit | nano(Non-xwindow) | emacs
 
  Create or open file :-
   vi filename     - Create new file if it not exist otherwise open existing file in read-only mode
@@ -227,6 +226,7 @@ vi Editor | VIM(Vi IMproved) :-
 
 Pipes and Filters :-
  - Pipe Connect two command together by putting vertical bar (|) between two command
+ - Pipe used to divert or “redirect” output to another program or filter(I/O Redirection)
  - Program take input from another program -> Perform operation -> Result to standard output Known as filter
  Ex :- $ls -l | grep "Aug"
 
@@ -245,9 +245,22 @@ Pipes and Filters :-
 
 
 
-Network Communication :-
+Network Communication :-Variable Types :-
+  Local - Present within current shell instance and not available to other program
+  Shell - Set and required by shell in order to function correctly | Some of these are environment and local variable
+  Environment - Available to any child process of shell  
+
  - In distributed environment need to communicate with remote users and also need to access remote Unix machines
  
+ Connecting :- local to server
+  Remote connection (SSH- Secure Shell)  |  Remote Graphics(X, X-win)  |  Data Transfer(SFTP-Secure File Transfer Pro)
+  Window :-  SSH      -> MobaXterm  ->  SFTP
+  MacOS  :-  Terminal -> Xquartx    ->  Cyberduck
+  Linux  :-  Terminal -> X11        ->  Various
+
+  Type :- ssh username 
+
+
  Ping Utility :- 
   ping - command send echo request to available host on network 
   - Tracking | Isolating | Testing | Measuring Status | Managing hardware and software problem on network
@@ -308,8 +321,6 @@ Regular Expressions with SED(Stream Editor) :-
  - Stream-oriented editor was created exclusively for executing script 
 
  Invoking SED :
-  - Before we start, let us ensure we have a local copy of /etc/passwd text file to work with sed.
-  - cat command dump content of /etc/passwd to sed through pipe into sed's pattern space 
   Syntax :- $ cat /etc/passwd | sed
   Usage  :- sed [OPTION]... {script-other-script} [input-file]...
 

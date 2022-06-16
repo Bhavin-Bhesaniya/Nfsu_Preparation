@@ -1,12 +1,9 @@
-Unix - User Administration
+User Administration :-
  
  Types of User :- 
-  Root account / superuser:-
-   - Run any command without any restriction assumed as system administrator
-
-  System accounts :- 
-   - Needed for operation of system-specific component | Ex :- Mail account | sshd account 
-
+  Root / superuser :- Run any command without any restriction assumed as system administrator
+  System account   :- Needed for operation of system-specific component | Ex :- Mail account | sshd account 
+  
   User account :-
    - Provide interactive access to system for users and groups of users 
    - General user typically assigned to these accounts have limited access to critical system files and directories
@@ -20,51 +17,32 @@ Unix - User Administration
   /etc/group  - Group information for each account
   /etc/gshadow - Secure group account information
  
-  useradd  - Add accounts to system
+  useradd  - Add account to system
   usermod  - Modifies account attributes
-  userdel  - Delete accounts from system
-  groupadd - Adds groups to system
+  userdel  - Delete account from system
+  groupadd - Adds group to system
   groupmod - Modifies group attributes
-  groupdel - Remove groups from system
+  groupdel - Remove group from system
   
 
  Create Group :-
   - All groups listed in /etc/groups file
-  - All default groups are system account specific groups and its not recommended to use them for ordinary account 
-  Syntax :- groupadd [-g gid [-o]] [-r] [-f] groupname
-    -g  - Numerical value of the group's ID
-    -o  - Permit to add group with non-unique GID
-    -r  - Instruct groupadd to add system account
-    -f  - Just exit with success status, if specified group already exists
-    groupname - Actual group name to be created
-
+  - Default groups are system account specific group and its not recommended to use them for ordinary account 
+  Syntax :- groupadd groupname
  
- Create Account :-
-  Syntax :- useradd -d homedir -g groupname -m -s shell -u userid accountname
-   -d homedir    Specifies home directory for account
-   -g groupname  Specifies group account
-   -m            Create home directory if it doesn't exist
-   -s shell      Specifies default shell for this account
-   -u userid     Specify user id for this account
-   accountname   Actual account name to be created
 
-
- Modify Account :-
-  usermod - Make changes to existing account from command line
-  Ex :- $ usermod -d /home/mcmohd20 -m -l mcmohd mcmohd20
-
-
- Delete Account :-
-  userdel - Delete existing user
-  Ex :-  userdel -r mcmohd20
+ Create Account :- useradd accountname
+ Modify Account :- usermod - Make changes to existing account from command line
+ Delete Account :- userdel - Delete existing user
 
 
 
-Unix - System Logging :-
+System Logging :-
  - Unix syslog is host-configurable, uniform system logging facility 
  - System use centralized system logging process that runs program /etc/syslogd or /etc/syslog
+ - /etc/syslog.conf file Control messages that are logged 
  
- Facility - Describe application or process that submitted log message. For example, mail, kernel, and ftp
+ Facility - Application or process that submitted log message
  Priority - Level defined within syslog as guidelines from debugging information to critical event
  Selector - Combination of one or more facilities and level | When incoming event matches selector action performed
  Action   - Write message to log file, echo message to console or other device, write message to logged in user or 
@@ -105,48 +83,31 @@ Unix - System Logging :-
   - When you specify level system keep track of everything at that level and higher
 
 
- /etc/syslog.conf file :-
-  - Control where messages are logged
-  - Message selector specifies knd of messages to log
-  - Action field says what should be done with message
-  
- 
- Logging Action :-
-  - Log message to file or device
-  - Send message to user, specify multiple usernames by separating them with commas;
-  - Send message to all user(*)
-  - Pipe message to program(|)
-  - Send the message to syslog on another host(@tutorialspoint.com)
-
-
  Logger Command :-
   - Deal with system logging | Send logging messages to syslogd daemon and provokes system logging
-  - Provide method for adding one-line entries to system log file from command line
-  Syntax :- logger [-i] [-f file] [-p priority] [-t tag] [message]...
+  Syntax :- logger message
    -f filename  Use contents of file filename as message to log
    -i           Log Process ID of logger process with each line
    -p priority  Enter message with specified priority numerically or as a facility.priority pair (user.notice(Default))
    -t tag       Mark each line added to log with specified tag
    message      String argument whose content concatenated together in specified order separated by space
 
-
- Log Rotation :-
-  - Log files grow very fast and consume large amount of disk space
-  - Use tools such as newsyslog or logrotate
-  - These tools called on frequent time interval using cron daemon 
-  
  
- Log Location:-
-  - All system application create their log files in /var/log and its sub-directories 
+ Log Rotation   :- Log files consume large disk space bcz grow | Use tool newsyslog or logrotate using cron daemon  
+ Log Location   :- System application create their log files in /var/log and its sub-directories 
+ Logging Action :- Log message to file | Send message to all user(*) 
    
 
 
-Unix - Signals and Traps :-
- - Signals are software interrupts sent to program to indicate that important event has occurred 
- - Event vary from user request to illegal memory access error 
- - Some signal such interrupt signal indicate that user asked program to do something that Not usual flow of control
+Signals and Traps :-
+ - Signals are software interrupts sent to program to indicate that important event occurred like error
+ Ctrl+C - SIGINT sent to script to terminate process
+ kill   - $ kill -signal pid
+ Dump core       :- Containing memory image of process when it received signal
+ Default Action  :- Terminate/Stop process | Ignore signal | Continue stopped process | Sending Signal 
+ Trapping Signal :- trap command signals   | Used to Clean up temporary files | Ignore signal
 
- Signal Name	Number	Description
+ Types of signal :-
   SIGHUP	  1	   Detected on controlling terminal or death of controlling process
   SIGINT	  2	   User send interrupt signal (Ctrl + C)
   SIGQUIT	  3	   User send quit signal (Ctrl + D)
@@ -154,19 +115,3 @@ Unix - Signals and Traps :-
   SIGKILL   9	   Must quit immediately not perform any clean-up operation
   SIGALRM	  14	 Alarm clock signal (used for timers)
   SIGTERM	  15	 Software termination signal (sent by kill by default)
-
-  
- Default Action :-
-  - Every signal has default action associated with it 
-  Possible default actions :-
-   - Terminate/Stop process | Ignore signal | Continue stopped process | Sending Signal 
-   Dump core - Create file called core containing memory image of process when it received signal
-   
-  Ctrl+C - SIGINT sent to script as per defined default action script terminate
-  kill   - $ kill -signal pid
-
-
- Trapping Signal :- 
-  Syntax :- $ trap commands signals
-  There are two common uses :- Clean up temporary files | Ignore signals
- 

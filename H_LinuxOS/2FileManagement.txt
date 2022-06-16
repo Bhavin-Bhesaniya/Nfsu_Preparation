@@ -3,17 +3,17 @@ File Management :-
  - Logical collection of files on partition or disk 
  - Partition is container for information and span entire hard drive if desired
  - Directory store file name and related information 
- - All files whether ordinary, special, or directory contained in directories
+
  
  
  Directory Structure :-
   - Hierarchical structure with root (/) at base of file system and all other directories spreading from there
   - Root directory (/) that contain other files and directories
-  - Each file or directory is uniquely identified by inode
+  - Each file or directory is unique  ly identified by inode
   - Root directory has inode number 2 and lost+found directory has inode number of 3 while 0 and 1 not used 
   - File inode number seen by specifying -i option to ls command
-  - All path start from (/) backslash
-  - Find yourself when first login is called your home directory
+  - All path start from (/) backslash(Absolute path)
+  - Find yourself when first login is called your home directory not begin with / (Relative path)
 
 
    
@@ -45,11 +45,28 @@ File Management :-
 
 
  File/Directory command :- 
-  pwd - Determine where you are within filesystem at time
+  pwd  - Determine where you are within filesystem at time
+  grep - Search text for a pattern
+  awk  - Pattern scanning and processing language
+  diff - Compare two files
+  sed  - Stream editor (esp. search and replace)
+  sort - Sort text files
+  tr   - Translate/delete characters
+  wc   - Line, word and character count
+  cut  - Extract selected fields of each line of a file
+  uniq  - Filter out repeated lines in a file
+  split - Split files 
+  *     - Matching any filename
+  ?     - Matching any character
+  TAB   - Try to complete filename
+  ~     - Home directory
+  od    - Display binary file content
+
   ls dirname       :- To list files in directory
   cd dirname       :- Changing Directories
   cat filename     :- Display filecontent
   ls -la           :- Show listing of current working directories/files
+  ln -s file new   :- Create Symbolic link(Window shortcut type)
   mkdir dirname    :- Creating Directories
   rmdir dirname    :- Removing Directories
   mkdir -p dirname :- Create all required parent directories
@@ -67,7 +84,7 @@ File Management :-
   head filename   :- Show beginning of file
   less filename   :- Browses through file from end or beginning
   tail filename   :- Shows end of file
-  touch filename  :- Create blank file or modifies existing file or its attributes
+  touch filename  :- Create blank file or update modification time
   which filename  :- Show location of file if it in PATH
   whereis filename  :- Show location of file
   find filename dir :- Find file/directory  
@@ -77,7 +94,7 @@ File Management :-
   du(Disk usage) - Specify directories to show disk space usage on particular directory
   -h (human readable) - Display output in format 
 
-
+   
 
  File Operation :-
   Metacharacter  :- Special meaning in Unix * (Display all matches) | ? (Matches single character)
