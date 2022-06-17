@@ -1,646 +1,485 @@
-Introduction to CyberSecuirty :- 
+Introduction of CyberSecuirty :- 
  - Technique and practices that designed to protect digital data
  - Security related to protection of system security, network security, application and information security
 
  7 layer of cyber security :-
   1. Mission Critical Asset - Actual data need to protect 
-  2. Data Security          - Control, Protect storage and transfer of data
-  3. Application Security   - Protect access to application from unauthorized 
+  2. Data Security          - Control, Protect, storage and transfer of data
+  3. Application Security   - Protect application access from unauthorized 
   4. Endpoint Security      - Protect connection between devices and network
-  5. Network Security       - Protect organization’s network from prevent unauthorized access of network
-  6. Perimeter Security     - Include both physical and digital security methodologies that protect business overall
+  5. Network Security       - Protect organization’s network from prevent unauthorized access
+  6. Perimeter Security     - Include physical and digital security methodologies that protect business overall
   7. Human Layer            - Weakest link in any cyber security posture  
+
+ Difference between threat, risk and vulnerability?
+  - Vulnerabilities not introduced to system from beginning typically it result of OS flaw or network misconfiguration 
+  - Threat introduced to system like virus download or social engineering attack
+  - Risk actually probability impact of vulnerability being exploited 
 
 
 
 CIA(Confidentiality Integrity Availability) Triad :-
- - Security model that developed to help people think about various parts of IT security
-
+ - Security model that developed to help people for think about various IT security parts
 
  Confidentiality :-
   - Preventing private data from unauthorized parties
-  - Keep identity of authorized parties involved in sharing and holding data private and anonymous
   - It Compromised by cracking poorly encrypted data, Man-in-the-middle (MITM) attacks, disclosing sensitive data
-  - Amount of damage suffered if confidentiality was breached  
-
   Measures to establish confidentiality :-
-   - Data encryption 
-   - Two-factor authentication 
-   - Biometric verification 
-   - Security tokens 
-   - Access control
+   Two-factor authentication | Data encryption | Security tokens 
+   Biometric verification    | Access control
  
  
  Integrity  :-
   - Protecting information from being modified by unauthorized parties(Deletion or modification)
-  
   Measures for integrity :- 
-   - Cryptographic checksums 
-   - Using file permissions 
-   - Uninterrupted power supplies 
-   - Data backups 
+   Cryptographic checksum        |  Using file permissions 
+   Uninterrupted power supplies  |  Data backups 
  
  
  Availability :-
   - Make sure that Authorized parties able to access information when needed
-  
   Measures to availability :-
-   - Backing up data to external drives 
-   - Implementing firewall
-   - Having backup power supplies 
-   - Data redundancy
+   Backing up data to external drives  |  Implementing firewall
+   Having backup power supplies        |  Data redundancy
 
 
 
 Types of Cyber attacks :-
- - Exploitation of computer system and network 
- - Use malicious code to alter computer code, logic or data to lead cybercrimes such as information and identity theft
+ - Use malicious code to alter computer code, logic or data to lead cybercrime such as information and identity theft 
+ Types of attacks :- Web-based | System-based 
+  Passive  - Information from system without affecting system resource
+  Active   - Alter system resources or affect operation 
+  Insider  - Initiated by entity inside organization  
+  Outsider - Initiated from outside perimeter  
+ 
 
- Types of attacks :- Web-based | System-based | Active | Passive
-
- Web-based attacks :-
-  - Attack which occur on a website or web applications
+ Web-based attacks :- Attack which occur on website or web application
   
   Injection attacks :-
-   - Some data will be injected into web application to manipulate application and fetch required information
-   Ex :- SQL Injection, code Injection, log Injection, XML Injection etc. 
+   - Some data of web application injected to manipulate application and fetch required information
+   Ex :- SQL Injection | Code Injection | Log Injection | XML Injection
   
-
+ 
   DNS Spoofing :-
-  - Malicious Data pased into DNS resolver's cache causing name server to return incorrect IP address that diverting 
-    traffic to attackers computer or any other computer
-  - It can go for long period of time without being detected and cause serious security issues
+   - Malicious Data passed into DNS resolver cache to return incorrect IP address that diverting traffic to attackers
+     computer
+   - It go for long period of time without being detected and cause serious security issues
 
 
   Session Hijacking :-
-   - Attack on user session over protected network
    - Web application create cookies to store state and user session 
-   - By stealing cookies, attacker have access to all of user data
+   - Attack on user session over protected network
+   - By stealing cookies, attacker have access to all data of user
+   - Hacker steal authorized user’s log in information by stealing session ID
+   - Intruder gain access and ability to do anything that authorized user do on website
 
 
   Phishing :-
-   - Attempt to steal sensitive information like user login credentials and credit card number 
+   - Steal sensitive personally identifiable information(PII) like user login credentials or credit card number etc..
    - It occurs when attacker masquerading as trustworthy entity in electronic communication(Email)
-   - personally identifiable information(PII)
   
 
   Brute force :-
-   - Use trial and error method 
-   - Attack generates large number of guesses and validate them to obtain actual data like user password and personal 
-     identification number  
+   - Attack generate large number of guesses and validate them to obtain actual data like user password and personal 
+     identification number(PIN)
    - Used by criminals to crack encrypted data or by security analyst to test organization's network security
+   Dictionary attack :- Used list of common password and validated them to get original password
 
 
   Denial of Service  :-
-   - It Make server or network resource unavailable to user 
-   - It accomplishes by flooding target with traffic or sending it information that triggers crash 
-   - Single system and single internet connection used to attack on server 
+   - Make server or network resource unavailable to user 
+   - Accomplish by flooding target with traffic or sending information that triggers crash 
+   - Single system and internet connection used to attack on server 
    
-   It classified into following :-
-    Volume-based     :- Saturate bandwidth of attacked site measured in bit per second
-    Protocol attacks :- Consume actual server resources measured in packet
-    Application layer attacks :- Crash web server measured in request per second
+   Volume-based     :- Saturate bandwidth of attacked site measured in bit per second
+   Protocol attacks :- Consume actual server resources measured in packet
+   Application layer attacks :- Crash web server measured in request per second
   
   
-  Dictionary attack :-
-   - Use stored list of commonly used password and validated them to get original password
-  
-  
-  URL Interpretation :-
-   - Change certain parts of URL and one make server to deliver web pages for which he is not authorized to browse
+  URL Interpretation :- Change certain parts of URL and redirect to certain web pages that not authorized to browse
   
   
   File Inclusion attack :-
-   - Allow attacker to access unauthorized or essential files which available on web server or to execute malicious
-     files on web server by making use of include functionality 
+   - Allow attacker to access unauthorized files which available on web server 
+   - Execute malicious files on web server by using include functionality 
+
 
   Man in the middle attacks :-
-   - Allow attacker to intercept connection Between Client and server and acts as bridge between them 
+   - Allow attacker to intercept connection Between Client and server 
+   - Act as bridge between them 
    - Now Attcker able to read, insert and modify data in intercepted connection
  
  
- System-based attack :-
-  - Intended to compromise computer or Computer network
+
+ System-based attack :- Intended to compromise Computer network
   
   Virus :-
    - Self-replicating malicious computer program that replicates itself into computer program when executed 
-   - It attach itself to host file or hard drive sector
-   - Replicates each time host used for destruction or corruption of data
-   - Attach files with execution capabilities such as .doc, .exe, and .bat extensions
+   - Purpose is destruction or corruption of data
+   - Attach file with execution capabilities such as .doc, .exe and .bat extension
    - Often distributes via e-mail
    Ex :- Stoned, Michelangelo, Melissa, I Love You
  
   
   Worm  :-
-   - Types of malware whose primary function to replicate itself to spread to uninfected computers 
-   - Worms often originate from email attachments that appear to be from trusted sender
-   - It Can install backdoor in infected computer
-   - Is usually introduced into system through vulnerability
-   - Infect one system and spread to other systems on network
+   - Types of malware that replicate itself in uninfected computers 
+   - It originate from email attachment that appear from trusted sender
+   - Usually enter into system through vulnerability
+   - Infect one system and spread to other system on network
    Ex :- Code Red
  
   
   Trojan horse :-
-   - Malicious program that unexpected changes to computer setting and unusual activity, even when computer should idle  
-   - Appear as normal application but when opened/executed some malicious code will run in background
-   - Cannot replicate itself
-   - Often contain spying function(such as packet sniffer) or backdoor that allow computer to be remotely controlled
-   - Often is hidden in useful software such as screen savers or games
+   - Malicious program that unexpected change computer setting and do unusual activity even when computer idle  
+   - Appear as normal application but when opened/executed some malicious code run in background
+   - It Cannot replicate itself
+   - Contain spying function(such as packet sniffer) or backdoor that allow computer to remotely controlled
    Ex : Back Orifice, Net Bus, Whack-a-Mole
 
 
   Backdoors :-
    - Bypasses normal authentication process 
-   - Developer create backdoor so that application or OS accessed for troubleshooting  or other purposes
+   - Developer create backdoor so that application or OS accessed for troubleshooting or other purposes
   
 
   Bots/Robot :-
-   - Automated process that interacts with other network services
+   - Automated process that interact with other network service
    - Some run automatically while other only execute when receive specific input 
-   Ex :- Crawler, Chatroom  bots and malicious bots
+   Ex :- Crawler, Chatroom
 
 
   Logic Bomb :-
-   - Malware that lies dormant until triggered
-   - Example of asynchronous attack
+   - Malware that lies dormant until triggered like asynchronous attack
    - Trigger activity may be specific date and time, launching specific program or processing specific type of activity
-   - Do not self-replicate
+   - Not self-replicate
+
 
  
  Active attacks :- 
-  - Network exploit in which hacker attempts to make change to data on target or data en route to target
   
   Masquerade :- 
-   - Intruder pretend to be particular user of system to gain access or to gain greater privileges than they authorized
-   - Masquerade attempted through stolen login IDs and passwords, finding security gaps in programs or 
-     through bypassing authentication mechanism
-  
-  Session replay :- 
-   - Hacker steal authorized user’s log in information by stealing session ID
-   - Intruder gains access and ability to do anything that authorized user can do on website
+   - Intruder pretend particular user system to gain access privilege than they authorized
+   - Stolen login ID and password finding security gaps in program or through bypassing authentication mechanism
+   
 
   Message modification :-  
-   - Intruder alters packet header addresses to direct message to different destination or modify data on target machine
+   - Intruder alter packet header addresses to direct message to different destination or modify data on target machine
   
-  Denial of service(DoS) :-  
-   - Users deprived of access to network or web resource 
-   - Accomplished by overwhelming target with more traffic than it handle
 
   Distributed Denial-of-Service (DDoS) :-
    - Disrupt computer network by overwhelming server and request 
    - Network gets flooded with superfluous request from hundred or thousand of IP addresses that overload system and 
-     keep legitimate request from being fulfilled 
+     keep legitimate request from being fulfilled
    - It causes target system like website to crash from overload of demand
  
+
+
  Passive Attack :-
-  - Scarce from classification perspective but carried out with relative ease, particularly if traffic not encrypted
- 
   Eavesdropping(tapping) :- 
-   - Attacker listen to messages exchanged by two entities
-   - Unencrypted information such password sent in response to HTTP request, may be retrieved by attacker.
- 
-  Traffic analysis :- 
-   - Attacker looks at metadata transmitted in traffic in order to deduce information relating to exchange and 
-     participating entities
-   - In cases where encrypted data used traffic analysis lead to attacks by ecryptanalysis whereby attacker obtain 
-     information or succeed in unencrypting traffic
-  
+   - Attacker listen to message exchanged by two entities
+   - Unencrypted information such password sent in response to HTTP request may be retrieved by attacker
+   - Attacker look transmitted metadata traffic in order to get related information that exchange between entities
+   
   Software Attacks :- 
-   - Malicious code(malware) type of software designed to take over or damage computer user's os without user's 
-     knowledge or approval 
+   - Malicious code(malware) software take over or damage user's computer without user's knowledge or approval 
    - Difficult to remove and very damaging 
  
  
+
  Hardware Attack :- 
   - Affect embedded radio-frequency identification (RFID) chips and memory 
   - Eavesdropping :- Gaining access to protected memory without opening other hardware 
-  - Inducing faults causing interruption of normal behaviour 
-  - Hardware modification tampering with invasive operations 
   - Backdoor creation presence of hidden methods for bypassing normal computer authentication system
-  - Counterfeiting product asset that produce extraordinary operation and those gain malicious access to system
 
 
 
 Threat :-
- - Threat is malicious act performed by hacker to intentionally steal data or other assets, misuse them or simply 
-   cause disruption in digital life in general 
+ - Threat is malicious act performed by hacker to intentionally steal data or other assety for misuse them
+ – It represent potential security harm to asset when vulnerabilities exploited 
  - Threat come from remote location by unknown parties or even within organization by trusted users 
- - Security incidents or circumstances with potential to have negative outcome for your network or other data 
-   management system
- - Phishing attacks result in installation of malware 
- - Failure of staff member to follow data protection protocols cause data breach
- - Tornado that takes down company’s data headquarters, disrupting access
- - Intentional threats include criminal hacking or malicious insider stealing information 
- - Accidental threats involve employee error technical malfunction or event that causes physical damage such as fire
-   or natural disaster
- – Threat represent potential security harm to asset when vulnerabilities are exploited 
- Attacks are threats that have been carried out :-
-  Passive  - Use information from system without affecting system resource
-  Active   - Alter system resources or affect operation 
-  Insider  - Initiated by entity inside organization  
-  Outsider - Initiated from outside perimeter  
  
- Types :- Disruption espionage | Corporate espionage (theft of patents) | State espionage
+ Types :- Disruption espionage | Corporate espionage(theft of patent) | State espionage
   
  Malware :-
-  - Software that perform malicious action on device or network such as data corruption or taking over system 
+  - Block access to critical component of network and gather sensitive data from damage system
   - Malware makes its way into system through malicious link or email that user click 
-  - It block access to critical component of network gather sensitive data and damage system
 
- Spyware :-
-  - Form of malware that stays concealed on device and transmit real-time data like bank details and passwords 
-    to its host
 
  Ransomware :-
-  - Malware that blocks access to system or data until ransom paid 
-  - Attack involves data encryption on target system that render all files inaccessible and demand monetary ransom
+  - Types of Malware that block system accesse or data until ransom paid 
+  - Attack involve data encryption on target system that makes all files inaccessible and demand monetary ransom
     to give back access to owner again 
   
- Zero-day exploits :-
-  - Happen same day flaw occurs in software, hardware, or firmware
-  - Because software flaw is recent, it is hard to put up protection system in place immediately
 
- Advanced persistent threats(APTs) :-
-  - Unauthorized user gaining access to system and remaining there without being detected for long period of time
-  
- Wiper attack :-
-  - Wipe out hard drive of computer it infects 
-  - It involves wiping, overwriting, or removing data from victim 
-  - Mainly destructive in nature and often do not involve ransom 
-  - Used to cover tracks of separate data theft that occurring 
+ Zero-day exploit :-
+  - Happen same day flaw occur in software, hardware or firmware
+  - Because software flaw is recent, its hard to put up protection system in place immediately
 
- Intellectual property theft :-
-  - Stealing or using someone else’s intellectual property without permission
 
  Man-in-the-middle attack (MITM attack) :-
   - Attacker insert himself in middle of communication between two parties like user and application and attempt to 
     steal information 
   - Attackers eavesdrop or impersonate one of parties, making it appear as if normal exchange of information underway
 
- Drive-by downloads :-
-  - Installing malicious program like spyware, malware, or virus
-  - Download that happen without knowledge of person like computer virus, spyware, malware, or crimeware
 
- Malvertising / Malware advertising :-
-  - Online advertisement that spread malware and compromise system through injection of malicious code into ads
-
- Rogue Security Software :-
-  - Internet fraud that disguised as real software and tricks user into believing that their computer has virus 
-  - Convince users to pay for fake malware removal tool that instead install malware on their computer
+ Spyware :- Form of malware that stays on device and transmit real-time data like bank detail,password to attacker
+ Wiper attack :- Wipe out victim computer hard drive of computer with wiping, overwriting, or removing data Technique
+ Malvertising :- Malicious code into online ads
+ Drive-by download :- Installing malicious program without knowledge of person like virus, spyware, malware
+ Rogue Security Software :- Convince user to pay for fake malware removal tool instead install malware on their computer
+ Intellectual property theft :- Stealing or using someone else’s intellectual property without permission
+ Advanced persistent threat(APTs) :-Unauthorized access to system and remaining there without detected long time
 
 
 
 Vulnerability :-
- - Gaps or weaknesses in system that make threat possible and tempt threat actor to exploit them
- - When threat probability multiplied by potential loss that may result, cyber security experts refer to this as risk
- Types :- SQL injection | Server Misconfiguration | Cross-site Scripting | Transmitting sensitive data in non-
-          encrypted plain text format
- Categories :-
-  Corrupted (Loss of integrity) | Leaky (Loss of confidentiality) | Unavailable or very slow (Loss of availability) 
- 
- What is Vulnerability in Cyber Security?
- - Vulnerability refer to weakness in system, system processes or internal control of organization 
+ - Vulnerability refer to weakness in system of organization that make threat to exploit them
+ - When threat probability multiplied by potential loss that expert refer to as risk
  - Hackers gain illegal access to system and cause severe damage to data privacy 
- - It is Extremely important to monitor for overall security posture as gaps in network result in full-scale breach
-   of system in organization
-
- Examples :-  
-  - Weakness in firewall lead to malicious hacker getting into computer network
-  - Lack of security cameras
-  - Unlocked doors at businesses
-
-
- When does vulnerability become exploitable?
- - vulnerability has at least one definite attack vector is exploitable 
- - Attackers will, for obvious reasons, want to target weaknesses in system or network that are exploitable
- - Of course, it is not something that anyone want to have but what more worried about it being exploitable
- There are cases when something that vulnerable not really exploitable :-
-  - Insufficient public information for exploitation by attackers
-  - Prior authentication or local system access that attacker may not have
-  - Existing security controls
-
- 
+ - Vulnerability has at least one definite attack vector exploitable 
+ - Attackers find target weaknesses in system or network that are exploitable
+ Examples :- Weakness in firewall lead to malicious hacker getting into computer network
  
  What causes vulnerability?
- OS Flaws - Unsecured OS by default give users full access and become target for viruses and malware
- Internet - Full of spyware and adware that installed automatically on computer
- Unchecked user input(SQL injection) | Software Bug      | People(Social engineering)
- Familiarity with common code        | Connected devices | Poor Password Management | Complex System(Misconfiguration)
+  OS Flaws - Unsecured OS by default give full access and become target for viruses and malware
+  Internet - Full of spyware and adware installed automatically on computer
+  Unchecked user input(SQL injection) | Software Bug      | People(Social engineering)
+  Familiarity with common code        | Connected devices | Poor Password Management | Complex System(Misconfiguration)
  
 
+ Types    :- SQL injection | Server Misconfiguration | Cross-site Scripting | Transmitting data in non-encrypted format
+ Category :- Corrupted (Loss integrity) | Leaky (Loss confidentiality) | Unavailable or very slow (Loss availability) 
+  
 
  Types of Vulnerabilities :-
- System Misconfigurations 
- Out-of-date or Unpatched Software
- Missing or Weak Authorization Credentials
- Malicious Insider Threats (Network access control and network according to employee seniority and expertise)
- Missing or Poor Data Encryption
- Zero-day Vulnerabilities
+  System Misconfiguration         | Out-of-date or Unpatched Software | Missing or Weak Authorization Credential
+  Missing or Poor Data Encryption | Zero-day Vulnerabilities
+  Malicious Insider Threats (Network access control and network according to employee seniority and expertise)
 
 
-
- What is Vulnerability Management?
- - Cyclical practice consisting of identification, classification, remediation and mitigation of vulnerabilities
+ Vulnerability Management :-
+  - Cyclical practice consisting of identification, classification, remediation and mitigation of vulnerabilities
+  - Vulnerability management becomes continuous and repetitive practice because cyber attacks constantly evolving
  
- Vulnerability Detection :-
-  - Vulnerability scanning | Penetration testing | Google hacking
-
- Vulnerability scanning :-
-  - Find vulnerabilities in computer, application or network
-  - Scanner(software) used which discover and identify vulnerabilities that arise from misconfiguration and flawed
-    programming within network
-  - SolarWinds Network Configuration Manager(NCM), ManageEngine Vulnerability Manager Plus, Rapid7 Nexpose, Acunetix,
-    Probely, TripWire IP 360, etc.
-
- Penetration Testing / Pen testing :-
-  - Practice of testing IT asset for security vulnerabilities that attacker could potentially exploit
-  - It may be automated or manual 
-  - Test security policies, employee security awareness, ability to identify and respond to security incident and 
-    compliance requirement
-  
- Google Hacking :-
-  - Use search engine to locate security vulnerabilities through advanced search operator in queries that locate 
-    hard-to-find information or data that accidentally exposed due to misconfiguration of cloud service 
-  - Mostly these targeted queries used to locate sensitive information that not intended for public exposure
-
-
- Cyber Security Vulnerability Assessment :-
- - Once vulnerability detected goes assessment process
- - Vulnerability management becomes continuous and repetitive practice because cyber attacks constantly evolving
+  Vulnerability Detection :- Vulnerability scanning | Penetration testing | Google hacking
  
- What is a vulnerability assessment? 
-  - Process of systematically reviewing security weaknesses in information system 
-  - It highlight whenever system prone to any known vulnerabilities as well as classifies severity levels and 
-    recommend appropriate remediation or mitigation if required
+   Vulnerability scanning :-
+    - Scanner(software) identify vulnerabilities that arise from misconfiguration and flawed programming within network
+    - SolarWinds Network Configuration Manager(NCM), ManageEngine Vulnerability Manager Plus, Rapid7 Nexpose, Acunetix,
+      Probely, TripWire IP 360, etc.
+
+
+   Penetration Testing / Pen testing :-
+    - Practice of automated or manual testing IT asset for vulnerabilities that attacker could potentially exploit
+    - Test security policies, employee security awareness, ability to identify and respond to security incident and 
+      compliance requirement
   
- Assessment process include :-
-  Identify vulnerabilities :- Analyzing network scan, firewall log, pentest result to find highlight vulnerabilities   
-  Verify vulnerabilities   :- Whether identified vulnerability exploited or not classify its level of risk
-  Mitigate vulnerabilities :- Take appropriate countermeasure and measure their effectiveness if patch not available
-  Remediate vulnerabilities:- Update affected software or hardware wherever possible
 
- Types of vulnerability assessment :-
-  Network-based assessment :- 
-   - Identify issues in network security 
-   - Detect systems that are vulnerable on both wired and wireless network
+   Google Hacking :-
+    - Use search engine to locate security vulnerabilities through advanced search operator in queries that locate 
+      hard-to-find information or data that accidentally exposed due to misconfiguration of cloud service 
+    - Mostly these targeted queries used to locate sensitive information that not intended for public exposure
 
-  Host-based assessment :- 
-   - Help to locate and identify vulnerabilities in server, workstation and other network host 
-   - Assesses open port and services make configuration setting and patch management of scanned system more visible
+
+  Vulnerability Assessment :-
+   - Once vulnerability detected goes assessment process   
+   - Highlight system to any known vulnerabilities as well as classifies severity levels and appropriate remediation 
+     or mitigation if required
   
-  Wireless network assessment :- 
-   - Scanning of Wi-Fi network and attack vectors in infrastructure of wireless network 
-   - Validate that network securely configured to avoid unauthorized access also detect rogue access point
-
-  Application assessment :- 
-   - Identification of security vulnerabilities in web application and their source code 
-   - Achieved by implementing automated vulnerability scanning tools on front-end or analyzing source code statically
-     or dynamically
-  
-  Database assessment :- 
-   - Assessment of databases or big data system for vulnerabilities and misconfiguration, identifying rogue database
-     or insecure dev/test environment and classifying sensitive data to improve data security
-
- Vulnerability Remediation :-
-  - If tracking result show that services and product relying on risky code vulnerable component needs to be located 
-    and mitigated effectively and efficiently
-  Step 1 : Know Your Code
-  Step 2 : Prioritize Your Vulnerabilities 
-  Step 3 : Fix – Once security vulnerabilities that require immediate attention known time to map out timeline and work
-          plan for fix
-
- Conclusion :-
-  - With network becoming more and more complex, it become critical to actively manage cyber security vulnerabilitie
-  - To actively manage cyber security vulnerabilities it essential to have visibility of internal and third-party 
-    network ecosystem  
+   Assessment process include :-
+    Identify vulnerabilities :- Analyzing network scan, firewall log, pentest result to find highlight vulnerabilities   
+    Verify vulnerabilities   :- Whether identified vulnerability exploited or not classify its level of risk
+    Mitigate vulnerabilities :- Take appropriate countermeasure and measure their effectiveness if patch not available
+    Remediate vulnerabilities:- Update affected software or hardware wherever possible
 
 
+   Types of vulnerability assessment :-
+    Network-based assessment :- Detect system that vulnerable on both wired and wireless network
+    Host-based assessment    :- Locate and identify vulnerabilities in server, workstation and other network host 
+    Application assessment   :- Identification of security vulnerabilities in web application and their source code 
+    Database assessment      :- Identifying rogue database that classifying sensitive data to improve data security
+    Wireless network assessment :-  Scanning of Wi-Fi network and attack vectors in infrastructure of wireless network 
 
-How vulnerability different from threat and risk?
- - Vulnerabilities not introduced to system rather they are there from beginning 
- - It typically result of OS flaws or network misconfiguration 
- - Threat introduced to system like virus download or social engineering attack
- - Risk actually probability and impact of vulnerability being exploited 
- - If these two factors low then risk low 
+
+  Vulnerability Remediation :-
+   - Tracking result show that services and product relying on risky code that vulnerable 
+   Step 1 : Know Your Code
+   Step 2 : Prioritize Your Vulnerabilities 
+   Step 3 : Fix – Once vulnerabilities require immediate attention known time to map out timeline and workplan for fix
+
  
- - Impact of cyberattacks tied to CIA triad of resource 
- - Common vulnerabilities pose no risk when vulnerability has not much value to organization
 
-
-
-Cyber criminals :-
- - Access to enormous amounts of hardware, software, and data
- - They have potential to cripple much of effective business and government throughout world 
- - One approach to prevention to understand who commit these crime and why
- - Many studies have attempted to determine the characteristics of computer criminals
- - By sudying those future to spot likely criminals and prevent crimes from occurring
-
-  Motive of attackers :- 
-   inadvertent action :- Insiders that taken without malicious or harmful intent 
-   deliberate action  :- insiders or outsiders taken intentionally and are meant to do harm 
-                         Political  |  Economical  | Socio-Cultural
-   inaction :- Insider such as failure to act in given situation either because of lack skills, knowledge, 
-  
+Cyber Criminal | Cyber Crime  :-
+ - Cyber-warfare action taken by nation-state or international organization to attack and attempt on another
+   nation's computers or information network for demage through Ex :- computer viruses or denial-of-service attack
+ - Cybercrime doing by individuals or organization on target computer network for make money 
+ - Cyber spying practice of obtaining secret information without permission and of holder
  
-  Cyber Threats-Cyber Warfare | Cyber Crime | Cyber Espionage :- 
-   - Cyber warfare involve action by nation-state or international organization to attack and attempt to damage another
-     nation's computers or information network through Ex :- computer viruses or denial-of-service attack
-   - Cybercrime is criminal activity that doing by individuals or organizations by either target computer network or 
-     networked device for make money 
-   - Cyber spying or cyber espionage act or practice of obtaining secrets and information without permission and 
-     knowledge of holder of information from   
+
+ Motive of attackers :- 
+  Inadvertent action :- Insider that taken without malicious or harmful intent 
+  Deliberate action  :- Insider or outsiders taken intentionally to do harm 
+                        Political  |  Economical  | Socio-Cultural
+  Inaction :- Because of lack skills, knowledge
   
-  Effects of CyberCrime :-
-   - According to 2018 report published by McAfee economic impact of cybercrimes estimated to cost global economy 
-     nearly $600 billion annually
-   - Financial loss | Investor perception | Value of businesses | Loss of sensitive customer data
 
-  How to Prevent Cyber Crimes?
-    Firewall | Internet security suite   | Endpoint protection             | Identity theft protection |
-    Training | Securing sites with HTTPS | Two-factor authentication (2FA) | Installing antivirus program |
-    Cyber Incident Response Plan (CSIRP) | Creating backups 
+ Sources of Cyber Threats :-
+  - To effectively protect against cyberattacks essential to understand threat actors and their intention
+  - Hackers | Nation-states | Criminal Groups | Terrorist Groups | Malicious Insiders
+  Emerging Cyber Threats :- Pandemic-related attacks | Cloud Breaches | IoT Attacks 
 
-  Sources of Cyber Threats :-
-   - To effectively protect against cyberattacks essential to understand threat actors and their intentions 
-   - Hackers | Nation-states | Criminal Groups | Terrorist Groups | Malicious Insiders
-   Emerging Cyber Threats :- Pandemic-related attacks | Cloud Breaches | IoT Attacks 
+
+ Effect of CyberCrime :-
+  - 2018 report by McAfee economic that impact of cybercrimes cost global economy nearly $600 billion annually
+  - Financial loss | Investor perception | Value of businesses | Loss of sensitive customer data
+
+
+ How to Prevent Cyber Crimes?
+  Firewall | Internet security suite   | Endpoint protection             | Identity theft protection |
+  Training | Securing sites with HTTPS | Two-factor authentication (2FA) | Installing antivirus program |
+  Cyber Incident Response Plan (CSIRP) | Creating backups
 
 
 
 Security Policies :- 
- - Set of rules which issued by organization to ensure that user who authorized to access company technology and 
-   information assets comply with rules and guidelines related to security of information
- - "living document" means document never finished but it continuously updated as requirement of technology 
- - It manage network security 
- - Most policies are automatically created during installation  
+ - Set of rules issued by organization to ensure that user who authorized to access company technology comply with 
+   rules and guidelines related personal information security
+ - "living document" means document never finished means continuously updated as requirement of technology 
+ - Most policies automatically created during installation  
  Need :- Efficiency  |  Discipline and accountability  |  Educate employees on security literacy            
 
  Virus and Spyware Protection policy :- 
-  - Helps to detect threads in files to detect application that exhibits suspicious behavior
-  - Remove and repairs side effect of viruses and security risks by using signatures
+  - Detect threat in application and files that exhibits suspicious behavior
+  - Remove and repair side effect of viruse by using signatures
  
  Firewall Policy :- 
-  - Blocks unauthorized users from accessing system and network that connect to Internet
-  - Detect attacks by cybercriminals and removes unwanted sources of network traffic
+  - Block unauthorized users from accessing system and network that connect to Internet
+  - Detect attack by cybercriminals and removes unwanted sources of network traffic
 
  Intrusion Prevention policy :- 
   - Automatically detect and blocks network attacks and browser attack
-  - Also protect application from vulnerabilities and check contents of one or more data packages and detects malware
-    which coming through legal ways
+  - Check contents of one or more data packages and detects malware which coming through legal ways
  
  Application and Device Control :- 
   - Protect system's resources from application and manage peripheral devices that attach to system
-  - Device control policy applies to both Windows and Mac computers whereas application control policy applied only
-    to Windows client
+  - Device policy Applies to Window and Mac computer whereas application control policy applied only to Windows client
  
 
 
 OWASP(Open Web Application Security Project) top-10 :-
- - OWASP nonprofit security organization that conducts security assessment and gives insights into critical security
-   flaws in software
- - OWASP primarily focuses on the back end rather than design issues
- - OWASP ZAP(Zed Attack Proxy) integrated vulnerability scanning tool for detecting flaws in web-based application
+ - Nonprofit security organization conduct security assessment and give insights of critical security flaw in software
  - Constantly updated document that outlines web application security concern, focusing on 10 most significant issue 
  - Raise awareness about application security by identifying some most critical risks facing organization
- - OWASP Top 10 vulnerabilities reflect widespread agreement on most severe web security deficiencies
-
+ - OWASP ZAP(Zed Attack Proxy) integrated vulnerability scanning tool for detecting flaws in web-based application
+ 
  Injection :-
-  - Injection flaws happen when untrusted data sent to interpreter as part of command or query 
-  - Injection attack meddle fundamental security concept of access control 
-  - injection is not specific to a technology or programming language
-  - Malicious user tinker with search feature in hope of injecting input called payload to perform unintended result
-    by vulnerable system 
-  - If successful malicious user trick application to revert sensitive information
+  - Untrusted data sent to interpreter as part of command or query
+  - It not specific to technology or programming language
+  - Malicious user with in search feature injecting input called payload to perform unintended result
+  - If successful it revert sensitive information
 
   Injection Vulnerabilities :- 
    - SQL injection | OS command injection | Lightweight directory access protocol (LDAP) injection
    
-  Preventing Injection Attacks :- 
-   - Secure interface | Utilize server-side user authentication
-   - Special characters should be approached with caution
+  Preventing Injection Attack :- 
+   - Secure interface | Utilize server-side user authentication | Special character approached with caution
 
 
 
  Broken Authentication :- 
-   - Authentication process where user grant genuinity of who they are 
-   - Attacker mimic someone and gain access to their data or functionality 
-   - Authentication and session involve cookies that provide easy way for attacker to try and portray someone else
-   - Application functionalities linked to authentication and session management frequently implemented improperly 
-     allowing intruders to compromise passwords, keys, or session tokens or exploit other implementation defects to
-     temporarily or permanently assume other users’ identities
+  - Compromised credentials such as username and password
+  - In Authentication process Attacker gain access of genuinity user data or functionality 
+  - Authentication and session have cookies that provide easy way for attacker to gain information
+  - Application functionalities linked to authentication and session management
+  - Poor authentication compromise password, key, session token or exploit other implementation 
+  - Allowing intruders for temporarily or permanently assume vicitm identities
    
-   Broken Authentication :- Compromised credentials such as username and password
-   
-   Broken Authentication Vulnerabilities :-
-    - Insecure login form | Logout management | Administration portal | Session ID in URL
-   
-   Preventing broken authentication attack :-
-    - Use modern framework | HTTP only and secure flags on cookies | password hashing algorithm
-    - Use combination of independent pen testing and code review
+  Vulnerabilities :- Insecure login form | Logout management | Administration portal | Session ID in URL
+  
+  Preventing :-
+   - Use modern framework | HTTP only and secure flags on cookies | Password hashing algorithm
+   - Use combination of independent pen testing and code review
     
     
 
  Sensitive Data Exposure :-
-   - Attackers steal or modify such clumsily-defended data to conduct credit card fraud, identity theft or other crime
-   - Sensitive data negotiated without extra protection such as encryption at rest or in transit and require special 
-     precaution when exchanged with browser
-
-   Sensitive Data Exposure Vulnerabilities :- Credential stuffing | Password-based attack
-   
-   Preventing Sensitive Data Exposure :-
-    - PCI, GDPR and many more security 
-    - Reduce scope of blast radius
-    - Ensure best security practices
+  - Attacker steal or modify data to conduct credit card fraud, identity theft or other crime
+  - Sensitive data negotiated when no extra protection such as encryption when exchanged with browser
+  Vulnerabilities :- Credential stuffing | Password-based attack
+  Preventing      :- PCI, GDPR security  | Reduce scope of blast radius | Ensure best security practice
 
 
   
  XML External Entities : -
-   - XML ability to define new entities such as turn and foo 
-   - Simple text replacement that in-lined in XML declaration but they refer to external file
-   - XXE attacks take advantage of ability to read arbitrary files and URIs to allow wide range of attack scenarios
-   
-   Preventing XXE Attacks :-
-    - Reducing[13][14] XXE attack generally straightforward and require passing additional flags to XML parser 
-    - Generally speaking, these[15][16] attacks flags for disallowing inline DTDs and removing entities entirely
+  - XML define new entities such as turn and foo 
+  - XXE attack read arbitrary files and URIs to allow wide range of attack scenarios
+  
+  Preventing :-
+   - Reducing[13][14], generally XXE attack straightforward require passing additional flags to XML parser 
+   - [15][16] attacks flags for disallowing inline DTDs and removing entities entirely
     
 
 
  Broken Access Control  :-
-   - Whenever hacker exploit access to system known as breach access control 
-   - Attacker access computer either as user or administrator
-   - Restriction on what authenticated user allowed to do are often not enforced 
-   - Attacker exploit these flaws to access unauthorized functionality of data such as access other user account 
-     view sensitive files, modify another user data, change access rights etc..
+  - Attacker access exploit computer either as user or administrator known as breach access control 
+  - Attacker exploit to access unauthorized functionality of data such as access other user account 
+    view sensitive files, modify another user data, change access rights etc..
    
-   Preventing Broken Access Control Attacks :- 
-    - Implement access control
-    - Manage multiple access profiles and follow least privileged policy
-    - Use of logging and monitoring
-    - Continuous testing application
+  Preventing Broken Access Control Attacks :- 
+   - Implement access control    |  Manage multiple access profile | Follow least privileged policy
+   - Use logging and monitoring  |  Continuous testing application
     
   
 
  Security Misconfiguration :-
-   - It caused by insecure default setup, ad hoc configuration, open cloud storage, incorrect HTTP header and verbose 
-     error messages revealing sensitive information
-   - All OS, frameworks, libraries and application not only be securely set up but also patched or upgraded promptly
+  - Caused by insecure default setup, ad hoc configuration, open cloud storage, incorrect HTTP header and verbose 
+    error messages revealing sensitive information
+  - All OS, framework, libraries and application not only be securely set up but also patched or upgraded regularly
+  
+  Vulnerabilities :- 
+   - Open S3 bucket | Unencrypted database | Default admin credential | Unnecessary port or service
+   - Verbose error messages or server version information
    
-   Ex :- Open S3 bucket | Unencrypted database | Default admin credential | Unnecessary ports or services
-         Verbose error messages or server version information
-   
-   Preventing Security Misconfiguration Attacks:
-    Hardened system : Use automated process such as cloud formation
-    Patch and update software : Prioritize patches and implement their impact
+  Preventing :-
+   Hardened system : Use automated process such as cloud formation
+   Patch and update software : Prioritize patches and implement their impact
  
  
   
  Cross-site Scripting (XSS) :-
-   - XSS code injection attack executed on client-side of web application
-   - Attacker inject malicious script through web browser 
-   - Malicious script executed when victim visits web page or web server
-   - Cross-site scripting utilized to steal sensitive information such as cookies, session token and other private data
-
-   Preventing :- Escape user input | Consider all input as threat | Data validation | Sanitize data
+  - XSS code injection attack executed on client-side of web application
+  - Attacker inject malicious script through web browser 
+  - Malicious script executed when victim visits web page or web server
+  - Steal sensitive information such as cookies, session token and other private data
+  Preventing :- Escape user input | Consider all input as threat | Data validation | Sanitize data
  
   
   
  Insecure Deserialization :-
-   - Happen in remote code execution 
-   - Not allow for remote code execution they leveraged to launch attack such as replay attack, injection attack and 
-     privilege escalation attack
-   - Occur when program fails to sufficiently secure this procedure 
-   - If default parameter utilized application have little control over what data deserialized 
-   - Any incoming serialized visual data may be included with no authentication or safeguard
-
-   Preventing :- 
-    - Prevent data from tampering while the objects are getting serialized
-    - Log to detect insecure deserialization | Code isolation
+  - Happen in remote code execution to launch attack such as replay attack, injection attack and privilege escalation 
+  - Occur when program fails to sufficiently secure this procedure 
+  Preventing :- 
+   - Prevent data from tampering while object serialized | Code isolation | Log to detect insecure deserialization 
 
 
 
  Using Components with Known Vulnerabilities :-
-   - Online service that contain component known as security flaws 
-   - Known vulnerability component might be component itself, CMS utilized, webserver, plugin loaded or even library
-     used by one of these libraries
-   - Libraries, frameworks, and other software modules nearly always executed with full right 
-   - Attack that takes advantage of weak component might result in significant data loss or server takeover 
-   - Application that use component with known vulnerabilities may bypass application protection and enable variety 
-     of potential attack and consequences
-
-   Preventing :-
-    - In event that patches cannot be addressed, maintain continuous inventory and monitor OWASP dependency check
-    - Deserialization issues detected by using application security tool 
-    - Penetration testing confirm that issues exist
+  - Online service that contain different component known as security flaws 
+  - Libraries, frameworks, and other software modules executed with full right 
+  - Attacker take advantage of weak component that result in significant data loss or server takeover 
+  
+  Preventing :-
+   - Maintain continuous inventory and monitor OWASP dependency check
+   - Deserialization issues detected by using application security tool 
+   - Penetration testing on issues that exist
  
 
 
  Insufficient Logging and Monitoring :-
-   - Affect underlying infrastructure not only computer HTTP server 
-   - Large number of logs—practically all new device produce unique record so log handling becomes huge issue 
-   - Information gathering become too much to successfully monitor and manage
-   - So all individual log collected together and aggregated
+  - Affect underlying infrastructure not only computer also HTTP server 
+  - All new device produce large number of unique logs so log record handling becomes huge issue 
 
-   Preventing :-
-    - Programmer examine testing record to detect potential flaws and vulnerabilities 
-    - SAST systems aid in detection of unlogged safety issue
+  Preventing :-
+   - Programmer testing record to detect potential flaws and vulnerabilities 
+   - SAST system aid in detection of unlogged safety issue
     
