@@ -1,287 +1,208 @@
 Overview :-
- - C++ is middle-level language as it comprises combination of both high-level and low-level language features
- - Developed by Bjarne Stroustrup starting in 1979 at Bell Lab
- - Originally named C with Classes but later it was renamed C++ in 1983(Simula 67 | Algol 88)
- - C++ is superset of C, any valid c program is valid in c++
- - C++ fully supports object-oriented programming including four pillars of object-oriented development −
-   Encapsulation | Data hiding | Inheritance | Polymorphism
- - Statically typed, compiled, general-purpose, case-sensitive, free-form that supports procedural, object-oriented 
-   and generic programming
- - Static typing means type checking is performed during compile-time as opposed to run-time
- - Standard Template Library (STL) giving rich set of method manipulating data structures
- - C++ is portable, compiler compile code can run any OS
- - .cpp extension,  GNU C/C++ compiler used to compile code
+ - C++ is middle-level language as combination of both high-level and low-level language feature
+ - Developed by Bjarne Stroustrup in 1979 at Bell Lab
+ - C with Classes later renamed C++ in 1983(Simula 67 | Algol 88)
+ - C++ is superset of C, any valid c program valid in c++
+ - C++ supports object-oriented programming :- Encapsulation | Data hiding | Inheritance | Polymorphism
+ - Statically typed(Error checking Compile time) | Compiled | General-purpose | Case-sensitive | Portable 
+ - .cpp extension  |  Case sensitive  |  GNU C/C++ compiler
+ - Standard Template Library (STL) giving rich set of method manipulating data structure
 
-
-
-Basic Syntax | Comment :-
- Ex :-
+ 
+ Basic Syntax :-
   #include <iostream.h>
   using namespace std;
-  int main() { /* main() is where program execution begin */
+  int main() {                     /* main() where program execution begin */
     cout << "Hello World" << endl; /* prints Hello World */
    return 0;
   }
 
- - C++ semicolon is statement terminator
- - Block is set of logically connected statement that are surrounded by opening and closing braces
- - Comment :- /* */ 
- - endl, which insert new-line character after every line
- - << operator used to pass multiple values out to screen
- - iostream.h means input/output stream
- - Stream means sequence of bytes
+  Block   :- Set of logically connected statement that surrounded by opening and closing braces
+  Comment :- /* */ 
+  endl    :- Insert new-line
+  <<      :- Operator pass multiple values out to screen
+  ;       :- Statement terminator
+  iostream.h :- input/output stream(Sequence of byte)
 
 
 
-Identifier :-
- - Identifier is name used to identify variable, function or any other user-defined item
- - C++ is case sensitive
- 
- All Identifier List :-   
-  CharacterSet       - A-Z,a-z 
-  Digit              - 0 to 9     
-  Special Character  - 31
-  WhiteSpace Character - Blank Space, Horizontal Tab, Carriage Return and Form Feed   
+Identifier :- 
+ - Name used to identify variable, function or any other user-defined item
+ CharacterSet       - A-Z,a-z 
+ Digit              - 0 to 9     
+ Special Character  - 31
+ WhiteSpace Character - Blank Space, Horizontal Tab, Carriage Return and Form Feed   
 
  Rules :-
   - First letter start with either letter(Atoz/a_z) or underscore(_) followed by more letters and digits
-  - Cannot start name with digit or any special character at first
-  - You cannot use keyword name as identifier
-  - C++ does not allow punctuation characters such as @, $, and %
-  - Name Must be unique 
+  - Cannot start name with digit or not allow any special character at first such as @, $, and %
+  - Name Must be unique cannot use keyword name as identifier
 
 
 
-Keyword :-
- - Reserved words not be used as constant or variable or any other identifier name
+Variable :-
+ - Container hold data which identify by its name
+ - extern declare variable at any place
+ - Inside function or block called local variable only access within function not accessible outside
+ - Outside function variable called global variable accessed anywhere in program throughout program 
+ 
+ Type  :- int  char  float  bool  double  void  wchar_t
+ Other :- Enumeration  Pointer  Array  Reference  Classes
+
+ Ex :- 
+  int intValue = 10;   // declare variable with int type
+  intValue = 10.10;    // Wrong cannot change int to float
+  float a,v,c;         // Variablelist with no value
+  int g = 10, n = 20;  // g represent memory location "lvalue" | 10 represent actual data "rvalue"
   
-  void  short  int    float  char      double   long      bool signed unsigned enum union const sizeof 
-  for   while  do     break  continue  goto     switch    case if     else     true false   
-  try   catch  throw  return auto      new      register  this    
-  class extern static using  namespace volatile delete    struct
+ Type Qualifiers in C++ :-
+  - Provide additional information about variable
+  const    - Value Cannot be changed by program during execution
+  volatile - Variable's value may be changed in ways not explicitly specified by program
   
-  private protected public default
-  asm     operator explicit   export
-  typedef typeid   typename   reinterpret_cast
-  friend  virtual  const_cast static_cast dynamic_cast
-  inline  wchar_t  mutable    template	
 
 
-
-DataType :-
- - Determines type and size of data associated with variables
- - Type of data type determine how much space is occupies in storage
+Keyword :- 
+ - Reserved word cannot used as constant or variable or any other identifier name
+ void  short  int    float  char      double   long      bool signed unsigned enum union const sizeof 
+ for   while  do     break  continue  goto     switch    case if     else     true false   
+ try   catch  throw  return auto      new      register  this    
+ class extern static using  namespace volatile delete    struct
   
+ private protected public default
+ asm     operator explicit   export
+ typedef typeid   typename   reinterpret_cast
+ friend  virtual  const_cast static_cast dynamic_cast
+ inline  wchar_t  mutable    template	
+
+
+
+DataType :- 
+ - Determine type and size of data that associated with variables 
  Built-in :-1 byte = 8 bit, 1 kb = 1024 byte, 1mb = 1024kb
   Type    :- Boolean | Character | Integer | Floating point | Double floating point | Valueless | Wide character
   Keyword :- bool    | char      | int     | float          | double                | void      | wchar_t
 
    Type          Size     Range              Format Specifier    Example 
    char	         1 byte	−128 to 127         %c                  char test = 'B';
-   short	     2 byte	−32,768 to 32,767                       short a = 10;
+   short	       2 byte	−32,768 to 32,767                       short a = 10;
    int	         4 byte	−32,768 to 32,767   %d, %i              int id  = 0;            |  -5, 10;
-   float	     4 byte                     %f                  float no = 22.442e2;    
-   double	     8 byte                     %lf                 double no = 22.442e2;
+   float	       4 byte                     %f                  float no = 22.442e2;    
+   double	       8 byte                     %lf                 double no = 22.442e2;
    wchar_t       2 or 4 1 wide character
    long int      8 byte                     %ld, %li            long a;
    long double	 12 byte                    %Lf                 long double d;
    unsigned int  4 byte	 0 to 65,535        %u                  unsigned int x = 35;
-   short int	 2 byte                     %hd
+   short int	   2 byte                     %hd
    unsigned int	                            %u
    long int	     8 byte                     %li
    
-
- - To Check size of variable use sizeof() operator Ex :- sizeof(variableName);
- - Type modifiers :-
-   - Modifiers signed, unsigned, long and short applied to integer base types
-   - In addition signed and unsigned applied to char and long applied to double
-   - Modifiers signed and unsigned also be used as prefix to long or short modifiers 
-    Signed   - Store both positive and negative number
-    Unsigned - Store only positive number
-    long     -    
-    short    -
+ 
+ Type modifiers :-
+  Signed   - Store both positive and negative number
+  Unsigned - Store only positive number
+  long  | Short
   
-   Example :- 
-    unsigned x;         // C++ automatically implices int
-    unsigned int y;
 
-
- typedef :-
-  - create new name for an existing type
+ typedef :- Create new name for existing type
   Syntax  :- typedef type newname;
-  Example :- typedef int feet;  
-             feet distance;
+  Ex :- 
+    typedef int feet;  
+    feet distance;
 
- Enumerated Types :-
-  - Declare optional type name and set of zero or more identifiers that used as values of type
+
+ Enumerated :-
   Syntax :- enum enum-name { list of names } var-list; 
-  Example :- enum color { red, green = 5, blue } c;
-             c = blue;
-  - By default value starting from 0 to n-1 but u can specify custom value( blue=2 but green=5 so blue=6)
+  Example :- 
+    enum color { red, green = 5, blue } c;
+    c = blue;
+  - By default value starting from 0 to n-1 but specify custom value( blue = 2 but green=5 so blue=6)
   
 
 
-Variable :-
- - Container (storage area) to hold data which identify by its name
- Type  :- int char float bool double void wchar_t
- Other :- Enumeration Pointer Array Reference Classes
- - extern keyword to declare a variable at any place
- - Expression that refer to memory location are called "lvalue" expression
- - rvalue refers to data value that is stored at some address in memory
+Constant/Literals :- 
+ - Representing fixed values | Ex :-  1, 2.5, 'c' 
+
+ Integer   :- Numeric without any fractional or exponential part     | 0, 077(Octal), 0x7f(Hexa)
+ Floating  :- Numeric literal has either fractional or exponent form | -2.0, 0.00234, -0.22E-5 (E-5 = 10-5)
+ Character :- Single character inside single quotation marks         | 'a', 'm', 'F', '2', '}'
+ String    :- Sequence of character enclosed in double-quote marks   | "String" , "" ,  "    ", "S", 
+ Constant  :- Value cannot be changed once declared (Preprocessor)   | const double PI = 3.14; #define LENGTH 10  
+ void      :- Represents absence type 
+
+ Escape Sequence :- Character with backslash which has special meaning
+  \b - backspace  | \f - formfeed        | \\ - Backslash      | \n - newline         
+  \r - return     | \? - Quotation Mark  | \t - Horizontal tab | \v - vertical tab
+  \' - Single Quotation Mark  | \" - Double Quotation Mark     | \0 - Null Character
+
+
+
+Operator :- 
+ - Symbol that operate on value or variable
+ Arithmetic :-  +,  -,  *,  /, %(Reminder), ++, //
+ Assignment :-  =, +=, -=, *=, /=, %= , <<=, >>= , &=, ^= , |=
+ Relational :- ==, >=, <=, !=,  >,  <
+ Logical    :- &&, ||,  !, 
+ BitWise    :-  &,  |, 	^, 	~, <<, >>, >>	
+ Comma      :- int a, c = 5, d;
+ Other      :- ?: Ternary  |  & Reference  |  * Dereference  |  -> Member selection  | . dot  |  * Pointer
+ sizeof()   :- Return size of data (constants, variables, array) | Format Specifier %zu print value
+ Unary      :- Works with single operand  |  ++, -- 
+
+
+
+Storage Classes :- 
+ - Scope (visibility) and life-time of variables or function within C++ Program 
+
+ auto :- Default storage class for all local variables | Ex :- auto int month;
   
- Ex :- 
-  int intValue = 10; // declare variable with int type
-  intValue = 10.10;  // Wrong cannot change int to float
-  float a,v,c;       // Variablelist with no value
-  int g = 10, n = 20;
-  
- Scope :-
-  - Inside function or block called local variable and outside called global variable
-  - Local variable accessed inside function or block only not accessible outside
-  - Global variable accessed anywhere in program throughout program 
-  - Local variable not initialized by system you must initialize it while global variable initialized automatically
+ register :-
+  - Local variables that stored in register instead of RAM 
+  - Maximum size equal to register size(One word) and can't applied unary '&' operator to it as it no memory location
+  Ex :- register int miles;   
+
+ static :-
+  - Existence life-time of program
+  - Scope restricted to file in which it declared
+  - Static used on class data member it causes only one copy of that member shared by all object of its class
+  Ex :- static int count = 10;
+
+ extern :- 
+  - Give reference of global variable that visible to ALL program files
+  - Used to declare global variable or function in another file
+  Ex :- extern int count;
+
+ mutable :-
+  - Apply only to class objects and allow member object to override const member function
+  - mutable member modified by const member function
  
-
- Type Qualifiers in C++ :-
-  - type qualifiers provide additional information about variables they precede
-  const    - Const Object type cannot be changed by program during execution
-  volatile - Tells compiler that variable's value may be changed in ways not explicitly specified by program
-  restrict - Pointer qualified by restrict is initially only means by which object it points to can be accessed
-           - Only C99 adds new type qualifier called restrict
-
-
-
-Constant/Literals :- Representing fixed values
- Ex :-  1, 2.5, 'c' 
-
- Types Of Literals :-
-  Integer :-
-   - Numeric literal(Number) without any fractional or exponential part
-   - Octal starts with 0 and hexadecimal starts with 0x
-     octal       (base 8)  :- 021, 077 
-     decimal     (base 10) :- 0, -8, 22
-     Hexadecimal (base 16) :- 0x7f, 0x2a
-
-  Floating :- Numeric literal that has either fractional or exponent form
-   Ex :- -2.0, 0.00234, -0.22E-5 (E-5 = 10-5)
-
-  Characters :- Single character inside single quotation marks
-   Ex :- 'a', 'm', 'F', '2', '}'
-
-  Escape Sequence :- Characters with backslashe which has special meaning
-    \b - backspace      | \\ - Backslash              | \0 Null Character
-    \f - formfeed       | \' - Single Quotation Mark  | \" - Double Quotation Mark
-    \n - newline        | \r - return                 | \? - Quotation Mark    
-    \t - Horizontal tab | \v - vertical tab
-
-  String Literals :- Sequence of characters enclosed in double-quote marks 
-    Ex :- "String" , "" ,  "    ", "S", 
-
-  Constants :- Variable value cannot be changed once declared
-    Ex :- const double PI = 3.14;
-          #define LENGTH 10          - preprocessor 
-
-  void :- Represents absence type
-
-
-
-Storage Classes :-
- - Storage class define scope (visibility) and life-time of variables and/or function within C++ Program 
- Type :- 
-  auto     :- Default storage class for all local variables | Ex :- auto int month;
-  
-  register :-
-   - Define local variables that stored in register instead of RAM 
-   - Means variable has maximum size equal to register size(usually one word) and can't have unary '&' operator
-     applied to it as it does not have a memory location
-   Ex :-  register int  miles;   
-
-  static :-
-   - Instruct compiler to keep local variable in existence during life-time of program instead of creating and 
-     destroying it each time it comes into and goes out of scope
-   - also be applied to global variable
-   - It causes that variable's scope to be restricted to the file in which it is declared
-   - Static used on class data member it causes only one copy of that member to be shared by all object of its class
-   Ex :- static int count = 10;
-
-  extern :- 
-   - Used to give reference of global variable that is visible to ALL program files
-   - extern is used to declare a global variable or function in another file
-   Ex :- extern int count;
-
-  mutable :-
-   - Applies only to class objects
-   - Allow member of object to override const member function
-   - mutable member modified by const member function
- 
-
-
-Operator :-
- - Operator is symbol that operates on value or variable
- 
- Arithmetic :- Perform Mathematical operations
-  Ex :- +, -, *, /, %(Reminder), ++, //
-
- Assignment Operator :- Used for assign value to variable
-  Ex :- =, +=, -=, *=, /=, %= , <<=, >>= , &=, ^= , |=
-
- Relational Operator :- If relation is true returns 1 otherwise false(0)
-  Ex :- ==, >=, <=, !=, >, <
-
- Logical Operator :- Returns either 0 or 1 depending upon whether expression results true or false
-  && - Logical AND return true if both condition is true
-  || - Logical OR return true if any condition is true
-  !  - Logical NOT return true if operand is 0
-
- BitWise Operator :- Perform bit-level operation
-  &	Bitwise AND         |  |	Bitwise OR   | ^	Bitwise exclusive OR
-  ~	Bitwise complement  |  <<	Shift left   | >>	Shift right
-
- Comma Operator :- Link related expressions together
-  Ex :- int a, c = 5, d;
-
- sizeof() Operator :-
-  - Unary operator that return size of data (constants, variables, array, structure, etc.)
-  - Format Specifier %zu is used to print value
-
- Unary operator :- Works with single operand 
-  Ex :- ++, -- 
-
- Other Operator :-
-  ?: Ternary operator  | & Reference operator | *  Dereference operator | -> Member selection
-  .  dot operator      | * Pointer operator   
-
 
 
 Control Flow (Condition | Loop | Statement | Switch Case):- 
 
  Condition  :-
-  If               :- if(expression){  //True code  }
-  if...else        :- if(expression){  //True code  } else { //False code }
+  If               :- if(expression){ //True code  }
+  if...else        :- if(expression){ //True code  } else { //False code }
   if else ledder   :- if(expression){ //code } else if(expression){ //code } else { //False code}
   Nested If.. else :- if(expression){ if(expression){ //True code } else { //False code } } else{ //False code }
   Ternary          :- Expression ? True Code : False Code;     
 
 
  Loop :- 
-  - Repeat block of code until specified condition is not false
-
-  For Loop   :-  for(Initalization; Condition; Increment/Decrement){ //code }
-  While Loop :-  while(expression){ //code  // Increment/Decrement } 
-  Do..While  :-  do { //code // Increment/Decrement }while(expression)
-              - Loop run at least one time in program
-
-  - for( ; ; ) infinite loop if condition is not false  
+  For Loop   :- for(Initalization; Condition; Increment/Decrement){ //code }
+  While Loop :- while(expression){ //code  // Increment/Decrement } 
+  Do..While  :- do { //code // Increment/Decrement }while(expression)   // Run at least one time
+  for( ; ; ) :- Infinite loop if condition not false  
 
 
  Statement :-
   Break    :- Terminate loop immediately 
   Continue :- Skips current iteration of loop and continues with next iteration
- 
-  goto     :- 
+
+  goto :- 
    - Transfer Program control to specified label
-   - label is identifier When goto statement is encountered, 
-   - Control of program jumps to label: and starts executing code
+   - label identify When goto statement encountered 
+   - Control of program jump to label: and starts executing code
    Syntax :- 
     goto label;
     label:
@@ -289,89 +210,69 @@ Control Flow (Condition | Loop | Statement | Switch Case):-
             
          
  Switch Case :-
-  - Allow variable to be tested against list of values
-  - Expression used in switch statement must have an integral or enumerated type
-  - expression is evaluated once and compared with values of each case label
-  - If there is match, corresponding statements after matching label are executed otherwise default statements executed
+  - Expression used must have integral or enumerated type
+  - Expression is evaluated once and compared with values of each case label
+  - If match corresponding statement executed otherwise default statements executed
   - Default statement is optional
-
-  Syntax :- 
-   switch(expression){
-      case constant1:
-        // Statement   
-        break; 
-                
-      case constant2:
-        // Statement   
-        break; 
-
-      default:
-        // Statement
-   } 
+  
+  switch(expression){
+    case constant N:
+    // Statement   
+    break; 
+              
+    default:
+    // Statement
+  } 
 
 
 
 Function :-
  - Block of code that perform specific task
- - Every program must have main() function from where execution begin
  - Function declaration tells compiler about function name, return type and parameters
- - function definition provides actual function body
+ - function definition provide actual function body
  
-
  Syntax :-
   return_type function_name(Parameter list){
-      // function body
+    // function body
   }
- function_name(Parameter)  // Call function 
+ function_name(Parameter)   // Call function 
 
- Function Call by Value     :- Passing function arguments value
- Function Call by Reference :- Passing function arguments address
- Function Call by Pointer   :- 
-   void swap(int *x, int *y){
-   }
-   swap(&a, &b);
- Default argument :- 
-  - Specify default value for parameters
-  Ex :-
-    int sum(int a, int b = 20) {}
-    sum(a);
-  
+ Function Call by Value     :- Passing argument value
+ Function Call by Reference :- Passing argument address
+ Function Call by Pointer   :- void swap(int *x, int *y){}  |  swap(&a, &b);
+ Default argument           :- Specify default value for parameters
+  int sum(int a, int b = 20) {}
+  sum(a);
 
 
  Recursion :- 
-  - Process of repeating items in self-similar way
-  - If Program allows you to call function inside same function called recursive
-  Example :-
-   void recursion() {
-    recursion(); /* function calls itself */
-   }
+  void recursion() {
+    recursion();      /* function calls itself */
+  }
 
 
- Variable Arguments :-
-  - Accept variable number of parameters based on requirement
-  Example :- 
-   int func(int, ... ) {}
-   int main() {
+ Variable Arguments :- 
+  - Accept variable number of parameter based on requirement
+  - stdarg.h header file provide function and macros to implement functionality of variable argument
+  int func(int, ... ) {}
+  int main() {
     func(1, 2, 3);
-    func(1, 2, 3, 4);
-   }
- - Use stdarg.h header file which provide functions and macros to implement functionality of variable argument
+  }
 
- 
+
  Command-line Arguments :-
-  - Pass some values from command line 
-  - Handled using main() function argument where argc refers to number of arguments passed and 
-    argv[] is pointer array which points to each argument passed to program
-  Example :-
-   int main( int argc, char *argv[] )  {
-    if( argc == 2 ) {
-      printf("The argument supplied is %s\n", argv[1]);
+  - Pass value from command line using main() function argument 
+  - argc refer number of argument and argv[] pointer array which point to each argument passed to program
+
+  int main(int argc, char *argv[] )  {
+    if(argc == 2) {
+      printf("Argument supplied is %s\n", argv[1]);
     }
-   }
-  - argv[0] holds name of program itself 
-  - argv[1] is pointer to first command line argument supplied 
+  }
+  - argv[0] hold program name itself | argv[1] pointer to first command line argument
   - *argv[n] is last argument 
-  - If no arguments are supplied argc will be one and if pass one argument then argc is set at 2
+  - If No argument supplied argc will be one and if pass one argument then argc set 2
+  
   Output :-
    - $./a.out "testing1 testing2" // Command-line argument
    - The argument supplied is testing1 testing2
@@ -379,28 +280,17 @@ Function :-
 
 
 Math Operation :-
- - C++ has rich set of mathematical operations which performed on various number
- - Include math header file <cmath>
-  cos() - Take angle (as double) and return cosine
-  sin() - Take angle (as double) and return sine
-  tan() - Take angle (as double) and return tangent
-  log() - Take number and return natural log of that number
-  pow() - First number you wish to raise and second is power you wish to raise
-  hypot() - Pass length of two sides of right triangle it will return length of hypotenuse.
-  sqrt()  - pass number it will gives you square root
-  abs()   - return absolute value of an integer that passed 
-  fabs()  - return absolute value of an decimal that passed
-  floor() - Find integer which is less than or equal to argument passed 
-  srand/ rand()  - Return pseudo random number
+ - <cmath> math header file has rich set of mathematical operations which performed on various number
+ cos() | sin() | tan() | sqrt() | pow() | abs() | floor() | srand/rand()
+ log()  - Take number and return natural log of that number
 
 
 
 Array :-
- - Used to Store collection of same type data in contiguous manner in fixed-size memory
- - Array elements accessible via its index
- - lowest address corresponds to first element and highest address to last element
+ - Store same type data in contiguous manner in fixed-size memory location
+ - Array element accessible via its index => [0]
  - If element is greater than array size ArrayIndexOutOfBoundsException Throw
- Syntax :- type array_name[arraysize];  // Size must be Integer
+ Syntax :- type array_name[arraysize];    // Size must be Integer
  
  Example :- 
   int arr[10];                 // One-Dimensional array
@@ -409,19 +299,13 @@ Array :-
   int access_arr = arr[1];     // Access array element 
   
   int multi_arr[5][10];        // Two-Dimensional array - [Row][Column]
-  int multi_arr[5][10] = {1,2,3,4,5,6,7,8,9,10,11,12,13};
+  int multi_arr[5][10] = {1,2,3,4,5};
   int val = multi_arr[2][5];   // Access array element
-  
   int multi_arr[5][10][4]      // Multi-Dimensional array - [Row][Column][Dimension]
 
 
- Passing Array as Function Arguments :- 
-  void myFunc(int *param)   |    (int param[10])    |   (int param[])
-
-
- Return Array From Function :- 
-  int * myFunc()     
-
+ Passing Array as Function Arguments :- void myFunc(int *param)  |  (int param[10])  |  (int param[])
+ Return Array From Function          :- int * myFunc()     
  
  Pointer to array :-  
   double *p;           // Declare Pointer  
@@ -432,10 +316,8 @@ Array :-
 
 
 String :-
- - String are one-dimensional array of characters terminated by null character '\0'   
- Types of string representation :-
-  - C-style character string
-  - String class
+ - One-dimensional array of characters terminated by null character '\0'   
+ Types of string representation :-  C-style character string  |  String class
  Ex :- 
   char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
   printf("Greeting message: %s\n", greeting );
@@ -443,13 +325,13 @@ String :-
  Method :-
   strcpy(s1,s2) | strcat(s1,s2) | strlen(s1) | strcmp(s1,s2) 
   strchr(s1,ch) :- Return pointer to first occurrence of character ch in string s1
-  strstr(s1,s2) :- Returns pointer to first occurrence of string s2 in string s1 
+  strstr(s1,s2) :- Return pointer to first occurrence of string s2 in string s1 
 
 
 
 Pointer :-
- - Every variable has location and every location has its address which accessed using ampersand (&) Operator
- - Pointer is variable whose value is address of another variable
+ - Every variable has location and every location has its address which accessed using ampersand(&) Operator
+ - Pointer variable value is address of another variable
  - * asterisk sign used to declare variable as pointer
  Syntax :- type *variable_name;
  
@@ -457,14 +339,7 @@ Pointer :-
   int var = 10;
   int *ip; or int *ip = NULL; // Null pointer 0 value
   ip = &var; 
-  cout << "Value of *ip variable: " << *ip << endl; //10 - Normal ip print address and &var print variable address
-
- 
- Pointer Arithmetic :- ++, --, +, - 
-  Example :- 1000 | 1004
-
- Pointer Comparsion :- >, <, == 
-
+  cout << "Value of *ip variable: " << *ip << endl; // 10 - Print  | &var or only var print variable address
 
  Array of Pointer :- 
   int *ptr[variable] or int *ptr[10,20,30]
@@ -478,15 +353,15 @@ Pointer :-
    int var = 30;
    int *ptr;
    int **pptr;
-   ptr = &var
-   pptr = &ptr  
+   ptr = &var;
+   pptr = &ptr;  
 
 
  Passing Pointer to Function :-
-  getSeconds(&sec);  // Declare function parameter as pointer type
+  getSeconds(&sec);     // Declare function parameter as pointer type
   void getSeconds(unsigned long *par) {
     *par = time(NULL); 
-   return;
+    return;
   }
 
   //Function which accept pointer also accept array
@@ -502,141 +377,11 @@ Pointer :-
   }  
 
  
- Return Pointer from function in C :-
+ Return Pointer from function :-
   int * myFunction() {
   }  
 
  
-
-References :-
- - Reference variable is alias name for an already existing variable
- - Once reference initialized with variable either variable name or reference name used to refer variable
- - Used for function argument lists and function return values
-
- References vs Pointer :-
-  - Reference cannot be null while Pointer be null
-  - Once reference initialized to object, cannot be changed refer to another object 
-  - Pointers can be pointed to another object at any time
-  - Reference must be initialized when it is created while Pointers can be initialized at any time
- 
- Syntax :- type& ref_name = ref_variable
-
- Example :-
-  int i;
-  int& r = i; // Reference variable
-  i = 5;
-  cout << "Value of i : " << i << endl;
-  cout << "Value of i reference : " << r  << endl;
-  Output :-
-  Value of i : 5
-  Value of i reference : 5
-
-
- Passing Parameter by Reference :-
-  void swap(int& x, int& y);
-  swap(a, b); 
-
-
- Reference as return value :-
-  double vals[] = {10.1, 12.6, 33.1, 24.1, 50.0};
-  double& setValues(int i) {
-    return vals[i];   // return a reference to the ith element
-  } 
-  setValues(1) = 20.23; // change 2nd element
-
-
-
-Date and Time :-
- - C++ inherits structs and functions for date and time manipulation from C
- - To access date and time related functions and structures include <ctime> header file in C++ program
- Types time-related :- clock_t, time_t, size_t, and tm
- - Structure type tm hold date and time in the form of C structure
- Ex :-
-  struct tm {
-    int tm_sec;   // seconds of minutes from 0 to 61
-    int tm_min;   // minutes of hour from 0 to 59
-    int tm_hour;  // hours of day from 0 to 24
-    ...
-  }
-
- Function :-
-  time() - Return current calendar time of system in number of seconds elapsed since January 1, 1970
-         - If system has no time .1 is returned
-  *ctime() - Return pointer to string in the form of day month year hours:minutes:seconds year\n\0
-  *localtime() - Return pointer to tm structure representing local time
-  clock()   - Return value that approximates amount of time calling program has been running 
-            - Value of .1 is returned if time is not available
-  asctime() - Return pointer to string that contain information stored in structure pointed by time converted into
-              form: day month date hours:minutes:seconds year\n\0                          
-  gmtime() - Return pointer to tm structure representing Coordinated Universal Time (UTC), which is essentially 
-             Greenwich Mean Time (GMT)
-  mktime() - Return calendar-time equivalent of time found in structure pointed by time
-  difftime() - function calculate difference in seconds between time1 and time2
-  strftime() - Used to format date and time in specific format
-
-
- Ex :-
-  # include <iostream>
-  # include <ctime>
-  using namespace std;
-  int main() {
-    time_t now = time(0);     // current date/time based on current system
-    char* dt = ctime(&now);   // convert now to string form
-    cout << "The local date and time is: " << dt << endl;
-    tm *gmtm = gmtime(&now);  // convert now to tm struct for UTC
-    dt = asctime(gmtm);
-    cout << "The UTC date and time is:"<< dt << endl;
-  }
-  Output :- 
-  The local date and time is : Sat Jan 8 20:07:41 2011
-  The UTC date and time is   : Sun Jan 9 03:07:41 2011 
-
-
-
-Input/Output :-
- - C++ I/O occurs in streams which are sequences of bytes 
- - If bytes flow from input device to main memory called input operation and from main memory to display screen called
-   output operation
-
- I/O Library Header Files :-
- <iostream> 
-  - Contain cin, cout, cerr and clog objects which correspond to standard input, output, un-buffered error and buffer
-    error stream
- <iomanip> - Performing formatted I/O with parameterized stream manipulators such as setw and setprecision
- <fstream> - For user-controlled file processing
- 
- Standard Output Stream (cout) :-
-  - Instance of ostream class
-  - cout is used with stream insertion operator which written as <<  
-  - Used to display the output on screen
-  Ex :- 
-   char str[] = "Hello C++";
-   cout << "Value of str is : " << str << endl;
-   Output :- Value of str is : Hello C++
-
-
- Standard Input Stream (cin) :-
-  - Instance of istream class
-  - cin is used with stream extraction operator which written as >> 
-  - Used to display the output on screen
-  Ex :- 
-   char str[];
-   cout << "Enter Name : " << endl;
-   cin >> str;
-    cout << "Your name is: " << name << endl;
-   Output :- Your name is: cplusplus
-  - cin >> name >> age;  // extraction operator >> may be used more than once in single statement 
- 
-
- Standard Error Stream (cerr) | Standard Log Stream (clog) :-
-  - Both Instance of ostream class and unbuffered cerr while buffered clog
-  - Both used with stream insertion operator which written as <<  
-  - Used to display error and log on screen
-  Ex :- 
-   char str[] = "Hello error and log";
-   cerr << "Value of error is : " << str << endl;
-   clog << "Value of log is : " << str << endl;
-
 
 
 Structure :-
@@ -686,8 +431,8 @@ Structure :-
     cout << "Book title : " << book->title <<endl; 
   }
 
+
  typedef :- Give structure alias name
- Syntax :- 
   typedef struct {
     char  title[50];
   }Books;
@@ -695,143 +440,125 @@ Structure :-
   
 
 
-Classes and Object :-
- - C++ support object-oriented programming are often called user-defined types
- - Class used to specify form of object and it combines data representation and methods for manipulating data into
-   one neat package 
- - Data and function within class are called members of class
- 
- Class :-
-  - Blueprint for object
-  - User-defined datatype that holds its own data member and member function which access by creating instance
-    of that class
-  Syntax :-
-  class Box {
-    public:
-      double length;          // Member variable
-      double breadth;  
-      double height;   
-      double getVolume(void); // Member Function
-  };
-  - public determine access modifier for class member
-  
-  Class Member Function :-
-   
+References :-
+ - Alias name for already existing variable
+ - Once reference initialized with variable either variable name or reference name used to refer variable
+ Syntax :- type& ref_name = ref_variable
 
- Object :-
-  - Class provide blueprints for objects
-  Syntax :- 
-    Box Box1; 
-    Box Box2; 
-  - Each objects Box1 and Box2 will have their own copy of data members   
-
-  Access Member :-
-   - Public data members can directly access by members access operator(.)
-   Ex :-
-    Box1.height = 5.0; 
-    Box1.length = 6.0; 
-    Box1.breadth = 7.0;
-
-
-
-Inheritance :-
- - Provide opportunity to reuse code functionality and fast implementation time
- - Instead of writing new class with similar data members and functions inherit members of existing class
- - Existing class is called base/super/parent class and new class is referred as derived/Child class
- - Inheritance implement is-a relationship
- Syntax :- class derived-class: access-specifier base-class
- 
- Access Control :-
-  Access	         public	protected	private
-  Same class	      yes	    yes	      yes
-  Derived classes	  yes	    yes	      no
-  Outside classes	  yes	    no	      no
- 
- Type of Inheritance :-
-  Multiple :- class derived-class: access baseA, access baseB
+ References vs Pointer :-
+  - Reference cannot be null while Pointer be null
+  - Once reference initialized to object cannot be refer other object
+  - Pointers pointed to another object at any time
+  - Reference must be initialized when it created while Pointer initialized at any time
  
 
-
-Overloading :-
- - More than one definition for function name or operator in same scope, called function and operator overloading
- - Same name declaration but both declarations have different arguments and different definition (implementation)
- - Process of selecting the most appropriate overloaded function or operator is called overload resolution
- 
- Function Overloading :-
-  - Same name different arguments
-  Ex :-
-    void print(int i) {
-      cout << "Printing int: " << i << endl;
-    }
-    void print(double  f) {
-      cout << "Printing float: " << f << endl;
-    }
-    printData pd;  
-    pd.print(5); // Call print to print integer   
-    pd.print(500.263); // Call print to print float
+ Example :-
+  int i;
+  int& r = i; // Reference variable
+  i = 5;
+  cout << "Value of i : " << i << endl;
+  cout << "Value of i reference : " << r << endl;
+  Output :-
+  Value of i : 5
+  Value of i reference : 5
 
 
- Operator Overloading :-
-  - Overloaded operators are functions with special names : "operator"  keyword and followed by operator symbol
-  Ex :-
-   Box operator+(const Box& b);
-  
-  Not Overloadable :- ::	|  *  |	.	 | ?:
+ Passing Parameter by Reference :-
+  void swap(int& x, int& y);
+  swap(a, b); 
+
+
+ Reference as return value :-
+  double vals[] = {10.1, 12.6, 33.1, 24.1, 50.0};
+  double& setValues(int i) {
+    return vals[i];   // return a reference to the ith element
+  } 
+  setValues(1) = 20.23; // change 2nd element
 
 
 
-Polymorphism :-
- - Polymorphism means having many forms
- - It occurs when there is hierarchy of classes and they are related by inheritance
- - Polymorphism means Call to member function will cause different function to be executed depending on type of
-   object that invokes function
-
-
-
-Data Abstraction :-
-
-
-
-Data Encapsulation :-
-
-
-
-Interface(Abstract) class :-
- - Interface describes behavior or capabilities of class without committing to particular implementation of that class
- - Interfaces are implemented using abstract classes
- - Purpose of abstract class to provide appropriate base class from which other class can inherit(Compilation Error)
- - Abstract classes cannot be used to instantiate objects as it serves only interface
- - Classes that used instantiate objects are called concrete classes
- - Class is made abstract by declaring at least one of its functions as pure virtual function 
- - Pure virtual function is specified by placing "= 0" in its declaration
+Date / Time :-
+ - <ctime> header file used
+ - Structure type tm hold date and time in form of C structure
+ Types time-related :- clock_t, time_t, size_t, and tm
  Ex :-
-  class Box {
-    public:
-      virtual double getVolume() = 0; // pure virtual function  
-    private:
-      double length; 
-      double breadth;  
-      double height; 
-  };
+  struct tm {
+    int tm_sec;   // seconds of minutes from 0 to 61
+    int tm_min;   // minutes of hour from 0 to 59
+    int tm_hour;  // hours of day from 0 to 24
+  }
+
+ Ex :-
+  int main() {
+    time_t now = time(0);     // current date/time based on current system
+    char* dt = ctime(&now);   // convert now to string form
+    cout << "The local date and time is: " << dt << endl;
+    tm *gmtm = gmtime(&now);  // convert now to tm struct for UTC
+    dt = asctime(gmtm);
+    cout << "The UTC date and time is:"<< dt << endl;
+  }
+  Output :- 
+  The local date and time is : Sat Jan 8 20:07:41 2011
+  The UTC date and time is   : Sun Jan 9 03:07:41 2011 
 
 
 
-Files and Stream :-
- - fstream read and write from a file
- - To perform file processing <iostream> and <fstream> must be included
+Input/Output :-
+ - Stream are sequences of bytes 
+ - Byte flow Input device -> Main memory(Input) | Main memory -> Display screen called(Output)
+
+ I/O Library Header Files :-
+  <iostream> :- Contain cin, cout which correspond to standard input, output
+  <iomanip>  :- Performing formatted I/O with parameterized stream manipulator such as setw and setprecision
+  <fstream>  :- For user-controlled file processing
  
- Different File Manipulation Header :- 
-  ofstream - Represent output file stream and used to create file and write information to files
-  ifstream - Represent input file stream and used to read information from files
-  fstream  - Represent file stream generally has capabilities of both ofstream and ifstream which means it can
-             create files, write information to files and read information from files
+
+ Standard Output Stream (cout) :-
+  - Instance of ostream class written as << (Insertion Operator) display output on screen
+  char str[] = "Hello C++";
+  cout << "Value of str is : " << str << endl;
+  Output :- Value of str is : Hello C++
+
+
+ Standard Input Stream (cin) :-
+  - Instance of istream class written as >>(extraction operator) take input from user
+  char str[];
+  int age;
+  cout << "Enter Name : " << endl;
+  cin >> str >> age;
+  cout << "Your name is: " << str << age << endl;
+  Output :- Your name is: cplusplus
+ 
+
+ Standard Error Stream (cerr) | Standard Log Stream (clog) :-
+  - Both Instance of ostream class where unbuffered cerr and buffered clog written as <<  
+  - Display error and log on screen
+  Ex :- 
+   char str[] = "Hello error and log";
+   cerr << "Value of error is : " << str << endl;
+   clog << "Value of log is : " << str << endl;
+
+
+
+OOPS :- 
+
+
+
+File Stream :-
+ - fstream read and write data from file
+ - To perform file processing <iostream> and <fstream> used
+ 
+ Different Header :- 
+  ofstream - output file stream used to create file and write information to file
+  ifstream - input file stream used to read information from files
+  fstream  - file stream capabilities of both ofstream and ifstream 
  
 
  Opening File :-
-  - open() function which is member of fstream, ifstream and ofstream objects
+  - open() function of fstream, ifstream and ofstream object
   Syntax :- void open(const char *filename, ios::openmode mode);
   Different Mode :-
-   ios::app - Append mode, All output to that file to be appended to the end
+   ios::app - Append mode, All output be appended to file end
    ios::ate - Open file for output and move read/write control to end of file
    ios::in  - Open file for reading
    ios::out - Open file for writing
@@ -843,52 +570,35 @@ Files and Stream :-
    outfile.open("file.dat", ios::out | ios::trunc ); // combine two or more of these values by ORing 
 
 
- Closing file :-
-  - C++ terminates automatically and flushes all streams, release all allocated memory and close all opened files
-  Syntax :- void close();
-
-
- Writing File :-
-  - Write to file from program using stream insertion operator(<<) just as use that operator to output info to screen
-  - Only difference is that use ofstream or fstream object instead of cout object
-
- 
- Reading File :-
-  - Read to file from program using stream extraction operator(>>) just as use that operator to input to screen
-  - Only difference is that use ofstream or fstream object instead of cout object 
+ Closing file :- void close() Terminate automatically and flushes all allocated memory and close all opened files
+ Writing File :- Using stream insertion operator(<<)
+ Reading File :- Using stream extraction operator(>>)
 
 
  File Position Pointer :-
-  - Both istream and ostream provide member functions for repositioning file-position pointer  
-  - These member functions are seekg ("seek get") for istream and seekp ("seek put") for ostream
-
-  fileObject.seekg(n); // position to the nth byte of fileObject (assumes ios::beg)
-  fileObject.seekg(n,ios::cur); // position n bytes forward in fileObject
-  fileObject.seekg(n,ios::end); // position n bytes back from end of fileObject
-  fileObject.seekg(0,ios::end); // position at end of fileObject
+  - istream and ostream provide member function for repositioning file-position pointer  
+  fileObject.seekg(n);           // position to the nth byte of fileObject (assumes ios::beg)
+  fileObject.seekg(n,ios::cur);  // position n bytes forward in fileObject
+  fileObject.seekg(n,ios::end);  // position n bytes back from end of fileObject
+  fileObject.seekg(0,ios::end);  // position at end of fileObject
 
 
 
 Exception Handling :-
- - Exception is problem that arises during execution of program
- - Exceptions provide way to transfer control from one part of program to another
- - try/catch block is placed around code that might generate exception 
- - Code within try/catch block referred to as protected code
- 
- C++ exception handling is built upon three keyword :- try, catch, and throw
-  try :- 
-   - Identifie block of code for which particular exceptions will be activated 
-   - Followed by one or more catch blocks
+ - Exception problem arise during execution of program
+ - try/catch block is placed around code that handle exception code 
+ - Provide list of standard exception in <exception>
+ std:exception - Parent class of all standard C++ exceptions
+ C++ exception handling built upon three keyword :- try, catch and throw
 
-  catch :- 
-   - Program catches exception with exception handler at the place in program where you want to handle problem 
 
-  throw :- 
-   - Program throws exception when problem shows up
+ try   :- Identify block of code form which particular exception activated | Followed by one or more catch block
+ catch :- Program catch exception with exception handler at the place in program where you want to handle problem 
+ throw :- Program throws exception when problem shows up
 
 
  Syntax :-
-  try {
+  try { 
     // protected code
   } catch(ExceptionName e1) {
      // catch block
@@ -897,47 +607,30 @@ Exception Handling :-
   }
 
  
- Throwing Exceptions :-
-  - Exception can be thrown anywhere within code block using throw Statement
-  Ex :- 
-    double division(int a, int b) {
-      if( b == 0 ) {
-        throw "Division by zero condition!";
-      }
-      return (a/b);
+ Throwing Exception :- Exception thrown anywhere within code block using throw Statement
+  double division(int a, int b) {
+    if( b == 0 ) {
+      throw "Division by zero condition!";
     }
-
-
- Catching Exceptions :-
-  try {
-    // protected code
-  } catch( ExceptionName e ) | catch(...) //Handle any type exception {
-    // code to handle ExceptionName exception
-  } 
- 
-
- C++ Standard Exception :-
-  - Provide list of standard exception defined in <exception>
-  std:exception -  Exception and parent class of all standard C++ exceptions
-
+    return (a/b);
+  }
+  
 
 
 Memory Management :- 
- - Dynamic Memory in your C++ program is divided into two parts :-
- Stack :- All variables declared inside function will take up memory from stack
- Heap  :- unused memory of program and used to allocate memory dynamically when program runs
- - Sometime don't know how many memory required so allocate memory at run time within heap 
- - Using special operator new which returns address of allocated space
- - If not need dynamic memory anymore use delete operator, which de-allocate memory that allocated by new operator
-
- 
+ Dynamic Memory in divided into two part :- Stack  |  Heap
+  Stack :- All variables declared inside function take memory from stack
+  Heap  :- unused memory of program allocate memory dynamically when program run
+ - new operator return address of allocated space
+ - delete operator de-allocate memory that allocated by new operator
  Syntax :- new data-type;
-  Ex :- 
-  double* pvalue  = NULL; // Pointer initialized with null
-  pvalue  = new double;   // Request memory for variable
-  *pvalue = 29494.99;     // Store value at allocated address
+
+ Ex :- 
+  double* pvalue = NULL;   // Pointer initialized with null
+  pvalue  = new double;    // Request memory for variable
+  *pvalue = 29494.99;      // Store value at allocated address
   cout << "Value of pvalue : " << *pvalue << endl;
-  delete pvalue;          // Release memory pointed to by pvalue 
+  delete pvalue;           // Release memory pointed to by pvalue 
   Output :- Value of pvalue : 29495
  
  
@@ -950,34 +643,26 @@ Memory Management :-
  Dynamic Memory Allocation for Object :-
   class Box {
    public:
-      Box()  { cout << "Constructor called!" <<endl; }
-      ~Box() { cout << "Destructor called!" <<endl;  }
+    Box()  { cout << "Constructor called!" <<endl; }
+    ~Box() { cout << "Destructor called!" <<endl;  }
   };
-  Box* myBoxArray = new Box[4];  // Box is class
+  Box* myBoxArray = new Box[4];  // Box class
   delete [] myBoxArray;          // Delete array
  
  
 
 Namespace :-
- - Namespace is designed to overcome difficulty of same name 
- - Use additional information to differentiate similar functions, classes, variables etc. with  same name available
-   in different libraries
+ - Designed to overcome difficulty of same name 
+ - Use additional information with same name available in different libraries
  Syntax :- 
   namespace namespace_name {
-     // code declarations
+    // code declaration
   }
- Call Namespace-enabled function or variable using prepend(::) :-
-  namespace_name::code  // code could be variable or function
-
+ Call Using prepend(::) :- namespace_name::variable_OR_function
 
  Ex :-
-  // first name space
-  namespace first_space {
-  void func() { cout << "Inside first_space" << endl; } }
-
-  // second name space
-  namespace second_space {
-  void func() { cout << "Inside second_space" << endl; } }
+  namespace first_space  { void func() { cout << "Inside first_space" << endl; } }
+  namespace second_space { void func() { cout << "Inside second_space" << endl; } }
    
   int main () {
    first_space::func();  // Calls function from first name space
@@ -986,49 +671,17 @@ Namespace :-
   } 
 
  
- Using directive :-
+ Using directive :- 
   - To avoid prepending of namespaces with using namespace directive
-  Syntax :- 
-   using namespace first_space;
-   func(); // Call function from first name space
   - Also use to add particular method Ex :- using std::cout;  
+  using namespace first_space;
+  func(); // Call function from first name space
 
  
  Nested namespace :- 
   namespace namespace_name1 {
-    // code declarations
     namespace namespace_name2 {
-      // code declarations
     }
   }
   using namespace namespace_name1::namespace_name2; // Access members of namespace_name2
   using namespace namespace_name1;                  // Access members of namespace:name1
-
-
-
-Template :-
- 
-
-
-Preprocessor :-
-
-
-
-Signal Handling :-
-
-
-
-Multi-Threading :-
-
-
-
-Web Programming :-
- 
-  
-
- 
-
- 
-
-
-
