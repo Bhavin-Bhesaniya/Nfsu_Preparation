@@ -1,188 +1,151 @@
 Shell Introduction :-
- - Shell provide interface in which we can run our commands, programs, and shell script
- - It take input and send to os executes it and after finish it display that program's output
- - default is bash written by Stephen Bourne in 1977
- Shell Prompt :- [username @system_name  ~(Current working Dir)] $ Input command here
+ - Provide interface in which we run command, program and shell script
+ - Shell Take input -> Send to os process -> Display output on shell
+ - Original Unix shell was written in mid-1970s by Stephen R. Bourne at AT&T Bell Labs in New Jersey
+ - bash is default shell written by Stephen Bourne in 1977
+ - Bourne shell first appear on Unix system thus referred as "the shell"
+ - It installed as /bin/sh  
+ Shell Ex :- [username @system_name  ~(Current working Dir)] $ Input command here
   
+ Types :-
+  Bourne shell − $ character prompt | Korn shell (ksh) | Bourne Again shell (bash) | POSIX shell (sh)
+  C shell      − % character prompt | TENEX/TOPS C shell (tcsh)
 
- Shell Types :-
-  Bourne shell − $ character default prompt | Korn shell (ksh) | Bourne Again shell (bash) | POSIX shell (sh)
-  C shell      − % character default prompt | TENEX/TOPS C shell (tcsh)
 
-  - Original Unix shell was written in mid-1970s by Stephen R. Bourne at AT&T Bell Labs in New Jersey
-  - Bourne shell first appear on Unix system thus referred as "the shell"
-  - It installed as /bin/sh  
-  
 
- Shell Script :-
-  - List of command that listed in order of execution have comments, preceded by # sign, describing step
-  - Shell scripts and function both are interpreted not compiled
-  - .sh File extension used
-  - shebang construct used before adding anything in script file
-  - #!/bin/sh - tell system that command to be executed by Bourne shell (shebang)
+Shell Script :-
+ - List of command that listed in order for execution 
+ - Shell script and function both are interpreted not compiled
+ - .sh File extension used
+ - #!/bin/sh - tell system that command to be executed by Bourne shell (shebang constructor)
 
-  Ex :- test.sh
-   #!/bin/bash
-   # Author : Zara Ali
-   # Copyright (c) Tutorialspoint.com
-   # Script follows here:  
-   pwd
-   ls
-
+ Ex :- test.sh
+  #!/bin/bash
+  # Script follows here:  
+  pwd
+  ls
+  echo "What is your name?"               // Echo display output
+  read PERSON                             // take input from user
+  echo "Hello, $PERSON"                   // $ sign display varible value
+ 
   $chmod +x test.sh :- Script ready to be executed
   $./test.sh        :- Run Script
 
  
- Extended Shell Script :-
-  #!/bin/sh
-  echo "What is your name?"               // Echo display output
-  read PERSON                             // take input from user
-  echo "Hello, $PERSON"                   // $ sign display varible value
-  Here is a sample run of the script −
 
+Variable :-
+ - Variable used to Store any value you want in variable
+ - ? variable represent exit status of previous command
+ - Return exit status of 0 if successful and 1 unsuccessful
 
-
-Shell Variable :-
- - Variable is character string to which assign value 
- - Shell enables you to create, assign, and delete variables
- - Store any value you want in variable
-
- Variable Rules :-
+ Rules :-
   - Contain only letters(a to z or A to Z), numbers (0 to 9) or underscore character (_)
   - Name must in UPPERCASE
   - Cannot use special characters such as !, *, or - special meaning for shell
+  Valid   :-  _ALI  | TOKEN_A   | VAR_1  | ALTO
+  Invalid :-  2_VAR | -VARIABLE | VAR_A! | alto
 
-  Valid names   :-  _ALI  | TOKEN_A   | VAR_1  | ALTO
-  Invalid names :-  2_VAR | -VARIABLE | VAR_A! | alto
 
-
- Variable Types :-
+ Types :-
   Local - Present within current shell instance and not available to other program
-  Shell - Set and required by shell in order to function correctly | Some of these are environment and local variable
-  Environment - Available to any child process of shell  
+  Shell - Set and required by shell in order to function correctly | Some are environment and local variable
+  Environment - Available to any shell child process
 
 
- Defining Variables :- 
-  Syntax :- variable_name=variable_value 
-  Ex :- 
-   NAME="Zara Ali"    // Scalar variable hold only one value at time  | = operator used
-   echo $NAME         // Access
-   readonly NAME      // Read-only value cannot be changed
-   unset NAME         // unset cannot access stored value in variable
-   export - to make variable $NAME visible to programs run by shell
+ Ex :- variable_name = variable_value 
+  NAME="Zara Ali"    // Scalar variable hold only one value at time | = operator used to create variable
+  echo $NAME         // Access value
+  readonly NAME      // Read-only value cannot be changed
+  unset NAME         // Unset cannot access stored value in variable
+  export             // Make variable $NAME visible to program run by shell
 
 
-
-Special Variables :-
- $echo $$  - Write PID of current shell −29949
-  $0   Filename of current script
-  $n   Correspond to argument with which script was invoked | N is positive decimal number
-  $#   Number of argument supplied to script
-  $*   All argument double quoted, If script receive two arguments, $* is equivalent to $1 $2
-  $@   All argument individually double quoted, If script receives two argument, $@ is equivalent to $1 $2
-  $?   Exit status of last command executed
-  $$   Process number of current shell
-  $!   Process number of last background command
+ Special Variables :-
+  $echo $$  - Write PID of current shell −29949
+  $0  Filename of current script
+  $n  Correspond to argument with which script was invoked | N is positive decimal number
+  $#  Number of argument supplied to script
+  $*  All argument double quoted, If script receive two arguments, $* is equivalent to $1 $2
+  $@  All argument individually double quoted, If script receives two argument, $@ is equivalent to $1 $2
+  $?  Exit status of last command executed
+  $$  Process number of current shell
+  $!  Process number of last background command
 
 
  Command-Line Argument :-
-  - Positional parameter with $0 pointing to actual command, program, shell script, or function and 
-    $1, $2, $3, ...$9 as arguments to command
-  - Special Parameters $* and $@ allow accessing all command-line arguments at once 
-  - $* and $@ both act same unless they enclosed in double quotes ""
-  - "$*" take entire list as one argument with spaces and "$@" separates it into separate argument
+  - Positional parameter with $0 pointing to actual command and $1, $2, $3, ...$9 as argument to command
+  - Special Parameter $* and $@ allow accessing all command-line arguments at once 
+  - $* take entire list as one argument with space and "$@" separate it into separate argument
   Ex :- 
-   for TOKEN in $*
-   do
+    for TOKEN in $*  // Wait for user input argument
+    do
       echo $TOKEN
-   done
+    done
 
-
- Exit Status :-
-  - $? variable represent exit status of previous command
-  - Numerical value returned by every command upon its completion 
-  - Return exit status of 0 if successful and 1 unsuccessful
-
-
-
-Shell Array :-
- - Array Hold multiple values at same time 
   
 
- Defining Array Value :-
-  Syntax :- array_name[index]=value
+Array :-
+ - Hold multiple same type value at same time in single variable
+  
+ Declare :- array_name[index] = value
+ bash shell :- array_name = (value1 ... valuen)
   Ex :- 
    NAME[0]="Zara"
    NAME[1]="Qadir"
    NAME[2]="Mahnaz"
-  
-  ksh shell  :- set -A array_name value1 value2 ... valuen
-  bash shell :- array_name=(value1 ... valuen)
 
-
- Accessing Array Value :-
-  Syntax :- ${array_name[index]}
+ Accessing Array Value :- $ {array_name[index]}
   Ex :- echo "First Index: ${NAME[0]}"
 
-  Access all items in array :- ${array_name[*]} | ${array_name[@]}
+ Access all item in array :- ${array_name[*]} | ${array_name[@]}
   Ex :- echo "First Method: ${NAME[*]}"
 
 
 
-Shell Operator :-
+Operator :-
  - Arithmetic | Relational | Boolean | String | File Test 
- - There must be spaces between operator and expression 
- Ex :- 2+2 is not correct | Written as 2 + 2
- - Complete expression should be enclosed between ‘ ‘, called backtick
-
+ - There must be space between operator and expression 
+ - Expression enclosed between ‘ ‘, called backtick
+ Ex :- 2+2 not correct | 2 + 2 correct 
+ - Conditional expression inside square braces with spaces around them
+ Ex :- [ $a == $b ] is correct whereas, [$a==$b] is incorrect
  
  Arithmetic Operator :-
-  + 	 `expr $a + $b` will give 30
-  - 	 `expr $a - $b` will give -10
-  * 	 `expr $a \* $b` will give 200
-  / 	 `expr $b / $a` will give 2
-  % 	 `expr $b % $a` will give 0
-  = 	 a = $b would assign value of b into a
-  == 	 [ $a == $b ] would return false
-  != 	 [ $a != $b ] would return true
-
-  - All conditional expression inside square braces with spaces around them
-  Ex :- [ $a == $b ] is correct whereas, [$a==$b] is incorrect
-  
   - All arithmetical calculation done using long integer
+  + 	 `expr $a + $b` <== OR ==>  -, *, /, %, =
+  == 	 [ $a == $b ]
+  != 	 [ $a != $b ]
 
 
  Relational Operator :-
-  -eq	 [ $a -eq $b ]
-  -ne	 [ $a -ne $b ]
-  -gt	 [ $a -gt $b ] 
-  -lt	 [ $a -lt $b ] 
+  -eq	 [ $a -eq $b ]  | -ne	 [ $a -ne $b ]
+  -gt	 [ $a -gt $b ]  | -lt	 [ $a -lt $b ] 
   -ge	 Greater than or equal [ $a -ge $b ]
   -le	 Less than or equal    [ $a -le $b ]
 
  
  Boolean Operator :-
-  !	logical negation  [ ! false ] is true
-  -o	logical OR        [ $a -lt 20 -o $b -gt 100 ] is true
-  -a	logical AND       [ $a -lt 20 -a $b -gt 100 ] is false
+  !	logical negation  [ ! false ]
+  -o	logical OR      [ $a -lt 20 -o $b -gt 100 ]
+  -a	logical AND     [ $a -lt 20 -a $b -gt 100 ]
 
  
  String Operator :-
-  =	 [ $a = $b ]
-  !=	 [ $a != $b ]
-  -z	 String operand size zero length then returns true	   |  [ -z $a ] 
-  -n	 Size non-zero length, then it returns true	         |  [ -n $a ]
-  str  Str not empty string, if empty then it return false  |	[ $a ]
+  =	  [ $a = $b ]
+  !=	[ $a != $b ]
+  -z	String operand size zero length then returns true	   |  [ -z $a ] 
+  -n	Size non-zero length, then it returns true	         |  [ -n $a ]
+  str Str not empty string, if empty then it return false  |	[ $a ]
  
 
  File Test Operator :-
-  - Test various properties associated with Unix file
-  -b file	Block special file     |  if yes, true  |  [ -b $file ]
-  -c file	Character special file |  if yes, true  |  [ -c $file ] 
-  -d file	File is a directory    |  if yes, true  |  [ -d $file ]
-  -p file	File named pipe        |  if yes, true  |	 [ -p $file ]
-  -k file	File Sticky bit set    |  if yes, true  |	 [ -k $file ]
-  -f file	Ordinary file as opposed to directory or special file | if yes, true | 	[ -f $file ]
+  -   Test various properties associated with Unix file
+  -b  file	Block special file     |  if yes, true  |  [ -b $file ]
+  -c  file	Character special file |  if yes, true  |  [ -c $file ] 
+  -d  file	File is a directory    |  if yes, true  |  [ -d $file ]
+  -p  file	File named pipe        |  if yes, true  |	 [ -p $file ]
+  -k  file	File Sticky bit set    |  if yes, true  |	 [ -k $file ]
+  -f  file	Ordinary file as opposed to directory or special file | if yes, true | 	[ -f $file ]
   
   -t file	File descriptor open associated with terminal | if yes, true |  [ -t $file ]
   -u file	File has its Set User ID (SUID) bit set       | if yes, true |  [ -u $file ]
@@ -196,203 +159,141 @@ Shell Operator :-
  
  
 
-Shell Decision Making :-
- - if...else | case...esac 
-
- if...else statement :-
-  - Select option from given set of option
-  Types :- if...fi  |  if...else...fi   |  if...elif...else...fi
-
- 
- case...esac Statement :-
-  - When all branches depend on singl variable value
-  Syntax :- case...esac
+Decision Making If..else :-
+ if...else statement   :- if...fi     |  if...else...fi   |  if...elif...else...fi
+ case...esac Statement :- case...esac | All branches depend on single variable value
 
 
 
-Shell Loop Types and Control :- 
- - Execute set of command repeatedly until given condition not false
- - while  |  for  |  until  |  select 
+Loop Types and Control Statement :- 
+ - Set of command execute repeatedly until given condition not false
  - until loop execute until given condition become true
+ Types :- while | for | until | select 
  
- Nesting Loops :- Loop inside another similar one or different loops 
-  Syntax :-
-   while command1 ; # this is loop1, the outer loop
-   do
-     Statement(s) to be executed if command1 is true
-     while command2 ; # this is loop2, the inner loop
-      do
-      Statement(s) to be executed if command2 is true
-      done
-   Statement(s) to be executed if command1 is true
-   done
+ Break Statement    :- Terminate execution of entire loop                      |  break     |  break n
+ Continue statement :- Current iteration of loop exit rather than entire loop  |  continue  |  continue n
+
+
+
+Function :-
+ - Perform repetitive tasks to create code reuse 
+ - Exit command from inside function, its not only effect to terminate execution of function but also shell program 
+   from that called
+ 
+ Creating Function :-
+  function_name () {
+    list of commands
+  }
 
  
- Break Statement :- Terminate execution of entire loop 
-  Syntax :- break  | break n(N specifie nth enclosing loop to exit from)
+ Example :- 
+  Hello () {
+    echo "Hello World $1 $2"    // Pass Parameters to Function where Parameter represented by $1, $2 and so on
+    return 10                   // Returning Values from Function
+  }
+  Hello Zara Ali        # Invoke parameter function
+  Hello World Zara Ali  # Output
+  ret=$?                # Capture value returnd by last command
+  echo "Return value is $ret"
+  Return value is 10
 
- Continue statement :- 
-  - Current iteration of loop to exit rather than entire loop
-  - Use when error occurred but try to execute next iteration of loop
-  Syntax :- continue |  continue n
+
+ Nested Function :- function that calls itself known as recursive function
+  number_one () {
+    echo "This is the first function speaking..."
+    number_two
+  }
+  number_two () {
+    echo "This is now the second function speaking..."
+  }
+  number_one
+  This is the first function speaking...
+  This is now the second function speaking...
 
 
 
-Shell Substitution :- 
- - Encounters expression that contain one or more special character 
+Substitution :- 
+ - Encounter expression that contain one or more special character 
+ - Use -E option to disable interpretation of backslash escapes (default)
+
  Escape sequences used in echo command :-
-   \\    backslash
-   \a    alert (BEL)
-   \b    backspace
-   \c    suppress trailing newline
-   \f    form feed
-   \n    new line
-   \r    carriage return
-   \t    horizontal tab
-   \v    vertical tab
+  \\ backslash  |  \a alert (BEL)  |  \b backspace  |  \c  suppress trailing newline
+  \f form feed  |  \n new line     |  \r carriage return
+  \t horizontal tab | \v    vertical tab
    
-   - Use -E option to disable interpretation of backslash escapes (default)
-
 
  Command Substitution :-
-  - Shell perform given set of command then substitutes their output in place of command
-  - Make sure that use backquote, not single quote character
-  - Used to assign output of command to variable
+  - Shell perform given set of command then substitute their output in place of command
+  - Use backquote not single quote character
+  - Assign output of command to variable
   Syntax :- `command`
- 
    ${var}          Substitute value of var
-   ${var:-word}    Var null or unset, word substituted for var and value of var not change
-   ${var:=word}    Null or unset, var set to value of word
-   ${var:?message} Null or unset, message printed to standard error and checks that variables set correctly
-   ${var:+word}    Var set, word is substituted for var and value does not change
+   ${var:-word}    Word substituted for var and value of var not change
 
 
 
-Shell Quoting Mechanism :-
- Metacharacters :-
-  - Special meaning while using them in any Shell Script and causes termination of word unless quoted
-  - ? match with single character and * match more than one character 
-  - * ? [ ] ' " \ $ ; & ( ) | ^ < > new-line space tab
-  - Character may be quoted by preceding it with \
-	
-   $  parameter substitution
-  \$  Enable literal dollar sign
-  \`  Enable literal backquote
-  \"  Enable embedded double quote
-  \\  Enable embedded backslashe
-  All other \ character are literal (not special)
-
-  Backquotes :- Putting any Shell command in between backquotes executes command  |  var=`command`
+Quoting Mechanism :-
+ Backquotes :- Putting any Shell command in between backquotes executes command  |  var=`command`
+ 
+ - Metacharacter Special meaning while using in any Shell Script and causes termination of word unless quoted
+ - ? match with single character and * match more than one character 
+ - * ? [ ] ' " \ $ ; & ( ) | ^ < > new-line space tab
+ - Character may be quoted by preceding it with \	
+ $  parameter substitution        | \$  Enable literal dollar sign  | \`  Enable literal backquote
+ \"  Enable embedded double quote  | \\  Enable embedded backslash   | Other \ character are literal (not special)
 
 
 
-Shell Input/Output Redirections :-
+Input/Output Redirection :-
  - Terminal -> Command -> Take Input(Standard Input) -> Process -> Output(Standard Output)
-
+ Note :- File descriptor 0 standard input(STDIN), 1 standard output (STDOUT) and 2 standard error output (STDERR)
+ 
  Output Redirection :-
   - If notation > file appended to any command that normally write its output to standard output, 
-    output of that command will be written to file instead of your terminal.
+    output of that command will be written to file instead of terminal
   - $ who > users
   - $ cat users
   - $ echo line 2 >> users
 
- Input Redirection :-
+
+ Input Redirection :- <
   $ wc -l users
   2 users
   $ wc -l < users
   2
   
- Here Document :- Redirect input into interactive shell script or program
-  - Here shell interprets << operator as instruction to read input until it finds line containing specified delimiter 
+
+ Here Document :- 
+  - Redirect input into interactive shell script or program
+  - << operator used as instruction to read input until it find line containing specified delimiter 
   - Delimiter must be single word that does not contain spaces or tabs
 
+
  Discard output :-
-  - discard the output by redirecting it to file /dev/null −
+  - discard output by redirecting it to file /dev/null −
   - $ command > /dev/null
 
+
  Redirection Command :- 
-   pgm > file  Output of pgm is redirected to file
-   pgm < file  Program pgm reads its input from file
-   pgm >> file Output of pgm is appended to file
-   n > file    Output from stream with descriptor n redirected to file
-   n >> file   Output from stream with descriptor n appended to file
-   n >& m      Merges output from stream n with stream m
-   n <& m      Merges input from stream n with stream m
-   << tag      Standard input comes from here through next tag at the start of line
-   |           Takes output from one program, or process, and sends it to another
+  pgm > file  Output redirected to file
+  pgm < file  Read input from file
+  pgm >> file Output appended to file
+  n > file    Output from stream with descriptor n redirected to file
+  n >> file   Output from stream with descriptor n appended to file
+  n >& m      Merge output from stream n with stream m
+  n <& m      Merge input from stream n with stream m
+  << tag      Standard input come from here through next tag at the start of line
+  |           Takes output from one program or process and send it to another
 
-   Note :- File descriptor 0 standard input(STDIN), 1 standard output (STDOUT) and 2 standard error output (STDERR)
-
-
-
-Shell Function :-
- - Perform repetitive tasks to create code reuse 
- 
- Creating Function :-
-   function_name () {
-     list of commands
-   }
-  Ex :-
-   Hello () {
-    echo "Hello World"
-   }
-   Hello // Call function 
- 
- 
- Pass Parameters to Function :-
-  - Parameter represented by $1, $2 and so on.
-   Hello () {
-      echo "Hello World $1 $2"
-   }
-   Hello Zara Ali        # Invoke function
-   Hello World Zara Ali  # Output
-
- 
- Returning Values from Function :-
-  - Execute exit command from inside function, its effect not only to terminate execution of function but also 
-    of shell program that called function
-   Hello () {
-      echo "Hello World $1 $2"
-      return 10
-   }
-   Hello Zara Ali   # Pass parameter 
-   ret=$?           # Capture value returnd by last command
-   echo "Return value is $ret"
-   Hello World Zara Ali
-   Return value is 10
-
-
- Nested Function :-
-  - function that calls itself known as recursive function
-   number_one () {
-      echo "This is the first function speaking..."
-      number_two
-   }
-   number_two () {
-      echo "This is now the second function speaking..."
-   }
-   number_one
-   This is the first function speaking...
-   This is now the second function speaking...
-
- 
- Function Call from Prompt :-
-  - Put common definitions inside .profile
- 
- 
-
-Shell Manpage Help :-
- - Unix's version of Help files called man pages 
- - Not sure how to use command then Man Pages help with every step
+  
+Manpage | Help :-
+ - Not sure how to use any command then Man Pages help with every step
  Syntax :- $man command
-
- Man Page Section :-
-  - Man pages divided into sections vary by man page author's preference 
-   NAME        Name of command
-   SYNOPSIS    Parameters of command
-   DESCRIPTION What command does
-   OPTIONS     Describes all arguments or option to command
-   SEE ALSO    List other command that directly related to command in man page or closely resemble its functionality
-   BUGS        Explain any known issues or bugs that exist with command or its output
-   EXAMPLES    Examples gives idea of how command used
-   AUTHORS     Author of man page/command
+ 
+  SYNOPSIS    Parameters of command
+  DESCRIPTION What command does
+  OPTIONS     Describes all arguments or option to command
+  SEE ALSO    List other command that directly related to command in man page or closely resemble its functionality
+  BUGS        Explain any known issues or bugs that exist with command or its output
+  EXAMPLES    Examples gives idea of how command used
+  AUTHORS     Author of man page/command
