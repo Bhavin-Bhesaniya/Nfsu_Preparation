@@ -120,7 +120,7 @@ DataType :-
   
 
 
-Constant/Literals :- 
+Literals :- 
  - Representing fixed values | Ex :-  1, 2.5, 'c' 
 
  Integer   :- Numeric without any fractional or exponential part     | 0, 077(Octal), 0x7f(Hexa)
@@ -383,42 +383,33 @@ Pointer :-
 
  
 
-
 Structure :-
- - Allow to combine different kind of data item
- - Structure are used to represent record
- - To declare structure struct keyword use
- - Structure tag is optional and each member definition is normal variable definition, such as int 
+ - Combine different types of data items to represent record
+ - struct keyword use and each member definition is normal variable definition, such as int 
  - Before final semicolon, Specify one or more structure variables but it is optional
- 
+ - Functions not allowed inside struct in C
+ - Size of struct = Size of its individual variables (2 integer size is 4 + 4  = 8bytes total)
 
- Defining Structure :-
+ Declare Structure :-
   struct [structure name] {
-  member definition;
-  member definition;
-  } [one or more structure variables];  
+   member definition;
+   member definition;
+  }[one or more structure variables];  
  
 
  Example :-
   struct Books {
    char  title[50];
-   char  author[50];
-   char  subject[100];
    int   book_id;
-  } book;
-
-
- Accessing Structure :-
-  - To access structure member use member access operator (.)
+  } book;  
   struct Books Book1;
-  strcpy( Book1.title, "C Programming");
-  cout << "Book 1 title : " << Book1.title << endl;
+  strcpy(Book1.title, "C Programming");       // To access structure member use member access operator (.)
+  printf("Book 1 title : %s\n", Book1.title);
 
 
  Structure as Function Argument :-
-  - Pass structure as function argument is the same way pass any other variable or pointer
-  void printBook( struct Books book ){
-    cout << "Book title : " << book.title << endl;
+  void printBook(struct Books book){
+    printf( "Book title : %s\n", book.title);
   }
 
 
@@ -428,7 +419,7 @@ Structure :-
   struct_pointer->title;       // To access members of structure using pointer
 
   void printBook( struct Books *book ){
-    cout << "Book title : " << book->title <<endl; 
+    printf( "Book title : %s\n", book->title) 
   }
 
 
@@ -479,7 +470,6 @@ References :-
 
 Date / Time :-
  - <ctime> header file used
- - Structure type tm hold date and time in form of C structure
  Types time-related :- clock_t, time_t, size_t, and tm
  Ex :-
   struct tm {
@@ -511,17 +501,11 @@ Input/Output :-
   <iostream> :- Contain cin, cout which correspond to standard input, output
   <iomanip>  :- Performing formatted I/O with parameterized stream manipulator such as setw and setprecision
   <fstream>  :- For user-controlled file processing
- 
 
- Standard Output Stream (cout) :-
+
+ Standard Input Stream (cin)  | Standard Output Stream (cout) :-
+  - Instance of istream class written as >>(extraction operator) take input from 
   - Instance of ostream class written as << (Insertion Operator) display output on screen
-  char str[] = "Hello C++";
-  cout << "Value of str is : " << str << endl;
-  Output :- Value of str is : Hello C++
-
-
- Standard Input Stream (cin) :-
-  - Instance of istream class written as >>(extraction operator) take input from user
   char str[];
   int age;
   cout << "Enter Name : " << endl;

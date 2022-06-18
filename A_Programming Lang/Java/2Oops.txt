@@ -7,9 +7,11 @@ OOP (Object Oriented Programming):-
   - Keep code DRY(DO NOT REPEAT) means reducing repetition of code
   - Full resuable app with less code and shorter develpoment time
 
+
  Field in OOP :-
   Class        |  Object         |  Method       | Instance     |  Message Passing  
   Inheritance  |  Polymorphisam  |  Encapsulate  |  Abstraction
+
 
  
  Object :-

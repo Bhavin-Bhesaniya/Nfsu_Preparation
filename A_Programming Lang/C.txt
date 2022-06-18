@@ -1,68 +1,22 @@
-Topic :-
- - Intro 
- - Installation
- - C Program Structure
- - Comments
- - Keyword 
- - Identifiers
- - Variable 
- - Literals
- - Data Types
- - Input-Output(I/O)
- - Operator
- - Storage Classes
- - Control Flow (Condition | Loop | Statement | Switch Case)
- - Function
- - Array
- - Pointer
-
-
-
-Intro :-
+C Overview :-
  - Developed by Dennis M. Ritchie at bell labs
  - First implmented in DEC PDP-11 Computer in 1972 and in 1978 Brain Kernigham and Dennis release Publicly(K&R)
  - Language Fromalized in 1988 ANSI(American National Standard Institute)
- - Unix totally written in C
- - Extension is .c
- - Case sensitive
- - C is compiler based language
- - Must contain main() function from when code start execution
- - 0 or getch() statement inside main() function is "Exit Status" of program
- - ;(SemiColon) is statement terminator for each individual statement
-  
-
-
-Installation :-
- gcc -v on linux to check
- MinGW  on windows
-
-
+ - Unix totally written in C | Case sensitive | compiler based | Extension is .c | 
+ - main() function from when code start execution
+ - 0 or getch() "Exit Status" of program
+ - ;(SemiColon) statement terminator
  
-C Program Structure :- 
- - .c --> compiler --> .out(Executable Code) / .exe --> Output
- Preprocessor Directive :- Tell compiler Include library(stdio.h) file before going to actual compilation
- Function    - main() function from where program execution begin  
- Variables                  
- Statements & Expression
- Comment
+ Installation :- gcc -v on linux to check  |  MinGW  on windows
+ Comment      :- Ignored by compiler       |  // - Single-line comment   |  /*..*/ - Multi-line comment 
+ Token        :- Token is either keyword, identifier, constant, string literal or symbol
+ Program execution      :- .c --> compiler --> .out(Executable Code) / .exe --> Output
+ Preprocessor Directive :- Tells compiler Include library(stdio.h) file before going to actual compilation
  
- 
-Token      :- Token is either keyword, identifier, constant, string literal or symbol
-
-
-Comment :- 
- - Ignored by compiler
- - Programmer add to make code easier to read and understand
- Type :- 
-  //      - Single-line comment  
-  /*..*/  - Multi-line comment 
-
 
 
 Identifier :-
- - Set of Alphabets, letters and special character
- - Used to identify variable, function or any other user-defined item 
- 
+ - Set of Alphabet, letter and special character used to identify user-defined item 
  Types of Identifier :-   
   CharacterSet       - A-Z,a-z 
   Digit              - 0 to 9     
@@ -72,71 +26,46 @@ Identifier :-
 
 
 Literals :- 
- - Representing fixed values
- Ex :-  1, 2.5, 'c' 
+ - Representing fixed values | Ex :-  1, 2.5, 'c' 
 
- Integer :-
-  - Numeric literal(Number) without any fractional or exponential part
-    octal       (base 8)  :- 021, 077 
-    decimal     (base 10) :- 0, -8, 22
-    Hexadecimal (base 16) :- 0x7f, 0x2a
+ Integer   :- Numeric without any fractional or exponential part     | 0, 077(Octal), 0x7f(Hexa)
+ Floating  :- Numeric literal has either fractional or exponent form | -2.0, 0.00234, -0.22E-5 (E-5 = 10-5)
+ Character :- Single character inside single quotation marks         | 'a', 'm', 'F', '2', '}'
+ String    :- Sequence of character enclosed in double-quote marks   | "String" , "" ,  "    ", "S", 
+ Constant  :- Value cannot be changed once declared (Preprocessor)   | const double PI = 3.14; #define LENGTH 10  
+ void      :- Represents absence type 
 
- Floating :- Numeric literal that has either fractional or exponent form
-  Ex :- -2.0, 0.00234, -0.22E-5 (E-5 = 10-5)
-
- Character :- Single character inside single quotation marks
-  Ex :- 'a', 'm', 'F', '2', '}'
-
- Escape Sequence :- Characters with backslash which has special meaning
-  \b - backspace      | \\ - Backslash              | \0 Null Character
-  \f - formfeed       | \' - Single Quotation Mark  | \" - Double Quotation Mark
-  \n - newline        | \r - return                 | \? - Quotation Mark    
-  \t - Horizontal tab | \v - vertical tab
-
- String Literals :- Sequence of characters enclosed in double-quote marks 
-  Ex :- "String" , "" ,  "    ", "S", 
-
- Constants :- Variable value cannot be changed once declared
-  Ex :- const double PI = 3.14;
-        #define LENGTH 10          - preprocessor 
-
- void :- Represents absence type
+ Escape Sequence :- Character with backslash which has special meaning
+  \b - backspace  | \f - formfeed        | \\ - Backslash      | \n - newline         
+  \r - return     | \? - Quotation Mark  | \t - Horizontal tab | \v - vertical tab
+  \' - Single Quotation Mark  | \" - Double Quotation Mark     | \0 - Null Character
 
 
   
 Variable :-
- - Name of memory location which store some data
- - extern keyword used to declare variable in any place
- - Declare variable multiple times but defined only once
- - Expression that refer to memory location are called "lvalue" expression
- - rvalue refer to data value that stored at particular memory location
+ - Container hold data which identify by its name
+ - extern declare variable at any place
+ - Inside function or block called local variable only access within function not accessible outside
+ - Outside function variable called global variable accessed anywhere in program throughout program 
+ 
+ Type  :- int  char  float  bool  double  void  wchar_t
+ Other :- Enumeration  Pointer  Array  Reference  Classes
 
  Ex :- 
-  int intValue = 10; // declare variable with int type
-  intValue = 10.10;  // Wrong cannot change int to float
-  float a,v,c;       // Variablelist with no value
-  int g = 10, n = 20;
-  
+  int intValue = 10;   // declare variable with int type
+  intValue = 10.10;    // Wrong cannot change int to float
+  float a,v,c;         // Variablelist with no value
+  int g = 10, n = 20;  // g represent memory location "lvalue" | 10 represent actual data "rvalue"
+
  Rules :-
   - First letter either alphabet or underscore cannot use digit or any special character
-  - Cannot use keyword
-  - no comma/blank space
-  - Name Must be unique
-  - Case-sensitive 
-  - No special character use other than _(Underscore)
-
- Scope :-
-  - Scope defined variable or function can be accessible or not
-  - Inside function or block variable called local variable while outside called global variable
-  - Local variable only accessed inside function or block not accessible outside
-  - Global variable access anywhere in program throughout program 
-  - Local variable not initialized by system you must initialize it while global variable initialized automatically
- 
+  - Name Must be unique 
+  - Cannot use keyword  |  No comma/blank space  |  No special character use other than _(Underscore)
+  
 
 
 Data Types :-
- - Determine type and size of variables data stored in memory
- - To Check size of variable use sizeof() operator Ex :- sizeof(variableName);
+ - Determine type and size of data that associated with variables 
  - String and boolean not exist
   
  Built-in :- 1 byte = 8 bit, 1 kb = 1024 byte, 1mb = 1024kb    
@@ -150,25 +79,15 @@ Data Types :-
   long double	 10 byte                    %Lf                 long double d;
   unsigned int  4 byte	0 to 65,535       %u                  unsigned int x = 35;
   
-  short int - %hd | unsigned int  - %u  
-  long int  - %li | long long int - %lli
-  unsigned long int	- %lu
+ Types of modifier :- Signed - Store both positive and negative number | Unsigned - Store only positive number
+ Derive Data Type  :- Function, Arrays, Pointers, Reference
+ User-Defined      :- Structure, Union, Enumeration, Typedef    
 
- Types of modifier :-
-  Signed   - Store both positive and negative number
-  Unsigned - Store only positive number
-
- Derive Data Type :- Derived from primitive or built-in datatype referred as Derived Data Types
-  Types :- Function, Arrays, Pointers, Reference
-
- User-Defined Data Types :- Defined by user are called user-defined data types
-  Types :- Structure, Union, Enumeration, Typedef    
 
  Type Casting :-
   - Convert variable from one data type to another data type
   - Implicit conversion done by computer while explicitly casting done by cast operator
   Syntax :- (type_name) expression
-
   Example :-
     int sum = 17, count = 5;
     double mean;
@@ -178,11 +97,7 @@ Data Types :-
 
 
 Keyword :-
- - Special meaning for compiler that we can not used as identifier 
- - Must written in lower case
- - 32 keyword in C
-  
- Keywords in ANSI C :-
+ - Special meaning for compiler that not used as identifier | Must written in lower case | 32 keyword in C
   void     int        char    double  float  short	signed  unsigned  long	
   if       else       switch  case    break  continue goto
   for      while      do      return
@@ -193,158 +108,100 @@ Keyword :-
 
 
 Operator :- 
- - Operator is symbol that operates on value or variable
- 
- Arithmetic :- Perform Mathematical operation
-  Ex :- +, -, *, /, %(Reminder), ++, //
-
- Assignment Operator :- Used for assign value to variable
-  Ex :- =, +=, -=, *=, /=, %= , <<=, >>= , &=, ^= , |=
-
- Relational Operator :- If relation is true return 1 otherwise false(0)
-  Ex :- ==, >=, <=, !=, >, <
-
- Logical Operator :- Return either 0 or 1 depending upon whether expression results true or false
-  && - Logical AND return true if both condition is true
-  || - Logical OR return true if any condition is true
-  !  - Logical NOT return true if operand is 0
-
- BitWise Operator :- Perform bit-level operation
-  &	Bitwise AND         |  |	Bitwise OR   | ^	Bitwise exclusive OR
-  ~	Bitwise complement  |  <<	Shift left   | >>	Shift right
-
- Comma Operator :- Link related expressions together
-  Ex :- int a, c = 5, d;
-
- sizeof() Operator :-
-  - Unary operator that return size of data (constant, variables, array, structure, etc.)
-  - Format Specifier %zu is used to print value
-
- Unary operator :- Works with single operand 
-  Ex :- ++, -- 
-
- Other Operator :-
-  ?: Ternary operator     | &  Reference operator | *  Dereference operator | -> Member selection
+ - Symbol that operate on value or variable
+ Arithmetic :-  +,  -,  *,  /, %(Reminder), ++, //
+ Assignment :-  =, +=, -=, *=, /=, %= , <<=, >>= , &=, ^= , |=
+ Relational :- ==, >=, <=, !=,  >,  <
+ Logical    :- &&, ||,  !, 
+ BitWise    :-  &,  |, 	^, 	~, <<, >>, >>	
+ Comma      :- int a, c = 5, d;
+ Other      :- ?: Ternary  |  & Reference  |  * Dereference  |  -> Member selection  | . dot  |  * Pointer
+ sizeof()   :- Return size of data (constants, variables, array) | Format Specifier %zu print value
+ Unary      :- Works with single operand  |  ++, -- 
 
 
 
 Input / Output(I/O) :-
- - C treats all devices as files
+ - Treat all devices as files
  - File pointer access file for reading and writing purpose
+ - Format specify display value %s, %d, %c, %f, etc.. 
+ Library :- Standard input	- stdin	 |  Standard output	- stdout  |  Standard error	 -  stderr	  
 
-  Standard File	       File   Pointer	Device
-  Standard input	    stdin	    Keyboard
-  Standard output	    stdout	  Screen
-  Standard error	    stderr	  Your Screen
-
- Output :-
-  - printf() library function send formatted output on screen 
-  - To use printf() library add :- #include<stdio.h> statement
-  Ex :- printf("Bhavin") 
-
+ Input / Output :-
+  - printf() from stdio.h library used for display output on screen 
   - To print variable value use format specifier 
-  int no = 5; 
-  float no1 = 10.10;
-  double no2 = 20.202;
-  char ch = 'B';
-  printf(" %d  %f  %lf  %c  %s ",no, no1, no2, ch, "String");
-
-
- Input :-
-  - scanf() function read formatted input from standard input such as keyboards
+  - scanf() function read formatted input from standard input such as keyboard
   Ex :- 
-  #include <stdio.h>
-  int main()
-  {
+   #include <stdio.h>
+   int main()
+   {
     int testInteger;
     float num1;
     double num2;
     char chr;
-    scanf("%d", &testInteger);  // &testInteger get address of testInteger and user entered value stored in address
-    scanf("%f %lf ", &num1 , &num2); // Multi-input from single line
-    scanf("%c",&chr);   
-    printf(" %d %f\n  %lf\n %c", testInteger, num1, num2, chr); 
-    // Character itself is not stored Instead integer value (ASCII value) is stored
+    scanf("%d", &testInteger);               // &testInteger get address of testInteger user value stored in address
+    scanf("%f %lf %c", &num1 , &num2, &chr); // Multi-input from single line
+    printf("%d %f\n  %lf\n %c", testInteger, num1, num2, chr); // Character not stored instead ASCII value stored
     return 0;
-  }              
+   }              
 
 
- getchar() and putchar() :-
-  - int getchar(void) function read next available character from screen and return it as integer
+ getchar() / putchar() :-
+  - getchar() read next character from screen and return it as integer
   - int putchar(int c) put passed character on screen and return same character
-  - getchar() read only single character at time while putchar() puts only single character at a time
-  - Use method in loop for read more than one character from screen or display more than one character on screen
+  - getchar() read only single character at time while putchar() puts only single character at  time
  
   Ex :-
-   int c;
-   printf( "Enter a value :");
-   c = getchar( );
-   printf( "\nYou entered: ");
-   putchar( c ); 
+    int c;
+    printf( "Enter a value :");
+    c = getchar( );
+    printf( "\nYou entered: ");
+    putchar( c ); 
   Output :-
-   Enter a value : this is test
-   You entered: t  
+    Enter a value : this is test
+    You entered: t  
 
 
  gets() and puts() :-
-  - char *gets(char *s) read line from stdin into buffer pointed by s until terminating newline or EOF(End of File)
+  - Read line from stdin into buffer pointed by s until terminating newline or EOF(End of File)
   - int puts(const char *s) function write string 's' and 'a' trailing newline to stdout
-
-  Ex :-
-   char str[100];
-   printf( "Enter a value :");
-   gets(str);
-   printf( "\nYou entered: ");
-   puts(str);
-  Output :-
-   Enter value : this is test
-   You entered : this is test
-
-
- scanf() and printf() :-
-  - int scanf(const char *format,..) read input from stdin stream and scan input according to provided format
-  - int printf(const char *format,..) write output to stdout stream and produce output according to provided format
-  - Format can be simple constant string but able to specify %s, %d, %c, %f, etc.. 
-  - scanf() expect input in same format as provided
-  - Secondly while reading string scanf() stops reading as soon as it encounters space
   Ex :-
     char str[100];
-    int i;
-    printf( "Enter a value :");
-    scanf("%s %d", str, &i);
-    printf( "\nYou entered: %s %d ", str, i); 
+    printf("Enter a value :");
+    gets(str);
+    printf("\nYou entered: ");
+    puts(str);
   Output :-
-    Enter a value : seven 7
-    You entered: seven 7
+    Enter value : this is test
+    You entered : this is test
 
 
 
 Control Flow (Condition | Loop | Statement | Switch Case):- 
 
  Condition  :-
-  If               :- if(expression){  //True code  }
-  if...else        :- if(expression){  //True code  } else { //False code }
+  If               :- if(expression){ //True code  }
+  if...else        :- if(expression){ //True code  } else { //False code }
   if else ledder   :- if(expression){ //code } else if(expression){ //code } else { //False code}
   Nested If.. else :- if(expression){ if(expression){ //True code } else { //False code } } else{ //False code }
-  Ternary          :- Condition ? True Code : False Code;     
+  Ternary          :- Expression ? True Code : False Code;     
 
 
  Loop :- 
-  - Repeat block of code until specified condition is not false
-  For Loop   :-  for(Initalization; Condition; Increment/Decrement){ //code }
-  While Loop :-  while(expression){ //code  // Increment/Decrement } 
-  Do..While  :-  do { //code // Increment/Decrement }while(expression)
-   - Loop run at least one time in program
-  
+  For Loop   :- for(Initalization; Condition; Increment/Decrement){ //code }
+  While Loop :- while(expression){ //code  // Increment/Decrement } 
+  Do..While  :- do { //code // Increment/Decrement }while(expression)   // Run at least one time
+  for( ; ; ) :- Infinite loop if condition not false  
+
 
  Statement :-
   Break    :- Terminate loop immediately 
   Continue :- Skips current iteration of loop and continues with next iteration
- 
-  goto     :- 
+
+  goto :- 
    - Transfer Program control to specified label
-   - label is identifier When goto statement is encountered
-   - Control of program jumps to label: and starts executing code
+   - label identify When goto statement encountered 
+   - Control of program jump to label: and starts executing code
    Syntax :- 
     goto label;
     label:
@@ -352,81 +209,69 @@ Control Flow (Condition | Loop | Statement | Switch Case):-
             
          
  Switch Case :-
-  - Allow variable to be tested against list of values
-  - Expression used in switch statement must have integral or enumerated type
-  - Expression evaluated once and compared with values of each case label
-  - If there is match, corresponding statement after matching label are executed otherwise default statement executed
+  - Expression used must have integral or enumerated type
+  - Expression is evaluated once and compared with values of each case label
+  - If match corresponding statement executed otherwise default statements executed
   - Default statement is optional
-  Syntax :- 
-   switch(expression){
-    case constant1:
-      // Statement   
-      break; 
-                
-    case constant2:
-      // Statement   
-      break; 
-
+  
+  switch(expression){
+    case constant N:
+    // Statement   
+    break; 
+              
     default:
-      // Statement
-   } 
+    // Statement
+  } 
 
 
 
 Function :-
  - Block of code that perform specific task
- - Every program must have main() function
- - Function declaration tell compiler about function name, return type and parameters
- - function definition provides actual function body
+ - Function declaration tells compiler about function name, return type and parameters
+ - function definition provide actual function body
  
-
  Syntax :-
   return_type function_name(Parameter list){
     // function body
   }
+ function_name(Parameter)   // Call function 
 
- Call function :- function_name(Parameter) 
- Function Call by Value     :- Passing function arguments value
- Function Call by Reference :- Passing function arguments address
+ Function Call by Value     :- Passing argument value
+ Function Call by Reference :- Passing argument address
+ Function Call by Pointer   :- void swap(int *x, int *y){}  |  swap(&a, &b);
+ Default argument           :- Specify default value for parameters
+  int sum(int a, int b = 20) {}
+  sum(a);
 
 
  Recursion :- 
-  - Process of repeating items in self-similar way
-  - If Program allow you to call function inside same function its called recursive
-  - Stacks are used to handling recursion in C
-
-  Example :-
-   void recursion() {
-    recursion(); /* function calls itself */
-   }
+  void recursion() {
+    recursion();      /* function calls itself */
+  }
 
 
- Variable Arguments :-
-  - C allow to define function which accept variable as number of parameters based on requirement
-  - Use stdarg.h header file which provide functions and macros to implement functionality of variable argument
-  Example :- 
-   int func(int, ... ) {}
-   int main() {
+ Variable Arguments :- 
+  - Accept variable number of parameter based on requirement
+  - stdarg.h header file provide function and macros to implement functionality of variable argument
+  int func(int, ... ) {}
+  int main() {
     func(1, 2, 3);
-    func(1, 2, 3, 4);
-   }
+  }
 
- 
- Command-line Argument :-
-  - Pass some values from command line 
-  - Handled by main() function argument where argc refer to number of arguments passed and 
-    argv[] is pointer array which points to each argument passed to program
-  - argv[0] hold name of program itself 
-  - argv[1] is pointer to first command line argument supplied 
-  - *argv[n] is last argument 
-  - If no argument supplied argc will be one and if pass one argument then argc is set at 2
-  
-  Example :-
-   int main( int argc, char *argv[] ) {
-    if( argc == 2 ) {
+
+ Command-line Arguments :-
+  - Pass value from command line using main() function argument 
+  - argc refer number of argument and argv[] pointer array which point to each argument passed to program
+
+  int main(int argc, char *argv[] )  {
+    if(argc == 2) {
       printf("Argument supplied is %s\n", argv[1]);
     }
-   }
+  }
+  - argv[0] hold program name itself | argv[1] pointer to first command line argument
+  - *argv[n] is last argument 
+  - If No argument supplied argc will be one and if pass one argument then argc set 2
+  
   Output :-
    - $./a.out "testing1 testing2" // Command-line argument
    - The argument supplied is testing1 testing2
@@ -434,51 +279,45 @@ Function :-
 
 
 Array :-
- - Used to Store collection of same type data in contiguous manner in fixed-size memory
- - Array elements accessible via its index
- - lowest address corresponds to first element and highest address to last element
- Syntax :- type array_name[arraysize];  // Size must be Integer
+ - Store same type data in contiguous manner in fixed-size memory location
+ - Array element accessible via its index => [0]
+ - If element is greater than array size ArrayIndexOutOfBoundsException Throw
+ Syntax :- type array_name[arraysize];    // Size must be Integer
  
  Example :- 
   int arr[10];                 // One-Dimensional array
   int arr[3] = {1,2,3};        // Initializing array 
   arr[2] = 2;                  // Initializing array with specified index
-  - If element is greater than array size ArrayIndexOutOfBoundsException Throw
   int access_arr = arr[1];     // Access array element 
   
   int multi_arr[5][10];        // Two-Dimensional array - [Row][Column]
-  int multi_arr[5][10] = {1,2,3,4,5,6,7,8,9,10,11,12,13};
-  int val = multi_arr[2][5];
-  
+  int multi_arr[5][10] = {1,2,3,4,5};
+  int val = multi_arr[2][5];   // Access array element
   int multi_arr[5][10][4]      // Multi-Dimensional array - [Row][Column][Dimension]
 
 
- Passing Array as Function Arguments :- 
-  void myFunc(int *param)   |    (int param[10])    |   (int param[])
-
-
- Return Array From Function :- 
-  int * myFunc()    
+ Passing Array as Function Arguments :- void myFunc(int *param)  |  (int param[10])  |  (int param[])
+ Return Array From Function          :- int * myFunc()     
+ 
+ Pointer to array :-  
+  double *p;           // Declare Pointer  
+  double balance[10];  // Declare array
+  p = balance;         // Pass Array to Pointer
+  //balance is pointer to &balance[0], is the address of first element of array balance
 
 
 
 Pointer :-
- - Every variable has location and every location has its address which accessed using ampersand (&) Operator
- - Pointer is variable whose value is address of another variable
- Syntax :- type *variable_name;
+ - Every variable has location and every location has its address which accessed using ampersand(&) Operator
+ - Pointer variable value is address of another variable
  - * asterisk sign used to declare variable as pointer
+ Syntax :- type *variable_name;
  
  Example :- 
   int var = 10;
   int *ip; or int *ip = NULL; // Null pointer 0 value
   ip = &var; 
-  printf("Access Value of Pointer variable", *ip); //10 - Normal ip print address and &var print variable address
-
- 
- Pointer Arithmetic :- ++, --, +, - 
-  Example :- 1000 | 1004
-
- Pointer Comparsion :- >, <, == 
+  cout << "Value of *ip variable: " << *ip << endl; // 10 - Print  | &var or only var print variable address
 
 
  Array of Pointer :- 
@@ -493,15 +332,15 @@ Pointer :-
    int var = 30;
    int *ptr;
    int **pptr;
-   ptr = &var
-   pptr = &ptr  
+   ptr = &var;
+   pptr = &ptr;  
 
 
  Passing Pointer to Function :-
-  getSeconds(&sec);  // Declare function parameter as pointer type
+  getSeconds(&sec);     // Declare function parameter as pointer type
   void getSeconds(unsigned long *par) {
     *par = time(NULL); 
-   return;
+    return;
   }
 
   //Function which accept pointer also accept array
@@ -517,7 +356,7 @@ Pointer :-
   }  
 
  
- Return Pointer from function in C :-
+ Return Pointer from function :-
   int * myFunction() {
   }  
 
@@ -537,41 +376,31 @@ String :-
 
 
 Structure :-
- - Allow to combine data items of different kinds
- - Structure are used to represent record
- - To define structure struct keyword use
- - Structure tag is optional and each member definition is normal variable definition, such as int 
+ - Combine different types of data items to represent record
+ - struct keyword use and each member definition is normal variable definition, such as int 
  - Before final semicolon, Specify one or more structure variables but it is optional
- - Functions are not allowed inside structs in C
- - Size of struct equal to sum of sizes of its individual variables With 2 integer size is 4 + 4  = 8bytes
+ - Functions not allowed inside struct in C
+ - Size of struct = Size of its individual variables (2 integer size is 4 + 4  = 8bytes total)
 
-
- Defining Structure :-
+ Declare Structure :-
   struct [structure name] {
-  member definition;
-  member definition;
-  } [one or more structure variables];  
+   member definition;
+   member definition;
+  }[one or more structure variables];  
  
 
  Example :-
   struct Books {
    char  title[50];
-   char  author[50];
-   char  subject[100];
    int   book_id;
-  } book;
-
-
- Accessing Structure :-
-  - To access structure member use member access operator (.)
+  } book;  
   struct Books Book1;
-  strcpy( Book1.title, "C Programming");
-  printf( "Book 1 title : %s\n", Book1.title);
+  strcpy(Book1.title, "C Programming");       // To access structure member use member access operator (.)
+  printf("Book 1 title : %s\n", Book1.title);
 
 
  Structure as Function Argument :-
-  - Pass structure as function argument is the same way pass any other variable or pointer
-  void printBook( struct Books book ){
+  void printBook(struct Books book){
     printf( "Book title : %s\n", book.title);
   }
 
@@ -586,21 +415,11 @@ Structure :-
   }
 
 
- Bit Fields :- 
-  - Allow packing of data in structure
-  - Useful when memory or data storage is at premium
-  struct packed_struct {
-    unsigned int f1:1;
-  }pack;
-
-
 
 Union :-
- - Special data type that allow to store different data types in same memory location
- - Declare union with many member but only one member can contain value at given time 
- - Provide efficient way of using same memory location for multiple-purpose
- - Same memory location, used to store multiple types of data 
- - Size of Union equal to size of largest variable which is part of it
+ - Store different data types in same memory location
+ - Declare Union with many member but only one member contain value at given time 
+ - Size of Union equal to size of largest variable that part of it
 
  Syntax :- 
   union [union tag] {
@@ -622,33 +441,30 @@ Union :-
 
  
 
-Storage Classes :-
- - Define visibility(scope) and life-time of variable and function within Program
- Types :- auto, register, static, extern
+Storage Classes :- 
+ - Scope (visibility) and life-time of variables or function within C++ Program 
 
- auto :- 
-  - Default storage class for all variable
-  Ex :- auto into st;
-   
- register :- 
-  - Declare local variables that stored in register instead of RAM for quick access
-  - Variable maximum size equal to register size (Usually one word)
-  - Can't applied unary '&' operator on it
-  - It Does not mean that register variable stored in register it depend on hardware implementation
-  Ex :- register int miles;
+ auto :- Default storage class for all local variables | Ex :- auto int month;
+  
+ register :-
+  - Local variables that stored in register instead of RAM 
+  - Maximum size equal to register size(One word) and can't applied unary '&' operator to it as it no memory location
+  Ex :- register int miles;   
 
  static :-
-  - Initialized only once and destroyed when program completed its execution
-  - Compiler keep variables till the end of program
-  - Default value is 0
-  - When static used in global variable it one copy to be shared all objects of that class
-  Ex :-  static int b = 8;
+  - Existence life-time of program
+  - Scope restricted to file in which it declared
+  - Static used on class data member it causes only one copy of that member shared by all object of its class
+  Ex :- static int count = 10;
 
- extern :- Used to declare global variable or function in another file
+ extern :- 
+  - Give reference of global variable that visible to ALL program files
+  - Used to declare global variable or function in another file
+  Ex :- extern int count;
 
-
-
-Bit Field :-
+ mutable :-
+  - Apply only to class objects and allow member object to override const member function
+  - mutable member modified by const member function
 
 
 
@@ -659,22 +475,21 @@ typedef :-
   BYTE  b1, b2;  // BYTE used as abbreviation for type unsigned char
  
  typedef vs #define :-
-  - #define is C-directive which used to define aliases for various data types similar to typedef but 
-  - typedef is limited to giving symbolic names to types only where #define used to alias for all values as well
-  - typedef interpretation performed by compiler where as #define statement are processed by pre-processor
+  - typedef limited to giving symbolic names to types only 
+  - #define used to alias for all values as well
+  - typedef interpretation performed by compiler where #define processed by pre-processor
  
 
 
 File I/O :-
- - File represent sequence of bytes regardless of it being text file or binary file
- - C provide access on high level function as well as low level (OS level) call to handle file on storage device
+ - File represent sequence of bytes
   
  Opening file :-
-  - fopen() create a new file or open existing file
-  - It initialize FILE type object which contain all necessary information to control stream
+  - fopen() create new file or open existing file
+  - Initialize FILE type object contain all necessary information to control stream
+  
   Syntax :- FILE *fopen(const char * filename, const char * mode);
 
-  - filename is string literal which use to name file and access mode can have following
   Access mode :-
     r - Open existing file for reading 
     w - Open existing file for writing, if not existing create one 
@@ -683,28 +498,19 @@ File I/O :-
     w+ - for both reading and writing, first truncate file to zero length if exist otherwise create file 
     a+ - for both reading and writing, reading will start from beginning but writing only be appended
    
-  For binary files :-
-    rb, wb, r+b, ab, rb+, wb+, w+b, ab+, a+b
+  For binary files :- rb, wb, r+b, ab, rb+, wb+, w+b, ab+, a+b
 
 
  Closing file :-    
-  - To close file use fclose() function
-  - fclose() return zero on success or EOF if there is an error in closing file
-  - flushes data that still pending in buffer file, closes file and releases memory that used for file
-  - EOF is constant defined in header file stdio.h
+  - fclose() return zero on success, releases memory or EOF if there is an error in closing file
+  - EOF constant defined in header file stdio.h
   Syntax :- int fclose( FILE *fp );
 
  
  Writing file :-
-  - fputc() write character value of argument c to output stream referenced by fp 
-  - It return written character on success otherwise EOF if there is error
-  Syntax :- int fputc( int c, FILE *fp );
-  
-  - fputs() write string s to output stream referenced by fp 
-  - It return non-negative value on success otherwise EOF returned in case of any error 
-  
-  - Use int fprintf(FILE *fp,const char *format, ...) function as well to write string into file
-  
+  - fputc() return written character on success otherwise EOF if error
+  - fputs() return non-negative value on success otherwise EOF returned in case of any error 
+  - fprintf() write string into file  
   Example :- 
     FILE *fp;
     fp = fopen("/tmp/test.txt", "w+");
@@ -714,24 +520,17 @@ File I/O :-
   
 
  Reading File :-
-  - fgetc() read character from input file referenced by fp 
-  - return value is character read in case of any error it returns EOF
-  - fgets() reads up to n-1 characters from input stream referenced by fp
-  Syntax :- char *fgets( char *buf, int n, FILE *fp );
-
- 
- Binary I/O :- 
-  - size_t fread(void *ptr, size_t size_of_elements, size_t number_of_elements, FILE *a_file); 
-  - size_t fwrite(const void *ptr, size_t size_of_elements, size_t number_of_elements, FILE *a_file);
+  - fgetc() read character from input file and return value is character read, error return EOF
+  - fgets() read up to n-1 character from input stream referenced by fp
+  Syntax :- char *fgets(char *buf, int n, FILE *fp);
 
 
 
-Pre-Processor :-
+Pre-Processor | Header File :-
  - Not part of compiler but separate step in compilation process
- - It is just text substitution tool that instruct compiler to do required pre-processing before actual compilation
  - All preprocessor command begin with hash symbol (#)
   
- PreProcessor Description
+ Types of PreProcessor :-
   #define  - Substitute preprocessor macro
   #include - Insert particular header from another file
   #undef   - Undefine preprocessor macro
@@ -753,60 +552,48 @@ Pre-Processor :-
   __DATE__ - Current date as character literal in "MMM DD YYYY" format
   __TIME__ - Current time as character literal in "HH:MM:SS" format
   __FILE__ - Contain current filename as string literal
-  __LINE__ - Contain current line number as decimal constant
-  __STDC__ - Defined as 1 when compiler complies with ANSI standard
-
+  
   Example :- 
     printf("File :%s\n", __FILE__ );
     Output :- File :test.c
 
 
- Preprocessor Operators :-
+ Preprocessor Operator :-
   Macro Continuation (\) :- Confined single line, used to continue macro that is too long for single line
   Stringize (#)          :- Used within macro definition, convert macro parameter into string constant
   Token Pasting (##)     :- Combine two arguments, Permit two separate token in macro definition join intosingle token
   Defined()              :- Used in constant expression to determine if identifier is defined using #define
 
-
-
-Header File :- 
- - File with .h extension contain C function declarations and macro definition shared between several source file
- Types  :- System files            |  User-defined files
- Syntax :- #include <System-file>  |  #include "User-file"
+ 
+ Header File :- 
+  - File with .h extension contain C function declaration and macro definition shared between several source file
+  Types  :- System files            |  User-defined files
+  Syntax :- #include <System-file>  |  #include "User-file"
 
 
 
 Error Handling :-
- - Not provide direct support for error handling but provide access at lower level in form of return value
- - Most of C or even Unix function call return -1 or NULL in case of any error and set an error code errno
+ - Return -1 or NULL in case of any error and set an error code errno
  - Find various error codes defined in <error.h> header file
- - Value of 0 indicates that there is no error in program
+ - Value of 0 indicates that no error in program
+ - stderr file stream to output all error
 
  errno(), perror() and strerror()
-  - perror() display string pass to it followed by colon, space and then textual representation of current errno value
+  - perror() display string :, then textual representation of current errno value
   - strerror() return pointer to textual representation of current errno value
-  - Use stderr file stream to output all error
-
- Program Exit Status :-
-  - Exit program with value of EXIT_SUCCESS in case of program coming out after successful operation - 0
-  - EXIT_FAILURE which defined as -1
+  - EXIT_SUCCESS - 0
+  - EXIT_FAILURE defined as -1
 
 
 
-Memory Management :-
- - In stati
- - Found in <stdlib.h>
- void *calloc(int num, int size); - Allocate array of num element each of size in bytes
- void free(void *address);        - Release block of memory block specified by address
- void *malloc(size_t size);       - Allocate array of num bytes and leave them uninitialized
- void *realloc(void *address, int newsize); - re-allocate memory extending it upto newsize
-
- Allocation Dynamically :-
-  - If know size declare with :- char name[100]; / don't know :-  char *description;
-  - use calloc(200, sizeof(char)); instead of malloc(200 * sizeof(char));
+Memory Management :- <stdlib.h>
+ free()    - Release block of memory block specified by address
+ calloc()  - Allocate array of num element each of size in bytes | Allocate memory Dynamically
+ malloc()  - Allocate array of num bytes and leave them uninitialized
+ realloc() - re-allocate memory extending it upto newsize | Increase or decrease size of allocated memory
+ Allocation Dynamically :- char name[100]; | don't know size :- char *description;
 
  Resizing and Releasing Memory :-
-  - OS automatically release all memory allocate for program  
-  - To release memory call free() 
-  - Increase or decrease size of allocated memory block by calling realloc()
+  - OS automatically release all allocate memory but also free() also used
   - delete keyword used to free memory from pointer allocated using new keyword
+  
