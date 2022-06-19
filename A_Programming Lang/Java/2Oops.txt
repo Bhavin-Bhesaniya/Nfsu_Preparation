@@ -1,35 +1,31 @@
 OOP (Object Oriented Programming):-
  - All about creating object that contain both data and method
-
- Adavantage :-
-  - Faster and easier to maintain, modify, debug
-  - Provide clear structure
-  - Keep code DRY(DO NOT REPEAT) means reducing repetition of code
-  - Full resuable app with less code and shorter develpoment time
-
-
+ - Faster and easier to maintain, modify, debug
+ - Keep code DRY(DO NOT REPEAT)
+ - Full resuable app with less code and shorter develpoment time
  Field in OOP :-
   Class        |  Object         |  Method       | Instance     |  Message Passing  
   Inheritance  |  Polymorphisam  |  Encapsulate  |  Abstraction
 
 
- 
+
  Object :-
-  - Instance of class which has state and behavior
+  - Instance of class and type of real-world entity which has state(Property) and behavior(Method)
   - new keyword used to create object 
   - You can create multiple object of same class
+  - Whenever create class object its store in memory as class size
   Ex :- ClassName objectname = new ClassName();
  
 
 
  Class :-
   - Class is blueprint of object 
-  - Variable in class know as attribute and Method as behavior
-  Access attribute :- Object.Attribute
-  Modify attribute :- Object.Attribute = new value () // If final keyword use can't modify value
-  Declare method in class :- static or non-static datatype methodname(){}
+  - Variable in class -> Attribute and Method -> Behavior
+  Access attribute         :- Object.Attribute
+  Modify attribute         :- Object.Attribute = new value ()    // If final keyword use can't modify value
+  Declare class method     :- static or non-static datatype methodname(){}
   Access static method     :- methodname();
-  Access Non-static method :- objectofclass.methodname();
+  Access Non-static method :- Object.methodname();
 
 
 
@@ -142,22 +138,22 @@ OOP (Object Oriented Programming):-
 
  Access modifiers :-
   - Set access levels for classes, variables, method and constructor
+  
   public  :- 
    - Accesible by any other class, different package
+   - Method in interface by default public
   
   default :- 
-   - Only accessible by class in the same package
-   - Not required explicitly declare
+   - Only accessible by class in same package
+   - Not required explicitly declare 
    - Used when not specfiy any modifiers
-   - Variable or method declared without any access control modifier is available to any other class in the same package. 
-   - Method in interface are by default public
 
   private :- 
    - Only accessible within declared class
    - Class and interfaces cannot be private
-   - Variable that declared private can accessed outside class, if public getter methods are present in class
+   - Variable that declared private accessed outside class using getter and setter
    - Object encapsulate itself and hides data from outside world (using this keyword)
-   - Make variable available use getFormat() and setFormat() methods
+   - To Make variable available use getter and setter method
 
   protected :- 
    - Accessible within same package and subclasses
@@ -166,9 +162,9 @@ OOP (Object Oriented Programming):-
           
   
   Access Control :-
-   - Method declared public in superclass also must be public in all subclasses
-   - Method declared protected in superclass must either be protected or public in subclasses, they cannot be private
-   - Method declared private are not inherited at all, so there is no rule for them
+   - Method public in superclass must be public in all subclasses
+   - Method protected in superclass either protected or public in subclasses but cannot be private
+   - Method declared private not inherited
         
 
 
@@ -286,5 +282,4 @@ OOP (Object Oriented Programming):-
 
   Unboxing :- 
    - Automatically converting object of wrapper class to its corresponding primitive type is known as unboxing
-
-  
+ 

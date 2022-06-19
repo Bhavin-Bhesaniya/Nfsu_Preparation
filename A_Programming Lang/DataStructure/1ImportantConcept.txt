@@ -1,4 +1,63 @@
-Time Complexity :-
- - Study of efficiency of algorithms
- - How much time taken algorithm to execute with it size of input
- - 
+Time and Space Complexity :- 
+ Running Time Analysis :-
+  - Process of determining how processing time of problem increases as size of problem (input size) increases
+  - Input size is number of elements in input
+  Types of input :- Size of array | Polynomial degree | Vertics and edge in graph
+
+  How to compare algorithm :- Execution times(Depend on computer) | Number of statement executed(Depend on language)
+
+  What is rate of growth :-
+   - Running time increases as function of input
+   Time Complexity      Name
+        1               Constant
+        logn            Logarithmatic
+        n               Linear
+        nlogn           Linear Logarithmatic
+        n^2             Quadratic
+        n^3             Cubic
+        2^n             Exponential
+        n!              Factorial
+
+  
+  Types of Analysis :-
+   - Which input take less time and which input takes long time 
+   Worst-Case Analysis :- Take longest time to complete its execution
+   Best Case Analysis  :- Take least time to complete its execution
+   Average case :- Gives idea about average running time of given algorithm       
+
+  
+  Asymptotic Notation :-
+   Big-O Notation :- 
+    - Give tight upper bound of given function Represented as f(n)=O(g(n)) 
+    - Larger values of N upper bound of f(n) is g(n)
+
+   Omega-Ω Notation :-
+    - Give tighter lower bound of given algorithm represent it as f(n) = Ω(g(n)) 
+    - Larger values of n, tighter lower bound of f(n) is g(n) 
+
+   Theta-Θ Notation :-
+    - Decide whether upper and lower bound of given function(algorithm) are same 
+    - Average running time of algorithm always between lower bound and upper bound
+
+
+  Guildlines for Asymptotic Notation :-
+   - Rules that help us to determine running time of algorithm
+   Logarithmic Complexity :- Algorithm O(logn) if it take constant time to cut problem size by fraction(usually by 1/2)
+
+   Recurrence Relation :- 
+    - Equation that recursively define sequence where next term of sequence is function of previous term 
+    - Express nth term of sequence(Fn) as function of previous terms Fi(i<n)
+  
+   Master Theorem :-
+    - Master’s theorem used to solve recurrence relations of type :- T(n) = a.T(n/b) + f(n) a>=1, b>1
+
+ 
+ 
+ What is Space Complexity? :-
+  - Measure of total amount of memory including space of input values with respect to input size that algorithm need
+    to run and produce result
+  Auxiliary Space :- Temporary or extra space used by algorithm apart from input size in order to solve a problem.
+● Space complexity: It is the total space used by an algorithm in order to solve a problem
+including the input size. It includes both auxiliary space and space taken by the input
+size.
+Space complexity = Auxiliary Space + Space taken by the input size

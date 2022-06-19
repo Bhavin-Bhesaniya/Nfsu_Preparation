@@ -290,22 +290,26 @@ Array :-
  - Store same type data in contiguous manner in fixed-size memory location
  - Array element accessible via its index => [0]
  - If element is greater than array size ArrayIndexOutOfBoundsException Throw
- Syntax :- type array_name[arraysize];    // Size must be Integer
+ Syntax :- type array_name[ arraySize ];    // Size must be Integer
  
  Example :- 
   int arr[10];                 // One-Dimensional array
-  int arr[3] = {1,2,3};        // Initializing array 
+  int arr[3] = {1,2,3};        // Initializing array if not initialized garbage value stored
   arr[2] = 2;                  // Initializing array with specified index
   int access_arr = arr[1];     // Access array element 
-  
+  int *a = new int[100];      // Dynamic array declaration
+
   int multi_arr[5][10];        // Two-Dimensional array - [Row][Column]
   int multi_arr[5][10] = {1,2,3,4,5};
-  int val = multi_arr[2][5];   // Access array element
+  multi_arr[2][5];             // Access array element
   int multi_arr[5][10][4]      // Multi-Dimensional array - [Row][Column][Dimension]
+  arr[2]          // Access value
+  delete [] arr;  // dynamic delete array
 
 
- Passing Array as Function Arguments :- void myFunc(int *param)  |  (int param[10])  |  (int param[])
+ Passing Array as Function Arguments :- void myFunc(int *param, array size)  |  (int param[10])  |  (int param[])
  Return Array From Function          :- int * myFunc()     
+
  
  Pointer to array :-  
   double *p;           // Declare Pointer  
@@ -316,16 +320,39 @@ Array :-
 
 
 String :-
- - One-dimensional array of characters terminated by null character '\0'   
- Types of string representation :-  C-style character string  |  String class
+ - One-dimensional sequences of characters terminated by null character '\0'   
+ Types of string representation :- character array  |  String object
  Ex :- 
-  char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'};
+  char greeting[6] = {'H', 'e', 'l', 'l', 'o', '\0'}; 
   printf("Greeting message: %s\n", greeting );
+
+  char str[] = "Hello";    // Add null length = 6
+
+  char str[50];            //    
+  cout << "Enter a string: ";
+  cin >> str;
+  cin.get(str, 50);
+  cout << "You entered: " << str << endl;
+
+  string str = "Hello World"; or string str;
+  getline(cin, str); // Input stream as first parameter cin and str as line’s location to be stored
+                     // Adv :- not need to specify size, memory allocated dynamically at runtime, so no wasted 
+
+  cout << str[6];  // Access string value
+  str[6] = "F";    // Modify String value
+  cout << str[6];
+
+  string new_string = string1 + string2;  //  strcat(s1, s2) | S1.append(s2); - Concat
+  int res1 = strcmp(str1, str2); 0-same , -1 second string greater, 1 first string greater 
+  // str1.compare(str2); | Relational Operator
+
+  str.size()  |  reverse(str.begin(), str.end());  |  sort(str.begin(), str.end()); - algorithm.h
+
 
  Method :-
   strcpy(s1,s2) | strcat(s1,s2) | strlen(s1) | strcmp(s1,s2) 
-  strchr(s1,ch) :- Return pointer to first occurrence of character ch in string s1
-  strstr(s1,s2) :- Return pointer to first occurrence of string s2 in string s1 
+  strchr(s1,ch) :- Character ch in string s1
+  strstr(s1,s2) :- String s2 in string s1 
 
 
 
@@ -569,36 +596,32 @@ File Stream :-
 
 
 Exception Handling :-
- - Exception problem arise during execution of program
+ - Exception unwanted event that arise during execution of program
  - try/catch block is placed around code that handle exception code 
- - Provide list of standard exception in <exception>
+ - Provide list of standard exception in exception and std::exception(Parent class)
  std:exception - Parent class of all standard C++ exceptions
  C++ exception handling built upon three keyword :- try, catch and throw
 
 
  try   :- Identify block of code form which particular exception activated | Followed by one or more catch block
- catch :- Program catch exception with exception handler at the place in program where you want to handle problem 
+ catch :- Program catch exception with exception handler at place in program where you want to handle problem 
  throw :- Program throws exception when problem shows up
 
 
  Syntax :-
   try { 
     // protected code
+    if( b == 0 ) {
+      throw "Division by zero condition!"; // Exception thrown anywhere within code block using throw Statement
+    }
   } catch(ExceptionName e1) {
      // catch block
-  } catch(ExceptionName n) {
+  } catch(int num) {  // throw no used
+     // catch block
+  } catch(...) {  // handle any type error must place at last
      // catch block
   }
 
- 
- Throwing Exception :- Exception thrown anywhere within code block using throw Statement
-  double division(int a, int b) {
-    if( b == 0 ) {
-      throw "Division by zero condition!";
-    }
-    return (a/b);
-  }
-  
 
 
 Memory Management :- 
@@ -669,3 +692,35 @@ Namespace :-
   }
   using namespace namespace_name1::namespace_name2; // Access members of namespace_name2
   using namespace namespace_name1;                  // Access members of namespace:name1
+
+
+
+STL(Standard Template Library) :-
+ Provides components :- Algorithms, containers, functions, and iterators
+ 
+ Container :-
+  - Holder object that store collection of other object
+  - Manage storage space for its element and provide member function to access them either directly or through iterator
+  Container class :- 
+   vector | list           | forward_list
+   queue  | priority_queue | stack  
+   set    | multiset       | unordered_set |  map  |  multimap 
+
+
+ Vector :- 
+  - Sequence container class that implement dynamic array 
+  - Store elements in contiguous memory location and allocates memory as needed at run time 
+  Syntax :- vector < object_type > v1;
+ 
+  begin()  – Pointing to first element in vector
+  end()    – Pointing to last element in vector
+  clear()  - Remove all elements of vector
+  rbegin() – Reverse beginning move from last to first element
+  rend()   – Reverse beginning move from first to last element
+  cbegin() – constant iterator pointing first
+  cend()   – constant iterator pointing first
+  crbegin() – constant reverse last to first
+  crend()   – constant reverse first to last 
+  push_back() - Add new element at end
+  pop_back()  - Remove last element
+  

@@ -1,0 +1,88 @@
+Ex :- C++ declared outside main
+ class Hero{
+  private:
+    int health;  // Empty class size - 1 byte for identification and tracking
+
+  public:
+    int age;
+    static int num;   // belongs to class -> Not need to create object it -> first initialize it
+   
+    void getHealth(){
+      return health;
+    }
+    void setHealth(int h){  
+      health = h;
+    }
+
+    static void print(){            // Not used this keyword bcz no object address
+        cout << "static called";    // Only able to use static variable
+        return num;                 // print value 
+    }
+
+
+    Hero(){
+        cout << "this line print when object created";
+    }
+    Hero(int health){
+        cout << this;
+        this -> health = health;  // current object address stored in this keyword(Pointer)
+    }
+    Hero(Hero& h5){ //Pass by reference - copy constructor
+        this -> health = h5.health;
+    }
+    ~Hero(){
+        cout << "destructor called";
+    }
+ };
+ int Hero::num = 10;  // Scope resoultion operator used for static variable
+
+
+
+ Hero h1;             // Object - Size of object depend on Property size : 4 integer // static allocation
+ Hero *h2 = new Hero  // Dynamic allocation
+ Hero h3(30);         // parametrized constructor called 
+ Hero h4(h3);         // Copy constructor - provide by system
+ Hero h5(h3);
+ cout << Hero::num << Hero::print();   // Print staic value without create it object | also work with object
+  
+
+
+ h1.setHealth(30);
+ cout << h1.health; // Public  | h1.getHealth(); // private use getter method
+
+ h2->setHealth(50); 
+ cout << (*h2).getHealth();    | h2->getHealth();  // dereference operator or member acces operator used for dynamic 
+   
+ cout << h3.getHealth() << &h3; // this and object both point same address 
+
+ delete h2;     // destructor called for dynamic allocation
+
+
+
+
+ - Add class from other file simple add in header file :- #include "filename.cpp"
+ - By default access modifier is private | Declare :- AccessModifier:  |  public:
+ - health.setHealth(70) | health.getHealth() // getter setter used to access private Property
+
+
+ Constructor :-
+  - Whenever object create constructor called/invoke :- objectname.classname() | h1.Hero() 
+  - Constructor has No returnType
+  - One default constructor provided 
+  - Same constructor call no matter static or Dynamic
+  - When create own constructor with parameter or without, system constructor dead
+
+
+ parametrized constructor :-
+  - current object address stored in this keyword(Pointer)
+  - when write parametrized constructor default construtor delete
+
+ copy constructor :-
+  - default constructor shallow copy(Access same memory)
+  - Deep copy is another specific copy for copy constructor
+
+ destructor :-
+  - same name as class name
+  - no return Type 
+  - no parameter
+  - staic allocation destructor automatically called bu dynamic allocation required called destructor
