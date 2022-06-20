@@ -1,45 +1,56 @@
 ER model (Entity-Relationship model) :-
  - High-level data model define data element and relationship for specified system
- - It develop conceptual design or say design view of database
+ - It develop conceptual design or say visual representation of database
  - Database structure portrayed as diagram called entity-relationship diagram
  - Database represented using notation 
- - Require overall knowledge of ER Diagram like analyse real-world enterprise, relationship between Entity
 
  Component :- 
                       ER Model
-  Entity          Attribute                  Relation
+  Entity          Attribute                  Relation/Cardinality
   - Weak Entity   - Key Attribute            - one-to-one
                   - Composite Attribute      - one-to-many   
                   - Multivalued Attribute    - many-to-one
                   - Derived Attribute        - many-to-many 
 
 
-  Entity(Record):-
+  Entity(Record):- Rectangle
    - Entity may be object, class, person or place represented as rectangle in ER diagram
    - Tangible entities are entities that physically exist in real world
    - NonTangible not physically exist in real world
+   - Entity set is collection of similar types of entities
+   - 
 
-   Weak Entity :-
-    - Entity that depend on another entity called weak entity represented by Double Rectangle
-    - Weak entity doesn't contain any key attribute
+   Weak Entity :- Double Rectangle
+    - Entity that depend on another entity 
+    - Doesn't contain any key attribute
+    - Use Foreign key to combined with its attribute to form primary key
+
+   Strong Entity    :- Exist independently
+   Recursive Entity :- Relation exist between occurrences of same entity set(Unary Relationship)
+   Composite / Bridge Entity :- 
+    - If many to many entities exist must create Bridge entity to Convert it into 1 to many
+    - Represent by Diamond shape with rectangle
  
   
-  Attribute(Column) :-
-   - Describe property of entity represent by Eclipse
+  Attribute(Column) :- Eclipse
+   - Describe property of entity 
    Key Attribute         :- Represent characteristics of entity known as Primary key using ellipse with underlined text
-   Composite Attribute   :- Attribute that composed other attribute represented by different connected with ellipse
-   Multivalued Attribute :- Attribute that have More than one value represented by Double Eclipse
-   Derived Attribute     :- Attribute that derived from other attribute represented by dashed ellipse(--)
+   Composite Attribute   :- Composed other attribute represented by different connected with ellipse
+   Multivalued Attribute :- More than one value represented by Double Eclipse
+   Derived Attribute     :- Derived from other attribute represented by dashed ellipse(--)
+   Simple Attribute      :- atomic value which cannot divided further
 
 
-  Relationship :-
+  Relationship / Cardinality :- Diamond
    - Relation between entities represent by Diamond or rhombus
    - Mapping Constraint Known as Data constraint represent relationship between entities
+   - Show how two entities share information in database
+   - High Cardinality means more unique value stored in column and vice versa
 
-   One-to-One Relationship   :- One instance of entity associated with relationship
-   One-to-many relationship  :- When only one instance of entity associated with more than one instance of entity
-   Many-to-one relationship  :- More than one instance of entity associated with one instance of entity
-   Many-to-many relationship :- More than one instance of entity associated with more than different instance of entity
+   One-to-One Relationship   :- One instance of entity associated with relationship | 1-1
+   One-to-many relationship  :- When only one instance of entity associated with more than one instance of entity | 1-*
+   Many-to-one relationship  :- More than one instance of entity associated with one instance of entity           | *-1 
+   Many-to-many relationship :- More than one instance associated with more than different instance of entity     | *-*
 
 
  Point for Convert ER diagram to Table :-
@@ -50,26 +61,47 @@ ER model (Entity-Relationship model) :-
   - Composite attribute represented by component 
   - Derived attribute not considered in table
 
+ 
+ Total and Partial Partition :-
+  - Each entity set occurs in at least one relationship in that relationship set
+  - Entity fully participate in relationship indicated by double lines drawn from entity to relationship
+  - Partial Participation all entities not involve in relationship 
+  - Partially participate relationship indicated by single lines drawn from entity to relationship
+  Diagram :-  Entity  ========   Relationship   --------- Entity
+                        Total                    Partial
+                           
+ 
+ Generalization :- 
+  - Bottom-up approach in which two or more lower entities combine to form higher level entity 
+  - Entities combined to form more generalized entity(Subclass combined to make superclass)
+  - \|/
+     |
 
-  
+ Specialization :- 
+  - Top-down approach in which one higher level entity broken down into two lower level entities
+  - |
+    |
+   / \
+ 
+ Aggregation :- 
+  - Relation between two entities treated as single entity and aggregated into higher level entity
+    - - -
+      |
+      | 
+
+
+
 Key :-
  - Used to uniquely identify any record or row data from table, establish and identify relationship between table
 
  Primary key   :- Identify one and only one instance of entity uniquely 
  Candidate key :- Except for primary key remaining attribute considered candidate key as strong as primary key
- Super Key     :- Superset of candidate key
+ Super Key     :- Superset of candidate key | Combination of uniquely identifier(Primary key)
  Foreign key   :- Column of table used to point to primary key of another table
  Alternate key :- Total number of alternate keys is total number of candidate keys minus primary key (may or not exist)
  Composite key(Concatenated Key) :- Whenever primary key consist more than one attribute it known as composite key 
  Artificial key :- Created using arbitrarily assigned data, Created when primary key is large and complex has no 
                    relationship with many other relation 
-
-
-
-Generalization :- Bottom-up approach in which two or more entities combine to form higher level entity 
-                  Entities combined to form more generalized entity(Subclass combined to make superclass)
-Specialization :- Top-down approach in which one higher level entity broken down into two lower level entities
-Aggregation    :- Relation between two entities treated as single entity and aggregated into higher level entity
 
 
 

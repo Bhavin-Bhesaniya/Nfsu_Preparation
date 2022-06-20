@@ -1,7 +1,7 @@
 Transaction :-
  - Group of task or Set of operation called transaction
  - Single logical unit of work which accesses and possible modifies content of database
- - 
+
 
  State of Transaction :-  
   Active state        :- First state of every transaction where transaction being executed

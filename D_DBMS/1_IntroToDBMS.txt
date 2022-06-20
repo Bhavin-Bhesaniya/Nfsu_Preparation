@@ -4,6 +4,12 @@ What is Data and Database?
  - Data stored in database is in row and column format which called table
  - SQL or Structured Query Language used to operate on data stored in database
  - Cylindrical structure display image of database
+ - DBMS is interface between database and endusers
+ Level of tree :- Bit(Lower level) -> Byte -> Field -> Record -> File -> Database(Higher level)
+
+ Data administrator :-
+  - High level function responsible for overall management of data resources in organization
+  - Selection of hardware and Software  |  Managing data security and privacy
 
 
 
@@ -124,13 +130,21 @@ RDBMS (Relational Database Management System) :-
  - Tabular DBMS that maintain security, integrity, accuracy and consistecy of data introduced by E. F. Codd
  - It contains several tables and each table has its primary key which uniquely identify record
  - From 1970 to 1972, E.F. Codd published paper to propose using relational database model
+ - Degree of relationship refer to number of participating entities in relationship
+ - Most Relationship are binary
+
 
  Component :- Table | Record/ Tuple | Field/Column name /Attribute | Instance | Schema | Key
   Table           :- Collection of related data entries that store data in rows and columns of table 
   Row or record   :- Row of table called record or tuple that contain specific information of each entry in table 
   Column/attribute:- Vertical entity which contain all information associated with specific field in table 
   Data item/Cells :- Smallest unit of table in which atomic data store  
-  Degree          :- Total number of attributes that comprise relation known as degree of table
+  Degree          :- 
+   - Total number of attributes that comprise relation known as degree of table
+   UNARY  :- Both participating entity type are same, 1
+   BINARY :- Two entities involved in relationship, referred as binary, 2
+   Ternary :- 3
+
   Cardinality     :- Total number of record at one time in relation known as table's cardinality
   Domain          :- Possible values each attribute contain Specified using standard data types such as integer
   NULL Values     :- Specifie that field has been left blank during record creation
@@ -138,11 +152,13 @@ RDBMS (Relational Database Management System) :-
 
  Schema and Instance :-
   - Data which stored in database at particular moment of time is called instance of database
-  - Overall design of database called schema
+  - Overall design of database called schema :- Physical | Logical | View
   - Database schema is skeleton structure of database that represent logical view of entire database
   - Schema contain schema object like table, foreign key, primary key, views, columns, data types, stored procedure etc.
   - Schema represented by using visual diagram that show database object and relationship with each other
+  - Subschema is subset or proper subset of schema and inherit same property that schema has(scheme for view often)
   - Process of database creation called data modeling
+
 
  Data Integrity :-
   Entity integrity :- No duplicate rows in table
@@ -239,7 +255,7 @@ Three schema Architecture | ANSI/SPARC | Three-level:-
 
 
 
-Database Language (DDL | DML | DCL | TCL):- 
+Database Language (DDL | DML | DCL | TCL | DQL):- 
  - DB language and interface used to read, store and update the data in the database.
  
  Types :-
@@ -286,6 +302,10 @@ Database Language (DDL | DML | DCL | TCL):-
    Task :- 
     Commit   : Save transaction on database
     Rollback : Restore database to original since last Commit
+  
+
+  Data Query Language (DQL) :-
+   - Allow searching of any data in the database and performing computations on it
 
 
 
@@ -315,7 +335,3 @@ ACID Properties :-
  Durability :- 
   - Ensure data after successful execution of operation become permanent store in database 
   - Even if system fails or leads to crash database still survives
-  
-
-Bit -> Byte -> Field -> Record -> File -> Database
- 
