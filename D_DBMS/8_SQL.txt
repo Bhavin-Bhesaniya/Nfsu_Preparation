@@ -74,11 +74,16 @@ Command :-
    - Delete all rows from table and free space containing table
    Syntax :- TRUNCATE TABLE table_name;  
 
+  RENAME :-
+   - rename table
+   Syntax :- RENAME table old-table-name to new-table-name; 
+
 
 
  Data Manipulation Language (DML):-
   - Modify database, Responsible for all form of changes in database
-  - Command not auto-committed they can be rollback
+  - Command not auto-committed they may rollback
+  - Select Also
   
   INSERT :- 
    - Insert data into row of table
@@ -126,8 +131,8 @@ Command :-
 
 
  Transaction Control Language(TCL) :-
-  - TCL command only use with DML command like INSERT, DELETE and UPDATE only
-  - Automatically committed in database that's why they cannot be used while creating tables or dropping them
+  - Use with DML command like INSERT, DELETE and UPDATE
+  - Automatically committed in database that's why they cannot used while creating tables or dropping them
   
   Commit :-  
    - Save all transactions to database

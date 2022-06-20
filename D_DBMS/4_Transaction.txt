@@ -3,21 +3,20 @@ Transaction :-
  - Single logical unit of work which accesses and possible modifies content of database
 
 
- State of Transaction :-  
-  Active state        :- First state of every transaction where transaction being executed
-  Partially committed :- Transaction executes its final operation but data still not saved to database
-  Committed :- Execute all operation successfully and Change permanently saved on database system
-  Failed    :- Any checks made by database recovery system fail then transaction said to be in failed state
+ Transaction State :-  
+  Active state        :- Transaction being executed
+  Partially committed :- Transaction execute final operation but data still not saved to database
+  Committed :- Execute all operation successfully and Change permanently saved item on database system
+  Failed    :- Any check made by database recovery system fail then transaction in failed state
   Aborted   :- 
-   - Transaction reached failed state then recovery system make sure database in previous consistent state
-   - If not then it abort or roll back transaction to bring database into consistent state
+   - If failed then abort or roll back transaction to bring database into consistent state
    - After aborting transaction recovery module select one of two operation :- Re-start transaction | Kill transaction
-  Terminated :-  
+  Terminated :-   
 
 
 
 Transaction property :-
- - Used to maintain consistency in database before and after transaction
+ - Maintain consistency in database before and after transaction
 
  Atomicity :- 
   - If any operation performed on data either executed completely or not executed
@@ -26,7 +25,6 @@ Transaction property :-
   Operation :- Abort(No Change) | Commit(Save Transaction)
 
  Consistency :- 
-  - Value should remain preserved always 
   - If change in database made, it should remain preserved always 
    
  Isolation(Separation) :- 
@@ -44,67 +42,35 @@ Transaction property :-
 
 Schedule :-
  - Maintain Series order of operation from one transaction to another transaction known as schedule 
-
  Serial Schedule     :- One transaction executed completely before starting another transaction 
  Non-serial Schedule :- If interleaving of operation allowed then there will be non-serial schedule
- 
- Serializable Schedule :-
-  - Non-serial schedule that allow transaction to execute concurrently without interfering with one another
-  - It identifie which schedule correct when execution of transaction have interleaving of their operation
-  - Non-serial schedule serializable if its result equal to result of its transaction executed serially
 
-  Testing Serializability :-
-   - If graph contain single edge Ti → Tj then all instruction of Ti executed before first instruction of Tj
-   - Schedule S contain cycle then S is non-serializable 
-   - No cycle then S known as serializable
 
-  
 
 Failure Transaction :-
- - To find where problem has occurred
- - Sometime transaction not execute completely due to software issue, system crash or hardware failure 
- - In that case, failed transaction has to be rollback 
+ - Sometime transaction not execute completely due to system crash or hardware failure In that case that rollback 
  
-
- Transaction failure :-
-  - Occur when it fail to execute or when it reach point from where it can't go any further 
-  - If few transaction or process hurt then its called transaction failure
-
-  Reason for transaction failure :-  
-   Logical error :- If transaction cannot complete due to some code error or internal error
-   Syntax error :- When DBMS itself terminate active transaction because system not able to execute it 
-   
- 
- System Crash :-
-  - System failure occur due to power failure or other hardware or software failure Ex :- OS error
-  Fail-stop assumption :- In system crash, non-volatile storage assumed not to be corrupted
-
-
- Disk Failure :-
-  - Storage drive fail frequently
-  - Due to formation of bad sector, disk head crash and unreachability which destroy all or part of disk storage
+ Transaction failure :- Logical error(Code or internal error) | Syntax error(system not able to execute)   
+ System Crash :- Power failure or other hardware or software failure Ex :- OS error
+ Disk Failure :- Formation of bad sector, disk head crash and unreachability
 
 
 
 Log-Based Recovery :-
- - Log is sequence of record, Any operation performed on database then it will be recorded in log
- - Log of each transaction maintained in some stable storage so that if any failure occur then it recovered from there
- - All logs created and stored in stable storage and database updated when transaction commit
+ - Log is sequence of record, Any operation performed on database then it recorded as log
+ - Log of each transaction maintained in some storage table so any failure occur then it recovered from there
+ - Recovery using Log record, Find which transaction need to be undone and redone
 
  Deferred database modification  :- Transaction not modify database until it committed
  Immediate database modification :- Database modification occur while transaction still active
- 
- Recovery using Log record :- 
-  - When system crashed then system consult log to find which transaction need to be undone and redone
   
 
 
 Checkpoint :-
  - All previous logs removed from system and permanently stored in storage disk(Like bookmark)
- - While transaction execution such checkpoint log files will be created
- - When reache to checkpoint then transaction updated into database and till that point entire log file remove from file 
+ - While transaction execution such checkpoint log files created
+ - When reach to checkpoint then transaction updated into database till that point entire log file remove from file 
  - Then log file updated with new step of transaction till next checkpoint
- 
  Recovery using Checkpoint :- Read log file from end to start and maintain two list redo-list and an undo-list
 
 
@@ -146,3 +112,21 @@ Deadlock in DBMS :-
      until older releases it
 
 
+ 
+Concurrent Transaction :-
+ - Transaction run parallely that Improved throughput & Resource utilization
+ - Reduced Waiting time :- Unpredictable delays as well as average response time reduced
+
+
+
+Serializability :-
+ - When multiple transaction executed by os there ossibilities that instruction of one transaction interleaved with
+   some other transaction
+
+
+
+What is a conflict? :-
+ - In Pair of schedule Operation, if operation order interchanged then behavior of at least one transaction change
+ Operations are conflict if :- 
+  - Belong to different transaction | Access same data item | At least one operation is write operation
+  
