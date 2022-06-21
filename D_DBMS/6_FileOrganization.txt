@@ -1,132 +1,74 @@
 File Organization :-
- - File is collection of record 
- - Using primary key access record 
+ - File is collection of record and Using primary key access record 
  - Type and frequency of access determined by type of file organization which used for given set of records
- - It is logical relationship among various record define how file records are mapped onto disk blocks
- - Describe way in which record stored in terms of blocks and blocks are placed on storage medium
- - First approach to map database to file to use several file and store only one fixed length record in given file
- - Alternative approach is to structure our files so that we can contain multiple lengths for record
- - Files of fixed length record are easier to implement than files of variable length record
- 
- Objective of file organization :-
-  - Contain optimal selection of record (Selected as fast as possible)
-  - CRUD performance on record should be quick and easy
-  - Duplicate record cannot be induced as result of insert, update or delete
-  - For minimal cost of storage, record should be stored efficiently
+ - Files of fixed length record easier to implement than files of variable length record
+ - Provide optimal record selection and modification(Selected as fast as possible)
+ - Duplicate record cannot be induced as result of insert, update or delete 
 
-  
+
 
 Sequential File Organization :-
- - Easiest method files are stored sequentially
-
- Pile File Method :-
-  - Store record in sequence 
-  - In case of updating or deleting of any record record will be searched in memory blocks 
-  - When it is found then it will be marked for deleting and new record inserted
-
- Sorted File Method :-
-  - New record always inserted at file's end then it will sort sequence in ascending or descending order 
-  - Sorting of record is based on any primary key or any other key
-  - In case of modification of any record it update record then sort file lastly updated record placed in right place
-
- Pros of sequential file organization :-
-  - Contain fast and efficient method for huge amount of data
-  - Files easily stored in cheaper storage mechanism like magnetic tape
-  - Simple design, no much effort required to store data
-  - Used when most record have to be accessed, report generation or statistical calculation
+ Pile File Method :- Store record in sequence, in case updating or deleting of any record
   
- Cons of sequential file organization :-
-  - Cannot jump on particular record that required but move sequentially which takes our time
+ Sorted File Method :-
+  - New record inserted at end then sort sequence in ascending or descending order based on any key
+  - In case of modification, update record then sort file
+
+ Pros :-
+  - Fast and efficient | Stored in cheaper storage mechanism like magnetic tape
+  - Simple design      | Used when most record to be accessed, report generation or statistical calculation
+  
+ Cons :-
+  - Cannot jump on particular record becaus it move sequentially which takes time
   - Sorted file method take more time and space for sorting record
  
 
   
-Heap file organization :-
- - Work with data block, Record inserted at file's end at time doesn't require sorting and ordering of record
- - When data block full new record stored in some other block and it not need be very next data block but it select 
-   any data block in memory to store new record 
- - Heap file also known as unordered file
- - In file, every record has unique id and every page in file same size 
- - Check all data until get requested record because unordered
-
- Pros of Heap file organization :-
-  - Good for bulk insertion 
-  - Small database fetching and retrieving faster 
-
- Cons of Heap file organization :-
-  - Inefficient for large database because it takes time to search or modify record
-  - Inefficient for large database
+Heap file organization(unordered file):-
+ - Record inserted at file's end at time doesn't require sorting and ordering of record
+ - When data block full new record stored in any other block of memory
+ - Check all data until get requested because unordered
+ Pros :- Good for bulk insertion | Small database fetching and retrieving faster 
+ Cons :- Inefficient for large database because it takes time to search or modify record
 
 
 
 Hash File Organization :-
- - Use computation of hash function on some field of record 
+ - Use hash function on some field of record 
  - Output determine location of disk block where record placed
- - When record has to be received using hash key column then address generated and whole record retrieved using that
-   address 
  - When new record has to be inserted then address generated using hash key and record directly inserted 
- - There is no effort for searching and sorting entire file
+ - No effort for searching and sorting entire file
  - Each record stored randomly in memory
 
 
 
 B+ File Organization :-
- - Advanced indexed sequential access method uses tree-like structure to store records in File
- - Use same concept of key-index where primary key used to sort record 
- - For each primary key value of index generated and mapped with record
- - B+ tree similar to binary search tree (BST) but it have more than two children 
- - All record stored only at leaf node 
- - Intermediate nodes act as pointer to leaf node
- - They do not contain any record
- - Searching any record traversed through single path and accessed easily
-  
- Pros of B+ tree file organization :-
-  - Searching become very easy as all record stored only in leaf nodes and sorted sequential linked list
-  - Traversing through tree structure easier and faster
-  - Size of B+ tree has no restriction, so number of record increase or decrease
-  - B+ tree structure also grow or shrink
-  
- Cons of B+ tree file organization :-
-  - Inefficient for static method
+ - Advanced indexed sequential access method uses tree-like structure to store record in File
+ - For each primary key index generated and mapped with record
+ - Similar to binary search tree (BST) but it have more than two children 
+ - All record stored only at leaf node, Intermediate node act as pointer to leaf node and not contain any record
+ - B+ tree structure also grow or shrink  
+ Pros :- Searching easy | Traversing through tree structure easier and faster | No Size restriction
+ Cons :- Inefficient for static method
 
 
 
 Indexed sequential access method (ISAM) :-
  - Advanced sequential file organization where Record stored in file using primary key 
- - Index value generated for each primary key and mapped with record 
- - Index contain address of record in file
  - Record has to be retrieved based on its index value, then address of data block fetched and retrieved from memory
 
- Pros of ISAM :-
-  - Each record has address of its data block searching quick and easy
-  - Support range retrieval and partial retrieval of record 
-  
- Cons of ISAM :-
+ Pros :- Each record has address so easy searching | Support range retrieval and partial retrieval of record 
+ Cons :- 
   - Require extra space in disk to store index value
-  - When new record inserted, then these file have to be reconstructed to maintain sequence
-  - When record deleted then space released Otherwise performance of database will slow down
+  - When new record inserted or deleted it reconstructed to maintain sequence
 
 
 
 Cluster file organization :-
  - When two or more record stored in same file known as clusters 
- - Files have two or more table in same data block and key attributes which used to map these table together stored 
-   only once
- - Reduce cost of searching for variou record in different file
- - Used when there is frequent need for joining tables with same conditionT
- - Joins give only few record from both table
+ - Reduce cost of searching for various record in different file
+ Pros :- Efficient for 1:M mapping between table
+ Cons :- Low performance for large database | Not for 1:1 mapping | Change joining condition traversing take lot time
  
- Types of Cluster file organization :-
-  Indexed Cluster :- Record grouped based on cluster key and stored together 
-  Hash Cluster :-
-   - Instead storing record based on cluster key, generate value of hash key for cluster key and store record with same
-     hash key value
-
- Pros of Cluster file organization :-
-  - Used when there is frequent request for joining tables with same joining condition
-  - Provide efficient result when there is 1:M mapping between table
- 
- Cons of Cluster file organization :-
-  - Low performance for very large database
-  - If change condition of joining then traversing file take lot of time
-  - Not suitable for table with a 1:1 condition
+ Indexed Cluster :- Record grouped based on cluster key and stored together 
+ Hash Cluster    :- Generate value of hash key for cluster key and store record with same hash key value

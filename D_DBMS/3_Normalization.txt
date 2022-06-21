@@ -1,20 +1,20 @@
-Functional Dependency(FD) :-
- - Relationship that exist between two attributes 
- - Typically exist between Primary key and non-key attribute within table
- - X → Y  Left side of FD known as determinant right side of production known as dependent
+Dependency :-
 
- Functional dependency written as :- Emp_Id → Emp_Name   
-  - Emp_Name is functionally dependent on Emp_Id
+ Functional Dependency(FD) :- 
+  - Relationship that exist between two attributes 
+  - Typically exist between Primary key and non-key attribute within table
+  Functional dependency written as :- Emp_Id → Emp_Name | Emp_Name functionally dependent on Emp_Id
 
- Trivial functional dependency     :- B is a subset of A
- Non-trivial functional dependency :- B is not a subset of A
+ Trivial functional dependency     :- B is subset of A
+ Non-trivial functional dependency :- B is not subset of A
+ Multivalued Dependency :- Consist two attribute that dependent on third attribute 
+ Inclusion Dependency   :- Some column relation contained in other column | Ex :- Foreign key 
 
-
+ 
 
 Inference Rule (IR):
- - Armstrong's axioms basic inference rule.
- - Used to conclude functional dependencies on a relational database.
- - Rule is type of assertion that apply to set of FD(functional dependency) to derive other FD
+ - Armstrong's axioms rule, conclude functional dependencies on relational database
+ - Rules apply on set of FD(functional dependency) to derive other FD
  - Using IR derive additional functional dependency from initial set
  Reflexive Rule (IR1) | Augmentation Rule (IR2)(Partial dependency) | Transitive Rule (IR3) 
  Union Rule (IR4)     | Decomposition Rule (IR5)(Project rule)      | Pseudo transitive Rule (IR6) 
@@ -22,51 +22,23 @@ Inference Rule (IR):
 
 
 Normalization :-
- - Process of organizing data in database to minimize redundancy from relation or set of relation 
- - Eliminate undesirable characteristics like Insertion, Update, and Deletion Anomalies
- - Divide larger table into smaller and links them using relationship
+ - Sset of rules that organizing data in database to minimize redundancy from relation
  - Normal form used to reduce redundancy from database table
- - Failure to eliminate anomalie leads to data redundancy cause data integrity and other problem as database grow 
- - Normalization is set of rules that helps to guide in creating good database structure
+ - Divide larger table into smaller and links them using relationship
+ - Performance degrade in higher normal form | Time consuming
 
- Types of Normal Form :-
-  1NF	Contain atomic value | Cannot hold multiple value hold only single-valued
-  2NF	Include 1NF and all non-key attribute fully functional dependent on primary key
-  3NF	Include 2NF and no transition dependency exist | Reduce data duplication to achieve data integrity
-  BCNF	Stronger definition of 3NF is known as Boyce Codd's normal form
-  4NF	Include BCNF and has no multi-valued dependency
-  5NF	Include 4NF and not contain any join dependency, joining should be lossless
-        5NF satisfied when all tables broken into as many tables as possible in order to avoid redundancy
-        Also known as Project-join normal form (PJ/NF)
-
- Advantages    :- Minimize data redundancy | Data consistency |
- Disadvantages :- performance degrades when higher normal forms | Time consuming
+ 1NF  :- Cannot hold multiple value hold only single-valued(Atomic value)
+ 2NF  :- Include 1NF and all non-key attribute fully functional dependent on primary key
+ 3NF  :- Include 2NF and No transition dependency  |  Reduce data duplication to achieve data integrity
+ BCNF :- Boyce Codd's normal form Stronger definition of 3NF
+ 4NF	:- Include BCNF and No multi-valued dependency
+ 5NF	:- Include 4NF and Not contain join dependency and joining should be lossless
+        All tables broken into as many as possible smaller table in order to avoid redundancy
+        Project-join normal form (PJ/NF)
 
 
 
 Relational Decomposition :- 
- - Decomposition used to eliminate problems of bad design like anomalies, inconsistencies, and redundancy
-  
- Lossless Decomposition :-
-  - If information not lost from relation that decomposed then decomposition will be lossless
-  - Guarantees that join of relation result in same relation as it was decomposed
-  
- Dependency Preserving :- 
-  - Important constraint of the database where at least one decomposed table must satisfy every dependency
-
-
-
-Multivalued Dependency :- 
- - When two attributes in table independent of each other but both depend on third attribute
- - Consist two attribute that dependent on third attribute that's why it always require at least attribute
-
-
-
-Inclusion Dependency :-
- - Statement in which some column of relation are contained in other column
- - Ex :- Foreign key 
-
-
-
-Canonical Cover(Irreducible):- 
- - Set of functional dependencies FD simplified set of FD that has similar closure as original set FD
+ - Eliminate problem of bad design like anomalies, inconsistencies and redundancy
+ Lossless Decomposition :- If information not lost from relation that it will be lossless
+ Dependency Preserving  :- Constraint of database where at least one decomposed table must satisfy every dependency

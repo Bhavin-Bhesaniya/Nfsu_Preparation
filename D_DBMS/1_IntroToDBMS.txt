@@ -1,24 +1,20 @@
 What is Data and Database?
- - Data is collection of information that translated into different form for efficient usage and processing
+ - Data is collection of information
  - Database organized collection of data into tables so that easily accessed, retrieve and managed
- - Data stored in database is in row and column format which called table
- - SQL or Structured Query Language used to operate on data stored in database
- - Cylindrical structure display image of database
- - DBMS is interface between database and endusers
+ - Data stored in database row and column format which called table
+ - SQL used to operate on data stored in database
+ - DBMS interface between database and enduser
  Level of tree :- Bit(Lower level) -> Byte -> Field -> Record -> File -> Database(Higher level)
 
  Data administrator :-
-  - High level function responsible for overall management of data resources in organization
+  - Responsible for overall management of data resources in organization
   - Selection of hardware and Software  |  Managing data security and privacy
 
 
 
 Types of Databases :- 
  
- File-Based :-
-  - 1968, data maintained in flat file
-  Access method :- Sequential, Indexed and Random
-
+ File-Based :- 1968 | Data maintained in flat file | Access method :- Sequential, Indexed and Random
 
  Centralized Database :-
   - Store data at centralized database system 
@@ -28,38 +24,31 @@ Types of Databases :-
 
 
  Distributed Database(DDB) :-
-  - Data distributed among different database system of organization are connected via communication links 
-  - Link Help end-users to access data easily 
+  - Data distributed among different database system of organization that connected via communication link
   - Modular development possible  |  One server failure not affect entire data set
   Ex :- Cassandra
-  Homogeneous DDB   : Execute on same OS, use same application process and carry same hardware device
-  Heterogeneous DDB : Execute on different OS under different application procedure and carry different hardware device
+  Homogeneous   : Execute on same OS, use same application process and carry same hardware device
+  Heterogeneous : Execute on different OS under different application procedure and carry different hardware device
   
   
  Relational Database :-
-  - 1970-Present, Store data in form of rows and column(attributes) together in form of table(relation) 
-  - Use SQL for storing, manipulating as well as maintaining data 
+  - 1970-Present | Store data in form of rows and column(attributes) called table(relation) 
   - E.F. Codd invented relational database model in 1970 
-  - Each table in database carry key that make data unique from other
-  - Instance is table with rows or column
-  - Schema specifies structure like name of relation, type of each column and name
   - Use some mathematical concept like set theory and predicate logic
-  - First internet database application had been created in 1995
-  
+  - First internet database application created in 1995
   Properties :- ACID
 
 
  NoSQL Database :-
-  - Storing wide range of data set
-  - Not store data only in tabular form but in several different way
+  - Storing wide range of data set | Data not only store in tabular form but in several different way
   Advantage    :- High Scalability | High Availability    | Quickly Access       | Not required store data in structur
   Disadvantage :- Open source      | Management challenge | GUI is not available | Backup
 
   Storage Types :-  
-  Key-value storage  :- Store every single item as key(or attribute name) holding its value together(Redis)
-  Graph Databases    :- Storing data in graph-like structure (Social networking website use)
-  Wide-column store  :- Data stored in large column together, instead of storing in row(Big Table)
-  Document-oriented Database :- Store in JSON document(MongoDB)
+   Key-value storage  :- Store every single item as key(or attribute name) holding its value together(Redis)
+   Graph Databases    :- Storing data in graph-like structure (Social networking website use)
+   Wide-column store  :- Data stored in large column together, instead of storing in row(Big Table)
+   Document-oriented Database :- Store in JSON document(MongoDB)
 
 
  Cloud database(Database as service (DBaaS)):-
@@ -68,7 +57,7 @@ Types of Databases :-
   Advantage :- Lower cost | Automated | Increased accessibility 
   
 
- Object-oriented Databases(OODB) :-
+ Object-oriented Database(OODB) :-
   - Use object-based data model approach for storing data 
   - Data represented and stored in form of objects and classes which similar to object used in OOP language
   - Object are real-world entity and classes are collection of object
@@ -83,17 +72,17 @@ Types of Databases :-
   - Used in supply chain management, identifying source of IP telephony 
 
 
- Hierarchical Databases :-
-  - 1968-1980, Prominent hierarchical database model was IBM's first DBMS called IMS(Information Management System)
-  - Store data in form of parent-children relationship nodes(tree-like structure)
+ Hierarchical Database :-
+  - 1968-1980 | IBM's first DBMS called IMS(Information Management System)
+  - Store data parent-children relationship nodes(tree-like structure)
   - Complex implementation | Lack structural independence, can't easily handle many-many relationship  
 
 
  Network Database :-
   - Charles Bachman developed at Honeywell called Integrated Data Store (IDS) 
-  - Developed in 1960s but standardized in 1971 by CODASYL group (Conference on Data Systems Languages)
-  - Represent data in form of node connected via link between them 
-  - Allow each record have multiple children and parent nodes to form generalized graph structure
+  - Developed in 1960s but standardized in 1971 by CODASYL group (Conference on Data System Language)
+  - Represent data in form of node connected via link
+  - Each record have multiple children and parent nodes generalized graph structure
 
   Component :-
    - Network schema (Database organization) | Sub-schema (Views of database) | Data management language (Procedural)
@@ -102,19 +91,14 @@ Types of Databases :-
 
 
 DBMS (Data Base Management System) :-
- - Software that used to store and retrieve data
- - Provide interface to perform various operation
- - Accept request from application and provide specific data through OS
- 
+ - Software used to store and retrieve data
+ - Provide interface to accept request from application and specific data through OS
  Advantage    :- Control Redundancy | Data sharing | Backup | Multiple user interfaces | Security
  Disadvantage :- Size | Cost | Complexity | 
 
- 1-Tier Architecture :-
-  - Database directly available to user and changes directly done by database itself 
-  - Client, Server and Database all reside in same machine
-  - Used for local application where programmer directly communicate with database for quick response
-  
- 2-Tier Architecture :-
+ 1-Tier Architecture :- Database directly available to user and changes directly done by database itself 
+ 
+ 2-Tier Architecture :- 
   - Client-server, Application on client communicate with database at server side
   - For this API's Used like :- ODBC, JDBC
   Diagram :-  [DB](Server-Side) --> [Application | User](Client-Side)
@@ -128,43 +112,40 @@ DBMS (Data Base Management System) :-
 
 RDBMS (Relational Database Management System) :-
  - Tabular DBMS that maintain security, integrity, accuracy and consistecy of data introduced by E. F. Codd
- - It contains several tables and each table has its primary key which uniquely identify record
  - From 1970 to 1972, E.F. Codd published paper to propose using relational database model
- - Degree of relationship refer to number of participating entities in relationship
+ - Degree of relationship refer to number of entities in relationship
  - Most Relationship are binary
 
 
- Component :- Table | Record/ Tuple | Field/Column name /Attribute | Instance | Schema | Key
-  Table           :- Collection of related data entries that store data in rows and columns of table 
-  Row or record   :- Row of table called record or tuple that contain specific information of each entry in table 
-  Column/attribute:- Vertical entity which contain all information associated with specific field in table 
-  Data item/Cells :- Smallest unit of table in which atomic data store  
-  Degree          :- 
-   - Total number of attributes that comprise relation known as degree of table
-   UNARY  :- Both participating entity type are same, 1
-   BINARY :- Two entities involved in relationship, referred as binary, 2
+ Component :-
+  Table            :- Collection of related data entries that store data in rows and columns of table 
+  Row|Record|Tuple :- Specific information of each entry in table 
+  Column/attribute :- Vertical entity contain information with specific field in table 
+  Data item/Cells  :- Smallest unit of table in which atomic data store  
+  
+  Degree :- Total number of attributes that comprise relation known as degree of table
+   UNARY   :- Both participating entity type same, 1
+   BINARY  :- Two entities involved in relationship, referred as binary, 2
    Ternary :- 3
 
-  Cardinality     :- Total number of record at one time in relation known as table's cardinality
-  Domain          :- Possible values each attribute contain Specified using standard data types such as integer
-  NULL Values     :- Specifie that field has been left blank during record creation
+  Cardinality :- Total number of record at time in relation known as table's cardinality
+  Domain      :- Each attribute Specified using standard data types such as integer
+  NULL Values :- Specifie that field left blank during record creation
 
 
  Schema and Instance :-
-  - Data which stored in database at particular moment of time is called instance of database
+  - Data which stored in database at particular moment of time called instance of database
   - Overall design of database called schema :- Physical | Logical | View
-  - Database schema is skeleton structure of database that represent logical view of entire database
-  - Schema contain schema object like table, foreign key, primary key, views, columns, data types, stored procedure etc.
-  - Schema represented by using visual diagram that show database object and relationship with each other
-  - Subschema is subset or proper subset of schema and inherit same property that schema has(scheme for view often)
+  - Database schema skeleton structure of database that represent logical view of entire database
+  - Subschema inherit same property that schema has(scheme for view often)
   - Process of database creation called data modeling
 
 
  Data Integrity :-
-  Entity integrity :- No duplicate rows in table
-  Domain integrity :- Valid entries for given column by restricting type, format or range of values
-  Referential integrity  :- Row cannot be deleted which used by other record
-  User-defined integrity :- Specific business rules defined by users are different from other integrity
+  Entity       :- No duplicate rows in table
+  Domain       :- Valid entries for given column by restricting type, format or range of values
+  Referential  :- Row cannot deleted which used by other record
+  User-defined :- Specific business rules defined by users are different from other integrity
 
 
 
@@ -172,9 +153,8 @@ Difference between DBMS and RDBMS :-
               	    DBMS	                                                    RDBMS
   Store data as file so no relation between table	     Store data in tabular form so relationship between table
 	Normalization not present                            Normalization present 
-	Stored either hierarchical form or 	                 Tables have identifier called primary key and data value 
-  navigational form                                    Stored in form of tables
-	Not apply any security with data manipulation        Integrity constraint for purpose of ACID property
+	Stored Hierarchical or navigational form 	           Stored in form of tables
+	Not security with data manipulation                  Integrity constraint for purpose of ACID property
   Not support distributed database	                   Support distributed database
  	For small organization which deal with small data    Handle large amount of data
   Support single user	                                 Support multiple user
@@ -182,41 +162,31 @@ Difference between DBMS and RDBMS :-
 
 
 
-Three schema Architecture | ANSI/SPARC | Three-level:- 
- - Describe structure of database system
- - Schema Define database entities and relationship among them
- - Enable multiple users to access same data with personalized view while storing underlying data only once 
- - Separate user's view from physical structure of database 
-
+Three schema Architecture | ANSI/SPARC | Three-level :- 
+ - Schema Define database structure, entities and relationship among them
+ - Mapping transform request and response between various database level of architecture
 
  Diagram :-
-  External Schema     External Level      External Level
+  External Schema     External Level      External Level(User view)
                                   \       /            - [External / Conceptual Mapping]  
-  Conceptual Schema            Conceptual Level
+  Conceptual Schema            Conceptual Level (Logical)
                                       |                - Conceptual / Internal Mapping
-  Internal Schema              Internal Level
+  Internal Schema              Internal Level(Physical)
                                       |
                                  [Database]
 
-  - Mapping transform request and response between various database level of architecture
-  - Not good for small DBMS because it takes more time
- 
 
  Internal Level(Physical Schema) :-
-  - Describe physical storage structure of database
-  - Define that how data stored in block
+  - Describe physical storage structure of database means How data stored in block
   - Data compression and encryption | Optimization internal structure | Representation of stored field
-  Storage space allocation Ex :- B-Trees, Hashing
-  Access Path :- Primary and secondary keys, indexes, pointers and sequencing
+  Storage Allocation :- B-Tree, Hashing
+  Access Path        :- Primary and secondary keys, indexes, pointer and sequencing
 
 
  Conceptual Level(Logical Level):-
-  - Logical representation of data as object and relationship among them 
   - Describe structure of whole database and what relationship exist among those data
   - Object known as entities and relationship association among these entities 
-  - Set of attributes describe entitie known as 'Entity Set' and set of relationships known as 'relationship set'
-  - It define tables, views and Integrity constraint
-  - Programmers and database administrator work at this level
+  - Set of attributes describe 'Entity Set' and set of relationships 'relationship set'
   - Designed by Peter Chen and published in 1976 paper 
   Ex :-  student_name, student_id describe 'student' entity 
 
@@ -225,113 +195,16 @@ Three schema Architecture | ANSI/SPARC | Three-level:-
   
 
  Mapping between Views :-
-  - Three level of DBMS architecture correspondence with each other level known as Mapping
- 
-  Conceptual | Internal Mapping:-
-   - Correspondence between record and field of conceptual level and files and data structures of internal level
-
-  External/ Conceptual Mapping :-
-   - Correspondence between particular external and conceptual view
+  Conceptual | Internal   :- Correspondence record and field of conceptual and files and data structures of internal
+  External   | Conceptual :- Correspondence between particular external and conceptual view
 
 
- Data independence :-
-  - Modify datbase schema at one level without altering schema at next higher level
+ Data independence :- Modify datbase schema at one level without altering schema at next higher level
 
-  Logical Data Independence :-
-   - Change conceptual schema without change external schema
-   - Separate external level from conceptual view
-   - At user interface level, Change in conceptual view of data not affect user view of data
-  
-  Physical Data Independence :-
-   - Change internal schema without change conceptual schema
-   - If do any change in storage size of database system server then Conceptual structure of database not be affected
-   - Separate conceptual level from internal level
-   - Occure at logical interface level
+  Logical Data Independence  :- Change conceptual schema without change external schema
+  Physical Data Independence :- Change internal schema without change conceptual schema
    
   Diagram :-  
     External Level   <--->   Logical Level   <--->   Physical Level   <--> Stored Database
                        |                       | 
           Logical Data Independence    Physical Data Independence
-
-
-
-Database Language (DDL | DML | DCL | TCL | DQL):- 
- - DB language and interface used to read, store and update the data in the database.
- 
- Types :-
-  Data Definition Language (DDL) :- 
-   - Define database structure or pattern
-   - Used to create and update schema(Database skeleton), tables, indexes, constraint in database
-   - Store metadata information like number of tables and schema, their names, indexes, columns in each table etc.
-   
-   Task :- 
-    Create : Create database
-    Alter  : Alter database structure
-    Drop   : Delete object from database
-    Truncate : Remove all record from table
-    Rename   : Rename object
-    Comment  : Comment on data dictionary
-
-  
-  Data Manipulation Language (DML) :-
-   - Accessing and manipulating data in database
-
-   Task :-
-    Select : Retrieve data from database
-    Insert : Insert data into table
-    Update : Update existing data within table
-    Delete : Delete all record from table
-    Merge  : Perform UPSERT operation(Insert or update)
-    Call   : Call structured query language or Java subprogram
-    Explain Plan : Parameter of explaining data
-    Lock Table   : Control concurrency
- 
- 
-  Data Control Language (DCL) :- 
-   - Retrieve stored or saved data
-   - Execution is transactional and has rollback parameters
-
-   Task :- 
-    Grant  : User access privileges to database
-    Revoke : Take back permission from user [ CONNECT, INSERT, USAGE, EXECUTE, DELETE, UPDATE, SELECT]
-
-  
-  Transaction Control Language (TCL) :-
-   - Run changes made by DML statement 
-   
-   Task :- 
-    Commit   : Save transaction on database
-    Rollback : Restore database to original since last Commit
-  
-
-  Data Query Language (DQL) :-
-   - Allow searching of any data in the database and performing computations on it
-
-
-
-ACID Properties :- 
- - In DBMS data should remain integrated when any change done in it
- - Because if integrity of data affected, whole data will get disturbed and corrupted 
- - To maintain integrity ACID properties use 
- 
- ACID :- Atomicity | Consistency | Isolation | Durability
-
- Atomicity :- 
-  - If any operation performed on data either performed or executed completely or should not be executed at all
-  - Transaction need to complete till commit if fails it rollback
-  - Failed transaction not be resumed but restart
-
- Consistency :- 
-  - Value should remain preserved always 
-  - If change in database made, it should remain preserved always 
-   
- Isolation(Separation) :- 
-  - Data should not affect other one and may occur concurrently
-  - Operation on one database should begin when operation on first database get complete 
-  - If two operation performed on two different database, they not affect value of one another 
-  - When occur simultaneously consistency should remain maintained 
-  - Any changes occur in any particular transaction not be seen by other transaction until change not committed in memory
-
- Durability :- 
-  - Ensure data after successful execution of operation become permanent store in database 
-  - Even if system fails or leads to crash database still survives

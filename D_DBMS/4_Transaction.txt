@@ -1,7 +1,9 @@
 Transaction :-
  - Group of task or Set of operation called transaction
- - Single logical unit of work which accesses and possible modifies content of database
-
+ - Single logical unit of work which accesses and modifies database content
+ - Transaction run parallely that Improved throughput & Resource utilization
+ - Reduced Waiting time :- Unpredictable delays as well as average response time reduced
+ Serializability :- When multiple transaction executed by os, Instruction of one transaction interleaved with some other
 
  Transaction State :-  
   Active state        :- Transaction being executed
@@ -24,19 +26,19 @@ Transaction property :-
   - Failed transaction not be resumed but restart
   Operation :- Abort(No Change) | Commit(Save Transaction)
 
- Consistency :- 
-  - If change in database made, it should remain preserved always 
-   
+
+ Consistency :- If change in database made, it should remain preserved always 
+
+
  Isolation(Separation) :- 
   - Data should not affect one other and may occur concurrently
   - Operation on one database should begin when operation on first database get complete 
   - If two operation performed on two different database, they not affect value of one another 
   - When occur simultaneously consistency should remain maintained 
-  - Any changes occur in any particular transaction not be seen by other transaction until change not committed in memory
+  - Any changes occur in any particular transaction not be seen by other transaction until change not commit in memory
 
- Durability :- 
-  - Ensure data after successful execution of operation become permanent store in database 
-  - Even if system fails or leads to crash database still survives
+
+ Durability :- Ensure data permanent store in database even if system fails or leads to crash database still survives
 
 
 
@@ -60,7 +62,6 @@ Log-Based Recovery :-
  - Log is sequence of record, Any operation performed on database then it recorded as log
  - Log of each transaction maintained in some storage table so any failure occur then it recovered from there
  - Recovery using Log record, Find which transaction need to be undone and redone
-
  Deferred database modification  :- Transaction not modify database until it committed
  Immediate database modification :- Database modification occur while transaction still active
   
@@ -80,28 +81,26 @@ Deadlock in DBMS :-
  
  Deadlock Avoidance :-
   - Detect any deadlock situation in advance 
-  - Wait for graph used for detecting deadlock situation but this method suitable only for smaller database
+  - Wait for graph for detecting deadlock only for smaller database
   - For larger database, deadlock prevention method used
  
+
  Deadlock Detection :-
-  - DBMS should detect whether transaction involved in deadlock or not 
+  - Detect whether transaction involved in deadlock or not 
   - Lock manager maintain Wait for graph to detect deadlock cycle in database
 
   Wait for Graph :-
-   - Method for deadlock detection 
-   - Graph is created based on transaction and their lock 
+   - Graph created based on transaction and their lock 
    - If created graph has cycle or closed loop then there is deadlock
    - Wait for graph maintained by system for every transaction which waiting for some data hold by other
  
  
  Deadlock Prevention :-
-  - If resources allocated in such way that deadlock never occur then deadlock can be prevented
-  - DBMS analyze operation of transaction whether they create deadlock situation or not 
-  - If they do then DBMS never allowed that transaction to be executed
+  - If resource allocated in such way that deadlock never occur then deadlock prevented
+  - DBMS analyze transaction operation whether they create deadlock situation or not 
 
   Wait-Die scheme :-
-   - If transaction requests for A resource which already held with A conflicting lock by another transaction then
-     DBMS simply check timestamp of both transaction 
+   - Transaction request for A resource which already held then DBMS simply check timestamp of both transaction 
    - Allow older transaction to wait until resource available for execution
 
   Wound wait scheme :-
@@ -112,21 +111,8 @@ Deadlock in DBMS :-
      until older releases it
 
 
- 
-Concurrent Transaction :-
- - Transaction run parallely that Improved throughput & Resource utilization
- - Reduced Waiting time :- Unpredictable delays as well as average response time reduced
 
-
-
-Serializability :-
- - When multiple transaction executed by os there ossibilities that instruction of one transaction interleaved with
-   some other transaction
-
-
-
-What is a conflict? :-
+What is conflict? :-
  - In Pair of schedule Operation, if operation order interchanged then behavior of at least one transaction change
- Operations are conflict if :- 
-  - Belong to different transaction | Access same data item | At least one operation is write operation
+ Operation :- Belongs to different transaction  |  Access same data item  |  At least one operation is write operation
   

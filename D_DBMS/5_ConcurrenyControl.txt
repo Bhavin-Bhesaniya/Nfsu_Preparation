@@ -4,38 +4,31 @@ Concurrency Control :-
  - Thomas write Rule Provide guarantee of serializability order for protocol and improve Basic Timestamp Ordering Algo
 
  Problems with Concurrent Execution :-
-  Lost Update Problem (W - W Conflict):- Read/write in interleaved manner make database inconsistent
-  Dirty Read Problem (W-R Conflict)   :- One transaction update but failed before rollback another transaction access   
-  Unrepeatable Read Problem (W-R Conflict) | Inconsistent Retrievals Problem :- Two different value read same data
+  Lost Update Problem (W - W Conflict) :- Read/write in interleaved manner make database inconsistent
+  Dirty Read Problem  (W - R Conflict) :- One transaction update but failed before rollback another transaction access   
+  Unrepeatable Read Problem (W-R Conflict) | Inconsistent Retrieval Problem :- Two different value read same data
 
  
 
 Concurrency Control Protocol :-
- - Concept that controlling and managing concurrent execution thus avoiding inconsistencies in database 
- - Ensure ACID property and serializability of concurrent execution of database transaction 
+ - Ensure ACID property and serializability of concurrent execution of database transaction to Avoiding inconsistancy
 
  Lock-Based Protocol :-
-  - Any transaction cannot read or write data until it acquire appropriate lock on it 
-  - Maintain transaction at time of execution
-  - Lock exclusive and multiple transactions not modify same data simultaneously
-   
-  Types of lock :-
-   Shared lock    :- Data item only read by transactionc| Shared between transaction 
-   Exclusive lock :- Data item both read as well as written by transaction
-   Binary Lock    :- Lock on data item in two state either locked or unlocked
+  - Transaction cannot read or write data until acquire appropriate lock on it at time of execution
+  Shared lock    :- Data item only read transaction | Shared between transaction 
+  Exclusive lock :- Data item both read as well as written by transaction
+  Binary Lock    :- Lock on data item in two state either locked or unlocked
 
-
-  Types of lock protocols :- 
-   Simplistic lock          :- All transaction get lock on data before insert, delete or update on it 
-   Pre-claiming Lock        :- Evaluate transaction to list all data item on which they need lock
-   Strict Two-phase locking :- First all lock than Releases all locks at time transaction commit
-   Two-phase locking (2PL)  :- Transaction acquire all lock, cannot demand any new locks only releases acquired lock
-    Growing phase   :- New lock on data item acquired by transaction but none released
-    Shrinking phase :- Existing lock held by transaction may be released but no new lock acquired
+  Simplistic lock   :- All transaction get lock on data before insert, delete or update on it 
+  Pre-claiming Lock :- Evaluate transaction to list all data item on which they need lock
+  Strict Two-phase locking :- First all lock than Releases all locks at time transaction commit
+  Two-phase locking (2PL)  :- Transaction acquire all lock, cannot demand any new lock only releases acquired lock
+   Growing phase   :- New lock on data item acquired by transaction but none released
+   Shrinking phase :- Existing lock transaction may be released but no new lock acquired
     
  
  Timestamp Ordering Protocol :-
-  - Each transaction issued timestamp and Start working as soon as transaction created use system time
+  - Each transaction issue timestamp and Start working as soon as transaction created use system time
   - Transaction order based on their Timestamp means ascending order of transaction creation
   - Older transaction priority higher execute first 
   - Ensure serializability, freedom from deadlock means no transaction ever wait

@@ -1,162 +1,101 @@
 ER model (Entity-Relationship model) :-
  - High-level data model define data element and relationship for specified system
- - It develop conceptual design or say visual representation of database
+ - Develop conceptual design or visual representation of database
  - Database structure portrayed as diagram called entity-relationship diagram
- - Database represented using notation 
 
- Component :- 
-                      ER Model
-  Entity          Attribute                  Relation/Cardinality
-  - Weak Entity   - Key Attribute            - one-to-one
-                  - Composite Attribute      - one-to-many   
-                  - Multivalued Attribute    - many-to-one
-                  - Derived Attribute        - many-to-many 
+ Component :-
+  Entity(Record) :- Rectangle
+   - Entity may object, class, person or place
+   - Entity set collection of similar types of entities
+   - Tangible entities physically exist in real world
+   - NonTangible   not physically exist in real world
 
-
-  Entity(Record):- Rectangle
-   - Entity may be object, class, person or place represented as rectangle in ER diagram
-   - Tangible entities are entities that physically exist in real world
-   - NonTangible not physically exist in real world
-   - Entity set is collection of similar types of entities
-   - 
-
-   Weak Entity :- Double Rectangle
-    - Entity that depend on another entity 
-    - Doesn't contain any key attribute
-    - Use Foreign key to combined with its attribute to form primary key
-
+   Weak Entity      :- Double Rectangle | Depend on another entity, Doesn't contain any key attribute
+   Composite/Bridge :- Diamond shape with rectangle | M:M entities exist must create Bridge to Convert it 1:M 
    Strong Entity    :- Exist independently
-   Recursive Entity :- Relation exist between occurrences of same entity set(Unary Relationship)
-   Composite / Bridge Entity :- 
-    - If many to many entities exist must create Bridge entity to Convert it into 1 to many
-    - Represent by Diamond shape with rectangle
+   Recursive Entity :- Relation exist between same entity set(Unary Relationship)
  
   
   Attribute(Column) :- Eclipse
    - Describe property of entity 
-   Key Attribute         :- Represent characteristics of entity known as Primary key using ellipse with underlined text
-   Composite Attribute   :- Composed other attribute represented by different connected with ellipse
-   Multivalued Attribute :- More than one value represented by Double Eclipse
-   Derived Attribute     :- Derived from other attribute represented by dashed ellipse(--)
-   Simple Attribute      :- atomic value which cannot divided further
+   Key Attribute         :- Represent characteristics of entity known as Primary key | Ellipse with underlined text
+   Composite Attribute   :- Composed other attribute      | Different connected with ellipse
+   Multivalued Attribute :- More than one value           | Double Eclipse
+   Derived Attribute     :- Derived from other attribute  | Dashed Ellipse(--)
+   Simple Attribute      :- Atomic value cannot divided 
 
 
-  Relationship / Cardinality :- Diamond
-   - Relation between entities represent by Diamond or rhombus
+  Relationship | Cardinality :- Diamond
    - Mapping Constraint Known as Data constraint represent relationship between entities
-   - Show how two entities share information in database
    - High Cardinality means more unique value stored in column and vice versa
 
-   One-to-One Relationship   :- One instance of entity associated with relationship | 1-1
-   One-to-many relationship  :- When only one instance of entity associated with more than one instance of entity | 1-*
-   Many-to-one relationship  :- More than one instance of entity associated with one instance of entity           | *-1 
-   Many-to-many relationship :- More than one instance associated with more than different instance of entity     | *-*
+   One-to-One   :- One instance of entity associated with relationship                               | 1 - 1
+   One-to-many  :- When only one instance of entity associated with more than one instance of entity | 1 - M
+   Many-to-one  :- More than one instance of entity associated with one instance of entity           | M - 1 
+   Many-to-many :- More than one instance associated with more than different instance of entity     | M - M
 
 
- Point for Convert ER diagram to Table :-
-  - Entity type become table
-  - All single-valued attribute become column for table
-  - Key attribute of entity type represented by primary key
-  - Multivalued attribute represented by separate table
-  - Composite attribute represented by component 
-  - Derived attribute not considered in table
+
+ Rules for Convert ER diagram to Table :-
+  - Entity -> Table
+  - Single-valued attribute -> Column
+  - Key attribute of entity -> Represent   by Primary key
+  - Multivalued attribute   -> Represented by Separate table
+  - Composite attribute     -> Represented by Component 
+  - Derived attribute       -> Not considered in table
 
  
  Total and Partial Partition :-
-  - Each entity set occurs in at least one relationship in that relationship set
-  - Entity fully participate in relationship indicated by double lines drawn from entity to relationship
-  - Partial Participation all entities not involve in relationship 
-  - Partially participate relationship indicated by single lines drawn from entity to relationship
-  Diagram :-  Entity  ========   Relationship   --------- Entity
-                        Total                    Partial
-                           
+  Entity  ========   Relationship   --------- Entity
+            Total                    Partial
+      Full Relationship         Not Relationship        
  
- Generalization :- 
-  - Bottom-up approach in which two or more lower entities combine to form higher level entity 
-  - Entities combined to form more generalized entity(Subclass combined to make superclass)
-  - \|/
-     |
 
- Specialization :- 
-  - Top-down approach in which one higher level entity broken down into two lower level entities
-  - |
-    |
-   / \
+ Generalization :- Bottom-up | Two or more lower entities combine to form higher level entity(Subclass -> Superclass)
+ Specialization :- Top-down  | Higher level entity broken down into two lower level entities
+ Aggregation    :- Relation between two entities treated as single entity and aggregated into higher level entity
  
- Aggregation :- 
-  - Relation between two entities treated as single entity and aggregated into higher level entity
-    - - -
-      |
-      | 
-
 
 
 Key :-
- - Used to uniquely identify any record or row data from table, establish and identify relationship between table
+ - Uniquely identify any record or row data from table | Establish and identify relationship between table
 
  Primary key   :- Identify one and only one instance of entity uniquely 
- Candidate key :- Except for primary key remaining attribute considered candidate key as strong as primary key
+ Candidate key :- Except primary key remaining attribute considered candidate key as strong as primary key
  Super Key     :- Superset of candidate key | Combination of uniquely identifier(Primary key)
- Foreign key   :- Column of table used to point to primary key of another table
- Alternate key :- Total number of alternate keys is total number of candidate keys minus primary key (may or not exist)
- Composite key(Concatenated Key) :- Whenever primary key consist more than one attribute it known as composite key 
+ Foreign key   :- Point to primary key of another table
+ Alternate key :- Total number of candidate keys minus primary key (may or may not exist)
+ Composite key(Concatenated Key) :- Whenever primary key consist more than one attribute known as composite key 
  Artificial key :- Created using arbitrarily assigned data, Created when primary key is large and complex has no 
                    relationship with many other relation 
 
 
 
 Relational Model :-
- - Represent as table with column and row where Each row known as tuple and Each column of table has name or attribute
- - Name of relationm attribute are unique
+ - Represent as table with row and column where row known as tuple and column has name or attribute
+ - Name of relation attribute are unique
  - Each relation cell contain exactly one atomic (single) value and no duplicate value 
 
- Domain    :- Contain set of atomic values that attribute take
+ Domain    :- Contain set of atomic values that attribute used
  Attribute :- Name of particular table column  
- Relational instance :- Represented by finite set of tuple and not have duplicate tuples
+ Relational instance :- Represented by finite set of tuple that not have duplicate tuple
  Relational schema   :- Contain name of relation of all columns or attributes
  Relational key      :- Identify row uniquely
+ Relational Algebra  :- Procedural query language that gives step by step process to obtain result of query 
 
- Ex :- STUDENT Relation -> 5 Tuple
-  NAME	ROLL_NO	 PHONE_NO	   ADDRESS	AGE  -> Attribute
-  Ram	    14795	 7305758992	 Noida	  24
-  Shyam	  12839	 9026288936	 Delhi	  35
-  
-
- Relational Algebra :- Procedural query language that gives step by step process to obtain result of query 
-
- 
  Relational Calculus :- 
-  - Non-procedural query language, tells what to do but never explains how to do 
+  - Non-procedural query language tells what to do but never explain how to do 
   - Relational calculus including SQL-QBE and QUEL
-  - Predicate is truth-valued function with argument either true or false
-  - Free and bound variable compared with global and local variable of programming language
-  
+  - Tuple Relational Calculus (TRC)  |  Domain Relational Calculus (DRC)
   Types of Quantifiers :-
-   Universal Quantifier    :- Given set of all tuples satisfy given condition
-   Existential Quantifiers :- Given set of tuple there is at least one occurrences whose value satisfy given condition
-
-
-  Tuple Relational Calculus (TRC)  |  Domain Relational Calculus (DRC)
-
+   Universal Quantifier   :- Given set of all tuple satisfy given condition
+   Existential Quantifier :- In Given set of tuple at least one occurrences value satisfy given condition
+ 
 
 
 Integrity Constraint :-
  - Set of rules used to maintain quality of information
- - Ensure that data insertion, updating and other processes performed in such way that data integrity not affected
- 
- Domain constraint :- 
-  - Valid set of value for attribute
-  - Data type of domain include string, character, integer, time, date, currency, etc.
-  - Value of attribute must available in corresponding domain
-
- Entity integrity constraint :-
-  - Primary key value can't be null 
-  - Table can contain null value other than primary key field
-  
- Referential Integrity Constraint :- 
-  - Foreign key in Table 1 refer to Primary Key of Table 2 then every value of Foreign Key in Table 1 must be null 
-    or be available in Table 2
-
- Key constraint :- 
-  - Entity set that used to identify entity within its entity set uniquely
-  - It can have multiple key but out of which one key will be primary key
+ Key     :- Entity set used to identify entity within its entity set uniquely | Multiple key but One is primary key
+ Domain  :- Valid set of value for attribute, Value of attribute must available in corresponding domain
+ Entity  :- Primary key value can't be null
+ Referential :- Foreign key Table 1, refer Primary Key of Table 2 then Foreign key value null or available in Table 2
