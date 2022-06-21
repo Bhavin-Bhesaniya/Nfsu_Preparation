@@ -1,0 +1,32 @@
+Relational calculus  :- Non-Procedural Language
+Relational algebra   :- Procedural query Language
+External level is    :- View level
+Subschema express    :- External View
+Conceptual model     :- Independent from hardware and software  
+Conceptual design    :- Involves modeling Independent of DBMS
+SET Concept used in  :- Network model
+Cross Product        :- Binary Operator 
+Properties of entity :- Attributes  
+Rows of relation     :- tuples
+Relation is          :- Subset of Cartesian Product of list of Domains
+Natural Join         :- Combination of projection and Cartesian product
+
+
+Foregin key constraint                   :- Referential Integrity
+View of total database content is        :- Conceptual View
+Cartesian Product in relational algebra  :- Binary Operator
+Application view data from database      :- subschema
+Which record based on logical model      :- Network model 
+Set of possible data value is called     :- Domain
+Select only certain columns of table     :- PROJECTION
+In relational cardinality termed as      :- Number of tuples
+In Normalization transitive dependancy   :- 3NF
+In Normalization multi-value dependancy  :- 4NF
+Normal form Contain info about single entity :- 4NF
+Number of tuples in relation known as    :- Cardinality
+
+
+Two ways in which entites can participate in relationship                        :- Total and Partial
+who produce relation that has Attributes of R1 and R2                            :- Cartesian Product
+Which function divide one numeric expression by another and return remainder     :- MOD
+Which Operator is used to compare value to list of literals value that specified :- BETWEEN
