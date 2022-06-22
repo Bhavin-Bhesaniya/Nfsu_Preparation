@@ -1,31 +1,12 @@
-Memory Management & Virtual Memory Management
-
-Topics :-
- - Memory Management & Degree of MultiProgramming
- - Contiguous Memory Management Techniques
- - Non-Contiguous Memory Management
- - What is Thrashing
- - What is Overlay
- - Virtual Memory
-
-
 Memory Management & Degree of MultiProgramming :-
  - Method of managing and Efficient utilization of primary memory
- - More No of process(Degree of multi-programming) in ram CPU utilization is high
- - Memory is large arrays of byte where every byte has some address
- - Some part of memory occupied by OS when system start
- 
- Function :- 
-  Memoey Allocation(Ready -> Running), Deallocation(Running -> Terminate) and 
-  Protection(P1,P2 -> P1cpu -> Access only allocate resources)
- 
- Goal :- 
-  Maximum Utilization(Minimum Fragmentation) 
-  Run Larger Program with limited space(Using Virtual memory)
+ - Memory is large arrays of byte where every byte has some address where some memory occupied by OS when system start
+ - Maximum Utilization(Minimum Fragmentation) 
+ - Run Larger Program with limited space(Using Virtual memory)
+ - If process size is more than size of memory then that process accommodate in main memory which known as overlay
 
- Formula :-
-  k - I/O Operation time
-  Cpu Time = (1-k^n)  # n means no of process
+ Formula :- Cpu Time = (1-k^n)  # n means no of process | k - I/O Operation time
+ Diagram :- CPU -> Logical Address -> [ MMU [Base Register] ] -> Physical Address
 
  MMT Types :-
   Contiguous     :- Enitre process store in consecutive location | Fixed Partition, Variable Partition
@@ -33,44 +14,29 @@ Memory Management & Degree of MultiProgramming :-
  
 
 
-
 Contiguous Memory Management Techniques :-
- - Provide Contiguous Memory Block for process in RAM
- - Enitre process store in consecutive location 
+ - Provide Contiguous(consecutive) Memory Block for process in RAM
 
- Fixed Partition | Static Partition :-
-  - No. of Partition is fixed in memory and evey partition accommodate only one process 
+ Fixed / Static Partition :-
+  - No. of memory Partition fixed and evey partition allocate only one process 
   - Partition size will be same or may not same
-  - Process put in any partition of memory but only in same partition
-  - Spanning is not allow means put entire process in same partition not allow to put in different partition
-  
-  - Used in main Frame computer during 1960 
-  - Process size bigger than partition size in memory it generate problem of size limit partition
-  - Fixed no of partition so Not add more processes in RAM above partition size
-  - Combination of all available memory in different slots equal to process size or less size
-    but not allowed due to contiguous called External Fragmentation
-  - So Whenever internal Fragmentation arise their must be an external Fragmentation  
-  
-  Ex :- If P1 = 2MB and M1 = 4MB remaining M1 2MB size was wasted which was called Internal Fragmentation 
-
+  - Spanning Put entire process in same partition, Not allow to put in different partition
+  - If Process size bigger than partition size in memory it generate problem of partition size limit
+  - Fixed no. of partition so Not add more processes in RAM above partition size
+  - Combination of all available memory in different slots equal to process size or less size(External Fragmentation)
+  Ex :- If P1 = 2MB and M1 = 4MB remaining M1 2MB size was wasted which called Internal Fragmentation 
 
   
- Variable Partition | Dynamic Partition :-   
-  - Allocating space for process based on their space requirements(Partition size Same as process size)
+ Variable / Dynamic Partition :-   
+  - Allocating space for process based on their space requirement(Partition size Same as process size)
   - Main memory not divided into partition initially 
-
-  Advantages :-  
-   - No chance for internal Fragmentation
-   - No limitation on Degree of programming(No Of Process) and process size 
-
-  Disadvantages :-
-   - Process complete its execution in RAM it create one hole (4MB)
-   - Two process complete its execution now one process come with bigger size than available RAM in space
-     4MB + 4MB BUT Process size 8MB so external fragmentation
-   - To remove fragmentation use Compaction means collect all allocated process one side and remaining space other side
-     means stop process or move process from one address to another which take more time
-   - Allocation and deallocation little bit complex  
-   
+  - No chance for internal Fragmentation
+  - No limitation on Degree of programming(No Of Process) and process size 
+  - Process complete its execution in RAM it create one hole(4MB) 4MB + 4MB BUT Process size 8MB so Fragmentation
+  - Use Compaction to remove fragmentation 
+  - Compaction Collect all allocated process one side and remaining space other side
+    means stop process or move process from one address to another which take more time
+  - Allocation and deallocation little bit complex  
 
 
  Process Allocation Policy(How to allocate process in Hole):-
@@ -89,7 +55,6 @@ Contiguous Memory Management Techniques :-
 
   Best-Fit  :- 
    - Search entire list and allocate smallest partition that big enough for process so minimal internal fragmentation
-   - If add process in hole remaining portion will be least 
    - Problem Create tiny holes which not helpful for other and search entire ram so very Slow
    - p2=15KB => S5=22KB | S8=20KB  Store in S8 Not S2 
                 
@@ -130,14 +95,12 @@ Contiguous Memory Management Techniques :-
        
 
 
-
 Non-Contiguous Memory Management Techniques :-
  - Process divided and place in different location for removing external fragmentation
- - Problem arise that holes are created dynamically so whenever process come in ram Check holes and its size 
-   than according size divided process to fit in that location so very time consuming
+ - Holes created dynamically so whenever process come in ram Check holes and its size than according size divided 
+   process to fit in that location so very time consuming
  - To solve these divide process before enter in ram that called pages
  - Size of Page = Size of Frame(Main memory Partition)
-
 
  Paging :-
   - Process Divided in equal size of pages and insert into same size Frames(Physical memory Partition)
@@ -160,6 +123,7 @@ Non-Contiguous Memory Management Techniques :-
    - CPU works on logical address space(LAS) which created by two factor :- Page  number and page  offset(sizeof page)
    - Physical address space (PAS) represent location of bytes in memory  :- Frame number and Frame offset(sizeof frame)
 
+
   Formula :- 
     Page Table Size = No. of entries in P.T.  * 1 Entry Size
                     = No. of pages in process * 1 Entry Size(Frame no + Extra bits) 
@@ -175,11 +139,9 @@ Non-Contiguous Memory Management Techniques :-
    Dirty/Modified  -> User change any page data or update data to update data in secondary memory
 
 
-
   Multi-level | 2-Level Paging :-
    - Page table size bigger than main memory frame size divided it into smaller page(Outer page) and stored
      page into outer page
-
 
 
   Inverted Paging :-
@@ -209,66 +171,46 @@ Non-Contiguous Memory Management Techniques :-
     Segment-N         N            x     NM                100 
                                                            NM
 
-  
-
-
-Thrashing :-
- - Directly linked with Degree of Multi-Programming
- - Cpu ask for page but its not available called Page Fault and it check by Page Fault Service Time 
- - When page fault service takes lots of time and entire OS busy in servicing page Fault
- - Page Hit Decreases and page Fault become heavy Due to that CPU utilization decreases suddenly known as Thrashing
- - To remove it either increases main memory size or decreases long-term scheduler speed
-
-
-
-
-Overlay :-
- - If process size is more than size of memory then that process accommodate in main memory which known as overlay
- - Os has not any drivers for overlay so user need to decied how to bring partition in program to use functionality
- - Partition should be independent
- - Use in embedded system
-
-
 
 
 Virtual Memory :-
- - Provide illusion where we able to execute process if its size is larger than physical memory called virtual memory 
+ - Provide illusion to execute process if its size larger than physical memory
  - Divided process --> Allow only Required Process Page in main memory
- - It is section of hard disk that's set up to emulate computer's RAM
- - Advantage of this scheme is that programs can be larger than physical memory 
+ - Section of hard disk that emulate computer RAM
  - MMU translate virtual addresses into physical addresses
- 
- Purpose :- 
-  - Extend use of physical memory by using disk 
-  - Memory protection because each virtual address translated to physical addresses 
+ - Extend use of physical memory by using disk 
+ - Memory protection because each virtual address translated to physical addresses 
+ - Virtual memory implemented by demand paging or demand segmentation system
 
  Diagram :- 
-    Virtual Address   Physical Address
-  0     A               0 
-  4K    B               4K     C 
-  8K    C               8K    
-  12k   D               12K     
+  Virtual Address   Physical Address    Secondary Memory
+    0     A             0                     D
+    4K    B             4K     C              B
+    8K    C             8K    
+    12k   D             12K     
                         16K    A
-            Secondary Memory  
-              D
-              B
-
- - Virtual memory implemented by demand paging or demand segmentation system
+ 
  
 
  Demand Paging :-
-  - Similar to paging with swapping processes reside in secondary memory and page loaded only on demand not in advance 
-  - During context switch OS does not copy any old program’s pages out to the disk or any of the new program’s pages
-    into main memory Instead, it begin executing new program after loading first page and fetches that program’s page
-    as they referenced
-  - While executing program if program references page which not available in main memory because it was swapped out
-    ,Processor treat as invalid memory reference as page fault and transfer control from program to OS for demand 
-    page back into memory
+  - Pages loaded into memory only when CPU wants to access them(lazy sweaper -> Pager)
+  - If CPU wants to access page that is not in Memory called Page Fault
+  - Trap :- Highest prioriy non-maskable external-hardware interrupt
   - Large virtual memory | Efficient memory usage | No limit on degree of multiprogramming
-  - Number of tables and amount of processor overhead for handling page interrupts are greater than in the case of 
-    simple page management techniques
+  Page Replacement :- Process of replaceing one page by another in memory when there is no free frame
+  
+  Pure Demand Paging :- 
+  - Execution of process started with none of its pages in memory
+  - Starting is fast and response low
+  Access Time :- (1-p) x Memory Access time + p x Page fault service time 
 
- 
+  Diagram :-
+    Logical Memory  |  [  | v] Page Table  |  Physical Memory   |   Disk 
+                       [  | i]
+   - v(Valid)   Page is in memory
+   - i(Invalid) Page not Mandatory
+
+
 
 Page Replacement Algorithm :- 
  - Used by OS to decides which memory pages to swap out, write to disk when page of memory needs to be allocated
@@ -277,13 +219,56 @@ Page Replacement Algorithm :-
  - PRA look limited information about accessing pages provided by hardware and tries to select pages that should
    be replaced to minimize total number of page misses and balancing it with primary storage cost and processor time
    of algorithm itself
- - Evaluate algorithm by running it on particular string of memory reference and computing number of page fault
 
- Reference String :-
-  - String of memory references is called reference string
-  - Generated artificially or by tracing given system and recording address of each memory reference
-  - Latter choice produces large number of data
-  - For given page size consider only page number not entire address
-  
- First-in-first-out(FIFO) :-
-  -  
+ - Evaluate algorithm by running it on particular string of memory reference and computing number of page fault
+ - String of memory reference called reference string and generated by random number generator 
+ - For given page size consider only page number not entire address
+ Local Page Replacement  - Process control its page fault rate
+ Global Page Replacement - Better throughput, Commonly Used
+
+ Diagram :-     
+  Number  | |       - Typical Response
+  of page |   |
+  faults  |     |
+          |----------------->
+            Number of frames
+
+ First-in-first-out(FIFO) :- 
+  - No need to note time, Only Queue Required | Performance not good 
+  Belandy's anomly :- Numbers of page fault increases with number of frames allocated
+
+ Optimal Page Replacement Algorithm :-
+  - Replace page that not used for longest period of time
+  - lowest page fault rate, No Belandy anomaly
+  - Used for comparison | Impossible to implement
+
+ Least-Recently Used(LRU) :-
+  - Replace least-recently used page | No Belandy anomaly
+  - Page table has Minimum 'time of use' value
+  - Implemented using counters and stack
+  - Logical clock must not overflow
+  - Maintain stack of Page number referenced
+  - Most system not provide necessary support for LRU but reference bit used for each page table entry
+  - Initally, referenced bit - 0 | If referenced, bit-1
+
+ Stack Algorithm :-
+  - Doesn't suffer from Belandy algorithm
+  - Page in memory for n frames is always subset of pages in memory(N+1) frames
+  N frames  : n most recently used pages in memory | N+1 frame 
+
+ Least Frequently used(LFU)  |  Most Frequently used(MFU) :-
+
+ Frame Allocation :-
+  - Minimum no. of frames otherwise too many page faults
+  - Equal Allocation | Proportional Allocation
+
+
+
+Thrashing :-
+ - System spending more time in servicing page faults than executing
+ - Cpu ask for page but its not available called Page Fault and it check by Page Fault Service Time 
+ - When page fault service takes lots of time and entire OS busy in servicing page Fault
+ - Page Hit Decreases and page Fault become heavy Due to that CPU utilization decreases suddenly known as Thrashing
+ - To remove it either increases main memory size or decreases long-term scheduler speed
+ - Scheduler load more processes in memory so due to high pageing CPU Utilization high that go in Thrashing
+ - Working Set model used to Avoiding Thrashing

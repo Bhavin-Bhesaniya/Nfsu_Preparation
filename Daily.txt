@@ -1,8 +1,0 @@
-Aptitude = 36 = 2
-Logical Reasoning = 20 = 2
-Verbal and Non-Verbal Ability = 40 = 4
-Current Affair = 10
-
-Aptitude = 25 = 2
-Logical = 10 = 1
-Test 

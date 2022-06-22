@@ -1,7 +1,7 @@
 I/O Management :-
  - I/O devices vary widely in function and speed
  - I/O Subsystem separate rest of kernel from complexities of managing I/O Device
- - Device driver provide uniform device access interface to i/o subsystem
+ - Device driver provide uniform device access interface to I/O subsystem
  - I/O system take I/O request from program send to physical device then take response from device send to program 
 
  I/O Performing Mode   :- Polling(Busy-waiting) | Interrupt | DMA  | Cycle Stealing | Direct Virtual Memory Access
@@ -24,7 +24,6 @@ I/O Management :-
   Port :- Connection point where device connected(I/O port - Status Register | Control Register | Data-in/Out Register)
   Bus  :- Set of wires to transfer data and control information
   Controller :- Control port on device
-
 
 
 
@@ -123,7 +122,7 @@ Communication to I/O Devices :-
  Special Instruction I/O :- Controlling I/O devices to sent data to I/O device or read from I/O device
 
 
- Memory-mapped I/O :-
+ Memory-Mapped I/O :-
   - Same address space shared by memory and I/O devices 
   - Device connect directly to memory location so that I/O device transfer block of data to/from memory
     without going through CPU

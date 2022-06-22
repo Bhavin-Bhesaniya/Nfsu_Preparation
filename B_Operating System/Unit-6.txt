@@ -1,14 +1,25 @@
 File System and DiskScheduling :-
  
 File System :-
- - File is named collection of related information that is recorded on secondary storage
- - File System is software which manage how data will be permanently stored, managed and fetched
+ - Collection of related information that recorded on secondary storage
+ - File System manage how data permanently stored, managed and fetched
  - User manage their data in file format
  - Folder(Directory) is collection of related files
  - File System mapping data on sector(Divide file logically and stored or fetched stored files) 
+ - File system typically implemented as multi-leveled system
+ - Allocation method :- Contiguous | Linked | Indexed
+ - Directory is logical construct representing set of files and sub-directories
  
  Types of OS and its File System :-
   Windows,  NTFS/FAT32  |  DOS, FAT  |  UNIX, Unix  |  Linux,  EXT2,3,4  |  MacOS, HFS+  |  BigData, zfs|Data Wide 
+
+ Architecture :-
+  Application Program 
+  Logical File System        [Manages Metadata]                                 [Logical Block Address]
+  File Organization Module   [Allocation management and Free space management]  [Physical Block Address]
+  Basic File System
+  I/O Control
+  Disk
 
 
 
@@ -53,7 +64,6 @@ File Allocation Method :-
       12 13 14 15 16 17     C(14-17)
    
 
-
  Non-Contiguous Allocation :-
 
   Linked-List Allocation :- 
@@ -86,7 +96,6 @@ File Allocation Method :-
     12 13 14 15 16 17   B3(12)  
 
   
-
  Unix I-node Structure :- 
   - Index node is data structure in Unix style file system that describes file-system objects such as file or directory
   - Each inode stores Attributes(Metadata) and Direct Block location(Stored Pointer that directly point to data block)
@@ -100,7 +109,7 @@ File Allocation Method :-
    - Triple Indirect Block -> Data Block -> Pointer -> Data Block (2) -> Pointer -> Data Block (3) -> Finally Give Data 
  
 
- 
+
  Question :-
   - File system uses unix inode data structure which contain 8 direct block addresses, one indirect block, 
     one double and one triple indirect block
@@ -117,8 +126,15 @@ File Allocation Method :-
 
 
 
-
 Hard-Disk Architecture :-
+ - Disks addressed as large one-dimensional array of logical blocks
+ - Block is smallest unit of transfer
+ - One-dimensional array of logical blocks has to be mapped onto physical Sector
+ - Cylinder -> Track -> Sector 
+ Storage :-
+  uniform bit density     - More sectors on outer tracks
+  non-uniform bit density - Same number of sector on all tracks
+
  Platter (Circle Shape)  :
   - Every Platter has two surfaces upper-level and lower-level
   - Every platter has Read-Write head which connect with Actuator Arm to find data
@@ -137,7 +153,6 @@ Hard-Disk Architecture :-
  No. of sector(NS)= 2 * P * T * No. of sectors per track
  Address size     = logx2(Ns) - Bits
  Sector Capacity  = 2 * No. of Platter * No. of Tracks Per Surface * No. of Sector per track * 1 Sector Capacity 
-
 
 
 
@@ -166,7 +181,6 @@ Disk Access Time :-
 
 
 
-
 Disk Partition :-
  Two types :- Low-Level Partition(Physical Partition)  | High-Level Partition(Logical Partition)
  Low-Level Partition :- Creating tracks and sector done by Manufacturer
@@ -177,7 +191,6 @@ Disk Partition :-
   - In primary OS Stored and user file
   - In extended only user file stored
   - We can make more than one primary partition for different OS and not able to store 2 OS in single Partition
-
 
 
 
@@ -195,7 +208,6 @@ Disk Block :-
 
  
 
-
 Free space Management :-  
  Free List     :- Linked List of all free blocks
  Bitmap Method :- N blocks in disk => n-bit into^n => if bit is 0 block is free if 1 is occupied
@@ -205,8 +217,9 @@ Free space Management :-
 
 
 
-
 Disk Scheduling Algorithm :-
+ - Disk bandwidth - Number of byte transferred / Time between first request and last service
+ 
  - Done by OS to schedule I/O request To minimize seek time
  - FCFS And SSIF not required direction while SCAN and LOOK Required
  Request Queue :- 

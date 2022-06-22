@@ -15,7 +15,7 @@ Natural Join         :- Combination of projection and Cartesian product
 Foregin key constraint                   :- Referential Integrity
 View of total database content is        :- Conceptual View
 Cartesian Product in relational algebra  :- Binary Operator
-Application view data from database      :- subschema
+Application view data from database      :- Sub-schema
 Which record based on logical model      :- Network model 
 Set of possible data value is called     :- Domain
 Select only certain columns of table     :- PROJECTION
@@ -29,4 +29,4 @@ Number of tuples in relation known as    :- Cardinality
 Two ways in which entites can participate in relationship                        :- Total and Partial
 who produce relation that has Attributes of R1 and R2                            :- Cartesian Product
 Which function divide one numeric expression by another and return remainder     :- MOD
-Which Operator is used to compare value to list of literals value that specified :- BETWEEN
+Which Operator used to compare value to list of literals value that specified    :- BETWEEN

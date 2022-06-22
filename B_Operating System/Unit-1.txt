@@ -11,11 +11,10 @@ Topics :-
  - RAM Vs ROM
   
 
-
 What is OS?
  - System Program that act as interface between user and computer hardware 
  - It Control execution of all kinds of programs and manage all resources of computer system
- - First OS is ATLAS developed by Tom Kilburn professoor at Manchester University in 1962 
+ - First OS is ATLAS developed by Tom Kilburn Professor at Manchester University in 1962 
  - Provide environment in which user can execute its program 
  
  Primary Goals :- Windows | Mac : Machintosh  
@@ -35,7 +34,6 @@ What is OS?
    Second	    1955-65	      Transistors	              Batch System
    Third	    1965-80	      Integrated Circuits(IC)	 Multiprogramming
    Fourth	    Since 1980	  Large Scale Integration	PC
-
 
 
 
@@ -80,7 +78,6 @@ OS Duties | Function | Services | Features :-
 
  Error Handling | Error detection :-
   - OS constantly checks errors and takes appropriate action to ensure correct and consistent computing     
-
 
 
 
@@ -141,7 +138,6 @@ What is Kernel? Different OS Structure Type & Kernel Architecture :-
 
 
 
-
 System Call :-
  - To use system functionality we need to go in kernel mode because we only can access user mode
  - System call is mechanism using which user program request kernel to access all system functionalities 
@@ -163,15 +159,15 @@ System Call :-
 
  Type of System Call :- Fork, exec, getpid, getppid, wait, exit
   File    :- Open, read, write, close, create file
-  Device  :- Read, write, Repoisition, iocte(Manipulate special files), fcnte (access point fo advanced file operation)
+  Device  :- Read, write, Repoisition, iocte(Manipulate special files), fcnte (access point for advanced file operation)
   IPC     :- Pipe, shmget(Get Shared Memory), create/delete connection
-  Security        :- chmod(Chagen Privilege Mode), umask
+  Security        :- chmod(Change Privilege Mode), umask
   Information     :- getpid, attribute, get system data
   Process Control :- load, abort, execute, fork, wait, signal, allocate
   
   Fork :-
    - Create child process of parent process
-   - Return process ID generally process id of child process
+   - Return process id of child process
    - Return value 0 :- Child process, 1 :- Parent process, -1 : if child process not created
    Formula :- 2N-1 (Parent process) | 2N (Child process)
 
@@ -181,7 +177,6 @@ System Call :-
    - Used by parent process to determine termination of child process
    - get exit status of child process as well as PID of child process which is terminated 
  
-
 
 
 Types of OS :– 
@@ -205,18 +200,18 @@ Types of OS :–
 
  Multi-programming :- IDLENESS
   - Increases CPU utilization by keeping multiple jobs(process) in main memory so that CPU always has one to execute
-  - It is NonPre-emptive scheduling means if one process give cpu, cpu execute entire process completely and 
+  - NonPre-emptive scheduling means if one process give cpu, cpu execute entire process completely and 
     only after completation of process, pick another process
-  - Sometime cpu go for I/O operation at time cpu will pick another process from job pull So cpu IDLE time is zero   
+  - Sometime cpu go for I/O operation at time cpu pick another process from job pull So cpu IDLE time zero   
 
 
 
  Multi-tasking | Time-Sharing :- Responsiveness
   - Sharing small portion of time or time quantum among multiple processes by CPU Scheduling 
-  - CPU executes multiple process using switching which Reduce CPU IDLE time
-  - It is pre-emptive means Each process has given particular time in which it complete execution otherwise it will
-    be switching(Context Switch) to another process by CPU Scheduling but process still available if not complete
-    in within given time
+  - CPU execute multiple process using switching which Reduce CPU IDLE time
+  - Pre-emptive means Each process given particular time in which it complete execution otherwise it will be 
+    switching(Context Switch) to another process by CPU Scheduling but process still available in ready state if not
+    complete in within given time
   - Due to its fast switching Security arise with program data, data communication and its reliability 
   - Response time should be minimal
   Ex :- Multics, Unix
@@ -234,7 +229,7 @@ Types of OS :–
 
 
  Multi-Threading :-
-  - Single process have multiple code segment(threads) so it running concurrently within "Context" of that process
+  - Single process have multiple code segment(thread) so it running concurrently within "Context" of that process
   - Increase Responsiveness, less costly
     
   
@@ -253,13 +248,12 @@ Types of OS :–
 
  Distributed Operating System | Cluster :-
   - Multiple Processors serve Multiple applications to multiple users using Central Processor
-  - Processor communicate with each other through various communication lines like network connection which referred
-    as loosely coupled
-  - OS distribute computation logics among several physical processors
+  - Processor communicate with each other through various communication lines like network connection(Loosely coupled)
+  - OS distribute computation logic among several physical processors
   - Processors not share memory instead each processor has its own local memory, storage etc...
   - Reduction of delays in processing and loading on host computer
   - Availability, Load balancing, Scalability     
-  - If Processors connect with local network(Single network) like Single server it is called "Cluster Operating System"
+  - If Processors connect with local network(Single network) like Single server called "Cluster Operating System"
   Ex :- Locus
 
 
@@ -280,22 +274,18 @@ Types of OS :–
 
 
 
-
 Spooling(Simultaneous Peripheral Operation Online) :- 
  - Different Pheripheral devices(I/O Device) can run simultaneously 
  - Provide buffer area in secondary memory to save CPU time and user not need to wait for I/O process
 
 
 
-
 What is Booting & What happens when we turn on computer? :-  
  - Booting is Process of loading OS 
  - When computer power is turned on, cpu move to BIOS which stored in EPROM to perform start-up procedure
- - BIOS run POST(power-on self test) process which check all hardware if any error beeps are hered which known as 
-   POST beep codes
- - BIOSes following ACPI(Advanced Configuration and Power Interface) create tables that describing devices and manage
-   power in computer 
- - On POST process successful BIOS load MBR(Master Boot Record) to RAM
+ - BIOS run POST(power-on self test) that checks all hardware if any error beeps hered it known as POST beep code
+ - BIOSes create ACPI(Advanced Configuration and Power Interface)table that describe device and manage computer power
+ - Than BIOS load MBR(Master Boot Record) to RAM
  - MBR load boot-loader which load OS, Kernel and much more in RAM
  - init is last step of kernel boot sequence which decied inital state of OS
  - In Linux its called GRUB(GRand Unified Bootloader) OR LLIO(Linux Loader-default)
@@ -306,17 +296,15 @@ What is Booting & What happens when we turn on computer? :-
 
 
 
-
 BIOS VS UEFI Firmware :-
  - Both boot pc before booting OS but UEFI is modern solution
- - CMOS(Complementary Metal-Oxide-Semiconductor) used for battery-backed memory where BIOS stores various setting on
+ - CMOS(Complementary Metal-Oxide-Semiconductor) used for battery-backed memory where BIOS store various setting on
    motherboard which replaced with flash memory (also referred to as EEPROM)
  - MS-DOS PCs released in 1980s had BIOS
  - BIOS has limited functionality like boot upto 2.1 TB, run in 16-bit processor mode and 1 MB of space to execute
  - In 2007 PC Manufacturer agreed for UEFI 
  - UEFI Firmware can boot drive 2.2 TB Or larger and use GPT Partition Scheme
- - UEFI can run in 32-bit or 64-bit processor mode and has more address space to execute
-
+ - UEFI run in 32-bit or 64-bit processor mode and has more address space to execute
 
 
 
@@ -332,7 +320,6 @@ MBR VS GPT(GUID Partition Table) :-
 
 
 
-
 NTFS VS ETL VS FAT32 VS exFAT :-
  - NTFS(New Technology File System) use with windows by default
  - EFL(Extensible Firmware Interface) usually hard-disk drive or solid-state drive that used by computer having UEFI 
@@ -341,16 +328,15 @@ NTFS VS ETL VS FAT32 VS exFAT :-
 
 
 
-
 RAM(Random Access Memory) Vs ROM (Read-Only Memory):-
  Ram :-
   - Volatile, Faster, loading OS and executing program
   - For 32-bit Max Ram size :- 4 GB AND 64 : 16GB 
   Types :- 
-   DRAM  - Dynamic RAM must be continuously refreshed otherwise all contents are lost
+   DRAM  - Dynamic RAM must be continuously refreshed otherwise all content lost
    SRAM  - Static RAM is faster, needs less power, more expensive but need to be refreshed like DRAM
-   SDRAM - Synchronous Dynamic RAM run at very high clock speeds
-   DDR   – Double Data Rate  Provide synchronous Access Memory
+   SDRAM - Synchronous Dynamic RAM run at very high clock speed
+   DDR   – Double Data Rate Provide synchronous Access Memory
 
  ROM :- 
   - Non-volatile so Write once read any no. of time
@@ -370,4 +356,3 @@ RAM(Random Access Memory) Vs ROM (Read-Only Memory):-
    (4,294,967,296 bytes) of RAM
  - Actual limit around 3.5 GB since part of register used to store other temporary values besides memory addresses
  - Main difference is number of calculations per second perform
-

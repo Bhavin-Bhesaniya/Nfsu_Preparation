@@ -12,12 +12,11 @@ Topic :-
 
 
 
-
 Process? Its Creation, Section and Termination :- 
  
  Process Creation :-
   - When user started executing program it become process 
-  - Program is passive entity resides in secondary memory while procrss is active entity in main memory 
+  - Program is passive entity reside in secondary memory while procrss is active entity in main memory 
   - It is dynamic instance of program
   - Process may have new program or may be duplicate of its parent process(Same code or data)
   - Each process has unique id which obtain resources either from operating system directly or from its parent process
@@ -50,26 +49,24 @@ Process? Its Creation, Section and Termination :-
 
 
 
-
 Process State :-
  - Specify current process activity as process execute its state changes
  - Each process represented by Process Control Block(PCB) also called Task Control Block
 
- State :-
-  New :- 
-   - Initial state where process first created/started in secondary memory(ROM)(Job Queue)
+ New :- 
+  - Initial state where process first created/started in secondary memory(ROM)(Job Queue)
   
-  Ready :- 
-   - Long-term scheduler load Process from secondary memory to main memory(RAM)(Ready Queue)
-   - Here process is waiting to be assigned to processor(CPU)
-   - Multiprogramming means number of processes are in ready states to increases CPU utilization
+ Ready :- 
+  - Long-term scheduler load Process from secondary memory to main memory(RAM)(Ready Queue)
+  - Here process is waiting to be assigned to processor(CPU)
+  - Multiprogramming means number of processes are in ready states to increases CPU utilization
 
-  Running :- 
-   - Short-term scheduler assign process from ready state to CPU 
-   - CPU execute process instructions
-   - Sometime switch process to ready state when high-priority process is given by ready state or process exceeded 
-     time limit/Time quantum(Round-Robin)
-   - If process request for I/O transfer to waiting state
+ Running :- 
+  - Short-term scheduler assign process from ready state to CPU 
+  - CPU execute process instructions
+  - Sometime switch process to ready state when high-priority process given or process exceeded time limit/Time 
+    quantum(Round-Robin)
+  - If process request for I/O transfer to waiting state
   
   Waiting :- 
    - Process in these state wait for resource such as waiting for user input or I/O operation
@@ -81,11 +78,10 @@ Process State :-
 
 
 
-
 PCB(Process Control Block) :-  
  - PCB is data structure maintained by Operating System for every process using process ID
  - Entry of current processes in Process Table 
- - Process Table has status of each and every process that is created in OS along with their PIDs
+ - Process Table has status of each and every process that created in OS along with their PIDs
 
  PCB Process Information :-
   Pointer :- Stack pointer that required saved when process switched from one state to another to retain position
@@ -104,15 +100,13 @@ PCB(Process Control Block) :-
   
 
 
-
 Process Scheduling :-
 
  Scheduling queues :-
   - OS maintenance all PCBs in Process Scheduling queues to perform process scheduling
-  Job Queue     - As Process enter in system(New State) put in job queue which keeps all processes in system 
-  Ready Queue   - Process that residing in memory are ready for execution are kept in ready queue
-  Device Queue  - Process waiting for particular I/O resource are kept in device queue
-
+  Job Queue    - As Process enter in system(New State) put in job queue which keeps all processes in system 
+  Ready Queue  - Process that residing in memory are ready for execution are kept in ready queue
+  Device Queue - Process waiting for particular I/O resource are kept in device queue
 
 
  Types of Schedulers :-
@@ -123,15 +117,13 @@ Process Scheduling :-
    - Multi-tasking OS like Unix and windows not use LTS as they put all new processes in memory for short-term scheduler
     
 
-
   Short-term scheduler(CPU Scheduler) :- 
    - Select process from ready state(Ready Queue) and allocate it to CPU
    - CPU Scheduler invoked when process switch from running state to waiting state OR terminates OR ready state
    - Dispatcher give PCB information of selected process to cpu to execute process and take decision of which process
      to execute next
-   - Time taken by Dispatcher is known as Dispatcher Latency
+   - Time taken by Dispatcher known as Dispatcher Latency
    - MS-DOS not support multi-programming hence No cpu scheduling
-
 
 
   Medium-term scheduler(Swapping):- 
@@ -140,7 +132,6 @@ Process Scheduling :-
    - Remove suspended process from RAM to secondary storage its called Swapping
    - Swapping is done based on priority its called rolling 
    - After complete I/O operation process join waiting state if space in waiting state otherwie wait for some time
-
 
 
  Types of Scheduling :-
@@ -152,13 +143,10 @@ Process Scheduling :-
    - Process forced to leave cpu and switch to ready queue due to high-priority process or time quantum
    Ex :- Unix, Linux, Windows 95 or Higher   
 
- 
- 
+  
  - Windows uses round-robin technique with multi-level feedback queue for priority scheduling 
  - Linux uses Completely Fair Scheduling(CFS) algorithm, which implementation of Weighted fair queueing(WFQ)
- - Rate-monotonic scheduling algorithm(RM) is by far most used real-time algorithm and one of the easiest policies 
-   to implement
-
+ - Rate-monotonic scheduling algorithm(RM) used real-time algorithm and one of the easiest to implement
 
 
 
@@ -173,7 +161,6 @@ Context Switching :-
   - Base and limit register value
   - Currently used register
   - Scheduling, I/O State, Accounting information
-
 
 
  
@@ -195,14 +182,13 @@ Inter-Process communication (IPC):-
   
 
 
-
 Scheduling Algorithm :-
  - Gantt Chart(Henry Gantt) Use to sloveing numerical calculation
  - These algorithms either Pre-emptive or Non-Preemptive
 
  Scheduling Criteria :-
   ↑ CPU utilization  - As busy as possible (0 to 100 percent), in real life 40(normal) to 90 (heavy) usage 
-  ↑ Throughput       - Number of processes that are completed per unit time (N/Length)
+  ↑ Throughput       - Number of processes completed in per unit time (N/Length)
   ↓ Turnaround time  - Time from submission to completion(Time Spent in different queue + CPU + in different I/O device)
   ↓ Waiting time     - Time spent in ready queue 
   ↓ Response time    - Time from submission to first response
@@ -212,8 +198,8 @@ Scheduling Algorithm :-
   Arrival Time    - Process enter Ready Queue or State            (Enter Process)     11 : 00
   Burst Time      - Time required by process to execute on CPU    (Duration)          15 min
   Completion Time - Process complete its execution                (Leave Process)     12 : 00
-  Turnaround Time - Completion time - Arrival Time                                    (12-11) = 1 hour
-  Waiting Time    - Turnaround time - Burst Time                                      (11-15) = 45 min 
+  Turnaround Time - Completion time - Arrival Time                                    (12 - 11) = 1 hour
+  Waiting Time    - Turnaround time - Burst Time                                      (11 - 15) = 45 min 
   Response time   - Time from submission to process get CPU first time - Arrival Time (11.30 - 11) = 30 min   
   Scheduling Length - Max Completion time - Min Arrival time
 
@@ -472,14 +458,16 @@ Scheduling Algorithm :-
   |  p1  |   p3  |   p2   |    Ans :- 2 (p1->p2 p2->p3) 
   0      10      40      60        
 
+
+
 Thread :-
  - Smallest sequences of instructions that independently managed by CPU scheduler
  - Multiple-Thread exists within same process, executing concurrently and share resources such as memory
  - Process thread share its instructions(Executable Code) and context(value of its variable at given any moment)
  - Thread contain thread ID, Program Counter, register and stack
- - Fork() is system call which used to generate child process(Process clone) :- 2(^n)-1 
+ - Fork() system call used to generate child process(Process clone) :- 2(^n)-1 
  - Win32 thread library used by windows
-
+ - Responsiveness so program Faster execution | Better resource utilization | Parallelization 
 
  Difference Between Process and Thread :-
       Topic                       Thread                        Process
@@ -491,27 +479,18 @@ Thread :-
   OS Treating            User thread as single task    Differently
   Share                  Share same Data and code      Different address, data, code
                          but stack,registers different  
-     
-
-
- Advantages of Multi-Thread Programming :-
-  - Responsiveness so program Faster execution 
-  - Better resource utilization
-  - Easy communication 
-  - Parallelization
-
-
+ 
 
  Types Of Thread:-
 
   User Level:-
    - User manage thread where kernel not aware of thread existence so not require kernel mode privileges
    - pthread.h Thread library manage code for creating, destroying, passing message and data between threads, 
-     scheduling thread execution and saving and restoring thread context
+     scheduling thread execution, saving and restoring thread context
    - Use in application program
   
   Kernel Level :-
-   - Kernel maintain context information for process as whole and for individuals threads within process
+   - Kernel maintain context information for process as whole and for individuals thread within process
    - Kernel perform thread creation, scheduling and management in Kernel space using system call
    - Simultaneously schedule multiple thread from same process on multiple processes
   
@@ -522,35 +501,28 @@ Thread :-
    Context Switching   Faster                      Slower
    Perform Blocking    Block entire process        Not Affect Other
    Platform            Independent run any OS      OS Specific
-   Multi-Thread        Can't take advantage of     kernel routine themselves multithreaded 
-                       multiprocessing
+   Multi-Thread        No                          Kernel routine themselves multithreaded 
   
 
-
  Multi-threading Models :- 
-  - Combination of User level thread and Kernel level thread 
-  - Combined Threads in parallel on multiple processors and blocking system call not block entire process
+  - Combination of User level thread and Kernel level thread in parallel on multiple processors and blocking system 
+    call not block entire process
    
   Many To Many Model :- Best
    - Multiplexes any number of user threads into equal or smaller number of kernel threads so parallel run
    - Best accuracy and concurrency when thread perform blocking system call kernel schedule another thread forexecution  
    Ex:- Solaris
 
-  
   Many To One Model :-
    - Many user level thread mapped into one Kernel-level thread which handle by user level thread in user space
    - When thread makes blocking system call, entire process will be blocked
    - One thread access Kernel at time so multiple thread are unable to run in parallel on multi-processors
    - If user-level thread library not support by OS these mechanisms use
    
-  
   One To One Model :-
    - one-to-one relationship of user-level thread to kernel-level
    - More concurrency than many-to-one model
    - Allow other thread run when thread makes blocking system call
    - Support multiple threads to execute in parallel on microprocessors
-   - Disadvantage of this model is that creating user thread requires corresponding Kernel thread
+   - Disadvantage is creating user thread requires corresponding Kernel thread
    Ex :- Linux, Windows 95 to XP
-
-
-

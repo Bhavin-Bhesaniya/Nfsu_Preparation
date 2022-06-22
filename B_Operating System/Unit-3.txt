@@ -1,17 +1,3 @@
-Process Synchronization
-Topic :- 
- - Process Synchronization
- - Race Condition
- - Producer Consumer Problem(Bounded Buffer Problem)
- - Printer- Spooler Problem
- - Critical Section Problem
- - Condition For Synchronization
- - Lock Variable/ Test_and_Set
- - Turn Variable (Strict Alteration)
- - SemaPhores
-
-
-
 Process Synchronization :-
  - Handle Co-operative process problem like Inconsistancy, Loss of data and Deadlock
  Process Mode :-
@@ -23,7 +9,6 @@ Process Synchronization :-
                  like variable, memory(Buffer), code and in resource CPU, Printer etc.. 
   Independent :- One process execution does not affect other process execution they not share anything 
   
-
 
 
 Critical Section Problem :-
@@ -48,7 +33,6 @@ Critical Section Problem :-
 
 
 
-
 Race condition Problem :- 
  - Process Access same data concurrently and outcome of execution depending on particular order of access
  - Processes doing race to aceess data known as race condition
@@ -65,7 +49,6 @@ Race condition Problem :-
   ANS :- 6           4
  - If add one and remove one value answer should be 5 but here 4 receive due to Co-operative process   
  
-
 
 
 Producer Consumer Problem (Bounded Buffer Problem):-
@@ -106,7 +89,6 @@ Producer Consumer Problem (Bounded Buffer Problem):-
 
 
 
-
 Printer-Spooler Problem :-
  - One printer in network different user use to print where printer is pheripheral device so it is very slower
  - Spooler is program when multiple user print document it goes into spooler diretory and then spooler give one by one to printer sequentially
@@ -130,7 +112,6 @@ Printer-Spooler Problem :-
 
 
 
-
 Synchronization Condition :-
  - Process pass these 4 rules where First two Rules are primary rules must need to follow and 3,4 is secondary rule
    
@@ -151,7 +132,6 @@ Synchronization Condition :-
   - Process synchronization not dependent(related) to hardware or speed of process
   - Must be portable for all OS
    
-
 
 
 Lock Variable :- 
@@ -179,7 +159,6 @@ Lock Variable :-
     
 
 
-
 Turn Variable (Strict Alteration):-   
  - Only work on 2 Process 
  - Run in USER Mode | Achieve Mutual exclusion, Bound wait, No assumption | Not achieve progress(if 1 process not run)
@@ -193,13 +172,6 @@ Turn Variable (Strict Alteration):-
   P1 i1 run -> P2 i1 infinite -> 
   P1 i2,i3 turn = 1 -> 
   p2 i1 false, i2,i3 turn = 0
-
-
-
-
-Peterson Solution :-
- - 
-
 
 
 
@@ -224,11 +196,6 @@ Test_and_Set(Hardware):-
 
 
 
-Swap() :-
-
-
-
-
 Semaphore :-
  - Integer variable used in mutual exclusive manner by various co-operative process to achieve process synchronization
 
@@ -239,8 +206,6 @@ Semaphore :-
  Operation :-
   P(), Down, Wait, Degrade                :- Use in Entry Code and reduce pre-defined SemaPhore value
   V(), Up, Signal, Post, Release, Upgrade :- Use in Exit Code and increase SemaPhore value
-
-
 
  Example :-
   Case - 1 :-  
@@ -270,11 +235,9 @@ Semaphore :-
    - Now p3 come out from critical section Now S value = 0
     
 
-
   Case 2 :-
    - SemaPhore value is = 10 so 10 process can go in critical section 
    - Now i perform 6P() operation and 4V() operation what will be final result = 10 -6 = 4 + 4 = 8 
-
 
 
  Binary SemaPhore :-  
@@ -305,7 +268,6 @@ Semaphore :-
   Case 1 :- S = 1 --> P2 Down() S = 0 IN CS --> P1 Down() S = 0 Block --> P2 UP() S = 0 Wake Up(P1) --> 
    
 
-
  Question Solution :- What is maximum no of processes that may present in CS at any point of time?
    - 10 Process Pi{i = 1 to 9} || mutex = 1 || P10 execute 
     repeat                                      repeat                        
@@ -321,12 +283,3 @@ Semaphore :-
     - Mutex = 1 P2 also in critical section
     - P10 release from critical section so Mutex 0 --> 1 and P3 in critical section So Mutex 1 --> 0
     - Now P10 again join and release     
-
-
- Question Solution :- Producer Consumer Problem Using SemaPhore    
- Question Solution :- Reader Writer Problem Using SemaPhore
- Question Solution :- Dining philosopher Problem Using SemaPhore
-
-
-
-

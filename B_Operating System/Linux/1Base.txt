@@ -2,19 +2,24 @@ Introduction Unix/Linux :-
  - OS that act as interface link between computer and user
  - Unix Developed in 1969 by AT&T employees Ken Thompson, Dennis Ritchie, Douglas McIlroy, and Joe Ossanna at Bell Lab
  - User communicate with kernel through shell 
- - Shell is command line interpreter translate command entered by user into language that understood by kernel
- - Linux is free and open source software Development and distribution first used in 1991
+ - Shell command line interpreter translate command entered by user into language that understood by kernel
+ - Linux free and open source software Development and distribution first used in 1991
  - Linux OS written by Linux Torvalds and Richard Stallmen GNU Utilities
 
-
  Architecture :-
-  Hardware - like CPU, Monitor, USB, Printer etc..
+  System    User     User    Compilers
+  Software  Process  Utility
+          System Library
+            Kernel
+          Kernel Module
+
+  Hardware - Consists of all peripheral devices like CPU, Monitor, USB, Printer etc..
   Kernel   - Heart of OS interact with hardware and perform memory management, task scheduling and file management
-  Shell    - Command line interpreter translate command into kernal language | C Shell, Bourne Shell and Korn Shell 
+  Shell    - Interface to kernel hiding complexity of kernel from user | C Shell, Bourne Shell and Korn Shell 
   Command / Utilities - Use in day to day activities | 250 command plus numerous others provided through 3rd party
   Files / Directories - Data of Unix organized into files then organized into directories tree-like structure
   
-  
+
  Shutdown System :- 
   - Super user or root user able to shut down system
   halt - Bring system down immediately
