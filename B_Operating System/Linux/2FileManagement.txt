@@ -1,35 +1,24 @@
-File Management :- 
- - Data -> File -> Directories -> File System  
- - Logical collection of files on partition or disk 
- - Partition is container for information and span entire hard drive if desired
- - Directory store file name and related information 
- 
- 
+File Management :-  Data -> File -> Directories -> File System   
  Directory Structure :-
   - Hierarchical structure with root (/) at base of file system and all other directories spreading from there
-  - Root directory (/) that contain other files and directories
-  - Each file or directory is unique  ly identified by inode
+  - Each file or directory is uniquely identified by inode
   - Root directory has inode number 2 and lost+found directory has inode number of 3 while 0 and 1 not used 
   - File inode number seen by specifying -i option to ls command
-  - All path start from (/) backslash(Absolute path)
-  - Find yourself when first login is called your home directory not begin with / (Relative path)
-
 
    
  Directory Files :-
-  /     - Root directory which should contain only directories needed at top level of file structure
-  /bin  - Executable files are located available to all users
+  /     - Root directory contain only directories needed at top level of file structure
+  /bin  - Executable files
   /dev  - Device drivers
-  /etc  - Supervisor directory commands, configuration files, disk configuration files, valid user lists, groups, 
-          ethernet, hosts, where to send critical messages
-  /lib  - Contain shared library files other kernel-related files
+  /etc  - Supervisor directory commands, disk and other configuration files, valid user list and send critical message
+  /lib  - Shared library files and other kernel-related file
   /boot - Booting system file
   /home - Home directory for users and other accounts
   /mnt  - Mount temporary file system such as cdrom and floppy for CD-ROM drive and floppy diskette drive respectively
   /proc - All processes marked as file by process number or other information that dynamic to system
   /tmp  - Hold temporary files used between system boot
   /usr  - Used for miscellaneous purposes used by many users 
-        - Include administrative commands, shared files, library files, and other
+        - Include administrative command, shared files, library files, and other
   /var  - Variable-length files such as log that contain variable amount of data
   /sbin - Binary(executable) files for system administration   |  Ex :- fdisk and ifconfig utlities
   /kernel - Kernel files
@@ -53,7 +42,7 @@ File Management :-
   tr   - Translate/delete characters
   wc   - Line, word and character count
   cut  - Extract selected fields of each line of a file
-  uniq  - Filter out repeated lines in a file
+  uniq  - Filter out repeated lines in file
   split - Split files 
   *     - Matching any filename
   ?     - Matching any character
@@ -69,20 +58,20 @@ File Management :-
   mkdir dirname    :- Creating Directories
   rmdir dirname    :- Removing Directories
   mkdir -p dirname :- Create all required parent directories
-  more filename    :- Browses through file from beginning to end
+  more filename    :- Browse file from beginning to end
   mv olddir newdir :- Rename Directories
-  rm filename      - Remove file
+  rm filename      :- Remove file
   .(dot)           :- Filename .(dot) represent current working directory
   ..(dot dot)      :- Represent directory one level above current working directory(Parent directory)
   umount           :- unmount(remove) file system from system
-  mount - To see what is currently mounted (available for use) (in order to be usable by system )
+  mount - To see what currently mounted (available for use) (in order to be usable by system)
   /mnt  - Temporary mount(CDROM drives, remote network drives, floppy drives) located 
   
   cp file1 file2  :- Copies one file/directory to specified location
-  file filename   :- Identifie file type (binary, text, etc)
+  file filename   :- Identifie file type(binary, text, etc)
   head filename   :- Show beginning of file
   less filename   :- Browses through file from end or beginning
-  tail filename   :- Shows end of file
+  tail filename   :- Show end of file
   touch filename  :- Create blank file or update modification time
   which filename  :- Show location of file if it in PATH
   whereis filename  :- Show location of file
@@ -96,7 +85,7 @@ File Management :-
    
 
  File Operation :-
-  Metacharacter  :- Special meaning in Unix * (Display all matches) | ? (Matches single character)
+  Metacharacter  :- * (Display all matches) | ? (Matche single character)
   Creating Files :- vi filename -> i (Into edit mode start write) -> esc (Out of edit mode) -> :wq(Save & Exit)
   Editing Files  :- vi filename -> lkey to move right | h move left | k move upside | j move downside
   Display Content:- cat filename - See content of file | cat -b filename - Display line numbers with output 
@@ -135,14 +124,11 @@ File Management :-
 
 
  User and Group Quotas :-
-  - Provide mechanisms by which amount of space used by single user or all users within specific group 
-    limited to value defined by administrator
-  - Quotas operate around two limit that allow user to take some action if amount of space or number of disk block
-    start to exceed administrator defined limits
+  - Amount of space used by single user or all users within specific group limited to value defined by administrator
   Soft Limit - If user exceed limit there is grace period that allow user to free up some space
   Hard Limit - No further files or blocks can be allocated
 
-  quota      - Display disk usage and limits for user of group
+  quota      - Display disk usage and limit for user of group
   edquota    - Quota editor, Users or Groups quota edited
   quotacheck - Scan filesystem for disk usage, creates, checks and repairs quota files
   setquota   - Command line quota editor
@@ -166,28 +152,22 @@ File Permission / Access Mode :-
   Write   - Capability to modify or remove file content
   Execute - Able to run file as program
 
- 
- 
- 
 
+ Changing Permission :-
+  chmod - Change file or directory Permissions
+    +  - Add permission to file or directory
+    -  - Remove permission from a file or directory
+    =  - Set permission
 
-
-  Changing Permission :-
-   chmod - Change file or directory Permissions
-   chmod in Symbolic Mode - Add, delete or specify permission set using operator
-     +  - Add permission to file or directory
-     -  - Remove permission from a file or directory.
-     =  - Set permission
-
-   chmod with Absolute Permissions :- Use number to specify each set of permission for file
-     0	---  No permission
-     1	--x  Execute permission	
-     2	-w-  Write permission
-     3	-wx  Execute and write
-     4	r--  Read 
-     5	r-x  Read and execute 
-     6	rw-  Read and write
-     7	rwx  All  
+  chmod with Absolute Permissions :- Use number to specify each set of permission for file
+    0	 ---  No permission
+    1	 --x  Execute permission	
+    2	 -w-  Write permission
+    3	 -wx  Execute and write
+    4	 r--  Read 
+    5	 r-x  Read and execute 
+    6	 rw-  Read and write
+    7	 rwx  All  
 
  
  Changing Owners and Group :-

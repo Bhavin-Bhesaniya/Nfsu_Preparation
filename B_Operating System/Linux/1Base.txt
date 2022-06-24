@@ -1,5 +1,5 @@
 Introduction Unix/Linux :-
- - OS that act as interface link between computer and user
+ - OS act as interface link between computer and user
  - Unix Developed in 1969 by AT&T employees Ken Thompson, Dennis Ritchie, Douglas McIlroy, and Joe Ossanna at Bell Lab
  - User communicate with kernel through shell 
  - Shell command line interpreter translate command entered by user into language that understood by kernel
@@ -13,7 +13,7 @@ Introduction Unix/Linux :-
             Kernel
           Kernel Module
 
-  Hardware - Consists of all peripheral devices like CPU, Monitor, USB, Printer etc..
+  Hardware - Consist of all peripheral devices like CPU, Monitor, USB, Printer etc..
   Kernel   - Heart of OS interact with hardware and perform memory management, task scheduling and file management
   Shell    - Interface to kernel hiding complexity of kernel from user | C Shell, Bourne Shell and Korn Shell 
   Command / Utilities - Use in day to day activities | 250 command plus numerous others provided through 3rd party
@@ -38,10 +38,15 @@ Environment Variable :-
  - Terminal type automatically configured by either login or getty program 
  Setting Terminal Type :- - $PATH=/bin:/usr/bin
  printenv - Show all currently defined environment variable
+
+ Types :-
+  Local - Present within current shell instance and not available to other program
+  Shell - Set and required by shell in order to function correctly | Some of these are environment and local variable
+  Environment - Available to any child process of shell  
   
   
  PS1 and PS2 Variables :-
-  - Character that shell display as command prompt stored in PS1 variable 
+  - Character that shell display on command prompt stored in PS1 variable 
   \t - Current time, expressed as HH:MM:SS
   \d - Current date, expressed as Weekday Month Date
   \n - Newline
@@ -87,7 +92,7 @@ Processes Management :-
   - By default, every process start runs in foreground 
   - Get input from keyboard send output to screen
   - Program running in foreground is time-consuming, no other command run(start any other processes) because prompt
-    not available until program finishe processing and comes out
+    not available until program finish processing and comes out
   - Type ls -> Process request -> Send Response -> Display output
 
 
@@ -107,7 +112,7 @@ Processes Management :-
   - When child process killed, parent process updated via SIGCHLD signal 
   - Sometime parent process killed before its child killed called orphan processes
   - When process killed but still process show in Z state known as zombie or defunct process 
-  - They completed execution then dead but still find entry in process table
+  - They completed execution but still find entry in process table
 
 
  Daemon Processes :-
@@ -152,11 +157,9 @@ vi Editor | VIM(Vi IMproved) :-
  Different Mode :-
   Command mode - Perform administrative tasks such as saving, executing command | Whatever type interpreted as command
   Insert mode  - Insert text into file | Typeing interpreted as input and placed in file
-  - vi always starts in command mode 
-  - To write data in file always go in insert mode
-  - Moving cursor within File must be in command mode
-  - Editing Files In insert mode 
-  - Change characters, words, or lines in vi without deleting them using Change command  
+  - vi always starts in command mode To write data in file always go in insert mode
+  - Moving cursor within File must be in command mode and Editing Files In insert mode 
+  - Change character, word or lines in vi without deleting them using Change command  
 
 
  Key for vi :-
@@ -224,8 +227,8 @@ vi Editor | VIM(Vi IMproved) :-
 
   
  Running Command :-
-   - Substitution command (:s/) enables quickly replace words or groups of words within your file 
-   - :s/search/replace/g
+  - Substitution command (:s/) enables quickly replace words or groups of words within your file 
+  - :s/search/replace/g
 
 
 
@@ -250,11 +253,7 @@ Pipes and Filters :-
 
 
 
-Network Communication :-Variable Types :-
-  Local - Present within current shell instance and not available to other program
-  Shell - Set and required by shell in order to function correctly | Some of these are environment and local variable
-  Environment - Available to any child process of shell  
-
+Network Communication :-
  - In distributed environment need to communicate with remote users and also need to access remote Unix machines
  
  Connecting :- local to server
@@ -267,7 +266,7 @@ Network Communication :-Variable Types :-
 
 
  Ping Utility :- 
-  ping - command send echo request to available host on network 
+  ping - command send request to available host on network 
   - Tracking | Isolating | Testing | Measuring Status | Managing hardware and software problem on network
   Syntax  :- $ping hostname or ip-address
    
@@ -306,7 +305,7 @@ Network Communication :-Variable Types :-
   lprm   - Terminate all lpr request 
   cancel - Terminate printing request from lp command 
   lp / lpr     - Print file onto paper
-  lpstat / lpq - Show what's in printer queue :- request IDs, owners, file sizes, status of request
+  lpstat / lpq - Show what's in printer queue :- request IDs, owners, file size, status of request
   
 
  Sending Email :-
@@ -338,7 +337,7 @@ Regular Expressions with SED(Stream Editor) :-
   ^   Match beginning of lines
   $   Match end of lines
   .   Match any single character
-  *   Match zero or more occurrences of the previous character
+  *   Match zero or more occurrences of previous character
  
   [a-z]    Single lowercase letter
   [A-Z]    Single uppercase letter
@@ -353,7 +352,7 @@ Regular Expressions with SED(Stream Editor) :-
   [a-zA-Z0-9] Single letter or number
 
 
- Character Class Keywords :-
+ Character Class Keyword :-
   - Using alphabet character class keyword, print only those lines in /etc/syslog.conf file that start with alphaletter
   Ex :- $ cat /etc/syslog.conf | sed -n '/^[[:alpha:]]/p'
   

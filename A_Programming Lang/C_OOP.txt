@@ -1,0 +1,213 @@
+OOP(Object Oriented Programming) :- 
+ - Concept of class and object to implement real-world entites
+ 
+ Access modifier :-
+  - Set some restrictions on class member to get directly access
+  Public    :- Access anywhere in program
+  Protected :- Access withing declared and derived class
+  Private   :- Only within particular class | By default all member and function private | getter and setter for access
+
+
+ Class :-
+  - Blueprint of object that contain Method, variable
+  Syntax :- class class_name{ // class body };
+
+
+ Object :-
+  - Entity of class that has state and behavior
+  - To Access class functionality we need to create object
+  - For dynamic only for that object memory allocated and that memory assigned to Pointer
+  Syntax :- class_name objectname;   | class_name *objectname = new classname();
+
+ 
+ Getter and Setter :- 
+  - To provide access to private member of class
+  - Getters allow to access data members of object(Accessor) while setter set or change data members of object(Mutator)
+  Syntax :- int getValue(){  return value  };  | int setValue(int val){  this.value = val };
+
+
+ Member function / Method :- 
+  - It define inside class as :- int Student();
+  - It declare Outside class using scope resoultion operator ::
+  Syntax :- int Student::getMarks() {  return marks;  }
+
+ 
+ Constructor :-
+  - Called automatically Whenever object created 
+  - Constructor same name as classname | No returnType and Public access | One default constructor provided 
+  - When create own constructor with parameter or without, system constructor dead
+
+  Syntax :- Inside class ->   Class_name(){}
+  Invoke :- constructor object; 
+  Access :- objectname.classname()
+
+  Default      :- No Parameter 
+  Parametrized :- Take argument | When use parametrized default construtor delete | Class_name(Parameter);
+  Copy         :- 
+   - Initialize object using another object of same class 
+   Syntax :-
+    Constructor1(int x, int y){}
+    Constructor2(const Constructor1 & p2){} 
+    Object :-   
+      construct p1(10, 15); // Normal constructor 
+      construct p2 = p1;    // Copy constructor
+
+   Shallow Copy :-
+    - Pointer copied but not memory its points to means original and copy object point same memory
+    - Changes made in one reflect in other
+    - Assignment operator and default copy constructor make shallow copy
+    Syntax :- Class_name obj2 = Obj1;
+
+   Deep Copy :- 
+    - Allocates similar memory resources with same value to object 
+    - Explicitly define copy constructor and assign dynamic memory as well required
+   
+   - In Shallow copy base address of object copied 
+   - In Deep copy base address of object not copied
+
+
+ Destructor :-
+  - Used to destroy object from memory that automatically called after function, class, program or block ends
+  - Same name as class name | NO return Type | No parameter | Cannot be more than on destructor
+  - In staic allocation destructor automatically called buy dynamic required to call destructor
+  Syntax :- ~classname(){}
+
+
+ Encapsulation(Information / Data Hiding) :-
+  - Wrapping up data member(Property/State) and function(Method/Behaviour) into single class
+  - Full Encapsulation :- All Data member are private and access only same class
+  - Security(Data Hide) | Able to make "Read Only" | Code Reusability | Unit Testing
+ 
+
+ Inheritance :-
+  - Class have behaviour and Property which inherit by another class known as Inheritance | IS-A relationship
+  - Child/sub class inherit properties from parent/super class
+  - Code Reusability | Runtime Polymorphism(Method Overriding)
+  - If we try to access private data members and method from outside class compiler give compile-time error
+  Access Mode :- Public | Private | Protected
+
+  Type :- Single(A->B) | Multilevel(A->B, B->C) | Multiple(A -> B -> C -> A,B) | Hierarchical(A -> B->A, C->A) 
+          Hybrid(A->B-> C1->A, C2->A,B)
+  
+  Ambiguilty :-
+   - If derived class object need to access one of same-named function of base class, it result in ambiguilty
+   - Compiler not clear which base class member function should be invoked
+   - To avoid it use scope resoultion operator :- object.parent_class_name::method_name();
+
+
+ Polymorphism :-
+  - Perform single action in different ways(Many forms)
+  Types :- Compile time/Static  | Runtime/Dynamic
+  - Method Overriding    (Runtime) :- Must have same name and same parameter | Only through Inheritance only
+  - Method Overloading (Compile) :- Multiple function with same name but different parameter | Increase Readability
+  
+  Points overloading operator (Compile) :-
+   - Used only for user-defined operator(object, structure) but cannot with in-built operator(int, char etc.)
+   - Operator = and & already overloaded in C++, so avoid overloading them
+   - Precedence and associativity of operator remain intact
+  
+ 
+ Abstraction :-
+  - Displaying only essential information and hiding detail
+  - Class | Abstraction in Header Files | Using Access Specifier
+  - Only you make changes to data       | Avoid duplication of code 
+
+
+ Ex :- C++ declared outside main
+  class Hero{
+   private:            
+    int health;       // Empty class size - 1 byte for identification and tracking
+  
+   public:
+    int age;
+    static int num;   // Not need to create object it -> first initialize it
+   
+    static void print(){          // Not used this keyword bcz no object address
+      cout << "static called";    // Only able to use static variable
+      return num;                 // print value 
+    }
+
+    //Get and Set value
+    void getHealth()      { return health; }
+    void setHealth(int h) { health = h;    }
+
+    Hero(){ cout << "Default Construtor"; }
+
+    Hero(int health){           // Parametrized Constructor
+      cout << this;
+      this -> health = health;  // Current object address stored in this keyword(Pointer)
+    }
+    Hero(Hero& h5){             //Pass by reference - copy constructor
+      this -> health = h5.health;
+    }
+    ~Hero(){                    //Destructor
+      cout << "destructor called";
+    }
+  };
+
+  int Hero::num = 10;  // Scope resoultion operator used for static variable
+
+  main(){
+  Hero h1;             // Object - Size of object depend on Property size : 4 integer // Static allocation
+  Hero *h2 = new Hero  // Dynamic allocation
+  Hero h3(30);         // Parametrized constructor called 
+  Hero h4(h3);         // Copy constructor - provide by system
+  Hero h5(h3);
+  cout << Hero::num << Hero::print();   // Print staic value without create it object | also work with object
+  
+
+  h1.setHealth(30);
+  cout << h1.health;     // Public Access | h1.getHealth(); // private access use getter
+  cout << h3.getHealth() << &h3;    // This and object both point same address 
+
+  h2->setHealth(50); 
+  cout << (*h2).getHealth(); | h2->getHealth();  // Dereference or member acces operator used for dynamic object 
+   
+  delete h2;     // destructor called for dynamic allocation
+  }
+
+
+ Ex :-
+  class Emp{    // Parent Class
+    private:
+      String name;
+      int age;
+    public:
+      int getAge(){
+        return this -> age;
+      }  
+  }
+  class manger : access_modifier parent_class { // Child Class
+  }
+  main(){
+    Emp ep;
+  }
+
+
+ Interface :-
+  - Describe behavior of C++ class without committing to particular implementation of that class
+  - Implemented using abstract class
+  - Class made abstract by declaring at least one of its functions as pure virtual function 
+  - Pure virtual function specified by placing "= 0" in its declaration
+  Ex :- virtual void fun() = 0;
+
+
+ Friend Function :-
+  - Defined outside that class scope but it has right to access all private and protected member of class
+  - Friend function appear in class definition but it not member functions
+  - Can be called normal without using object | Not calling using class object as it is not in class scope
+  - Not access private and protected directly using through class object and dot operator
+  - Global function or member of another class
+
+  Syntax :-
+  class class_name {
+    friend data_type function_name(argument); // syntax of friend function declaration 
+  };
+  int printLength(Rectangle b) {  // Function defintion outside
+    b.length += 10;
+    return b.length;
+  }
+  main(){
+    printLength(b);
+  }
+ 

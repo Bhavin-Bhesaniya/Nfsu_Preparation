@@ -1,208 +1,107 @@
 I/O Management :-
  - I/O devices vary widely in function and speed
- - I/O Subsystem separate rest of kernel from complexities of managing I/O Device
- - Device driver provide uniform device access interface to I/O subsystem
- - I/O system take I/O request from program send to physical device then take response from device send to program 
+ - I/O Subsystem separate kernel from complexities of managing I/O Device
+ - Device driver provide device access interface to I/O subsystem
 
- I/O Performing Mode   :- Polling(Busy-waiting) | Interrupt | DMA  | Cycle Stealing | Direct Virtual Memory Access
- Complementary Devices :- Teletype = Keyboard + Display   |   Photocopier = Scanner + Printer
- Virtual Devices       :- PDF Printer
- Service I/O System    :- I/O Scheduling | Buffering | Caching | Error Handling  | I/O Protection | Spooling 
+ I/O Performing Mode :- Polling(Busy-waiting) | Interrupt | DMA | Cycle Stealing | Direct Virtual Memory Access
+ Service I/O System  :- I/O Scheduling | Buffering | Caching | Error Handling | I/O Protection | Spooling 
 
- Device Divided into two categories :- 
-  Block device      :- Driver communicate by sending entire blocks of data 
-  Character devices :- Driver communicates by sending and receiving single character
-
+ Types of device :- 
+  Block     :- Driver communicate by sending entire blocks of data 
+  Character :- Driver communicate by sending and receiving single character
 
  Diagram :-
-                      Kernel                        # 1 to 3 Software
-                Kernel I/O Subsystem
-    Device Driver-1     ... Device Driver-N
-    Device Controller-1 ... Device Controller -N    # Hardware
-        Device 1            Device - N
+                    Kernel                        # 1 to 3 Software
+              Kernel I/O Subsystem
+  Device Driver-1     ... Device Driver-N
+  Device Controller-1 ... Device Controller -N    # Hardware
+      Device 1            Device - N
 
-  Port :- Connection point where device connected(I/O port - Status Register | Control Register | Data-in/Out Register)
-  Bus  :- Set of wires to transfer data and control information
-  Controller :- Control port on device
+ Port :- Connection point where device connected(I/O port - Status Register | Control Register | Data-in/Out Register)
+ Bus  :- Set of wire transfer data and control information
+ Controller :- Control port on device
 
 
 
-I/O Software organized in following layers :-
- - I/O software is device independent and possible to write program that access I/O device without specify device 
-
+I/O Architecture :-
+ - I/O software device independent and possible to write program that access I/O device without specify device 
  User Level Libraries :- Provide interface to user program to perform input and output Ex :- stdio C/C++
  Kernel Level Modules :- Provide device driver to interact with device controller and device independent I/O modules 
- Hardware :- Include hardware and hardware controller which interact with device drivers and make hardware alive
-
+ Hardware :- Include hardware and its controller to interact with device driver and make it alive
 
  Diagram :-
   User      User I/O Libraries
   Kernel    Device Independent I/O
             Device Driver 
   Hardware  Device Controller
-            Device
-
- User :-
-  User-Space I/O Software :-
-   - Libraries that Provide interface to access kernel functionality or interactive with device drivers 
-   - Most user-level I/O software consist of library procedures with some exception like spooling system which is way
-     of dealing with dedicated I/O devices in multiprogramming system
+            Device 
+    
  
-  I/O Libraries :- In user-space provide interface to OS resident device-independent I/O SW
-
- 
-
- Kernel :-
-
-  Device-Independent I/O Software :-
-   - Perform I/O function that common to all device and provide uniform interface to user-level software 
-   - Its difficult to write completely device independent software but write some modules which common among all device
-
-   List of functions of device-independent I/O Software :-
-    - Uniform interfacing for device drivers
-    - Device naming | Device protection | Device-independent block size 
-    - Buffering(Data coming off device cannot be stored in final destination)
-    - Storage allocation on block devices
-    - Allocation and releasing dedicated devices
-    - Error Reporting
-
+ Device Drivers :-
+  - Software modules that plugged into OS to handle particular device 
+  - Encapsulate device-dependent code and device-specific register for reads/writes
+  - Device driver written by device manufacturer and delivered along with device on CD-ROM
   
-  Device Drivers :-
-   - Software modules that plugged into OS to handle particular device 
-   - OS takes help from device drivers to handle all I/O devices 
-   - It encapsulate device-dependent code and implement standard interface in such a way that code contain
-     device-specific register reads/writes 
-   - Device driver written by device's manufacturer and delivered along with device on CD-ROM
-  
-   Device driver perform following jobs :-
-    - Accept request from device independent software above to it
-    - Interact with device controller to take and give I/O and perform required error handling
-    - Making sure that request is executed successfully
+  Device driver Process :-
+   - Accept request from device independent software above to it
+   - Interact with device controller I/O and perform required error handling
+   - Make sure that request executed successfully
 
 
-
- Hardware :-
-  Device Controllers :-
-   - Device drivers are software modules in OS that handle particular device 
-   - Device Controller works like interface between device and device driver 
-   - I/O unit like Keyboard consist of mechanical component and electronic component(EC) where ec called device controller
-   - Device controller able to handle multiple devices 
-   - It convert serial bit stream to block of bytes to perform error correction as necessary
-   - Device connected with either by plug or socket and socket connected to device controller
-   - CPU and device controllers all use common bus for communication
+ Device Controller :-
+  - Interface between device and device driver 
+  - I/O unit like Keyboard contain mechanical or electronic component(EC) called Device Controller
+  - Convert serial bit stream to block of bytes to perform error correction as necessary
+  - Device connected either by plug or socket and socket connected to device controller
+  - CPU and device controllers use common bus for communication
 
 
-  Synchronous vs asynchronous :-
-   Synchronous  I/O - CPU execution waits while I/O proceeds
-   Asynchronous I/O - I/O proceeds concurrently with CPU execution
-
-  
-  Types of devices :-
-   Storage         :- Disk | USB
-   Transmission    :- Modem
-   Human-Interface :- Keyboard | Mouse | Display
-   Specialized     :- Microscope | Telescope 
-
-  
-  Properties of Device :-
-   - Character-Stream versus block
-   - Sequential access versus Random access
-   - Synchronization versus asynchronous
-   - Sharable versus Dedicated
-   - Speed 
-   - Read-only, Write-only, Read-Write
- 
+ Synchronous vs Asynchronous :-
+  Synchronous  I/O  - CPU execution waits while I/O proceeds
+  Asynchronous I/O  - I/O proceeds concurrently with CPU execution
  
  
 
-Communication to I/O Devices :-
- - CPU must get and cpass information to I/O device 
- Types :- Special Instruction I/O | Memory-mapped I/O | Direct memory access (DMA)
- 
- Special Instruction I/O :- Controlling I/O devices to sent data to I/O device or read from I/O device
-
+Types of Communication with I/O Devices :-
+ Special Instruction I/O :- Controlling I/O device | Sent data to I/O device or read from I/O device
 
  Memory-Mapped I/O :-
-  - Same address space shared by memory and I/O devices 
-  - Device connect directly to memory location so that I/O device transfer block of data to/from memory
-    without going through CPU
-  - OS allocate buffer in memory and informs I/O device to use that buffer to send data to CPU 
+  - Same Address space shared by memory and I/O devices
+  - Device directly connect memory location so that I/O device transfer data block to memory without going through CPU
+  - OS allocate buffer in memory and inform I/O device to use that buffer to send data to CPU 
   - I/O device operates asynchronously with CPU and interrupts CPU when finished
-  - Advantage :- Every instruction which access memory used to manipulate I/O device 
-  - Used most high-speed I/O devices like disks, communication interfaces
-
   
  Direct Memory Access (DMA) :-
-  - Used to reduce hardware overhead interrupt
-  - CPU grants I/O module authority to read from or write to memory without involvement 
-  - DMA control exchange of data between main memory and I/O device 
-  - CPU only involved at the beginning and end of transfer and interrupted only after entire block transferred
+  - Reduce hardware overhead interrupt
+  - CPU grant I/O module authority for read or write to/from memory without involvement 
   - DMA Access hardware called DMA controller(DMAC) that manages data transfers and access to system bus 
-  - Controller programmed with source and destination pointers(where to read/write the data), Track counter number of
-    transferred bytes and setting which includes I/O and memory types interrupts and states for CPU cycles
-  
-  OS uses DMA hardware as follows :-
-   - Device driver instructed to transfer disk data to buffer address X
-   - Device driver then instruct disk controller to transfer data to buffer
-   - Disk controller starts DMA transfer
-   - Disk controller send each byte to DMA controller
-   - DMA controller transfers bytes to buffer, increases memory address, decreases counter C until C becomes zero
-   - When C becomes zero, DMA interrupts CPU to signal transfer completion
-
 
 
 
 Kernel I/O Subsystem :-
- - Responsible to provide many services related to I/O
  
- Scheduling :-
-  - Kernel schedules set of I/O requests to determine good order in which to execute them 
-  - When application blocking I/O system call request placed on queue for that device 
-  - Kernel I/O scheduler re-arranges order of queue to improve overall system efficiency and average response time
-    experienced by application
+ Scheduling :- Kernel schedules set of I/O requests in ordert to determine in which to execute them 
+ Buffering  :- Store data while transferred between two device | Slove speed mismatch between producer and consumer 
+ Caching    :- Hold copies of data | Access cached copy more efficient than access original
+ Error Handling :- Protected memory against many kinds of hardware and application error
 
+ Spooling and Device Reservation :- Spool buffer holds output for device such as printer
 
- Buffering :- 
-  - Kernel I/O Subsystem maintain memory area known as buffer that stores data while transferred between two device 
-  - It is done to cope with speed mismatch between producer and consumer of data stream or to adapt between devices 
-    that have different data transfer sizes
-
-
- Caching :- 
-  - Kernel maintain cache memory (fast) that holds copies of data 
-  - Access to cached copy is more efficient than access to original
-
-
- Spooling and Device Reservation :- 
-  - Spool is buffer that holds output for device such as printer that not accept interleaved data streams 
-  - Spooling system copies queued spool files to printer one at time 
-  - In some OS spooling managed by system daemon process in other by kernel thread
-
-
- Error Handling :- 
-  - OS that uses protected memory guard against many kinds of hardware and application errors
-
-
- - Allow processor to deal with event that happen at any time and not related to currently running its process
- 
- Polling I/O :-
-  - Provide Way for I/O device communicate with processor 
-  - Process of checking device status for next I/O operation 
+ Polling I/O :- 
+  - I/O device communicate with processor for checking device status for next I/O operation 
   - I/O device put information in Status register then processor come and get information
-  - This is inefficient method and much of processors time is wasted on unnecessary polls
+  - Inefficient method and much of processors time wasted on unnecessary polls
   
-
  Interrupts I/O :-
-  - Interrupt is signal to microprocessor from device that requires attention
-  - Device controller put interrupt signal on bus when it needs CPU’s attention when CPU receives interrupt 
+  - Interrupt signal to microprocessor from device that require attention
+  - Device controller put interrupt signal on bus when it need CPU’s attention when CPU receive interrupt 
   - It save its current state and invoke appropriate interrupt handler using interrupt vector 
-    (address of OS routines to handle various event) 
+    (OS address routine to handle various event) 
   - When interrupting device CPU continues with its original task as it had never been interrupted
-
  
  Interrupt handlers(Interrupt Service Routine - ISR):-
-  - Software or callback function in OS or Device Driver, whose execution triggered by reception of interrupt
-  - When interrupt happen in order to handle interrupt update data structures and wakes up process that was waiting
+  - Function in OS or Device Driver whose execution triggered by reception of interrupt
+  - In order to handle interrupt update data structure and wake up process that was waiting
   - Interrupt mechanism accept address(Number that select specific interrupt handling routine/function from small set) 
   - This address offset stored in interrupt vector table(Vector - Memory addresses of specialized interrupt handler)
   

@@ -6,16 +6,16 @@ User Administration :-
   
   User account :-
    - Provide interactive access to system for users and groups of users 
-   - General user typically assigned to these accounts have limited access to critical system files and directories
+   - Limited access to critical system files and directories
    - Unix support Group Account which logically groups number of accounts 
    - Every account would be part of another group account 
   
 
  Managing Users and Groups :- 
-  /etc/passwd - Keep user account and password  | Hold majority information about account on Unix system
-  /etc/shadow - Hold encrypted password of corresponding account, Not all systems support this file
-  /etc/group  - Group information for each account
-  /etc/gshadow - Secure group account information
+  passwd - Keep user account and password  | Hold majority information about account on Unix system
+  shadow - Hold encrypted password of corresponding account, Not all systems support this file
+  group  - Group information for each account
+  gshadow - Secure group account information
  
   useradd  - Add account to system
   usermod  - Modifies account attributes
@@ -38,27 +38,26 @@ User Administration :-
 
 
 System Logging :-
- - Unix syslog is host-configurable, uniform system logging facility 
- - System use centralized system logging process that runs program /etc/syslogd or /etc/syslog
- - /etc/syslog.conf file Control messages that are logged 
+ - Unix syslog is host-configurable use centralized system logging process that run /etc/syslogd or /etc/syslog
+ - /etc/syslog.conf file Control messages that logged 
  
  Facility - Application or process that submitted log message
  Priority - Level defined within syslog as guidelines from debugging information to critical event
- Selector - Combination of one or more facilities and level | When incoming event matches selector action performed
+ Selector - Combination of one or more facilities and level | When incoming event match selector action performed
  Action   - Write message to log file, echo message to console or other device, write message to logged in user or 
             send message along to another syslog server
 
  
  Syslog Facilities :- 
   auth  - Activity related to requesting name and password (getty, su, login)
-  cron  - Message from cron system scheduler
-  ftp   - Message relating to ftp daemon
+  cron  - System scheduler
+  ftp   - Ftp daemon
   kern  - Kernel messages
-  lpr   - Message from line printing system
-  mail  - Message relating to mail system
-  mark  - Pseudo-event used to generate timestamps in log files
-  news  - Message relating to network news protocol (nntp)
-  ntp   - Message relating to network time protocol
+  lpr   - line printing system
+  mail  - Mail system
+  mark  - Pseudo-event used to generate timestamp in log files
+  news  - Network news protocol (nnp)
+  ntp   - Network time protocol 
   user  - Regular user processes
   uucp  - UUCP subsystem
   console  - Capture messages that generally directed to system console
@@ -75,10 +74,10 @@ System Logging :-
   emerg  - System crash usually broadcast to all users
   alert  - Corrupted system database
   debug  - Messages used when debugging programs
-  notice   - Condition that is not error but possibly handled in special way
+  notice   - Condition that not error but possibly handled in special way
   Warning  - Warning
 
-  - Each program send its messages dutifully to system logger,  logger makes decisions on what to keep track of and
+  - Each program send its messages dutifully to system logger,  logger makes decision on what to keep track of and
     what to discard based on levels defined in selector
   - When you specify level system keep track of everything at that level and higher
 
@@ -86,12 +85,6 @@ System Logging :-
  Logger Command :-
   - Deal with system logging | Send logging messages to syslogd daemon and provokes system logging
   Syntax :- logger message
-   -f filename  Use contents of file filename as message to log
-   -i           Log Process ID of logger process with each line
-   -p priority  Enter message with specified priority numerically or as a facility.priority pair (user.notice(Default))
-   -t tag       Mark each line added to log with specified tag
-   message      String argument whose content concatenated together in specified order separated by space
-
  
  Log Rotation   :- Log files consume large disk space bcz grow | Use tool newsyslog or logrotate using cron daemon  
  Log Location   :- System application create their log files in /var/log and its sub-directories 

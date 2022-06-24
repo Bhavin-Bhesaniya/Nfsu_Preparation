@@ -5,7 +5,8 @@ Shell Introduction :-
  - bash is default shell written by Stephen Bourne in 1977
  - Bourne shell first appear on Unix system thus referred as "the shell"
  - It installed as /bin/sh  
- Shell Ex :- [username @system_name  ~(Current working Dir)] $ Input command here
+ Shell Ex       :- [username @system_name  ~(Current working Dir)] $ Input command here
+ Manpage | Help :- $man command  #IF don't know how to use command 
   
  Types :-
   Bourne shell − $ character prompt | Korn shell (ksh) | Bourne Again shell (bash) | POSIX shell (sh)
@@ -34,7 +35,7 @@ Shell Script :-
  
 
 Variable :-
- - Variable used to Store any value you want in variable
+ - Store any value 
  - ? variable represent exit status of previous command
  - Return exit status of 0 if successful and 1 unsuccessful
 
@@ -46,12 +47,6 @@ Variable :-
   Invalid :-  2_VAR | -VARIABLE | VAR_A! | alto
 
 
- Types :-
-  Local - Present within current shell instance and not available to other program
-  Shell - Set and required by shell in order to function correctly | Some are environment and local variable
-  Environment - Available to any shell child process
-
-
  Ex :- variable_name = variable_value 
   NAME="Zara Ali"    // Scalar variable hold only one value at time | = operator used to create variable
   echo $NAME         // Access value
@@ -60,10 +55,10 @@ Variable :-
   export             // Make variable $NAME visible to program run by shell
 
 
- Special Variables :-
-  $echo $$  - Write PID of current shell −29949
+ Special Variable :-
+  $echo $$ - Write PID of current shell −29949
   $0  Filename of current script
-  $n  Correspond to argument with which script was invoked | N is positive decimal number
+  $n  Correspond to argument with which script was invoked | N positive decimal number
   $#  Number of argument supplied to script
   $*  All argument double quoted, If script receive two arguments, $* is equivalent to $1 $2
   $@  All argument individually double quoted, If script receives two argument, $@ is equivalent to $1 $2
@@ -74,7 +69,7 @@ Variable :-
 
  Command-Line Argument :-
   - Positional parameter with $0 pointing to actual command and $1, $2, $3, ...$9 as argument to command
-  - Special Parameter $* and $@ allow accessing all command-line arguments at once 
+  - Special Parameter $* and $@ allow accessing all command-line argument at once 
   - $* take entire list as one argument with space and "$@" separate it into separate argument
   Ex :- 
     for TOKEN in $*  // Wait for user input argument
@@ -86,8 +81,8 @@ Variable :-
 
 Array :-
  - Hold multiple same type value at same time in single variable
-  
- Declare :- array_name[index] = value
+
+ Declare    :- array_name[index] = value
  bash shell :- array_name = (value1 ... valuen)
   Ex :- 
    NAME[0]="Zara"
@@ -105,14 +100,14 @@ Array :-
 Operator :-
  - Arithmetic | Relational | Boolean | String | File Test 
  - There must be space between operator and expression 
- - Expression enclosed between ‘ ‘, called backtick
+ - Expression enclosed between ' ', called backtick
  Ex :- 2+2 not correct | 2 + 2 correct 
  - Conditional expression inside square braces with spaces around them
  Ex :- [ $a == $b ] is correct whereas, [$a==$b] is incorrect
  
  Arithmetic Operator :-
   - All arithmetical calculation done using long integer
-  + 	 `expr $a + $b` <== OR ==>  -, *, /, %, =
+  + 	 'expr $a + $b' <== OR ==>  -, *, /, %, =
   == 	 [ $a == $b ]
   != 	 [ $a != $b ]
 
@@ -120,8 +115,8 @@ Operator :-
  Relational Operator :-
   -eq	 [ $a -eq $b ]  | -ne	 [ $a -ne $b ]
   -gt	 [ $a -gt $b ]  | -lt	 [ $a -lt $b ] 
-  -ge	 Greater than or equal [ $a -ge $b ]
-  -le	 Less than or equal    [ $a -le $b ]
+  -ge	 [ $a -ge $b ]  Greater than or equal 
+  -le	 [ $a -le $b ]  Less than or equal
 
  
  Boolean Operator :-
@@ -139,23 +134,23 @@ Operator :-
  
 
  File Test Operator :-
-  -   Test various properties associated with Unix file
-  -b  file	Block special file     |  if yes, true  |  [ -b $file ]
-  -c  file	Character special file |  if yes, true  |  [ -c $file ] 
-  -d  file	File is a directory    |  if yes, true  |  [ -d $file ]
-  -p  file	File named pipe        |  if yes, true  |	 [ -p $file ]
-  -k  file	File Sticky bit set    |  if yes, true  |	 [ -k $file ]
-  -f  file	Ordinary file as opposed to directory or special file | if yes, true | 	[ -f $file ]
+  -         Test various properties associated with Unix file
+  -b file	 Block special file     |  if yes, true  |  [ -b $file ]
+  -c file	 Character special file |  if yes, true  |  [ -c $file ] 
+  -d file	 File is a directory    |  if yes, true  |  [ -d $file ]
+  -p file	 File named pipe        |  if yes, true  |	 [ -p $file ]
+  -k file	 File Sticky bit set    |  if yes, true  |	 [ -k $file ]
+  -f file	 Ordinary file as opposed to directory or special file | if yes, true | 	[ -f $file ]
   
-  -t file	File descriptor open associated with terminal | if yes, true |  [ -t $file ]
-  -u file	File has its Set User ID (SUID) bit set       | if yes, true |  [ -u $file ]
-  -g file	File has its set group ID (SGID) bit set      | if yes, true |	 [ -g $file ]
+  -t file	 File descriptor open associated with terminal | if yes, true |  [ -t $file ]
+  -u file	 File has its Set User ID (SUID) bit set       | if yes, true |  [ -u $file ]
+  -g file	 File has its set group ID (SGID) bit set      | if yes, true |	 [ -g $file ]
   
-  -r file	Readable   | if yes, true |	[ -r $file ] is true.
-  -w file	Writable   | if yes, true |	[ -w $file ] is true.
-  -x file	Executable | if yes, true |	[ -x $file ] is true.
-  -e file	File exist | if yes, true |	[ -e $file ] is true.
-  -s file	File size greater than 0 | if yes, true |	[ -s $file ]
+  -r file	 Readable   | if yes, true |	[ -r $file ] is true.
+  -w file	 Writable   | if yes, true |	[ -w $file ] is true.
+  -x file	 Executable | if yes, true |	[ -x $file ] is true.
+  -e file	 File exist | if yes, true |	[ -e $file ] is true.
+  -s file	 File size greater than 0 | if yes, true |	[ -s $file ]
  
  
 
@@ -177,8 +172,7 @@ Loop Types and Control Statement :-
 
 Function :-
  - Perform repetitive tasks to create code reuse 
- - Exit command from inside function, its not only effect to terminate execution of function but also shell program 
-   from that called
+ - Exit command inside function terminate execution of function and also shell program from that called
  
  Creating Function :-
   function_name () {
@@ -234,13 +228,11 @@ Substitution :-
 
 Quoting Mechanism :-
  Backquotes :- Putting any Shell command in between backquotes executes command  |  var=`command`
- 
- - Metacharacter Special meaning while using in any Shell Script and causes termination of word unless quoted
- - ? match with single character and * match more than one character 
+
  - * ? [ ] ' " \ $ ; & ( ) | ^ < > new-line space tab
  - Character may be quoted by preceding it with \	
  $  parameter substitution        | \$  Enable literal dollar sign  | \`  Enable literal backquote
- \"  Enable embedded double quote  | \\  Enable embedded backslash   | Other \ character are literal (not special)
+ \"  Enable embedded double quote  | \\  Enable embedded backslash  | Other \ character are literal (not special)
 
 
 
@@ -248,32 +240,6 @@ Input/Output Redirection :-
  - Terminal -> Command -> Take Input(Standard Input) -> Process -> Output(Standard Output)
  Note :- File descriptor 0 standard input(STDIN), 1 standard output (STDOUT) and 2 standard error output (STDERR)
  
- Output Redirection :-
-  - If notation > file appended to any command that normally write its output to standard output, 
-    output of that command will be written to file instead of terminal
-  - $ who > users
-  - $ cat users
-  - $ echo line 2 >> users
-
-
- Input Redirection :- <
-  $ wc -l users
-  2 users
-  $ wc -l < users
-  2
-  
-
- Here Document :- 
-  - Redirect input into interactive shell script or program
-  - << operator used as instruction to read input until it find line containing specified delimiter 
-  - Delimiter must be single word that does not contain spaces or tabs
-
-
- Discard output :-
-  - discard output by redirecting it to file /dev/null −
-  - $ command > /dev/null
-
-
  Redirection Command :- 
   pgm > file  Output redirected to file
   pgm < file  Read input from file
@@ -284,16 +250,3 @@ Input/Output Redirection :-
   n <& m      Merge input from stream n with stream m
   << tag      Standard input come from here through next tag at the start of line
   |           Takes output from one program or process and send it to another
-
-  
-Manpage | Help :-
- - Not sure how to use any command then Man Pages help with every step
- Syntax :- $man command
- 
-  SYNOPSIS    Parameters of command
-  DESCRIPTION What command does
-  OPTIONS     Describes all arguments or option to command
-  SEE ALSO    List other command that directly related to command in man page or closely resemble its functionality
-  BUGS        Explain any known issues or bugs that exist with command or its output
-  EXAMPLES    Examples gives idea of how command used
-  AUTHORS     Author of man page/command

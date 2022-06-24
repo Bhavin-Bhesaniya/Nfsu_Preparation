@@ -22,7 +22,6 @@ public class A7DateAndTime {
     String formatdt = myobj.format(formobj);
     System.out.println(formatdt);
 
-
     // Calendar
     String month[] = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 

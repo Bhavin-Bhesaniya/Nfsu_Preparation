@@ -1,15 +1,3 @@
-Index No :-
- Introduction
- Variable / Keyword / Namespace 
- Operator
- Input / Output
- DataType
- LOOPS / CONTROLSTATEMENT / CONDITIONALSTATEMENT
- FUNCTION
- OOP
-
-
-
 Introduction :-
  HISTORY :- 
   - Guido van rossum 1991 and further developed by Python Software Foundation 

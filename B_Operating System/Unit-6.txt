@@ -1,44 +1,37 @@
 File System and DiskScheduling :-
  
 File System :-
- - Collection of related information that recorded on secondary storage
- - File System manage how data permanently stored, managed and fetched
- - User manage their data in file format
+ - File System manage how data permanently stored, managed and fetched implemented as multi-leveled system
  - Folder(Directory) is collection of related files
  - File System mapping data on sector(Divide file logically and stored or fetched stored files) 
- - File system typically implemented as multi-leveled system
- - Allocation method :- Contiguous | Linked | Indexed
- - Directory is logical construct representing set of files and sub-directories
+ - Disk block Logical representation of smallest unit of disk that OS divided logical partition into single blocks
+ Diagram :- Disk --> File System --> User View  | 1 block ==> 1 to 2 Disk Sector
+
+ Allocation method :- Contiguous | Linked | Indexed
  
  Types of OS and its File System :-
-  Windows,  NTFS/FAT32  |  DOS, FAT  |  UNIX, Unix  |  Linux,  EXT2,3,4  |  MacOS, HFS+  |  BigData, zfs|Data Wide 
+  Windows, NTFS/FAT32  |  DOS, FAT  |  UNIX, Unix  |  Linux,  EXT2,3,4  |  MacOS, HFS+  |  BigData, zfs,Data Wide 
 
  Architecture :-
   Application Program 
-  Logical File System        [Manages Metadata]                                 [Logical Block Address]
-  File Organization Module   [Allocation management and Free space management]  [Physical Block Address]
-  Basic File System
+  Logical File System        [ Manages Metadata ]                      [Logical Block Address]
+  File Organization Module   [ Allocation and Free space management ]  [Physical Block Address]
   I/O Control
   Disk
+
+ File/Directory Structure :-
+  Single-level directory   :- One folder, all file inside this Folder | Name Unique |  Distgenius for multiple users
+  Two-level directory      :- Different user have different folder 
+  Tree Structure Directory :- Root directory have different directory, sub directory etc..
 
 
 
 File Attributes & Operations :-
- Operations :- Creating  |  Reading  |  Writing  |  Deleting  | Truncating - Delete entire file only not attribute
+ Operation :- Creating |  Reading  |  Writing  |  Deleting  | Truncating - Delete entire file only not attribute
   
- Attributes :- Meta Data of file
+ Attribute :- Meta Data of file
   Name  |  Extension(Type)  |  Author  |  Date  |  Size  |  Permission  |  Compression  |  Location 
   Creation, Modified, Accessed  |  Protection(Encryption)  
-
-
-
-File/Directory Structure :-
- Single-level directory :- 
-  - Only one folder and all file inside this Folder
-  - Name should be Unique |  Distgenius for multiple users
-
- Two-level directory      :- Different user have different folder 
- Tree Structure Directory :- Root directory have different directory, sub directory etc..
 
 
 
@@ -47,10 +40,10 @@ File Allocation Method :-
 
  Contiguous Allocation :-
   - Store file block contiguous and block-size dependent on hard-disk block size
-  - Directory contain every file information
-  - Access :- Sequential, Random/Direct
-  - Disk become fragmented and Difficult to increase file size
   - Easy to implement and Excellent Read Performance 
+  - Disk become fragmented and Difficult to increase file size
+  
+  Access :- Sequential, Random/Direct
   
   Example :- File-Allocation Table
    FileName  Start Block No.  No.of Blocks(Length)
@@ -58,16 +51,16 @@ File Allocation Method :-
     B             6                5
     C             14               4
 
-            Disk 
-      0  1  2  3  4  5      A(0-3)
-      6  7  8  9  10 11     B(6-10)
-      12 13 14 15 16 17     C(14-17)
+          Disk 
+    0  1  2  3  4  5      A(0-3)
+    6  7  8  9  10 11     B(6-10)
+    12 13 14 15 16 17     C(14-17)
    
 
  Non-Contiguous Allocation :-
 
   Linked-List Allocation :- 
-   - Use pointer to identify file block (Data/Next-BlockAddress) in last -1 
+   - Use pointer to identify Next-BlockAddress and In last -1 
    - Remove external fragmentation, file size can increase
    - Large Seek Time, Random/Direct Access Difficult, Overhad of Pointers
 
@@ -82,11 +75,10 @@ File Allocation Method :-
 
 
   Indexed Allocation :-
-   - Create one index block of file which give information of entire file block
-   - Support direct access, sequential access and No external fragmentation but internal
-   - Pointer overhead, Multi-level index
-   - UNIX use inode structure where i represent index 
-
+   - Create one index block of file that give information of entire file block
+   Access :- Direct, Sequential 
+   - No external fragmentation but internal  |  Pointer overhead due to Multi-level index
+   
    Example :- File-A
     File  Index Block
      F1     2       
@@ -97,9 +89,9 @@ File Allocation Method :-
 
   
  Unix I-node Structure :- 
-  - Index node is data structure in Unix style file system that describes file-system objects such as file or directory
-  - Each inode stores Attributes(Metadata) and Direct Block location(Stored Pointer that directly point to data block)
-  - No. of inode limits total number of files/directories that stored in file system
+  - Index node data structure in Unix describe file-system object such as file or directory
+  - Each inode store Attributes(Metadata) and Direct Block Location(Store Pointer that directly point to data block)
+  - No. of inode limit total number of files/directories that stored in file system
 
   I-node infomation :-
    - Administrative Information(Permission, Time-Stamp etc...)
@@ -109,15 +101,13 @@ File Allocation Method :-
    - Triple Indirect Block -> Data Block -> Pointer -> Data Block (2) -> Pointer -> Data Block (3) -> Finally Give Data 
  
 
-
  Question :-
-  - File system uses unix inode data structure which contain 8 direct block addresses, one indirect block, 
-    one double and one triple indirect block
+  - Unix inode contain 8 direct block addresses, one indirect block, one double and one triple indirect block
   - Size of each disk block is 128byte and size of each block address is 8Byte
   - Find maximum file size?
    
   BlockSize = 128
-  Total No. Of pointer in one Disk Block = 128/8 16(2^4) 
+  Total No. Of pointer in one Disk Block = 128/8 = 16(2^4) 
   Pointer -> (8(DB) + 16(SI) + (16x16)(DI) + (16x16x16)(TI)) x 128   
           =  8(1 + 2 + 2x16 + 2x16x16) x 128
           =  8(35+512)x 128
@@ -127,32 +117,29 @@ File Allocation Method :-
 
 
 Hard-Disk Architecture :-
- - Disks addressed as large one-dimensional array of logical blocks
- - Block is smallest unit of transfer
+ - Disk addressed large one-dimensional array of logical block
  - One-dimensional array of logical blocks has to be mapped onto physical Sector
  - Cylinder -> Track -> Sector 
+ 
  Storage :-
-  uniform bit density     - More sectors on outer tracks
+  uniform bit density     - More sector on outer tracks
   non-uniform bit density - Same number of sector on all tracks
 
- Platter (Circle Shape)  :
-  - Every Platter has two surfaces upper-level and lower-level
-  - Every platter has Read-Write head which connect with Actuator Arm to find data
+ Disk Architecture :-
+  - Platter(Circle Shape) has upper and lower-level surface with Read-Write head that connect ActuatorArm to find data
   - Read-Write head movement either in forward or backward only 
-  - On Platter surface there are tracks 
-  - Every track has fix no. of sectors where we put our data 
-  - Sector is addressable unit of disk
+  - On Platter surface tracks that has fix no. of sector where store data 
+  - Sector addressable unit of disk
   - Collection of consecutive sectors known as Cluster
-  - Collection of tracks of same radius from all surfaces known as Cylinder and content in disk store in cylinder-wise
-
-  
- Spindal(Vertical Stick) : Connect Platter to move either in clock-wise or anti-clock-wise undirectional
-  
- To reach data -> Platter -> Surface(Upper/Lower) -> Track ->  Sector -> Data
- Formula DiskSize = P x S x T x S x D
- No. of sector(NS)= 2 * P * T * No. of sectors per track
- Address size     = logx2(Ns) - Bits
- Sector Capacity  = 2 * No. of Platter * No. of Tracks Per Surface * No. of Sector per track * 1 Sector Capacity 
+  - Collection of track of same radius from all surface known as Cylinder and content in disk store in cylinder-wise
+  Spindal(Vertical Stick) :- Connect Platter to move either in clock-wise or anti-clock-wise undirectional
+  -  To reach data -> Platter -> Surface(Upper/Lower) -> Track ->  Sector -> Data
+ 
+ Formula :-
+  DiskSize     = P x S x T x S x D
+  Address size = log x 2 (Ns) - Bits
+  No. of sector(NS)= 2 * P * T * No. of sectors per track
+  Sector Capacity  = 2 * No. of Platter * No. of Tracks Per Surface * No. of Sector per track * 1 Sector Capacity 
 
 
 
@@ -182,49 +169,29 @@ Disk Access Time :-
 
 
 Disk Partition :-
- Two types :- Low-Level Partition(Physical Partition)  | High-Level Partition(Logical Partition)
- Low-Level Partition :- Creating tracks and sector done by Manufacturer
+ Low-Level Partition :- Creating track and sector by Manufacturer
  
  High-Level Partition(Logical) :- 
-  - Creating Drive partitions done by User using OS
-  Two Types :- Primary  |  Extended
-  - In primary OS Stored and user file
-  - In extended only user file stored
-  - We can make more than one primary partition for different OS and not able to store 2 OS in single Partition
-
-
-
-Disk Block :- 
-  - Disk --> File System --> User View
-  - Logical representation of smallest unit of disk
-  - OS divided logical partition into single blocks
-  - 1 block ==> 1 to 2 Disk Sector
-
-  Question :-
-   Number of Disk Blocks = 2^16
-   Size of each block    = 1KB
-   Total size of Disk    = 64 MB 
-  - File smaller than block should occupied entire block hence internal Fragmentation
+  - Drive partition by User using OS
+  - Make more than one primary partition for different OS because it Not possible to store 2 OS in single Partition
+  Two Types :- Primary(OS and user file Stored)  |  Extended(Only user file stored)
 
  
 
 Free space Management :-  
- Free List     :- Linked List of all free blocks
+ Free List     :- Linked List of all free blocks                                                 
  Bitmap Method :- N blocks in disk => n-bit into^n => if bit is 0 block is free if 1 is occupied
- - No searching in free list but in bitmap we search for first zero
- - Free list is faster in allocating free blocks
  - Free list size is variable where as bitmap size is constant
 
 
 
 Disk Scheduling Algorithm :-
- - Disk bandwidth - Number of byte transferred / Time between first request and last service
- 
- - Done by OS to schedule I/O request To minimize seek time
+ Disk bandwidth :- Number of byte transferred / Time between first request and last service 
+ - To minimize seek time
  - FCFS And SSIF not required direction while SCAN and LOOK Required
  Request Queue :- 
-  - Whenever user create request for data which stored in particular track after mapping it, whatever track number
-    come it insert in queue number 
+  - Whenever user request, data stored in particular track after mapping it, whatever track number come insert in queue
+  
  Seek Time = (No. of head Movement * 1 Head Movement time) + Extra Delay  
  
 
@@ -340,17 +307,16 @@ Disk Scheduling Algorithm :-
 
  Question Solution :-
   - Track Request in Queue :- 95, 180, 34, 119, 11, 123, 62, 64  USE C-SCAN 
-  - R/W head is at location 50 
-  - Track number from 0 to 199, head is moving towards small track
-  - Find total seek time? 
-  - 2ns times to move from one track to another while serving these request is?(Head movement time)
-  - Assume moving one end to another end will take 10ms(Extra Delay)
+  - R/W head at 50 | Track number from 0 to 199 
+  - Head moving toward small track Find total seek time? 
+  - 2ns time to move from one track to another while serving these request is? (Head movement time)
+  - Assume moving one end to another end will take 10ms (Extra Delay)
 
   Diagram :-
     0    50              199
        34
      11
-                     180
+                      180
                    123             
                 119
               95
@@ -359,7 +325,7 @@ Disk Scheduling Algorithm :-
 
 
   Find Seek Time :-    
-   (50 - 0 - 199(Nofill) - 199-62)
+   (50 - 0 - 199(No fill) - 199 -62)
    (50-0) + (199-62) + 10
    = ((50+137)x 2) + 10     (No. of head Movement * 1 Head Movement time) + Extra Delay
    = 384       
