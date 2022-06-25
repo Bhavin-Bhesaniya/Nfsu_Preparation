@@ -89,13 +89,12 @@ public class A4FileHandling {
             System.out.println("failed to delete");
         }
 
-
         // Copy file
         try {
-            //Byte Stream
+            // Byte Stream
             // FileInputStream in = new FileInputStream("./firstfile.txt");
             // FileOutputStream out = new FileOutputStream("./secondfile.txt");
-            //Character Stream
+            // Character Stream
             FileReader in = new FileReader("./firstfile.txt");
             FileWriter out = new FileWriter("output.txt");
 

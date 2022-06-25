@@ -53,7 +53,7 @@ public class T3Thread {
             bThread.join();
             System.out.println("Check thread is alive or not : " + bThread.isAlive()); // Check thread is alive or not
             System.out.println("Thread Working Completed");
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
