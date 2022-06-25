@@ -24,6 +24,11 @@ Introduction :-
   - James initialized java project in june 1991 for setTop box
   - Initially language called 'oak'(Tree outside) than 'Green' than 'Java' choose from random word
   - 13 November,2006 sun released much as free and open source software under GPL license
+  
+  Comment    :- Helps progrmmers to understand code            |  Single line :- //  |  Multi-Line  :- /* */
+  Expression :- Consist of variables, operators, literals and method calls
+  Statement  :- Each statement is complete unit of execution                 | Ex :- int score = 9*5;
+  Blocks     :- Group of statement that enclosed in curly braces { }
 
 
 
@@ -45,7 +50,7 @@ Introduction :-
  Naming Convention Rules :-
   method 		 :- getRequest  // First character is small each internal word is capitalized
   constant	 :- MAX_VALUE   // All letters are uppercase 
-  Variable   :- int a = 10;	// No whitespace,symbols and start with digit //Allow underscore and $ at start of variable 
+  Variable   :- int a = 10;	// No whitespace, symbols and start with digit //Allow underscore and $ at start of variable 
   package    :- java.io.*;	// all package names in lowercase	
   class/interface :-Topcapital //First character is capital
 
@@ -167,14 +172,15 @@ Variable :-
 
 
 Literal :-
- - Represents Fixed Value(Declare variables with values)
+ - Represent Fixed Value(Declare variables with values)
 
  Types :-
   Boolean - True or False
   Integer - Without any fractional part or exponation part(binary(0b),decimal(27),octal(027),Hexadecimal(0x27)) 
   Float   - float(3.4f) , double(3.3445e2)
-  String  - Sequence of characters enclosed inside double-quotes("Java")
-  Character - unicode character enclosed inside single quotes('a')Use :- escape sequences(\n,\b,\r,\t,\\,\',\'")
+  String  - Sequence of character enclosed inside double-quotes("Java")
+  Character - unicode character enclosed inside single quotes('a') 
+  Escape sequences :- (\n,\b,\r,\t,\\,\',\'")
     
 
 
@@ -182,13 +188,13 @@ Identifier And Keyword :-
  - Identifiers are the name given to variables, classes, methods, etc..
 
  Rules :-
-  - Java is Case-sensitive and not used keyword
+  - Case-sensitive and not used keyword
   - Start with letters, _ , $
   - Not start with number
   - Not allows whitespace and special Symbols
 
  Keyword :-
-  - Keywords are predefined, reserved words used in Java programming that have special meanings for compiler
+  - Predefined, reserved words that cannot used as identifier that have special meanings for compiler
 
   Keywords List :-
   int   void    byte    char   boolean double  short  long   final     const    enum
@@ -200,20 +206,16 @@ Identifier And Keyword :-
   abstract finally	instanceof  strictfp	super       
   transient	synchronized  volatile  native
 
-  new  :- instantiates class dynamically by allocating at run time
-
 
 
 DataType :-
- - Specify type of data that can be stored inside variables in Java
-
- Primitive datatype :- 
-  - Predefined by language and named by keyword 
-  - Default value is 0
-
- DataType   Range of bytes         Sizebyte      Ex
+ - Specify type of data that stored inside variables in Java
+ - Default value of primitive datatype is 0 and user-defined type is null
+ 
+ Primitive datatype :- Predefined by language and named by keyword 
+  DataType   Range of bytes            Sizebyte      Ex
   byte       -128 to 127                1      B1 = 100;   
-  short      -32768 to 327676           2      B2 = 20; 
+  short      -32768 to 32767            2      B2 = 20; 
   int        -2,147,483,648 to 7        4      B3 = 20;
   float      6 to 7 decimal             4      B5 = 3.3f;
   double     15 decimal                 8      B6 = 7.44d;
@@ -221,16 +223,18 @@ DataType :-
   boolean    true or false              1bit   B7 = false;
   char                                  2      B8 = 'F';
 
+
  Non-Primitive type :- 
-  - Reference variable that are created using constructors of the classes that Used to access object
+  - Reference variable that created using constructor of classes to access object
   - Declared for specific type so value can't Change
   - Default value is null
   - No fixed size
   Ex :- String, Array, Class, Object
 
+
  Type Casting :-
   - Method or process that converts datatype into another datatype in both ways manually and automatically
-  - Automatic conversion is done by the compiler and manual conversion performed by programmer
+  - Automatic conversion done by compiler and manual conversion performed by programmer
 
   Widening casting(automatically) :- Convert smaller type to larger type
    Ex :- byte -> short -> char -> int -> long -> float -> double 
@@ -241,7 +245,7 @@ DataType :-
 
 
 Operator :-
- - Symbol that perform operations on variables and values
+ - Symbol that perform operation on variables and values
  Arithmatic :- + , - , * , / , %   
  Assignment :- = , += , -= , *= , /= , %= , &= , |= , ^= , >>= , <<=
  Realtional :- == , != , > , <  , >= , <=
@@ -272,40 +276,22 @@ Operator :-
 
 Input/Output :-
  Output :-
-  - method to print data in java
-  - System is a class 
-  - out is public static field: accept user data 
-  1)System.out.print()  - Print string inside quotes 
-  2)System.out.println()- Same work like print but add new line in the end 
-  3)System.out.printf() - Provides formatting same as c/c++ 
+  - System is class and out is public static field :- accept user data 
+  System.out.print()   - Print string inside quotes 
+  System.out.println() - Same work like print but add new line in the end 
+  System.out.printf()  - Provide formatting same as c/c++ 
 
  Input :-
-  - Get Input from user
-  - Use Scanner class which we import from java.util.Scanner 
+  - System.in take standard input from user
+  - Use Scanner class which import from java.util.Scanner 
   Syntax :- Scanner usrInput = new Scanner(System.in);
   usrInput.nextInt(); - Take integer value from user 
 
  More Method :- 
-  - nextFloat(), nextDouble(), nextLong, nextByte(), nextFloat()
+  - nextFloat(), nextDouble(), nextLong(), nextByte(), nextFloat()
   - next()Read input upto whitespace, does not read newline character in your input created by hitting "Enter"
-  - nextLine()read line of text , returns after reading that newline
-  - nextBigInteger, nextBigDecimal() requires import from java.math. package
-  - System.in take standard input from user
+  - nextLine()read line of text , return after reading that newline
   - Close() method to close object
-  - Scanner class reads entire line and divides line into tokens which use for compiler to process input
-
-
-
-Expressions, Statements, Blocks and comment :-
-
- Expressions :- Consist of variables, operators, literals and method calls
- Statements  :- Each statement is complete unit of execution
-              - Convert expression into statement by terminating expression with a " ; "  Known as expression statement
-              Ex :- int score = 9*5;
- Blocks  :- Block is group of statements (zero or more) that is enclosed in curly braces { }
- Comment :- Portion of program that are completely ignored by Java compilers 
-          - Helps progrmmers to understand code
-          Type :- Single line :- //     |   Multi-Line  :- /* */
 
 
 
@@ -316,6 +302,7 @@ Control Flow :-
   Else-if    :- if(condtion1){}else if(condtion2){}else{}
   Ternary    :- var = (condition) ? expressionTrue : expressionFalse;
  
+
  Switch :-
   - Expression evaluated once then compared with values of each case statement
   - If match, associated block of code is executed otherwise default block executed
@@ -331,107 +318,89 @@ Control Flow :-
       //code block
     }
 
- Loops :- Execute block of code as long as condition is true, to save time, reduce errors, make code readable   
+
+ Loops :- Execute block of code as long as condition true, to save time, reduce errors, make code readable   
   for       :- for (initialization ; condition ; increment/decrement){ //code } 
   while     :- while(condition){ //code }
   do..while :- do{ //code }while(condition)
   foreach   :- for(type variableName : arrayName){ //code }
 
+
  Control Statement :- 
-  break  :- Terminates loop immediately and control of program moves to next statement 
-          - Use label break statement to terminate outermost loop as well Ex :- break second: (This is label use)
+  break    :- Terminates loop immediately and control of program moves to next statement 
   continue :- Skip current iteration of loop and go next iteration
-  Note :- Java not support goto but use  " label: " instead of goto
-        - Label declare starting point of the loop 
+  Note :- 
+   - Java not support goto but use  "label:" instead of goto
+   - Use label break statement to terminate outermost loop as well Ex :- break second: (This is label use)
+   - Label declare starting point of loop 
 
 
 
 Array :- 
- - Array is collection of similar types of 
- - Contain same data-type group of element
- - Array are dynamically allocated, Ordered and start index with 0
- - In primitive type actual values are stored in contiguous memory locations
- - In objects of class actual object are stored in heap segment
- - To access element of outside array size JVM throws ArrayIndexOutOfBoundsException
- - Superclass of any array type is java.lang.Object
- - Default value of primitive datatype is 0 and user-defined type is null
+ - Collection of similar types of data
+ - Dynamically allocated, Ordered and start index with 0
+ - Primitive type -> Stored in contiguous memory location
+ - Class objects  -> Stored in heap segment
+ - Access element of outside array size -> JVM throws ArrayIndexOutOfBoundsException
+ - Superclass of any array -> java.lang.Object
+ 
+ Array Class  :- java.lang.Object -> java.util.Arrays(Java Collection Framework) 
+ Final Array  :- Array variable which actually reference to object cannot be changed but member of array modified
+ Jagged Array :- Array of arrays such that member array can be of different sizes
+ Reflection Array Class :- java.lang.reflect provide static method to dynamically create array | Final class 
+
 
  Syntax :- 
-   data-type[] variablename;                     //declared  only reference of array is created
-   Variablename = new datatype[arraysize];       //create a new array give memory location
+  data-type[] variablename;                 // Array reference created
+  Variablename = new datatype[arraysize];   // New array with memory location
 
-   dataType[] arrayRefVar = new dataType[arraySize];     //In one line create a new array 
-   String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};    //create a new array with value Declaring array literal
+  dataType[] arrayRefVar = new dataType[arraySize];    // Complete array Declaration
+  String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};   // New array with value
 
-   Access Elements :- arrayRefVar[indexNo]; Or Loops
-   Update Elements :- arrayRefVar[indexNo] = new value; 
-   Find Length     :- arrayRefVar.length;          
+  Access Element :- arrayRefVar[indexNo]; Or Loops
+  Update Element :- arrayRefVar[indexNo] = new value; 
+  Find Length    :- arrayRefVar.length;          
          
+
  Syntax :- Multi-dimensional array containing one or more array
-    int[][] intArray = new int[10][20];         //2D array or matrix
-    int[][][] intArray = new int[10][20][10];   //3D array
+  int[][] intArray = new int[10][20];         //2D array or matrix
+  int[][][] intArray = new int[10][20][10];   //3D array
 
 
- Class objects of arrays :-
-  - Every array has associated Class object that shared with all other arrays with same component type
-  Syntax :- arrayVariable.getClass()  / arrayVariable.getclass().getSuperclass()
+ Array Class object :-
+  - Every array associated Class object that shared with all other array with same component type
+  Syntax :- arrayVariable.getClass()  |  arrayVariable.getclass().getSuperclass()
 
- 
- Array Class :-
-  - Deriverd from java.util package part of Java Collection Framework
-  - Provide static method to dynamically create and access Java array
-  - It consists of only static method and method of Object class
-  - Method of this class can be used by class name itself
-  Hierachiy :- java.lang.Object -> java.util.Arrays
-  - java.util.Arrays class contains various static methods for sorting and searching, comparing ,filling array element
 
- Reflection Array Class :- 
-  - java.lang.reflect provide static method to dynamically create and access Java array
-  - It is final class which means it can’t be instantiated or changed
-  - Only method of this class can be used by class name itself
-
- Final Array :-
-  - Array variable which actually reference to object cannot be changed to refer to anything else,
-    but member of array can be modified
- 
- Jagged Array :-
-   - Jagged array is array of arrays such that member array can be of different sizes
-
- 
  Exception :-
   Checked   :- Checked at compile time
-  Unchecked :- Unchecked at compile time
-   - In Java exceptions under Error and RuntimeException classes are unchecked exceptions, everything else under 
-     throwable is checked
+  Unchecked :- Unchecked at compile time | Error and RuntimeException classes unchecked exception | throwable is checked
 
 
 
-FileHandling :-
- - java.io.file package use
- Syntax :-  File a = new File(filename/pathforfile);
+FileHandling :- java.io.file package  
+ Syntax :- File a = new File(filename/pathforfile);
 
- Constructors :-
-  File(File parent, String child)   
-  File(String pathname)           
-  File(String parent, String child) 
-  File(URI uri)
+ Constructor :-
+  File(File parent, String child)    |  File(String pathname)           
+  File(String parent, String child)  |  File(URI uri)
 
  Method :-
   boolean canExecute()           : Test application execute file denoted by this abstract pathname
   boolean canRead()              : Test application read file denoted by this abstract pathname
   boolean canWrite()             : Test whether application modify file denoted by this abstract pathname
-  int compareTo(File pathname)   : Compare two abstract pathnames lexicographically
-  boolean createNewFile()        : Automatically creates new empty file named by this abstract pathname 
-  static File createTempFile()   : Create empty file in default temporary-file directory
+  boolean createNewFile()        : Automatically create new empty file named by this abstract pathname 
   boolean delete()               : Delete file or directory denoted by this abstract pathname
-  boolean equals(Object obj)     : Test abstract pathname for equality with given object
   boolean exists()               : Test whether file or directory denoted by this abstract pathname exists
-  String getAbsolutePath()       : Return absolute pathname string of this abstract pathname
+  static File createTempFile()   : Create empty file in default temporary-file directory
+  int compareTo(File pathname)   : Compare two abstract pathnames lexicographically
+  boolean equals(Object obj)     : Test abstract pathname for equality with given object
   long getFreeSpace()            : Return number of unallocated bytes in the partition
   String getName()               : Return name of file or directory denoted by this abstract pathname
   String getParent()             : Return pathname string of this abstract pathname’s parent
-  File getParentFile()           : Return pathname of this abstract pathname’s parent
   String getPath()               : Convert pathname into a pathname string
+  String getAbsolutePath()       : Return absolute pathname string of this abstract pathname
+  File getParentFile()           : Return pathname of this abstract pathname’s parent
   boolean isDirectory()          : Test file denoted by this pathname is a directory
   boolean isFile()               : Test file denoted by this abstract pathname is a normal file
   boolean isHidden()             : Test file named by this abstract pathname is a hidden file
@@ -451,136 +420,98 @@ FileHandling :-
 
 
 I/O Stream :-
- - Stream is method to sequentially access file
+ - Stream method sequentially access file
  - java.io package use for character stream unicode and binary stream non-unicode text
- 
- Type :-
-  InPutStream  − Used to read data from source
-  OutPutStream − Used for writing data to destination
+ - Character Stream useful to process text files while ByteStream suitable for processing raw data like binary files
+ Type :- InPutStream - Read data from source | OutPutStream - Writing data to destination
 
  Character Stream :-
-  - Character are stored using unicode characters
-  - Allow read/write data characters by character automatically
-  - Perform input and output for 16-bit unicode
+  - Allow read/write data characters by character automatically using 16-bit unicode character
   Ex :- FileReader and FileWriter 
 
  Byte Stream :-
-  - Process data bytes by byte sequence(8bit)
+  - Process data bytes by byte sequence(8-bit)
   Ex :- FileInputStream and FileOutputStream
-
- When to use Character Stream over Byte Stream? 
-  - Character stream is useful to process text files
-  - ByteStream suitable for processing raw data like binary files
  
- Standard Stream :-
-  Standard Input  :- System.in
-  Standard Output :- System.out
-  Standard Error  :- System.err
+ Standard Stream :- Input - System.in  |  Output - System.out  |  Error - System.err
 
- Hierachy Of Stream :-
-                 Object
-    InputStream         OutputStream 
-    File                - Same in outputStream
-    ByteArrayInput
-    FilterInputStream
-     -BufferedInput
-     -DataInputStream  
-    ObjectInputStream
+ Hierachy Of Stream :- Object
+  InputStream  :- File | ByteArrayInput  | FilterInputStream  - BufferedInput,  DataInputStream   | ObjectInputStream
+  OutPutStream :- File | ByteArrayOutPut | FilterOutPutStream - BufferedOutPut, DataOutPutStream  | ObjectOutPutStream
 
 
 
 Pacakge :-
- - Used to group related classes
- - Avoid name conflict and write better maintainable code
-
- 1)Built-in package       (Package from java api)
- 2)User defined package   (Create own package)
+ - Group related classes that Avoid name conflict and write better maintainable code
+ Type :-  Built-in package (Package from java api)  |  User defined package (Create own package)
 
  Built-in package :-
-  - Java api is library of prewritten classes
-  - library divided into two part :- package and classes
-  - Either import single class or import whole package that contain all classes
-  Ex :- import package.name.class; single class 
-        import package.name.*;     import whole package  
+  - import package.name.class;  import single class 
+  - import package.name.*;      import whole package  
 
  User defined package :-
   - Java uses file system directory to store them
-  - root ->mypack -> filename.java    
+  - root -> mypack -> filename.java    
 
 
 
 Date And Time :-
  - Not have built-in date class but import java.time package to work with data and time api
- - java.util package, this class encapsulates current date and time
+ - java.util class encapsulates current date and time
 
  Constructor :-
-  Date()  :- Initalize date and Time Object
-  Date(long milliseconds) :- Accept argument that equals number of milliseconds
+  Date() :- Initalize date and Time Object 
+  Date(long mes) :- Accept argument that equals number of milliseconds
 
  Calender :-
-  - Calendar Class being an abstract class cannot be instantiated
-  - So an object of the Calendar Class is initialized as: 
-  Syntax :- Calendar cal = Calendar.getInstance();
+  - Abstract class cannot be instantiated   |  Syntax :- Calendar cal = Calendar.getInstance();
+  - Object of Calendar Class initialized with current date and time in default locale and timezone
   - Use java.util.GregorianCalendar and java.util.Calendar
-  - Object of Calendar Class is initialized with current date and time in the default locale and timezone
-  - Whereas, GregorianCalendar Class being concrete class, can be instantiated
-  - So object of GregorianCalendar Class is initialized as: 
-    Syntax :- GregorianCalendar gcal = new GregorianCalendar();
-  - gcal of GregorianCalendar Class is initialized with current date and time in default locale and timezone
+  - gcal of GregorianCalendar Class initialized with current date and time in default locale and timezone
 
 
 
 Regular Expression :-
- - Special sequence of characters that helps to match or find other strings or sets of string, Using specialized 
-   syntax held in pattern
- - java.util.regex package used
+ - Special sequence of character that match sets of string using special string called pattern
+ - java.util.regex
 
- Pattern Class :-
-  - To create pattern first invoke one of its public static compile() method, which will then return Pattern object
-  - Method accept regular expression as first argument
-
- Matcher Class :−    
-  - Matcher object is the engine that interprets pattern and performs match operations against input string
-  - Matcher defines no public constructors
-  - Obtain Matcher object by invoking matcher() method on Pattern object
-
- PatternSyntaxException :− 
-  - PatternSyntaxException object is unchecked exception that indicates syntax error in regular expression pattern
-
- Capturing Group :-
-  - Way to treat multiple characters as a single unit
-  - To find out how many groups are present in expression, call groupCount method on matcher object
-
- Common use Symbols :-
-    ^	    Match beginning of line
-    $	    Match end of line
-    .	    Match single character except newline, Using m option allows it to match newline as well
-    [...]	Match any single character in brackets
-    [^...]	Match any single character not in brackets
-    \A	    Beginning of entire string
-    \z	    End of entire string
-    a| b	Match either a or b
-    \W	    Match nonword characters
-    \w	    Match word characters
-    \s	    Match whitespace, Equivalent to [\t\n\r\f]
-    \S	    Match nonwhitespace
-    \d	    Match digits. Equivalent to [0-9].
-    \D	    Match nondigits
+ Pattern Class :- Compile() method return Pattern object that accept regular expression as first argument
+ Matcher Class :− matcher() Interpret pattern and perform match operation against input string
+ PatternSyntaxException :−  Unchecked exception that indicate syntax error in regular expression pattern
+ Capturing Group :- Treat multiple characters as a single unit | Find how many group present in expression groupCount()
+ 
+ Common Symbols :-
+  ^	      Beginning of line
+  $	      End of line
+  .	      Match single character except newline  | m option allow to match newline as well
+  [...]	  Match any single character in bracket
+  [^...]	Match any single character that not in bracket
+  \A	    Beginning of entire string
+  \z	    End of entire string
+  a | b	  Match either a or b
+  \W	    Match nonword characters
+  \w	    Match word characters
+  \s	    Match whitespace, Equivalent to [\t\n\r\f]
+  \S	    Match nonwhitespace
+  \d	    Match digits, Equivalent to [0-9]
+  \D	    Match nondigit
 
 
  Method :-
   Start   :- Return start index of previous match
   End     :- Return offset after last character matched
-  find    :- Attempt to find next subsequence of input sequence that matches pattern
-  matches :- Attempt to match entire region against pattern
-  lookingAt :- match input sequence starting at beginning of the region against pattern
+  find    :- Find next subsequence of input sequence that matches pattern
+  matches :- Match entire region against pattern
+  lookingAt :- Match input sequence starting at beginning of region against pattern
+
 
  Replacements Methods :-
-  replaceAll         :- Replace every subsequence of input sequence
-  replaceFirst       :- Replace first subsequence of input sequence
+  replaceAll         :- Replace every input subsequence
+  replaceFirst       :- Replace first inpuy subsequence
   quoteReplacement   :- Return literal of replacement string or specified string
   Matcher appendReplacement :- Implement non-terminal append-and-replace step
   StringBuffer appendTail   :- terminal
+
 
  PatternSyntaxException Class Methods :-
   getIndex       :- Return error index
