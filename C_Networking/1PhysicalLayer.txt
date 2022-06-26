@@ -3,15 +3,15 @@ Introduction to Physical Layer(Layer-1) :-
  - Store information in form of bits and Convert it into signal for transmission using guided-unguided media
  
  Functionality :-
-  Cabels and Connectors    - Twisted, Co-axial, Optical Fibers used to send data on signal 
-                           - BNC, MGRT, UTP Connector(Join Cabel)
-  Physical Topology        -  Connect Pysical device and Configuration it (Star, Mesh, Bus, Tree, Ring, Point-To-Point) 
-  Hardware(Repeater, Hub)  - Increase signal strength | Hub for multipoint connection
-  Transmission mode        - Simplex-mode, Half-Duplex, Full-Duplex
-  Encoding                 - Send data into analog or digital signal
+  Hardware  - Regenrate signale(Repeater) | Increase signal strength(Amplify) | Hub for multipoint connection
+  Cabels    - Twisted, Co-axial, Optical Fibers send data on signal 
+  Connector - BNC, MGR, UTP Connector(Join Cabel)
+  Encoding  - Send data into analog or digital signal
+  Physical Topology  - Connect Physical device and Configuration it(Star, Mesh, Bus, Tree, Ring, Point-To-Point) 
+  Transmission mode  - Simplex-mode, Half-Duplex, Full-Duplex
   Multiplexing/ Demultiplexing - 
    - If machine increase on same Channel not need to create new channel use existing channel using time division 
-   - Send N number of signal in single signal known as Multiplexing
+   - Send N number of signal into single signal known as Multiplexing
    - Convert single signal to N no. of signal known as demultiplexing
 
 
@@ -19,94 +19,69 @@ Introduction to Physical Layer(Layer-1) :-
 Transmission mode :- 
 
  Simplex Mode :-
-  - Communication is unidirectional 
-  - Single Device at same time only send data but cannot receive
-  - Use entire capacity of channel to send data in one direction so more data transmitted
-  Example : Keyboard and Monitors | Radio 
+  - Unidirectional Communication where at time Single Device only send data but cannot receive
+  - Use entire Channel capacity to send data in one direction so more data transmitted
+  Ex :- Keyboard and Monitors | Radio 
  
 
  Half-Duplex Mode :-
   - Both Device transmit and receive data but not at same time 
   - Entire capacity of channel utilized for each direction at time
-  - It possible to perform error detection
+  - Perform error detection
   Channel capacity = Bandwidth * Propagation Delay
-  Example : In Walkie-talkie message sent one at time and messages are sent in both direction
+  Example : Walkie-talkie
 
  
  Full-Duplex Mode :-
   - Bi-directional where Both device transmit and receive data simultaneously 
-  - Channel capacity must divided between two direction
+  - Channel capacity divided between two direction
   - Link contain two physically separate transmission path one for sending and other for receiving
   Channel Capacity  = 2 * Bandwidth * Propagation Delay
-  Example :- Telephone Network in which there is communication between two persons by telephone line
+  Example :- Telephone Network line
 
 
 
-Digital Transmission / Signal Conversion :- 
- - To send data over network must convert into signal 
- - Signal either digital or analog form
- 
+Digital Transmission | Signal Conversion :- 
+ - To send data over network must convert into signal either in digital or analog form
  Digital Signal :- Represent data as sequence of discrete value
-
- Analog Signal :- 
-  - Signal is any continuous signal for which time varying feature of signal is representation of some other time
-    varying quantity
+ Analog Signal  :- Continuous Signal with time varying feature quantity
 
  
- Digital-to-Digital :-
-  - Digital to Digital conversion involves three techniques – Line Coding, Block Coding, and Scrambling 
-  
-  Line Coding :- 
-   - Self-synchronizing both receiver and sender clock
-   - Error-detecting capability and less complexity
-  
+ Digital-to-Digital :- Line Coding, Block Coding, and Scrambling 
+  Line Coding :- Self-synchronizing both clock | Error-detecting capability and less complexity
   Scrambling  :- Not increase number of bits and provide synchronization 
   
-     
- 
-
-  Types of Digital-to-Digital encoding :-
   Unipolar :-
-   - Non Return to Zero(NRZ) positive voltage defines bit 1 and zero voltage defines bit 0
-   - Signal does not return to zero at the middle of the bit thus it is called NRZ
+   - Non Return to Zero(NRZ) where positive voltage define bit 1 and zero voltage bit 0
+   - Signal not return zero at middle of the bit thus it is called NRZ
    - Uses more power as compared to polar scheme to send one bit per unit line resistance
-   - Polarity assigned to 1 binary state
    Problem :- DC Component  |  Synchronization
 
 
   Polar :-
-   - Uses two voltage levels :- one positive and another is negative
-   - By using two voltage level average voltage level reduced and DC component problem is alleviated   
+   - Uses one positive and negative voltage
+   - By using two voltage level average voltage level reduced and DC component problem alleviated   
    Types :- NRZ (NRZ-L)(NRZ-I)  |  RZ  |  BIPHASE(Manchester)(Different Manchester) 
 
-
-   NRZ(Non-Return Zero):-
-    - level of signal represented either positive or negative    
-    NRZ-L :- Level of signal depend on type of bit that it represent Either 0(Positive) and 1(Negative)
-    NRZ-I :- Inversion of voltage level that represent in bit, 0 no change and 1 bit represent change voltage level
-
-
-   RZ(Return to Zero) :- 
-    - Use three values positive, negative and zero for signal change of each bit to achieve synchronization
-    - 1 bit is represented by positive-to-zero and 0 bit is represented by negative-to-zero  
+   NRZ(Non-Return Zero):- level of signal represented either positive or negative | NRZ-L(Level) | NRZ-I(Inversion)
+   RZ(Return to Zero)  :- Use positive, negative and zero value where- 1 bit positive-to-zero and 0 bit negative-to-zero  
 
    
-   BIPHASE(Manchester and differential manchester encoding) :- 
-    - Transmission of data means convert upper layer digital data(0,1 form) to analog or digital signal
-    - To encode data digital to digital we use manchester and differential manchester encoding
-    - Dr.thomas and IEEE802.3 convention
+  BIPHASE(Manchester and differential manchester encoding) :- 
+   - Transmission of data means convert upper layer digital data(0,1 form) to analog or digital signal
+   - To encode data digital to digital we use manchester and differential manchester encoding
+   - Dr.thomas and IEEE802.3 convention
     
-    Manchester :-
-      0 -->  -|_
-      1 -->  _|-
+   Manchester :-
+    0 -->  -|_
+    1 -->  _|-
 
-    Different Manchester Encoding :-
-      0 --> |-|_ , |_|- 
-      1 --> -|_  , _|-
+   Different Manchester Encoding :-
+    0 --> |-|_ , |_|- 
+    1 --> -|_  , _|-
 
   
   Bipolar :- AMI and Pseudoternary  |  Ultilevel  |  Multitransition
-   - Represent three voltage levels: positive, negative, and zero 
    - Binary 0 represent Zero level and 1 represented by alternating positive and negative voltage
    - If first 1 bit represented by positive amplitude then second 1 bit represented by negative voltage 
      third 1 bit by positive amplitude and so on
@@ -129,7 +104,6 @@ Digital Transmission / Signal Conversion :-
     - Four consecutive zero-level voltages are replaced with sequence “000V” or “B00V”
 
  
-
  Analog to Digital Signal :-
   - Information contain in continuous wave form converted in digital pulses
   - Require reduction in number of values in analog message so that it represented in digital stream
@@ -190,7 +164,6 @@ Digital Transmission / Signal Conversion :-
      these method knows as ADM    
 
 
-
  Digital to Analog conversion :-
   Amplitude Shift Keying :-
    - Carrier signal is analog and data to be modulated is digital 
@@ -206,7 +179,6 @@ Digital Transmission / Signal Conversion :-
    Binary Phase Shift Keying(BPSK)
    Quadrature Shift Keying(QPSK)
 
-
  
  Analog to Analog Conversion :-  
   - Representation of analog information by analog signal
@@ -215,27 +187,20 @@ Digital Transmission / Signal Conversion :-
 
 
 Transmission Media :-
- - Physical path between transmitter and receiver 
- - It is channel through data sent from one place to another into electronic signals
- - In copper-based network, bits in form of electrical signal while in Fiber its light pluses
- Types :- Wired  |  Wireless(Signal)
+ - Physical path/channel through data sent from one place to another into electronic signals
+ - Copper-based network, bits in form of electrical signal while in Fiber its light plus
+ Types :- Wired | Wireless(Signal)
   
-
  Factor to Consider :-
-  Bandwidth :- Greater bandwidth of medium, higher signal rate of data transmission
-  Transmission impairment :- Quality of signal get destroyed due to transmission impairment
-  Interference : Process of disrupting signal when it travel over communication medium on addition of unwanted signal
-
-
- Cause of Transmission impairment :-
-  Noise       :- During Data transmission unwanted signal added to it which create noise
-  Attenuation :- Strength of signal decreases with distance increasing which causes loss of energy
-  
-  Distortion  :- 
-   - Occure When signal shape change 
-   - Each frequency has its own propagation speed so they reach at different time which leads to delay distortion
-  
-
+  Bandwidth    :- Greater bandwidth of medium, higher signal rate of data transmission
+  Interference :- Disrupting signal when it travel over communication medium on addition of unwanted signal
+  Transmission impairment :- 
+   - Quality of signal get destroyed due to transmission impairment
+   Cause of Transmission impairment :-
+    Noise       :- During Data transmission unwanted signal added
+    Attenuation :- Strength of signal decreases with distance | Increasing it causes loss of energy
+    Distortion  :- Occure When signal shape change | Each frequency has own propagation speed to reach 
+     
 
  Types of Transmission Media :-
 
@@ -245,7 +210,7 @@ Transmission Media :-
 
    Twisted Pair Cable :-
     - Two copper wire twisted with each other in regular spiral pattern
-    - Degree of reduction in noise interference is determined by number of turns per foot
+    - Degree of reduction in noise interference determined by number of turns per foot
     - Cheap | Easy installation | Range 0 to 3.5KHz
 
     Unshielded Twisted-Pair Cabel(UTP) :- 
@@ -281,9 +246,8 @@ Transmission Media :-
     - High Bandwidth with high speed | Better Shielded | Easy to install and expand
     - Single cable failure disrupt entire network | More expensive
 
-    Types :-
-      BaseBrand :- One signal transmit at time if other signal come collision arise(Dedicated cable bandwidth)
-      BroadBand :- Multiple signal parallel transmit and cable bandwidth split into separate ranges   
+    BaseBrand :- One signal transmit at time if other signal come collision arise(Dedicated cable bandwidth)
+    BroadBand :- Multiple signal parallel transmit and cable bandwidth split into separate ranges   
 
 
    Fiber Optical Cable :-
@@ -385,7 +349,7 @@ Transmission Media :-
 
  
  
-Multiplexing / Demultiplexing :-
+Multiplexing | Demultiplexing :-
  - Process of combining multiple data stream over single medium known as multiplexing and hardware used for
    multiplexing known as multiplexer
  - Multiplexer(MUX) combine N input lines to generate single output line(Many-to-one) 

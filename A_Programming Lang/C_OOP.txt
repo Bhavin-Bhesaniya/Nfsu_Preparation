@@ -98,10 +98,10 @@ OOP(Object Oriented Programming) :-
  Polymorphism :-
   - Perform single action in different ways(Many forms)
   Types :- Compile time/Static  | Runtime/Dynamic
-  - Method Overriding    (Runtime) :- Must have same name and same parameter | Only through Inheritance only
+  - Method Overriding  (Runtime) :- Must have same name and same parameter | Only through Inheritance only
   - Method Overloading (Compile) :- Multiple function with same name but different parameter | Increase Readability
   
-  Points overloading operator (Compile) :-
+  Operator overloading (Compile) :-
    - Used only for user-defined operator(object, structure) but cannot with in-built operator(int, char etc.)
    - Operator = and & already overloaded in C++, so avoid overloading them
    - Precedence and associativity of operator remain intact

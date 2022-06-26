@@ -104,40 +104,30 @@ Types of Area Network :-
 
 Various Device in Network :-
  Cabel :-
-  - Connect variou device which are physically separated
-  - Transfer data through packets or signal form
+  - Connect various physically separated device for Transfering data in packets or signal form
 
   Unshielded Twisted-Pair Cabel :- 
-   - Transfer data in form of electric signal
+   - Transfer data in form of electric signal Use in Ethernet LAN
    - 10 Base T / 100 Base T
    - 10 means 10 MBPS(Mega Bit Per Second) data can be transfer per second
    Base has two types :-
     BaseBrand :- Only one signal transmit at time if other signal come collision arise(Dedicated cable bandwidth)
-    BroadBand :- Multiple signal can be parallel transmit and cable bandwidth split into separate ranges
+    BroadBand :- Multiple signal parallel transmit and cable bandwidth split into separate ranges
    - T means only 100 meter signal can be transmit than attuention occurs(Signal strength week)
-   - Use in Ethernet LAN
 
 
   Coaxial Cabel :-
    - Transfer data in form of electric signal
-   - 10 Base 2 / 10 Base 5
-   - 2 and 5 means 200 and 500 meter distance
+   - 10 Base 2 / 10 Base 5  where 2 and 5 means 200 and 500 meter distance
 
 
   Fiber Optice :- 
-   - Transfer data in form of light Signal
-   - Speed of light signal is - 3x10^8
-   - 100 Base Fx 
-   - Fx means fiber channel which cover 2km distance 
+   - Transfer data in form of light Signal with Speed of light is - 3x10^8
+   - 100 Base Fx where Fx means fiber channel which cover 2km distance 
 
 
-  Question :- 
-    If N devices connect on network, what is maximum collision domain ? --> N
-    Cable can filter or not :- 
-      - If Two Lan connected it can move signal or not
-      - Filter means can we decied it can move further or not
-    Ans :- Yes, there is no software in cabel
-
+  Question :- If N devices connect on network, what is maximum collision domain ? --> N
+  
 
 
  Repeater :-
@@ -150,7 +140,7 @@ Various Device in Network :-
 
  Hub :-
   - Multi-Point Repeater Hardware device
-  - Support forwarding but not supporting filtering so high traffic which become collision domain problem
+  - Support forwarding but not supporting filtering so high traffic become collision domain problem
   - Not have intelligence to find out best path for data packets which leads to inefficiencies and wastage
   - Provide small blink light functionality if any wire problem Occure or power on or off which repeater not provide
  
@@ -171,56 +161,47 @@ Various Device in Network :-
 
 
  Bridges :- 
-  - 2 Port devices used to Connect two different LAN's works working on same protocol on data-link layer
-  - Bridge is repeater with functionality of filtering content by reading MAC address of source and destination
-  - Support forwarding
+  - 2 Port devices used to Connect two different LAN's that works on same protocol on data-link layer
+  - Bridge is repeater with forwarding and filtering content by reading MAC address of source and destination
  
-  Types of Bridges :-
-   Transparent Bridges :- 
-    - Stations are completely unaware of bridge’s existence Whether bridge is added or deleted from network, 
-      reconfiguration of stations is unnecessary 
-    - These bridges make use of two processes forwarding and learning
+  Transparent Bridges :- 
+   - Station completely unaware of bridge existence Whether bridge is added or deleted from network, 
+   - Support forwarding and learning
    
-   Source Routing Bridges :- 
-    - Routing operation is performed by source station and frame specifies which route to follow 
-    - Host can discover frame by sending special frame called discovery frame, which spread through entire network
-      using all possible paths to destination
+  Source Routing Bridges :- 
+   - Routing operation performed by source station and frame specifies which route to follow 
+   - Host discover frame by sending special frame called discovery frame, which spread through entire network
+     using all possible path to destination
 
 
 
- Switches :-
+ Switch :-
   - Multi-Port Bridges with buffer and its design boost its efficiency(No ports imply less traffic) and performance
   - Data-Link Layer device
   - Full Duplex Link
-  - Perform error checking before forwarding data and correct port only so Traffic is minimal
-  - Collision Domain is Zero(0) but broadcast domain remaining same
+  - Perform error checking and filtering before forwarding data so Traffic is minimal
+  - Collision Domain Zero(0) but broadcast domain remaining same
 
 
 
  Router :-
-  - Physical or virtual internetworking device that designed to receive, analyze and forward data packet between 
-    two different network/ router (Network Layer device)(Connect two different network Like LAN -> WAN )
-  - Check destination IP address given in data packet header for forwarding packet
-  - Routing tables decide best path to transfer packet
-  - Use ICMP protocol to communicate between two or more network
-  - Virtual router use virtual router redundancy protocol to Increase network Realibility which is done by configuring
-    as default gateway and it run on server
-  - Router is more capable than other network Device
+  - Designed to receive, analyze and forward data packet between two different network(Network Layer device)(LAN -> WAN)
+  - Check destination IP address that given in data packet header for forwarding packet
+  - Routing tables decide best path to transfer packet with Use of ICMP protocol for messageing
+  - Virtual router use Virtual Router Redundancy Protocol(VRRP) to Increase network Realibility by configuring as 
+    default gateway and it run on server
+  - Router more capable than other network Device
+  Benefits :- Security | Performance Enhancement | Realibility | Networking Range
 
   How works?
-   - Analyze destination IP address(Given in packet header) --> Compare with routing table --> Transfer particular
-     direction(Set of rules compute best path for route)
-   - Router use modem such as cabel  or DSL model to allow communication
-   - Router has port to connect different device to internet at same time
+   - Analyze destination IP address(Given in packet header) --> Compare with routing table --> 
+     Transfer particular direction(Set of rules compute best path for route)
+   - Use cabel or DSL model to allow communication
+   - It has port to connect different device on internet at same time
    - Routing table determine where data come from and where to send 
 
-  Types of routing table :- Static(manually configure)  |  Dynamic (Based on network activity)
-
-  Types of Routers :-
-    Wireless Router  |  Brouter  |  Core Router  |  Edge Router  |  BroadBand Router  
-
-  Benefits :-
-   Security  |  Performance Enhancement  |  Realibility  |  Networking Range
+  Types of routing table :- Static(Manually Configure) | Dynamic (Based on network activity)
+  Types of Routers       :- Wireless  |  Brouter  |  Core  |  Edge  |  BroadBand
 
   Routing Protocol :-
    Open Shortest Path First (OSPF)
@@ -233,28 +214,27 @@ Various Device in Network :-
 
 
  Gateway :-
-  - Passage to connect two networks together that work upon different networking models
-  - Work as messenger agents that take data from one system, interpret it and transfer it to another system
-  - It also called protocol converters and operate at any network layer
+  - Connect two network together that work upon different networking models
+  - Work as messenger agent that take data from one system, interpret it and transfer it to another system
+  - It also called protocol converter and operate at network layer
   - More complex than switches or routers
 
  
 
- Brouter :-
-  - Bridging router is device that combines features of both bridge and router
+ Brouter(Bridging router):-
+  - Combine feature of both bridge and router
   - Work either at data link layer or network layer
-  - Work as router for routing packets across networks and working as bridge for filtering local area network traffic
+  - Work as router for routing packets across network and as bridge for filtering local area network traffic
  
 
 
  NIC(Network interface card) :-
-  - Network adapter hardware component used to connect computer to the network 
-  - MAC address(Stored in PROM) or Physical address encoded on chip which assigned by IEEE to identify NIC uniquely
-    and has connector to connect cable to it 
-  - Cable act as interface between computer and router or modem 
+  - Network adapter hardware component that connect computer on network 
+  - MAC address(Stored in PROM) or Physical address encoded on chip that assigned by IEEE to identify NIC uniquely
+  - It has connector to connect cable that act as interface between computer and router or modem 
   - Works on both physical and data link layer of network model
   - Support transfer rate of 10,100 to 1000 MB/S
-  - Wireshark Network Protocol Analyzer capture and analyze packets transmitted/receive via Network Interface Card(NIC)
+  - Wireshark Network Protocol Analyzer capture and analyze packet transmitted/receive via Network Interface Card(NIC)
   Types :-
    Wired    : Present inside motherboard, Cables and connectors used to transfer data
    Wireless : Contain antenna to obtain connection over wireless network
@@ -262,46 +242,42 @@ Various Device in Network :-
 
 
  Modem :-
-  - Allow computer to connect to the internet over existing telephone line
-  - Not integrated with motherboard rather than it installed on PCI slot found on motherboard
-  - Also known as Modulator/Demodulator 
+  - Connect internet over existing telephone line known as Modulator/Demodulator
+  - Not integrated with motherboard but installed on PCI(Pheriphial Component Interface) slot found on motherboard
   - Convert digital data into analog signal over telephone lines
   Types :- Standard PC Modem or Dial-up Modem  |  Celluar Modem  |  Cable Modem
 
 
 
 Topologies :-
- - Layout arrangement of different devices in network that Describe how device are connected to each other in network
+ - Layout arrangement of different devices in network that Describe how device connected to each other in network
  Types :- Physical(Geometric Representation of nodes)  |  Logical
 
-
  Mesh :- 
-  - All devices connect to each other or say point-to-point communication
-  - Used for wireless network WAN implementations where communication failures are critical concern
-  Realibility  :- If single system fails other system sharing data | Highest Realibility
-  Cost         :- Dependant of cable quality and quantity          | High cost
+  - All device connect to each other or point-to-point communication
+  - For wireless network WAN implementations where communication failures are critical concern
+  Realibility  :- Single system fails other system sharing data | Highest Realibility
+  Cost         :- Dependant of cable quality so High cost
   Security     :- If a and d communicate other devices(b, c) doesn't no about that
-  Disadvantage :- High Maintenance |  Not support Multi-cast
+  Disadvantage :- High Maintenance | Not support Multi-cast
 
   Types :-
    Full Mesh    :- Each computer connected to all available computers network
    Partial Mesh :- Not all but certain computer connected to those computer with which they communicate frequently 
   
-  N is number of nodes which represent no. of devices connected
+  N is number of nodes that represent no. of connected device
    How many wired required (NC2 Formula)    :- N(N-1)/2 
    No. of ports(Connector) Required Devices :- N-1
    Total No. of ports(Connector) Required   :- N * (N-1)
 
 
-
  Star :- 
-  - Multi-pal device are connected to each other through Centeralized device called Hub, Switches or Server
-  - Support Point-to-Point
+  - Multi-pal device connected to each other through Centeralized device called Hub, Switches or Server
+  - Support Point-to-Point communication
   - Coaxial cable or RJ-45 cables used to connect computer
   - No of cabel same as no of devices :- N
-  - No of ports(Connector) :- N | N * N
+  - No of ports(Connector)            :- N | N * N
   - Hub fail entire network fail No Realibility | No Security | Less Cost compared to Mesh
-
 
 
  Bus :-
@@ -309,13 +285,13 @@ Topologies :-
   - Tape connect Backbone cabel to Drop Line
   - Transmit data from one-end to another in single direction
   - Access method is CSMA(Carrier Sense Multiple Access)
-  - When send data all nodes receive data whether it has been addressed or not
+  - When send data all nodes receive data whether been addressed or not
   - Multi-Point connection so High Collision
   - Single-Point Failure No Realibility | No Security | Less Cost compared to Mesh | Diffcult Troublshooting
   
   Attenuation - 
-   - Loss of signal lead communication issues Used Repeaters to regenerate signal
-   - At end of cabel add Terminator or Repeaters(Increase Signal Strength & Join more Backbone Cabel) 
+   - Loss of signal lead communication issue Used Repeaters to regenerate signal
+   - At cabel end add Terminator or Repeater(Increase Signal Strength & Join more Backbone Cabel) 
   
   No of cabel = N + 1 (N : no of devices)
   No of ports = 1     | 1 * N
@@ -331,22 +307,19 @@ Topologies :-
     - If busy then sender waits until media becomes idle 
     
 
-
  Ring :- 
   - Multipal Bus topology design in ring shape to Send Message in Unidirectionally  
-  - Repeater used in Ring topology with large number of nodes because if someone want to send data to last node in
-    with 100 nodes then data will have to pass through 99 nodes to reach 100th node
+  - Repeater used in Ring topology to avoid attuention 
   - Use Token-Ring to remove collision
   - Less Realibility | No Security | Less Cost compared to Mesh | No Termination Point | Single Failure | Delay
   No of cabel = N + 1 (N : no of devices)
-  No of ports = 1     | 1 * N  
+  No of ports = 1 | 1 * N  
   
   Token passing :-
    - Token passed from one node to another until reach destination
    - Sender modifies token by putting address along with data
-   - Once token received by destination device then it send acknowledgment to sender
+   - Once token received by destination device then it send acknowledgment(ACK) to sender
    Token :- Frame that circulate around network
-
 
 
  Tree :-
@@ -364,7 +337,7 @@ Types of Ethernet :-
 
  Ethernet :-
   - Invented by Bob Metcalfe and D.R. Boggs in 1970 and standardized in IEEE 802.3 in 1980
-  - Uses Carrier Sense Multi Access/Collision Detection (CSMA/CD) technology to detect collision
+  - Use Carrier Sense Multi Access/Collision Detection (CSMA/CD) technology to detect collision
   - Ethernet connector is network interface card(NIC) equipped with 48-bits MAC address to identify device
   - Use 10BASE-T where 10 depict 10MBPS speed and BASE stands for baseband and T stands for Thick Ethernet
   - 10BASE-T use coaxial cable or Cat-5 twisted pair cable with RJ-45 connector
@@ -374,7 +347,7 @@ Types of Ethernet :-
  Fast-Ethernet :-
   - Run on UTP, Optical Fiber and wirelessly with speed up to 100 MBPS and standard named as 100BASE-T in IEEE 803.2
     using Cat-5 twisted pair cable 
-  - Use CSMA/CD for wired and CSMA/CA (CA stands for Collision Avoidance) for wireless Ethernet LAN
+  - Use CSMA/CD for wired and CSMA/CA(Collision Avoidance) for wireless Ethernet LAN
   - Fast Ethernet on fiber defined under 100BASE-FX standard which provide speed up to 100 MBPS on fiber 
   - On fiber 100 meter in half-duplex and maximum 2000 meters in full-duplex over multimode fiber
 

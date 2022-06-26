@@ -1,5 +1,5 @@
 OSI and TCP/IP Model :-
-- Set of layers and protocols is known as network architecture
+ - Set of layers and protocols is known as network architecture
 
 Layerd Architecture :-
  - Networking concept divided into several layer and each layer assigned particular task
@@ -7,7 +7,7 @@ Layerd Architecture :-
  - Lower layer add its services to higher layer to provide full set of service to manage communication
  - Layers are Independent so modification in one layer not affect other layer
  - layer n in one machine communicate layer n on other machine through rules known as layer-n protocol
- - layer 1 is physical medium through which actual communication takes place
+ - layer 1 physical medium through which actual communication takes place
 
  Component :-
   Service   : Set of action that layer provide to higher layer
@@ -20,17 +20,13 @@ OSI(Open System Interconnection) :-
  - Developed by ISO(International Organization for Standardization) in 1984
  - Provide Reference for sending and receiving data with other device using network functionality
  - If client and server on same machine, will managed by OS (Inter-Process Communication)
- - Each layer is self-contained so that task assigned to each layer performed independently
- - OSI model acts as reference model and not implemented on Internet because of its late invention
- - Model being used is TCP/IP model
-
+ - OSI act as reference model but not implemented on Internet because its late invention, Model used is TCP/IP model
 
  OSI model divided into 7 layers :-
   Physical --> Data Link --> Network --> Transport --> Session --> Presentation -->  Application
         Hardware Layer (1,2,3)          Heart of OSI           Software Layer(5,6,7)
                                   Sender -->   <-- Receiver
     Responsibility of Network(1,2,3)                         Responsibility of Host(4,5,6,7)
-
 
 
  Functionality :-
@@ -41,85 +37,76 @@ OSI(Open System Interconnection) :-
   Encryption | Decryption | Cryptographic
  
  
-
  Physical Layer(Layer 1) :-
   - Lowest layer responsible for physical connection between device
-  - Contain information in the form of bits
   - Responsible for transmitting individual bits from one node to another node
-  - It establish, maintain and deactivate physical connection
-  - When receiving data this layer get signal received and convert it into 0s and 1s send them to Data Link layer
+  - Establish, Maintain and Deactivate physical connection
+  - Receiver receiving data into signal than convert it into 0s and 1s to send on Data Link layer
   Device :- Hub, Repeater, Modem, Cable
   
   Functionality :-
-   Signal              - Used for transmitting information either analog or digital
-   Transmission mode   - Data flow between device in form of Simplex, half-duplex and full-duplex
-   Physical Topology   - Specifie way in which different devices/nodes arranged in network
-   Bit Synchronization - Using clock, control at both sender and receiver for providing synchronization at bit level
-   Bit rate control    - Define transmission rate(Number of bits sent per second)
-
+   Signal              - Transmitting information either analog or digital signal
+   Transmission mode   - Simplex, half-duplex and full-duplex
+   Physical Topology   - Different devices/nodes arranged in network
+   Bit Synchronization - Using clock, control at both side for providing synchronization at bit level
+   Bit Rate Control    - Transmission rate(Number of bits sent per second)
 
 
  Data-Link Layer(Layer 2) :-
-  - Responsible for node-to-node error-free transfer of data-frames
+  - Node-to-node  error-free Data-Frames transfer
   - Packet in Data Link layer referred as Frame(format of data on network)
-  - It is handled by NIC (Network Interface Card) and device drivers of host machine
+  - Handled by NIC (Network Interface Card) and Device Driver of host machine
   Device :- Switch & Bridge
   
   Data-Link Layer SubLayer :-
    Logical Link Control(LLC) :-
     - When packet arrives in network transmit it to Host using its MAC address
-    - Packet received from Network layer divided into frames depending on frame size of NIC(Network Interface Card)   
+    - Packet received from Network layer divided into frames depending upon frame size of NIC(Network Interface Card)   
     - Encapsulate Sender and Receiver’s MAC address in header
     - Receiver’s MAC address obtained by placing ARP(Address Resolution Protocol) 
-    - It request on wire asking “Who has that IP address?” and destination host will reply with its MAC address
+    - Request on wire “Who has that IP address?” and destination host reply with its MAC address
   
-    Media Access Control(MAC) :-
-     - link between Logical Link Control layer and network's physical layer 
-     - Used for transferring packet over network
+    Media Access Control(MAC) :- link between LLC and physical layer for transferring packet over network
   
 
   Functionality :-
    Framing :- 
-    - Transmit raw-bits stram into packet using bit pattern and add Header and trailer to stream
-    - Header contain hardware destination and source address
+    - Transmit raw-bits stream into packet using bit pattern and add Header and trailer to stream
+    - Header contain destination address and trailer contain sender address
     Diagram :-  [ Header  |  Packet()  |  Trailer ]
 
    Physical Addressing - After creating frame add MAC address(Physical) of sender and receiver in header of each frame
    
-   Flow Control   - Constant Data rate must be maintain on both side
+   Flow Control   - Constant Data rate must maintain on both side
    Error Control  - Detect and retransmit damaged or lost frame using CRC(Cyclic Redundancy Check)
    Access Control - Single communication channel shared by multiple devices MAC sub-layer determine which device has
                     control over channel at given time
     
 
- 
  Network Layer(Layer 3) :-
-  - Responsible for routing(Select shortest path) and forwarding packet to location of devices on network
-  - Segment in Network layer is referred as Packet
+  - Responsible for routing(Select shortest path) and forwarding packet to device location of network
+  - Convert segment into packet
   - Sender & receiver’s IP addresses placed in header
   - Protocol used to route network are IP, IPv4 and IPv6
   Device :- Router
   
   Functionality :-
-   InterNetworking :- Provide logical connection between different device
+   InterNetworking :- Logical connection between different device
    Addressing  :- Sender & receive IP address placed in Header by network layer to Identify device uniquely on network
-   Routing     :- Select route path out of multiple path
-   Packetizing :- Receive packet from upper layer and convert into packet which achieve by IP protocol 
-
+   Routing     :- Select best route path out of multiple path
+   Packetizing :- Receive segment from upper layer and convert into packet using IP protocol 
 
 
  Transport Layer(Layer 4) :-
-  - Responsible for End to End Delivery of message in the order which they are sent and no duplication of data
-  - Receive Data from upper layer and convert into smaller units known as Segment
-  - Provide acknowledgement(ACK) of successful data transmission and re-transmit data if error found
-  - Transport layer operated by OS using system call
-  - It termed as end-to-end layer as it provides point-to-point connection between source and destination
-
+  - End to End(point-to-point connection) message Delivery in order which they sent and No data duplication
+  - Receive Data from upper layer, convert into smaller units known as Segment or Datagram
+  - Provide acknowledgement(ACK) on successful data transmission and re-transmit data if error found
+  - It operated by OS using system call
+  
   Sender-Side :-
    - Receive data from upper layer to perform Segmentation and implement Flow & Error control 
    - Add Source and Destination port number in its header and forward segmented data to Network Layer
-   - Sender need to know port number associated with receiver’s(Destination) application
-  
+   
   Receiver-Side :-
    - Read port number from its header and forward received Data to respective application
    - Perform sequencing and reassembling of segmented data
@@ -127,75 +114,69 @@ OSI(Open System Interconnection) :-
 
   Functionality :-
    Service Point Addressing :-
-    - Specifying Service Point or Port address in header makes sure that message delivered to correct process
+    - Specifying Service Point or Port address in header that make sure message delivered to correct process
    
-   Segmentation and Reassembly -
-    - Accept message from (session) layer breaks into smaller units and identifies segments using sequence number
-    - Each segments produced has header associated with it
+   Segmentation and Reassembly :-
+    - Accept data from session layer breaks into smaller unit and identifies segment using sequence number
+    - Each segment produced header associated with it
     - Message arrived at destination station than reassembles message based on their sequence number
    
-   Connection- Control :-
-    Connection-less :-  Phase --> Data Transfer
-     - Receiver not acknowledge receipt of packet
-     - Much faster and more reliable than connection-oriented
+   Connection based Control :-
+    Connection-less :- Data Transfer
+     - Receiver not send acknowledge receipt of packet
+     - Faster and more reliable than connection-oriented
      - All Packet travel in different route to reach destination  
 
-    Connection-Oriented :- 
-     Phase :- Connection Establish --> Data Transfer --> Termination / Disconnection
-     - Receiving device send acknowledgement back to source after packet or group of packets is received 
-     - Reliable and Secure
+    Connection-Oriented :- Connection Establish --> Data Transfer --> Termination / Disconnection
+     - Receiving device send acknowledgement back to source after packet or group of packet received 
+     - Reliable and Secure 
      - All Packet travel in single route to reach destination  
 
    Flow Control  :- Performed end-to-end flow control rather than across single link
    Error Control :- Ensure that message reach at destination without any error
 
 
-
  Session Layer(Layer 5) :-
   - Establish connection, maintenance session, authentication and ensures security
   - Session, Presentation and Application layer are integrated as single layer in TCP/IP model as “Application Layer”
-  - Implementation of these 3 layers is done by network application itself
+  - Implementation of these 3 done by network application itself
 
   Functionality :-
    Session Establish, maintenance and termination :- Allow Process to do
    Dialog Control  :- System communication with each other in half-duplex or full-duplex
    Synchronization :- Allow process to add check-Point that help to identify error and prevent(Recovery) data loss 
 
-
  
  Presentation Layer(Layer 6) :-
-  - Data from application layer extracted and manipulated as per required format to transmit over network
-  - Convert data from one presentation format to another format so known as Translation / Syntax layer
+  - Data from application layer extracted and manipulated as per required format to transmit over network  
   
-  Functionality :-
-   Translation :- 
-    - Convert data from sender-dependent format into common, from common to receiver-dependent format at receiving
-      end (ASCII to EBCDIC)
+  Translation :- 
+   - Convert data from sender-dependent format into common, from common to receiver-dependent format at receiving
+     end (ASCII to EBCDIC)
    
-   Encryption / Decryption :- 
+  Encryption / Decryption :- 
     - Translate data into another form or code 
-    - Encrypted data known as ciphertext and decrypted data known as plain text 
-    - Key value used for encrypting as well as decrypting data
+    - Encrypted data known as ciphertext and decrypted as plain text 
+    - Key-value used for encrypting and decrypting data
    
-   Compression : Reduce number of bits that need to be transmitted on network
+  Compression : Reduce number of bits that transmitted on network
  
 
-
  Application Layer(Layer 7)(Desktop Layer) :-
-  - These network application produce data which transferred over network
-  - Layer serves as window for application services to access network for displaying received information to user
-  Application – Browsers, Skype Messenger, etc. 
+  - Network application produce data that transferred over network
+  - Layer serve as window for application service and access network for displaying received information to user
+  Application :- Browser, Skype Messenger
 
   Functionality :-
-   File transfer access and management(FTAM) :- Allow user to access file in remote computer
-   Mail Services :- Facility for email forwarding and storage
-   Directory Services :- Provide distributed database sources and global information about various object
+   File transfer access and management(FTAM) :- Access file in remote computer
+   Mail Services      :- Facility for email forwarding and storage
+   Directory Service  :- Provide distributed database sources and global information about various object
    Network Virtual Terminal :- Remotely access any computer
 
 
 
 TCP/IP (Transmission Control Protocol/ Internet Protocol) vs OSI :-
- OSI    - Less reliable | Strict Boundaries     | Vertical   Approach | Model them Protocol | assurance Packet delivery
+ OSI    - Less reliable | Strict Boundaries     | Vertical   Approach | Model then Protocol | Assurance Packet delivery
  TCP/IP - More reliable | Not Strict Boundaries | Horizontal Approach | Protocol then model | Not assurance Packet
 
   Application     Application  Application             Process to Process
@@ -213,11 +194,10 @@ TCP/IP (Transmission Control Protocol/ Internet Protocol) vs OSI :-
 TCP/IP Model :-
  - Designed and developed by Department of Defense (DoD) / ARPANET in 1960
  - First layer is Process layer on the behalf of sender and Network Access layer on the behalf of receiver
- - TCP/IP is hierarchical protocol means upper-layer protocol is supported by two or more lower-level protocol
+ - TCP/IP is hierarchical protocol means upper-layer protocol supported by two or more lower-level protocol
 
  Layer :- Application         | Transport                |  Network   |  Data-Link  |  Physical
           Process/Application | Host-to-Host/Transport   |  Internet  |  Network Access/Link
-
 
  Diagram :-
   Application     SMTP     |  DNS   |  TFTP
@@ -233,118 +213,95 @@ TCP/IP Model :-
   Physical Layer  
 
 
-
  Network Access Layer(Layer-1):-
   - Combination of Data Link Layer and Physical Layer of OSI model
   - Hardware addressing and protocol allow physical transmission of data
   Protocol :- Ethernet, Token-Ring, FDDI, X.25, Frame relay
 
 
-
  Internet Layer(Layer-2):- 
-  - Responsible for logical transmission of data over entire network
+  - Logical transmission of data over entire network
   
-  Protocol :-
-   IP(Internet Protocol) :-
-    - Delivering packet from source to destination by looking at IP addresses in packet header
+  IP(Internet Protocol) :-
+   - Delivering packet from source to destination by looking at IP addresses in packet header
+   - IPv4 websites using but IPv6 growing because number of IPv4 addresses are limited when compare to no of User
 
-    Types :- IPv4 and IPv6 
-     - IPv4 websites using but IPv6 growing because number of IPv4 addresses are limited when compare to no of User
-
-    Functionality :-
-     IP Addressing :- Identify device and provide internetwork routing
+   Functionality :-
+    Routing       :- Sent IP datagram over wide network
+    IP Addressing :- Identify device and provide internetwork routing
+    Host-to-host communication :- Specify path through which data transmitted
+    Data Encapsulation and Formatting :- Encapsulate data in message known as IP datagram and Ensure data security
      
-     Host-to-host communication :- Specify path through which data transmitted
-     
-     Data Encapsulation and Formatting :- 
-      - Accept data from transport layer ensures that data is sent and received securely
-      - Encapsulate data in message known as IP datagram
-
-     Fragmentation and Reassembly :- 
-      - Limit imposed on IP datagram size known as Maximum Transmission unit(MTU) 
-      - IP datagram size greater than MTU then protocol split datagram into smaller units so that travel over network 
-      - Fragmentation done by sender or intermediate router 
-      - Receiver side all fragment reassembled in original form message
-
-     Routing :- 
-      - Sent IP datagram sent over wide network
+    Fragmentation and Reassembly :- 
+     - IP datagram size known as Maximum Transmission unit(MTU) 
+     - If IP datagram size greater than MTU then protocol split datagram into smaller unit so that travel over network 
+     - Fragmentation done by sender or intermediate router 
+     - Receiver side all fragment reassembled in original form message
 
 
-   ICMP(Internet Control Message Protocol) :-
-    - Responsible for report problem not correct them
-    - Encapsulated within IP datagram and providing host with information about network problem
-    - Datagram travel from router-to-router until its reach its destination
-    - If router unable to route data then ICMP inform sender that datagram undeliverable
-    ICMP Test  :- Test whether destination is reachable or not
-    ICMP Reply :- Check whether destination device is responding or not
+  ICMP(Internet Control Message Protocol) :-
+   - Report problem not correct them
+   - Encapsulated within IP datagram and providing host with information about network problem
+   - Datagram travel from router-to-router until its reach its destination
+   - If router unable to route data then ICMP inform sender that datagram undeliverable
+   ICMP Test  :- Test whether destination reachable or not
+   ICMP Reply :- Check whether destination device responding or not
 
 
-   ARP(Address Resolution Protocol) :-
-    - Find phyical address of host known IP address 
-    ARP Request :- When sender know phyical address of device, it broadcast ARP request to network
-    ARP Reply   :- Device connected in network accept ARP Request and process it but only recognize receiver
-                   ip address and send back in form of ARP Reply
-    ARP Types   :- Reverse ARP, Proxy ARP, Gratuitous ARP and Inverse ARP
-
+  ARP(Address Resolution Protocol) :-
+   - Find host phyical address
+   ARP Request :- When sender know phyical address of device, it broadcast ARP request to network
+   ARP Reply   :- Device connected in network accept ARP Request and process it but only receiver recognize ip address 
+                  and send back in form of ARP Reply
+   ARP Types   :- Reverse ARP, Proxy ARP, Gratuitous ARP and Inverse ARP
 
 
  Transport Layer :- 
-  - Responsible for end-to-end communication and error-free delivery of data 
+  - End-to-end error-free data communication
   - Shield upper-layer application from data complexities
   
-  Protocol :- 
-   Transmission Control Protocol (TCP) :-
-    - Provide connection-oriented reliable and error-free communication
-    - Create virtual circuit between sender and receiver and it is active during transmission
-    - Realiable :- It detect error and retransmit damaged frame
-    - Sending end, divide whole message into smaller segment with sequence of number which reordering frame original
-    - Receiving end, Collect all segment and Reorder them based on sequence number
+  Transmission Control Protocol (TCP) :-
+   - Connection-oriented  |  Error-free communication
+   - Realiable :- Detect error and retransmit damaged frame
+   - Sending end, divide whole message into smaller segment with sequence of number which reordering frame original
+   - Receiving end, Collect all segment and Reorder them based on sequence number
    
 
-   User Datagram Protocol (UDP) :-
-    - Provide Connection-less, end-to-end delivery of transmission
-    - Unreliable because it discover error but not specify error or which packet lost, Contain checksum only 
+  User Datagram Protocol (UDP) :-
+   - Connection-less, end-to-end delivery of transmission
+   - Unreliable because it discover error but not specify error or which packet lost, Contain checksum only 
   
-    UDP Field :-
-     Source port address      : Address of application program that created message
-     Destination port address : Address of application program that receive message
-     Total length : Total number of bytes of user datagram in bytes
-     Checksum     : 16-bit field used in error detection
+   UDP Field :-
+    Source port address | Destination port address
+    Total length : Total number of user datagram in bytes
+    Checksum     : 16-bit field used in error detection
 
 
-    Diagram :-
-        Variable
+   Diagram :-
+       Variable
      8 byte 
      Header   Data
 
-     Header Format :-
+    Header Format :-
      Source Port          Destination Port
                 Address 16-bit    
      Total length 16-bit  Checksum 16-bit
 
 
-
  Application Layer :-
-  - Perform function on top three layers of OSI model :- Application, Presentation and Session Layer 
-  - Responsible for node-to-node communication and control user-interface specifications
-  - Some protocol present in this layer are :- 
-    HTTP, HTTPS, FTP, TFTP, Telnet, SSH, SMTP, SNMP, NTP, DNS, DHCP, NFS, X Window, LPD 
+  - Node-to-node communication and control user-interface specification
+  Some protocol :- HTTP, HTTPS, FTP, Telnet, SSH, SMTP, SNMP, NTP, DNS, DHCP, NFS, X Window, LPD, TFTP
   
-  Protocol :-
-   HTTP / HTTPS(Hypertext transfer protocol / -Secure) 
+  HTTP / HTTPS(Hypertext transfer protocol / -Secure) 
     - Used by World Wide Web to manage communication between web browser and server
     - HTTPS is combination of HTTP with SSL(Secure Socket Layer) 
     - Efficient where browser need to fill out forms, sign in, authenticate and carry out bank transaction
     - Transfer data in form of plain text, audio, video
 
-   SSH(Secure Shell) :- Similar to Telnet it Maintain encrypted connection and Set secure session over TCP/IP connection
-   DNS(Domain Name System)     :- Map name to host address(IP address) for identify on internet uniquely 
-   TELNET(Terminal Network)    :- Establish connection between local and remote computer 
-   FTP(File Transfer Protocol) :- Used for transmitting files from one computer to another computer
-   SNMP(Simple Network Management Protocol) :- Framework used for managing device on internet by using TCP/IP
-   SMTP(Simple mail transfer protocol)      :- Send data to another e-mail address
-
-  
-   NTP(Network Time Protocol) :- 
-    - Synchronize clock standard time and Very useful in bank transactions 
-    - Server crash very badly if it’s out of sync
+  SSH(Secure Shell) :- Similar to Telnet Maintain encrypted connection and Set secure session over TCP/IP connection
+  FTP(File Transfer Protocol) :- Transmitting files from one computer to another computer
+  TELNET(Terminal Network)    :- Establish connection between local and remote computer 
+  SMTP(Simple mail transfer protocol)      :- Send data to another e-mail address
+  SNMP(Simple Network Management Protocol) :- Framework used for managing device on internet by using TCP/IP
+  NTP(Network Time Protocol) :- Synchronize clock standard time and Very useful in bank transactions 
+  DNS(Domain Name System)    :- Map name to host address(IP address) for identify on internet uniquely 
