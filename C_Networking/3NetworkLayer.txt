@@ -1,7 +1,6 @@
 Introduction to Network Layer(Layer-3) :-
  - Translate logical addresses into physical addresses
- - It determine route from source to destination and manage traffic problem such as switching, routing and 
-   control congestion of data packet
+ - Best oute from source to destination and manage traffic problem such as switching, routing and control data packet
   
   Function :-
    Routing          :- Move packet from Sending host router's input link to another router's output link 
@@ -64,15 +63,15 @@ Network Addressing :-
   Rules for assigning Host ID :
    - Used to determine host within network 
    - Host ID must be unique 
-   - All bits set to 0 cannot be assigned as it represent network ID of IP address
-   - All bits set to 1 cannot be assigned as it is reserved for multicast address
+   - 0 represent network ID of IP address
+   - 1 reserved for multicast address
 
 
   Rules for assigning Network ID :
    - If host located within same local network then assigned with same network ID 
-   - Cannot start with 127 as 127 is used by Class A
-   - All bit set to 0 cannot be assigned as it specify particular host on local network
-   - All bits set to 1 cannot be assigned as it is reserved for multicast address
+   - Cannot start with 127 as 127 used by Class A
+   - 0 cannot be assigned as it specify particular host on local network
+   - 1 cannot be assigned as it is reserved for multicast address
   
 
 

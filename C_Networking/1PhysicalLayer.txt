@@ -350,60 +350,48 @@ Transmission Media :-
  
  
 Multiplexing | Demultiplexing :-
- - Process of combining multiple data stream over single medium known as multiplexing and hardware used for
-   multiplexing known as multiplexer
- - Multiplexer(MUX) combine N input lines to generate single output line(Many-to-one) 
- - Receiver Separate receive signal into its component signals(one-to-many) Achieved using Demultiplexer(DEMUX) 
+ - Multiplexer(MUX) combine N input lines to generate single output line(Many-to-one) known as Multiplexing
+ - Receiver Separate receive signal into its component signals(one-to-many) using Demultiplexer(DEMUX) 
  - Multiplexing used in telecommunications in which several telephone calls carried through single wire
  - George Owen Squier developed telephone carrier multiplexing in 1910
+ - When multiple signals share common medium there is possibility of collision to avoid it Multiplexing use
    
- Why Multiplexing?
-  - Only one signal transfer from sender to receiver at time in transmission medium  
-  - When multiple signals share common medium there is possibility of collision to avoid it Multiplexing use
-  - Medium bandwidth utilized effectively
 
- 
  Frequency-division Multiplexing (FDM) :-
-  - Divide available bandwidth into different frequency channel and allocate it to different device
-  - Carrier which used for modulating signals are known as sub-carriers and represented as f1,f2..fn
-  - Mainly used in radio broadcasts and TV networks
-
-  Advantages :-
-   - Used for analog signal | Simple and easy modulation | Large no. of signal sent simultaneously 
-   - Not require synchronization between sender and receiver
-
-  Disadvantages :-
-   - Used only for low-speed channel | Suffer problem of crosstalk | Large number of modulators required
-   - Require high bandwidth channel
+  - Divide available bandwidth into different frequency channel and allocate to different device
+  - Carrier that used for modulating signals known as sub-carriers and represented as f1,f2..fn
+  - Used in radio broadcast and TV network
+  Adv. :- Analog signal | Simple and easy modulation | Large no. of signal sent simultaneously | Not require Sync
+  Dis. :- Used for low-speed channel | Suffer crosstalk problem | Large no. of modulator and high bandwith required
  
  
  Wavelength Division Multiplexing (WDM) :-
-  - Same as FDM except that optical signals are transmitted through fibre optic cable to increase it capacity
+  - Optical signal transmitted through fiber optic cable to increase it capacity
   - Multiplexing and Demultiplexing achieved by using prism
-  - Prism Combining various optical signal into form composite signal and transmitted it 
+  - Prism Combine various optical signal into composite signal and transmitted it 
   
 
  Time Division Multiplexing(TDM) :-
   - All signal operate at same frequency with different time
   - Total time available in channel distributed among different user
-  - User takes control of channel for fixed amount of time
+  - User takes fixed amount of time control on channel
   - Data not transmitted simultaneously rather data transmitted one-by-one
-  - Signal is transmitted in the form of frames 
+  - Signal transmitted in form of frames 
   - Frame contain cycle of time slot in which each frame contain one or more slot dedicated to each user
   - Used to multiplex both digital and analog signals but mainly used to multiplex digital signals
   
   Synchronous TDM :-
-   - Time slot is pre-assigned to every device irrespective of fact that device contain data or not
-   - If device not have data then slot remain empty then empty slot transmitted
+   - Time slot pre-assigned to every device irrespective of fact that device contain data or not
+   - If device not have data then slot remain empty it not transmitted
    - Popular Synchronous TDM are T-1 multiplexing, ISDN multiplexing, and SONET multiplexing
  
-   Disadvantages Of Synchronous TDM :
+   Dis. :- 
     - Channel Capacity not fully utilized as empty slot also transmitted 
     - Speed of transmission medium should be greater than total speed of input lines 
   
 
   Asynchronous / Statistical TDM :-
-   - Time slots are not fixed and allocated to those device which have data to send 
+   - Time slots not fixed and allocated to those device which have data to send 
    - Transmit only data from active workstation
    - It dynamically allocate time slot to device
    - Total speed of input line greater than capacity of channel
@@ -412,22 +400,22 @@ Multiplexing | Demultiplexing :-
     
    Diagram :- [ Address | Data ]
 
-   - Difference is that many slots in Synchronous TDM are unutilized but in Asynchronous TDM fully slots utilized 
+   - Difference that many slot in Synchronous TDM unutilized but in Asynchronous TDM fully slots utilized 
    - Number of slots in frame depend on statistical analysis of number of input lines
 
 
 
 Switching :-
- - Small hardware device which join multiple computers together with one local area network(LAN)
- - Switches forward packets based on MAC addresses to route packet appropriately
+ - Join multiple computers together with one local area network(LAN)
+ - Forward packet based on MAC addresses to route packet appropriately
  - Operated in full duplex mode
- - Packet collision is minimum as it directly communicate between source and destination
- - It does not broadcast message as it works with limited bandwidth
- - Increases bandwidth and performance of network by reducing traffic | Less frame collision 
+ - Packet collision minimum as it directly communicate between source and destination
+ - Does not broadcast message as it work with limited bandwidth
+ - Increas bandwidth and performance of network by reducing traffic | Less frame collision 
  - More expensive than bridges | Cannot determine connectivity issues easily | Proper configuration required 
  
  Why Switching Concept required?
-  Bandwidth : Maximum transfer rate of cable | Critical and expensive resource |
+  Bandwidth : Maximum transfer rate of cable | Critical and expensive resource
   Collision : When more than one device transmit message over same physical media and they collide with each other 
 
 
@@ -450,10 +438,9 @@ Switching :-
   Fragment-free Switching :-
    - Read atleast 64 bytes of frame before forwarding to next node to provide error-free transmission
    - Combine speed of Cut-through Switching with error checking functionality
-   - Check 64 bytes of ethernet frame where addressing information is available
-   - Collision is detected it will not be forwarded further
+   - Check 64 bytes of ethernet frame where addressing information available
+   - Collision detected not forwarded further
  
-
 
  Switching Techniques :-
   Circuit Switching :-
@@ -533,35 +520,32 @@ Switching :-
 
 
 Redundant Link problems :-
- - Prevent nasty network failure
- - Provide redundancy(back up when a link fails)
+ - Prevent nasty network failure and Provide redundancy(back up when link fails)
  
  Broadcast Storm :- 
   - Every Switch forward broadcast frame to each other generated by another device to all its ports
   - If no loop avoidance switches flood broadcast endlessly and consume all bandwidth which Shutdown entire network 
  
  Multiple copies :-
-  - Device receive multiple copies of same frame if A frame arrive from different network segments at same time
+  - Device receive multiple copies of same frame if A frame arrive from different network segment at same time
 
  MAC Table Thrashing :-
-  - Switches use MAC address table to forward out the frames but when switch receives data from multiple switch
-    at time therefore it will lead to instability in MAC table in switch C
-  - Spanning Tree Protocol(STP) used to prevent these loops 
-  - It block down (port) path using its own mechanism by which single path is available for frame delivery at time  
+  - Switches use MAC address table to forward out frames but when switch receives data from multiple switch
+    it lead instability in MAC table in switch
+  - Spanning Tree Protocol(STP) prevent it by block down (port) path by which single path for frame delivery at time  
 
 
 
 Digital Subscriber Line/Loop(DSL) :-
- - Communication medium which used to transfer data on internet through copper wire telecommunication line
+ - Transfer data on internet through copper wire telecommunication line
  - Provide by ISP for High speed broadband Internet access also Modem
- - Splitter used to split frequency and make sure that they can’t get interrupted
+ - Splitter split frequency and make sure that they can’t get interrupted
  - No additional wire required because it use existing telecommunication line for both internet and telephone
- - Cost-efficient we choose different connection speeds and pricing from various providers
- - Works only on local telephone infrastructure so limited physical distance
+ - Cost-efficient and Works only on local telephone infrastructure so limited physical distance
 
  Symmetric DSL(SDSL) :- 
   - Provide 2MBPS equal speed both uploading(Upstream) and downloading(DownStream) data transfer for small organization
 
  ASymmetric DSL(ADSL) :- 
-  - Provide wider frequency range for downstream transfers
-  - 20 Mbps downstream and 1.5 Mbps upstream, it is because most users download more data than they upload
+  - Provide wider frequency range for downstream transfer
+  - 20 Mbps downstream and 1.5 Mbps upstream because most user download more data than they upload

@@ -1,0 +1,61 @@
+EIA - Electronic Industries Alliance 
+ITU - International Telecommunication Union
+RFC - Request for comment
+IAB - Internet Architecture Board
+DSL - Digital Subscriber Line
+ISM - Industrial, scientific and medical network
+ITU - International Telecommunication Union
+ISO - International Organization for Standardization
+EDI - Electronic Data Interchange
+FCC - Federal Communications Commission
+GSM - Global System for Mobile Communications 
+ATM - Asynchronous Transfer Mode
+AAL - Adaption Layer
+UNI - User-network Interface
+NNI - Network-Network Interface
+NAT - Network Address Traslation
+RPF - Reverse Path Forwarding | RPB - BroadCasting | 
+RPM - Real Time Performance Monitoring
+BSS - Basic Service Set
+
+
+
+ASDL - Asymmentric Digital Subscriber Line
+IMPS - Interface Message Processor
+IETF - Internet Engineering Task Force
+IEEE - Institute of Electrical and Electronics Engineers
+ISOC - Internet Society
+IRTF - Internet Research Task Force
+AMPS - Advanced Mobile Phone Service    | D- Digital
+CDMA - Code-division multiple access    | F- Frequency | T- Time
+CSMA - Carrier Sense Multiple access    
+DSSS - Direct-sequence spread spectrum
+ISDN - Integrated Services Digital Network
+WAIS - Wide Area Information Service
+ICANN -  Internet Corporation for Assigned Names and Numbers
+
+
+AS  - Authentication Header
+ESP - Encapsulating Security Payload
+SA  - Security Association
+IKE - Internet Key Exchange
+TLS - Transport Layer Security
+KMP - Key Managment Protocol
+SMI - Strcture of Managment Information
+MIB - Managment Information Base
+BER - Basic Encoding Rules
+ISAKMP - Internet Security Association
+
+SNMP - Simple Network Managment Protocol
+IGMP - Internet Group Message Protocol
+PGP  - Pretty Good Privacy
+KDC  - Key Distribution Center
+IDEA - International Data Encryption Algoritham
+OSPF - Open Shortest Path First     | M - Multicast
+
+
+
+
+
+
+

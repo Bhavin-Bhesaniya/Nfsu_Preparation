@@ -1,10 +1,9 @@
 Introduction to Data-Link Layer :-
- - Responsible for node-to-node of message with error-detection, flow-control, retransmission and random access
- - Packet in Data Link layer referred to as Frame    
- - Data-link-layer transmit packet using its MAC address
+ - Node-to-node message delivery with error-detection, flow-control, retransmission and random access
+ - Here Packet referred as Frame and it transmit using its MAC address
  - Encapsulate Sender and Receiver’s MAC address in header
- - Receiver’s MAC address obtained by placing ARP(Address Resolution Protocol) 
- - Data Link layer handled by NIC (Network Interface Card) and device driver of host machine
+ - Receiver MAC address obtained by placing ARP(Address Resolution Protocol) 
+ - It handled by NIC(Network Interface Card) and device driver of host machine
  Protocol :- Ethernet, token ring, FDDI and PPP
 
  DLL SubLayer :-
@@ -16,46 +15,33 @@ Introduction to Data-Link Layer :-
    - Packet received from Network layer divided into frame and frame size depending on NIC(Network Interface Card) 
    - Frame consist of data field in which network layer packet inserted
 
+  Flow control      :- Receiving node receive frames at faster rate than it can process frame 
+  Error detection   :- Signal attenuation and noise | Add error detection bit in frame then receiver perform error check
   Reliable delivery :- Transmit frame without any error and it accomplished with transmission and acknowledgement(ACK)
-
-  Flow control :- 
-   - Receiving node receive frames at faster rate than it can process frame 
-   - Without it receiver's buffer overflow and frames get lost 
-   - To prevent sending node on one side of link from overwhelming receiving node on another side of link
-
-
-  Error detection :- 
-   - Error introduced by signal attenuation and noise 
-   - Add error detection bits in frame then receiver node perform error check
-
-  Error correction :- Receiving node not only detect error but also determine where error occurred in frame
-
-  Half-Duplex & Full-Duplex :-
-
+  Error correction  :- Receiving node not only detect error but also determine where error occurred in frame
+  Half-Duplex & Full-Duplex :- Data Transmission Mode
+  
 
 
 Error Detection :-
  - Error is situation when message received at receiver end is not identical to message transmitted
- - Occur due to long distance, attuention, other factors
+ - Due to long distance, attuention, other factors
  
- Single-Bit Error :-
-  - One bit of given data unit is changed from 1 to 0 or from 0 to 1
-  - Occur in Parallel Data Transmission  
+ Single-Bit Error :- One bit in data unit changed from 1 to 0 or from 0 to 1 due to Parallel Data Transmission  
 
  Burst Error :-
-  - Two or more bit changed from 1 to 0 or from 0 to 1
+  - Two or more bit changed from 1 to 0 or from 0 to 1 due to Serial Data Transmission
   - Range Determined from first corrupted bit to last corrupted bit
-  - Noise in Burst Error is more than duration of noise in Single-Bit
-  - Burst Errors occurr in Serial Data Transmission
+  - Noise is more than Single-Bit
   - Number of affected bits depend on duration of noise and data rate
 
 
  Error Detecting Techniques :-
   Single Parity Check(Even, Odd):-
-   - Redundant bit(Parity bit) which appended at end of data unit so(M+1)
-   - If number of 1s bits is odd then parity bit 1 and if even then bit 0 appended at the end of data unit
-   - Hamming distance :- d   |  handle : D-1 error
-   Disadvantage :- Detect only single-bit error cannot detect two-bit interchange(Odd parity able to detect)
+   - Redundant bit(Parity bit) appended at end of data unit so(M+1)
+   - If number of 1s bits odd then parity bit 1 and if even then bit 0 appended at the end of data unit
+   - Hamming distance :- d  |  Handle : D-1 error
+   Disadvantage :- Detect only single-bit error cannot detect two-bit Interchange(Odd parity able to detect)
    
 
   Two-Dimensional Parity Check :-
@@ -64,163 +50,128 @@ Error Detection :-
    - Block of bits divided into row and redundant row of bits added to whole block
    
    Disadvantage :- 
-    - If two bits in one data unit corrupted and two bits exactly same position in another data unit also corrupted 
-      then 2D Parity checker will not be able to detect error
-    - Cannot detect 4-bit error or more in some cases
+    - If two bits in one data unit corrupted and exactly at same position another two bits also corrupted then 2D 
+      Parity checker not able to detect error
+    - Cannot detect 4-bit error or more in some case
   
   
   Checksum :-
-   - Based on redundancy divided into two part :- Checksum Generator  |  Checksum Checker
-
    Checksum Generator :-
-    - Checksum generated at sending side
-    - Subdivide data into equal segment of n bits each and all segment added together by using one complement arithmetic 
-    - Sum is complemented and appended to original data known as checksum field 
+    - Sum complemented and appended to original data known as checksum field generated at sending side
+    - Subdivide data into equal segment of n bit each and all segment added together by using one complement arithmetic 
     - Extended data transmitted across network
    
 
    Checksum Checker :-
-    - Receiver subdivide incoming data into equal segment of n bits each and all segments added together then
-      this sum is complemented 
-    - If complement of sum is zero then data accepted otherwise data rejected
+    - Receiver subdivide incoming data into equal segment of n bit each and all segment added together
+    - If sum complement zero then data accepted otherwise data rejected
 
 
   Cyclic Redundancy Check (CRC) :-
-   - String of n 0s appended to data unit and this n number is less than number of bits in predetermined number 
-     known as division which is n+1 bits
+   - String of n 0s append data unit and this n number less than number of predetermined bits known as division n+1 bit
    - Extended data divided by divisor known as binary division 
-   - Remainder known as CRC remainder
-   - CRC remainder appended 0s at end of original data 
+   - Remainder known as CRC remainder that appended 0s at end of original data 
    - Newly generated unit sent to receiver
    - Receiver treat whole unit as single unit and divided it by same divisor that was used to find CRC remainder
-   - If resultant of this division is zero which means that it has no error and data is accepted
-   - If not zero data consist of error and it discarded
+   - If resultant of this division zero means no error and data accepted
+   - If not zero data consist error and discarded
 
 
 
-Error Correction :-
- - Detect and correct errors when data transmitted from sender to receiver
- - Handled in two ways : Backward Error Correction  |  Forward Error Correction
-  
-  Backward error correction :- Once error discovered receiver request sender for retransmit entire data unit
-  Forward error correction  :- Receiver uses error-correcting code which automatically correct error
+Error Correction :-  
+ Backward error correction :- Once error discovered receiver request sender for retransmit entire data unit
+ Forward error correction  :- Receiver uses error-correcting code which automatically correct error
  
- - Single additional bit detect error but cannot correct it
- - For correcting exact position of error add some additional redundant bit
- - To determine position of bit in which error occures R.W Hamming technique used 
- - Suppose r is number of redundant bit and d is total number of data bits 
- - Number of redundant bit r calculated by using formula :- 2r>=d+r+1
-
-
  Hamming Code :-
+  - Single bit detect error but cannot correct it
+  - To determine position of bit in which error occures R.W Hamming technique used 
+  - Number of redundant bit r calculated by using formula :- 2r>= d+r+1
   - Hamming code applied to any length of data unit and use relationship between data unit and redundant unit
-  Parity bits : Bit appended to original data of binary bits so that total number of 1s is even or odd
-  Even parity : If total number of 1s is even then value of parity bit is 0 and If odd, then 1
-  Odd Parity  : If total number of 1s is even then value of parity bit is 1 and If odd, then 0
+ 
+  Parity bits : Bit appended to original data of binary bits so that total number of 1s even or odd
+  Even parity : If total number of 1s even then value of parity bit is 0 and If odd, then 1
+  Odd Parity  : If total number of 1s even then value of parity bit is 1 and If odd, then 0
+
 
   Algorithm of Hamming code :
-   - D bit added to redundant bits R to form D+R
-   - Location of each (D+R) digit assigned decimal value
-   - R bit placed in positions 1,2,.....2k-1
-   - At receiving end parity bit recalculated 
-   - Decimal value of parity bits determine position of error
+  - D bit added to redundant bits R to form D+R
+  - Location of each (D+R) digit assigned decimal value
+  - R bit placed in positions 1,2,.....2k-1
+  - At receiving end parity bit recalculated 
+  - Decimal value of parity bits determine position of error
 
-
-  Relationship b/w Error position & binary number :-
-   Error position   Binary Number :-
-    0  000  |  1  001  |  2 010  |  3 011  |  4 100  |  5 101  |  6 110  | 7 111
+  Error position   Binary Number :-
+   0  000  |  1  001  |  2 010  |  3 011  |  4 100  |  5 101  |  6 110  | 7 111
 
 
   Example :- 
-   - Suppose original data is 1010 | Total number of data bits 'd' = 4 | r = 3 
-   - Number of redundant bits r : 
-     2r >= d+r+1
-     2r >= 4+r+1
-   - Total number of bits = d+r = 4+3 = 7;
+  - Suppose original data 1010 | Total number of data bit 'd' = 4 | r = 3 
+  - Number of redundant bits r :- 
+    2r >= d + r + 1
+    2r >= 4 + r + 1
+  - Total number of bits = d + r = 4 + 3 = 7;
 
 
 
 Data Link Control :- 
- - Provide co-ordination among devices so that no collision occurs during data transmission
- 
- Data link layer provides three Control : Line discipline  |  Flow Control  |  Error Control
-
- Line Discipline :- Who Should Send Data?
+ - Provide co-ordination among device so that no collision occurs during data transmission
+ Line Discipline :- Who Send Data?
  Flow Control    :- Howmuch data should be sent?
  Error Control   :- How can error detected and corrected?
 
-
- Line Discipline :-
-  - Provide co-ordination among link system to determine which device when send data
-  
+ Line Discipline :-  
   END/ACK(Enquiry/Acknowledgement) :-
-   - Used when no wrong receiver available on link and having dedicated path between two devices so that
-     device capable of receiving transmission
+   - Having Dedicated path between two devices
    - Transmitter transmit frame called Enquiry(ENQ) asking receiver available to receive data or not
-   - Receiver responses either with positive acknowledgement(ACK) or with negative acknowledgement(NACK) where 
-     positive means receiver is ready to receive and negative means unable to accept transmission
-
-   Diagram :-
-    Positive --> Sender Transmit --> Transmitted --> Finish with EOT(END-of-Transmission) frame
-    Negative --> Sender disconnect and restart transmission -->  
-    Neither negative nor positive --> Sender assumes that ENQ frame lost during transmission Three attempts to 
-    establish link before giving up
+   - Receiver response either with positive acknowledgement(ACK) or with negative acknowledgement(NACK) where 
+     positive means receiver ready to receive and negative means unable to accept transmission
+   - Neither negative nor positive --> Sender assume that ENQ frame lost during transmission 
+   - It try three attempts to establish link before giving up
 
 
   Poll/Select :-
-   - Work with topologie where one device designated as primary station and other devices are secondary station
-   
    Poll :-
-    - If primary want to receive data from secondary, it ask secondary that they anything to send known as Polling
-    - Primary asks(poll) first secondary device, if it responds with the NACK means nothing to send 
-    - Now with secondary device if response ACK means has to send data 
-    - Secondary device send more than one frame one after another or sometimes it required to send ACK before sending 
-      each one, depending on type of protocol used
+    - If primary want to receive data from secondary so it ask secondary that they has anything to send known as Polling
+    - Secondary device response ACK means has to send data 
+    - Secondary device send more than one frame one after another or sometimes wait for send ACK before sending each 
+      one, depending on type of protocol used
 
 
    Select :-
-    - When primary device has something to send then it alert secondary device for transmission by Select(SEL)frame 
-      one field of frame include address of intended secondary device
-    - When secondary device receive SEL frame, send acknowledgement
-    - If secondary ready to accept then primary device send two or more data frames to secondary device 
+    - Primary device something to send then it alert secondary for transmission by Select(SEL) one field frame that
+      include address of secondary device
+    - When secondary device receive SEL frame, Send acknowledgement(ACK) to primary
+    - Then primary device send two or more data frames to secondary device 
     - Once data transmitted secondary send acknowledgement specifies that data has been received
 
 
  Flow Control :-
   - Set of procedures tell sender how much data transmit before data overwhelms for receiver
   - Receiving device has limited speed and limited memory to store data
-  - Therefore receiving device must inform sending device to stop transmission temporarily before limit reached
-  - It require buffer, block of memory for storing information until they are processed
-  
-  Method to control flow of data :-  Stop-and-wait  |  Sliding window
-
+  - Therefore receiver must inform sender to stop transmission temporarily before limit reached
+  - It require buffer and block of memory for storing information until they processed
   
   Stop-and-wait :-
-   - Sender wait for ACK after every frame send
-   - When acknowledgement received then only next frame sent 
-   - Process of alternately sending and waiting of frame continue until sender transmit EOT(End of transmission)frame
-   
-   Advantage    :- Simple as each frame checked and acknowledged before next frame sent
-   Disadvantage :- Inefficient use as each frame must travel across all way to receiver and acknowledgement 
-                   travels before next frame sent (Frame entire time needed to traverse the link)
+   - Sender wait for ACK after every frame send, When ACK received then only next frame sent 
+   - Process of sending and waiting frame continue until sender transmit EOT(End of transmission) frame
+   Adv. :- Each frame checked Acknowledged before next frame sent
+   Dis. :- Inefficient use as each frame must travel across all way to receiver and ACK travels before next frame 
+           sent (Frame entire time needed to traverse the link)
 
   
   Sliding Window :-
-   - Sender transmit several frame before getting ACK
-   - Multiple frame sent due to which capacity of communication channel utilized efficiently
-   - Single ACK for multiple frames
-   - Window hold frame and provide limit on number of frames transmitted before ACK
-   - Frame acknowledged even when window not completely filled
+   - Single ACK for multiple frames(Several frame before getting ACK)
+   - Capacity of communication channel utilized efficiently
+   - Window hold frame and provide limit on number of frame transmitted before ACK
+   - Frame ACK even when window not completely filled
    - Window has specific size in which they numbered as modulo-n meas they numbered from 0 to n-1
    Ex :- If n = 8, frame are numbered from 0,1,2,3,4,5,6,7,0,1,2,3,4,5,6,7,0,1........
    
-   - Size of window represented as n-1 Therefore maximum n-1 frame sent before acknowledgement
+   - Size of window represented as n-1 Therefore maximum n-1 frame sent before ACK
    - When receiver send ACK it include next number of frame that it wants to receive 
    
   
  Error Control :-
-  Types of Error Control :- Stop-and-wait ARQ  |  Sliding Window ARQ(Go-Back-n) (Selective-reject)
-
   Stop-and-wait ARQ :-
    - Retransmit data in case of damaged or lost frame
    - Sender not transmit next frame until it receives ACK of last transmitted frame
