@@ -1,17 +1,15 @@
 Introduction Unix/Linux :-
- - OS act as interface link between computer and user
+ - OS act as interface between computer and user
  - Unix Developed in 1969 by AT&T employees Ken Thompson, Dennis Ritchie, Douglas McIlroy, and Joe Ossanna at Bell Lab
- - User communicate with kernel through shell 
  - Shell command line interpreter translate command entered by user into language that understood by kernel
- - Linux free and open source software Development and distribution first used in 1991
- - Linux OS written by Linux Torvalds and Richard Stallmen GNU Utilities
+ - Linux free and open source software Development distribution first used in 1991 by Linux Torvalds 
 
  Architecture :-
-  System    User     User    Compilers
+  System    User     User    Compiler
   Software  Process  Utility
-          System Library
-            Kernel
-          Kernel Module
+        System Library
+          Kernel
+        Kernel Module
 
   Hardware - Consist of all peripheral devices like CPU, Monitor, USB, Printer etc..
   Kernel   - Heart of OS interact with hardware and perform memory management, task scheduling and file management
@@ -22,7 +20,7 @@ Introduction Unix/Linux :-
 
  Shutdown System :- 
   - Super user or root user able to shut down system
-  halt - Bring system down immediately
+  halt   - Bring system down immediately
   init 0 - Power off system using predefined script to synchronize and clean up system prior to shutting down
   init 6 - Reboot system by shutting it down completely then restarting it
   poweroff - Shut down system by powering off
@@ -32,10 +30,9 @@ Introduction Unix/Linux :-
 
 
 Environment Variable :- 
- - Variable is used to store value in number, text, filename, device or any other type of data
- - Environment variables accessing with $ sign as prefix 
+ - Variable used to store value
+ - Environment variables access with $ sign as prefix 
  - /etc/profile maintained by system administrator that contain shell initialization information required for all user
- - Terminal type automatically configured by either login or getty program 
  Setting Terminal Type :- - $PATH=/bin:/usr/bin
  printenv - Show all currently defined environment variable
 
@@ -53,7 +50,7 @@ Environment Variable :-
   \s - Current shell environment
   \W - Working directory
   \w - Full path of working directory
-  \u - Current user’s username
+  \u - Current user username
   \h - Hostname of current machine
   \# - Command number of current command, Increases when new command entered
   \$ - If effective UID is 0 (If logged as root) end prompt with # character
@@ -117,7 +114,7 @@ Processes Management :-
 
  Daemon Processes :-
   - System background processes that run with permission of root and service requests from other process
-  - Daemon not controlling terminal and  cannot open/dev/tty 
+  - Daemon not controlling terminal and cannot open/dev/tty 
   - It runs in background usually waiting for something happen that capable of working with 
  
 
@@ -131,10 +128,11 @@ System Performance :-
   I/O Time and Network Time  - Time spent for moving data and servicing I/O request
   Virtual Memory Performance - Include context switching and swapping
    
+
  Performance Tools :- 
-  top    - Display system tasks
+  top    - Display system process
   prof   - Facilitate Process Profiling
-  time   - Help time simple command or give resource usage
+  time   - Give resource usage
   gprof  - Display call graph profile data
   uptime - System Load Average
   vmstat - Report virtual memory statistics
@@ -144,7 +142,7 @@ System Performance :-
 
 
 vi Editor | VIM(Vi IMproved) :-
- - vi is case-sensitive Editor enable Notepad like Facilitate
+ - vi case-sensitive Editor enable Notepad like Facilitate
  - Tilde (~) on each line of editor following cursor that represent unused line 
  - Available on all Unix | Implementation similar to board | Require very few resource | User-friendly
  More editor :- gedit | nano(Non-xwindow) | emacs
@@ -157,9 +155,9 @@ vi Editor | VIM(Vi IMproved) :-
  Different Mode :-
   Command mode - Perform administrative tasks such as saving, executing command | Whatever type interpreted as command
   Insert mode  - Insert text into file | Typeing interpreted as input and placed in file
-  - vi always starts in command mode To write data in file always go in insert mode
+  - vi always start in command mode To write data in file always go in insert mode
   - Moving cursor within File must be in command mode and Editing Files In insert mode 
-  - Change character, word or lines in vi without deleting them using Change command  
+  - Change command - Change character, word or line without deleting them
 
 
  Key for vi :-
@@ -209,7 +207,7 @@ vi Editor | VIM(Vi IMproved) :-
   [   Start set of matching or non-matching expression
   <   Escaped with backslash to find ending or beginning of word
   >   Helps to see '<' character description above
-  f/F search for character on current line only, f search forwards and F searches backwards
+  f/F search for character on current line only, f search forward and F searches backwards
   t/T search for character on current line only, t moves to position before character and T after character
 
  
@@ -227,7 +225,7 @@ vi Editor | VIM(Vi IMproved) :-
 
   
  Running Command :-
-  - Substitution command (:s/) enables quickly replace words or groups of words within your file 
+  - Substitution command (:s/) quickly replace words or groups of words within your file 
   - :s/search/replace/g
 
 
@@ -241,7 +239,7 @@ Pipes and Filters :-
  grep :- Search file or files for lines that have certain pattern (Globally search for regular expression)
   -v   Print all line that not match pattern
   -n   Print matched line and its line number
-  -l   Print only names of files with matching lines (letter "l")
+  -l   Print only names of files with matching lines(letter "l")
   -c   Print only count of matching line
   -i   Match either upper or lowercase
 
@@ -254,13 +252,13 @@ Pipes and Filters :-
 
 
 Network Communication :-
- - In distributed environment need to communicate with remote users and also need to access remote Unix machines
- 
+ - In distributed environment need to communicate with remote user and also need to access remote Unix machine
+
  Connecting :- local to server
   Remote connection (SSH- Secure Shell)  |  Remote Graphics(X, X-win)  |  Data Transfer(SFTP-Secure File Transfer Pro)
-  Window :-  SSH      -> MobaXterm  ->  SFTP
-  MacOS  :-  Terminal -> Xquartx    ->  Cyberduck
-  Linux  :-  Terminal -> X11        ->  Various
+  Window :-  SSH       ->  MobaXterm  ->  SFTP
+  MacOS  :-  Terminal  ->  Xquartx    ->  Cyberduck
+  Linux  :-  Terminal  -> X11        ->  Various
 
   Type :- ssh username 
 

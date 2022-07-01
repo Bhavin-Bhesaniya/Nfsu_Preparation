@@ -1,4 +1,4 @@
-ER model (Entity-Relationship model) :-
+ER model (Entity-Relationship model) :- 
  - High-level data model define data element and relationship for specified system
  - Develop conceptual design or visual representation of database
  - Database structure portrayed as diagram called entity-relationship diagram

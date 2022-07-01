@@ -1,19 +1,10 @@
-Deadlock Handling
+Deadlock :- 
  
-Topics :- 
- - What is Deadlock
- - Resource Allocation Graph(RAG) in Deadlock | Single Instance
- - Handling Deadlock Using Various Methods
- - Bankers Algorithm
-
-
-
 Deadlock :-
- - If 2 and more processes are waiting on happening of some event but that event doesn't happen called deadlock  
- - If process waiting time is finite it's called StarVation else time is infinite called deadlock
- - Process A holding R1 resource and waiting for R2 resource for operation but R2 resource is holding by process B 
+ - 2 and more process waiting on happening of some event but that event doesn't happen called deadlock  
+ - If process waiting time is finite it's called StarVation else infinite called deadlock
+ - Process A holding R1 resource and waiting for R2 resource for operation but R2 resource holding by process B 
    which waiting for R1 resource for operation which hold by process A
-
 
  For Deadlock 4 Necessary Condition :-
   Mutual exclusion - Process must use resource in Mutual exclusion manner means one by one | No Inter-leaving
@@ -22,9 +13,11 @@ Deadlock :-
   No Premption     - No switching | Resource cannot be taken from process unless process releases resource
   Circular Wait    - Processes are waiting another resource in circular form
 
+
  Ex :-
   <- (Hold) | -> (Request) 
   P1 <- R1  | P1 -> R2 (request for R2) | P2 <- R2 (hold R2 already) | P2 -> R1 (request for R1)
+
 
  Live Lock :-
   - When two or more processes continually repeat same interaction in response to changes in the other processes 
@@ -34,26 +27,23 @@ Deadlock :-
 
 
   
-
 Resource Allocation Graph(RAG) in Deadlock | Single Instance :-
- - Represent state of the system means How multiple resources are allocated to process
- - Used to Check in system there is deadlock or not 
+ - Represent state of system means How multiple resources allocated to process
+ - Used to Check there is deadlock or not 
  - RAG circular wait(cycle) and single instance resources always deadlock
  - RAG circular wait(cycle) and multi-instance resources not always deadlock
  
  Graph :-
   - Every graph has Vertex and edge two things
-  Vertex has two types:-
-    Process vertex  :- No. of processes running in system are represented by vertex which represented in circle
-    Resource vertex :- Resource like CPU, memory are represented in Rectangle
-    
-    Type of Resource Vertex :-
-      Single instance    : CPU, Monitor         [.]
-      Multiple instances : Register, Printer    [..] (1 dot means one instance)
-  
-  Edge has two types :- 
-    Request Edge :- from process to resource (P1 -> R2)
-    Assign Edge  :- from instance to process (P1 <- R1)
+  Vertex type:-
+   Process vertex  :- No. of processes running in system represented represented in circle by vertex
+   Resource vertex :- 
+    - Resource like CPU, memory represented in Rectangle
+    - Single instance :- CPU, Monitor[.] | Multiple instance :- Register, Printer [..] (One dot one instance)
+
+  Edge types :- 
+   Request Edge :- from process to resource (P1 -> R2)
+   Assign Edge  :- from instance to process (P1 <- R1)
  
 
  Example :- Single-instance Vertex
@@ -96,15 +86,13 @@ Resource Allocation Graph(RAG) in Deadlock | Single Instance :-
   P1 Executed --> (2, 2, 2) --> 
   P3 Executed --> (2, 3, 2)
 
-
                               
 
 Handling Deadlock Using Various Methods :-
  
  Deadlock ignorance(Ostrich Method) :-
-  - When deadlock occurs in system ignore it 
-  - Used by Windows and Linux
-  - Adding new code for deadlock Affect performance but add deadlock handling code if it happen in daily task
+  - When deadlock occurs in system ignore it Used by Windows and Linux
+  - Add new code for deadlock Affect performance but add deadlock handling code only if it happen in daily task
   - Ostrich bird put its neck inside sand during sand strom and say no strom(ignore)
  
 
@@ -113,43 +101,37 @@ Handling Deadlock Using Various Methods :-
   - Either remove all 4 necessary condition to avoid deadlock or try to remove or discard one of them
   - Make resource shareable false(Independent Process) remove mutual exclusion but sometime not idle like(Printer)
   - No-Premption, Preempt resources from process when resources required by other high priority processes
-  - Allocate all required resources to process before start of its execution to eliminated hold and wait but it will
-    be lead to low device utilization
+  - Allocate all required resources to process before start of its execution to eliminated hold and wait but it lead 
+    low device utilization
   - Process new request for resources after releasing current set of resources, it may lead to starvation  
   - No-circular wait Assign all resources with numerical number than check process request resource must be 
     Either in increases or decrease order(Order of Numbering)(R5 Allocated not able to request R4 only R5 or higher)
-  - Deadlock prevention is more strict than Deadlock Avoidance
+  - Deadlock prevention more strict than Deadlock Avoidance
 
  
  Deadlock Avoidance(Bankers Algorithm) :- #Check video
-  - When give resource to process check it is safe situation or not means check deadlock avoidable or not occured
+  - When resource given to process check it is safe situation or not means check deadlock avoidable or not occured
  
 
  Deadlock Detection & Recovery :- 
   Detection :-
-   - First detect whether their is deadlock or not and when detect try to recover 
-   - Do deadlock detection after every resource allocation
-   - Do deadlock detection only when there is some clue
+   - First detect whether their deadlock or not and when detect try to recover 
+   - Do deadlock detection after every resource allocation or only when some clue
    When all resource have single instance   :- Use wait-for-graph(Constructed from RAG Graph) | Cycle means deadlock
-   When all resource have multiple instance :- Use Bankers Algorithm 
+   When all resource have multiple instance :- Use Banker Algorithm 
 
-
-  Recovery process :-
-   - Kill Process which detect during deadlock detection
-   - Resource Pre-emption
-
+  Recovery process :- Kill Process which detect during deadlock detection | Resource Pre-emption
 
 
 
 Bankers Algo (Deadlock Avoidance):-
- - Provide information to OS such as which process is coming, which resource requires, for how much time etc..
+ - Provide information to OS such as which process coming, which resource requires, for how much time etc..
  - Used in Deadlock Detection
- - Safe sequence means how to handle resource so deadlock not occurs
+ - Safe sequence means how to handle resource so deadlock not occur
  - Allocated --> Max Need -> Check Available -> Remaining Need 
  - Remaining need must statified for all resources
- - Deadlock occurs if not statified any one of 5 processes
+ 
  Types :- Safety Algorithm | Resource-Request Algorithm
-
 
  Example :- 
   Total A = 10, B = 5, C = 7
@@ -166,7 +148,7 @@ Bankers Algo (Deadlock Avoidance):-
   Available :- Total + Allocation    - Some Allocated Resource and write in Available
   Remaining :- Max   - Allocation
 
-  - After calculating remaining need check which condition can i fulfill
+  - After calculating remaining need check which condition can fulfill
     
   Safe Sequence(Available) :- Free its allocated resources
     (3 ,3, 2) 
@@ -180,7 +162,7 @@ Bankers Algo (Deadlock Avoidance):-
    Check req <= need;
    req <= Available;
    Allocation = Allocation + Request
-   Available  = Available - Request
+   Available  = Available  - Request
    Need       = Need - Request 
    Run Safety Algorithm
   
@@ -228,9 +210,8 @@ Bankers Algo (Deadlock Avoidance):-
 
  Formula still deadlock :- 
            n
-  R <= E (di-n)  Deadlock free :- >
-           i=1   
-
+  R <= E(di-n)  Deadlock free :- >
+          i=1   
   Total Resource + Total Process > Total Demand
         4        +      3    = 7 >  3 x 2 = 6    No Deadlock if 3 x 3 = Deadlock Maximum 
  

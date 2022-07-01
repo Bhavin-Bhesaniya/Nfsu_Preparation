@@ -1,107 +1,74 @@
 Intro to Application Layer(Layer-7):-
  - End user interact directly with software application that based on client and server
- 
- Function :- Identifying communication partner  |  Determining resource availability  |  Synchronizing communication
+ - Identifying communication partner  |  Determining resource availability  |  Synchronizing communication
  
  Services :-
-  Network Virtual terminal(NVT)              :- Allow user to log on to remote host
-  File Transfer, Access and Management(FTAM) :- Access files in remote computer 
   Addressing        :- When client made request to server, request contain server address and its own address, DNS used
   Mail Services     :- Provide Email forwarding and storage
   Directory Service :- Distributed database provide access for global information about various objects and service
   Authentication    :- Authenticate sender or receiver's message or both
+  Network Virtual terminal(NVT)              :- Allow user to log on to remote host
+  File Transfer, Access and Management(FTAM) :- Access files in remote computer 
 
 
 
 Network Application Architecture :-
  - Provides set of service to application designed by application developer
- Application architecture types :- Client-Server  |  Peer-to-Peer
 
  Client-server architecture :- 
   - Application program running on local machine known as client send request to another application program that 
     serves request known as server 
-  - Server provide service for many client not just for single client(many-to-one relationship)
-  Diagram :- Client(Send Request to perform task) --> Internet <-- Server(Process Request and Send Response)
-
-  Advantages :-
-    Centralized(All data stored in server) | Security    (All shared resources centrally administered)
-    Performance(Dedicated server)          | Scalability (Handle number of client)
-   
-  Disadvantage :- Single-server architecture incapable of holding all request from client | Server Down
+  Diagram      :- Client(Send Request to perform task) --> Internet <-- Server(Process Request and Send Response)
+  Advantages   :- Centralized | Security | Scalability | Performance
+  Disadvantage :- Single-server incapable of holding all request from client | Server Down
  
 
- P2P (peer-to-peer) architecture : 
-  - Peers communicate with each other without passing information through dedicated server
-  - Peers are computer which reside in homes, offices, schools and universities 
-  - Application based on P2P architecture includes file sharing and internet telephony
+ P2P (peer-to-peer) architecture :- 
+  - Two user Communicate with each other without passing information through dedicated server
+  - Includes file sharing and internet telephony
   Feature :- Self-Scalability  |  Cost-effective (Not require Server)
 
 
 
 DNS(Domain Name System) :-
  - Directory service provide mapping between host name on network and its numerical address
- - Each node in tree has domain name and full domain name is sequence of symbols specified by dots
  - Client request contain name which converted into IP address known as forward DNS lookups while request containing
-   IP address which converted into name known as reverse DNS lookup
+   IP address which converted into name known as Reverse DNS lookup
  - DNS implement distributed database to store name of all host available on internet 
- - If client web browser send request containing hostname then DNS resolver send reques to DNS server to obtain IP
-   address of hostname, If DNS server not contain IP address associated with hostname then it forward request to 
-   another DNS server 
+ - Client -> Send request with hostname -> DNS resolver send request to DNS server to obtain hostname IP address
+   If not then forward request to another DNS server 
  Protocol divided into three different section :- Generic domain | Country domain | Inverse domain
 
 
- Generic Domain :- 
-  - Host registered according their generic behavior
-  - Each node in tree define domain name, which index to DNS database
-  - It uses three-character label and these label describe organization type
-  
-  Label	Description
-   aero	Airlines and aerospace companies     |   int	International Organizations
-   biz	Businesses or firm                   |   mil	Military group
-   com	Commercial Organization              |   name	Personal name
-   coop	Cooperative business Organization    |   net	Network Support center
-   edu	Educational institution              |   pro	Professional individual Organization
-   gov	Government institution               |   org	Nonprofit Organization
-   info	Information service provider         |   museum	Museum & other nonprofit organization
+ Generic Domain :- Use three-character label that describe it organization type
+  aero	Airlines and aerospace companies   |   int	International Organizations
+  biz	  Businesses or firm                 |   mil	Military group
+  com	  Commercial Organization            |   name	Personal name
+  coop	Cooperative business Organization  |   net	Network Support center
+  edu	  Educational institution            |   pro	Professional individual Organization
+  gov	  Government institution             |   org	Nonprofit Organization
+  info	Information service provider       |   museum	Museum & other nonprofit organization
 
 
  Country Domain :- Use two-character country abbreviation(E.x :- us for United State)
-
-
- Inverse Domain :- 
-  - Mapping address to name 
-  - When server receive request from client and server contain file of only authorize client 
-  - To determine whether client is authorized or not, it send query to DNS server and ask for mapping address to name
+ Inverse Domain :- Check request from client is authorized or not, by send query to DNS server, ask for mapping address
 
 
 
 FTP(File transfer protocol) :-
- - Transferring web page file from their creator to server or other computer on internet
- - Also used for downloading file from other server
- - Objectives of FTP is Transfer data more reliably and efficiently
- - Two system have different directory structure, way to represent text and data
- - FTP protocol overcome these problem by establishing two connection between hosts
+ - Provide Set of command that use to connect to host, transfer file and close connection | built-in chrome
+ - FTP establishing two connection between host to slove different system directory structure
  - One connection for data transfer and another connection for control connection
- 
- Control Connection   :- Transfer line of command or line of response at time and Remain connected during FTP session
- Data Connection      :- Data connection open when command come for transferring file and close when file transferred
- FTP Client Component :- User interface | Control process | Data transfer process 
- FTP Server Component :- Server control process | Server data transfer process
- 
+ Control Connection   :- Transfer line of command or response during FTP session
+ Data Connection      :- Open when transferring file and close when file transferred
+
  Advantages    :- Speed | Efficient | Security(ID,Password) | Back & forth movement(Transfer file back and forth)
+ 
  Disadvantages :- 
   - Some provider not use encryption file transfer that allow unwanted eavesdropping
-  - Size limit of file is 2GB that sent and doesn't run simultaneous transfers to multiple receiver
+  - 2GB Size limit and Doesn't run simultaneous transfers to multiple receiver
   - Not compatible with every system
 
-
-
- FTP Client :-
-  - Program that implement FTP to transfer file between host on internet
-  - Allow user to connect remote host and upload or download file
-  - Provide Set of command that use to connect to host, transfer files and close connection
-  - FTP also available as built-in component in Web browser 
-  
 
 
 Telnet(Terminal Network):- 

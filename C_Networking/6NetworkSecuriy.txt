@@ -1,25 +1,19 @@
 Introduction to Network Security :-
  - Measures taken by business or organization to monitor and prevent unauthorized access from outside attacker
  - Network Administrator control access to data and software on network
+ 
+ Types of attack :- 
+  Interruption :- An asset of the system is destroyed or becomes unavailable or unusable
+  Interception :- Unauthorized party gains access to an asset        | Attack on Confidentiality 
+  Modification :- Unauthorized party gains access and dameged asset  | Attack on integrity
+  Fabrication  :- Insert counterfeit object into system              | Attack on authenticity
+
 
  Aspect of Network Security :-
-  Privacy : 
-   - Sender and Receiver expect confidentiality
-   - Only sender and receiver able to understand transmitted message 
-   - Therefore requirement to encrypt message so that message cannot be intercepted 
-   
-  Message Integrity :- 
-   - Data must arrive at receiver exactly as it was sent 
-   - There no change in data content during transmission either maliciously or accidentally  
-   
-  End-point authentication :-  
-   - Receiver is sure of sender(Identity), no imposter has sent message
-  
-  Non-Repudiation :- 
-   - Receiver prove that received message come from specific sender 
-   - Sender must not deny sending message that he or she send 
-   - Burden of proving identity comes on receiver
-   Ex :- Money transfer
+  Privacy                  :- Only sender and receiver able to understand transmitted message 
+  Message Integrity        :- Data must arrive at receiver exactly as it was sent 
+  End-point authentication :- Receiver is sure of sender(Identity), no imposter has sent message
+  Non-Repudiation          :- Receiver prove that received message come from specific sender | Ex :- Money transfer
  
 
  CIA(Confidentiality, Integrity, Availability) :-
@@ -27,219 +21,161 @@ Introduction to Network Security :-
   
   Confidentiality :-
    - Only authorized individuals/systems can view sensitive or classified information 
-   - To avoid Attacker attack use encryption techniques to safeguard data so that even if attacker gain access to 
-     not be able to decrypt it 
-   - Encryption include AES(Advanced Encryption Standard) and DES(Data Encryption Standard) 
-   - Another way through VPN tunnel 
-   - VPN stands for Virtual Private Network and helps data to move securely over network
+   - Use encryption techniques to safeguard data so that even if attacker gain access to not be able to decrypt it 
+   Types :- AES(Advanced Encryption Standard) | DES(Data Encryption Standard) | VPN tunnel (Move data securely network)
 
-  Integrity :
-   - Data has not been modified to check it use hash function
-   - Corruption of data is failure to maintain data integrity 
-   Types :- SHA (Secure Hash Algorithm) and MD5(Message Direct 5)
-   - MD5 is 128-bit and SHA-1 is 160-bit hash 
-
+  Integrity :-
+   - To check Data is modified or not
+   Types :- SHA (Secure Hash Algorithm)(160-bit) and MD5(Message Direct 5)(128-bit)
+   
   Availability :
-   - Network available to its users This applies to systems and to data 
    - Network administrator maintain hardware make regular upgrade have plan for fail-over and prevent bottleneck
    - Attack such as DoS or DDoS may render network unavailable as resources of network get exhausted 
    
    
 
-Privacy :-
- - Encryption/decryption technique is used to achieve privacy form unauthorized parties 
- - Ensures that eavesdropper cannot understand content of message
-
- Encryption/Decryption :-
-  Encryption :- Convert original information into another form and send unintelligible message over network(ciphertext)
-  Decryption :- Reverses Encryption process in order to transform message back to original form  
-  Types of technique :- Secret key Encryption/Decryption  |  Public key Encryption/Decryption
-
-  Secret Key Encryption/Decryption technique :-
-   Diagram :- plaintext --> Encryption --> ciphertext --> Network --> ciphertext --> Decryption --> plaintext
-                                |------------------- Shared Secret Key ------------------|
-   - Same key is used by both sender and receiver
-   - Sender use secret key and encryption algorithm to encrypt data receiver uses for decryption
-   - Algorithm used for encryption is inverse of algorithm used for decryption 
-   - It means that if encryption algorithm uses combination of addition and multiplication then decryption algorithm
-     uses combination of subtraction and division
-   - Secret key encryption algorithm is also known as symmetric encryption algorithm because same key used 
-   - Secret code used by computer to encrypt information before it sent over network to another computer
-   
-   Data Encryption Standard (DES) :-
-    - Designed by IBM and adopted by U.S. government as standard encryption method for nonmilitary and nonclassified use
-    - DES standard used for encryption and it is form of Secret Key Cryptography
-    Efficient :- Take less time to encrypt message because small key size
-      
-    Disadvantages :- 
-     - Each pair of user must have secret key, there are N(N-1)/2 secret keys, (100 n = 50 KEY require)
-     - Key Distribution among different parties very difficult 
-     
-  
-  Public Key Encryption/Decryption technique :-
-   There are two keys in public key encryption :- Private key and Public key
-   - Private key given to receiver while public key provided to public
-   - Public key used by sender is public while private key used by receiver is different for each individual
-   - Most commonly used public key algorithm is known as RSA
-                                                                                      |-- Public key 
-   Diagram :- plaintext --> Encryption --> ciphertext --> Network --> ciphertext --> Decryption --> plaintext
-                                                                                      |-- Private Key
-                                                                                      
-   Advantage :-
-    - Restriction of private key encryption is sharing of secret key 
-    - Third party cannot use this key 
-    - In public key encryption, each entity creates pair of keys and they keep private one and distribute public key
-    - Number of key in public key encryption is reduced tremendously
-     
-   Disadvantage :- 
-    Speed : Slower than secret-key encryption because different key used both side
-    Authentication : Does not have built-in authentication, So message can be interpreted or intercepted
-    Inefficient : 
-     - Complexity, Large number needed, Converting plaintext into ciphertext using long key take lot of time
-     - Efficient for short messages not for long message
-    
-
-  Difference Secret vs Public :- 
-   Comparison	Secret Key Encryption(Symmetric Key)	  Public Key Encryption(Asymmetric Key)
-   Define	    Single shared key Use	                  Private and Public two key use
-   Efficieny	Efficient, Used for large amount of data  Inefficient, used only for short messages
-   Speed	    High single key                           Slow speed uses two different keys
-   Algorithm	DES, 3DES, AES & RCA	                  Diffie-Hellman, RSA
-   Purpose	    Transmit bulk data	                      Share keys securely
-
-
-
-Digital Signature :-
- - Used to validate authenticity and integrity of message 
- - Basic idea behind Digital Signature is to sign document 
- - When we send document electronically, we also sign it 
- - We sign document in two ways : Sign whole document  |  Sign digest
- Note :- Digital Signature does not provide privacy for privacy another layer of encryption/decryption applied
-
- Digital Signature used to achieve following three aspect :-
-  Integrity :- 
-   - Preserve integrity of message because if any malicious attack intercept message and partially or totally changes
-     it then decrypted message would be impossible
-
-  Authentication :- 
-   - User X send message pretending that it is coming from someone else(user A) user X use her own private key to
-     encrypt message 
-   - Message decrypted by using public key of user A 
-   - Therefore this makes message unreadable 
-   - Encryption with X's private key and decryption with A's public key results in garbage value
-  
-  Non-Repudiation :- 
-   - If sender denies sending message, then her private key corresponding to her public key is tested on plaintext 
-   - If decrypted message is same as original message, then we know that sender has sent message
-
-
- Signing Whole Document :-
-  - Public key encryption technique used to sign document 
-  - Roles of public and private key are different here 
-  - Sender use private key to encrypt message while receiver uses public key of sender to decrypt message
+Encryption / Decryption :- 
+ Encryption :- Convert original information into another form and send unintelligible message over network(ciphertext)
+ Decryption :- Reverse Encryption process in order to transform message back to original form(Original text)
  
+ Symmetric key encryption algorithm :-
+  Diagram :- Plain --> Encryption --> Cipher --> Network --> Cipher --> Decryption --> Plain
+                       |----------------- Shared Secret Key ---------------|
+  - Same key used by both sender and receiver
+  - Encryption algorithm use combination of addition and multiplication then decryption algorithm
+    uses combination of subtraction and division
+  - Secret code used before sent over network to another computer
+  Types :- DES- 56bits | 3DES- 192bits | AES(128, 192, 256-bits(2^56))
+  Syntax :- NC2
+   
+  
+ ASymmetric encryption algorithm :-
+  Two keys used :- Private key and Public key
+  - Private key given to receiver while public key provided public
+  - Public key used by sender public while private key used by receiver that different for each individual
+  - RSA(Rivest, Samir, Adelman) algorithm used :- 2N
+                                                                                     |-- Public key 
+  Diagram :- Plain --> Encryption --> Cipher --> Network -->  Cipher --> Decryption --> Plaintext
+                                                                                     |-- Private Key
+                                                                                      
+  Advantage :-
+   - Third party cannot use this key 
+   - Restriction of private key encryption is sharing of secret key 
+   - In public key encryption, each entity creates pair of keys and they keep private one and distribute public key
+   - Number of key in public key encryption is reduced tremendously
 
- Signing the Digest :-
-  - If message is long than sender sign digest of document instead of whole document
-  - Sender create miniature version digest) of document and then sign it, receiver check signature of digest
-  - Hash function used to create fixed-size digest from variable-length message
-  Common hash function :- MD5 (Message Digest 5) and SHA-1(Secure Hash Algorithm 1) 
-  - First one produce 120-bit digest while second one produce 160-bit digest
 
-  Hash function must have two properties :- 
+  Disadvantage :- 
+   Speed          : Slower because different key used both side
+   Authentication : Does not built-in authentication, So message interpreted or intercepted
+   Inefficient    : Complexity | Large number needed | Converting using long key takes lot of time 
+   
+
+ Difference Secret vs Public :- 
+   Comparison	  Secret Key Encryption(Symmetric Key)	  Public Key Encryption(Asymmetric Key)
+   Define	        Single shared key 	                    Private and Public key
+   Efficieny	    Used for large data                     Inefficient, for short message
+   Speed	        High                                    Slow
+   Algorithm	    DES, 3DES, AES & RCA	                  Diffie-Hellman, RSA
+   Purpose	      Transmit bulk data	                    Share keys securely
+
+
+
+Substitution Techniques :-
+ - Each Letters of plaintext replaced by other letter or by numbers or symbol 
+ - If plaintext replacing with ciphertext bit pattern known as Caesar Cipher
+ Syntax Encryption :-  C = E(p) = (p + k) mod(26)
+ Syntax Decryption :-  P = D(c) = (C - k) mod(26)
+ - Playfair algorithm based on use of 5 X 5 matrix of letters constructed using keyword known as Playfair Cipher
+
+
+
+Digital Signature(Sign document)(Combination of hashing and public key encryption):-
+ - Validate authenticity and message integrity but Not provide privacy
+ - When send document sign it in two ways : Sign whole document  |  Sign digest
+
+ Integrity :- Preserve integrity of message 
+ 
+ Authentication :- 
+  - User X send pretending that coming from someone else(user A) user X use own private key to encrypt message 
+  - Message decrypted by using public key of user A which makes message unreadable 
+  - Encryption with X's private key and decryption with A's public key result in garbage value
+  
+
+ Non-Repudiation :- 
+  - Sender denies sending message then her private key corresponding to her public key tested on plaintext 
+  - If decrypted message same as original message then we know that sender has sent message
+
+
+ Types :-
+  Signing Whole Document :- Sender private key encrypt message while receiver use public key of sender to decrypt message
+
+  Signing Digest :- 
+   - If Message longer than sender sign digest of document instead of whole document
+   - Hash function used to create fixed-size digest from variable-length message
    - Digest must be one way (Digest only be created from message but not vice versa)
    - Hashing is one-to-one function (Two message not create same digest)
-
-
-  Following steps taken to ensure security :-
-   - Digest message created by using hash function and encrypted by using sender's private key
-   - After digest encrypted then it attached to original message and sent to receiver
-   - Receiver receive original message and encrypted digest and separates two 
-   - Receiver implement hash function on original message to create second digest and it also decrypt received digest
-     by using public key of sender 
-   - If both digest are same then all aspect of security are preserved
+   Common hash function :- MD5(Message Digest 5)(120-bit) and SHA-1(Secure Hash Algorithm 1)(160-bit)
   
-   At Sender site :-
-    Message --------------------- (Signed Digest + Message) -->  To B
-      |                                     |                               
-     Hash                                   |
-      |                                     |
-     Digest --> Encrypt(A'Private)--> Signed Digest
+
+ Following steps taken to ensure security :-
+  - Digest message created by using hash function and encrypted by using sender's private key
+  - After digest encrypted then it attached to original message and sent to receiver
+  - Receiver receive original message and encrypted digest and separates two 
+  - Receiver implement hash function on original message to create second digest and it also decrypt received digest
+    by using public key of sender 
+  - If both digest are same then all aspect of security are preserved
+  
 
 
-   At Receiver site :-
-                    B
-    From A -->     (Signed Digest + Message)
-    A's Public Key        |             |
-        |                 |             |
-        ------------>  decrypt        Hash
-                          |---Compare---|  
+Data Encryption Standard (DES) :-
+ - Designed by IBM and adopted by U.S. government for nonmilitary and nonclassified use
+ - Encryption data in form of Secret Key Cryptography
+ Efficient :- Take less time to encrypt message because small key size
+      
+ Disadvantages :-  
+  - Each pair of user must have secret key, N(N-1)/2 secret key, (100 n = 50 KEY require)
+  - Key Distribution difficult 
 
 
 
 PGP(Pretty Good Privacy) :-
- - Invented by Phil Zimmermann
+ - Open source and freely available software package for email security Invented by Phil Zimmermann 
  - Provide all four aspects of security in sending of email
- - Use digital signature(Combination of hashing and public key encryption)
- - Also use combination of secret key encryption and public key encryption to provide privacy 
- - Therefore, digital signature uses one hash function, one secret key and two private-public key pairs
- - PGP is open source and freely available software package for email security
- - Provide authentication through Digital Signature, confidentiality through use of symmetric block encryption
+ - Use digital signature one hash function, one secret key and two private-public key pairs
+ - Authentication through Digital Signature, Confidentiality through symmetric block encryption
  - Compression by using ZIP algorithm and EMAIL compatibility using radix-64 encoding scheme
 
 
  Step taken by PGP to create secure e-mail at sender site :-
-  - E-mail message hashed by using hashing function to create digest
-  - Digest then encrypted to form signed digest by using sender's private key and then signed digest is added to 
-    original email message
+  - E-mail message hashed to create digest 
+  - Then Digest encrypted -> signed digest by using sender private key and then added original email message to digest
   - Original message and signed digest are encrypted by using one-time secret key created by sender
   - Secret key encrypted by using receiver's public key
   - Both encrypted secret key and encrypted combination of message and digest are sent together
 
-
- PGP at Sender site :-
-  Digital Signature --> Privacy    
-                        One/Time Secret Key                 B's Public
-                                ------------> Encrypt ------  |  
-                        Encrypt------------------------------ + ----> Encrypted(Secret key & Message + Digest) 
-              
-  - Receiver receive combination of encrypted secret key and message digest is received
-  - Encrypted secret key decrypted by using receiver's private key to get one-time secret key
-  - Secret key then used to decrypt combination of message and digest
-  - Digest decrypted by using sender's public key and original message hashed by using hash function to create digest
-  - Both digest are compared if both of them are equal means that all aspects of security are preserved
-
- 
- Disadvantages of PGP Encryption :
-  Administration is difficult | Compatibility(Verson) issues | Complexity | No Recovery(Loss Password)
+ Dis :- Administration difficult | Compatibility(Verson) issues | Complexity | No Recovery(Loss Password)
 
 
 
 Firewall :-
  - Network security device either hardware or software-based which monitors all incoming and outgoing traffic and 
    based on defined set of security rules it accept, reject/block or drops(No reply) that specific traffic
- - Establishe barrier between secured internal networks and outside untrusted network such as Internet
+ - Firewall match network traffic against rule set defined in its table 
+ - Rule defined on firewall based on necessity and security policies of organization
+ - Establish barrier between secured internal networks and outside untrusted network such as Internet
+ - Before Firewall, network security was performed by Access Control Lists(ACLs) residing on routers 
+ - ACL rules determine whether network access should be granted or denied to specific IP address
+ - But ACL cannot determine nature of packet it is blocking and not capacity to keep threats out of network 
+ - Most traffic which reach on firewall is one of these three major Transport Layer protocols :- TCP, UDP or ICMP 
+ - All these types have source address and destination address and port number
+ - ICMP uses type code instead of port number which identifies purpose of packet
 
- Need for Firewall :-
-  - Before Firewall, network security was performed by Access Control Lists(ACLs) residing on routers 
-  - ACLs are rules that determine whether network access should be granted or denied to specific IP address
-  - But ACL cannot determine nature of packet it is blocking and not capacity to keep threats out of network 
-
-
- How Firewall Works :-
-  - Firewall match network traffic against rule set defined in its table 
-  - Rule matched action is applied to network traffic
-  - Rule defined on firewall based on necessity and security policies of organization
-  - From server perspective network traffic either outgoing or incoming 
-  - Outgoing traffic originated from server itself and allowed to pass 
-  - Most traffic which reach on firewall is one of these three major Transport Layer protocols :- TCP, UDP or ICMP 
-  - All these types have source address and destination address and port number
-  - ICMP uses type code instead of port number which identifies purpose of packet
-
-  Default policy :- 
-   - Difficult to explicitly cover every possible rule on firewall 
-   - Firewall always have default policy that consists of action (accept, reject or drop)
-   - If no rule is defined about SSH connection to server on firewall it follow default policy 
+ 
+ Default policy :- 
+  - Difficult to explicitly cover every possible rule on firewall 
+  - Firewall always have default policy that consists of action (accept, reject or drop)
+  - If no rule is defined about SSH connection to server on firewall it follow default policy 
    
 
  Generation of Firewall :-

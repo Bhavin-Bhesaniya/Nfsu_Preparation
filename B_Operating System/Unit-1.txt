@@ -1,16 +1,5 @@
 Introduction to Operating System :- Glavin
-
-Topics :-
- - What is OS
- - OS Duties | Function | Services | Features
- - What is Kernel? Different OS Structure Type & Kernel Architecture? 
- - Types Of OS 
- - Spooling
- - System Call 
- - What is Booting & What happens when we turn on computer? BIOS VS UEFI | MBR vs GPT 
- - RAM Vs ROM
   
-
 What is OS?
  - System Program that act as interface between user and computer hardware 
  - It Control execution of all kinds of programs and manage all resources of computer system

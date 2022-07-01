@@ -27,6 +27,6 @@ Number of tuples in relation known as    :- Cardinality
 
 
 Two ways in which entites can participate in relationship                        :- Total and Partial
-who produce relation that has Attributes of R1 and R2                            :- Cartesian Product
+Who produce relation that has Attributes of R1 and R2                            :- Cartesian Product
 Which function divide one numeric expression by another and return remainder     :- MOD
 Which Operator used to compare value to list of literals value that specified    :- BETWEEN

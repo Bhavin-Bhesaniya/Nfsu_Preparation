@@ -24,7 +24,6 @@ I/O Management :-
 
 
 I/O Architecture :-
- - I/O software device independent and possible to write program that access I/O device without specify device 
  User Level Libraries :- Provide interface to user program to perform input and output Ex :- stdio C/C++
  Kernel Level Modules :- Provide device driver to interact with device controller and device independent I/O modules 
  Hardware :- Include hardware and its controller to interact with device driver and make it alive
@@ -37,13 +36,13 @@ I/O Architecture :-
             Device 
     
  
- Device Drivers :-
+ Device Driver :-
   - Software modules that plugged into OS to handle particular device 
-  - Encapsulate device-dependent code and device-specific register for reads/writes
+  - Encapsulate device-dependent code and device-specific register for read/write
   - Device driver written by device manufacturer and delivered along with device on CD-ROM
   
   Device driver Process :-
-   - Accept request from device independent software above to it
+   - Device Accept request from device independent software
    - Interact with device controller I/O and perform required error handling
    - Make sure that request executed successfully
 
@@ -53,12 +52,12 @@ I/O Architecture :-
   - I/O unit like Keyboard contain mechanical or electronic component(EC) called Device Controller
   - Convert serial bit stream to block of bytes to perform error correction as necessary
   - Device connected either by plug or socket and socket connected to device controller
-  - CPU and device controllers use common bus for communication
+  - CPU and device controller use common bus for communication
 
 
  Synchronous vs Asynchronous :-
-  Synchronous  I/O  - CPU execution waits while I/O proceeds
-  Asynchronous I/O  - I/O proceeds concurrently with CPU execution
+  Synchronous  I/O  - CPU execution wait while I/O proceed
+  Asynchronous I/O  - I/O proceed concurrently with CPU execution
  
  
 
@@ -68,29 +67,28 @@ Types of Communication with I/O Devices :-
  Memory-Mapped I/O :-
   - Same Address space shared by memory and I/O devices
   - Device directly connect memory location so that I/O device transfer data block to memory without going through CPU
-  - OS allocate buffer in memory and inform I/O device to use that buffer to send data to CPU 
+  - OS allocate buffer in memory and inform I/O device to use buffer to send data to CPU 3
   - I/O device operates asynchronously with CPU and interrupts CPU when finished
   
  Direct Memory Access (DMA) :-
   - Reduce hardware overhead interrupt
   - CPU grant I/O module authority for read or write to/from memory without involvement 
-  - DMA Access hardware called DMA controller(DMAC) that manages data transfers and access to system bus 
+  - DMA Access hardware called DMA controller(DMAC) that manages data transfer and access system bus 
 
 
 
 Kernel I/O Subsystem :-
  
- Scheduling :- Kernel schedules set of I/O requests in ordert to determine in which to execute them 
+ Scheduling :- Kernel schedules set of I/O request in order to determine which to execute next
  Buffering  :- Store data while transferred between two device | Slove speed mismatch between producer and consumer 
  Caching    :- Hold copies of data | Access cached copy more efficient than access original
  Error Handling :- Protected memory against many kinds of hardware and application error
-
  Spooling and Device Reservation :- Spool buffer holds output for device such as printer
 
  Polling I/O :- 
   - I/O device communicate with processor for checking device status for next I/O operation 
   - I/O device put information in Status register then processor come and get information
-  - Inefficient method and much of processors time wasted on unnecessary polls
+  - Inefficient method and much processors time wasted on unnecessary polls
   
  Interrupts I/O :-
   - Interrupt signal to microprocessor from device that require attention
@@ -99,7 +97,7 @@ Kernel I/O Subsystem :-
     (OS address routine to handle various event) 
   - When interrupting device CPU continues with its original task as it had never been interrupted
  
- Interrupt handlers(Interrupt Service Routine - ISR):-
+ Interrupt handler(Interrupt Service Routine - ISR):-
   - Function in OS or Device Driver whose execution triggered by reception of interrupt
   - In order to handle interrupt update data structure and wake up process that was waiting
   - Interrupt mechanism accept address(Number that select specific interrupt handling routine/function from small set) 

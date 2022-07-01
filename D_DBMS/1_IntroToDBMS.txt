@@ -94,7 +94,7 @@ DBMS (Data Base Management System) :-
  - Software used to store and retrieve data
  - Provide interface to accept request from application and specific data through OS
  Advantage    :- Control Redundancy | Data sharing | Backup | Multiple user interfaces | Security
- Disadvantage :- Size | Cost | Complexity | 
+ Disadvantage :- Size | Cost | Complexity 
 
  1-Tier Architecture :- Database directly available to user and changes directly done by database itself 
  
@@ -113,7 +113,7 @@ DBMS (Data Base Management System) :-
 RDBMS (Relational Database Management System) :-
  - Tabular DBMS that maintain security, integrity, accuracy and consistecy of data introduced by E. F. Codd
  - From 1970 to 1972, E.F. Codd published paper to propose using relational database model
- - Degree of relationship refer to number of entities in relationship
+ - Degree of relationship refer number of entities in relationship
  - Most Relationship are binary
 
 
@@ -169,9 +169,9 @@ Three schema Architecture | ANSI/SPARC | Three-level :-
  Diagram :-
   External Schema     External Level      External Level(User view)
                                   \       /            - [External / Conceptual Mapping]  
-  Conceptual Schema            Conceptual Level (Logical)
+  Conceptual Schema         Conceptual Level (Logical)
                                       |                - Conceptual / Internal Mapping
-  Internal Schema              Internal Level(Physical)
+  Internal Schema           Internal Level(Physical)
                                       |
                                  [Database]
 
