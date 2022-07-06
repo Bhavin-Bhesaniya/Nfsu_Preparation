@@ -1,0 +1,70 @@
+Module - 1
+ - On-Demand delivery of IT Resources over internet with Pay-as-you-go Pricing known as Cloud Computing
+ 
+ Deployment Method :-
+  Cloud-Based :- 
+   - Design, build, Run and migrate application in cloud
+   - Create app consisting Virtual Server, Database and Networking Component that fully based on Cloud
+   Ex :- Squarespace | Dropbox
+
+  On-Premises(Private cloud deployment) :-
+   - Deploy Resources by using virtualization and Resource Management Tools
+
+  Hybrid :-
+   - Integrate Cloud-based Resource with legacy IT Application
+   - Government regulations require business to keep certain records on premises
+   - Use some service from cloud and kept most data in on-premises
+   Ex :- Deloitte | CIBC
+
+
+ Benefits :-
+  - Upfront expense(Own server) and Variable expense(Pay-as-use instead of investing on heavily data center)  
+  - Stop spending money to run and maintain data center(Focus more on application rather than server maintain)
+  - Stop guessing capacity(With EC2 pay only scale-in means pay only for server compute) 
+  - Benefits from massive economies of scale
+  - Increase speed and agility(flexibility - Access new Resource within minutes)
+  - Go global within minutes(Access application within low latency)
+
+
+
+Module - 2
+ - Amazon Elastic Compute Cloud(EC-2) handle Virtual server computing 
+ - Hypervisor responsible for sharing Underlying physical Resource between virtual machines
+ - Multitenancy :- Sharing Underlying hardware between virtual machines
+ - One EC2 instance not aware of other EC2 instance on same host
+ - EC2 Vertically Scalling(Resizeable) - Provide more cpu and memory to instance based on requirement
+ - Handle Network Request to which user accessible or not
+ - EC2 works on Compute as Service(Caas) model
+ - Pay only for compute time you use when instance is running, not when stopped or terminated
+
+
+ EC2 configuration :-
+  Launch :- Select Basic Configuration(OS, Server, Application) and Specific instance type(Hardware config)
+  Connect :- Connect instance by logging and accessing computer desktop
+  Use :- After connect run command to install software, storage and organize files  
+ 
+ 
+ EC2 Instance type :-
+  - Each instance type grouped under instance family that optimized for certain task
+  General purpose   :- 
+   - Balanced Resource use for web server and code repositories
+   - If application not require optimization in any single resource area
+  
+  Compute Optimized :- 
+   - For intensive tasks such as gaming server, High performance computing(HPC), Scientific
+   - Use for batch processing workloads that require processing many transaction in single group
+
+  Memory Optimized  :- 
+   - Fast performance for workloads that Process large datasets in memory
+   - Hold data and instructions(Hold Before loading into cpu) that require CPU 
+   - Run workloads with High memory for great performance
+
+  Storage Optimized :-
+   - Design for workloads that require high, sequential read and write access to large datasets on local storage
+   - Suitable for storage optimize instance include distributed system, OLTP, Data warehousing application
+   - Input/Output operation per second(IOPS) metric measure performance of storage device
+
+  Accelerated Computing :- 
+   - Floating point number calculation, Graphic Processing, data pattern matching
+   - Hardware accelerators or co-processors helps data processing for graphic application, game streaming
+

@@ -1,6 +1,5 @@
-
 Definition :-
- - Practice of using network or remote servers hosted on the internet to store, manage and process data
+ - Practice of using network or remote server hosted on internet to store, manage and process data
    rather than local server or personal computer
  
  On-Premise :-                      Cloud Provider :-
@@ -11,95 +10,88 @@ Definition :-
 
 
 
-Evolutions of Cloud Computing :-
- Dedicated Server :-
-  - One Physical Machine dedicated to single business
-  - Run single website/webapp 
-  - Very Expensive, High Security and High Maintenance
-  Diagram :-     People  -->  Server -->  Web app
+Cloud Computing Evolution :-
+ Dedicated Server :- 
+  - One Physical Machine dedicated to single business that Run single website/webapp 
+  - Very Expensive | High Security | High Maintenance
+  Diagram :-  People  -->  Server -->  Web app
 
  Virtual Private Server(VPS) :-
-  - One physical machine dedicated to single business
-  - Physical machine is virtuallized into sub-machines to Runs multiple website/webapp
-  - Better Utilization and Isolation of Resources
-  Diagram :-     People  -->  Server -->  Web app(N)
+  - One machine dedicated to single business which virtuallized into sub-machines to Runs multiple webapp
+  - Better Resources Utilization
+  Diagram :-  People  -->  Server -->  Web app(N)
 
  Shared Hosting :- 
   - One Physical machine shared by Hundred of Business
-  - Very Cheap, Limited Functionality, Poor Isolation (Go Daddy)
-  Diagram :- People(N) --> Server -->  Web app(N)
+  - Very Cheap | Limited Functionality | Poor Isolation (Go Daddy)
+  Diagram :-  People(N) --> Server -->  Web app(N)
 
  Cloud Hosting :-
-  - Multiple physical machines acts as one system
-  - System is abstracted into multiple cloud services
-  - Flexible, Scalable, Secure, Cost-Efficient, High-Configurability
-  Diagram :- People(N) --> Server(N) -->  Web app(N)
+  - Multiple physical machines acts as one system that provide multiple cloud services
+  - Flexible | Scalable | Secure | Cost-Efficient | High-Configurability
+  Diagram :-  People(N) --> Server(N) -->  Web app(N)
 
 
 
 What is Amazon?
  - Amazon is American Multinational computer technology corporation headquartered in Settle, Washington
  - Founded in 1994 by Jeff Bezos
- - Started for online book store
- - Andy jassy current CEO of Amazon
- - Adam Selipsky CEO of AWS and Werner Vogels CTO of AWS
+ - Started as Online book store
+ - Andy Jassy CEO(Amazon) | Adam Selipsky(AWS) | Werner Vogels CTO(AWS)
+
 
 
 What is AWS?
  - AWS Launched in 2006 
- - Simple Queue Service(SQS) was the first AWS service launched for public use in 2004
+ - Simple Queue Service(SQS) was first AWS service launched for public use in 2004
  - Simple Storage Service(S3) launched in march 2006
- - Elastic Compute Cloud(EC2) launched in August 2006
- - In November 2010, Amazon.com retain sites had migrated to AWS
+ - Elastic Compute Cloud(EC2) launched in August 2006(Most used and Backbone of many service)
+ - Amazon.com migrated to AWS in November 2010
  - AWS Certificate begin on April 2013
 
 
+
 What is Cloud Service Provider(CSP)?
- - CSP provide multiple Cloud Services 
- - These service z together to create Cloud Architecture
- - Service are accessible vis Single Unified API(AWS API) 
+ - Provide multiple Cloud Service chained together to create Cloud Architecture
+ - Service accessible via Single Unified API(AWS API) 
  - Follow Metered Billing based on Usage
- - Built-in Monitoring Ex:- AWS CloudTrail
- - Offering Infrastructure as a Service and automation via Infrastructure as Code(IaC)
+ - Built-in Monitoring using AWS CloudTrail
+ - Offering Infrastructure as Service(IAAS) and Infrastructure as Code(IaC) for Automation
 
-
- Diagram :-     Route3      -->     ELB          -->     EC2     -->     [RDS, Postgre Database] 
-              Domain Name         Load Balancer       Web Server         [SES, Send Emails]
-                                                                         [QuickSight Analysis]
-                                                                         [S3, Storage Images]
+ Diagram :-     
+    Route3      -->   ELB          -->     EC2     -->    [RDS, Postgre Database] 
+    Domain Name       Load Balancer      Web Server       [SES, Send Emails]
+                                                          [QuickSight Analysis]
+                                                          [S3, Storage Images]
 
 
  Landscape of Cloud Service Provider(CSP):-
-  Tier-1(Top Tier) :- Early to market, Wide Offering, Strong Synergies between Service(AWS, AZURE, GCP)
-  Tier-2(Mid Tier) :- Backed by Well-known Compaines, Slow to innovation(IBM, ORACLE, RACKSPACE)
-  Tier-3(LightTier):- Virtual Private Server(VPS) turned to offer core IAAS(Digial Ocean, Linode)
+  Tier-1(Top Tier) :- Early in market that Offering Strong Synergies between Service(AWS, AZURE, GCP)
+  Tier-2(Mid Tier) :- Backed by Well-known Compaines, Slow to innovation    (IBM, ORACLE, RACKSPACE)
+  Tier-3(LightTier):- Virtual Private Server(VPS) turned to offer core IAAS (Digial Ocean, Linode)
  
  
  Magic Quadrant(MQ) :-
-  - Series of market research reports published by IT Consulting firm gartner that rely on proprietary qualitative
-    data Analysis methods to demonstrate market trends such as direction, maturity and participant
+  - Series of Market Research Report published by IT Consulting firm known as Gartner
+  - Use data Analysis method to demonstrate market trends such as direction, maturity and participant
 
  
- Common Cloud Services :-   
-  - Provides hundred types of cloud services that are grouped into 4 various types of services
-  - Four common cloud services for IAAS would be :-
-  1)Compute :- Virtual computer run application and code
-  2)Networking :- Virtual network defining internet connection or network isolation between services
-                  or outbound to the internet
-  3)Storage  :- Virtual Hard-drive store file
-  4)Database :- Virtual database for storing reporting data or database for general purpose web-application
+ Common Cloud Services :- Common cloud services for IAAS
+  Compute    :- Virtual computer run application and code
+  Networking :- Virtual network defining internet connection or network isolation or outbound to internet
+  Storage    :- Virtual Hard-drive store file
+  Database   :- Virtual database for storing reporting data or database for general purpose web-application
 
 
 
 AWS Overview :-
- - Provides hundred types of cloud services that are grouped into 4 various types of services
- - Four common cloud services for IAAS would be :-
- 1)Compute :- EC2 Virtual Machine
- 2)Storage :- EBS Virtual Hard Drive
- 3)Database :- RDS SQL Database
- 4)Networking and Content delivery :- VPC Private Cloud Network
+ - Provide hundred types of cloud service that grouped into 4 various types of services :-
+ 1)Compute  :- EC2 Virtual Machine
+ 2)Storage  :- EBS(Elastic Block Store) Virtual Hard Drive
+ 3)Database :- RDS(Relational Database Service) SQL Database
+ 4)Networking and Content delivery :- Virtual Private Cloud Network(VPC/N)
 
- Outside four :-
+ Other Service :-
   - Analytics                 - Developer Tools           - Migration & Transfer
   - Application Integration   - End User Computing        - Mobile
   - AR & VR                   - Game Tech                 - Quantam Technology
@@ -109,6 +101,104 @@ AWS Overview :-
   - Container                 - Media Services            - Customer Engagement 
 
 
-Evolutions of Computing :-
- Dedicated :-  
+
+Evolution of Computing Type :-
+ Dedicated :- 
+  - Utilized by single Customer
+  - Required to guess capacity otherwise overpay for unutilized server and diffcult to replace
+  - Can't vertical scale, need manual Migration
+  - limited by Host OS
+  - Multiple apps result in conflit in Resource sharing
+  - Gurantee of security | Fully utility of underlying Resource
   
+  Diagram :-
+    Wasted Space -> App1, AppN -> Host Operation  (Physical Server)
+
+ 
+ VMs(Virtual Machine) :-
+  - Multiple virtual machine on one machine
+  - Hypervisor let you run VMs
+  - Physical server shared by multiple Customer
+  - Pay for Fraction of server
+  - Overpay for underutilized virtual machine and limited by Guest OS
+  - Multiple apps on single virtual machine lead conflit in Resource sharing
+  - Easy for import and export images for Migration | vertical and horizonalty scale
+  
+  Diagram :-
+    Wasted Space   |  Wasted Space  |  Wasted Space
+    App               App              App
+                      App
+    Guest OS          Guest OS         Guest OS
+        VM            VM               VM
+                      Hypervisor
+                  
+                  Host Operating System
+
+
+ Containers :-
+  - VM running multiple container using Docker Deamon(Software Layer)
+  - Resizable so maximum Utilized of Availabel capacity which more cost-effective
+  - Share underlying OS so container more Efficient than multiple VMs
+  - Not cause conflit
+
+  Diagram :-
+    App      Availabel   Availabel Space
+    App        Space       App
+    App        App         App
+        Docker Deamon (ALL VM)
+    GuestOS   GuestOS     GuestOS
+     VM         VM          VM
+            Hypervisor     
+            HostOS
+
+ 
+ Functions :-
+  - Manage VM running container known as Serverless computer
+  - Upload piece of code, choose amount of memory and duration
+  - Very Cost-effective | Vm run only when code executed
+  - Cold Start(Bit slow) side effect
+
+
+
+Types of Cloud Computing :-
+ Saas(Software As A Service) :- 
+  - Run and managed by Service provider | Designed for Customer | Not worry how maintained
+  Ex :- Gmail | Office 365
+ 
+ Paas(Platform As A Service) :-
+  - Focus on Deployment and Management of apps | For Developer | Don't worry about hardware and OS configuration
+  Ex :- Beanstalk | Heroku | Google App Engine
+
+ Iaas(Infrastructure As A Service) :-
+  - Building blocks for Cloud IT
+  - Provide access to Networking features, computers and data storage Space
+  - Don't worry about IT Staff, Data Center and hardware
+  Ex :- AZURE | AWS | GCP  
+
+
+
+Types of Deployment Model :-
+ Public Cloud  :- Everything built on CSP also known as Cloud-Native and Cloud first
+ Private Cloud :- Everything built on Company Datacenter also known as On-Premise(Open stack)
+ Hybrid Cloud  :- Using both On-premise and CSP 
+ Cross Cloud(Multi-cloud) :- Amazon EKS -->  Azure ARC -->  GCP Kubernate Engine | Anthose(GCP)
+
+ Deployment Method :-
+  Cloud-Based :- 
+   - Design, build, Run and migrate application in cloud
+   - Create app consisting Virtual Server, Database and Networking Component that fully based on Cloud
+   Ex :- Squarespace | Dropbox
+
+  On-Premises(Private cloud deployment) :-
+   - Deploy Resources by using virtualization and Resource Management Tools
+
+  Hybrid :-
+   - Integrate Cloud-based Resource with legacy IT Application
+   - Government regulations require business to keep certain records on premises
+   - Use some service from cloud and kept most data in on-premises
+   Ex :- Deloitte | CIBC
+
+
+Create AWS Account 
+Create IAM User :-
+ Click IAM on Console -> 
