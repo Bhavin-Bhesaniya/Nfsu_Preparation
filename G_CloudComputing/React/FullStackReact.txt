@@ -1,0 +1,84 @@
+AWS Amplify :-
+ - Provide Git-based CI/CD workflow for building, deploying and hosting single page web application or static
+   sites with serverless backend
+ - Determine build settings for both front-end and any serverless backend resources configured with Amplify 
+   CLI and automatically deploys updates with every code commit
+
+Steps :-
+ npx create-react-app amplifyapp
+ cd amplifyapp
+ npm start
+ 
+ git init
+ git remote add origin git@github.com:username/reponame.git
+ git add .
+ git commit -m “initial commit”
+ git push origin master
+
+ Select AWS Amplify :-
+  Get Started - > Deploy -> Select Github -> Accept Default build setting -> Save and Deploy
+
+ Change in code -> 
+  git add .
+  git commit -m “changes for v2”
+  git push origin master
+
+
+
+Module-2 :- Initalize local Amplify app
+ Amplify CLI :- 
+  - Allow to create, manage and remove AWS service directly from terminal
+  - Unified toolchain to create AWS cloud services for your app
+  Syntax :- npm install -g @aws-amplify/cli   | -g for global
+
+ Amazon IAM (Identity and Access Management) :- 
+  - Enables to manage users and user permissions in AWST
+  - CLI uses IAM to create and manage services programmatically on your behalf via CLI
+  
+  To configure :- amplify configure
+  
+  Initalize App :- backend Enviroment(Amplify Studio)
+   - Visual Development for building full-stack apps
+   - Follow local step instruction :- amplify pull --appId dq7pc88ic5cyk --envName staging
+   - Amplify console to view app
+
+
+  Add Authentication :-
+   Amplify libraries - Allow to interact with AWS services from web or mobile application
+   Authentication - Process of verifying and managing identity of user using authentication service or API
+   
+   Install amplify libraries :- 
+    - npm install aws-amplify @aws-amplify/ui-react
+    aws-amplify library   :- Contain all client-side APIs for interacting with various AWS services 
+    @aws-amplify/ui-react :- library contains framework-specific UI component
+
+   Create auth service :- amplify add auth | add default setting
+   Deploy auth service :- amplify push --y
+   
+   Configur react project with amplify resources :- 
+    - CLI created and continue to update file called aws-exports.js located in src directory of our project
+    To configure our app with these resources, open src/index.js  :-
+      import Amplify from 'aws-amplify';
+      import config from './aws-exports';
+      Amplify.configure(config);
+
+   Add Authentication flow in App.js :-
+    withAuthenticator component  :-
+     - Scaffold out entire user authentication flow allowing users to sign up, sign in, reset their password
+       and confirm sign in for multifactor authentication(MFA)
+    AmplifySignOut component :- Render Sign Out button
+   
+   Run app locally :- npm run start
+
+   Set up CI/CD of frontend and backend :-
+    - Configure Amplify build process to add backend as part of continuous deployment workflow  
+    Syntax :- amplify console
+    - Choose App settings > Build settings and modify it to add backend section(lines 2-7) to amplify.yml
+    
+
+
+
+
+
+ 
+

@@ -1,101 +1,28 @@
-Lec - 1 
- Introduction :-
-  - Cloud Computing Virtualization-based technology Refer to manipulating, Configuring and Accessing application 
-    via internet
-  - It is something that present at remote location
-  - Provide On-demand access and Shared Pool of configurable resources(As per Requirment)
-  
+Introduction to cloud computing :-
+ - On-demand delivery of IT Resources over internet based on Virtualization with pay-as-you-go Priceing  
 
  Operation :-
   - Developing and Analysis application 
   - Storage, Backup and Recovery data
   - Streaming video and audio 
 
-
- Structure :-  
-    Cloud Provider 
-       Cloud        --->  Request/Response  <-- Cloud User-N(Mobile, Desktop, Laptop)
-    Facility :- 
-      PAAS(Platform As Service)
-      SAAS(Software as Service)
-      IAAS(Infrastructure as Service)    
-
-
-
-Lec - 2
- Different Working Model :-
-  1) Deployment Model :- Define type of access to the Cloud
-   Type :- 
-    Public    :- 
-     - Service are accessible for general public               
-     - Less fee or Free available
-     
-     Advantages :-
-      - Realibility(Access easily) | Flexibility | Location Independent  | High Scalability | Utiliy Based Cost
-
-     Disadvantage :-
-      - Low Secure | Less Customizable
-
-      
-    Private :- 
-     - Service are accessible for only particular Organization 
-     - It can be managed by third-party also
-     
-     Advantages :-
-      - High Security and Privacy
-      - More Customizable and Control
-      - Cost and Engery Efficient
-    
-     Disadvantage :-
-      - Restricted area operations
-      - High Priceing
-      - Scalability limited
-
-
-    Hybrid    :- 
-     - Combination of both Public + Private 
-     - Critical service private and non-critical activity public 
-
-     Advantages   :- Scalability | Flexibility | Security | Cost efficient
-     Disadvantage :- Network Issuce because Complexity | Security Compilances | Dependency on Infrastructure
-
-
-    Community :- 
-     - More than one organization created common cloud to access its Services
-     Advantages   :- Low cost than Private | Sharing resources among organizations | More secure than Public 
-     Disadvantage :- Data Storage | Responsiblity
-
-  
-  2) Services Model :- Reference models on which cloud computing is based
-   Type :-
-    SAAS :- How can access application on cloud | Email, CRM                         | Use software application
-    PAAS :- Provide tools to create application | Database, Server, Deployment       | Provide runtime environment    
-    IAAS :- Provide platform to create application | Virtual machine, Storage device | Provide Fundamental resources
-
-
-
-Lec - 3
- Advantages :-
-  - Access, Manipulation and Configuration application over network
-  - No Software installation required
-  - On-demand self service
-  - Cost-Efficient
-  - More Reliable
-  - Efficient Load Balancing
-
- Disadvantage / Risk :-
-  - Who access data (Snopping)
-  - Security method
-  - Where will be data stored
+ Structure :- Cloud Provider  -->  Request/Response  <--  Cloud User-N(Mobile, Desktop, Laptop)
+ 
+ Benefits :-
+  Agility     :- Quickly spin up resource as you need | Easy access broad range of technology
+  Elasticity  :- Scale resource up or down to instantly grow and shrink capacity as business change
+  Cost Saving :- Only pay for IT as you consume it(Variable expense)
+  Deploy globally in minutes :-  Put apps in closer proximity to end user, reduce latency and improve experience
+  No Software installation required  |  Efficient Load Balancing
+ 
+ Disadvantage / Risk :- Who access data (Snopping) | Security method | Where data stored
+ 
 
  Limitations :-
-  - Service availability
-  - Data Lock-In(Shifting large volume data)
+  - Service availability | Data Lock-In(Shifting large volume data)
   - Data Segregation(Data Isolation of each User)
-  - Scaling Resource(User requires suddenly)
-  - Recovery and Backup
 
- Components of cloud Infrastructure :-
+ Component of Cloud Infrastructure :-
   - Frontend Interface for end-user
   - Network resources Management
   - Storage for virtual machine
@@ -104,24 +31,66 @@ Lec - 3
 
 
 
-Lec - 4
- Characteristic :-
-  - On-demand Self-Service
-  - Broad Network Access
-  - Resource Pooling 
-  - Scalability
-  - Measure Service
-  - Service Oriented
-  - Virtualization
+Types of cloud :- 
+ - Define type of access to the Cloud
+
+ Public :- Service accessible for general public | Less fee or Free available
+  Advantages   :- Realibility(Easy Access) | Location Independent  | High Scalability | Utiliy Based Cost
+  Disadvantage :- Low Secure | Less Customizable
+
+      
+ Private :- Only particular Organization | Also managed by third-party
+  Advantages   :- High Security and Privacy | Customizable  | Cost and Engery Efficient
+  Disadvantage :- Restricted area operation | High Priceing | Limited Scalability
+
+
+ Hybrid :- Combination of Public + Private | Critical service private and non-critical activity public 
+  Advantages   :- Scalability | Flexibility | Security | Cost efficient
+  Disadvantage :- Network Issuce because Complexity | Security Compilances | Dependency on Infrastructure
+
+
+ Community :- More than one organization created common cloud to access its Services
+  Advantages   :- Low cost than Private | Sharing resources among organizations | More secure than Public 
+  Disadvantage :- Data Storage | Responsiblity
+
+  
+
+Types of Cloud computing (Deployment Service Model):- 
+ IAAS :- 
+  - Basic building blocks for cloud IT
+  - Provide platform to create application 
+  - Provide Fundamental resources such as Virtual machine, Storage device
+  - Highest Flexibility that similar to existing IT resource
+
+
+ PAAS :- 
+  - Provide runtime environment and tools to create application such as Database, Server, Deployment
+  - Use Underlying Infrastructure so Focus more on deployment and management of application
+  - Don't need to worry about resource
+
+
+ SAAS :- 
+  - Access product that already developed by Service provider such as Email, CRM 
+  - Don't need to think about how service and Infrastructure maintain only need to think is how to use
 
 
 
-Lec - 5 :- Public Cloud Model in Lec-2 
+Deployment Method :-
+ Cloud-Based :- 
+  - Design, build, Run and migrate application in cloud
+  - Create app consisting Virtual Server, Database and Networking Component that fully based on Cloud
+  Ex :- Squarespace | Dropbox
 
+ On-Premises(Private cloud deployment) :-
+  - Deploy Resources by using virtualization and Resource Management Tools
+  - Not provide benefits of cloud but ability to provide dedicated resource
 
-Cloud Computing Architecture :-
-  Diagram :- 
-    Client-Side Interface   --->    Internet      --->    [Application, Service, Storage, Security]
+ Hybrid :-
+  - Integrate Cloud-based Resource with legacy IT Application
+  - Government regulations require business to keep certain records on premises
+  - Use some service from cloud and kept most data in on-premises
+  Ex :- Deloitte | CIBC
 
-  Frontend - User Interface
-  Backend  - 
+ 
+ 
+ 

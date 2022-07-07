@@ -35,36 +35,76 @@ Module - 2
  - EC2 Vertically Scalling(Resizeable) - Provide more cpu and memory to instance based on requirement
  - Handle Network Request to which user accessible or not
  - EC2 works on Compute as Service(Caas) model
- - Pay only for compute time you use when instance is running, not when stopped or terminated
+ - Pay only for when instance running(Compute Time) Not when stopped or terminated
 
 
- EC2 configuration :-
-  Launch :- Select Basic Configuration(OS, Server, Application) and Specific instance type(Hardware config)
+ EC2 Configuration :-
+  Launch  :- Select Basic Configuration(OS, Server, Application) and Specific instance type(Hardware config)
   Connect :- Connect instance by logging and accessing computer desktop
-  Use :- After connect run command to install software, storage and organize files  
+  Use     :- After connect run command to install software, storage and organize files  
  
  
  EC2 Instance type :-
   - Each instance type grouped under instance family that optimized for certain task
-  General purpose   :- 
+  
+  General purpose :- 
    - Balanced Resource use for web server and code repositories
-   - If application not require optimization in any single resource area
+   - Use If application not require optimization in any single resource area
   
   Compute Optimized :- 
    - For intensive tasks such as gaming server, High performance computing(HPC), Scientific
    - Use for batch processing workloads that require processing many transaction in single group
 
   Memory Optimized  :- 
-   - Fast performance for workloads that Process large datasets in memory
+   - Process large dataset in memory for Fast performance
    - Hold data and instructions(Hold Before loading into cpu) that require CPU 
    - Run workloads with High memory for great performance
 
   Storage Optimized :-
-   - Design for workloads that require high, sequential read and write access to large datasets on local storage
-   - Suitable for storage optimize instance include distributed system, OLTP, Data warehousing application
+   - Design for workloads that require high, sequential read and write access to large dataset on local storage
+   - Suitable for optimize storage instance include distributed system, OLTP, Data warehousing application
    - Input/Output operation per second(IOPS) metric measure performance of storage device
 
   Accelerated Computing :- 
-   - Floating point number calculation, Graphic Processing, data pattern matching
+   - Floating point number calculation, Graphic Processing, Data pattern matching
    - Hardware accelerators or co-processors helps data processing for graphic application, game streaming
+
+ 
+ EC2 Pricing :-
+  - AWS Cost Explorer enable to visualize, understand and manage AWS Cost and usage overtime
+  - Also provide recommandation for savings Plan based on previous usage
+
+  ON-Demand :- 
+   - Ideal for short-term, irregular workload that cannot be interrupted
+   - No Upfront costs or minimum contracts only
+   - Only pay compute time you use
+   - Use for developing, testing and running application that have unpredictable pattern
+   - Not for long workload
+
+  EC2 Saving Plan :-
+   - Reduce compute costs by committing to consistent amount of compute usage for 1-year or 3-year term  
+   - Saving upto 66% over on Demand-cost
+   - Any usage beyond commitment charged at regular On-Demand rates
+  
+  Reserved Instance :-
+   - Applied billing discount to use of On-Demand Instances in your account
+   Charged On-Demand rates until :- 
+    - Terminate Instance
+    - Purchase new Reserved Instance that match instance attribute(instance type, Region, tenancy and platform)
+
+  Spot Instance :-
+   - Ideal for workloads with flexible start and end time or that can withstand interruption
+   - Use unused Amazon EC2 computing capacity and offer cost savings at up to 90% off of On-Demand price
+   - If capacity no longer available or demand for Spot Instances increases, your instance may be interrupted
+
+  Dedicated Host :-
+   - Use Physical fully dedicated server with Amazon EC2 instance capacity | Most Expensive
+   - Use existing per-socket, per-core, or per-VM software licenses to help maintain license compliance
+   
+  
+  EC2 Vs Spot :-
+   EC2  :- Consist amount of usage over 1 to 3 year | Reduce cost upto 72% over on-demand costs
+   Spot :- Workload with Flexible start and End | Reduce upto 90% costs over On-Demand 
+           Not require commitment for Consist amount of usage
+    
 

@@ -48,9 +48,74 @@ What is AWS?
  - Elastic Compute Cloud(EC2) launched in August 2006(Most used and Backbone of many service)
  - Amazon.com migrated to AWS in November 2010
  - AWS Certificate begin on April 2013
+ - AWS Partner Network(APN) include thoushand of system integrator
+ - Independent Software Vendor(ISVs) who adapt AWS for application
+ - 230 Security Compilance and Governance | 98 Security Standard and Compilance Certification
+ - 117 Encrypt data store offer
+ - AWS Lambda serverless computing run their code without provisioning server
+ - AWS Sagemaker for machine Learning
+ - 84 Availability zone with 26 geographic regions around world
+ - AWS Cloudshell provide command-line interpreter to access resource
+ - Amazon S3(Simple Storage Service) store files
 
+ 
+ Magic Quadrant(MQ) :-
+  - Series of Market Research Report published by IT Consulting firm known as Gartner
+  - Use data Analysis method to demonstrate market trends such as direction, maturity and participant
+  - In Gartner Research positions of aws in leader Quadrant(CIPS- Cloud Infrastructure & Platform Service)
 
+  
+ AWS CDK(Cloud Development Kit) :-
+  - Software development framework defining cloud infrastructure in code and provisioning it through AWS 
+    CloudFormation
+  - Provide high-level component called constructs that preconfigure cloud resources with proven default
+    so you build cloud applications with ease
+  - Support Kubernate(cdk8s), open-source software development framework defining Kubernetes applications 
+    using general-purpose programming languages
 
+  Diagram :- 
+    Use Pre-Configured  -->  Model Application  -->  Provision Your Application
+    Application                                      With AWS CloudFormation 
+    Component(From Repo)     (Programming Language)   
+
+ 
+ AWS CloudFormation :-
+  - Model and Setup AWS resources so that spend less time managing resources and more time focusing on app
+  - Create template that describes all AWS resources that you want(like Amazon EC2 instance or Amazon RDS DB)
+  - Simplify infrastructure management, Quickly replicate it and track change to infrastructure
+
+  Diagram :-
+   Code Infrastructure    -->  Amazon S3        -->   AWS CloudFormation      -->  Output
+    Either YAML or JSON         Check locally         Via browser console to      
+    format or start many        template code         create stack based 
+    available template          or upload in S3       template code
+
+ 
+ AWS Well-Architectured Infrastructure :-
+  - Six pillar of AWS infrastructure
+  Operational Excellence :- Focus on running and Monitoring system and continous imporving
+  Security    :- Confidentiality and Integrity of data, managing user permission, detect security event
+  Realibility :- How to recover from failure
+  Performance :- Strcutured and Streamlined allocation of IT and computing resource
+  Cost optimization :- Avoiding unnecssary costs | Select only require resource
+  Sustainability :- Minimizing environmental impacts of running cloud workloads | Minimize resource
+
+ 
+ AWS Security :-
+  - Managing security and Compliance is shared responsibility between AWS and you
+  Diagram :-
+   Customer :- In Cloud
+    Customer Data                                                  
+    Platform Application | Identity Access Management                 
+    Operating System | Network | Firewall
+    Client-side Data Encryption and Data Integrity Authentication
+    Server-side Encryption(File-System AND/OR Data)
+    Network Traffic Protection(Encryption | Integrity | Identity)
+
+   AWS :- OF Responsiblity
+    Software (Software | Storage | Database | Networking)
+    Hardware/AWS Global Infrastructure(Regions | Availability Zone | EDGE Location)
+ 
 What is Cloud Service Provider(CSP)?
  - Provide multiple Cloud Service chained together to create Cloud Architecture
  - Service accessible via Single Unified API(AWS API) 
@@ -71,10 +136,6 @@ What is Cloud Service Provider(CSP)?
   Tier-3(LightTier):- Virtual Private Server(VPS) turned to offer core IAAS (Digial Ocean, Linode)
  
  
- Magic Quadrant(MQ) :-
-  - Series of Market Research Report published by IT Consulting firm known as Gartner
-  - Use data Analysis method to demonstrate market trends such as direction, maturity and participant
-
  
  Common Cloud Services :- Common cloud services for IAAS
   Compute    :- Virtual computer run application and code
