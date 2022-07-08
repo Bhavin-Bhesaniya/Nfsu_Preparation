@@ -75,36 +75,155 @@ Module - 2
   - Also provide recommandation for savings Plan based on previous usage
 
   ON-Demand :- 
-   - Ideal for short-term, irregular workload that cannot be interrupted
-   - No Upfront costs or minimum contracts only
-   - Only pay compute time you use
+   - Pay only for when your instance run per second or hours and Hardware you choose
    - Use for developing, testing and running application that have unpredictable pattern
-   - Not for long workload
+   - Ideal for short-term, irregular workload that cannot be interrupted | Not for long workload
 
-  EC2 Saving Plan :-
+
+  Saving Plan :-
    - Reduce compute costs by committing to consistent amount of compute usage for 1-year or 3-year term  
-   - Saving upto 66% over on Demand-cost
+   - Saving upto 66% over on Demand-cost and 72% on AWS Compute usage
    - Any usage beyond commitment charged at regular On-Demand rates
   
+
   Reserved Instance :-
-   - Applied billing discount to use of On-Demand Instances in your account
+   - Suitable for steady state workloads or ones with predictable workload usage
+   - Billing discount upto 75% discount on On-Demand Instances
+   - Pay early, Partial pay and Fully pay instance
    Charged On-Demand rates until :- 
     - Terminate Instance
     - Purchase new Reserved Instance that match instance attribute(instance type, Region, tenancy and platform)
 
+
   Spot Instance :-
+   - Use unused Amazon EC2 computing capacity and offer cost savings up to 90% off of On-Demand price
    - Ideal for workloads with flexible start and end time or that can withstand interruption
-   - Use unused Amazon EC2 computing capacity and offer cost savings at up to 90% off of On-Demand price
    - If capacity no longer available or demand for Spot Instances increases, your instance may be interrupted
+     within 2 minutes warning
+
 
   Dedicated Host :-
-   - Use Physical fully dedicated server with Amazon EC2 instance capacity | Most Expensive
+   - Physical fully dedicated server with Amazon EC2 instance capacity | Most Expensive
    - Use existing per-socket, per-core, or per-VM software licenses to help maintain license compliance
    
   
   EC2 Vs Spot :-
    EC2  :- Consist amount of usage over 1 to 3 year | Reduce cost upto 72% over on-demand costs
-   Spot :- Workload with Flexible start and End | Reduce upto 90% costs over On-Demand 
+   Spot :- Workload with Flexible start and End     | Reduce upto 90% costs over On-Demand 
            Not require commitment for Consist amount of usage
     
+ 
+ EC2 Scalability and Elasticity :-
+  Scalability :-
+   - Beginning with only resources needed than designing architecture to automatically respond to changing 
+     demand by scaling out or in 
+   - Pay only resources use
+   - Amazon EC2 Auto Scaling instance provide automatically Scalling process
 
+  Auto Scalling :-
+   - If website not able to process request and time out means server handle capacity lower
+   - Auto Scaling automatically add or remove Amazon EC2 instances in response to changing application demand
+   Dynamic Scaling    :- Responds to changing demand
+   Predictive Scaling :- Automatically Schedules right amount of Amazon EC2 instance based on Predicted demand
+   - To scale faster you both together
+   - When create auto scaling group you set minimum capacity(Launch immediatly After autoscalling create)
+   - Set desired capacity instance, if not specify by default min instance take as desired instance
+   
+   Diagram :-
+    []  []    []  []  <-- Instance
+    Min       Scale as
+    Desired    need 
+    Maximum EC2 Instance
+
+
+ Load Balancing with Elastic Load Balancing(ELB) :-
+  - ELB automatically distributes incoming traffic across multiple resources, such as Amazon EC2 instances
+  - ELB works on Region level instance rather than individual instance
+  - Act as single point of contact for all incoming web traffic to Auto Scaling group
+  - 
+  
+  De-coupled architecture :-
+                  -> Instance   ->  Front-end system  ->       -> Back-end Instance
+   Traffic -> ELB -> Instance   ->  Front-end system  ->  ELB  -> Back-end Instance
+                  -> Instance   ->  Front-end system  ->       -> Back-end Instance
+
+                  Through Auto Engine                             Automatically Drain-in and Out 
+                  Instance Drain In 
+                  and Out based on Traffic   
+
+  
+ Messaging and Queuing :- 
+  Monolithic Application :- Message Pass directly
+   - App made of diffrent Component where each Component has diffrent process to running
+   - App with Tightly coupled Component known as Monolithic
+   - Single fails entire application
+
+  MicroService :- Message pass in buffer area
+   - Component are loosely coupled which prevent from entire application failure
+   - To create it use ASQS and ASNS service
+
+
+  Amazon Simple Queue Service(SQS) :-
+   - Send, Store and Receive message between software Component without lossing message 
+   - Data contained withing message called Payload and it's protectd until delivery
+   - SQS send message into queue from there user or service retrieves messages, process it and then
+     delete from queue
+   Diagram :-
+    Customer -> Order -> Cashier -> Place order in queue
+      |                                     |       
+      Order deliver <--  Chef take order from queue and process   
+
+  Amazon Simple Notification Service(SNS) :- (Public/Subscriber Model(Pub/Sub))
+   - Send message to service and Notification to end user 
+   - SNS topic is channel for message to be delivered to Subscriber
+   - Notification push Through HTTPS, WEB Hooks, SQS Queue, email, SMS, lamda function and many more 
+   Diagram :-
+    Coupon Notification     Preimum Notification     Offer
+        |                           |--------------     |
+      User1                       User2               User3
+
+ 
+ Serverless :-
+  - Cannot see or access Underlying infrastructure or instance that host application(Focus only on Application)
+
+  AWS Lmada :-
+   - Not need to worry about enviroment because it managed by AWS also Scalability
+   - Run code in 15 minutes so Suitable for quick processing like Web Backend, handling request
+   
+   Working :- 
+    - Upload code to lamda function -> Configure Trigger(Put Objects) -> Code run only when triggered
+    - Pay only for compute time(Charge only when code running)
+
+
+  Container Orchestration Tools :-
+   - Container is package for code and dependancy into single object to run on top EC2 instance
+   - Docker widely use operating system level virtualization to deliver software in Container
+   - When use Docker container need to work start, stop, monitor mannually on all cluster instance
+   - Container Orchestration tools helps to manage container
+
+   AWS Elastic Container Service(ECS) :- Docker
+    - Helps to run containerized application at scale without hassle of managing own Orchestration software
+    - Support Docker container(Software platform that helps to build, test and Deploy application quickly)
+
+   AWS Elastic Kubernates Service(EKS) :- Kubernates
+    - Helps to run Kubernates on AWS
+    - Kubernates open source software enable to Deploy and manage containerized application at scale
+
+   AWS Fargate :- 
+    - Serverless Compute platform for ECS or EKS
+    - Not need provision or managed servers and pay only for resource that required to run containers
+
+
+
+  - Use EC2 if need to full access on OS and host traditional Application
+  - Use Serverless lamda for don't need access on OS and host Short running functions, Service-oriented app
+    Event-driven app, Non Provisioing or managing server and AWS Lamda
+  - Use Container Orchestration tools if need to run docker container based application
+  - In container use AmazonEC2 if need control otherwise use AWS Fargate 
+
+
+  EC2 Vs Serverless :-
+   EC2 :- Provision Instance(Virtual Server) | Upload Code | Manage Instance while Application running
+   Serverless :- 
+    - Run application without manage server | Scalability automatically
+    - Adujust application capacity by modifying units of consumption, such as throughput and memory
