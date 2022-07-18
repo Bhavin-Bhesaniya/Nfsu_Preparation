@@ -1,0 +1,523 @@
+Index No :-
+1)HISTORY 
+2)VARIABLES
+3)OPERATORS
+4)INPUT/OUTPUT
+5)DATATYPE
+6)LOOPS / CONTROLSTATEMENT / CONDITIONALSTATEMENT
+7)FUNCTION
+8)OOP
+
+-------------------------------------------------------------- HISTORY ---------------------------------------------------------------
+1)HISTORY :- 
+
+Guido van rossum 1991 and further developed by Python Software Foundation 
+- python-3.0 2008
+- IDLE(Integrated Development Environment) come with python bundled
+
+Features :-
+ - Free open-source
+ - Interpreted			 			(Convert source -> bytecode -> native code / Direct run from source code)
+ - Platform-independant				(Developed and executed on Multiple Operating System)
+ - High-level language				(No need to worry about memory management)
+ - Simple							(Closer to english language / easy to learn)
+ - Robust							(Exception handling and built-in memory management)
+ - Embeddable						(used within C/C++ program to give scripting capabilities)
+ - Multiple programming paragdigam (object-oriented, imperative, functional, procedural)
+ - Rich library support
+
+Used :-
+ - Machine Learning
+ - GUI Applications (like Kivy, Tkinter, PyQt etc. )
+ - Web frameworks like Django (used by YouTube, Instagram, Dropbox)
+ - Image processing (like OpenCV, Pillow)
+ - Web scraping (like Scrapy, BeautifulSoup, Selenium)
+ - Test frameworks
+ - Multimedia
+ - Scientific computing
+ - Text processing 
+
+
+Differnce between python 2.0 and 3.0 :-
+ - Division Operator 
+ - print function :- in 2 no paraenthes but in 3 including
+ - Unicode 		  :- In Python 2, an implicit str type is ASCII. But in Python 3.x implicit str type is Unicode. 
+ - xrange         :- Python 3.x’s range function is xrange from Python 2.x. 
+ - Error handling :-  In python 3.x, ‘as’ keyword is required. 
+ -   
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+2)VARIABLES / KEYWORD :-
+
+- Variable not need to declare / overwrite by value 
+	Type :- local / global
+		1)local :- inside function not used outside/use global keyword to access outside function
+		2)global:- access anywhere in the programme
+    	Convert :- 1)Implicit - automatically
+		   2)Explicit - change by as user requirment 
+				- int(a,base) 
+				- float(type)
+				- chr(num) #ascii
+	Private :- _var / __var__
+	Special :- __name__ give module name  
+	
+
+KEYWORD :-
+- Keywords in Python are reserved words that can not be used as a variable name, function name, or any other identifier.
+ - Python also provide keyword module
+ - keyword.kwlist : display all keyword in list
+  			
+  try   except finally assert   raise
+  for	while  break   continue pass   - Iteration
+  if	elif   else    None     yield  - Conditional keywords
+  def   return lambda  True     False
+  in    is     and 	   or       not    - Logical 
+  class global nonlocal 		del
+  from  import with    as 
+
+ Important keyword :-
+    in : Used to check if a container contains a value. 
+         Also used to loop through the container.
+    is : Used to test object identity, i.e to check if both the objects take the same memory location or not. 
+	not: This logical operator inverts the truth value.
+    yield : Like return statement but is used to return a generator.
+	with  : Wrap execution of block of code within methods defined by context manager
+    Lambda: make inline returning functions with no statements allowed internally.
+
+
+NAMESPACES :-
+ - A namespace is a system that has a unique name for each and every object in Python. 
+ - An object might be a variable or a method. 
+ - Python itself maintains a namespace in the form of a Python dictionary. 
+ 
+   Type :
+    - Built-in          like  print() function
+	- Global-namespace  when user create module
+	- local-namespace   when user create function
+ 
+ - A lifetime of a namespace depends upon the scope of objects, if the scope of an object ends, the lifetime of that namespace 
+   comes to an end. 
+ - Hence, it is not possible to access the inner namespace’s objects from an outer namespace. 
+
+ Scope      : refers to the coding region from which a particular Python object is accessible.
+ Statements : Instructions written in the source code for execution are called statements.
+			- Multi-line statements extended to one or more lines using (), {}, [], (;),(\).	
+ Indentation : Whitespace used in indentation to highlighting the blocks of code
+ Comments    : Useful information that developers provide to make reader understand source code.
+				Type :- # single line / """ Delimiter """ Multi-line
+ Multiple Statements Per Line  :- Using ; (semicolon)
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+3)OPERATORS :-
+
+- Perform operation on values and variables
+- Overloading giving extended meaning beyond their predefined operational
+  same built-in operator or function shows different behavior for objects of different classes
+  magic method is automatically invoked __operator__ 
+  ex : 1)Binary     :- add,sub,mul,truediv,floordiv,mod,pow,rshift,lshift,and,or,xor
+       2)Comparsion :- lt,gt,le,ge,eq,ne
+       3)assignment :- add i in binary
+       4)unary      :- neg , pos , invert
+
+- any and all two built in provided in used for Or or And
+- opeartor function ex : magic method(a,b)
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+4)INPUT/OUTPUT :-
+
+- Need to take multiple input use two method:-
+  1) input.split(separtor,maxsplit)
+  2) var_name = [int(x) for x in input("enter value").split()] #take input by list
+
+- for competitive programming use module " sys " and function called  sys.stdin / stdout.write
+
+- Vulnerability in input()
+  - input() method lies in the fact that the variable accessing the value of input can be accessed by 
+    anyone just by using the name of variable or method
+    1)Variable name as input parameter  
+    2)Function name as parameter
+  - To prevent we can use raw_input() 
+
+2) Output :-
+
+- The simple print function is used for output.
+- Automatically add new line 
+- Syntax :- print(value(s), sep='', end="",file=file,flush=flush)
+
+- Formatting output using ' % ' :-
+  Ex : print("Total students : %3d, Boys : %2d" % (240, 120))
+ 
+- Formatting output using format() method :-
+  Ex : print('I love {} for "{}!"'.format('Geeks', 'Geeks')) 		  
+       print('I love {1} for "{0}'.format('Geeks', 'Geeks'))
+
+- Formatting output using String method :-
+  Ex : print(str.ljust(no , anything))
+       print(str.rjust(no , anything))
+       print(str.center(no , anything))
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+5)DataType :-
+
+TYPES :- String, Array(List, Tuple, Dictionary), Set, Sequence(Int, Float, Bool, Complex) 
+
+1)Sequence :-
+	
+	1)int 	:- 1,0,-1
+	2)float :- 1.1,-1.1
+	3)bool	:- True,False
+	4)complex :- 1+5j
+
+2)String :- Represent array of bytes in unicode characters / immutable
+  
+	Create :- str_var = ''/""/""" """
+	access :- str_var[0]
+	slice  :- str_var[first : end] / [::]
+	update :- str_var[indexno] = "new value" / str_var = "update entire"
+	delete :- str_var[0]	/ del str_var
+	Escape :- str_var = "string \n with escape\t \' \r \\"
+	Format :- str_var = "{}first , {no.}second,{l}".format('bhavin','k.',l ='bhesaniya')/ljust/rjust/center
+	Method :- s.lowercase / s.uppercase / s.digit / s.printable / s.endswith / s.startswith / s.isdigit
+		  s.replace / s.whitespace
+
+
+3)List 	:- looks like Dynamic sized array / mutable / ordered / duplicate allow
+	
+	Create :- list_var = [store obj, int, float, bool,string] / [ [Multi],[dimensional]]
+	access :- list_var[0]
+	add    :- list_var.append(value at last) / list_var.insert(index,value) / list_var.extend(add,multi,value)
+	remove :- list_var.remove[specific value] / list_var.pop(remove last)  / list_var.pop(specific index remove)
+	slice  :- list_var[first : end] 
+	comprehenion :- new_list_var = [expression(element) for element in oldlist if condition]
+	delete :- list_var.clear / del list.var
+	method :- list_var.index / list_var.count / list_var.sort / list.reverse / list_var.copy
+	built-in :- reduce() / sum() / ord() / cmp() / all() / any() / filter() / map() / lamda()
+
+
+4)Tuple :- look like list / without parentheses tuple packing /
+	
+	Create :- tup_le = (any type of value)
+	access :- tup_le[0]
+	slice  :- tup_le[first :end]
+	delete :- del tup_le
+	method :- tup_le.count / tup_le.index
+	built-in :- sorted() / enumerate()
+
+
+5)Set  :- Unordered(undefined/unchangable) / mutable / noduplicate but value canbe passed /
+
+	Create :- set_var = set(value,differnt type)
+	access :- set_var thorugh loop
+	add    :- set_var.add()
+	update :- set_var.update()
+	remove :- set_var.remove(value) / set_var.discard(value) / set_var.pop()
+	clear  :- set_var.clear()
+	built-in :- copy() / uninon() / differnce() / difference_update() / intersection() / isdisjoint() 
+		    issuperset() / issubset() / symmentric_difference()
+
+
+6)Dictionary :- unordered / key-value make it more optimized / key's immutable ,noduplicate/value mutable
+
+	Create :- dict = {key : value,key:[]()} / dict({}) - keyword
+	add    :- dict[key] = value / multivalue[] / dict = {key : {key:value,key:value} }
+	access :- dict[key] / dict.get(key)
+	remove :- dict.pop(key) -value / dict.popitem() -both / dict.clear()
+	delete :- del dict 
+	method :- copy() / dict.values() / update() / setdefault() / keys() / items() / has_key() / fromkey() / cmp()
+
+7) Arrays :-  an array is a collection of items stored at continuguous memory location / stored same type element
+	      used array module
+
+	Create :- import array
+		  arr = array.array(datatype , valuelist)
+		  arr = array.array('i',[1,2,3])
+	add    :- arr.insert(index,value) / arr.append(at last)
+	access :- arr[index]
+	remove :- arr.pop(index) / arr.remove(specific value)
+	slice  :- arr[first : end]
+	search :- arr.index(no)
+	update :- arr.[index] = value
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+6)LOOPS / CONTROLSTATEMENT / CONDITIONALSTATEMENT  :- 
+
+Conditional Statements :-
+- Used to check one or more conditions
+ 1)If           :- if (condition): //code
+ 2)If..else     :- if (condition): //code  else: //code
+ 3)Nested if    :- if (condition): if (condition): //code  else: //code
+ 4)if..elif     :- if (condition): //code elif: //code else: //code
+ 5)shorthand if :- if (condition): statements
+ 6)If..else     :- statement_when_True if condition else statement_when_False
+
+Loop is used to execute a block of code repeatdly until a given a condition is satisfied :-
+1.While loop :- 
+  Syntax : while expression:
+		increment/decrement
+		statements(s)
+	   else :
+		statements(s)
+	
+2.For loop :-
+  Syntax : for iterator_var in sequence(list/tuple/dict or range or len):
+		statements(s)
+		increment/decrement
+  	   else : 
+		statement(s)
+
+3.Nested loop :-
+  Syntax : while condition:
+		while condtion:
+			statement(s)
+			increment/decrement
+		print(first loop)
+	
+  Syntax : for iterator_var in sequence:
+		for iterator_var in sequence
+			statement(s)
+			increment/decrement
+		print(outside loop)
+
+4.Statements :
+
+ 1)Break    : terminate loop
+ 2)Continue : terminate current process and go to next position
+ 3)Pass     : not need to write code at a time creation
+
+5.Looping techniques :
+ 
+ 1)enumerate() : print index no with value
+ 2)zip()       : combine 2 similar containers(list-tuple-set-dict)
+ 3)iteritem()  : dictionary print key and value simulatously
+ 4)items()     : similar to iteritem but memory consuption and time takeing 
+ 5)sorted()    : sort the enitre contianer
+ 6)reversed()  : print in reversed order
+ 7)range       : range(start,end,step)
+
+6.Pyramic pattern :
+- Outer loop handle number of row
+- Inner loop handle number of column
+
+ Ex : def ptn():
+ 	for i in  range(0,n)
+		for j in range(0 , i+1)
+			print("* ",end="")
+		print("\r")
+	n = 5
+	ptn(n)
+
+7)itertool module provide complex iterator
+  - __iter__ and __next__ converting obj to iterator
+  - iterable which one can iterate over
+  - iterator which is used to iterate over te object using next method
+
+8)Genrator 
+ - looks like normal function but when we need to genrate value  
+ - we achive using with yield keyword 
+ - gernator function return genrator object by using next method or for loop 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+7)FUNCTION :-
+
+- Perform a computaional task repeatadly together 
+- Without right same code again and again
+- Call function and reuse the code
+
+Syntax :
+    def function_name(parameters):
+	""" docstring """	#first string after the function is known as / describe functionality / optional
+	statements(s)
+	return [expression_list] #exit from function and go back to caller / if not return none
+
+- every variable is refrence when pass in function new refrence object created
+- change in refrence chain is broken
+
+
+Default argument :-
+- if value not pass at function call default argument is use
+ex :  def fun_name(a=10,b):	#a is default argument
+	print(a + b)
+ 
+	fun_name(,10)
+
+Keyword argument :-
+- we can pass keyword instead of value
+ex : def fun_name(fname,lname)
+	print(fname , lname)
+     fun_name(fname="bhavin",lname="bhesaniya")
+
+Variable length argument :- 
+- if we known how many argument pass we can use *argv as argument / pass keyword use **kwargs
+ex : def fun_name(*argv)	/ def fun_name(**kwargs)
+	for arg in *argv: 	
+ 		print(arg)
+     fun_name(hi,i,am,bhavin) / fun_name(fname="bhavin",lname="bhesaniya",std="clg")
+
+Anonymous function :- 
+- a function without name written by lamda keyword
+ex : def cube(x) : return x * x * x 
+     cube_1 = lamda x : x * x * x (var = lamda argument : expression)
+     print(cube(7))
+     print(cube_1(7))
+
+-Use pass statement for write empty function
+
+Partical Function :-
+- fix a certain no of argument of a function and genrate a new function
+- need to import from functool
+
+Nested function :-
+- A function inside another function
+- inner function scope within function
+
+Closure :-
+- closure is a function object that remebers values in enclosing scopes even if they are not present in memory
+
+Decorator :-
+- takes a function as its only parameter and returns a function
+- Syntax : @function_name / @function_name(para)
+- remove redunduncy
+- wrap another function in order to extend the behaviour of warpped fucntion,without permanently modifying it
+- chaining decorator meaning function with multiple decorator
+- Memoization technique used to avoid repeated calculation and speed up programs achieved by decorators
+
+__import__() :- runtime import module
+syn : __import__(name,globals(),locals(),fromlist/[],level)
+
+Coroutines :
+- Complex function is divided into sevreal self-contained function are called subroutines.
+- Subroutine in python called main function which have single entry level point
+- Corountines are generalization of subroutines which have multi entry level point
+
+Bit function :-
+ int.bit_length()				 - return no. of bits in integer
+ int.to_bytes(length,byteorder,*,signed=false)   - return array of bytes represnting an integer
+ int.from_bytes(bytes,byteorder,*,signed=false)  - return the intger represented by the given array of bytes
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+8)OOP :- 
+
+
+1)Class :-
+- Class is a blueprint that defines variable(attribute) and behaviour(method/characterisitc) common to all object of a certain kind. 
+- Syntax :- class classname :
+
+2)Object :-
+- Object is an entity that has a state and behaviour associated with it.
+- Object is an instance of the class
+- Syntax :- Access class 
+	 	objectname = classname()
+		objectname.methodname()
+- modify object properties :- object.variable = value
+- delete object :- del objectname / properties = del objectname.variable
+
+3)Self parameter :-
+- Class method must have an extra first parameter in the method definition.
+- Not need to give value for this parameter when it we called
+- Syntax :- def __methodname__(self,paramter) :
+- ex :- myobj.method(arg1,arg2) convert automatically into -> myclass.method(myobject,arg1,arg2)
+
+4)Init method :-
+- It run as soon as an object of a class is instantiated for assign value to object properties
+- this method automatically called
+- Syntax :- def __init__(self,paramter):
+		self.variable = value
+
+
+5)Class and instance variable(attribute) :-
+- Instance variable are variable whose value assigned inside a constructor or method with self
+- class variable are variable whose value is assigned in class
+- syntax :- class class_name:
+			Claas_variable = value
+         	def __init__(self,name):
+			self.name = "bhavin"
+- Access :- classname.variablename  / objectname.variablename (classVar access by both method and instanceVar access by second)
+
+6)Static method :-
+- if declare variable that similar for all tochange value for all we need ex:- classname.classvarname = newvalue
+
+6)Inheritance :-
+- Class inherti from the another class called inheritance
+- Superclass/parentclass which inheritad by Childclass/Subclass
+- syntax :- class a(object):(parent/super)
+	    class b(a):
+- issubclass() function used check class is subclass or not
+- isinstance() check class is instance or not
+- multiple inheritance we seprated by , ex : class derived(a,b,c):
+- Access parentclass method  	       ex : parentclassname.methodname
+- Access parentclass instance variable ex : create method and than (self.parentclass instancevariable) / in method (parentclassname.instancevar)
+- Use Superclass ex : super(derived,self).__init__(var)
+
+
+7)Polymorphism :-
+
+- Same function name(but different signatures) being use for different types
+- class a() : def firstpolymethod(): print("hello")
+- class b() : def firstpolymethod(): print("hi,hello")
+- use for loop : for x in (obj_name): x.method()
+- poly in inheri achiev by :- inheri parent in base now u access 
+- create one function that take obj as parameter and make obj.method name than call function and pass object of the class
+
+ 
+8)Data Hiding :-
+- We use " __ "  befor attribute name and those attribute directly not visible outside
+- access by -> myobj.__myclass__myhidddenvariable
+
+9)Printing object :-
+- Given us Information about object we are working with 
+- achieve by __repr__ or __str__
+
+10)Class method vs Static method :-
+1)Class method
+- The @classmethod decorator, is a builtin function decorator that is an expression that gets evaluated after your function is defined.
+- A class method receives the class as implicit first argument, just like an instance method receives the instance
+- Bound to the class not to objectname
+- They have the access to the state of the class as it takes a class parameter that points to the class and not the object instance.
+- It can modify a class state that would apply across all the instances of the class. For example it can modify a class variable that will be applicable to all the instances.
+
+2) Static method :-
+- A static method does not receive an implicit first argument
+- A static method is also a method which is bound to the class and not the object of the class.
+- A static method can’t access or modify class state.
+- It is present in a class because it makes sense for the method to be present in class.
+
+Main Differnce :-
+- We generally use class method to create factory methods. Factory methods return class object ( similar to a constructor ) for different use cases.
+- We generally use static methods to create utility functions
+
+11)Constructor :-
+- Used for inialization of a object
+- __init__ is called constructor in python
+- two type :- 1)Default 2)Parameterized
+Syntax :- def __init__(self): / def __init__(self,a,b):
+
+12)Destructor :-
+- python not need because grabage collector
+- achieve by __del__ methods and called after the programme ended
+- syntax :- def __del__(self):
+
+13)first class object :-
+- First class objects in a language are handled uniformly throughout
+- First class function is treat as first class object
+
+  properties of first class function:-
+  - fun is a instance of a the object type
+  - fun can stored in variable
+  - pass the fun as a paramter for another function
+  - return the fun from a function 
+  - stored in datastructure

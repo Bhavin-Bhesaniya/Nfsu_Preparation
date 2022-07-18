@@ -1,0 +1,5 @@
+1. Python Program to add two number
+2. Maximum of two numbers in Python
+3. Find Factorial Number
+4. Simple Interest
+5. Compund Interest
