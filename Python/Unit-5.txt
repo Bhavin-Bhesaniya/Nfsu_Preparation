@@ -1,0 +1,393 @@
+Unit- 5
+===================================== Question - 1 1 Marks =====================================
+Paper-1
+1. Write full form of MVT?
+ - Model View Template
+
+2. _____ files is run to activate environment for django project?
+ - manage.py
+
+3. Which files is used to interact with your django project via command line?
+ - manage.py
+
+Paper-2
+1. Explain use of urls.py file
+ - Handling entire website url location
+
+2. Explain Django View Files 
+ - In Django View takes Web request, process it and return response
+
+3. What is Django Template
+ - Template in django basically HTML, CSS and JavaScript files which display UI to user
+
+
+===================================== Question - 2 3 Marks =====================================
+Paper-1
+1. What is Django?
+ - Django is high-level Python Web framework that encourages rapid development and clean, pragmatic design
+ - It’s free and open source
+ - Django makes easier to build better web apps quickly with less code
+
+ History of Django :
+  2003 − Started by Adrian Holovaty and Simon Willison as internal project at Lawrence Journal-World newspaper
+  2005 − Released July 2005 after jazz guitarist Django Reinhardt.
+  Current − Django is now open source project with contributors across world
+ 
+ Advantages of Django :
+  - Object-Relational Mapping (ORM) Support 
+  - Multilingual Support 
+  - Framework Support
+  - Administration GUI
+  - Development Environment  
+ 
+
+
+2. Writes Features of Django? 
+ 
+ Open Source :
+  - Django is open source which Source code can be downloaded from public repository
+  - Reduces development cost 
+
+ Secure :
+  - Django takes security seriously such as SQL injection, cross-site scripting, cross-site request forgery etc. 
+  - Provide built-in user authentication system to manage user account and password
+
+ Loosely Coupled   :- Make each element of its stack independent to other
+ Clean Design      :- Strictly maintains clean design which makes it easy to understand
+ Scalable          :- Ability to switch from small to large scale application project
+ Fully loaded      :- Provide Various task modules and libraries for common web development task
+ Versatile         :- Allow to build applications for different-different domains
+ Rapid Development :- Designed with intention to make framework which takes less time to build web application
+ Don't Repeat Yourself (DRY) :- Everything developed in one place instead of repeating it again and again
+ Vast and Supported Community :- It has widely supportive community and channels to share and connect
+
+
+
+3. Writes steps for Django Installation?
+ Method 1 :- Install Django, from official site (https://www.djangoproject.com) 
+ Method 2 :-
+  - Django requires pip to start installation
+  - pip is package manager system which is used to install and manage packages written in python
+  - For Python 3.4 and higher versions pip3 is used to manage packages
+  Syntax :- pip install django
+ 
+  To check whether install or not write in command prompt :- django-admin --version 
+
+
+
+4. Discuss HttpRequest and HttpResponse class?
+ - Django framework use client-server architecture to implement web applications
+ - Client-server architecture include two major components request and response
+ - When client request HttpRequest object created and correspond view function called that returns HttpResponse object
+ - To handle request and response, Django provides HttpRequest and HttpResponse classes
+ - Both class Defined in django.http module
+ - Middleware is like middle ground between request and response
+ - It is like window through which data passes
+
+ HttpRequest Class :-  
+  Attributes :-
+   GET	    Return dictionary-like object containing all given HTTP GET parameters
+   POST	    It is a dictionary-like object containing all given HTTP POST parameters
+   COOKIES  Returns all cookies available
+   FILES    Contains all uploaded files
+   META	    Shows all available Http headers
+ 
+  Methods :-
+   get_host()  Return original request host
+   get_port()  Return originating request port
+   is_secure() Return True if request is secure; that is, if it was made with HTTPS
+   is_ajax()   Return True if request was made via an XMLHttpRequest
+   get_full_path()  Return path, plus an appended query string, if applicable
+   build_absolute_uri (location)	 Returns absolute URI form of location
+ 
+
+ HttpResponse Class :-
+  Attributes :-
+   content      - Bytestring representing content encoded from string if necessary
+   charset      - String denoting charset in which response will be encoded
+   status_code  - HTTP status code for response 
+   .closed      - True if response has been closed
+
+  Method :-
+   setdefault -	Set default header
+   write      - Create response object 
+   flush      - Used to flush response object
+   getvalue() - Get value of HttpResponse.content
+   readable() - Create stream-like object
+   seekable() - Make response object seekable
+
+
+
+5. What is Model? Explain with Example?
+ - Model is single definitive source of information about data
+ - It contain essential fields and behaviours of storing data 
+ - Generally, each model maps to single database table
+ - Each model in Python is subclasses of django.db.models.Model
+ - Each attribute of model represents database field(column) 
+
+ Example: 
+  from django.db import models 
+ 
+  class Person(models.Model): 
+    first_name = models.CharField(max_length=30) 
+    last_name = models.CharField(max_length=30)
+
+
+
+6. What is Objects? Explain with Example?
+ - Objects is special attribute through which query database
+ - Model’s manager provide object to perform database queries
+ - It derived from django.db.models.Manager
+ - It’s where all methods queries such as all(), get(), filter(), etc.
+ - Each Django model has at least one manager and create custom managers allow 
+ - Access attributes of object using (.) dot operator
+ 
+ Method :-
+  create() - Create and commit object to database in one go 
+  save()   - Save record to database
+  Delete() - Delete record from database
+  all()    - Returns QuerySet object that fetches all records from table
+  get()    - get single record from database
+  filter() - Return subset of data which accept fields name as keyword arguments
+  count()  - Return total number of records in database table
+
+ Example :- 
+  Models.py
+  class Author(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(unique=True) 
+
+    def __str__(self):
+      return self.name + " : " + self.email 
+
+  View.py
+  from models import Author
+  def ShowAll(request):
+    data = Author.objects.all()
+    return render(request,'index.html',{'data':data})
+
+
+
+7. What is difference between Django Project and Application?
+ Project :-
+  - Project in Django is python package that represents whole web application
+  - It contains configuration and setting related to entire website
+  - Single project have multiple apps in it that can be used to implement some functionality
+  
+ App :-
+  - App is sub-module of project and it is used to implement some functionality
+  - We can create multiple apps within single Django project And these apps can be independent 
+
+ Key Difference :-
+  - Project represents entire website whereas app is basically submodule of project
+  - Single project contain multiple apps whereas app can also be used in different project
+  - Project like blueprint of entire web application whereas apps are building blocks of webapp
+  - Project maintain configuration and settings realated to whole web application
+  - Apps on other hand can be independent or realted to one another
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Explain MVC Design Pattern?
+ - MVC is software architecture pattern that separates data presentation from logic of handling user interaction
+  
+ Model :- 
+  - Handles data representation
+  - Serves as interface to stored data in database itself 
+  - Allows to interact with data without having complexities of underlying database
+
+ View :- 
+  - Represents what see while on browser for web application or In UI for desktop application
+
+ Controller :- 
+  - Provide logic to handle presentation flow in view and update model’s data 
+  - It uses programmed logic to figure out what is pulled from database through model and passed to view
+  - Also gets information from user through view and implements given logic by either changing view or updating data 
+    via model
+
+ - Django following MVC pattern but it prefers to use it’s own logic in implementation
+ - Controller part of MVC itself and letting most of good stuff happen in Model-Template-View, 
+   that why Django is reffered as MTV framework
+
+ MTV pattern :-
+ 
+ Model :- 
+  - Just like Model explanation in MVC pattern
+
+ Template :- 
+  - Handles presentation logic in framework and basically controls what should be displayed and
+    how it should be displayed to user
+
+ View :-  
+  - Relates to Controller in MVC pattern and it handles all business logic that throws downvback to respective template
+  - Serves as bridge between model and template
+  
+                                              / Model
+ Diagram :- User --> Django --> Url --> View
+                  <--                <--      \ Template 
+  
+  
+
+2. Explain Django project architecture?
+ - Django is based on MVT (Model-View-Template) architecture
+ - MVT is software design pattern for developing django web application
+ 
+ Model :- Responsible for maintaining data  
+ View  :- View is Responsible for maintaining user interface based on request
+ Template :- Contain static part of desired HTML output as well as some special syntax describing dynamic content 
+ 
+ To Create project in django :-
+  Syntax : django-admin startproject project_name
+
+ Project Structure :
+  - Django contains files such as manage.py, _init_.py, settings.py, urls.py, wsgi.py, asgi.py in project 
+
+ Files :- 
+  manage.py :- 
+   - Interact with project via command line like start server, sync database etc..
+   - Use for debugging, deploying and running web application
+      
+  _init_.py :-
+   - Python package that invoked when package or module is imported
+   - Use to execute package initialization
+    
+  settings.py :-
+   - Contain Django project configuration and website setting
+   - Add all Aplications, middleware, location of static files, database etc..
+   - Also contain several variable based on that value application work
+   - sqlite3 as default database 
+   
+  urls.py :-
+   - URL is universal resource locator, it contains all endpoints for djano application
+   - Provide address of resources that are present on internet
+
+  wsgi.py :-
+   - WSGI stands for Web Server Gateway Interface
+   - Describe the way how servers interact with application
+   - Just import middleware according to server want to use
+
+  asgi.py :-
+   - ASGI stands for Asynchronous Server Gateway Interface. 
+   - Works similar to WSGI but add some additional functionality
+   - It now replacing its predecessor WSGI
+
+  
+  Django Application Folder:-
+   - Django uses Projects and apps for managing codes and presents them in readable format
+   - Django project contains one or more apps within it, which performs work simultaneously
+      
+
+
+3. Django Crud operations :-
+ - django-admin startproject Crud     #Create Project
+ - python manage.py startapp CrudApp  #Create App 
+ 
+
+ - In CrudApp model.py file :-
+   from django.db import model
+
+   class Student(model.Model):
+    email = model.EmailField(unique=True) 
+    password = model.PasswordField(max_length=8)
+
+
+ - In CrudApp create forms.py file :-
+   from django.forms import ModelForm
+   from .models import Student
+   class StudentForm(ModelForm):
+    class Meta:
+      model = Student
+      fields = '__all__'
+
+
+
+ - In CrudApp view.py file :-
+   from django,shortcuts import render, redirect
+   from .forms import StudentForm
+   from .models import Student
+
+   # Add New Student
+   def AddStudent(request):
+    form = StudentForm()
+    if request.method == 'POST':
+      studform = StudentForm(request.POST)
+      if studform.is_valid():
+        studform.save()
+        return redirect("home")
+    return render(request,'studform.html', {'form': form})    
+
+
+   # Update Student        
+   def UpdateStudent(request,pk):
+    studpk = Student.objects.get(id=pk)
+    form = StudentForm(instance=studpk)
+    if request.method == 'POST':
+      studform = StudentForm(request.POST, instance=studpk)
+      if studform.is_valid():
+        studform.save()
+        return redirect("home")
+    return render(request,'studform.html', {'form': form})
+
+
+   # Delete Student
+   def DeleteStd(request, pk):
+    std.objects.get(id=pk).delete()
+    return redirect('home')  
+
+
+   # Show Student 
+   def ShowAllStd(request):
+    dispAll = std.objects.all()
+    return render(request, 'DisplayRecord.html', {'dispAll': dispAll})
+
+
+
+ - In CrudApp urls.py file :-
+  from django.urls import path
+  from . import views
+
+  urlpatterns = [
+    path('', views.ShowAllStd, name='home'),
+    path('add/', views.AddStd, name='add'),
+    path('update/<str:pk>/', views.UpdateStd, name='update'),
+    path('delete/<str:pk>/', views.DeleteStd, name='delete') 
+  ]
+
+
+ - Create template directory inside CrudApp 
+ - Create studform.html and DisplayRecord.html files
+
+
+ Inside studform.html :-
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_table() }}
+    <input type="submit" name="Add"/>
+  </form>
+
+
+ Inside DisplayRecord.html :-
+  {% for i in DispAll %} 
+    <p>{{ std.id }}</p>
+    <p>{{ std.email }}</p>
+    <p>{{ std.password }}</p>
+    <td><a href="{% url 'delete' std.id %}">Delete</a></td>
+    <td><a href="{% url 'update' std.id %}">Update</a></td>
+  {% endfor %}
+  <a href="{% url 'add' %}">Add New Record</a>
+
+
+
+4. Configure Mysql database in Django
+ - Create database in MySQL
+ - Inside settings.py file :-
+  DATABASES = {
+    'default': {
+      'ENGINE': 'django.db.backends.mysql',       
+      'NAME': 'api',                             # Database name
+      'USER': 'root',
+      'PASSWORD': '1234@',
+      'HOST': 'localhost',
+      'PORT': '3306',
+    }
+  }

@@ -1,0 +1,282 @@
+Unit- 2
+===================================== Question - 1 1 Marks =====================================
+1. Numpy was created by ____                                          - Travis Oliphant
+2. Numpy contains a matrix Library _____                              - numpy.matlib() 
+3. Which function is used to calculate the middle element of data?    - numpy.median()
+
+
+1. What is Ndarray?
+ - N-dimensional array type called ndarray
+
+2. Create array using numpy.arange() function
+ - import numpy as np
+   arr = np.arange(10,100,5,int)
+   print(arr)
+
+3. Create array using numpy.linspace() function
+ - import numpy as np
+   arr = np.linspace(10,20,5)
+   print(arr)
+
+
+===================================== Question - 2 3 Marks =====================================
+1. What is numpy? How it is useful?
+ - NumPy stands for Numerical Python that Used for working with arrays
+ - NumPy is Open source linear algebra library in Python created by Travis Oliphant in 2005 
+ - It partially written in Python, but most of part that require fast computation are written in C or C++
+ - Used for working in domain of linear algebra, fourier transform, and matrices
+
+ Why Use Numpy?
+  - In Python we have lists that serve purpose of arrays, but it is slow to process
+  - NumPy aims to provide an array object that is up to 50x faster than traditional Python list
+  - Array object in NumPy is called ndarray which provides lot of supporting function
+  - These Arrays are used in data science, where speed and resources are very important
+  - NumPy array stored at one continuous place in memory unlike lists, so process, access and manipulate them efficiently
+
+ Installation :- pip install numpy
+  
+ # Create new array in numpy :-
+ newArray = numpy.array([1, 2, 3, 4, 5])
+ 
+
+
+2. Explain Ndarray?Describe it dimension?
+ - In Numpy N-dimensional array type called ndarray
+ - Ndarray describe collection of same items types
+ - It comes in two forms : Vectors and Matrices
+ - Vectors are strictly one-dimensional(1-d) arrays, while Matrices are multidimensional
+ - Items in collection can be accessed using zero-based index
+ - Every item in ndarray takes same size of block in memory
+ - Each element in ndarray is an object of data-type object (called dtype)
+ 
+ Syntax :- 
+  numpy.array   # Simple Arrays
+  numpy.array(object, dtype = None, copy = True, order = None, subok = False, ndmin = 0) #Ndarray
+
+ Property :-
+  object - Array or any nested sequence
+  dtype  - Data type of array, Optional 
+  copy   - By default true object is copied, Optional
+  order  - Set element order, C for row or F for column or A any (default)
+  subok  - By default, returned array forced to be base class array
+  ndmin  - Specifies minimum dimensions of array
+
+ Example :-
+  import numpy as np 
+  a = np.array([1, 2, 3,4,5], ndmin = 2) 
+  print(a)
+
+ Example :-
+  my_list = [1, 2, 3, 4, 5]
+  my_numpy_list = np.array(my_list)
+ 
+
+ Numpy arange() :-
+  - Similar to python built-in range() function, we will create a NumPy array using arange()
+  arr = np.arange(0,10) / (10) / (0,10,2)
+
+
+
+3. Explain multiply(), title() and join() of numpy?
+ 
+ multiply() :-
+  - Used when we want to compute multiplication of two array
+  - It returns multiplication of arr1 and arr2, element-wise
+
+  Syntax :- numpy.multiply(arr1, arr2)
+ 
+ title() :-
+  - Return element-wise title cased version of string or unicode.
+  - Each String word start with uppercase characters and remaining cased characters are lowercase
+
+ join() :- 
+  - Add separator character or string 
+  - To any given string or to all elements of given array of strings
+ 
+
+ Example :-
+  import numpy as np
+  num1 = 4
+  num2 = 6     
+  out_num = np.multiply(num1, num2) 
+  print ("output number : ", out_num)   
+
+  
+  arr = np.array(['geeks', 'for', 'geeks'])
+  out_arr = np.char.title(arr)
+  print ("output titled array :", out_arr)
+
+
+  a = np.char.join(':','DG')
+  print("The Joined string in the output:")
+  print(a)
+
+
+
+4. Difference copies and views in numpy?
+ - Main difference between Copy and view is that copy is new array and view just view of original array
+ - Copy owns data and any changes made to copy will not affect original array, and any changes made to original array
+   will not affect copy
+ - View does not own data and any changes made to view will affect original array and any changes made to original 
+   array will affect view
+  
+ Example :-   
+  import numpy as np
+  arr = np.array([1, 2, 3, 4, 5])
+  x = arr.copy()
+  y = arr.view()
+  print(x.base)
+  print(y.base)
+
+
+
+5. Explain numpy mean(), median() and average()
+ 
+ numpy.median() :-
+  - Defined as value separating higher half of data sample from lower half
+  - Compute median of given data (array elements) along the specified axis
+  Syntax :- numpy.median(arr, axis=None)
+
+ numpy.mean() :-
+  - Arithmetic mean is sum of elements along an axis divided by number of elements
+  - Returns arithmetic mean of elements in array
+  - If axis is mentioned, it is calculated along it
+  Syntax :- numpy.mean(arr, axis= none)
+ 
+ numpy.average() :-
+  - Weighted average is an average resulting from multiplication of each component by factor 
+    reflecting its importance
+  - Computes weighted average of elements in an array according to their respective weight given
+    in another array
+  - Function can have an axis parameter
+  - If axis is not specified, array is flattened
+  Syntax :- np.average(a, axis = 1, weights = wt, returned = True)
+
+
+
+6. Explain title(), join() and replace()
+ title, replace in upper question :-
+ replace() 
+  - Returns copy of string with all occurrences of substring replaced by new string
+  Example :-
+    gfg = geek.char.replace('GFG | CS portal for geeks', 'GFG', 'GeeksforGeeks')
+    print (gfg) #GeeksforGeeks | CS portal for geeks
+
+
+
+7. Write Script for multiply 3 dimensional matrix using numpy
+  import numpy as np
+  np.random.seed(42)
+  A = np.random.randint(0, 10, size=(3, 3, 2))
+  B = np.random.randint(0, 10, size=(3, 2, 4))
+  C = np.matmul(A, B)
+  print("Product C:\n{}, shape={}".format(C, C.shape))
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Explain Numpy datatypes?
+ - Python has basic range of data types in it 
+ - NumPy supports wider range of data types as compared to Python
+ - Variety of data types increase Numpy functionalities
+
+ Built-in Data Types
+  - We can reference built-in data types in NumPy by particular character code
+    i – integer
+    b – boolean
+    u – unsigned
+    f – float
+    c – complex float
+    m – timedelta
+    M – datetime
+    O – object
+    S – string
+    U – unicode string
+    V – void
+
+ Scalar Data Types :-
+   bool_ – Return Boolean true or false values
+   int_  – Default integer type (int64 or int32)
+   intc  – Identical to integer in C (int32 or int64)
+   intp  – Used for indexing
+   int8  – Assigning 8-bit integer value (-128 to 127)        # int16   / int32   / int64 
+   uint8 – Assigning unsigned 8-bit integer value (0 to 255)  # uint16  / uint32  / uint64
+   float_ – Assign float values                               # float16 / float32 / float64
+   complex_ – Assign complex values.                          # complex64 / complex128     
+
+ NumPy Dataype Object :-
+  - It is an object comprising of a combination of all the fundamental data types. 
+  - Data type of the elements is given by dtype object
+  
+  Syntax :- numpy.dtype(obj, align=False, copy=False)
+
+  Parameters :-
+   obj                   - Data that has to be converted to a data-type object
+   align bool, optional  - True if we have string or dictionary input
+   copy bool, optional   - Use if we want to make new copy of data-type object
+  
+  Example :-
+   import numpy as np
+   arr = np.array([1, 2, 3, 4], dtype='i4')
+   print(arr)
+   print(arr.dtype) #int32 
+
+ Type casting  :-
+  - astype used to typecast datetype
+  - If we give type to elements that cannot be cast then value error will generate
+  
+  Example :-
+   import numpy as np
+   ar = np.array([1.1, 2.1, 3.1])
+   newarr = ar.astype(int)
+   print(newarr)
+   print(newarr.dtype) # 1,2,3
+  
+
+
+2. Explain Numpy broadcasting?
+ - Broadcasting refers to how numpy treats arrays with different Dimension during arithmetic operation 
+ - Provide vectorizing array operation so that looping occurs in C instead of Python
+ - It run without needles copy of data and which lead to efficient algorithm implementation
+ - Some case broadcasting leads to inefficient use of memory that slow down computation
+
+ Broadcasting Rules :  
+  - Array with smaller ndim than other is prepended with '1' in its shape
+  - Size of each dimension in output shape is maximum of the input sizes in that dimension
+  - If input dimension size is 1, first data entry in that dimension is used for all calculations along that dimension
+  - If arrays don’t have same rank then prepend shape of lower rank array with 1s 
+  - Two arrays are compatible in dimension if they have same size in dimension or one of has size 1 in that dimension
+  - Arrays can be broadcast together if they are compatible with all dimensions
+
+ Example :-
+  import numpy as np 
+  a = np.array([1,2,3,4]) 
+  b = np.array([10,20,30,40]) 
+  c = a * b 
+  print c  # Output :[10 40 90 160] 
+
+
+
+3. Explain Numpy Bitwise Operator :-
+ 
+ bitwise_and :-
+  - Corresponding binary bits representations of integers in input arrays is computed by np.bitwise_and()
+  Example : np.bitwise_and(13, 17)
+
+ bitwise_or :-
+  - Computes bitwise OR operation of array elements
+  Example : np.bitwise_or(13, 17)
+
+ invert :-
+  - Computes bitwise NOT result on integers in input array
+  Example : np.invert(np.array([13], dtype = np.uint8))
+  
+ left_shift :-
+  - Shifts binary bits representation to the left by specified positions
+  - Equal number of 0s are appended from right
+  Example : np.left_shift(10,2) #2 positions
+
+ right_shift :-
+  - Shifts binary bits representation to the right by specified positions
+  - equal number of 0s are appended from left
+  Example : np.left_shift(10,2) #2 positions

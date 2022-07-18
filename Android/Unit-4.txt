@@ -1,0 +1,419 @@
+Unit- 4
+===================================== Question - 1 1 Marks =====================================
+1.Android application upload in which store?      - Play Store
+2.____ class is used to find loaction in android  - LocationManager class
+3.Full form of LBS                                - Location-based service
+4.FUll form of API                                - Application programming interface
+5. GPS stands for____                             - Global Positioning System
+6. Android app use ___ to send receive data       - Content Provider
+7. Which is return type of latitude method?       - double
+8. Full Form OF Json                              - Javascript Object Notation
+9. Ppermission required to use vibration service  - android.permission.VIBRATE
+
+1. What is basic use of Location API?
+ - Location API allows user to provide their location to use in applications
+
+2. What is Notification in Android?
+ - Notification is message that Android display outside app's UI to provide reminders
+
+
+===================================== Question - 2 3 Marks =====================================
+1. Which service is used to vibrate phone?Explain with suitable code/example?
+ - Vibrate permission needs to accessing vibrator hardware of device
+ - Need Vibrator object to perform vibrate effect on phone
+ - Derived from Android.os.Vibrator
+
+ Permission :- <uses-permission android:name="android.permission.VIBRATE" />
+  
+ Code :-
+  Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+  bNormalVibration.setOnClickListener(new View.OnClickListener() {
+  @Override
+  public void onClick(View v) {
+    final VibrationEffect vibrationEffect1;
+      if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        vibrationEffect1 = VibrationEffect.createOneShot(2000,VibrationEffect.DEFAULT_AMPLITUDE);
+        vibrator.cancel();
+        vibrator.vibrate(vibrationEffect1);
+      }
+    }
+  });
+  
+
+
+2. Explain Types of Google Maps?
+ - Android provides facility to integrate Google map in application 
+ - Google map displays current location, navigate location direction, search location etc. 
+
+ Types of Google Maps :-   
+  Normal    : Display road map, natural features like river and some features build by humans
+  Hybrid    : Display satellite photograph data like road maps 
+  Satellite : Show satellite photograph data but doesn't display road and feature labels
+  Terrain   : Photographic data which includes colors, lines and labels 
+  None      : Displays empty grid with no tiles loaded
+
+ Syntax :- googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL); 
+
+ Method :-
+ clear()         - Removes everything from map
+ addCircle()     - Add circle to map
+ getMyLocation() - Returns currently displayed user location
+ animateCamera() - Moves map according to update with an animation
+ stopAnimation() - Stops camera animation if there is any progress
+ setTrafficEnabled()	- Set traffic layer on or off
+
+
+
+3. Write Code to check network connection is on or off?
+ Code :- Call This method inside Button Click event
+  private boolean isNetworkConnected() {
+    ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+    return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+  }
+
+ In manifest :-
+  <uses-permission android:name="android.permission.INTERNET" /> 
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+
+4. What is latitude and longitude?
+ - Coordinate system by means position or location of any place on Earth’s surface can be determined and described
+ - LocationManager class object provide access to system location services    
+
+ Latitude :-
+  - Specifies north–south position of point on Earth surface
+  - Latitude angle ranges from 0° at Equator to 90° at poles
+  - Lines of constant latitude or parallels run east–west as circles parallel to equator
+  - To find latitude in getLatitude() method used which return type is double
+  
+ Longitude :-
+  - Specifies east–west position of point on Earth surface
+  - It is angular measurement, usually expressed in degrees and denoted by Greek letter lambda
+  - Meridians connect points with same longitude 
+  - To find longitude in getLongitude() method used which return type is double
+ 
+
+
+5. Explain WebView with example?
+ - Android WebView is used to display online website content in android application
+ - Web page can be loaded from same application or URL
+ - WebView control uses WebKit rendering engine to draw HTML content on screen
+ - android.webkit.WebView is subclass of AbsoluteLayout class
+ - loadUrl() and loadData() method of Android WebView class are 
+ 
+ Method :-
+  loadUrl | loadData   - Used to load data and display web page
+  setJavaScriptEnabled - Enabling and disabling JavaScript
+  setLightTouchEnabled - Enabling and disabling mouseovers
+  setBuiltInZoomControls - Enabling and disabling zoom controls    
+
+ Example :-
+  acitvit_main.xml :-
+    <WebView  
+      android:id="@+id/webView"  
+      android:layout_width="match_parent"  
+      android:layout_height="match_parent" /> 
+  
+  MainActivity.java :-
+    WebView mywebview = (WebView) findViewById(R.id.webView1);  
+    mywebview.loadUrl("http://www.javatpoint.com/");  
+
+
+
+6. Find gps enabled or not ? 
+ LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+ final boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+ if (!gpsEnabled) {
+ }
+ private void enableLocationSettings() { //Check LocationManager Enable Or Not
+   Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+   startActivity(settingsIntent);
+ }
+
+
+
+7. Explain location based services?
+ - Location-Based Services(LBS) provide features like current location detection, display nearby places etc. 
+ - It fetches location using device’s GPS, Wifi or Cellular Networks
+ - To build app with location-based services we need to access Google Play Services Module
+ - Then use Location Framework which has many methods, classes and interfaces 
+ 
+ Types :- GEOCODING LOCATION | MAPPING LOCATION
+  
+ Access location service need permission :-
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION " />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+ Component :- Present in Location Framework acts as essential components for LBS
+  LocationProvider           – Provide location for our devices such as latitude, longitude, accuracy and speed
+  Location Class             – Object that carry information about location which include
+  LocationManager Class      – Get Location Service access from system
+  LocationListener Interface – Receives update from Location Manager class
+
+ Location Object :- Carry our location and Place in the form of latitude and longitude                       
+  Method :-
+   getAltitude()  - Give altitude of our place above sea level
+   getLatitude()  - Give latitude coordinate of place in degrees
+   getLongitude() - Give longitude coordinate of place in degrees
+   setAccuracy()  - Set our custom accuracy in metres
+   reset()        - Reset our set location
+   distanceTo()   - Gives approximate distance between our current location and destination location
+
+
+
+8. Explain Different Technology api with suitable example :-
+ Network API :-
+  - Networking on Android is standardized using combination of powerful technologies and libraries such as java.net.
+  - Most common way to transfer data is to use HTTP
+  - HTTP encapsulate almost every type of request to secure data with SSL
+  - Use Network api using HttpURLConnection class
+  - HttpURLConnection retrieve information about resource by URL object that returns HTTP status and header information  
+  Syntax :- HttpURLConnection http = (HttpURLConnection)url.openConnection()
+  Method :- getContentLength()  | getContentType() | getContent() | isAvailable() | isConnected()  
+
+
+ ANDROID WEB API       :- In 3 Marks WebView Question
+ Android TelePhony API :- In 5 Marks TelePhony Api
+   
+
+
+9. Explain Geocoding?
+ - Geocoders modules present in Location framework that help to convert latitude longitude to human-readable addresses
+   and vice versa
+ - Searching location in Google Map API is done through Geocoder class
+ - It handles geocoding and reverse geocoding
+ - Geocoding is process of converted street address into coordinate known as latitude and longitude
+ - In Reverse geocoding coordinate latitude,longitude is converted into address
+
+ Method :-
+  getFromLocation     - Return array Address which specifies surrounding latitude and longitude
+  getFromLocationName - Return array Address which Describe given location such as place address
+  isPresent           - Return true if method getFromLocation() and getFromLocationName() are implemented
+ 
+ Code :- Convert location name into coordinate
+  List<Address> addressList = geocoder.getFromLocationName(location, 1);  
+  Address address = addressList.get(0);  
+  LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());  
+
+
+
+10. How to get current location on android app?
+ Permissions in manifest file :-
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.INTERNET" />
+ 
+ Code :-
+  public class MainActivity extends Activity implements LocationListener{
+    LocationManager locationManager;
+    TextView txtLat;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      txtLat = (TextView) findViewById(R.id.textview1);
+      locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+      locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+    }
+    @Override
+    public void onLocationChanged(Location location) {
+      txtLat = (TextView) findViewById(R.id.textview1);
+      txtLat.setText("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
+    }
+  }
+
+
+
+11. Step to generate marker on maps :-
+ - Marker is standard image that describe place on map
+ - In google maps marker is type of overlay which show icon that identifies location
+ - Usually common google map marker is symbolized by pin
+
+ Step :-
+  - Manipulate map when it's available
+  - API invoke callback when map is ready to be used
+  - This is where we can add markers or lines add listeners or move camera
+  - We just add marker near Junagadh, India
+  - If Google Play services is not installed on device user receives prompt to install
+  - Add Play services inside SupportMapFragment
+  - API invokes this method after user has installed Google Play services and returned to app
+
+ Code :-
+  public void onMapReady(GoogleMap googleMap) {
+    LatLng jnd = new LatLng(-33.852, 151.211);
+    googleMap.addMarker(new MarkerOptions()
+      .position(jnd)
+      .title("Marker in Junagadh"));
+      googleMap.moveCamera(CameraUpdateFactory.newLatLng(jnd));
+  }
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Explain Notification in android with suitable code?
+ - Notifications in Android are represented by Notification class
+ - Notification is message that Android display outside app's UI to provide reminders
+ - Android allow putting notification into title bar 
+ - User can expand notification bar and by selecting notification user trigger another activity
+ - Create notification Usin NotificationManager class which receive Context via getSystemService()
+ - NotificationManager derived from android.app.NotificationManager class 
+
+ Types of Notification :- User | Status bar | Customizing 
+ Syntax :- NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+ Property :- 
+  setSmallIcon()    - Set Small icon inside notification 
+  setContentTitle() - Set notification title
+  setContentText()  - Set notification detail
+
+ Example:
+  mBuilder.setSmallIcon(R.drawable.notification_icon);
+  mBuilder.setContentTitle("Notification Alert, Click Me!");
+  mBuilder.setContentText("Hi, This is Android Notification Detail!");
+    
+
+ NotificationCompat.Builder Class : 
+  Notificationbuild() - Combine all options that have been set and return new Notification object
+  NotificationCompat.BuildersetContent()       - Custom RemoteViews instead of standard one
+  NotificationCompat.BuildersetContentIntent() - Supply PendingIntent to send when notification is clicked
+  NotificationCompat.BuildersetContentText()   - Set standard notification text
+ 
+
+ Notify Method() :-
+  - Defined in Object class which is Java’s top-level class
+  - Used to wake up single thread that waiting for object and that thread then begins execution 
+  - If notification with same id has already been posted by application and has not yet been canceled, 
+    it will be replaced by updated information
+   
+  Constructor :-
+    public void notify (int id, Notification notification)  
+    public void notify (String tag, int id, Notification notification)
+
+
+
+2. Write Step to generate sign apk and upload application in google play store? 
+ Steps to generate signed APK :-
+  - Menu bar --> Build --> Select Generate Signed Bundle or APK 
+  - Popup screen open --> Select APK then click on Next
+  - Create new Keystore file
+  - If already have Keystore file --> Select Choose form existing button
+  - Give name, password to Keystore file --> Select path where to store
+  - Enter other details click OK button
+  - Choose release option --> Choose Build Variants -> Select Signature Version
+  - V1 (Jar Signature) and V2 (Full APK Signature) to target all devices
+  - Click Finish button
+  - Signapk is ready to launch
+
+ Upload APK to Google Play Store :-
+  - Create GOOGLE Account
+  - Sign in to Google Play Console There is one time fee for google play console of 25$
+  - Click CREATE APPLICATION button --> Select Default Language --> Add Application Title,Description
+  - Click CREATE button --> After Application creation you will see Store listing screen
+  - In Store listing page fill all mandatory field like Screen Shots and APK details
+  - Select App releases option from left-hand side menu
+  - Select Production --> Click on CREATE RELEASE button
+  - After selecting OPT OUT --> Upload APK -> Click on REVIEW button
+  - Click on START ROLLOUT TO PRODUCTION 
+  - App publishied to Google Play Store
+
+
+
+3. Explain Telephony API with example? 
+ - Android SDK provide number of useful utilities for application to integrate phone features available on device
+ - Applications might need to place call or send text message
+ - TelephonyManager object within android.telephony package provide Phone utility
+ - READ_PHONE_STATE permission required to retrieve information such as call state, handset phone number and device
+   identifiers or serial numbers
+
+ Permissions in manifest file :-
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+ Requesting Call State :-
+  - TelephonyManager object retrieve state and information about phone service itself
+  Syntax :- TelephonyManager telManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+ 
+ Example :-
+  Make Call :-
+    Uri number = Uri.parse(“tel:” + numberEntry.getText().toString());
+    Intent dial = new Intent(Intent.ACTION_DIAL, number);
+    startActivity(dial);
+    
+  Receive Call :-
+   - Implement broadcast receiver to process intents with action Intent.ACTION_ANSWER
+   - Use CallLog.calls class to determine recent call information such as Who called, when called
+    
+
+
+4. Write program to demonstrate use of Android with JSON in mysql?
+ - JSON Stands for JavaScript Object Notation
+ - Use for storing and exchanging data
+ - JSON is easier-to-use alternative to XML
+ - It is Pairs of key/value 
+
+ Example :-
+  {"employees":[
+    {"firstName":"Jay", "lastName":"Pandya"},
+  ]}
+
+ Android Provide Four Classes to Manipulate json Data :- JSONArray | JSONObject | JSONStringer |  JSONTokenizer
+
+ Json Elements:
+  Array()    : Square bracket [] represent JSON array
+  Objects({) : Curly bracket  {} represent JSON object
+  Key        : JSON object contain key that is just string 
+  Value      : Each key has value that could be string, integer or double e.t.c.
+ 
+ JSON Parsing:
+  - Create object of JSONObject class and specify string containing JSON data to it.
+  Example :-
+   String in;
+   JSONObject reader = new JSONObject(in);
+
+
+
+5. Write in details : GPS(Global Positioning System)
+ - GPS is space-based satellite navigation system that provide location and other information in any condition
+ - GPS project was developed in 1973 to overcome limitations of previous navigation systems
+ - It was created and realized by U.S. Department of Defense(DoD) and run with 24 satellite
+ - It became fully operational in 1995
+ - Android Location API can be used to track your mobile current location and show in app
+
+ Location Object :- Already Discuss Above
+
+ Get Current Location :-
+  - To get current location, create location client which is LocationClient object
+  - Connect it to Location Services using connect() and call its getLastLocation()
+  - Returns most recent location in form of Location object that contain latitude and longitude
+  - To get location functionality implement two interfaces :−
+    GooglePlayServicesClient.ConnectionCallbacks
+    GooglePlayServicesClient.OnConnectionFailedListener
+ 
+ Method :-
+  setPriority() - Set request priority     
+  setInterval() - Set interval for active location updates in millisecond
+  onLocationChanged()     - Receiving notifications from LocationClient when location has changed
+  setExpirationDuration() - Set duration for request in milliseconds
+
+
+
+6. Write program to Blinking Light :-
+ TextView blinkt;
+ Button blinkb;
+ Inside OnCreate() :-
+  blinkb = findViewById(R.id.blinkb);
+  blinkt = findViewById(R.id.blinktext);
+         
+  blinkb.setOnClickListener(new View.OnClickListener() {
+  @Override
+  public void onClick(View v) {              
+    // adding the color to be shown
+    ObjectAnimator animator = ObjectAnimator.ofInt(blinkt, "backgroundColor", Color.BLUE, Color.RED, Color.GREEN);
+    animator.setDuration(500);                   // duration of one color
+    animator.setEvaluator(new ArgbEvaluator());
+    animator.setRepeatCount(Animation.REVERSE);  // color will be show in reverse manner
+    animator.setRepeatCount(Animation.INFINITE); // It will be repeated up to infinite time
+    animator.start();
+    }
+  });

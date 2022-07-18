@@ -1,0 +1,328 @@
+Unit- 3 
+===================================== Question - 1 1 Marks =====================================
+1. What is PyLab?
+ - PyLab is convenience module that imports matplotlib.pyplot and NumPy in single name space
+ - Matplotlib is whole package and PyLab is module that gets installed alongside Matplotlib
+
+2. Plot can be saving in file using ______ method?
+ - .savefig()
+
+3. _____ method adds items to a multithreaded queue?
+ - put()
+
+4. What is use of join() in context of thread?
+ - When thread joined with main thread, its stop execution of main thread until join() thread complete its execution  
+
+5. Explain getName() of Thread Class?
+ - Used to get name of thread
+
+6. Write example of suptitle() of pyplot
+ - Add centered title to the figure
+ Example :-
+  import matplotlib.pyplot as plt 
+  x = [6, 12, 18, 24] 
+  y = [1, 4, 3, 2] 
+  plt.plot(x, y) 
+  plt.xlabel('x') 
+  plt.ylabel('y') 
+  plt.suptitle('This is suptitle', fontsize = 12) 
+  plt.show()
+
+
+===================================== Question - 2 3 Marks =====================================
+1. How can we do ploting using pylab?
+ - PyLab is procedural interface to Matplotlib object-oriented plotting library
+ - Matplotlib is whole package where matplotlib.pyplot is module in Matplotlib and PyLab is module that gets 
+   installed alongside Matplotlib
+ - PyLab is convenience module that imports matplotlib.pyplot and NumPy in a single name space
+ - Plotting curves is done with plot command
+ - It takes pair of same-length arrays
+
+  Syntax :- pip install matplotlib
+
+  Example :-
+   from numpy import *
+   from pylab import *
+   x = linspace(-3, 3, 30)
+   y = x**2
+   plot(x, y)
+   show()  
+
+
+
+2. List of all markers available in plots?
+ - Use keyword argument marker to emphasize each point with specified marker
+ 
+ Syntax :- plt.plot(ypoints, marker = '*', ms = 20, mec = 'r', mfc = 'r')
+  Options :- 
+   markersize | ms - Set size of marker
+   markeredgecolor | mec - set edge color of markers
+   markerfacecolor | mfc - set edge color of markers
+
+ - To plot symbols rather than lines, provide an additional string argument :-
+   Colors	           b, g, r, c, m, y, k, w 
+   Symbols | Marker 	- , –, -., , . , , , o , ^ , v , < , > , s , + , x , D , d , 1 , 2 , 3 , 4 , h , H, p , | , _
+   
+ - Use 'fmt' string notation parameter to specify marker
+  Syntax :- plt.plot(ypoints, 'o:r')   # Marker| line| color
+
+
+
+3. Explain xlabel and ylabel() and title() method of pyplt with example
+ xlabel :- 
+  - Used to set label for x-axis
+  - fontdict set font property
+  Syntax :- matplotlib.pyplot.xlabel(xlabel, fontdict=None, labelpad=None)
+
+ ylabel :-
+  - Set label for y-axis of plot
+  - fontdict set font property 
+  Syntax :- matplotlib.pyplot.ylabel(ylabel, fontdict=None, labelpad=None) 
+ 
+ title :- 
+  - Set title for plot
+  - loc specify title position in title() function it may be left, right and center(Default)
+  Syntax :- matplotlib.pyplot.title(title, fontdict=None, loc='left')
+ 
+ Example :- 
+  import matplotlib.pyplot as plt
+  x = ['Raj', 'Bhavin', 'Kaushik']
+  y = [200, 150, 180]
+  plt.xlabel('Student Name')
+  plt.ylabel('Marks')
+  plt.title('Student Name with marks') 
+  plt.plot(x, y)
+  plt.show()
+
+
+
+4. What is axis() function of pyplot with Example?
+ - Used axis properties in graph
+ 
+ Syntax:  
+  matplotlib.pyplot.axis(*args, emit=True) 
+
+ Example: 
+  import matplotlib.pyplot as plt 
+  x =[1, 2, 3, 4, 5] 
+  y =[2, 4, 6, 8, 10] 
+  plt.plot(x, y) 
+  plt.axis([0, 10, 1, 15]) 
+  plt.show()
+
+
+
+5. Write Python script to generate graph of students and their marks 
+ import matplotlib.pyplot as plt
+ name = ['Raju','Salman','Ram']
+ marks = [20,25,30]
+ plt.bar(names, marks, color='g', label='Student Data')
+ plt.xlabel('Student Name', fontsize=12)
+ plt.ylabel('Student Marks', fontsize=12)
+ plt.title('Student Data')
+ plt.show()
+
+
+
+6. What is Thread?How to start new thread?
+ - Thread is sequence of instructions within program that can be executed independently
+ - It is computation process that performed by computer
+ - Thread in python is an entity within process
+ - Threading module provide all method of thread module and some additional method
+
+ Syntax :- thread.new_thread (function, args[, kwargs])
+  
+ Methods :-
+  run()        − Entry point for thread
+  start()      - Starts thread by calling run method
+  join([time]) − Waits for threads to terminate
+  isAlive()    − Checks whether thread is still executing
+  getName()    − Return name of thread
+  setName()    − Set name of thread
+ 
+ Example :-
+  from threading import Thread
+  from time import sleep
+ 
+  def thread_fun(arg):
+   for i in range(arg):
+    print("running")
+    sleep(1)
+   
+  if __name__ == "__main__":
+   thread = Thread(target = thread_fun, args = (10, ))
+   thread.start()
+   thread.join()
+   print("Thread finished")
+
+
+
+7. Explain Multi-threading Priority Queue :-
+ - Queue module allow create new queue object that hold specific number of items
+   
+ Method :-
+  get()   − Remove and return item from queue
+  put()   − Adds item to queue
+  qsize() − Return number of items that are currently in queue
+  empty() − Return True if queue is empty; otherwise, False
+  full()  − Return True if queue is full; otherwise, False 
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Explain Threading module with example?
+ - Threading module provided with Python that includes locking mechanism that allows to synchronize threads
+ - Newer threading module included with Python 2.4 provides much more powerful support for threads than thread module
+ - More Theory in above question
+
+ Methods :-
+  threading.activeCount()   - Returns number of thread objects that are active
+  threading.enumerate()     - Returns list of all thread objects that are currently active
+  threading.currentThread() - Returns number of thread objects in caller's thread control
+ 
+ Example :- In 3 Marks
+ 
+
+
+2. Explain Synchronizing threads with example?
+ - Threading module provided with Python that includes locking mechanism that allows to synchronize threads
+ - In symbolize thread New lock is created by calling Lock() method, which returns new lock
+ - Acquire(blocking) method of new lock object is used to force threads to run synchronously
+ - blocking parameter enables you to control whether thread waits to acquire lock
+ - If blocking is set to 0, thread returns immediately with 0 value
+ - If blocking is set to 1, thread blocks and wait for lock to be released
+ - release() method of new lock object is used to release lock when it is no longer required
+
+ Example :-
+  import threading
+  import time
+
+  class myThread (threading.Thread):
+    def __init__(self, threadID, name, counter):
+      threading.Thread.__init__(self)
+      self.threadID = threadID
+      self.name = name
+        
+    def run(self):
+      print "Starting " + self.name
+      threadLock.acquire()                    # Get lock to synchronize threads
+      print_time(self.name, 3)
+      threadLock.release()                    # Free lock to release next thread
+
+    def print_time(threadName, delay, counter):
+      while counter:
+        time.sleep(delay)
+          print "%s: %s" % (threadName, time.ctime(time.time()))
+          counter -= 1
+
+    threadLock = threading.Lock()
+    threads = []
+    thread1 = myThread(1, "Thread-1", 1)   # Create new threads
+    thread2 = myThread(2, "Thread-2", 2)
+    thread1.start()                        # Start new Threads
+    thread2.start()
+    threads.append(thread1)                # Add threads to thread list
+    threads.append(thread2)
+
+    # Wait for all threads to complete
+    for t in threads:
+        t.join()
+    print "Exiting Main Thread" 
+
+
+
+3. Explain Pyplot?
+ - matplotlib.pyplot library used for Pyplot
+ plt.grid   (axis = 'x', color, linestyle = 'dotted', linewidth = '20.5')
+ plt.scatter(x,y, color='red', c=color, cmap='virdis', s=size, alpha=0.5)
+ plt.plot   (xpoint, ypoint, markers = 'o', ls/linestyle = 'dotted', linewidth = '20.5' color='r')
+ plt.bar    (x,y, color='red', width=0.1)
+ plt.subplot(1,2,1) # for 1st plot
+ plt.subplot(1,2,2) # for 2nd plot
+ plt.hist   (array)
+
+ plot() :- 
+  - Used to draw points (markers) in diagram
+  - Draws line from point to point
+  - x-axis is horizontal axis and y-axis is vertical axis 
+  - Add multiple-line in graph use multi plot function
+  Syntax :- plt.plot(xpoint, ypoint, markers = 'o', linestyle = 'dotted', linewidth = '20.5' color='r')
+
+  Options :-
+   markers - Show plot points shape 
+   color   - Set color on plot
+   linestyle | ls - To change style of plotted lines. Default solid it will be Dotted, Dashesd, None
+    
+
+ grid() :-
+  - Add grid lines to plot
+  - axis parameter in grid() function to specify which grid lines to display
+  Syntax :- plt.grid(axis = 'x', color, linestyle = 'dotted', linewidth = '20.5')
+
+
+ subplot() :-
+  - Draw multiple plots in one figure
+  - It takes three arguments that describes layout figure
+  - Layout organized in rows and columns which represented by first and second argument
+  - Third argument represent index of current plot
+  Syntax :- plt.subplot(1,2,2) # for 1st plot
+            plt.subplot(1,2,2) # for 2nd plot
+
+
+ Scatter() :-
+  - Use to draw scatter that used to plots one dot for each observation            
+  - Needs two same length arrays, one for x-axis values and one for y-axis Values
+  - plt.colorbar() show colormap on right-side of plot
+  Syntax :- plt.scatter(x,y, color='red', c=color, cmap='virdis', s=size, alpha=0.5)
+  Options :-
+    c     - Color for each dot
+    s     - Change dot size
+    cmap  - matplotlib provide colormap where each value range from 0 to 100
+    alpha - for dot transparency
+
+
+ Bar() :- 
+  - Use to draw bar graph
+  - barh() displayed horizontally bar instead of vertically
+  - for horizontal use height instead of width
+  Syntax :- plt.bar(x,y, color='red', width=0.1)
+  
+  Example :- 
+    x = ["APPLES", "BANANAS"]
+    y = [400, 350]
+    plt.bar(x, y)
+
+ 
+ hist() :-   
+  - Use to create histograms
+  - Histogram is a graph showing frequency distributions
+  Syntax :- plt.hist(array)
+
+
+
+4. Explain pychart:-
+ - pie() Use to create pycharts
+ - It draws wedge for each array value
+ - By default plotting of first wedge starts from x-axis and move counterclockwise
+ - Size of each wedge is determined by comparing value with all other values
+   formula :- x/sum(x)
+ - To add list of explanation for each wedge use legend() function
+ 
+ Syntax :- plt.pie(array, labels= label, startangle=90, explode= myexplode, shadow=True, colors) 
+
+ Options :-
+  array   - Specify wedge
+  labels  - Add labels to pie chart must be an array
+  explode - Used to Show stand out wedge, must be an array
+  startangle - Default start angle is at x-axis(0)
+  
+ Example :-
+  import matplotlib.pyplot as plt
+  import numpy as np
+   
+  y = np.array([35, 25, 25, 15])
+  mylabels = ["Apples", "Bananas", "Cherries", "Dates"]
+  
+  plt.pie(y, labels = mylabels)
+  plt.legend(title = "Four Fruits:")
+  plt.show()

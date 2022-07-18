@@ -1,0 +1,51 @@
+Python :- By Bhavin Bhesaniya
+Unit-1
+ 3 Marks
+  1)Explain Entry Widget and Text Widget?Difference between it?
+  2)List Various method of Menu widget?
+  3)What is use of Top-level window
+  4)Explain Tkinter button with example?
+
+ 5 Marks
+  1)Explain tkinter canvas with example?
+  2)Explain tkinter MessageBox with example?
+
+Unit-2
+ 3 Marks
+  1)Explain Ndarray?Describe it dimension?
+  2)What is numpy? How it is useful?
+  3)Explain multiply(), title() and join() of numpy?
+  4)Difference copies and views in numpy?
+
+ 5 Marks
+  1)Explain Numpy datatypes?
+  2)Explain Numpy broadcasting?
+
+Unit-3
+ 3 Marks
+  1)Explain Multi-threading Priority Queue
+  2)How can we do ploting using pylab?
+  3)What is Thread?How to start a new thread?
+  4)Explain xlabel and ylabel() and title() method of pyplt with example
+ 
+ 5 Marks
+  1)Explain Threading module with example?
+  2)Explain Synchronizing threads with example
+
+Unit-4
+ 3 & 5 Marks
+  1)Write steps to create python program that interact with mysql-based database CRUD?
+  2)Cursor Object in Python
+  3)Write code create database loginpage in python using tkinter?
+
+Unit-5
+ 3 Marks
+  1)What is Django?
+  2)Writes steps for Django Installation?
+  3)Discuss HttpRequest and HttpResponse class?
+  4)What is Model? Explain with Example?
+
+ 5 Marks
+  1)Explain MVC Design Pattern?
+  2)Explain Django project architecture?
+  3)

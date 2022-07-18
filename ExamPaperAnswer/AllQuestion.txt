@@ -1,0 +1,333 @@
+--------------------------------------------------------Unit - 1--------------------------------------------------------
+
+
+-------------------------------------------------------- 1 Marks --------------------------------------------------------                                         
+
+
+ QuestionPaper 1 :-
+ 1)List Out Various JDBC Driver :- 
+ 2)JDBC Stands for :-
+ 3)ODBC Stands for :-
+
+ QuestionPaper 2 :-
+ 1)DSN stand for :-
+ 2)JDBC Stands for :-                                                                               QuestionPaper1
+ 3)ODBC Stands for :-                                                                               QuestionPaper2
+ 4)What is J2EE :-
+
+ QuestionPaper 3 :-
+ 1)What is J2EE :-                                                                                  QuestionPaper2
+ 2)________ class holds the list of all registered database drivers,which are used for connection
+ 3)In JDBC PreparedStatement, interface is used to call stored procedures.True or False
+ 4)List Out Various JDBC Driver :-                                                                  QuestionPaper1
+
+
+-------------------------------------------------------- 3 Marks  --------------------------------------------------------                                                    3 Marks 
+ 
+ QuestionPaper1
+ 1)Differnce between execute(), executeUpdate() and executeQuery() :-
+ 2)Explain Thin and Thick Client :-
+ 3)Explain JDBC Architecture :-
+ 4)What is container? Explain types of container? :-
+
+
+ QuestionPaper2
+ 1)What is N-tier Architecture :-  2Marks
+ 2)Explain commit and rollback method of connection interface :- 2Marks
+ 1)Explain Thin and Thick client :- 3Marks                                                            QuestionPaper1
+ 2)Explain JDBC Architecture :- 3Marks                                                                QuestionPaper1
+
+
+ QuestionPaper3
+ 1)What is Enterprise-Application? List Out its Characteristics :- 2Marks
+ 2)Differnce between Statement, PreparedStatement and CallableStatement :- 2Marks
+ 2)Differnce between execute, executeQuery and executeUpdate :-  3Marks                                QuestionPaper1
+ 2)What is container? Explain Type of J2EE Container :- 3marks                                         QuestionPaper1
+
+  
+-------------------------------------------------------- 5 Marks ---------------------------------------------------------------------
+ 
+ Main 3 Question Only Asked 
+ 
+ QuestionPaper1
+ 1)Exaplin Databasemetadata / ResultSetMetaData interface :-
+ 2)Explain Method Of ResultSet Interface :-
+
+ QuestionPaper2
+ 1)Explain Various J2EE api in brief :-
+ 2)Explain Database Metadata / ResultSetMetaData Interface :-
+ 
+ QuestionPaper3
+ 1)Explain ResultSet Interface Method :- 
+ 2)Explain Various J2EE Api in brief :- 
+
+
+ Other :-
+ 1)Explain Connection interface :- 3 
+ 2)Types Of Drivers :- 5
+ 3)Exaplain J2EE Architecture :- 5
+
+
+
+------------------------------------------------------- Unit - 2 ---------------------------------------------------------------------
+
+--------------------------------------------------------1 Marks------------------------------------------------------------------------
+
+
+QuestionPaper1 :-
+1)RMI stands for :-
+2)which method is used to identify remote object :-
+3)list out servlet life cycle method :-
+
+QuestionPaper2 :-
+1)RMI Stands for :-
+2)An Object on another computer known as :-
+3)Which Method Identify Remote Object    :-
+4)What is Servlet                        :-
+
+QuestionPaper3 :- 
+1)What is RMI :-
+2)List of Servlet Lifecycle Method :-
+3)Which method used to read Servlet Initalization Parameters? 
+4)To Define Remote method interface in rmi, we should extend _____ class
+
+                                  
+--------------------------------------------------------3 Marks------------------------------------------------------------------------
+
+
+QuestionPaper1 :-
+1)Explain Skeleton Class of RMI :-
+2)Explain HttpSession :-
+3)Explain Servlet Lifecycle :-
+4)Explain RollOf UnicastRemoteObject class in RMI :-
+
+
+QuestionPaper2
+1)What is HiddenForm Field        :- 2Marks
+2)What is Skeleton Class in rmi   :- 2Marks
+1)Explain HttpSession             :- Alerdy in QuestionPaper-1
+2)Explain Servlet Lifecycle       :- Alerdy in QuestionPaper-1
+
+QuestionPaper3
+1)What is stub class in rmi                        :- 2Marks
+2)Explain Rols of servlet web.xml file             :- 2Marks
+1)Explain Servlet Lifecycle                        :- Alerdy in QuestionPaper-1
+2)Explain Roll Of UnicastRemoteObject class in RMI :- 3Marks
+
+--------------------------------------------------------5 Marks------------------------------------------------------------------------
+
+
+QuestionPaper1 :- 
+1)Explain Handling ServletRequest and ServletResponse :-
+2)Explain Servlet With JDBC :-
+
+QuestionPaper2 :-
+1)Explain Handling ServletRequest and ServletResponse :- Alerdy in QuestionPaper-1
+2)Explain Servlet with JDBC                           :- Alerdy in QuestionPaper-1
+
+QuestionPaper3 :-
+1)Explain RMI Architecture :- 
+2)Count Visitior Using Session Program :-	
+
+
+Other :-
+Servlet Interface
+Servlet Collbaration
+Servlet Cookie
+Marshalling and Unmarshalling
+RMI Registry
+Servlet Config
+Servlet Context
+
+
+
+------------------------------------------------------- Unit -3  ----------------------------------------------------
+
+                                                        1 Marks
+QuestionPaper1
+1)List Out JSP Scopes :-
+2)List Out JSP Scripting Elements :-
+3)<%@ %> this jsp annotation represents :-
+
+QuestionPaper2
+1)Which tag in jsp used to define errorPage :-
+2)List Out JSP Scopes :-
+3)What is JavaBean :-
+4)List-Out JSP Scripting Elements :-
+
+QuestionPaper3
+1)What is Java Bean :-
+2)List Out JSP Scopes :-
+3)<%@ %> Annoation Used For :-
+4)List Out JSP Scripting Elements :-
+
+
+------------------------------------------------------- 3 Marks ----------------------------------------------------------------    
+
+
+QuestionPaper1
+1)Explain JSP Architecture :-
+2)Explain Java Beans Package :-
+3)Explain Page Directives in JSP :-
+
+QuestionPaper2
+1)Explain Directives Elements In JSP :- 2Marks
+2)List Out Action Elements :- 2Marks
+1)Explain Page Directives in Jsp :-
+2)Explain JSP Architecture :- 
+
+QuestionPaper3 
+1)Explain <jsp:useBean> element :- 2Marks
+2)Explain include directive and compare it with include action element :- 2Marks
+1)Explain JSP Architecture :-
+2)Explain Java Bean packaging :-
+
+
+---------------------------------------------------------5 Marks ---------------------------------------------------------------------
+
+
+QuestionPaper1
+1)Explain errorHandling in jsp :-
+2)Working with Session in jsp :-
+
+QuestionPaper2
+1)Explain Working with Session in Jsp :-
+2)Explain Working with Cookies in Jsp :-
+
+QuestionPaper3
+1)Explain errorHandling in JSP :-
+2)Explain Page Directives in JSP :-
+
+
+Others :-
+1)Different elements are used in JSP 
+2)Implicit Objects
+3)Action Elements
+4)What is JSP
+5)Lifecycle of JSP 
+6)MVC in JSP 
+7)Difference between JSP and Servlet
+8)Beans in details
+
+
+--------------------------------------------------Unit - 4----------------------------------------------------------------------------
+
+-------------------------------------------------- 1 Marks -------------------------------------------------------------------------
+QuestionPaper1 
+1)________invented Hibernate framework
+2)ORM Stands for :-
+3)EJB Stands for :-
+
+QuestionPaper2
+1)Hibernate.cfg.xml file is a ______ file :-
+2)Define MVC :-
+3)What is ORM :- 
+4)What is EJB :-
+
+QuestionPaper3  
+1)Define MVC                              :- Alerdy in QuestionPaper-2
+2)Give Fullform Of EJB & ORM              :- Alerdy in QuestionPaper-1
+3)List-Out types of EJB                   :- 
+4)________invented Hibernate framework    :- Alerdy in QuestionPaper-1
+
+
+-------------------------------------------------- 3Marks ----------------------------------------------------------------
+QuestionPaper1
+1)Explain Session in EJB                                   :-
+2)Explain rols of model in mvc design pattern              :-
+3)Explain Hibernate Configuration File and Properties File :- 
+4)Explain Annotation?Explain It?                           :-
+
+QuestionPaper2
+1)What is EntityBean                                       :- 2Marks
+2)List-Out types of EJB                                    :- 2Marks
+1)Explain Message driven beans                             :-
+2)What is Annotation?Explain It?                           :- Alerdy in QuestionPaper-1
+
+QuestionPaper3
+1)Explain rols of model in mvc design pattern              :- Alerdy in QuestionPaper-1 2Marks
+2)Explain Message driven beans                             :- Alerdy in QuestionPaper-2 2Marks
+1)Explain Hibernate Configuration File and Properties File :- Alerdy in QuestionPaper-1
+2)Explain Session in EJB                                   :- Alerdy in QuestionPaper-1
+
+
+-------------------------------------------------- 5Marks  ---------------------------------------------------------------
+
+QuestionPaper1
+1)Explain implementation of MVC Architecture :-
+2)Explain Inheritance Annotation             :-
+
+QuestionPaper2
+1)Explain Hibernate Session                  :- 
+2)Explain implementation of MVC Architecture :- Alerdy in QuestionPaper-1
+
+QuestionPaper3
+1)Explain MVC Architecture                   :-
+2)Explain Inheritance Annotation             :- Alerdy in QuestionPaper-1
+
+
+--------------------------------------------------Unit - 5----------------------------------------------------------------
+
+                                                    1 Marks
+QuestionPaper1 
+1)What is Spring Framework :-
+2)OXM Stands for :-
+3)AOP Stands for :-
+
+QuestionPaper2
+1)What are the components of struct framework :-
+2)__file is used by controller to get mapping information for request routing  :-
+3)What is Spring Framework              :- Alerdy in QuestionPaper-1
+4)What is Struct Framework              :-
+
+QuestionPaper3
+1)What is Spring Framework              :- Alerdy in QuestionPaper-1
+2)What is Struct Framework              :- Alerdy in QuestionPaper-2
+3)Give Fullform Of OGNL, AOP            :-
+4)Is Struct is ORM Based Framework? Yes Or No? :-
+
+
+-------------------------------------------------- 3Marks ----------------------------------------------------------------
+
+
+QuestionPaper1
+1)Explain Struct Flow of control                          :-
+2)Explain Inversion of control(IOC) in spring Framework   :-
+3)Explain Advantage Of Spring Framework                   :-
+4)Explain Processing Request with action object in Struct :-
+
+
+QuestionPaper2
+1)What is Inversion Of Control(IOC) in Spring Framework :- Alerdy in QuestionPaper-1    2Marks
+2)What is Spring Context Defination                     :-                              2Marks
+1)Explain Advantage Of Spring Framework                 :- Alerdy in QuestionPaper-1
+2)Explain Processing Request with action object         :- Alerdy in QuestionPaper-1
+
+
+QuestionPaper3
+1)Explain Inversion Of Control(IOC) in Spring Framework               :- Alerdy in QuestionPaper-1                  2Marks     
+2)Differnce between BeanFactory and Application Context IOC Container :- Alerdy in QuestionPaper-1 In IOC Question  2Marks
+1)Explain Spring Framework Module           :-  
+2)Explain Strcut Flow of control            :- Alerdy in QuestionPaper-1
+
+
+-------------------------------------------------- 5Marks  ---------------------------------------------------------------
+
+QuestionPaper1
+1)Explain Advantage Of Struct Framework  :-
+2)Explain Spring Architecture            :-
+
+QuestionPaper2
+1)Explain Spring Architecture            :- Alerdy in QuestionPaper-1
+2)Explain Struct Flow of control         :- Alerdy in QuestionPaper-1 in B Q-2 In this draw diagram
+
+QuestionPaper3
+1)Explain Advantage Of Struct Framework :- Alerdy in QuestionPaper-1
+2)Explain Advantage Of Spring Framework :- Alerdy in QuestionPaper-1 in B Q-3 3Marks
+
+Others :-
+1)What is Spring Bean :-
+2)Introduction to Spring Framework :-
+3)Spring MVC Framework :-
+4)AOP in Spring Framework :-
+5)Struct Framework Architecture :-

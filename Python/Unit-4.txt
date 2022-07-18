@@ -1,0 +1,136 @@
+Unit-4
+===================================== Question - 1 1 Marks =====================================
+Paper-1
+1. _____ Function is used to create database connection in mysql with python?
+ - connect() 
+
+2. _____ method is used to fetch single record from database?
+ - fetchone()
+
+3. _____ object is used to close current cursor object? 
+ - close()
+
+Paper-2
+1. What is ModelForm?
+ - Derived from django.form that directly convert model into Django form
+
+2. which method is used to retrieve data from objects?
+ - get() and all() method used
+ - get retrieve single record from database while all() retrieve all records
+
+3. which method is used to redirect particular URL?
+ - redirect()
+  
+
+================================ Question - 2 3 and 5 Marks ================================
+1. Write steps to create python program that interact with mysql-based database CRUD? 
+ - MySQL Python/Connector is an interface for connecting to MySQL database server from Python
+ - It implements Python Database API and is built on top of the MySQL.
+ Install :- pip install mysql-connector-python 
+  
+ Example :
+  import mysql.connector
+  con = mysql.connector.connect(host='localhost', user='root', password='1234@', db="study")  
+  cursor = con.cursor()              # Creating cursor object using cursor() method
+  
+
+  # Create Database
+  cursor.execute(CREATE database if not exists mydb)  
+  
+
+  # Create Table 
+  cursor.execute("CREATE table if not exists stud(id int primary key auto_increment,
+                 name varchar(20), lname varchar(20))")  
+
+  
+  # Insert record
+  sql = "insert into stud(name, lname) values(?,?)"
+  data = (name, lname)
+  cursor.execute(sql,data)
+
+
+  # Fetch Record
+  cursor.execute("select * from stud")                 # Executing MYSQL Query
+  data = cursor.fetchall()                            # Fetch single row 
+  
+
+  # Update Record
+  data = (name, lname, id)
+  cursor.execute("update stud set name=?, lname=? where id=?",data)
+
+  # Delete record
+  # To delete records from a MySQL table, you need to use the DELETE FROM statement
+  # To remove specific records, you need to use WHERE clause along with it
+  cursor.execute("DELETE FROM stud WHERE name = '" + name +"')
+   
+  con.commit()  # Save all changes 
+  con.close()   # Closing database connection
+
+
+2. Write code create database loginpage in python using tkinter?
+ dao.py :-
+  import sqlite3                      # if mysql import mysql.connector
+  con = sqlite3.connect("user.db")
+  
+  #For mysql only
+  db = mysql.connector.connect(host ="localhost", user = user, password = passw, db ="College")
+	cursor = db.cursor()
+
+  def LoginRecord(name, password):
+    data = (name,password) 
+    try:
+      con.execute("select * from stud where name =? and password =?", data)  
+      print("Login Successfully")
+      con.commit()
+    except Exception as e:
+      print("Invalid Login")  
+
+ main.py :- 
+  from tkinter import *
+  import dao as d
+  
+  def LoginUser():
+    user = uname.get()
+    passw = password.get()
+    d.LoginRecord(user, passw)
+
+
+  root = Tk()
+  root.geometry("300x300")
+  root.title("Login Page")
+  
+  global unmae, password
+  uname = StringVar()
+  password = StringVar()
+
+  Label(root, text ="Username ").grid(row=1,column=1)
+  Label(root, text ="Password ").grid(row=2,column=1)
+  Entry(root, textvariable= uname).grid(row=1,column=2)
+  Entry(root, textvariable= password).grid(row=2,column=2)
+  Button(root, text ="Login", command = LoginUser).grid(row=2,column=2)
+  root.mainloop()
+
+
+3. Cursor Object in Python :-
+ - Cursor object using cursor() method of Connection object/class
+ Syntax :- cursor = conn.cursor() # here conn is connection object
+
+ Method :- 
+  execute() - Accepts MySQL query as parameter and executes given query
+  executemany() - Accepts list series of parameters list. 
+                - Prepares  MySQL query and executes it with all parameters  
+  fetchall() - Retrieves all rows in result set query and returns them as list of tuples
+  fetchone() - Fetches next row in result of query and returns it as a tuple
+  fetchmany() -Similar to fetchone() but it retrieves next set of rows in result set of a query, 
+               instead of single row
+  close()    - Used to close current cursor object
+  Info()     - Gives information about last query
+  callproc() - Call existing procedures MySQL database
+ 
+ Properties :-
+  rowcount     - Returns number of rows returned/updated in case of SELECT and UPDATE operation
+  column_names - Read only, Return list containing column names of result-set
+  description  - Read only, Returns list containing description of columns in a result-set
+  statement    - Return last executed statement
+  lastrowid    - Read only, Returns value generated for auto-increment column in last INSERT 
+                 or UPDATE operation

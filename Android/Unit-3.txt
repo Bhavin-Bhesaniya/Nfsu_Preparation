@@ -1,0 +1,294 @@
+Unit- 3
+===================================== Question - 1 1 Marks =====================================
+1)OnCreate and OnUpgrade method derived from which class?          - SQLiteOpenHelper
+2)Which method is used to get String Value from SharedPreferences  - getString()
+3)Default internal database provided by android                    - SQLite
+4)Which two method provide by SQLiteOpenHelper class               - OnCreate and OnUpgrade
+5)Which storage is not always availabel                            - External Storage
+6)____ method is used to share data with other application?        - Content Provider *  
+7)____ method is used to save data in Sqlite database?             - Insert
+8)____ method is used to delete file                               - delete()    
+9)____ place the read option on the first entry in the result      - MoveToFirst()
+10)____ Statement in SQLite is used to update data into table?     - Update
+11)____ Package is use to call File(I/O) concept in android?       - java.io
+12)DDMS                                                            - Dalvik Debug Monitor Server
+13)Full name of API?                                          - Application Programming Interface    
+
+
+1)List out any two method which provided by SqliteDatabase class   
+  - openOrCreateDatabase / openDatabase
+
+2)What is Parameterized Query?
+ - Query in which placeholders are used for parameters and parameter values are supplied at execution time
+
+3)What is RetroFit?
+ - Retrofit is type-safe REST client for Android, Java and Kotlin developed by Square
+ - Library provide powerful framework for authenticating with API and sending network request with OkHttp
+
+
+===================================== Question - 2 3 Marks =====================================
+1. Explain different SharedPreferences mode?
+ - Used to store few amount of data 
+ - Allow you to save and retrieve data in the form of key/value pair
+ - getSharedPreferences() returns SharedPreference instance that pointing to file that contain values of preferences
+ - Derived from android.content.SharedPreferences
+ - To save data SharedPreferences.Editor class use
+
+ Syntax :- SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+           //First parameter is key and second parameter is MODE
+   
+ Syntax :- 
+  Editor editor = sharedpreferences.edit();
+  editor.putString("key", "value"); // To get .getString("keyname",null)
+  editor.commit();
+
+ Types of Mode :-
+  MODE_APPEND          - Append new preferences with already existing Preferences
+  MODE_PRIVATE         - Only accessed using calling application
+  MODE_WORLD_READABLE  - Allow other application to read Preference
+  MODE_WORLD_WRITEABLE - Allow other application to write Preference
+
+ Method :
+  apply()   - Abstract method commit changes back from editor to sharedPreference object
+  clear()   - Remove all values from editor
+  remove()  - Remove value whose key has been passed as parameter
+  
+
+
+2. Explain different Data storage in andorid?
+ Internal file storage :- 
+  - Store apps private files on device file system 
+  - By default, files saved to internal storage are private and other apps cannot access them 
+  - User not directly access
+  - When user uninstall app data Remove from device 
+
+ External file storage :- 
+  - Store files on external file system usually for shared user files such as photos
+  - File saved to external storage are world-readable
+  - It Can be modified by user when they enable USB mass storage to transfer files on computer
+
+ Shared preferences :- 
+  - Store private primitive data in key-value pairs
+  - Allow read and write persistent key-value pairs of primitive data types
+  
+ Databases   :- Store structured data in private database with SQLiteDatabase
+ FileProvide :- Use to share files with other apps
+
+
+
+3. Explain OnCreate() and OnUpgrade() method?  
+ OnCreate() :-
+  - Called when database is created for first time
+  - This is where creation of tables and initial configuration should happen
+  Syntax :- public abstract void onCreate (SQLiteDatabase db)
+  
+ onUpgrade() :-
+  - Called when database needs to be upgraded
+  - Use this method to drop tables, add tables or do anything else 
+  - It needs to upgrade to new schema version
+  - This method executes within transaction
+  - If exception is thrown, all changes will automatically rolled back
+  Syntax :- public abstract void onUpgrade (SQLiteDatabase db, int oldVersion, int newVersion)
+
+
+
+4. What is Cursor in Sqlite?
+ - Cursor point to single row of result fetched by query
+ - Derived from android.database.Cursor
+ - Using object of Cursor class we can retrieve anything from database 
+ - It Call rawQuery method which return resultset with cursor pointing to table
+  
+ Example :- 
+  Cursor resultSet = mydatbase.rawQuery("Select * from TutorialsPoint",null);
+  resultSet.moveToFirst();
+  String username = resultSet.getString(0);
+  
+ Methods to manipulate cursor position :- Cursor.
+  move(int offset) - Move position by given offset
+  moveToFirst()    - Move position to first row
+  moveToLast()     - Move position to last row
+  moveToNext()     - Move cursor to next row relative to current position
+  moveToPrevious() - Move cursor to previous row relative to current position
+  moveToPosition(int position) - Moves cursor to specified position
+
+ Methods for retrieving data from row :-
+  getInt()    - Return value as int
+  getFloat()  - Return value as float
+  getString() - Return value as String  
+  getColumnCount() - Return total number of columns of table
+
+
+
+5. Explain SQLiteOpenHelper() class?
+ - Provides functionality to use SQLiteDatabase
+ - SQLiteOpenHelper class inherit from android.database.sqlite.SQLiteDatabase package
+ - Used for database creation and version management  
+ - onCreate() and onUpgrade() method used to Performing different database operation
+ - super() method provides database name and current version
+  
+ Constructor :-  
+  SQLiteOpenHelper(Context context, String name,SQLiteDatabase.CursorFactory factory, int version, 
+                   DatabaseErrorHandler errorHandler)
+  
+ Method :-
+  onCreate()    - Called only once when database is created for first time
+  onUpgrade()   - Call to upgraded database data
+  onDowngrade() - Call to downgraded when need
+  close ()      - closes database object
+
+
+
+6. Explain Rest API & Retrofit API?
+ Retrofit :-
+  - REST Client library used in Android and Java to create HTTP request and process HTTP response from REST API
+  - Created by Square 
+  - REST Client in Retrofit library used on client side(Android) to make HTTP request to REST API
+    
+ REST API :-
+  - Set of functions which developers perform request and receive responses via HTTP protocol such as GET and POST
+  - RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data
+
+ To use Retrofit in Android :-  
+  - Create Interface which define HTTP operation(Functions or methods)
+  - Create Retrofit class which provide interface implementation 
+  - Simple POJO that matches each field in JSON response object gotten from querying an API
+ 
+ Add Following Dependencies :-
+  Retrofit       - com.squareup.retrofit2:retrofit:2.1.0
+  Gson Converter - com.squareup.retrofit2:converter-gson:2.1.
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Write program to perform CRUD operation using sqlite and display in listview?   - Github
+
+
+
+2. Explain Content Provider with suitable example?
+ - Content provider component supplies data from one application to other based on request
+ - Request are handled by method of ContentResolver class
+ - Provide different ways to store and read data
+ - Data can be stored in database, files or even over network
+ - To share data across multiple application content providers become very useful
+ 
+ Content Urls :- To query content provider specify query string in form of URI 
+  Syntax :- <prefix>://<authority>/<data_type>/<id>  
+  Options :-
+   prefix    - Always set to content:// 
+   authority - Name of content provider
+   data_type - Indicates type of data that this particular provider provides
+   id        - Specifies requested record 
+
+ Create Content Provider :- 
+  - extends ContentProviderbaseclass
+  - Define content provider URI address which used to access content
+  - Create database to keep content
+  - Implement Content Provider queries to perform different database specific operations
+  - Register Content Provider in activity file using <provider> tag
+
+ Method :-
+  onCreate() - Called when provider is started
+  query()    - Receives request from client and result is returned as Cursor object
+  insert()   - Inserts new record into content provider
+  delete()   - Deletes existing record from content provider
+  update()   - Updates existing record from content provider
+  getType()  - Returns MIME type of data at given URI
+
+
+
+3. What is Sqlite? Explain detail with suitable example?
+ - SQLite is open-source SQL database that stores data on device
+ - Android come with built in SQLiteDatabase implementation
+ - SQLite supports all relational database feature
+ - android.database.sqlite is Main package that contains classes to manage database
+ 
+ Create database :-
+  - openOrCreateDatabase() used to create database with database name, mode as parameter
+  - Return instance of SQLiteDatabase 
+  Syntax :- SQLiteDatabase mydatabase = openOrCreateDatabase("your database name",MODE_PRIVATE,null);
+    
+
+ SQLiteDatabase class :-
+  - Derived from android.database.sqlite.SQLiteDatabase 
+  - Contains methods to be performed on sqlite database such as create, update, delete, select etc.
+  - ContentValues Object allows to define key/values
+  - Key represents table column identifier and value represent content for column
+  - ContentValues used for insert and update database entries
+  - SQLiteQueryBuilder class build SQL queries
+
+  Method :- 
+   execSQL(String sql) - Executes sql query not select query
+   rawQuery(String sql)- Executes select query
+   insert()            - Insert record in database
+   update()            - Update record in database
+   query()             - Return cursor over resultset
+
+  Syntax:- query(String dbname, columnname, whereclause, selectionArgs, groupBy, having, orderBy )  
+
+  Note :- Cursor and SQLiteOpenHelper in above Question 
+
+
+
+4) Explain Internal Storage in android?
+ - Android provides many kinds of storage for applications to store their data
+ - Internal storage is the storage of private data on device memory
+ - By default these files are private and accessed only by our application and deleted when user delete application
+ - Read and write using openFileOutput and openFileInput method 
+ - It returns instance of FileOutputStream and FileInputStream 
+
+ Writing file :-
+  FileOutputStream fOut = openFileOutput("file name here",MODE_WORLD_READABLE);
+  String str = "data";
+  fOut.write(str.getBytes());
+  fOut.close();
+
+ Reading file :- 
+  FileInputStream fin = openFileInput(file);
+  int c;
+  String temp="";
+  while( (c = fin.read()) != -1){
+    temp = temp + Character.toString((char)c);  //temp contain all file data
+  }        
+  fin.close(); 
+
+ Method :- 
+  write()      - Count bytes from byte array buffer
+  read()       - Read at most length bytes from this stream and stores them in byte array 
+  getFD()      - Returns underlying file descriptor
+  getChannel() - Returns Write-only | Read-only FileChannel that shares its position with this stream
+  available()  - Return estimated number of bytes that can be read or skipped without blocking for more input                 
+ 
+
+
+5) Explain External Storage in android?
+ - Store data files publically on shared external storage using FileOutputStream object
+ - After storing we can read data file from external storage media using FileInputStream object
+ - Data files saved in external storage are word-readable and can be modified by user when enable USB mass storage to
+   transfer files on computer
+ - To Check whether media is available or not by calling getExternalStorageState()
+
+ Storage permissions :-
+  - To read or write files app must require system permissions in AndroidManifest.xml file
+  Permission :-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+      
+
+ Write File to External Storage :-
+  File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+  File myFile = new File(folder, FILENAME);
+  FileOutputStream fstream = new FileOutputStream(myFile);
+  fstream.write(name.getBytes());
+  fstream.close();
+ 
+ Read File from External Storage :-
+  String FILENAME = "user_details";
+  File folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+  File myFile = new File(folder, FILENAME);
+  FileInputStream fstream = new FileInputStream(myFile);
+  StringBuffer sbuffer = new StringBuffer();
+  int i;
+  while ((i = fstream.read())!= -1){
+    sbuffer.append((char)i);
+  }
+  fstream.close(); 

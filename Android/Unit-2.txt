@@ -1,0 +1,467 @@
+Unit- 2
+===================================== Question - 1 1 Marks =====================================
+1. Which method used to find elements from XML?                                  - findViewById
+2. Absolute Layout work on the based X and Y coordinates is it True or False?    - True 
+3. TextView is the name of TextBox is it True or False?                          - False
+4. Relative Layout provide Horizontal and Vertical design options True or False? - False 
+5. ________ can be pressed or clicked by the user to perform an action?          - Button
+6. Margin are the space outside of the border True or False?                     - True
+7. Which Layout specify location of child object Relative to each other?         - RelativeLayout
+8. In which folder animation will be stored                                      - res/anim
+9. Which control arrange control only horizontal or vertical way                 - LinearLayout
+10. What is the name of TextBox control in android?                              - EditText
+11. What is the name of Label control in android?                                - TextView
+12. ___ Component allow user to select time of day                               - Time Picker
+ 
+
+1. What is Canvas?
+ - Canvas is class in Android that performs 2D drawing of different objects onto screen
+
+2. What is the basic use of EditText Control? 
+ - EditText is a UI control used to+ allow user to enter or modify text
+
+3. Define Linear Layout?
+ - LinearLayout is a view group that aligns all children in single direction either vertically or horizontally
+
+
+===================================== Question - 2 3 Marks =====================================
+1. Explain Button?
+ - Widget refers UI elements that helps user to interacts with Android App
+ - Button widget Used to perform action when clicked
+ - It's derived from android.widget.Button
+ 
+ Attributes :-
+  android:id	      - Specify view id
+  android:text	      - Display text on button
+  android:gravity     - Specify gravity of view like center, top, bottom, etc.
+  android:padding     - Set padding view
+  android:textSize    - Size of button text
+  android:background  - Set background view
+ 
+ Method :-  setOnClickListener(View.OnClickListener)
+ 
+ Example :-
+  <EditText
+    android:id="@+id/btn_id"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:text="Click Me" />
+
+
+
+2. Explain EditText?
+ - EditText is an overlay over TextView that configures itself to be editable
+ - Used to retrieve data from user
+ - Predefined subclass of TextView that includes rich editing capabilities
+ - Inherited from android.view.View Class
+
+ Example : 
+  <EditText
+    android:id="@+id/ed1_id"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:hint="Enter Your Name" />
+
+ Attributes :-                
+  android:id          - Identifier name of view
+  android:hint        - Text to display in inside edit text        
+  android:inputType   - specifies input type of EditText
+  android:background  - set drawable to use as background
+  android:autoText    - automatically corrects some common spelling errors
+  android:editable    - If set, specifies that this TextView has an input method
+
+
+
+3. Explain View and ViewGroup?
+ View :-
+  - Base class or superclass for all GUI components in android
+  - android.view.View class is root of UI class hierarchy
+  - So from an object point of view, all UI objects are View objects
+  Ex :- TextView, EditText, Button
+    
+ ViewGroup :-
+  - Subclass of View class 
+  - Act as base class for layouts and layouts parameters
+  - Provide invisible container to hold other Views or ViewGroups and define layout properties
+  - ViewGroup derived from android.view.ViewGroup class
+  Ex :- RadioButtonGroup, LinearLayout
+
+
+
+4. Explain Table Layout?
+ - TableLayout arranged groups of views into rows and columns
+ - Use <TableRow> element to build row in table
+ - Each row has zero or more cells 
+ - Each cell can hold one View object
+ - TableLayout container not display border lines for their rows, columns or cells
+
+ Attributes :-
+  android:id              - Uniquely identifies layout
+  android:collapseColumns - Specifies zero-based index of columns to collapse
+  android:shrinkColumns   - Zero-based index of columns to shrink
+  android:stretchColumns  - Zero-based index of columns to stretch
+
+ Example :
+  <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableRow
+     android:layout_width="fill_parent"
+     android:layout_height="fill_parent"
+     android:layout_column="1">
+      <TextView
+        android:text="Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    </TableRow>  
+  </TableLayout> 
+
+
+
+5. Explain Fragement?
+ - Fragment is piece of UI or behavior that can be placed in an Activity
+ - Interaction with fragments done through FragmentManager, which obtained via Activity.getFragmentManager() and 
+   Fragment.getFragmentManager()
+ - Fragment encapsulates functionality so that it is easier to reuse within activities and layout
+ - To define fragment we either extend android.app.Fragment class or one of its subclasses
+
+ Types of Fragments :
+  Single frame fragment  - Show only one fragment as view used in hand on devices like mobile
+  List fragments         - Fragments special list view is called as list fragment
+  Fragments transaction  - With fragment transaction we can move one fragment to another fragment
+ 
+ Methods :-
+  onAttach()    - Called when fragment is first attached to its context
+  onCreate()    - Called to do initial creation of fragment
+  getActivity() - Return currently associated Activity with this fragment
+  getContext()  - Return currently associated Context with this fragment
+  getLayoutInflater() - Return cached LayoutInflater used to inflate Views of this Fragment
+
+
+
+6. Explain Linear Layout with Suitable Examples?
+ - LinearLayout is view group that aligns all children in either vertically or horizontally
+
+ Attributes :
+  android:id       - Uniquely identifies layout
+  android:divider  - Use drawable as vertical divider between buttons
+  android:gravity  - Specifies content position on both X and Y axes
+  android:orientation     - Element arrangmet either "horizontal" or "vertical" by default horizontal
+  android:baselineAligned - Prevent layout to aligning its children's baseline, must be in boolean
+
+ Examples :-
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+     
+    <Button android:id="@+id/btnStartService"
+      android:layout_width="270dp"
+      android:layout_height="wrap_content"
+      android:text="start_service"/>
+
+  </LinearLayout>
+
+
+
+7. Explain Progressbar with Examples?
+ - Progress bars are used to show task progress
+ - ProgressDialog class allows you to create progress bar
+ - Its derived from android.widget.ProgressBar
+ - Progress bar supports two modes to represent progress :- Determinate, and Indeterminate
+ 
+ Method :-
+  getMax()               - Returns maximum value of progress
+  setMax(int max)        - Set maximum value of progress dialog
+  setProgress(int value) - Update progress dialog with some specific value
+  getProgress()          - Get progress bar's current level of progress
+
+ Example :- 
+  ProgressDialog progress = new ProgressDialog(this);
+  progress.setTitle("Progress Bar Title");
+  progress.setMessage("Downloading Music :) ");
+  progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+  progress.setIndeterminate(true);
+
+
+
+8. Explain RadioGroup with Examples?
+ - RadioGroup class is used for set of radio button
+ - Checking one radio button that belongs to radio group unchecks any previously checked radio button within same group
+ - Intially, all radio buttons are unchecked
+
+ Attributes :-
+  android:id            - Identifier name for this view
+  android:checkedButton - Id of child radio button that should be checked by default 
+  android:background    - Drawable to use as the background
+  android:onClick       - Name of method in this View's context to invoke when view is clicked
+  android:visibility    - Initial visibility of view
+
+ Methods :-
+  addView()     - Add child view with specified layout parameters
+  check(int id) - Sets the selection to the radio button whose identifier is passed in parameters
+  clearCheck()  - Clears the selection
+  getCheckedRadioButtonId()  - Returns the identifier of the selected radio button in this group
+
+ Examples :
+  btnDisplay.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+      int selectedId=radioSexGroup.getCheckedRadioButtonId();
+      radioSexButton=(RadioButton)findViewById(selectedId);
+      Toast.makeText(MainActivity.this,radioSexButton.getText(),Toast.LENGTH_SHORT).show();
+    }
+  });   
+
+
+
+9. Explain Fade in & Fade Out animation with example?
+ - Create XML file that defines type of animation to perform in new folder anim under res directory with properties
+ - In case, if anim folder does not exist in res directory, create a new one
+ - To use Fade In or Fade Out need to define new XML file with <alpha> tag like as shown below
+
+ FadeIn :-
+  <?xml version="1.0" encoding="utf-8"?>
+  <set xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha
+      android:duration="2000"
+      android:fromAlpha="0.1"
+      android:toAlpha="1.0">
+    </alpha>
+  </set> 
+
+ FadeOut :-
+  <?xml version="1.0" encoding="utf-8"?>
+  <set xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha
+      android:duration="2000"
+      android:fromAlpha="1.0"
+      android:toAlpha="0.1" >
+    </alpha>
+  </set>
+
+
+
+10. What is Frame by Frame animation?
+ - Animation is state of being alive Something that gives you an illusion
+ - In Android Frame Animation, you swapping frames repeatedly, so that it appears continuous to human eye and we feel
+   that it is animated
+ - Here, Frame is referred to an image
+ - To implement frame by frame animation required set of images, which describes motion
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Explain Different layout available in android?
+ - Layout define UI that holds UI controls or widgets that will appear on android application
+ - Every application layout is combination of View and ViewGroup
+ - View will be any type of such as buttons, labels, textboxes, and etc. known as widgets
+ - ViewGroup act as base class for layouts and layouts parameters that hold other Views or ViewGroups to define layout
+   properties known as layout
+ - View derived from Android.view.View class 
+ - Widget derived from Android.widget
+
+ Types of Android Layouts :-
+  1)Linear Layout :-
+  - Align all children in single direction either vertically or horizontally
+  Attributes :-
+   android:divider     - drawable to use as a vertical divider between buttons
+   android:gravity     - Specifies its content position on both the X and Y axes
+   android:orientation - Specifies element direction either "horizontal" or "vertical"
+
+  2)Relative Layout :-
+  - View group that displays child views in relative positions
+  Attributes :- 
+   android:gravity       - Specifies its content position on both the X and Y axes
+   android:ignoreGravity - Indicates that view should not be affected by gravity
+  
+
+  3)Table Layout :-
+  - Groups views into rows and columns
+  Attributes :-
+   android:collapseColumns  - Specifies zero-based index of the columns to collapse
+   android:collapseColumns  - Zero-based index of the columns to shrink
+   android:stretchColumns   - Zero-based index of the columns to stretch
+    
+  4)Absolute Layout :-
+  - Enable you to specify exact location of its children
+  Attributes :- 
+   android:layout_x  - Specifies x-coordinate of view
+   android:layout_y  - Specifies y-coordinate of view
+   
+  5)Frame layout :-
+  - Placeholder on screen that use to display single view
+  Attributes :-   
+   android:foreground          - Draw drawable over content and values may be color value
+   android:foregroundGravity   - Define gravity to apply foreground drawable defaults is fill
+   android:measureAllChildren  - Measure all children in VISIBLE or INVISIBLE state default false
+
+  6)Android ListView :-
+   - ListView is ViewGroup used to display scrollable lists of items in single column
+  
+  7)Android Grid View :-
+   - ViewGroup that used to display scrollable list of items in form of rows and columns
+
+
+
+2. What is Dialog in android? Explain it with suitable Examples?
+ - Provide small window that prompt messages to user to make decision or enter additional detail
+ - Used with modals event to perform particular action to proceed further in application
+ - Dialog class is Base class for dialogs
+ - It define style and structure for dialog, but we can use DialogFragment for our dialog
+ - DialogFragment class provides all controls that need to create dialog and manage its 
+   appearance, instead of calling methods on Dialog object.
+ 
+ Type of Dialogs :-   
+  1)AlertDialog
+   - Used to display prompt to user with title, upto three buttons, list of selectable items or custom layout
+   - Allow us to build variety of dialog designs
+
+  2)DatePickerDialog  - Predefined UI control allows user to select Date 
+  3)TimePickerDialog  - Predefined UI control and allows user to select Time
+
+ Method :-
+  setItems()          - Adding list of items in dialog
+  setTitle()          - set dialog title
+  setMessage()	      - Used to set message for AlertDialog
+  setPositiveButton() - Set positive button in dialog
+  setNegativeButton() - Set negative button in dialog
+  setMultiChoiceItems()  - Select multiple items from list in dialog
+  setSingleChoiceItems() - Select single items from list in dialog
+
+ Example :-
+  AlertDialog.Builder builder = new AlertDialog.Builder();
+  builder.setMessage("Do you want to close this application ?")  
+    .setCancelable(false)  
+    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {  
+      public void onClick(DialogInterface dialog, int id) {  
+        finish();  
+        Toast.makeText(getApplicationContext(),"you choose yes action for alertbox", Toast.LENGTH_SHORT).show();  
+      }  
+    })  
+    .setNegativeButton("No", new DialogInterface.OnClickListener() {  
+      public void onClick(DialogInterface dialog, int id) {  
+        dialog.cancel();  
+        Toast.makeText(getApplicationContext(),"you choose no action for alertbox", Toast.LENGTH_SHORT).show();  
+      }  
+    });  
+    AlertDialog alert = builder.create();  
+    alert.setTitle("AlertDialogExample");  
+    alert.show();  
+
+
+
+3. Explain Relative Layout Attribute with Suitable Examples?
+ - Layout where positions of children widget described in relation to each other or to the parent
+ - Give flexibility to position component/view based on relative or sibling component position
+ - By default all child view are drawn at top-left of layout,so must define position of each view
+ - Views can be layered on top of each other  
+  
+ Attributes :-
+  android:id      - uniquely identifies layout
+  android:gravity - Specifies its content position on both the X and Y axes
+                  - Possible values are top, bottom, left, right, center, center_vertical, 
+  android:ignoreGravity  - Indicates view should not be affected by gravity
+  android:layout_below            |  android:layout_above   
+  android:layout_alignBottom      |  android:layout_alignParentBottom 
+  android:layout_centerHorizontal |  android:layout_toStartOf         
+  
+ Examples :-
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">      
+    <TextView
+      android:id="@+id/textView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Text1"
+      android:layout_alignParentTop="true" />
+
+    <TextView
+      android:id="@+id/textView2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Text2"
+      android:layout_above="@+id/textView"/>  
+  </RelativeLayout> 
+        
+
+
+4. Explain Twined Animation with its example?
+ - Tween Animation takes some parameters such as start value, end value, size, time duration, 
+   rotation angle to perform required animation on that object
+ - It can be applied on any type of object
+ - To use animatation android provided class called Animation
+ - To perform animation, call static function called loadAnimation() of AnimationUtils class
+  
+ Syntax :-
+  Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.myanimation);
+  Note :- Second parameter is the name of our animation xml file
+        - You have to create a new folder called anim and make an xml file under anim folder
+  
+ Method :-
+  start()       - starts animation
+  setDuration() - sets duration of an animation
+  getDuration() - gets duration which is set by above method
+  end()         - ends animation
+  cancel()      - cancels animation
+
+ - To apply this animation to an object we will just call startAnimation() method on object 
+  
+ Syntax :-
+  ImageView image1 = (ImageView)findViewById(R.id.imageView1);
+  image.startAnimation(animation);    
+
+ Example :-
+  res/anim/blink.xml :-
+  <?xml version="1.0" encoding="utf-8"?>
+    <set xmlns:android="http://schemas.android.com/apk/res/android">
+      <alpha android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:duration="600"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"/>
+    </set>
+
+  acitivity_main.xml :-
+  <Button
+    android:id="@+id/button4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="blink"
+    android:onClick="blink" />
+
+  MainActivity.java :-
+  - In oncreate Method :-
+    public void blink(View view){
+      ImageView image = (ImageView)findViewById(R.id.imageView);
+      Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+      image.startAnimation(animation1);
+    }
+
+
+
+5. Explain GridLayout? Take suitable example to show how it is used in apps?  
+ - GridView is type of AdapterView that displays items in two-dimensional scrolling grid
+ - Items are inserted into this grid layout from database or from an array
+ - setAdapter() method is used to displaying this data with GridView
+ - Main function of GridView is to displayed fetch data 
+
+ XML Attributes of GridView :-
+  android:numColumns        : Used to decide number of columns that are to be displayed in Grid
+  android:horizontalSpacing : Define spacing between two columns of GridView
+  android:verticalSpacing   : Specify spacing between two rows of GridView
+
+ Method :-
+  setRowCount()	     - Set number of rows while positioning elements
+  getRowCount()	     - Get max number of rows while positioning elements
+  setColumnCount()   - Set number of columns while positioning elements
+  getColumnCount()   - Used to get number of columns while positioning elements
+  getAlignmentMode() - Used to know current alignment mode
+
+ Example :-
+  <GridView
+    android:id="@+id/idGVcourses"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>

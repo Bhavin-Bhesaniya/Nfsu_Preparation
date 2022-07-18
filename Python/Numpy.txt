@@ -1,0 +1,550 @@
+Numpy Introduction & Environment Setup :-
+ - NumPy stands for Numerical Python.
+ - Open source Python library used for working with arrays created by Travis Oliphant in 2005 
+ - NumPy partially written in Python, but most of parts that require fast computation are written in C or C++
+ - Also used for working in domain of linear algebra, fourier transform, and matrices.
+
+ Why Use Numpy?
+  - In Python we have lists that serve purpose of arrays, but they are slow to process
+  - NumPy aims to provide an array object that is up to 50x faster than traditional Python lists
+  - Array object in NumPy is called ndarray which provides lot of supporting functions
+  - These Arrays are used in data science, where speed and resources are very important
+  - NumPy array stored at one continuous place in memory unlike lists, so processes, access and 
+    manipulate them very efficiently
+
+ Install Numpy :-
+  - pip install numpy
+  - import numpy       # Use in project as
+
+
+
+Numpy Ndarray Create | Dimension | Access :- 
+ - NumPy is used to work with arrays
+ - Array object in NumPy is called ndarray
+ - We can create NumPy ndarray object by using array() function
+
+ Example :-
+  import numpy as np
+  arr = np.array([1, 2, 3, 4, 5])
+  print(arr)
+  print(type(arr)) #Type :- Tells us type of object passed to it : Type - numpy.ndarray
+
+  - Another way to create Ndarray is we pass list,tuple or any array-like object into array()
+   method and it will be converted into ndarray
+  Example :-
+   import numpy as np
+   arr = np.array((1, 2, 3, 4, 5))  # Pass tuple in array() method
+   print(arr) 
+
+ 
+ Array Dimensions :-
+  - Dimension in arrays is one level of array depth(nested arrays)
+  - Nested array are arrays that have arrays as their elements
+  - 0-D arrays or Scalars are elements in an array 
+  - Each value in array is 0-D array
+  - NumPy Arrays provides ndim attribute that returns integer that tells us how many dimensions 
+    the array have
+  Example :- np.array(42)
+
+  - An array can have any number of dimensions. 
+  - When array is created, you can define number of dimensions by using ndmin argument
+  Example :- arr = np.array([1, 2, 3, 4], ndmin=5)
+  
+  - Array that has 0-D arrays as its elements is called uni-dimensional or 1-D array
+  Example :- arr = np.array([1, 2, 3, 4, 5])
+
+  - Array that has 1-D arrays as its elements is called a 2-D array 
+  - NumPy has a whole sub module dedicated towards matrix operations called numpy.matlib
+  Example :- arr = np.array([[1, 2, 3], [4, 5, 6]])
+
+  - Array that has 2-D arrays(matrices) as its elements is called 3-D array
+  Example :- arr = np.array([[[1, 2, 3], [4, 5, 6]], [[1, 2, 3], [4, 5, 6]]])
+
+ 
+ Access Array Elements :-
+  - Array indexing used to accessing an array element
+  - You can access an array element by referering to its index number
+  - Indexes in NumPy arrays start with 0 meaning that first element has index 0 and second has
+    index 1 etc.
+  Ex :- print(arr[1])
+
+  - To access elements from 2-D arrays we can use comma separated integers representing dimension
+    and index of element
+  Ex :- print(arr[0, 1])
+
+
+  - Slicing in python means taking elements from one given index to another given index.
+  - We pass slice instead of index like this: [start:end:step]
+
+
+
+Numpy Data Types | DataType Object | Type Casting :-  
+ - Python has basic range of data types in it 
+ - NumPy supports wider range of data types as compared to Python
+ - Variety of data types increase Numpy functionalities
+
+
+ Built-in Data Types :-
+  - We can reference built-in data types in NumPy by particular character code
+    i – integer   | S – string   | b – boolean  | V – void     | f – float          
+    m – timedelta | M – datetime | O – object   | u – unsigned | U – unicode string 
+    c – complex float  
+
+
+ Scalar Data Types :-
+   bool_ :- Return Boolean true or false values
+   int_  :- Default integer type (int64 or int32)
+   intc  :- Identical to integer in C (int32 or int64)
+   intp  :- Used for indexing
+   int8  :- Assigning 8-bit integer value (-128 to 127)        # int16   / int32   / int64 
+   uint8 :- Assigning unsigned 8-bit integer value (0 to 255)  # uint16  / uint32  / uint64
+   float_   :- Assign float values                             # float16 / float32 / float64
+   complex_ :- Assign complex values                           # complex64 / complex128     
+
+
+ NumPy Dataype Object :-
+  - It is an object with combination of all fundamental data types
+  - Data type of the elements is given by dtype object
+  
+  Syntax :- numpy.dtype(obj, align=False, copy=False)
+
+  Parameters :-
+   obj                   - Data that has to be converted to data-type object
+   align bool, optional  - True if we have string or dictionary input
+   copy bool, optional   - Use if we want to make new copy of data-type object
+  
+  Example :-
+   import numpy as np
+   arr = np.array([1, 2, 3, 4], dtype='i4')
+   print(arr)
+   print(arr.dtype) #int32 
+
+
+ Type casting  :-
+  - astype used to typecast datetype
+  - If we give type to elements that cannot be cast then value error will generate
+  
+  Example :-
+   import numpy as np
+   ar = np.array([1.1, 2.1, 3.1])
+   newarr = ar.astype(int)
+   print(newarr)
+   print(newarr.dtype) # 1,2,3
+
+
+
+Numpy Array Creation :- 
+ - New ndarray object can be constructed by any of following array creation routine or using
+   low-level ndarray constructor
+ 
+ numpy.empty :- Create uninitialized array of specified shape and dtype
+  Syntax :- numpy.empty(shape, dtype = float, order = 'C') #'C' for C-style row-major array 
+
+ numpy.zeros :- Returns new array of specified size, filled with zeros
+  Syntax :- numpy.zeros(shape, dtype = float, order = 'C') 
+
+ numpy.ones :- Returns new array of specified size and type, filled with ones
+  Syntax :- numpy.ones(shape, dtype = None, order = 'C')
+  Example :- x = np.ones([2,2], dtype = int) 
+
+
+
+Array from existing data :-
+ numpy.asarray :- Similar to numpy.array Useful for converting Python sequence into ndarray
+  Syntax :- numpy.asarray(a, dtype = None, order = None)
+  Example :- x = (1,2,3) | a = np.asarray(x)  
+
+ numpy.frombuffer :- Interprets buffer as one-dimensional array
+  Syntax :- numpy.frombuffer(buffer, dtype = float, count = -1, offset = 0)
+
+ numpy.fromiter :- Builds ndarray object from any iterable object
+  Syntax :- numpy.fromiter(iterable, dtype, count = -1)  
+
+
+
+Array Within Numerical Range :-
+ numpy.arange :- Returns ndarray object containing evenly spaced values within a given range
+  Syntax :- numpy.arange(start, stop, step, dtype)
+  Example :- x = np.arange(10,20,2) 
+
+ numpy.linspace :- Instead of step size, number evenly spaced values between interval is specified
+  Syntax :- numpy.linspace(start, stop, num, endpoint, retstep, dtype)  
+
+ numpy.logspace :- Returns ndarray object that contain numbers that are evenly spaced on log scale
+                 - Start and stop endpoints of scale are indices of base, usually 10
+  Syntax :- numpy.logspace(start, stop, num, endpoint, base, dtype) 
+
+
+
+Numpy Array Iteration :- Efficient multidimensional iterator object possible to iterate over array
+ 
+ numpy.nditer :- Efficient multidimensional iterator object possible to iterate over array
+  - Each element of an array is visited using Python’s standard Iterator interface.
+  - If same elements are stored using F-style order, iterator chooses more efficient way of 
+    iterating over an array.  
+  - If two arrays are broadcastable, combined nditer object able to iterate upon them concurrently
+  
+   Example :- 
+    a = np.arange(0,60,5)
+    a = a.reshape(3,4)
+    for x in np.nditer(a):
+     print x,
+ 
+
+  Modifying Array Values :-
+   - nditer object has another optional parameter called op_flags
+   - Its default value is read-only, but can be set to read-write or write-only mode
+   - This will enable modifying array elements using this iterator
+   
+   Example :- 
+    for x in np.nditer(a, op_flags = ['readwrite']):
+      x[...] = 2*x
+    
+    
+
+  External Loop :-
+   - nditer class constructor has a ‘flags’ parameter, which can take the following values :−
+	  c_index       - C_order index can be tracked	
+    f_index       - Fortran_order index is tracked	
+    multi-index   - Type of indexes with one per iteration can be tracked	
+    external_loop - Causes values given to be one-dimensional arrays with multiple values instead
+                    of zero-dimensional array
+    
+    Example :-
+     for x in np.nditer(a, flags = ['external_loop'], order = 'F'):
+      print x,
+   
+ 
+
+Numpy String Function :- Used to perform vectorized string operations based on python string functions
+
+  add() :- Returns element-wise string concatenation for two arrays of str or Unicode
+   Ex :- np.char.add(['hello'],[' xyz']) 
+
+  multiply() :- Returns element-wise string with multiple concatenation
+   Ex :- np.char.multiply(['hello'],3) #print 3 time hello
+
+  center() :- Returns copy of given string with elements centered in string of specified length
+   Ex:- np.char.center('hello', 20,fillchar = '*') #fill space with *
+
+  capitalize() :- Returns copy of string with only first character capitalized
+  title()      :- Returns element-wise title cased version of string or unicode
+  lower()      :- Returns array with elements converted to lowercase
+  upper()      :- Returns array with elements converted to uppercase
+  split()      :- Returns list of words in string, using separatordelimiter
+  splitlines() :- Returns list of lines in element, breaking at line boundaries
+  strip()      :- Returns copy with leading and trailing characters removed
+  join()       :- Returns string which is concatenation of strings in sequence
+  replace()    :- Returns copy of string with all occurrences of substring replaced by new string
+  decode()     :- Calls str.decode element-wise
+  encode()     :- Calls str.encode element-wise
+
+
+
+Numpy Mathematical Function :- Functions for trigonometric, arithmetic operations, handling complex numbers, etc.
+
+ Trigonometric Functions :-
+  - Return trigonometric ratios for given angle in radians
+  - arcsin, arcos, and arctan functions return trigonometric inverse of sin, cos, and tan of given angle
+  - Result verified by numpy.degrees() function by converting radians to degrees
+
+  Example :-
+   import numpy as np 
+   a = np.array([0,30,45,60,90]) 
+   sin = np.sin(a*np.pi/180) 
+   print(sin)
+   inv = np.arcsin(sin) 
+   print(np.degrees(inv))
+
+
+ Functions for Rounding :-
+  numpy.around() :- Return rounded value to desired precision
+   Syntax :- numpy.around(a,decimals)
+   Parameters :- 	
+    a         - Input data  
+    decimals  - Number of decimals to round to by Default is 0, If negative Integer is rounded 
+                to position to left of the decimal point
+
+  numpy.floor() :- Returns largest integer not greater than input parameter 
+   - Floor of scalar x is largest integer i, such that i <= x
+   - Note that in Python, flooring always is rounded away from 0
+
+  numpy.ceil() :- Returns ceiling of an input value
+   - Ceil of scalar x is smallest integer i, such that i >= x.
+   
+
+ Staistical Function :-
+  - Useful for finding minimum, maximum, percentile standard deviation and variance from given
+    elements in array
+
+  numpy.amin() and numpy.amax() :-
+   - Return minimum and maximum from elements in given array along with specified axis
+   Syntax :- np.amax(a, axis = 0)
+
+  numpy.ptp() :- 
+   - Returns range (maximum-minimum) of values along an axis. 
+   Syntax :- Same
+
+  numpy.percentile() :-
+  - Percentile measure used in statistics indicating value below which given percentage of 
+    observations in group of observations fall.
+
+  Syntax :- 
+    numpy.percentile(a, q, axis)
+    a : Input array
+    q : percentile to compute must be between 0-100
+    axis : along which the percentile is to be calculated 
+
+  numpy.median() :-
+   - Defined as value separating higher half of data sample from lower half
+
+  numpy.mean() :-
+   - Arithmetic mean is sum of elements along an axis divided by number of elements
+   - Returns arithmetic mean of elements in array
+   - If axis is mentioned, it is calculated along it
+ 
+  numpy.average() :-
+   - Weighted average is an average resulting from multiplication of each component by factor 
+     reflecting its importance
+   - Computes weighted average of elements in an array according to their respective weight given
+     in another array
+   - Function can have an axis parameter
+   - If axis is not specified, array is flattened
+   Syntax :- np.average(a, axis = 1, weights = wt, returned = True)
+
+  numpy.std() :- Standard deviation is square root of the average of squared deviations from mean
+  np.var      :- Variance is the average of squared deviations
+
+
+
+Sorting and Searching :-
+ 
+ Sorting :- Specifies way to arrange data in particular order and particular format
+ 
+  numpy.sort() :- 
+   - Returns sorted copy of an array
+   - Sorts array in-place & returns None
+   - Occupies less space
+   - No copy created as it directly sorts original array
+   Syntax  :- np.sort(arr(Sorted), axis, order)
+   Example :- a = np.array([[12, 15], [10, 1]]) # sort along the first axis
+              arr1 = np.sort(a, axis = 0)       # axis = -1 or None 
+
+  numpy.argsort() :- 
+   - Returns indices that would sort an array
+   - Return type is numpy array
+   - Occupies space as new array of sorted indices is returned
+   Syntax :- arr1 = np.argsort(a)
+
+  numpy.lexsort((b,a)) :-
+   - Perform an indirect sort using a sequence of keys
+   - Sort by a, then by b
+   - Return type ndarray of ints Array of indices that sort keys along specified axis
+   - Occupies space as a new array of sorted indices pair wise is returned  
+   Syntax :- arr1 = np.argsort(a)
+
+  More :-
+   numpy.ndarray.sort()	Sort an array, in-place
+   numpy.msort()	      Return copy of an array sorted along first axis
+   numpy.sort_complex()	Sort complex array using real part first, then imaginary part
+   numpy.partition()	  Return partitioned copy of an array
+   numpy.argpartition()	Perform an indirect partition on given axis using algorithm specified by kind keyword
+
+
+ Searching :-
+  - Find place of given element or value in list
+  - Any search to be successful or unsuccessful depending upon whether element that is being 
+    searched is found or not
+
+  numpy.argmax() :-
+   - Returns max element of array in particular axis
+   - Array of indices into array with same shape as array.shape with dimension along axis removed
+   Syntax : numpy.argmax(array, axis = None, out = None)
+
+  numpy.nanargmax() :- 
+   - Returns max element of array in particular axis ignoring NaNs
+   - Results cannot be trusted if slice contains only NaNs and Infs
+
+  numpy.argmin() :- 
+   - Returns minimum values along an axis  
+
+  More :-
+   numpy.nanargmin()	  Return minimum values in specified axis ignoring NaNs
+   numpy.argwhere()	  Find array elements that are non-zero, grouped by element
+   numpy.nonzero()	    Return elements that are non-zero
+   numpy.flatnonzero()	Return non-zero in flattened version of a
+   numpy.where()	      Return choosen elements from x or y depending on condition
+   numpy.extract()	    Return elements of an array that satisfy some condition
+   numpy.searchsorted()	Find element where it should be inserted to maintain order
+
+
+ Counting :-
+  - numpy.count_nonzero() : Counts number of non-zero values in array.
+
+
+
+Copies and Views :-
+ - When contents are physically stored in another location, it is called Copy. 
+ - Different view of same memory content called as View.
+
+ No Copy :-
+  - Not make copy of array object
+  - Use same id() of original array to access it
+  - id() returns universal identifier of Python object, similar to pointer in C
+  - Any changes made are reflected in other
+ 
+ View or Shallow Copy :-
+  - ndarray.view() method which is new array object that looks at same data of original array
+  - Unlike earlier case, change in dimensions of new array doesn’t change dimensions of original
+
+ Deep Copy :-
+  - ndarray.copy() function creates deep copy. 
+  - It is complete copy of array and its data, and doesn’t share with original array. 
+
+ Difference between View and Copy :-
+ - Copy is new array and view is just view of original array
+ - Copy own data and any changes made to copy will not affect original array and any changes made
+   to original array will not affect copy
+ - View doesn't own data and any changes made to view will affect original array and any changes 
+   made to original array will affect view
+  
+  Example :-
+   - Every NumPy array has attribute base that returns None if array owns data
+   - Otherwise base attribute refers to original object
+  
+   import numpy as np
+   arr = np.array([1, 2, 3, 4, 5])
+   x = arr.copy()
+   y = arr.view()
+   print(x.base)
+   print(y.base) 
+
+
+
+Matrix library :-
+ - NumPy package contains Matrix library called numpy.matlib
+ - Return matrices instead of ndarray objects
+
+  numpy.matlib.empty() :- Return new matrix without initializing entries
+   Syntax :- numpy.matlib.empty(shape, dtype, order)
+             print np.matlib.empty((2,2)) 
+ 
+  numpy.matlib.zeros() :- Returns matrix filled with zeros
+   Syntax :- np.matlib.zeros((2,2))
+ 
+  numpy.matlib.ones() :-  Returns matrix filled with 1s
+   Syntax :- Same upper    
+
+  numpy.matlib.eye() :-   Returns matrix with 1 along diagonal elements and zeros elsewhere
+   Syntax :- numpy.matlib.eye(n, M,k, dtype)
+
+  numpy.matlib.identity() :- Returns Identity matrix of given size where Identity matrix is 
+                             square matrix with all diagonal elements as 1
+   Syntax :-np.matlib.identity(5, dtype = float)
+
+  numpy.matlib.rand() :- Returns matrix of given size filled with random values
+   Syntax :- np.matlib.rand(3,3)
+
+  numpy.matrix() :- Returns matrix from string of data or array-like object. 
+   - Matrix obtained is a specialised 2D array.
+   Syntax :- numpy.matrix(data, dtype = None)
+
+  numpy.asarray() :-
+   - Used when we want to convert input to array
+   - Input can be lists, lists of tuples, tuples, tuples of tuples, tuples of lists and arrays
+   Syntax : numpy.asarray(arr, dtype=None, order=None) 
+
+  numpy.asmatrix() :-
+   - Returns matrix by interpreting input as matrix
+   Syntax :- numpy.asmatrix(data, dtype = None) 
+
+
+ Note :- 
+  - Matrix is always two-dimensional, whereas ndarray is an n-dimensional array. 
+  - Both the objects are inter-convertible. 
+
+
+
+Numpy Linear Algebra :-
+ - NumPy package contains numpy.linalg module that provides all functionality required for linear algebra.
+
+ numpy.dot() :-
+  - Returns dot product of two arrays
+  - For 1-D arrays, it is inner product of vectors
+  - For 2-D vectors, it is matrix multiplication
+  - For N-dimensional arrays, it is sum product over last axis of a and second-last axis of b
+  Syntax :- np.dot(a,b)
+
+ numpy.vdot() :-
+  - Returns dot product of two vectors
+  - If first argument is complex, then its conjugate is used for calculation
+  - If argument id is multi-dimensional array, it is flattened
+  Syntax :- np.vdot(a,b)
+
+ numpy.inner() :-
+  - Returns inner product of vectors for 1-D arrays
+  - For higher dimensions, it returns sum product over last axes
+  Syntax :- np.inner(np.array([1,2,3]),np.array([0,1,0])) 
+
+ numpy.matmult() :-
+  - Returns matrix product of two arrays
+  - If argument dimensions is > 2, treated as stack of matrices residing in last two indexes 
+    and broadcast accordingly
+  - If argument is 1-D array, it is promoted to matrix by appending 1 to its dimension, which 
+    is removed after multiplication
+  Syntax :-  np.matmul(a,b)
+
+ numpy.linalg.det() :-
+  - Calculates determinant of input matrix.
+  - Determinant is a very useful value in linear algebra. 
+  - It calculated from the diagonal elements of a square matrix. 
+  - For a matrix [[a,b], [c,d]], determinant is computed as ‘ad-bc’. 
+  - Larger square matrices are considered to be a combination of 2x2 matrices.
+
+  numpy.linalg.slove() :-
+   - Gives solution of linear equations in matrix form
+
+  numpy.linalg.inv() :-
+   - Calculate inverse of a matrix
+   - Inverse of matrix is such that if it is multiplied by original matrix, it results in 
+     identity matrix.
+
+
+
+Array Manipulation :- 
+
+ Changing Shape :- 
+  reshape - Gives new shape to an array without changing its data
+  flat    - 1-D iterator over array
+  flatten - Returns copy of array collapsed into one dimension
+  ravel   - Returns contiguous flattened array
+
+ Transpose Operations :-
+  transpose - Permutes dimensions of an array
+  ndarray.T - Same as self.transpose()
+  rollaxis  - Rolls specified axis backwards
+  swapaxes  - Interchanges two axes of an array
+
+ Changing Dimensions :-
+  broadcast    - Produces object for Broadcasting
+  broadcast_to - Broadcasts an array to new shape
+  squeeze      - Removes single-dimensional entries from shape of an array
+  expand_dims  - Expands shape of an array
+
+ Joining Arrays :-
+  concatenate  - Join sequence of arrays along existing axis
+  stack        - Join sequence of arrays along new axis
+  hstack       - Stacks arrays sequence horizontally (column wise)
+  vstack       - Stacks arrays sequence vertically (row wise)
+
+ Splitting Arrays :-
+  split  - Splits array into multiple sub-arrays  
+  hsplit - Splits array into multiple sub-arrays horizontally (column-wise)
+  vsplit - Splits array into multiple sub-arrays vertically (row-wise)
+
+ Adding / Removing Elements :-
+  resize - Return new array with specified shape
+  append - Append values at the end of an Array
+  insert - Inserts values at given axis before given indices
+  delete - Returns new array with sub-arrays along with deleted axis
+  unique - Finds unique elements of an array

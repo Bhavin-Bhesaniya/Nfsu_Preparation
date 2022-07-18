@@ -1,0 +1,238 @@
+Unit- 5 
+===================================== Question - 1 1 Marks =====================================
+1. SSAS Stands for?                                    - SQL Server Analysis Services
+2. SSRS Stands for?                                    - SQL Server Reporting Services
+3. BI Stands for?                                      - Business Intelligence
+4. SSDT Stands for?                                    - SQL Server Data Tools
+5. Each cube has one or more dimensions(True/False)?   - True
+6. Extension of report is ____                         - .ispac
+7. Which Service used to create report in SSIS         - SSRS
+8. BIML Stands for?                                    - Business Intelligence Markup Language
+9. Type of Authentication to Connect SQL Server?       - Windows authentication | Server authentication
+10. KDD Stands for?                                    - Knowledge Discovery in Database
+11. KPI Stands for?                                    - Key Performance Indicators
+12. .ispac Stands for?                                 - Integration Services Project Deployment File
+13. .dtsx Stands for?                                  - Data Transformation Service Package
+
+1. What is Slicing?
+ - Process of retrieving block of data from cube by filtering on one dimension
+
+2. What is Dicing?
+ - Dicing is process of retrieving block of data from cube by filtering on all dimensions
+
+3. What is Drilling Up and Down?
+ - Drilling up means presenting data at higher level on dimension hierarchy
+ - Drilling down means presenting data at lower level on dimension hierarchy
+
+4. What is DataMining?
+ - Process of exploring data to find pattern and relationship between data to predict unknwon or future values of data
+
+5. What is DataAnalysis?
+ - Provide guidance in business decision-making process by accessing timebased data from multiple sources
+
+6. What is DataCube?
+ - When data is grouped or combined in multidimensional matrices called Data Cubes
+
+7. What is Roll-up?
+ - Roll-up is performed by climbing up concept hierarchy for the dimension location
+
+
+===================================== Question - 2 3 Marks =====================================
+1. How to enabling CLR on the SQL Server Instance?
+ - Start SQL Server Management Studio
+ - In Connect to Server dialog box :-
+   Select Database Engine
+   Select server name
+   Select Windows Authentication --> Click Connect
+ - In SQL Server Management Studio toolbar -> Click New Query
+   Type following command in SQLQuery pane :-
+    sp_configure @configname=clr_enabled, @configvalue=1
+    GO
+    RECONFIGURE
+    GO
+ - Press F5 to execute this script
+ - In Messages pane, observe that Configuration option 'clr' enabled is displayed
+
+
+
+2. What is DataMining?
+ - Data mining also known as knowledge discovery in database (KDD) 
+ - Process of exploring data to find pattern and relationship between data to predict unknwon or future values of data
+ - It work with almost everytype of data formats but best work with DW because data in DW already cleaned, structured 
+   formate and its also have metadata which describe meaning of data   
+ - Datamining retrieve data from this database to implement various algorithm and logic which result present to enduser
+ - It is improveing organizational decision-making through insightful data analysis
+ - Key ability is to understand why some thing happened in past and to predict what will happen in future
+ - If DM used to explain current and past situations its called descriptive analytics
+ - When DM used to predict future it is called predictive analytics
+
+ Process :
+  - Set business objectives
+  - Data preparation
+  - Model building and pattern mining
+  - Evaluation of results and implementation of knowledge
+
+ Advantages :-
+  - Enables organizations to obtain knowledge-based data
+  - Cost-efficient
+  - Helps decision-making process of an organization
+  - Automated discovery of hidden patterns 
+  - Prediction trends and behaviors
+
+ Disadvantage :-
+  - Organizations may sell useful data of customers to other organizations for money
+  - Many data mining analytics software is difficult to operate
+  - Selection of right data mining tools is very challenging task
+  - Not precise technique so that it may lead to severe consequences in certain conditions
+
+
+
+3. What is Data analysis?
+ - Provide guidance in business decision-making process by accessing timebased data from multiple sources
+ - Henry Morris given term data analysis in 1997 
+ - Purpose is to extract useful information from data and taking decision based upon data analysis
+ - User use analytic application to access dimensional data warehouse interactively
+ - Also use Slice and dice, drilling up and drilling down techniques for data analysis
+ - Sliceing is process of retrieving block of data from cube by filtering on one dimension
+ - Dicing is process of retrieving block of data from cube by filtering on all dimensions
+ - Drilling up means presenting data at higher level on dimension hierarchy
+ - Drilling down means presenting data at lower level on dimension hierarchy
+ - Using data analysis we can get an overview of current business performance such as sales, production etc.
+ - It is more useful for company and organization that make business decisions based on data rather than instincts 
+
+ Types of analysis :-
+  Text Analysis     
+  Statistical Analysis
+  Diagnostic Analysis
+  Predictive Analysis
+  Prescriptive Analysis 
+
+ - Data analysis process Nothing but gathering information by using proper application or tool which allows you to 
+   explore data and find pattern in it
+  Process :- 
+   Data Requirement Gathering
+   Data Collection
+   Data Cleaning
+   Data Analysis
+   Data Interpretation
+   Data Visualization 
+
+
+
+====================================== Question - 3 5 Marks =====================================
+1. Explain Business Intelligence?
+ - Business intelligence is collection, methodology, organization and analysis of data
+ - Main purpose of BI activity is to improve business performance But BI is more than that—it 
+ - It allows for better business decision-making by ensuring strategic decisions
+ - BI application query ODS(Opertional Data Source) and ERP(enterprise resource planning) 
+ - BI data typically stored in DW or in smaller data marts that hold subsets of business information 
+ - It store historical information as well as real-time gathered data from source system
+ - That enabling BI tools to support both strategic and tactical decision-making processes
+ - Therefor raw data from different source systems generally must be integrated, consolidated and cleansed using data
+   integration and data quality management tools 
+ - It ensure that BI teams and business users are analyzing accurate and consistent information
+ 
+ 
+ BI Processing Step :-
+  - Data preparation in which data sets are organized and modeled for analysis
+  - Analytical querying on prepared data
+  - Distribution of key performance indicators (KPIs) and other finding solution to business users 
+  - Use information to take strategic business decision
+ 
+
+ Classify BI in 6 Categories :-
+  Reporting Application :-
+   - Used to perform light-weight analysis 
+   - Query on DW and present data in static tabluar or pivot format
+   
+  Analytic Application :-
+   - Query DW repeatedly and interactively so present data in flexible format that users can slice and dice 
+   - Used to perform deeper-analysis
+
+  DataMining Application :-
+   - Explore DW to find patterns and relationships that describe data
+   - Used to perform Pattern finding
+
+  Dashboard :-
+   - Category of BI Application that gives quick high level summary of business performance in
+     graphical gadget, typically chart, graph, indicator and color-coded maps
+   - By clicking this gadget we can drill down to lower-level detail
+
+  Alert :-
+   - Alert are notifications to users when certain events or conditions happen
+
+  Portal :-
+   - Functions as Gateway to access and manage business intelli-gence reports, analytics, mining and dashboard
+     applications as well as alert subscription 
+
+
+
+2. Explain Deployment Process?
+ - In SSIS SQL Server 2012 introduced brand new deployment model for SSIS project deployment
+ - This new deployment model called Project deployment model unlike Legacy Deployment model 
+   Where each package was single unit of deployment 
+ - In new deployment model, Create deployment package containing everything needed for deployment in single file with
+   .ispac extension
+ - Apart from handling deployment issues, manageing configuration file for each environment for each package was also
+   pain in Legacy deployment model
+ - New Project deployment model includes Project/Package Parameters, Environment variables and Environment reference
+
+
+ Deployment Process Steps :- 
+  - Create Integration Services Catalog 
+  - Create SSIS project with Project Deployment Model 
+  - Deploy project to Integration Services Catalog 
+  - Create Environments, Environment variables  
+  - Set up environment reference in deployed project  
+  - Execute deployed project/package using environment for example either for TEST or PROD
+  - Analyze operations performed on Integration Services Catalog 
+  - Validate deployed project or package  
+  - Redeploy project to Integration Services Catalog  
+  - Analyze deployed project version and restored to desired one
+
+
+
+3. Write step how to create report using report wizard?
+ - Launch SQL Server Data Tools(SSDT)
+ - New project --> Expand Business Intelligence --> Select reporting service
+ - Select Report Server Project and fill other details --> Click ok
+ - In Report wizard dialog Select Data SourceScreen --> New data source and type "Source" as name 
+ - Select Microsoft SQL Server --> Click edit --> Configure connection string 
+ - Type "localhost" in server name --> Select "Source" database from dropdown --> Click OK
+ - Check mark this as shared data source --> Click next
+ - Select report type tabular --> Next
+ - Move fields to right-hand side by selecting page --> fill group of details --> Click next
+ - Select stepped in table layout scrren -> Check subtotals and enable drilldown --> Click next
+ - In deployment location dialog Change deployment folder to Project folder --> Click next
+ - Add Report name click finish
+ - Report will appear in solution explore and also visible in design view
+ - Click preview tab to see report
+
+
+
+4. Write step for planning package in SSIS with Foreach loop?                  
+ - Open Visual Studio --> Create new project --> Expand Business Intelligence
+ - Create SSIS Project
+ - Add Foreach loop container in project
+ - Right-Click on Foreach loop container --> Edit 
+ - Set enumerator to foreach file enumerator
+   In enumerator configuration :-
+    - Set folder to "d:\TestPackage\"
+    - Set Files to "t1*.dtsx"
+
+ - Click Variable Mappings
+ - Select new variable from drop-down list --> Set variable name "packageToRun" --> Click Ok 
+ - Drag and Drop Execute Package task into Foreach loop container
+ - Click on execute package task and select Edit --> Select Package --> Set Location --> Click ok    
+ - Finally configure connection to use variable package name
+ - Right-click on connection  --> Select Properties  --> Change name to PackageToRunConnection
+
+  In Expression Builder dialog :-
+   - Select Expression  
+   - Add new expression 
+   - Select ConnectionString
+   - Click Expression Editor button 
+   - From variable tree drag  @[User::PackageToRun] into Expression Window 
+   - Save expression
+  
+ - Now run package it will execute each package in folder with correct filename 

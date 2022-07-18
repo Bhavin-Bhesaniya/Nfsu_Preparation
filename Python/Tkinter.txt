@@ -1,0 +1,607 @@
+Tkinter Introduction :-
+ - Python provides standard library Tkinter which comes with many functions and methods to 
+   create desktop based GUI application
+ - In order to create a tkinter application, we generally create an instance of tkinter frame 
+ Syntax :- root = Tk()
+ 
+ Step to create Tkinter application :-
+  - Import module - tkinter
+  - Create main window - Container
+  - Add widgets in main window
+  - Call main event loop so that actions can take place on user's computer screen
+ 
+ Tk() :-
+  - Helps to display root window and manages all other components of tkinter application
+  - We can initialize tkinter instance by assigning variable to it
+  Syntax :- m = Tk()        # M is Name of main window
+  Method :- Tk(screenName="",baseName="", className="", useTk=1)
+ 
+ mainLoop :-
+  - Infinite loop used to run application
+  - Wait for event to occur and process event as long as window is not closed
+  Syntax :- root.mainLoop() 
+ 
+ Example :-
+  from tkinter import *
+  win= Tk()               #Create an instance of tkinter frame or window
+  win.geometry("750x250") #Set geometry of tkinter frame
+  Label(win, text="Hello World").pack()
+  win.mainloop()
+
+
+
+Tkinter Geometry :-
+ - Specifies method by using which, widgets are represented on display
+
+ Types of methods :-
+  pack() :- 
+   - Used to organize widget in block before placing them in parent widgets
+   - Controls are less and widgets are generally added in less organized manner
+   
+   Syntax :- widget.pack(Options)
+
+   Attribute / Options :-
+    expand :- If true, widget expand to fill any space
+    Fill   :- By default None, Set X and Y to determine whether widgets contains any extra space
+    Size   :- Represnt size of parent in which widget is to be placed
+
+
+  grid() :- 
+   - Organize widget in tabular form by specify rows and columns as options in method 
+   - Also specify columnspan(width) or rowspan(height) of widget
+   - More organized way to place widgets to python application
+
+   Syntax :- widget.grid(Options)
+
+   Attribute / Options :-
+    Column       - Column number in which widget placed, leftmost column is represented by 0
+    row          - Row number in which widget placed, topmost row is represented by 0
+    ipadx, ipady - Number of pixels to pad widget inside widget's border
+    padx, pady   - Number of pixels to pad widget outside widget's border
+    Columnspan   - Width of widget 
+    rowspan      - Height of widget
+    Sticky       - If cell is larger than widget, then sticky is used to specify position of 
+                   widget inside cell
+                   It may be N, E, W, S, NE, NW, NS, EW, ES concatenation of sticky letters
+
+
+  place():- 
+   - Organize widgets in specific x and y coordinates
+  
+   Syntax :- widget.place(Options)
+
+   Attribute / Options :-
+    Anchor               : Represent exact position of widget within container, default 
+                           value(direction) is NW
+    bordermode           : Default value of border type is INSIDE Other option is OUTSIDE
+    x, y                 : Refers horizontal and vertical offset in pixels
+    height, width        : Refers height and width in pixels
+    relheight, relwidth  : Between 0.0 and 1.0 indicating fraction of parent's height and width
+    relx, rely           : Between 0.0 and 1.0 offset in horizontal or vertical direction
+
+
+
+Common Option / Attribute :-
+
+ bd        : Border width default is 2px
+ bg/fg     : Specifies Background color / Foreground color
+ font      : Define font of widget
+ command   : Call Specific Function that is associated with widget
+ image     : Set image on widget
+ height    : Specifie height of widget
+ width     : Specifie width of widget
+ padx/pady : Padding to widget in horizontal direction / vertical direction
+ justify   : Represent orientation of text if text contains multiple lines (Left, Right, Center)
+ relief    : Type of border default FLAT, It can be SUNKEN, RAISED, GROOVE, and RIDGE.
+ underline : Set underline on specified letter of widget 
+ cursor    : Mouse pointer changed according arrow type like Arrow, Dot, Circle etc..
+ text      : Specifies widget text
+ anchor    : Specifies exact position of text within size provided to widget, default is center
+ bitmap    : Specifies graphical object on label
+ state     : DISABLED make widget unresponsive while ACTIVE represents active state of widget
+ 
+ WrapLength         : If Set positive, text lines will be wrapped to fit within this length
+ textvariable       : Control text that display inside label
+ activebackground   : Represent background of widget when mouse hover that widget
+ activeforeground   : Represent fontColor of widget when mouse hover that widget
+ highlightcolor     : Highlight Color when button has focus
+ highlightthickness : Highlight border widget width
+
+
+
+1)Tkinter Label :-
+ - Display text or image on screen 
+ Syntax :- 
+  m = (master, anchor, bitmap, cursor, bd, bg, fg, font, height, width, image, justify, padx, 
+       pady, relief, text, textvariable, underline, state, wraplength)
+
+
+
+2)Tkinter Buttons :-
+ - Used to perform different event when button is pressed
+ 
+ Syntax :- 
+  m = Button(master, activebackground, activeforeground, bd, bg, fg, font, command, height,
+      highlightcolor, image, justify, padx, pady, relief, underline, state, width, wraplength)
+ 
+ Methods :- 
+  flash()  - Button to flash several times between active and normal colors.    
+  invoke() - Calls button's callback, and returns what that function returns. 
+           - No effect if button is disabled or there is no callback.
+
+
+
+3)Tkinter Canvas :-
+ - Used to add structured graphics in python application
+ - It is used to draw graph and plots in python application
+ 
+  Syntax :- m = Canvas(master, bd, bg, cursor, highlightcolor, height, width, relief)
+
+  Option :- 
+   confine          - Make canvas unscrollable outside scroll region
+   scrollregion     - Represent coordinates specified as tuple containing area of canvas
+   xscrollincrement - If set positive value, canvas is placed only to multiple of this value
+   yscrollincrement - Works like xscrollincrement, but vertical movement
+   xscrollcommand   - If canvas is scrollable, .set() method of horizontal scrollbar
+   yscrollcommand   - If canvas is scrollable, set() method of vertical scrollbar
+
+  Canvas widget support following items :−
+   arc   - Create arc item, which can be chord, pieslice or simple arc
+   image - Create image item, which can be instance of either BitmapImage or PhotoImage classes
+   line  - Create line item
+   oval  - Creates circle or an ellipse at given coordinates which takes two pairs of coordinates
+   polygon − Creates polygon item that must have at least three vertices
+
+
+
+4)Tkinter Checkbutton :-
+ - Used to provide many choices to user among which, user needs to choose one.
+ - Contian text or images
+ 
+ Syntax :- 
+  m = CheckButton(master, activebackground, activeforeground, bd, bitmap, bg, command, cursor,fg,
+                  font, height, width, highlightcolor, justify, image, padx, pady, relief, state,
+                  underline, wraplength)
+
+ Option :-
+  variable          - Associated variable that tracks state of checkbutton
+  offvalue          - variable is set to 0 by default if button is unchecked
+  onvalue	          - variable is set to 1 by default if button is checked
+  disableforeground - Disabled checkbutton text
+  selectcolor       - Color of checkbutton when it is selected, By default it is red
+  selectimage       - Image is shown on checkbutton when it is selected
+
+ Method :-
+  deselect() Turn off checkbutton
+  flash()    Checkbutton is flashed between active and normal colors
+  invoke()   Invoke method that associated with checkbutton
+  select()   Turn on checkbutton
+  toggle()   Used to toggle between different Checkbuttons
+
+
+
+5)Tkinter Entry :-
+ - Used to get single line text entry from user
+ - For multiple lines of text, we must use the text widget
+
+ Syntax :- 
+  m = Entry(master, bd, bg, cursor, fg, font, highlightcolor, highlightthickness, width, justify,
+            relief, textvariable)
+
+ Options :-
+  exportselection     - By default automatically copied text to clipboard from entry widget,
+                        set 0 to not copy this.
+  selectbackground	  - Background color of selected text
+  selectborderwidth   - Width of border to display around selected task
+  selectforeground	  - font color of selected task
+  show	              - Show entry text of some other type instead of string
+  highlightbackground - Display color in traversal highlight region when widget does not have 
+                        input focus
+  insertbackground    - Use color as background in area covered by insertion cursor
+  insertborderwidth   - Represent non-negative value indicating width of 3-D border to draw 
+                        around insertion cursor Value may have any of forms acceptable to 
+                        Tk_GetPixels
+  insertwidth         - Represents value indicating total width of insertion cursor
+  xscrollcommand	    - Entry widget can be linked to horizontal scrollbar if we want user to 
+                        enter more text then actual width of widget
+
+
+ Method :- Provides various methods to configure data written inside widget
+  get()	               Get text from widget
+  icursor(index)	     Change insertion cursor position.
+  index(index)	       Place cursor to left of character written at specified index
+  insert(index,s)      Insert specified string before character placed at specified index
+  select_adjust(index) Include selection of character present at specified index
+  select_clear()	     Clear selection if some selection has been done
+  select_form(index)	 Set anchor index position to character specified by index
+  select_present()	   Returns true if some text in Entry is selected otherwise returns false
+  select_to(index)	   Select all characters from beginning to specified index
+  xview(index)	       Link entry widget to horizontal scrollbar
+  select_range(start,end)   Selects characters that exist between specified range
+  delete(first,last=none)   Delete specified characters inside widget
+  xview_scroll(number,what)	Make entry scrollable horizontally
+
+
+
+6)Tkinter Frame :-
+ - Used to organize group of widgets
+ - Acts like container which can be used to hold other widgets
+ - Frame widget use Rectangular areas of screen are to organize widgets
+ 
+ Syntax :- 
+  m = Frame(master, bd, bg, cursor, height, width, highlightcolor, relief, highlightthickness)
+
+ Option :-
+  highlightbackground - Represents color to display in traversal highlight region when widget 
+                        does not have input focus
+
+
+
+7)Tkinter ListBox :-
+` - Offer list items to user from which user can accept any number of options 
+ - We can place only text items in Listbox and all text items contain same font and color
+ 
+ Syntax :- 
+  m = ListBox(master, bd, bg,  cursor, fg, font, height, width, highlightcolor, relief)
+
+ Option :-
+  selectmode	     - Determine number of items that can be selected from list, it can be set to 
+                     BROWSE, SINGLE, MULTIPLE, EXTENDED
+  selectbackground - Background color that is used to display selected text
+  xscrollcommand   - let user scroll Listbox horizontally
+  yscrollcommand   - let user scroll Listbox vertically
+
+ Method :-
+  index(i)	      Place line with specified index at top of widget
+  size()	        Returns number of lines are present in Listbox 
+  nearest(y)	    Returns index of nearest line to y coordinate of Listbox
+  see(index)	    Adjust position of listbox to make lines visible by specified index
+  xview()	        Make widget horizontally scrollable
+  yview()	        Allow Listbox to vertically scrollable
+  activate(index) Select lines at specified index
+  curselection()  Returns tuple line containing numbers of selected element or elements, counting from 0 otherwisr return empty tuple
+  
+  get   (first,last=None)	 Get list items that exist in  given range
+  delete(first,last=None)  Delete lines which exist in given range
+  insert(index,*elements)  Insert new lines with specified number of elements before specified index`
+   
+
+
+8)Tkinter MenuButton :-
+ - Defined as drop-down menu that is shown to user all time.
+ - Provide different option to user from which user select appropriate choice 
+ - Menu is associated with Menubutton that can display choices of Menubutton when clicked by user
+ 
+ Syntax :- 
+  m = (master, activebackground, activeforeground, anchor, bd, bg, bitmap, cursor, fg, height, 
+       highlightcolor, image, padx, pady, justify, width, relief, state, textvariable, text, 
+       underline, command, wraplength)
+
+ Option :- 
+  menu	     Represents menu specified with Menubutton
+  direction	 Direction for menu display to specified direction of Menubutton Use LEFT, RIGHT, or
+             ABOVE to place widget accordingly
+  disabledforeground	 Text color of widget when widget is disabled
+
+
+
+9)Tkinter Menu :-
+ - Create various types of menus like top level, pull down and pop up in python application
+ - Top-level menus displayed just under title bar of parent window
+ - Need to create new instance of Menu widget and add various command by using add() method
+ 
+ Syntax :- 
+  m = Menu(master, activebackground, activeforeground, bd, bg, cursor, fg, font, relief, image)
+ 
+ Option :-
+  title	       - Change window title
+  postcommand  - Set any function which is called when mourse hovers menu
+  selectcolor	 - Display colored checkbutton or radiobutton when selected
+  tearoff      - By default, choices in menu start from position 1, If set tearoff=1 then 
+                 it will start taking place from 0th position
+  disabledforeground - Font color of widget when it is disabled
+  activeborderwidth  - Widget border width when it is under mouse, default is 1 pixel
+
+ Method :-
+  add()	    Add specific menu item to menu
+  type()	  Get type of choice specified by index
+  index()   Get index of specified menu item
+  invoke()	Used to invoke associated choice given at specified index
+  delete()	Delete menu items that exist in the specified range
+  add_command()	     Add Menu items to menu
+  add_seperator()	   Seperator line to the menu
+
+  entryconfig()	     Used to configure menu item identified by given index
+  add_cascade()	     Create hierarchical menu to parent menu by associating menu to parent menu
+  add_radiobutton()	 Add radiobutton to the menu
+  add_checkbutton()	 Add checkbuttons to the menu
+  insert_seperator() Insert seperator at specified index
+
+
+
+10)Tkiner Message :-
+ - Show message to user regarding behaviour of python application
+ - Message widget shows text messages to user which can not be edited
+ - Message text contains more than one line
+
+ Syntax :- 
+  m = Message(master, anchor, cursor, image, bitmap, bd, bg, fg, font, height, justify, padx,
+              pady, relief, textvariable, text, underline, width, wraplength)
+
+
+
+11)Tkinter RadioButton :-
+ - Used to implement one-of-many selection in python application
+ - It shows multiple choices to user out of which, user can select only one out of them
+ - We can display multiple line text or images on radiobuttons
+ - To keep track user's selection it associated with single variable
+ - Each button display single value for that particular variable
+
+ Syntax :- 
+  m = RadioButton(master, activebackground, activeforeground, anchor, bg,  bitmap, command, 
+                  cursor, font, fg, image, width, height, highlightcolor, justify, padx, pady,
+                  relief, state, text, textvariable, underline, wraplength)
+
+ Option :-
+  value	      - Value of each radiobutton is assigned to control variable when it select by user
+  variable	  - Control variable keep track of user's choices and shared among all radiobutton
+  borderwidth - Represent size of border
+  selectcolor - Color of radio button when it is selected
+  selectimage - Displayed image on radiobutton when it is selected
+  highlightbackground - color of wideget focus highlight when widget is not having focus
+ 
+ 
+ Method :-
+  select() 	 Select the radiobutton
+  flash()	   Flash radiobutton between its active and normal colors
+  invoke() 	 Call any procedure associated when state of Radiobutton is changed
+  deselect() Turn off radiobutton selection
+
+
+
+12)Tkinter Scale :-
+ - Implement graphical slider so that user can slide through range of values shown on slider 
+   and select one among them
+ - We can control minimum and maximum values along with resolution of scale
+ - It provides alternative to Entry widget when user is forced to select only one value from
+   given range of values
+ 
+ Syntax :- 
+  m = Scale(master, cursor, activebackground, bg, orient, from_, to, image, width, height)
+ 
+ Option :-
+  to	   - Represent float or integer value that specifies other end of range represented by scale
+  from_	 - Represent one end of widget range
+  length - Represents widget length if scale is X dimension it is horizontal or Y dimension if it is vertical
+  orient - It can be set to horizontal or vertical depending upon type of scale
+  digits - Control string type of scale data which specify number of digits when numeric scale is converted to string
+  label	 - Set some scale label text which shown in top left corner if scale is horizontal or top
+           right corner if the scale is vertical
+
+  showvalue	  - Shown value of scale in text form by default
+  takefocus	  - focus cycles through scale widgets by default, We can set this option to 0 if we
+                don't want this to happen
+  variable	  - It represents the control variable for the scale
+  resolution	- It is set to smallest change which is to be made scale value
+  repeatdelay	- Tells up to duration in which slider starts moving in that direction repeatedly 
+                by default is 300 ms
+  throughcolor - Represents color of scale
+  sliderlength - Represent length of slider window with scale by default is 30 pixels
+  tickinterval - Scale values displayed on multiple specified tick interval by default value is 0
+
+ Method :-
+ 	get()	get current value of scale
+  set()	set value of scale
+
+
+
+13)Tkinter Scrollbar :-
+ - Used to scroll down content of other widgets like listbox, text, and canvas
+ - However, we can also create horizontal scrollbars to Entry widget
+
+ Syntax :- m = Scrollbar(master, width, activebackground, bg, bd, cursor)
+
+ Option :- 
+  jump	  - Control behavior of scroll jump If it set to 1, then callback is called when user 
+            releases mouse button
+  orient	- Set to HORIZONTAL or VERTICAL depending upon orientation of scrollbar
+  takefocus       - Tab focus through this widget by default, Set 0 if we don't want this behavior
+  repeatdelay	    - Tells up to duration in which slider starts moving in that direction 
+                    repeatedly by default is 300 ms
+  repeatinterval	- Default value of repeat interval is 100
+  elementborderwidth	- Represent border width around arrow heads and slider by default value is-1
+  highlightthickness	- Thickness of focus highlight
+
+ Method :-
+  get()	- Returns two numbers a and b which represents current position of scrollbar
+  set()	- Used to connect scrollbar to other widget w. 
+                  
+
+
+14)Tkinter Text :-
+ - Used to show text data on Python application
+ - It display multi-line formatted text with various styles and attributes
+ - Mostly used to provide text editor to user
+ - It also facilitates us to use marks and tabs to locate specific sections of Text
+ - We can also use to display formatted text
+
+ Syntax :- m = Text(master, highlightcolor, insertbackground, bg, font, image, width, height)
+
+
+ Option :-
+  tabs	    - Controls how tab character is used for text position
+  insertwidth	 - Represents width of insertion cursor
+  spacing1	- Amount of vertical space given above each line of the text by default is 0
+  spacing2  -	Add extra vertical space between displayed lines of text
+  spacing3	- Amount of vertical space to insert below each line of text by default is 0
+  insertbackground	 - Represent insertion cursor color
+  insertborderwidth  - Represents width of border around cursor by default 0
+  insertofftime      - In Milliseconds time amount insertion cursor off blink cycle
+  insertontime	     - In Milliseconds time amount insertion cursor on blink cycle
+  exportselection - Selected text exported to selection in window manager set 0 if don't want
+                    text to be exported
+  
+ Methods :-
+  delete()	Used to delete characters of specified range
+  get()	    Return characters present in specified range
+  index()	  Used to get absolute index of specified index
+  insert()	Used to insert specified string at given index
+  see()	    Return boolean value true or false depending upon whether text at specified index 
+            is visible or not
+
+
+ Mark Handling Methods :-
+  index()        Used to get index of specified mark
+  mark_gravity() Get gravity of given mark
+  mark_names()	 It get all marks present in Text widget
+  mark_set()	   Used to inform new position of given mark
+  mark_unset()	 Remove given mark from text
+
+
+ Tag Handling Methods :- Tags are names given to separate areas of text which used to configure
+                         different areas of text separately
+  Methods :-
+   tag_add()	  Used to tag that string present in specified range
+   tag_config() Used to configure tag properties
+   tag_delete()	Delete given tag
+   tag_remove()	Remove tag from specified range
+
+
+
+15)Tkinter TopLevel :-
+ - Used to create and display toplevel windows which are directly managed by window manager
+ - It may or may not have parent window on top of them
+ - When application needs to represent extra information, pop-up, or group of widgets onnew window
+ - Toplevel windows have title bars, borders, and other window decorations
+
+ Syntax :- m = TopLevel(master, bg, bd, cursor, width, height)
+
+ Option :- 
+  class_	- Selected text in the text widget is exported to be selected to window manager, 
+            set 0 to make this behavior false.
+ 
+ Methods :- 
+  deiconify()	  Display window
+  frame()	      Show system dependent window identifier
+  group()	      Add this window to specified window group
+  iconify()	    Convert the toplevel window into an icon
+  protocol()	  Used to mention function which will be called for specific protocol
+  state()	      Get current state of window, Possible values are normal, iconic, withdrawn
+  transient()	  Convert this window to transient window (temporary)
+  withdraw()	  Delete window but doesn't destroy it
+  maxsize()	    Declare maximum size for window
+  minsize()	    Declare minimum size for window
+  resizable()	  Control whether window can be resizable or not
+  sizefrom()	  Define size controller
+  title()	      Set title for window
+  positionfrom()	Define position controller
+
+ 
+
+16)Tkinter Spinbox :-
+ - Spinbox widget is an alternative of Entry widget
+ - It provide range of values to user out of which user can select one
+ - It is used where user is given some fixed number of values to choose from
+ - We can use various options with Spinbox to decorate widget
+ 
+ Syntax :- 
+  m = Spinbox(master, bg, bd, from_, to, cursor, command, activebackground, disabledbackground,
+              width, height)
+
+ Option :-
+  from_	         - Show starting range of widget
+  to	           - Specify maximum limit of widget value
+  format	       - Used for format string there is no default value
+  repeatdelay	   - Control button auto repeat which value is given in milliseconds
+  repeatinterval - Similar to repeatdelay which value is given in milliseconds
+  validate	     - Control how widget value is validated
+  values	       - Represent tuple containing values for this widget
+  xscrollcommand	 - Make this widget horizontally scrollable.
+  validatecommand  - Associated with function callback which used for widget content validation
+  disabledbackground	- Disable widget background color
+  disabledforeground	- Disable widget foreground color
+
+ Method :-
+  delete()	 Used to delete characters present at specified range
+  get()	     get characters present in specified range
+  identify() Identify widget's element within specified range
+  index()	   Get absolute value of given index
+  insert()	 Insert string at specified index
+  invoke()   Invoke callback that associated with widget
+
+ 
+
+17)Tkinter PannedWindow :- 
+ - PanedWindow widget acts like a Container widget which contains one or more child widgets 
+   (panes) arranged horizontally or vertically
+ - It is used to implement different layouts in python applications
+ - Child panes can be resized by user, by moving separator lines known as sashes by using mouse
+ - Each pane contain only one widget
+
+ Syntax :- m = PannedWindow(master, bg, bd , cursor, width, height)
+
+ Options :-
+  borderwidth	Represent widget border by default is 2 pixel
+  handlepad	  Represent distance between handle and end of the sash by default is 8 pixels
+  handlesize  Represent size of handle where default size is 8 pixels, However handle will always
+              be square
+  height	    Represent height of widget, If we do not specify it will be calculated by height of
+              child window
+  orient      Set to HORIZONTAL if we want to place child windows side by side, For VERTICAL it 
+              place child windows from top to bottom
+  sashpad	    Represent padding to be done around each sash where default value is 0
+  sashrelief 	Represent type of border around each sash by default is FLAT
+  sashwidth	  Represent width of sash by default is 2 pixels
+  showhandle	Set to True to display handles where default value is false
+
+  Method :-
+   add()	  Add window to parent window
+   get()	  Get text present at specified range
+   config()	Configure widget with specified options
+
+
+
+18)Tkinter LabelFrame :-
+ - LabelFrame widget is used to draw border around its child widgets
+ - We can also display title for LabelFrame widget
+ - It acts like container which can be used to group number of interrelated widgets such as 
+   Radiobutton
+ - This widget variant of Frame widget which has all features of Frame. 
+
+ Syntax :- m = LabelFrame(master, Option)
+
+ Options :
+  Class	      Default value of class is LabelFrame
+  colormap	  Specify which colomap is to be used for this widget
+  container	  If set true LabelFrame becomes container widget by default value is false
+  labelAnchor	Represent exact position of text within widget by default is NW(north-west)
+  labelwidget	It represent widget to be used for label
+
+
+
+19)Tkinter MessageBox :-  
+ - Used to display message on window
+ - There are various functions which are used to display relevant messages depending upon
+   application requirements
+
+ Syntax :- messagebox.function_name(title, message [, options])  
+
+ Parameters :-
+  function_name : Represent appropriate message box function
+  title         : A String which is shown as title of message box
+  message       : It is string to be displayed as message on message box
+  options :-
+   default - Used types of default button such as ABORT, RETRY, or IGNORE in message box
+   parent  - Specifies parent window on which message box is to be displayed
+
+
+ Method :- All method used with same syntax but have specific functionalities which Show 
+           appropriate message boxes
+  
+  showinfo()    - Show some relevant information to user
+  showwarning() - Display warning to user
+  showerror()   - Display error message to user
+  askquestion() - Used to ask some question to user which can be answered in yes or no
+  askokcancel() - Confirm user's action regarding some application activity
+  askyesno()    - Ask user about some action to which, user can answer in yes or no
+  askretrycancel() - Ask user about doing particular task again or not

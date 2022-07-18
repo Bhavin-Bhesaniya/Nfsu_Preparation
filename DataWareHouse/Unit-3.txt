@@ -1,0 +1,270 @@
+Unit- 3
+===================================== Question - 1 1 Marks =====================================
+1. SSMS Stands for?                         - SQL Server Management Studio
+2. SSIS Stands for?                         - SQL Server Integration Services
+3. SSDT Stands for?                         - SQL Server Data Tools
+4. SSRS Stands for?                         - SQL Server Reporting Services
+5. SSAS Stands for?                         - SQL Server Analysis Services
+4. ETL Stands for?                          - Extract, Transform and Load
+5. In SSIS, Extension Of Package is ____    - .dtsx 
+6. List out container control in SSDT       - Sequence, For Loop, and Foreach Loop Container
+7. SMO Stands for?                          - SQL Server Management Object
+8. OLEDB Stands for?                        - Object Linking and Embedding, Database
+
+9. What is DataStaging?
+ - DataStaging is an intermediate storage area used for data processing during ETL process                     
+
+===================================== Question - 2 3 Marks =====================================
+1. Explain Sequence container control?
+ - Sequence container in SSIS is useful for grouping tasks together
+ - Each flow containing one or more tasks and containers that run within overall package control flow
+ - If Sequence container includes more than one task or container, connect them using precedence constraint
+ - We consider Sequence container as subset of SSIS package
+ - It acts as single control point for the tasks defined inside container
+ - Sequence container Grouping tasks so that you can disable part of package that’s no longer needed
+ - Managing multiple tasks properties in one location by setting properties in Sequence container
+ - Providing scope for variables that work with group related tasks
+ - It Follows parent-child relationship with underlying task
+
+
+
+2. What is Flat File?
+ - Flat file is type of database where collection of records follow uniform data format
+ - It was developed and implemented in early 1970s by IBM
+ - Database is Flat because every line hold one data input, depending on categorization of column
+ - Flat file databases store plain text records and binary files that are needed for a specific purpose
+ - In Flat file All records are stored in one place for easy to understand and sort record
+ - Most common flat file example :- Comma-Separated Value (CSV) file 
+ - First row in database contains keys and fields to identify categorize data
+ - Rows represent data points where each row is collection of cells—represents single record
+ - Different columns in record use tab or comma to delimit fields
+ - Flat file database does not have multiple tables, unlike in relational database
+ - Information contained in flat files does not have associated paths or folder
+ - Because of flat structure data in flat file cannot be manipulated or analyzed easily without being
+   imported into another application
+
+
+
+3. Explain SSIS Task?
+ - SSIS stands for SQL Server Integration Services
+ - It is component that available in Microsoft SQL Server database software
+ - Different types of tasks perform different kinds of work
+ - SSIS also contains graphical tools and window wizards workflow function 
+ - It perform wide range of transformation and integration tasks
+   
+ Types Of SSIS task :-
+  Execute SQL Task     :- Used to execute SQL statement
+  Execute Package Task :- Used to call other packages within same project
+  Execute Process Task :- Allow us to run application or batch script as SSIS
+  Script Task          :- Allow us to write .Net code to perform operations
+  FTP Tasks            :- Perform operations on files and folders on server
+  File System Task     :- Perform manipulations in file system such as moving files, deleting files, renaming files, 
+  Data Flow Task       :- Used to read data from one or multiple data sources, transform data and load data
+                          to one or more destinations
+  Analysis Services Processing Task :- Used to process objects of SSAS cube or Tabular model
+
+
+
+4. Give list of components of Data-Flow task?   
+ - DataFlow task encapsulates data flow engine that moves data between sources and destinations
+ - DataFlow consists of at least one data flow component but it is typically set of connected data flow component
+ - Run time DataFlow task builds execution plan from DataFlow and DataFlow engine 
+ - Data Flow task can also include multiple data flows if data copied order is not significant 
+ - However Dataflow engine determines order of execution when there are multiple data flows within one Dataflow task
+
+ SSIS Dataflow Component :- 
+ - Classified into DataConnection and DataTransformation
+  1)DataConnection
+    Favorite      :- Find source and destination assistant for creating provider to database table or some file
+    Other Sources :- Helps to choose connection provide such as ADO.NET Source, Flat file, OLE DB, ODBC, XML, Excel
+    Other Destination :- Data export to OLE DB Destination, SQL Server, ADO.NET, Flat file, Excel
+
+  2)DataTransformation 
+    Common :- Find ommonly used tools for data transformation such as data conversion, derived column, etc.
+            - OLE DB Command, Multicast Component, Script Component, Merge Join, Uninon all 
+    Other Transformation :- Audit, DataMining Query, Pivot, DQS Cleansing, Cache Transform
+
+
+
+5. Give basic Steps for creating Package and Run it?
+ - Package is collection of connections, control flow elements, data flow elements, event handlers, variables, 
+   parameters and configurations
+ - That assemble using either graphical design tools that SSIS provides or build programmatically
+
+ Steps to create package :- 
+  - Open Visual Studio --> Create New Project 
+  - In Project dialog box expand Business Intelligence --> Select Integration Services Project 
+  - Change default name to BCA-6 exam
+  - Accept Default location or Select Browse to locate folder you want to use --> Click OK
+  - By default empty package created with title Package.dtsx and added to your project under SSIS Packages
+ 
+ Run SSIS Package :- 
+  - Solution Explorer 
+  - Right-click Integration Services project that contains package 
+  - Open package that you want to run 
+  - Click Start Debugging on menu bar or press F5
+  //ADO.NET --> Multicast --> Flat file
+  
+
+
+6. Write Step to insert record into table using For loop container control 
+ - In SSIS For-loop is looping implementation of task by which task will evaluate expression and loop process 
+   until evaluation becomes False
+ - Statements that executed within ForLoop Container are in form of SSIS tasks like Execute SQL Task, Script Task etc.
+  
+ Step :-
+  - Create Integration Services project  
+  - Drag and drop For Loop Container 
+  - Before processing set 2 variables that will be used in loop process
+  - To create variable go to View --> Other windows --> Variable and assign values
+  - Double click for loop container it will open container configuration
+
+   Add configuration as below :-
+    InitExpression - @Increment = 1
+    EvalExpression - @Increment <= @Count     // Here count = 10 so insert same record 10 time
+    AssignExpression - @Increment = @Increment + 1
+  
+   Write code in SQL Server Management Studio :-
+    use northwind
+    go
+    Create table if not exists bhavin(name varchar(20), email varchar(20))
+    insert into bhavin values("Youtube", "google@gmail.com")
+    Select * from bhavin
+  
+  - Configure For Loop Container with SQL Server Management Studio
+  - Execute Package it will insert 10 record
+  - To check Package executed properly or not go to query analyzer
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Explain Control Flow?
+ - Control flow define tasks that performing data management operations 
+ - It define operation and conditions for task under which they will be executed
+ - Exeuction order is defined by how individual tasks are connected to eachother
+ - Task that not follow any preceding task as well as tasks that follow same preceding task are executed in parallel
+ - SSIS package consists of at least one control flow task and optionally one or more DataFlow
+ - To accessed SSIS package we need to Documenting it
+ - Documenting Define name for Control task add more about task in Description field or add annotation
+
+ Types of control flow elements :-
+  Containers  
+   - Provide package structure to task
+   - Support repeating control flow tasks and grouping into meaningful units 
+   - Single container can be created inside another container along with additional tasks
+   - Sequence, ForLoop, ForEachLoop are containers 
+
+  Control flow tasks :- 
+   - Perform high level of operations such as sending email message, executing SQL statement or copying file from FTP 
+   - If package contain more than one control flow task, they are connected and sequenced with precedence constraint
+   - When control flow task is finished, it either succeeds or fails
+
+  Precedence constraints :- 
+   - Connect tasks and container inside control flow 
+   - Specify condition that determines whether task will run or not
+   - It can be configured by logical AND or logical OR expressions and succeed or fail
+   - One task connected to another with multiple precedence constraints
+  
+  SSIS Task :-
+   - About SSIS task in Above Question
+
+
+
+2. Write Note on ETL? 
+ - ETL stands for Extract, Transform and Load
+ - It is process in which ETL tool extracts data from various data source systems, transforms it in staging area and 
+   then finally loads it into Data Warehouse
+ - ETL process managed by set of rules, sequence and logic store in metadata
+
+ Diagram :- Extract Source(RDBMS,FILES)  --> Staging area(Transform) --> Datawarehouse(Load)
+
+ Extract :-
+  - First step of ETL process is extraction. 
+  - Data from various source systems is extracted which can be in various formats like relational databases, No SQL,
+    XML, and flat files into staging area. 
+  - It important to store extract data into staging area before load into DW because extracted data is in various
+    formats and can be corrupted also
+  - Loading data directly into data warehouse may damage it and rollback will much more difficult
+
+ Transformation :- 
+  - Second step of ETL process is transformation
+  - In this step Set of rules or functions are applied on extracted data to convert it into single standard format
+  - It involve following processes/tasks :- 
+    Filtering – Filter data based on certain attributes
+    Cleaning  – Filling up NULL values with default values and mapping it
+    Joining   – Joining multiple attributes into one
+    Splitting – Splitting single attribute into multiple attributes
+    Sorting   – Sorting tuples on basis of some attribute(generally key-attribute)
+
+ Loading :- 
+  - Third and final step of ETL process is loading
+  - In this step Transformed data finally loaded into data warehouse
+  - Data in DW updated very frequently and sometime done after longer but regular intervals
+  - Rate and period of loading solely depends on requirements and varies from system to system
+ 
+
+
+3. Explain Foreach loop container Control with Example?
+ - Loops are used to execute one or more statements repeatedly until specific condition satisfied
+ - Foreach Loop Container is more complicated than ForLoop Container because its require more complex configuration
+ - It repeat control flow task for N number of times
+ - SSIS provides eight types of enumerators
+
+ - Select enumerator type from collection tab within SSIS Foreach Loop Container editor :
+  Foreach item enumerator - Loop Set of items that defined manually within SSIS Foreach Container
+  Foreach File enumerator - Loop files within specific directory
+  Foreach ADO enumerator  - Loop rows in ADO Recordset
+  Foreach SMO enumerator  - Loop SMO objects as available servers
+  Foreach NodeList enumerator      - Loop result set of XML Path Language (XPath) expression
+  Foreach HDFS File enumerator     - Loop files that located within Hadoop distributed file system
+  Foreach from Variable enumerator - Loop items that stored within SSIS variable type object
+
+ Example :-
+  - Add vendor and product text file to SQL Server
+  - Drag and drop Flow task, flat file source --> Configure file
+  - Right-click Flat File --> Goto Edit option → Connect file in Connection Manager
+  - Check column -> Click OK 
+  - Drag and drop ADO.NET Destination for store text file data in SQL Server
+  - Right-click ADO.NET Destination → Goto Connection Manager → New
+  - Enter Server name and Database name -> Click OK
+  - Configure properties to insert data check mapping --> Click OK
+  - Select ForEachLoop -> Create variable -> Configure ForEachLoop
+  - Go to Collection Select Foreach File Enumerator -> Select created variale
+  - Go to DataFlow --> Right-click on flat file connection manager properties
+  - Set expression -> Select Connection string and go to Expression
+  - In Expression drag and drop variable --> Set Delay ValidationsTRUE 
+  - Then run packag -> Check table in SQL Server
+
+
+
+4. Explain How to create dynamic packages?
+ - When develop package in Microsoft SSIS its good practice to make each task or transformation as dynamic as possible
+ - It Enable to move package from one environment to another without opening and changing package
+ - SQLServer 2012 provide two feature such as parameters and project-level connection managers which set 
+   values dynamic at runtime
+ - Two Types of parameters available :- Project, Package
+ - Parameter Allow you to assign values to properties within package at time of package execution
+ - Use and set parameters only in project deployment model
+ - When using project deployment model, project deployed to Integration Services Catalog
+
+ Defining Parameters :-
+  - Create project parameters by selecting Project.params in solution explore under project name
+  Specify parameters property :-
+    Name      :- Name of parameter, first character must be letter or underscore
+    DataType  :- Paramert Data type
+    Value     :- Assign parameter value at design time
+    Sensitive :- If true, parameter value are encrypted in catelog
+    Required  :- Default specified before package can be executed
+    Description :- For Maintainability description of parameter
+  
+ Example :- In this example we use Package Level Parameters to filter source data  
+  - Start SSDT Open Project --> Open Package  --> Select parameters tab 
+  - Click Add parameter button on toolbar
+  - Name parameter pYear  --> Set datatype to int16 --> Set value 2002
+  - Click Dataflow tab 
+  - Open Person OLEDB Source Adapter --> Change data access mode to SQL Command and enter following query   
+  - Query :- Select * from Person.Person where year(ModifiedDate) >= ?
+  - Click parameter button to set Query parameter dialog box
+  - For variable property, select $Package::pYear parameter as source for query parameter
+  - Execute package and observe number of rows displayed in data flow area
+  - Change parameter value to 2008 and execute package

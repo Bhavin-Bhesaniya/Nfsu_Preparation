@@ -1,0 +1,296 @@
+Unit- 2
+===================================== Question - 1 1 Marks =====================================
+1. Fact table contains only numeric facts(True/False)        - False
+2. Primary key use in ____ table                             - Dimension table
+3. Foreign key use in ____ table                             - Fact table
+4. DataWareHouse store ____ data                             - Historical data
+
+5. List out types of entity relationships?
+ - One-to-One 
+ - One-to-Many 
+ - Many-to-One 
+ - Many-to-Many 
+
+6. What is role playing dimension?
+ - Table with multiple valid relationship between itself and another table known as role-playing
+
+7. What is Fact Table?
+ - Contain all facts or business information which can be subjected to analysis and reporting activities when required
+
+8. Where fact table is located in database?
+ - It is located at center of star schema or snowflake schema surrounded by dimension tables
+
+9. Where Dimension table is located in database?
+ - Located at the edge of star schema or snowflake schema
+
+10. What is Star schema?
+ - Star schema is data warehousing architecture model where one fact table references multiple dimension tables
+
+11. What is SnowFlake schema?            
+ - One or more dimension tables do not connect directly to the fact table but must join through other dimension tables
+
+12. What is Primary key?
+ - Primary is single column value used to identify database record uniquely
+
+13. What is Foreign key?
+ - Foreign Key references primary key of another Table
+ - It ensures rows in one table have corresponding rows in another
+
+
+===================================== Question - 2 3 Marks =====================================
+1. What is DataSource?
+ - Data source is location where data used in originates from
+ - It may be initial location where data is born or where physical information is first digitized
+ - Data source may be database, flat file, live measurements from physical devices, scraped web data etc.. 
+ - In DBMS primary data source is database which located in disk or remote server
+ - Most commonly used in context with databases and DBMS or any system that primarily deal with data 
+ - Data Source Name (DSN) defined in application so that it can find location of data
+ - In short Data source means where data is being coming from
+
+
+
+2. What is Data Compression?
+ - Process of converting bits structure of data in such way that it consume less space on disk
+ - It is also known as source coding or bit-rate reduction
+ - Enable sending data object or file quickly over network or Internet
+ - Optimizing physical storage resources
+ - It wide implementation in computing services and solutions specifically data communications
+ - Several compressing techniques and software solutions that utilize data compression algorithm to reduce data size
+ 
+ Method :- 
+  lossless
+   - Enable restoration of file to its original state, without loss of single bit of data when file is uncompressed
+   - Work with executable as well as text and spreadsheet files, where loss of word or number change the information
+
+  lossy compression
+   - Permanently eliminates bits of data that are redundant, unimportant or imperceptible
+   - Useful with graphics, audio, video and images where removal of some data bits has little or no discernible effect
+     on representation of content
+ 
+
+
+3. Explain Fact table with its type? 
+ - Fact Table is central table in star schema or snowflake schema
+ - It store Measurements, metrics or facts about business process
+ - Also stores quantitative information for analysis and is often denormalized
+ - Works with dimension tables and holds its data to be analyzed
+ - Fact table consists of two types of columns :-
+   - Foreign Key
+   - Measure Key 
+ - Foreign keys allow to join with dimension tables 
+ - It ensures rows in one table have corresponding rows in another 
+ - Measure columns contain data that is being analyzed
+    
+ Types :-  
+  Transaction Fact Tables :-
+   - Fundamental view of business operation
+   - Represent event that occurred at an instantaneous point in time
+  
+  Snapshot Fact tables :-
+   - Describe thing in particular instance of time
+   - Store more semi-additive and non-additive fact
+   
+  Accumulated Fact Table :-
+   - Show activity process that has well-defined beginning and end
+   - For example processing of an order 
+   - Order moves through specific steps until it is fully processed
+
+  Fact-less :-
+   - Table which store transaction but not contain measures called Fact-less table
+   - Used to capture action of business process 
+
+
+
+4. Explain Dimension table with its type?       
+ - Dimension table stores attributes or dimensions that describe objects in fact table
+ - Dimension is collection of reference information about measurable event
+ - It has primary key columns that uniquely identifies each dimension
+ - It implements Dimensional Modelling(DM)
+ - DM is data structure technique optimizing data storage in Data warehouse
+ - Surrogate key is system generated key which uniquely identify rows in dimension
+ - Dimension tables are de-normalized tables
+ - dimension can also contain one or more hierarchical relationships
+
+ Types of Dimension table:-
+
+  Junk Dimension :
+   - Single fact table with combination of attributes to avoid multiple foreign keys
+   - It manage foreign dimensions which are created by rapidly changing dimensions
+
+  Stacked Dimension :
+   - Used where two or more dimension are combined with aspect
+   - Stacked dimension has one or two attributes
+
+  Deferred Dimension :
+   - When loading fact record, dimension record may not be ready yet
+   - It is technically called an inferior member but is often called as sensible dimension
+
+  Role-playing Dimension     :- Same dimension key includes more than one foreign key in fact table
+  Distored Dimension         :- Used in many places called distorted dimension
+  Degenerate Dimension       :- When dimension attribute stored as part of fact table but not in separate dimension
+  Slowly Changing Dimension  :- Depends on business requirement
+  Rapidly Changing Dimension :- Provide Solution for moving attribute to its dimension with different foreign key
+  Static/ Fixed Dimension    :- Not extracted from real data source but created in data warehouse context
+
+
+
+5. Difference between Dimension table and Fact table?
+ - Fact table contains measurements, metrics and facts about business process while Dimension table contains 
+   descriptive attributes to be used as query constraining
+ - Fact table located at the center of star or snowflake schema, whereas Dimension table is located at the edges of
+   star or snowflake schema
+ - Fact table is defined by their grain or its most atomic level whereas Dimension table should be wordy, descriptive, 
+   complete, and quality assured
+ - Fact table helps to store report labels whereas Dimension table contains detailed data
+ - Fact table does not contain hierarchy whereas the Dimension table contains hierarchies
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Explain Star schema with example?
+ - Star schema is relational multidimensional schema in which data are organized into facts and dimension table
+   to build data warehouse or dimensional data mart
+ - Fact is event that counted or measured such as sales or log in
+ - Dimension includes reference data about fact such as date, item or customer
+ - Center of schema consists of large fact table and points of star are dimension tables
+
+ Diagram :-             
+              Dimension   
+    Dimension   Fact   Dimension
+         Dimension  Dimension  
+
+
+ Characteristics :-
+  - Create DE-normalized database for quickly query responses
+  - Flexible design so it can be changed easily throughout development cycle
+  - Provide parallel-design to how end-users typically think and use data
+  - Reduce complexity of metadata for both developers and end-user
+
+
+ Advantages of Star Schema :-
+  - Query Performance
+  - Load performance and administration
+  - Built-in referential integrity
+  - Easily Understood
+  
+ Disadvantages :-
+  - Data integrity is not enforced well because database is de-normalized
+  - Not flexible for analytical 
+  - Do not reinforce many-to-many relationship 
+
+ Example :-
+  TIME table     :-  Time_Key, Day
+  ITEM table     :-  Item_Key, Item_name
+  BRANCH table   :-  Branch_key, branch_name
+  LOCATION table :-  Location_Key, Street Address
+
+ Diagram :-
+    Time(Dimension)                      Item(Dimension)
+      Time_Key                              Item_key
+      Day              Sales FactTable      Item_name
+                         Time_Key
+                         Item_key
+                         Branch_Key 
+    Branch(Dimension)    Location_Key    Location(Dimension)
+      Branch_Key         Unit_Sold          Location_Key                           
+      Branch_name                           Street Address
+
+
+
+2. Explain SnowFlake Schema with example?
+ - Logical arrangement of tables in multidimensional database such that ER diagram reassembles in snowflake shape
+ - It is an extension of Star Schema because it adds additional dimensions tables
+ - Snowflake one or more dimension tables not connect directly to fact table but join through dimension table
+ - Dimension tables are normalized table which splits data into additional tables
+ - Tables in snowflake schema are generally normalized to third normal form
+ - Each dimension table performs exactly one level hierarchy
+ - Snowflaking method used to normalizing dimension tables that helps to develop specific queries
+ 
+ 
+ Characteristics of Snowflake Schema :- 
+  - Use smaller disk space
+  - Easier to implement dimension in Schema
+ 
+ Diagram :- 
+    Dimension          Dimension
+    Dimension   Fact   Dimension
+    Dimension          Dimension
+
+ Advantage of Snowflake Schema :-
+  - Minimized disk storage requirements
+  - Joining smaller lookup tables
+  - Provide Scalability in inter-relationship dimension components
+  - No redundancy so easier to maintain
+
+ Disadvantage of Snowflake Schema :-
+  - Additional maintenance required due to increasing number of lookup tables
+  - More complex queries so Difficult to understand 
+  - Query performance is reduced
+
+
+
+3. Explain Logical design for data warehouse?    
+ - Logical design is second stage in database design process
+ - Use to design enterprise database based on specific data model but independent from physical-level details
+ - Requires all objects mapped in conceptual model to specific constructs used by selected database model
+
+ Logical Design Process :-    
+  Define Conceptual model :- 
+   - Based on business requirements create conceptual model
+   - Conceptual data model understand needs and requirements of database
+
+  Map conceptual model to logical model components :-
+   - Translating ER model into set of relations(tables), columns and constraints definition
+   - Draw tables based on different schema patterns like Star and Snowflake
+     
+  Validate logical model using normalization :-
+   - Logical design should contain only normalized table
+   - For each table, must ensure that all attributes are fully dependent on primary key and that tables in at least
+     Third normal form(3NF)
+   
+  Validate logical model integrity constraints :-
+   - Specifiy integrity constraints known as entities and attribute 
+   - Entity represents chunk of information and in relational databases often maps to table 
+   - Attribute component of entity that helps to define uniquenes of entity that map to column in relational database
+
+  Validate logical model against user requirements :-
+   - Validate all logical model definition against end-user data, transaction and security requirement
+   - Stage is set to define physical requirements 
+   - Allow system to function within selected DBMS/hardware environment
+
+
+
+4. Explain Physical design for data warehouse?  
+ - In Physical design we create Tables, indexes, Integrity Constraints, materialized view, dimensions, and columns
+ - During logical design phase we defined model for DW which containing entities, attributes and relationship
+ - Entities are linked together using relationships
+ - Attributes are used to describe entities
+
+ Physical Design Structures :-
+  - Once converted logical design to physical one, need to create some or all of following structures :-
+    
+  Tablespaces :-
+   - Tablespaces are containers for physical design structures
+   - It Contain one or more DataFiles which are physical structures within os
+   - Datafile is associated with only one tablespace
+
+  Tables and Partitioned Tables :-
+   - Basic unit of data storage container for expected amount of raw data in Data Warehouse
+   - Using Partitioned tables that Allowing divide larger tables into smaller and more manageable pieces
+  
+  Table Compression :-
+   - Save disk space by compressing heap-organized tables which speed up query execution
+   - To reduce disk and memory use, Store partitioned tables in compressed format inside database
+
+  Views :-
+   - View is tailored presentation of data contained in one or more tables or other views
+   - It take output of query and treats it as table
+   - Views not require any space in database
+   
+  Integrity Constraints :-
+   - Used to enforce business rules associated with database
+   - Prevent having invalid information in table
+
+  Dimensions :-
+   - Define object-hierarchical relationship between columns
+   - Hierarchical relationship is functional dependency from one level of hierarchy to next one
+   - It is container of logical relationships and not require any space in database

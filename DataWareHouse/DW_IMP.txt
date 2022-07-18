@@ -1,0 +1,53 @@
+DataWareHouse :-By Bhavin Bhesaniya
+Unit-1
+ 3 Marks
+  1)Explain Data Flow Architecture
+  2)Explain DataWareHouse Today & Explain Future trends of Data Warehouse
+  3)What is Normalization data store
+  4)What is DataMart
+
+ 5 Marks
+  1)Explain DataWareHouse Architecture
+  2)Explain DataWareHouse and its characteristics 
+
+Unit-2
+ 3 Marks
+  1)Explain Fact table with its type
+  2)Explain Dimension table with its type
+
+ 5 Marks
+  1)Explain Star schema with example
+  2)Explain SnowFlake Schema with example
+
+Unit-3
+ 3 Marks
+  1)Explain Sequence container control
+  2)What is Flat File
+  3)Give basic Steps for creating Package and Run it
+  4)Write Step to insert record into table using For loop container control
+ 
+ 5 Marks
+  1)Write Note on ETL
+  2)Explain Control Flow
+
+Unit-4
+ 3 Marks
+  1)What is clustering in knowledge Base Management
+  2)Explain Data Quality
+  3)Explain Data Quality service to Match data? Draw Diagram
+  4)Explain DQS and Features of DQS
+
+ 5 Marks
+  1)Difference between script task vs Component task?
+  2)Explain Dataquality process with diagram?
+
+Unit-5
+ 3 Marks
+  1)What is DataMining
+  2)What is Data analysis
+  3)How to enabling CLR on the SQL Server Instance
+
+ 5 Marks
+  1)Explain Business Intelligence
+  2)Write step how to create report using report wizard
+  3)Write step for planning package in SSIS with Foreach loop 

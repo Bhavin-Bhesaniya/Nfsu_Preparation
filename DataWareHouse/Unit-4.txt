@@ -1,0 +1,301 @@
+Unit- 4
+===================================== Question - 1 1 Marks =====================================
+1. DQS Stands for?                            - Data Quality Services
+2. DQAF Stands for?                           - Data Quality Assessment Framework
+3. List out DQS Component?                    - Data Quality Server | Data Quality Client
+4. BIDS Stands for?                           - Business Intelligence Development Studio
+
+1. Types of project provided by DQS Client? List out it?
+ - Cleansing Activity 
+ - Matching Activity
+
+2. What is Data Profiling?      
+ - Data profiling is the process of reviewing source data, understanding structure, content, interrelationships 
+   and identifying potential of data for project
+
+3. What is Data cleansing?
+ - Process of fixing or removing incorrect, corrupted, incorrectly formatted, duplicate data within dataset
+
+4. What is Data Quality Client?
+ - Standalone application that enables you to perform knowledge management, data quality projects and administration 
+   in one user interface
+
+5. What is Data Quality Server?
+ - Component of DataQuality Services provide server configuration for DataQuality Client
+
+6. What is Data Monitoring?
+ - Data monitoring is category of oversight mechanisms that monitor and ensure quality on each data instance created
+   utilized and maintained within an organization
+
+7. What is Data Transformation?
+ - Process of converting data from one format or structure into another
+
+
+===================================== Question - 2 3 Marks =====================================
+1. Explain DQS and Features of DQS?
+ - Data Quality deals with accuracy, completeness, timeliness, consistency and trust on data
+ - SQL Server 2012 Data Quality Services (DQS) is data quality product provided by Microsoft 
+ - DQS enables to perform variety of critical data quality tasks such as correction, standardization and de-duplication
+ - Also enables to perform data cleansing using cloud-based reference data services provided by reference data provider
+ 
+ Features :-
+  Cleansing   :- Remove incorrect or incomplete data using both computer-assisted and interactive processes
+  Matching    :- Identification of duplicates record in rules-based process that enables you to perform de-duplication
+  Profiling   :- Analysis of data source to provide insight into quality of the data at every stage 
+  Monitoring  :- Tracking and determination of the state of data quality activities
+  Knowledge Base :- Analyzes data based upon knowledge that you build with DQS  
+  Reference Data Services :- Verification of quality of your data using services of reference data provider
+ 
+
+
+2. What is clustering in knowledge Base Management?
+ - Process of combining more than one servers or instances that connecting single database
+ - Sometime one server not be able to manage amount of data or number of request that is when Data Cluster is needed
+ - Database clustering, SQL server clustering and SQL clustering are closely associated with SQL language used to
+   manage database information
+ - All requests are split with many computers so that individual user request is executed and produced by number of
+   computer systems
+ - If one node collapses, request is handled by another node
+ - Consequently there are few or no possibilities of absolute system failures
+ - Clustering is serviceable definitely by ability of load balancing and high-availability
+ 
+ Main reasons for database clustering :- 
+  - Data redundancy 
+  - Load balancing 
+  - High availability 
+  - Monitoring 
+  - Automation
+ 
+ 
+ 
+
+3. Explain Data Quality?
+ - Data quality defined as degree to which data meets company’s expectations of accuracy, completeness and consistency
+ - By tracking data quality, business can pin point potential issues harming quality and ensure that shared data is
+   fit for given purpose
+ - When collected data fails to meet company expectations it can have massive negative impacts on customer service
+   employee productivity and key strategies
+ - Quality data is key to making accurate, informed decisions
+ - More good data machine learning algorithm produce faster and better result
+
+ Characteristics :-
+  - Integrity
+  - Uniqueness/Deduplication
+  - Accessibility 
+
+ Dimensions of DQS :-
+  Accuracy :
+   - How well data describe real-world conditions
+   - Inaccurate data creates problems and it cause incorrect conclusion
+
+  Completeness :
+   - If data is incomplete, you might have trouble gathering accurate insights from it 
+   - If someone skip some questions survey, it may make rest of information less useful
+
+  Relevancy :
+   - Data you collect should also be useful for initiatives you plan to use it for 
+   - Even if information you collect has all other characteristics of quality data, if it’s 
+     not relevant to your goals it’s not useful to you.
+
+  Validity :
+   - Data is valid if it in right format
+   - If data does not meet these criteria, it might trouble into organizing and analyzing it
+  
+  Timeliness :
+   - How recently data event represent
+   - Generally, data should be recorded as soon after real world event as possible
+   - Data typically becomes less usefull and less accurate as time goes on 
+
+  Consistency :
+   - When comparing data item or its counterpart across multiple data sets or databases, it should be same
+   - Lack of difference between multiple version of single data item referred to as consistency
+
+
+
+4. Explain DQS Component?
+ Data Quality Server :-
+  - Data Quality Server is implemented as three SQL Server catalogs DQS_MAIN, DQS_PROJECTS and  DQS_STAGING_DATA
+
+  DQS_MAIN     :- Includes DQS Stored Procedures, DQS engine, and published Knowledge Bases
+  DQS_PROJECTS :- Include data that required for KnowledgeBase Management and DQS project activity
+  DQS_STAGING_DATA :- Provide intermediate staging database where you copy source data to perform
+                      DQS operations and then export processed data
+
+ Data Quality Client :-
+  - Standalone application that enable to perform knowledge management DataQuality project and administration in one 
+    user interface
+  - It can be installed and run on same computer as DQS or remotely on separate computer
+  - Many operations in Data Quality Client are wizard-driven
+  - Both are installed within SQL Server setup program
+
+
+
+5. Explain Knowledge-Driven Solution in DQS?
+ - DQS knowledge base is repository of three types of knowledge : 
+   out-of-the-box knowledge 
+   knowledge generated by Data Quality Server 
+   knowledge generated by user
+ - DQS enables you to store knowledge about your data in knowledge base, add business rules and modify knowledge as
+   you see fit and then apply it to test integrity and correctnes of data
+ - Knowledge base stores all related type of data source knowledge
+ - Knowledge contained one or more data domains each of which is representation semantic type of data in data field
+ - Domain knowledge include synonym association, term relationship, validation and business rule and matching policies
+ - You can import or export domains or knowledge bases using DQS file 
+ - These operations enable to continually improve knowledge base
+
+ DQS knowledge-driven solution uses two fundamental steps to cleanse data:
+  - Knowledge management process builds knowledge base solution
+  - DataQuality project that Propose change source data based on knowledge in knowledge base
+
+
+
+6. Explain Invalid DQS?
+ - Data quality refers to ability of data set to serve whatever need company hopes to use it for
+ - It could be maintaining database of customer data for help with product support services or any number of other goal
+ - No matter what exact use case for your data, data quality is important 
+ - Without it data can’t fulfill its intended purpose 
+ - Error within database prevent you to reach customer effectively
+ - Best way to think about data quality problems is to recognize them as inevitable
+ - It’s not because data management process is flawed that you have data quality problems
+ - It’s because types of data issues described below are impossible for even best run data operation to avoid
+ 
+ Types of Invalid DQS :-
+  Manual data entry errors
+  OCR errors
+  Lack of complete information
+  Ambiguous data
+  Duplicate data
+  Data transformation errors
+
+
+
+7. Explain Data Quality(DQS) service to Match data? Draw Diagram? 
+ - DQS data matching process enables you to reduce data duplication and improve data accuracy in data source
+ - Matching analyzes degree of duplication in all records of single data source
+ - It returning weighted probabilities of match between each set of records compared 
+ - Matching enables you to eliminate differences between data values that should be equal, determining correct value 
+   and reducing errors that data differences can cause
+ - It Ensure that values that are equivalent, but were entered in different format or style are rendered uniform
+ - DQS enables to create matching policy using computer-assisted process, or knowledge base which is reusable
+ - Also perform data de-duplication using DQS functionality built into Master Data Services
+
+ To perform Data Matching :-
+  - Create matching policy in knowledge base   
+  - Perform de-duplication process in matching activity that is part of data quality project
+
+ In SQL Server we have three types of matching logic :-
+  - exact
+  - fuzzy
+  - rule based
+  
+  exact :-
+   - Matching where all character are same 
+   - Ex:- India and India
+   - In SSIS is done by using Lookup transformation
+
+  fuzzy :-
+   - Finds how similar set of data in another set of data   
+   Ex:- "You can't win" and "You cannot win" 
+   - if you have similarity score greater than 0.75 and confidence level is greater than 0.5 then it's match
+  
+  Rule Based :-
+   - Use certain rules and data to identify match
+
+     
+
+===================================== Question - 3 5 Marks =====================================
+1. Difference between script task vs Component task? Asked everytime  
+ - Script task provide code to perform function that not available in built-in tasks that SSIS provide
+ - Component task used to pause component process until specific action from assigned user resumes process
+
+ Difference :-
+  Control flow/ Data Flow :-
+   - Script task configured on Control Flow tab of designer and runs outside data flow package
+   - Component is configured on Data Flow page of designer and represents source, transformation or destination in 
+     Data Flow task 
+
+  Purpose :-
+   - Script task can accomplish almost any general-purpose task
+   - Component Must specify whether you want to create source, transformation or destination with Script 
+
+  Execution :-
+   - Run custom code at some point in package workflow
+   - Runs once but typically it runs its main processing routine once for each row of data in data flow
+
+  Editor :-
+   - Script Task Editor has three pages: General, Script, and Expressions.
+   - Only ReadOnlyVariables, ReadWriteVariables and ScriptLanguage properties directly affect code that you can write
+   - Component task has Script Transformation Editor has up to four pages: 
+     Input Columns, Inputs and Outputs, Script, and Connection Managers
+
+  Integration with Package :-
+   - Script task use Dts property to access other features of package    
+   - Use typed accessor properties to access certain package features such as variables and connection managers
+
+  Using Variables :-   
+   - Script task uses Variables property of Dts object to access variables that are available
+     through task's ReadOnlyVariables and ReadWriteVariables properties
+   - Component uses typed accessor properties of autogenerated based class, created from
+     component's ReadOnlyVariables and ReadWriteVariables properties
+
+  Logging :- 
+   - Script task uses Log method of Dts object to log information to enabled log providers
+   - Uses Log method of autogenerated base class to log information to enabled log providers
+
+
+
+2. Explain Dataquality process with diagram? 2 time
+ - About Dataquality in above Question 3 Marks
+
+ Aspect of data quality process :-
+  - Checking
+  - Reporting
+  - Correcting 
+
+ Data Quality Process :- 
+  - ETL extract data from source system and loads it into stageing database
+  - Data firewall check data accoring to data quality rules from metadata database
+  - If data satifies DQ rule data is put into ODS
+  - If data fails DQ rule data is passed to DQ database
+  - When data stored in DQ database certain auditing information is recorded such as which rules failed data etc..
+  - DQ read dara report and notifications rule by rule in DQ database and report them to people at regular interval
+  - People fix data so next time in ETL Stage it is correct
+  - Purpose of these notification and report to notify user to get data corrected
+  - Another group whose purpose is to analyze data quality in DW
+  - One indicator of data quality is number of time each rules violated
+  - This analysis can also be done using data quality dashboard
+   
+ Diagram :-
+  Data --> Model --> Analysis --> Verification --> Insight 
+                                               --> Problem Defined
+
+
+
+3. Explain DQS to Cleanse data with example? 3 or 5 Marks
+ - Data cleansing is the process of removing incomplete or incorrect data in data source
+ - DQS Provides two-step process to cleanse data 
+ - Computer-assisted process analyze how data confirm to knowledge in knowledge base 
+ - It is Interactive process that enables data review and modify in process 
+ - DQS Ensure that data cleansing is exactly as they want to be done
+ - Through DQS we standardizes customer data by using domain values, rules and reference data 
+ 
+ Processing DQS :-
+  - New Data Quality Project --> Select Cleansing activity --> Click Next
+  - It Processing in Four steps :- Map, Cleanse, Manage and View Results, Export
+  - Select Source in Mapping 
+  - Select Column and Domain --> Click Next --> Click Start 
+  - It will start to perform cleansing on selected data source --> Show result 
+  - If 100% valid approve data so it can go into corrected data
+  - If invalid then in correct to field we can correct data and then click on approve
+  - Finally all data ready to load in destination
+  - Give destination type and Path --> Click on Export --> Finish
+  - We see that clean data is generated in destination file
+  
+ 
+ SSIS provides transformation component for DQS Cleansing :- 
+  - Right-click on DQS Cleansing 
+  - Open DQS Cleansing Transformation Editor --> Click on Mapping 
+  - Choose column name  --> Select Domains --> Go to connection manager 
+  - Select Data Quality connection manager and Data Quality Knowledge Base --> Click OK --> Click Start 
+  - It Execute package 
+  - We see output in destination file with good data

@@ -1,0 +1,351 @@
+Unit- 5
+===================================== Question - 1 1 Marks =====================================
+1. Android used to Developed Iphone Application True or False?      - False
+2. Iphone application upload in google play store true or false?    - False
+3. MVC Full form                                                    - Model View Controller
+4. Which ide is used to develop iphone application                  - Xcode
+5. JSON Stands for                                                  - Javascript Object Notation 
+6. Which permission require vibrating phone?                        - AudioToolbox.AudioServices
+7. Which method is used to clear notification?                      - removeDeliveredNotification
+8. In which store iphone application will be uploaded?              - App Store
+9. Which Os is used by iPhone?                                      - IOS
+10 Which language is used by developing Iphone application          - Objective-C  
+11 MacOS(Macintosh) first introduced in                             - 1984 
+12 Iphone 6 introduced in                                           - 2014
+13 4Ff                                                              - fourth form factor
+13 Full Form Of IDE                                                 - Integrated Development Environment
+
+
+1 Use of button control - Used to trigger events performed by user
+2 Explain Notification  - Notification provide short, timely information about events outside app such as in title bar
+3 What is Framewrok?    - Platform that provides group related resources together to developing application
+4 What is Simulator?    - Simulator allows to rapidly prototype and test builds of Iphone app during development proces
+5 What is Control State - Describe current interactive state of Control
+6 What is Control event - Represent various physical gestures that user can make on control such as dragging, click
+
+
+===================================== Question - 2 3 Marks =====================================
+1. Explain Button
+ - Used to trigger event performed by user 
+ - Buttons can be of two types :- System and Custom
+ - We can define button type in storyboard file using init( type: ) method
+ - Change button properties in xib in attributes inspector in utilities area 
+
+ Syntax : class UIButton : UIControl
+
+ Attribute :-
+  Type  - Shape of button
+  Title - Set text on button
+  Font  - Set button font size, type
+  Image - Set image on button
+  State Config - Set button state by default is default     
+
+ Example :-
+  UIButton *roundRectButton = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+  [roundRectButton setFrame:CGRectMake(60, 50, 200, 40)];
+
+  // sets title for the button
+  [roundRectButton setTitle:@"Rounded Rect Button" forState: UIControlStateNormal];
+  [self.view addSubview:roundRectButton];  
+
+  ViewController.m :-
+   (void)viewDidLoad {
+    [super viewDidLoad];
+	  [self addDifferentTypesOfButton];
+   }
+
+
+
+2. Explain TextField
+ - Defined as object which used to display editable text area in interface
+ - Textfields are used to get text-based input from user
+
+ Syntax : class UITextField : UIControl  
+
+ Attributes :-
+  text  - Represent current text which Accessed by text property of textfield at runtime
+  color - Represent color of textfield text
+  font	 - Represent font of text field's text, Accessed by font property of textfield object
+  disabled     - Represent background image to display when textfield is disabled
+  borderstyle - Represent visual style of textfield border
+
+ Method :- func textFieldShouldBeginEditing(UITextField) -> Bool
+
+
+
+3. Explain different types of Notification to User?
+ - Notification provide short, timely information about events outside app such as in status bar
+ - Apple provides Three types of notifications in iOS such as :
+   NSNotificationCenter |  UILocalNotification | Remote Notifications 
+ - Notification Center manage notifications since iOS 5
+
+ Notification Center :-
+  - Allow user to control and manage local and remote notification
+  - Allow user to set type of alert displayed, change sound played or even disable notifications
+  - To access Notification Center is window shade, pulled down from status bar 
+  - Other part is accessed from Settings → Notification Center
+  
+ NSNotificationCenter :
+  - Invisible to users but allow one part of app to let another part know something happened and action is required
+  - Use to notify view like downloading data from remote server 
+  - Used in similar way to delegates which notifying different part of app that required action  
+
+
+
+4. Write program to vibrate Phone?  
+ @IBAction func actionButtonOne(_ sender: Any) {
+  AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate)) 
+ } 
+ // For Long Vibration
+ @IBAction func actionButtonTwo(_ sender: Any) {
+  let generator = UIImpactFeedbackGenerator(style: .heavy) / light / medium 
+  generator.impactOccurred() 
+ } 
+ - We using UIImpact Feedback generator to generate three different types of feedback
+ 
+
+
+
+5. List out and explain TextView property 
+ - UITextView is multiline text region which has built-in UIScrollView
+ - It is not just text view but we can edit it, type in it and scroll it
+ - Display text using custom style information and also text editing
+ - Typically display multiple lines of text, when displaying large body of text document
+
+ Syntax :- @MainActor class UITextView : UIScrollView
+
+ Attribute :-
+  font  - Set font properties
+  textcolor - Set text color 
+  textAlignment - Set text alignment for textview 
+  attributeText - Supports multiple text styles
+  isEditable    - Set UITextView is editable or disabled
+
+ Example :-
+  let uiTextView = UITextView()
+  uiTextView.frame = CGRect(x: 0, y: 0, width: 200, height: 150)
+
+ UITextView vs UITextField :-
+  - UITextView is for multi-line input whereas UITextField by default is for single line only
+  - UITextView does not provide placeholder/hint text by default
+
+
+
+6. Explain Cocoa Touch?
+ - Cocoa Touch is user interface framework provided by Apple for developing software for apple products
+ - It primarily written in Objective-C language and based on Mac OS X
+ - It was developed based on MVC architecture
+ - Cocoa is commonly referred as combination AppKit frameworks
+ - Cocoa Touch is combination of UIKit frameworks
+ - Cocoa and Cocoa Touch sit on top of other collections of frameworks to create API stacks
+
+ Features :-
+ Core Animation: 
+  - Helps to create rich user experiences by allowing for smooth movement of visual elements
+  - Also fill in interim frames of animation with automatic timing and adjustment
+  Provide :- OPENGL ES, Core Image, resoultion independence and Photo Library
+        
+ Core Data : 
+  - Provides object-oriented data management solution and application's data model in logical and graphical way
+  Provides :- SQLite, Share Data Among Applications, Access Contacts and Photo
+  
+ Core Audio : 
+  - Profressional-grade technology for playing, processing and recording audio, makeing it easy
+  Provides :- MediaPlayer, HTTP Live Streaming, AV Foundation
+
+ User Applications       :-  Address Book, Core Location, Map Kit, Store Kit
+ Graphics and Animation  :- Core Animation, OpenGL ES, Quartz 2D
+ Networking and Internet :- Bonjour, WebKit, BSD Sockets
+
+
+
+7. Write Code to Display hello on Label using button click in Iphone? 
+ import Cocoa
+ class ViewController: NSViewController {
+  @IBOutlet var strLabel: NSTextField!
+    override func viewDidLoad() {
+      super.viewDidLoad() 
+    }
+    override var representedObject: AnyObject? {
+      didSet {   
+    }
+  }
+  @IBAction func printHello(sender: AnyObject) {
+    strLabel.stringValue = "Hello World !!!" }   
+  }
+
+
+
+8. Explain view controller?
+ - ViewController manages hierarchy of views
+ - It is foundation of Application's internal structure
+ - It Responsible for displaying data of iOS application on screen
+ - ViewController is parent for all views present on storyboard
+ - Acts as interface between its Views (created by developer) and application data
+ - Each application has at least one ViewController
+ - It facilitates transition between various parts of user interface
+ 
+ - Each ViewController in Storyboard assigned Class that inherits UIViewController class
+ - UIViewController is parent class of all ViewControllers
+ - It defines all methods and properties for managing our views
+ 
+ Types of ViewControllers :-
+  Content ViewController : 
+   - Main type of View Controllers that we create
+   - Hold content of Application screen
+   - It manages discrete piece of application content
+   - Also manages all Views itself
+ 
+  Container ViewController :  
+   - Acts as parent View Controller which collects information from child view controllers for navigation
+   - Container ViewController only manages RootView which incorporates one or more Child ViewControllers
+ 
+
+
+9. Write in detail : StoryBoard                              
+ - Storyboard is visual representation of user interface of an iOS application
+ - It introduced in iOS 5 which save time to building user interface
+ - Allow us to create prototype and design for multiple view controller within one file
+ - Also create transitions between view controllers
+ - Before storyboard we only can use one XIB file per view
+ - Storyboard is composed of sequence of scene, each of represent view controller and its views
+ - Scenes are connected by segue objects which represent transition between two view controllers
+ - Storyboard enables to connect view to its controller object and manage data transfer between view controllers
+ - Storyboard is recommended way to design user interface of because they enable to visualize appearance and flow of 
+   user interface on one canvas
+ - When use storyboards deployment target should be 5.0 or higher
+ - Storyboards all screens interconnect under one interface MainStoryboard.storyboard
+ - Also helps in reducing coding of pushing/presenting view controllers
+ 
+ - Xcode provides visual editor for storyboards
+ - Here design user interface for application by adding view such as buttons, table views and text views 
+ 
+
+
+10. Write program to show textField data inside label Using Iphone?
+ import UIKit  
+ class ViewController: UIViewController { 
+  @IBOutlet weak var inputField: UITextField!
+  @IBOutlet weak var echoLabel: UILabel!
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    echoLabel.text = inputField.text
+  }
+  @IBAction func refreshEcho(_ sender: UITextField) {
+    echoLabel.text = sender.text
+  }
+ }
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. What is Xcode with features and application type?
+ - Xcode is integrated development environment(IDE) developed by Apple for developing software for apple products
+ - It is only officially-supported tool for creating and publishing apps to Apple’s app store
+ - Xcode includes all tools needed to create app within one software package
+ - With Xcode write, compile and debug app and when finished submit it to Apple app store
+ - Xcode supports huge variety of programming languages such as Objective-C, Swift
+ - It uses Cocoa, Carbon and Java programming models
+ - Xcode give developer one single window in which to work
+
+ Application Type :-
+  Master Detail  - Template with pre-created Parent-child views with navigation controller for different orientation
+  Page based     - Similar to iBooks app
+  Single View    - Starter template with single view, able to Add multiple view whenever required
+  Tabbed application - View controller with tab bar at bottom of the screen
+
+ Features :-
+  Source Editor    | Simulator    |  Compilers            | Asset Catalog          | XCTest Framework 
+  Assistant Editor | Open Quickly |  OpenGL Frame Capture | Complete Documentation | Graphical Debugger
+  Interface Builder Built-In      |   Integrated Build System 
+  
+
+
+2. Write Step to create iphone application?
+ - Launch Xcode --> Create new project(File-> New -> Project)
+ - Xcode open new window and display dialog in which you choose template
+ - Select Single view application template
+ - Provide product name and organization identifier because it used to create bundle identifier that identifies app
+   throughout system
+ - Enter Organizational name If you don’t belong to organization, enter your name
+ - Click ok -> Main window appears, showing necessary files and resources for developing app
+
+
+
+3. Explain MVC(Model-View-Controller) Framewrok in details        
+ - MVC is Software architectural pattern
+ - Separates application into three main logical components Model, View, Controller
+ - It define way for objects to communicate with each other
+ - Each of these three separated from each others by abstract boundaries
+ - Application with MVC design are also more easily extensible than other applications
+ - Many Cocoa technologies and architectures are based on MVC
+
+ Diagram :- 
+  View --->  Controller  ---> Model
+      <---              <---
+
+ Model :-
+  - Lowest level of pattern that responsible for maintaining data and its related logic 
+  - Represent data that transferred between controller components or other related business logic 
+  - It Manipulates data and sends back to database or uses it to render same data
+  - It Respond view request and also responds to instructions from controller to update itself
+
+ View :-
+  - Represents presentation of data
+  - Views are created by collected data from model data
+  - It request model to give information so that it presents output to user
+  - Also represents data from charts, diagrams and tables
+  
+ Controller :-
+  - Interface between Model and View components 
+  - Controller handles user interaction
+  - Take mouse and keyboard input from user, informing model and view to change as appropriate
+  - Controller send's command to model to update its state
+  - Also sends commands to its associated view to change view’s presentation 
+
+
+
+4. List out and explain states of App Life Cycle?
+ - IOS application run into several states which are called state of Application life cycle
+ - UIApplicationDelegate contain app lifecycle method
+ - Place lifecycle method in didFinishLaunchingWithOptions which run on app launch
+
+ Life Cycle Method :-
+  Not Running :- App is not yet launched or terminated by system or user
+  Inactive    :- App in inactive or Foreground state but receiving events 
+  Active      :- Normal mode for app when it is in foreground state and receiving all user events
+  Background  :- App transitions into background state when user taps on home screen while using application
+  Suspended   :- App remains in background and doesn't execute code
+                 Foreground apps are always given priority over suspended apps and destroyed any time without notice
+
+ Method :- Use all method with "application : "
+  didFinishLaunchingWithOptions  : When application is launched initially 
+  applicationWillEnterForeground : Called after didFinishLaunchingWithOptions
+  applicationDidBecomeActive     : To perform any particular task when app comes into foreground
+  applicationWillResignActive    : Notified when application become inactive
+  applicationDidEnterBackground  : When app goes into background state after become inactive
+  applicationWillTerminate       : Called when Application finally terminated from memory
+
+
+
+5) Different Files available in IPHONE screen?
+ AppDelegate.h :-
+  - Inherited from UIResponder that handle ios event
+  - UIViewController handle screen flow
+
+ AppDelegate.m :-
+  - UIApplication Delegate are defined here
+  - All method defined above are UI Application delegates and contains no user defined method
+  - To make window visible makeKeyAndVisible method is called
+
+ ViewController.h :-
+  - Inherit UIViewController that provides fundamental view management model for IOS Application
+
+ ViewController.m :-
+  - Implemented two methods that defined in base UIViewController class
+  - Do initial setup in viewDidLoad which called after viewload
+
+ Main.storyboard :-
+  - Add, Edit and Delete Control
+  - GUI Files that helps to draw graphics
+  - Control placed in these files easily handle all environment 

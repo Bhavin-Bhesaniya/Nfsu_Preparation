@@ -1,0 +1,382 @@
+Unit-1
+===================================== Question - 1 1 Marks =====================================
+1. Tkinter widget is used to create _______ application                  - GUI
+2. We can use any number of toplevel windows in application(True/False)  - True
+3. To create main window we use which method of tkinter                  - Tk()
+
+4. What is place()      - Organize widget by Placing them on specific position as directed
+5. What is geometry()   - Set dimension and position of tkinter window
+6. What is widget?      - Various control such as button, label which are used in GUI application are called widget
+7. pack() used to ___   - Organize widget in block before placing them in parent widget
+ 
+8. What is mainloop()
+ - Run tkinter application in infinite loop wait for event to occur and process event as long as window not closed
+
+
+===================================== Question - 2 3 Marks =====================================
+1) Explain Tkinter button with example?
+ - Used to perform different event 
+ 
+ Syntax :- m = Button(master, options) 
+  
+ master - Represents parent window
+
+ Options :- 
+  text      : Represent button text
+  command   : Call specific function to perform action on button
+  relief    : Set button border type default FLAT, It can be SUNKEN, RAISED, GROOVE, and RIDGE
+  underline : Set underline on specific button text
+  state     : Set DISABLED button unresponsive while ACTIVE represents active state of button
+  justify   : Represent button text orientation by default left, It can be (Left, Right, Center)
+
+
+ Other Options :-
+  bd, bg, fg, font, height, width, highlightcolor, image, padx, pady, activebackground, activeforeground, wraplength
+
+ Methods :- 
+  flash()  - flash button several times between active and normal colors
+  invoke() - Calls button's callback and returns what that function returns
+
+ Example :- 
+  from tkinter import *
+  root = Tk()
+  root.geometry("200x200+50+50")
+  def helloCallBack():
+    print("Hello World")
+  Button(root, text ="Display", command = helloCallBack).grid(row=1,column=1)
+  root.mainloop()
+
+
+
+2) Explain Tkinter LabelFrame with example?
+ - Simple container widget
+ - Act as spacer or container for complex window layout
+ - It is variant of Frame widget which has all feature of frame
+
+ Syntax :- m = LabelFrame(master, Option)
+  
+  Options :
+   Class	Default value of class is LabelFrame
+   colormap	Specify colormap to be used for this widget
+   container    If set true LabelFrame becomes container widget By default value is false
+   labelAnchor  Represents exact position of the text within widget, by default is NW(north-west)
+   labelwidget  Represents widget to be used for label
+  
+
+ Example :
+  from tkinter import *
+  root = Tk()
+  root.geometry("200x200+50+50")
+  LabelFrame(root, text="This is a LabelFrame").pack()
+  Label(labelframe, text="Inside the LabelFrame").pack()
+  root.mainloop()
+  
+
+
+3) Explain Entry Widget and Text Widget?Difference between it?
+ Entry :-
+ - Used to display single-line text-field for accepting user value
+ 
+ Syntax : E = Entry(root, bg, relief, textvariable, cursor, font, width, justify)   
+
+ Method :- 
+  get()	          Get text from widget
+  index(index)	  Place cursor to left of character written at specified index
+  insert(index,s) Insert specified string before character placed at specified index
+  xview(index)	  Link entry widget to horizontal scrollbar
+  delete()        Delete specified characters inside widget
+  xview_scroll()  Make entry scrollable horizontally
+
+
+
+ Text :- 
+  - Provide multi-line formatted text editor to user
+  - Use marks and tabs to locate specific sections of the Text
+  
+  Syntax :- m = Text(master, bg, font, image, width, height)
+  
+  Options :-
+   tabs	            - Used for text position
+   insertwidth	    - Represent width of insertion cursor
+   spacing1         - Amount of vertical space given between two line of text by default is 0
+   insertbackground - Represent insertion cursor color
+
+  Methods :-
+   get()     Return characters present in specified range
+   index()   get absolute index of specified index
+   insert()  insert specified string at given index
+   delete()  delete characters of specified range
+   see()     Return boolean value depending upon whether text at specified index visible or not
+
+ Example : 
+  from tkinter import * 
+  root = tk() 
+  root.geometry("300x300") 
+  root.title(“entry widget”) 
+  global user_name, user_bio
+  user_name = StringVar()
+  user_bio = StringVar()
+  Entry(root, textvariable=user_name).grid(row=1,column=1) 
+  Text(root, textvariable=user_bio).grid(row=3,column=1)
+  root.mainloop() 
+
+ Difference :-
+  - Entry widget is used to enter single line text strings
+  - To enter multiple lines of text, use the Text widget
+
+
+
+4) List Various method of Menu widget?
+ - Used to create various types of menus like top level, pull down, and pop up
+ - Top-level menus are the one which is displayed just under title bar of the parent window
+
+ Syntax :- 
+  m = Menu(master, anchor, state, command, bd, bg, cursor, fg, font, relief, image)
+
+ Method :-
+  add()	    Add specific menu item to menu
+  type()    Get type of choice specified by index
+  index()   Get index of specified menu item
+  invoke()	Used to invoke associated choice given at specified index
+  delete()	Delete menu items that exist in the specified range
+  add_command()	     Add Menu items to menu
+  add_seperator()    Seperator line to the menu
+  entryconfig()	     Used to configure menu item identified by given index
+
+
+
+5) What is use of Top-level window
+ - Used to create and display top level windows which are directly managed by window manager. 
+ - Top level widget may or may not have parent window on top of them
+ - Toplevel windows have title bars, borders, and other window decorations
+ 
+ Syntax : 
+  W = TopLevel(root , option) 
+
+ Options :- bg, bd, cursor, font, fg, height, width
+
+ Methods :-
+  frame     Return system specific window identifier
+  title     Define title for window
+  iconify   Turn window into icon
+  deiconify Turn back icon into window
+  state     Return current state of window
+  withdraw  Remove window from screen
+  maxsize   Declare maximum size for window
+  minsize   Declare minimum size for window
+  resizable Control whether window can be resizable or not
+
+ Example : 
+  from Tkinter Import * 
+  root = Tk() 
+  root.title(“toplevel example”) 
+  root.geometry("200x200")
+  def openTop:
+    top = Toplevel(root) 
+    top.mainloop()
+  Button(root,text="Open", command=openTop).grid(row=1,column=1)  
+  root.mainloop()
+  
+
+
+6) Write script to create Menu and Submenu using Tkinter Module
+ Menu :
+  1. File(New, Open, Save, Exit)
+  2. Edit(Cut, Copy, Paste)
+
+ Code :   
+  from tkinter import *
+  root = Tk() 
+  root.title("hello") 
+  menubar = Menu(root) 
+  
+  file = Menu(menubar) 
+  file.add_command(label="New",command=None) 
+  file.add_command(label="open",command=None) 
+  file.add_command(label="save",command=None) 
+ 
+  Edit = Menu(menubar) 
+  Edit.add_command(label="Cut",command=None) 
+  Edit.add_command(label="Copy",command=None) 
+  Edit.add_command(label="Paste",command=None) 
+ 
+  root.config(menu=menubar) 
+  root.mainloop()
+
+
+  
+7)Explain Grid() with details?
+ - More organized way to place widget in tkinter
+ - Organize widget in tabular format by specifying rows and columns as options in method 
+
+ Syntax :- widget.grid(Options)
+
+ Attribute / Options :-
+  Column       - Column number in which widget placed, leftmost column is represented by 0
+  row          - Row number in which widget placed, topmost row is represented by 0
+  ipadx, ipady - Number of pixels to pad widget inside widget's border
+  padx, pady   - Number of pixels to pad widget outside widget's border
+  Columnspan   - Width of widget 
+  rowspan      - Height of widget
+  Sticky       - If cell is larger than widget, then sticky specify position of widget inside cell
+                 It may be N, E, W, S, NE, NW, NS, EW, ES concatenation of sticky letters
+
+
+
+8)Explain Tkinter Scale widget?
+ - Implement graphical slider so that user can slide range of values shown on slider and select one among them
+ - We can control minimum and maximum values along with resolution of scale
+ 
+ Syntax :- Scale(master, cursor, bg, image, width, height)
+
+ Option :-
+  from_	 - Represent starting value of widget
+  to     - Represent ending float or integer value of widget
+  length - Represent widget length if scale is X dimension it is horizontal, if Y dimension it is vertical
+  orient - Set to horizontal or vertical depending upon type of scale
+  showvalue - Show scale value in text form
+  variable  - Represents control variable for scale
+
+ Method :-
+  get()	get current value of scale
+  set()	set value of scale
+
+
+
+9)Explain Tkinter RadioButton with example?
+ - Used to implement one-of-many selection in tkinter
+ - It shows multiple choices to user out of which user can select only one
+ - We can display multiple line text or images on radiobuttons
+ - To keep track user's selection it associated with single variable
+
+ Syntax :- RadioButton(master, bg, fg, text)
+
+ Option :-
+  value	      - Value of each radiobutton is assigned to control variable when it select by user
+  textvariable- Keep track of user's choices and shared among all radiobutton
+  borderwidth - Represent bordersize of radiobutton
+  selectcolor - Color of radio button when it is selected
+  selectimage - Displayed image on radiobutton when it is selected
+ 
+ Method :-
+  select()   Represent radiobutton as selected
+  flash()    Flash radiobutton between its active and normal colors
+  invoke()   Call procedure associated when state of Radiobutton is changed
+  deselect() deselect radiobutton 
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Explain tkinter canvas with example?
+ - Add structured graphics to tkinter
+ - Used to draw graph, plots, picture in tkinter application
+ - Also used for complex layout like grahics, text and widgets 
+ 
+ Syntax :- m = Canvas(master, bd, bg, cursor, highlightcolor, height, width, relief)
+
+ Option :- 
+  confine          - Make canvas unscrollable outside scroll region
+  scrollregion     - Represent canvas coordinates as tuple that specifies canvas area
+  xscrollcommand | yscrollcommand   - Make Canvas horizontal|vertical scrollable
+  
+ Canvas widget supported items :−
+  arc   - Create arc item, which can be chord, pieslice or simple arc
+  image - Create image item, which can be instance of either BitmapImage or PhotoImage classes
+  line  - Create line item
+  oval  - Create circle or ellipse at given coordinates 
+  polygon − Creates polygon item that must have at least three vertices
+
+ Example :-
+  import Tkinter
+  top = Tk()
+  C = Canvas(top, bg="blue", height=250, width=300)
+  coord = 10, 50, 240, 210
+  arc = C.create_arc(coord, start=0, extent=150, fill="red")
+  C.pack()  
+  top.mainloop()
+
+
+
+2. Explain tkinter MessageBox with example?
+ - Various function are used to display relevant messages box depending upon application requirement
+
+ Syntax :- messagebox.function_name(title, message, options)  
+
+ Parameters :-
+  function_name : Represents appropriate message box function
+  title         : String which shown as title of message box
+  message       : String to be displayed as message on message box
+  options       : There are various options which can be used to configure message dialog box
+
+ Options :-
+  default - Specifiy types of default button i.e. ABORT, RETRY, or IGNORE 
+  parent  - Specifies parent window on top of which, message box is to be displayed
+
+ Method :-  
+  showinfo()    - Show relevant information messagebox
+  showwarning() - Display warning messagebox
+  showerror()   - Display error messagebox
+  askquestion() - Ask question to user which can be answered in yes or no
+  askokcancel() - Confirm user's action regarding application activity
+  askyesno()    - Ask action to user which can answer in yes or no
+  askretrycancel() - Ask user about doing particular task again or not
+
+ Example :-
+  from tkinter import *
+  from tkinter import messagebox
+  top = Tk()
+  def hello():
+    messagebox.showinfo("Say Hello", "Hello World")
+  Button(top, text = "Show", command = hello).pack()
+  top.mainloop()
+
+
+
+3. Tkinter Spinbox with example
+ - Spinbox widget provide range of values out of which user can select can select one
+ - It is an alternative to Entry widget
+ - Spinbox has an area for showing current value and pair of arrowheads
+ - When click upward-pointing arrowhead, Spinbox moves current value to next higher value in sequence
+ 
+ Syntax :- S = Spinbox(master,bg, bd, from_, to, cursor, command, activebackground, disabledbackground)    
+
+ Method :-
+  get()	     get characters present in specified range
+  index()    Get absolute value of given index
+  insert()   Insert string at specified index
+  invoke()   Invoke callback that associated with widget
+  delete()   Used to delete characters present at specified range
+  identify() Identify widget's element within specified range
+ 
+ Example :  
+  from Tkinter import * 
+  master = Tk() 
+  master.geometry("200x200")
+  w = Spinbox(master, from_=0, to=10) 
+  w.pack() 
+  master.mainloop() 
+
+ 
+
+4. Explain Tkinter Listbox?
+ - Offer list items to user from which user can accept any number of options 
+ - We can place only text items in Listbox and all text items contain same font and color
+ 
+ Syntax :- 
+  m = ListBox(master, bd, bg,  cursor, fg, font, height, width, highlightcolor, relief)
+
+ Method :-
+  get()	      Get list items that exist in  given range
+  index()     Place line with specified index at top of widget
+  insert()    Insert new lines with specified number of elements before specified index
+  size()      Returns number of lines are present in Listbox 
+  delete()    Delete lines which exist in given range
+  see()	      Adjust position of listbox to make lines visible by specified index
+  activate()  Select lines at specified index
+  nearest()   Returns index of nearest line to y coordinate of Listbox
+
+ Example :-
+  listbox = Listbox(top, height = 10, width = 15)
+  listbox.insert(1, "Nachos")
+  listbox.insert(2, "Sandwich")
+  listbox.pack()

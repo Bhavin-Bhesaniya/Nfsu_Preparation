@@ -1,0 +1,415 @@
+UNIT - 1
+===================================== Question - 1 1 Marks =====================================
+1. Full Form Of APK                                           - Android Application Package
+2. Full Form Of AVM                                           - Android Virtual Machine
+3. In which folder all images will be stored in android?      - res/drawable
+4. In which folder all Android UI design file will be stored  - Layout folder
+5. SDK Full Form                                              - Software development kit
+6. In which file all the permissions will be taken            - AndroidManifest.xml
+7. In which folder all design file will be saved in Android   - res/drawable 
+8. OHA Stands for                                             - Open Handset Alliance
+9. Give Full Name of DDMS                                     - Dalvik Debug Monitor Server
+10. AAPT                                                      - Android Asset Packaging Tool
+11. ADT                                                       - Android Developer Tools
+12. ADB                                                       - Android Debug Bridge
+13. AVD                                                       - Android Virtual Device
+14. DVM used for executing android application                - Dalvik Virtual Machine  
+15. which is central command center for Android application?  - Context
+16. MIME                                             - Multipurpose Internet Mail Extensions 
+17. IMEI                                             - International Mobile Equipment Identity 
+18. Android belong to _______                        - An Digital Record of object Identifier
+
+
+1. What is Emulator?
+ - Software program that allow one computer system to behave like another computer system
+
+2. Define Activity?
+ - Activity is android component which represents single screen with user interface 
+ 
+3. What is Basic use of resources? 
+ - Resources are additional files and static content that uses for layout definitions, user interface strings, 
+   animation instructions etc..
+
+
+
+===================================== Question - 2 3 Marks =====================================
+1. What is OHA()?
+ - OHA is business alliance that was created for developing open mobile device standards
+ - OHA has approximately 80 member companies, including Intel, Qualcomm, Google and many more 
+ - It's main product is Android platform
+ - OHA members are primarily mobile operators, handset manufacturers, software development firms, 
+   semiconductor companies and commercialization companies
+ - Members share commitment to expanding commercial viability of open platform development
+
+  OHA concept Reasons :-
+   - Lower overall handset costs
+   - Developer-friendly environment
+   - Post-development
+
+
+
+2. Explain R.java file?                             
+ - Auto-generated file by Android Asset Packaging Tool
+ - It contains resource IDs for all resources of res/directory
+ - If we create any component in activity_main.xml file, id for corresponding component is 
+   automatically created in this file 
+ - This id can be used in activity file to perform any action on component
+ - It includes lot of static nested classes such as menu, id, layout, attr, drawable, string etc. 
+ - If you delete R.jar file, android creates it automatically
+
+
+
+3. What is use of drawable folder in Android?
+ - Every Drawable is stored as individual files in res/drawable folder
+ - Graphical file like bitmap, which represented in Android via BitmapDrawable class
+ - Typically we store bitmaps for different resolutions in -mdpi, -hdpi, -xhdpi subfolders of res/drawable 
+ - Android Developer Tools(ADT) wizard creates these folders by default
+ - Android automatically selects correct resolution based on device configuration
+ - In addition to graphical files, Android support XML drawables and 9-patch graphics
+ - XML drawables are used to describe shape(color, border, gradient), state, transitions and more
+ - Drawables can also be written in Java code
+ - Drawables referred in XML via @drawable/filename where filename without file extension
+   Example :-  imageView.setImageResource(R.drawable.hello);
+
+ 
+
+4) Explain Context in Android?
+ - Context is Interface which gives global information about application environment
+ - It Allows us to access resources
+ - Allows to interact with other Android components by sending messages
+ - Also Give information about our app environment
+
+ Types of Context :-
+  Application Context :
+   - Defined as lifecycle of application
+   - Singlton instance accessed via getApplicationContext() method
+
+  Activity Context :
+    - Every acticity has an activity context
+    - Invoking Activity Context via getContext() method
+    - It Returns Context which is linked to Activity from which it is called
+    - Useful when we want call context from current running activity
+
+
+
+5. What is Intent Filter? Explain it with Example?
+ - Intent Filters are expressions in AndroidManifest.xml file
+ - Responsible for deciding behavior of Intent
+ - It can be nested with application component
+
+ Intent Filter Elements :-
+  <action>  
+    - Define intent action that it’ll accept 
+    - Every Intent filter hase must action element
+    - ACTION_VIEW show item on activity
+    - ACTION_SEND use share some data to another app
+  
+  <category> 
+    - Defines name of Intent Category that is acceptable
+    - CATEGORY_BROWSABLE allow itself to be started by web browser to display data referenced by link
+  
+  <data>     
+    - Define data that is acceptable
+
+ Example :-
+  <activity android:name=".MainActivity”>
+    <intent-filter>
+      <action android:name= “android.intent.action.SEND">
+      <category android:name= “android.intent.category.HOME”>
+      <data android:mimeType= “text/plain”>
+    </intent-filter>
+  </activity>
+
+
+
+6. Explain AndroidManifest.xml file in detail? 3 OR 5 Marks
+ - Every Android project includes AndroidManifest.XML file
+ - It stored in root directory of its project hierarchy that contain all application setting
+ - It define structure, metadata, components and requirement of application
+ - Also includes nodes for each Activities, Services, Content Providers and Broadcast Receiver
+ - Provide IntentFilter and Permission that determine how application co-ordinate with each other and other application
+ 
+ Structure Of AndroidManifest.xml :-
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp"
+	  android:versionCode="1"
+	  android:versionName="0.9 Beta"
+	  android:installLocation="preferExternal">
+	  [....manifest nodes....]
+  </manifest>
+
+ - Manifest file includes nodes that define application components, security settings, test classes and requirement
+
+ Some Node are :-
+  - uses-sdk
+  - uses-configuration
+  - uses-features
+  - supports-screens
+  - permission
+  - application
+
+
+
+7. What is android services?Explain its type?
+ - Services is component that facilitate Android application to run in background to perform long-running tasks
+ - It Ensure that application remain active in background so that user can operate multiple application at same time
+ - Services has not UI because it designed to operate long-running processes without any user intervention
+ - It run continuously in background even if application is closed or user switches to another application
+ - Application components bind itself with service to carry out inter-process communication(IPC)
+ 
+ Service Vs Thread :- 
+  - Thread Provided by Operating system that allow user to perform operations in background
+  - Service is android component that performs long-running operation which user might not be aware
+ 
+ Types Of Service :-
+  1)Foreground Services
+   - Notify user about its ongoing operations Such as downloading file
+
+  2)Background Services
+   - Do not notify user about ongoing background tasks and user cannot access them
+   - Process like schedule syncing of data or storing data fall under this service
+
+  3)Bound Services
+   - Allow activity to bound themselves with service
+   - More than one component is allowed to bind themselves with service at time
+   - bindService() method is used in order to bind application component with service
+ 
+ Service Method :-
+  onBind()         - When activity component wants to bind themselves with service by calling bindService()
+  onStartCommand() - Activity requests that than service be started by calling startService()
+  onUnbind() | onRebind() | onCreate() | onDestroy() 
+
+
+
+8. Explain in details? Permissions?
+ - Permissions means give access to application that what app can access or can't access
+ - Since Android 6.0 Marshmallow Android OS has granted users control over app permissions
+ - Granting permission allows app to use feature while Denying access prevents it from doing 
+ - App cannot automatically grant permission, it confirmed by user via on-screen prompt
+ - Apps will ask to accept each of their requested permissions at first time you launch them 
+ - It will reoccur on startup if you deny permissions or if app updated require new permission
+ - App permissions support following goals related to user privacy :- Control | Transparency | Data minimization 
+
+ Types of permissions :-
+  Normal permissions      :- Allow access data and actions that extend beyond app's sandbox 
+  Runtime permissions     :- Dangerous because app ask additional access on restricted data and action
+  Install-time permission :- Give app limited access to perform restricted data and action
+  Signature permissions   :- If two apps signed same certificate then system grant permission first app at install time
+   
+
+
+9. What is Intent?Explain Types of Intent? 3 or 5 Marks
+ - Intent itself Intent object which is passive data structure holding abstract description of operation tobe performed
+ - Used for navigating among variou activities within same application or multiple application
+ - Sending User from one activity to another activity or Another App
+ - Getting Result from Activity and Passed to another Activity
+ - Allowing Other Apps to Start Your Activity
+ 
+ Intent Object :-
+  Action :
+   - Mandatory part of Intent object 
+   - It set by setAction() and read by getAction() method
+
+  Data :  
+   - Data on URI
+   - setData() specifies data only as URI and setType() specifies it only as MIME type
+   - setDataAndType() specifies it as both a URI and a MIME type
+   - URI read by getData() and type by getType()
+
+
+ Method :- With Context.
+  startActivity() - Launch new activity or get an existing activity to be action
+  startService()  - Start new service or deliver instructions for an existing service
+  sendBroadcast() - Deliver message to broadcast receiver
+
+
+ Types of Intent :-
+  Implicit Intent
+   - Implicit Intent doesn’t specify component
+   - It provide information of available components by the system that is to be invoked
+    
+   Example :-
+    Intent intent = new Intent(Intent.ACTION_VIEW);  
+    intent.setData(Uri.parse(“http://www.javatpoint.com”));  
+    startActivity(intent);   
+
+  Explicit Intent :-
+   - Explicit Intent specifies component
+   - It provides external class to be invoked
+    
+   Example :-   
+    Intent i = new Intent(getApplicationContext(), ActivityTwo.class);  
+    startActivity(i);  
+   
+  
+
+10. Explain Anatomy or Terminology of Android Application?
+ - Android anatomy is building blocks of Android application
+ - There are four building blocks of Android application :-
+  - Activity
+  - Intent and Intent Filters
+  - Service
+  - Content Provider
+ - Not every application needs to have all four blocks
+ - Once decided component that need for application we should list them in AndroidManifest.xml file
+
+ Activity :- 
+  - Represent single screen of application which has User Interface
+  - Each activity implemented as single class that extends Activity base class
+   
+ Intent and Intent Filters :-
+  - Used to move from one screen to another screen or to other application
+  - Intent request to do something while intent filter is description of what intents activity is capable of handling
+
+ Service :-
+  - Code that is long-lived and run in background without UI
+ 
+ Content Provider :- 
+  - Applications store their data in files, SQLite database, preferences or any other 
+  - Use to share one application data with other application
+  - Content provider class implements standard set of methods to let other applications store and retrieve type of data
+
+
+
+11. Explain How to create AVD?
+ - AVD stands for Android Virtual Device
+ - In android development, AVD used to run android application
+ - Android Studio provide AVD
+ 
+ Steps :-
+  - Tools --> AVD Manager --> Create Virtual Device
+  - Pop-up window open --> Select Phone category --> Select mobile model to install
+  - Select android version to download like Q, Pie, Oreo etc and click Next button
+  - Click finish button to complete installation
+  - Finally our virtual device is ready to run android app
+
+
+
+12. What is Android Sdk? Explain it?
+ - Android SDK is set of development tools used to develop android application 
+ - It is developed by Google for Android Platform
+ - Every time Google releases new version of Android, corresponding SDK is also released
+ - Android SDK is compatible with all operating systems such as Windows, Linux, macOs
+ - Android provided its officially IDE known as Android Studio to develop application with SDK
+
+ Components of Android SDK :-
+  Android SDK Tools   - Contain complete Set of development and debugging tools which are crucial for development 
+  Android Emulator    - Simulates Android device on your system
+  SDK Platforms       - For Each Android Software, one SDK platform is available 
+  SDK Update Sites    - Some sites are embedded which check Android SDK Updates Tools
+  Android SDK Build-Tools    - Used to built, debug, run and test Android Application
+  Android SDK Platform-tools - Used for testing includes ADB, Command-Line tool
+
+
+
+===================================== Question - 3 5 Marks =====================================
+1. Explain Android Activity LifeCycle with example?
+ - Activity referred as one single screen in application
+ - Android app consists of one or more screens or activities
+ - Each activity goes through various stages or lifecycle and it managed by activity stacks
+ 
+ LifeCycle of activity :-
+  onCreate() :-
+   - Called when activity first created
+   - This is where all static work is done like creating views, binding data to lists, etc..
+
+  onStart() :-
+   - Invoked when activity is visible to user
+   - It is followed by onResume() if activity is invoked from background
+
+  onResume() :-
+   - Invoked when activity starts interacting with user 
+   - At this point activity at the top of activity stack
+   - It always followed by onPause() when activity goes into background or closed by user
+  
+  onPause() :-
+   - Invoked when activity is going into background but not yet been killed
+   - It is counterpart to onResume()
+   - When activity launched in front of another activity, this callback will be invoked
+   
+  onStop() :-
+   - Invoked when activity is not visible to user
+   - Followed by onRestart() when activity is revoked from background and followed by onDestroy()
+     when activity is closed or finished
+  
+  onRestart() :-
+   - Invoked after activity has been stopped and prior to its starting stage and thus is always
+     followed by onStart() when any activity is revived from background to on-screen.  
+
+  onDestroy() :-
+   - Final call received before activity is destroyed
+   - It happen either activity is finishing or system is temporarily destroying this activity instance to save space
+   - To distinguish between these scenarios, check it with isFinishing() method
+
+
+
+2. Explain Android Project file folder strcutre?
+ - Android Studio official IDE developed by JetBrain community which is powered by Google for android app development
+ - Android project contain different type of app modules, source code files and resource files
+
+ Folder Structure :-
+  - Manifest Folder
+  - Java Folder
+  - res (Resources) Folder
+    - Drawable Folder
+    - Layout Folder
+    - Mipmap Folder
+    - Values Folder
+  - Gradle Scripts
+ 
+ 1)Manifest Folder :
+  - It contain AndroidManifest.xml file
+  - File Contain information about application such as android version, metadata and other component
+  - Acts as intermediator between android OS and application
+  
+ 2)Java folder :
+  - Contain all java source code and other Test files which we create during app development
+
+ 3)Resource (res) folder :
+  - Store all non-code sources like images, XML layouts, UI strings of application
+  - Different types of resources such as strings, graphics, and color schemes are stored in /res
+  - All resources file name must be containes lowercase letters 
+
+ 4)res/drawable folder - Contains different type of images used for application development
+ 5)res/layout folder   - All XML layout files which are used to define user Interface are stored here
+ 6)res/mipmap folder   - Store launcher.xml files that define icons that show on home screen and different density type
+                         such as hdpi, mdpi, xhdpi
+ 7)res/values folder - Store number of XML files like strings, dimens, colors and styles definitions
+ 
+
+ Gradle Scripts folder :
+  - Automated application build system     
+  - build.gradle(Project) for buildscript and build.gradle(Module) for plugin implementations 
+  - Both are used to build configurations that can be applied to all application modules
+
+
+
+3. Explain Android Architecture :
+ - Android architecture contains different level of layers
+
+ Layer of android architecture :-
+ 
+ Application :-
+  - Top layer of android architecture
+  - Runs within Android run time with the help of classes and services provided by application framework
+
+ Application framework :- 
+  - Provide several important classes which are used to create Android app
+  - Also provide generic abstraction for hardware access and managing user interface with application resource
+  - Includes different types of services like activity manager, notification manager, view system, package manager etc.
+
+ Application runtime :-
+  - Contain components like core libraries and Dalvik virtual machine(DVM)
+  - Provide base for application framework and powers application with help of core libraries
+  - Dalvik Virtual Machine is register-based virtual machine and specially designed and optimized for android 
+  - It depends on Linux kernel layer for threading and low-level memory management 
+
+ Native libraries :-
+  - Include various C/C++ core libraries and Java based libraries such as Media, Graphics, Surface Manager, OpenGL etc. 
+  - Can't access directly to access through application framework  
+
+ Linux Kernel –
+  - Android architecture based on linux kernel
+  - Manages all available driver such as display drivers, camera drivers, Bluetooth drivers etc.
+  - Also provide abstraction layer between device hardware and other architecture components 
+  - Responsible for management of memory, power, devices etc..
