@@ -1,0 +1,163 @@
+AWS Management Console :- Provide UI for access and manage AWS Web Services
+AWS Command Line Interface(CLI) :- Control and Automate Services through command line scripts
+Software Development Kits :- Use AWS Service in application using API
+
+Analytics Services :-
+
+Amazon Athena :-
+ - Query Service that analyze Amazon S3 data using standard SQL
+ - Servless so not need to maintain it only pay for query that run
+ - Not need to prepare data using ETL, this make easy for SQL skills to quickly analyze large-scale data
+ - Integrated with AWS Glue Data Catelog to create unified metadata repository across various Service
+ - Crawl data sources to discover schema and populate Catelog with new and modified table and partition
+   defination and maintain various schema version
+
+
+Amazon CloudSerach :-
+ - Cost-effective search solution for website or application
+ - Support 34 language with popular features such as Highlighting, Autocomplete, Geospatial search
+
+
+Amazon ElasticSearch :-
+ - Analyze and Visualize data in real-time
+ - Use in log Analytics, full-text search, application monitoring and clickstream Analytics
+ - Integrated with open-source tools like Kibana and Logstash for data ingestion and visualization
+ - Also Integrated with AWS VPC, KMS(Key Management Service), Kinesis Data Firehouse(KDF), Lamda, IAM
+   Cognito and Cloudwatch
+
+
+Amazon EMR :-
+ - Bigdata processing platform using Apache Spark, Hive, HBase, Flink, Hudi and Presto
+ - Run Petabyte-scale Analytics at less than half cost of on-premise server and 3X Faster than Spark
+ - Run it on EC2 Instance or EKS(Elastic Kubernate Service) clusters
+ - On-premise using EMR or AWS Outposts
+
+
+Amazon Finspace :-
+ - Data Management and Analytics for Financial Service Industry(FSI)
+ - Reduce spend time in Petabyte data preparation from Month to minute
+ - Collect data and catelog by relevant business concepts such as asset class, risk classification or
+   geographic region
+ - Define data polices in one place than Finspace enforces them while keeping audit logs to allow for compilance
+   and activity reporting
+ - Include 100+ function libraries like Timebars and Bolling bands to prepare data for Analytics
+
+
+Amazon Kinesis :-
+ - Collect, Process real time streaming data to get timely insights and react quickly to new information
+ - As soon as data arrive it process it unitl wait for all data arrive
+ 
+ Kinesis Data Firehouse(KDF):-
+  - Real-time Analytics | Capture, transform and load streaming data into S3, RedShift, ElasticSearch and Splunk
+  - Automatically scale to match throughput of data and not require ongoing administartion
+  - Batch, Compress, Transform and Encrypt data before loading, minimize amount of storage usage at destination 
+  - Able to transform incoming data to columnar formates like Apache Parquet and Apache ORC, before data 
+    deliverd to S3, Cost-effective
+
+ Kinesis Data Analytics(KDA) :-
+  - Analyze streaming data and reduces complexity of building streaming app with AWS
+  - Easily query using SQL and scale Automatically to match throughput rate of incoming data
+
+ Kinesis Data Streams(KDS) :- 
+  - Real-time data streaming with durable and scaleable
+  - Able to capture Gigabytes of data per second from thoushands of sources such as Websites clickstreams,
+    database event streams, Financial transactions, Soical media feeds, ITlog and Location tracking
+ 
+ Kinesis Video Streams(KVS) :-
+  - Securely stream video from connected devices to AWS for Analytics, MachineLearning(ML), playback 
+  - Store, encrypts and indexes video data in streams to access using API
+  - Enables to playback videos for live and On-demand viewing
+  - Video Analytics through Amazon Rekoginition video and libraries of ML Frameworks such as Apache MxNet,
+    TensorFlow and OpenCV
+
+
+Amazon RedShift :-
+ - Cloud Data Warehouse that use standard SQL and existing Business Intelligence(BI) tools
+ - Start from $0.25 per hours with no commitments to scale out to Petabyte of data for $1000 per terabyte
+   per year, less than tenth cost of traditional On-premise
+
+
+Amazon QuickSight :-
+ - Fast, Cloud-powered BI, 
+ - Create and publish interactive dashboards that accessed from browsers or mobile devices
+ - Scales to thoushands of users without any Software to install, server to deploy or infrastrcture to manage
+
+
+AWS DataExchange :-
+ - Use third-party data in Cloud
+ - Reuters - 2.2 million unique news stories per year in mulitple language
+ - Change Healthcare - More than 14B Healthcare transactions and 1T claims annually
+ - Dun&Bradstreet - Maintain Database of more than 330M global business records
+ - Foursquare - 220M unique customer record from 60M global commercial venues
+
+
+AWS DataPipeline :-
+ - Move data between different AWS Compute and storage Service(On-premise at regular interval)
+ - Don't need to worry about resource availability
+
+
+AWS Glue :-
+ - Fully managed ETL Service that makes easy to prepare and load data for Analytics
+ - Simple point AWS Glue to data stored than aws glue Automatically discover it and store assoiced metadata
+   in AWS Glue Catelog
+
+
+AWS LakeFormation :- 
+ - Setup secure data lake in day
+ - Enables to break down data silos and combine different types of Analytics to gain insights
+ - Collect data from database or object storage, move into S3 Datalake, Clean and classfies using machine 
+   learning algoritham, than secure access to sensitive data
+ - User than access these centeralized data store with choice of Analytics and machine learning Service
+   like EMR for Apache Spark, RedShift, Athena, SageMaker and QuickSight
+
+
+Amazon Managed Streaming for Apache Kafka(Amazon MSK) :-
+ - Build application that use Apache Kafka to process streaming data
+ - Kafka is open-source platform for building real-time streaming data pipelines and application
+ - MSK Automatically provision and runs your Kafka clusters
+ - Continuoslly monitors clusters health and replaces unhealthy nodes with nodowntime
+ - Also secures Kafka cluster by encrypting data at rest
+
+
+
+
+------------------------------------------ Application Integration -------------------------------------------
+
+AWS Step Functions :-
+ - Building application from indiviual component that each perform discrete function to scale up Easily
+ - Provide graphical console to arrange and visualize components of application
+ - Logs each state of step so when thing go wrong diagnose and debug problems quickly
+ - Change and add step without writing code
+
+
+Amazon AppFlow :-
+ - Securely transfer data between Saas application like Salesforce, Zendesk, Slack and ServiceNow, S3, RedShift
+ - With AppFlow you can choose type of flow like - OnDemand, in response to business Event, OnSchedule
+ - Encrypt data in motion and restrict it to go in open internet application that integrated with 
+   AWS PrivateLink, Reducing security threats
+
+
+Amazon EventBridge :-
+ - Serverless event bus that build event-driven application at scale using event generated from application
+   integrated Saas application and AWS Service
+ - Deliver Stream of real-time data from event sources such as Zendesk or Shopify to targets like AWS Lamda
+   and other Saas Application
+ - Setup routing rules to determine where to send data to build application architectures that react in 
+   real-time to data source with event publisher and consumer complelty decoupled
+
+
+Amazon Managed Workflows for Apache Airflow(MWAA) :-
+ - Orchestration service for Apache Airflow that setup and operate end-to-end data pipelines in cloud
+ - Airflow open-source tools used to programmatically author, schedule and monitor sequences of process 
+   and task referred as "Workflows"
+ - Automatically scaleable and use python and Airflow to make seemless, secure and fast flow  
+
+
+Amazon MQ(Managed Message Broker Service) :-
+ - Operate Message Brokers in cloud using Apache ActiveMQ and RabbitMQ
+ - Allow different Software/platform/language to communicate each other and exchange information
+ - Reduce Operational load by using Opensource RabbitMQ
+ - Uses JMS, NMS, AMQP, STOMP,MQTT and WebSocket for messaging
+ - 
+
+
